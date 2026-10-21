@@ -353,13 +353,33 @@ h1{font-size:23px}
 @keyframes pop{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.string .bb,.string .bd{animation:none}}
 .snote{font-size:12px;color:var(--ink-soft);margin:2px 0 12px}
+#pname{align-items:stretch;flex-wrap:nowrap}
+#pname .pnt{flex:1 1 auto}
+.pst{display:flex;flex:0 0 clamp(96px,34%,230px);border-left:1.5px solid var(--ink);min-height:100%}
+.pst>span{display:flex;min-width:0}
+.pst .sc1{flex:16 1 0;flex-direction:column}
+.pst .sc1.wide{flex:42 1 0}
+.pst .sc2{flex:26 1 0}
+.pst .sc3{flex:58 1 0}
+.pst i{flex:1 1 0;display:block}
+.snote b{color:var(--accent);font-weight:700}
+.gloss{border-top:1.5px solid var(--ink);padding-top:12px}
+.gloss summary{cursor:pointer;list-style:none;font:700 17px var(--display);color:var(--ink)}
+.gloss summary::-webkit-details-marker{display:none}
+.gloss summary span{font:500 12px var(--mono);color:var(--ink-soft)}
+.gloss summary::after{content:" +";color:var(--accent)}
+.gloss[open] summary::after{content:" −"}
+.gloss dl{margin:12px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule)}
+.gi{padding:9px 11px;border-right:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);min-width:0}
+.gi dt{font:700 14px var(--display);margin:0 0 2px}
+.gi dd{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.4}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V18</small></h1>
+    <h1>Aminos<small>V19</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -421,7 +441,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
+    <p><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
+    <p style="margin-top:6px"><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
     <p style="margin-top:6px"><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
     <p style="margin-top:6px"><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
     <p style="margin-top:6px"><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
@@ -441,6 +462,10 @@ h1{font-size:23px}
     <p style="margin-top:6px"><b>V2 tweak:</b> every tile now holds the name in a fixed two-line slot, so pips and signs sit on the same line in every box. Pale colours (Skin, Cellular energy, Cognition) lost their green edge inside stripes; the edge stays only on small swatches where pale pink would vanish on cream.</p>
     <p style="margin-top:6px"><b>V2:</b> coloured rules. Gene to protein boxes in Tissue repair green, spec table in Inflammatory red, tile grid in Immunity purple. Tiles now show weight next to the three-letter code, the full name in italics, codon count as pips, and signs for charge, ring, sulfur, start signal and branched-chain. Translator buttons carry each compound's main colour from Stripe v3; Pinealon has no Stripe v3 entry yet, so it stays plain. V1 unchanged.</p>
     <p style="margin-top:6px"><b>V1:</b> first version. 20 standard amino acids plus selenocysteine. Category colours and names taken from Bare Signals Stripe v3; chemistry class shown as dashed chips, kept outside the colour palette. Detox and clearance roles filed under Organ function until a colour is approved.</p>
+  </details>
+  <details class="gloss" id="glossary">
+    <summary>Glossary <span>· 30 terms</span></summary>
+    <dl><div class="gi"><dt>Amino acid</dt><dd>One of the 21 building blocks. Same backbone, different side chain.</dd></div><div class="gi"><dt>Peptide</dt><dd>A short chain of amino acids. Usually under about 50.</dd></div><div class="gi"><dt>Protein</dt><dd>A long chain that folds into a working 3D shape.</dd></div><div class="gi"><dt>Residue</dt><dd>One amino acid once it sits inside a chain.</dd></div><div class="gi"><dt>Peptide bond</dt><dd>The link between two amino acids. A water molecule leaves each time one forms.</dd></div><div class="gi"><dt>Backbone</dt><dd>The repeating N, C, C spine every amino acid shares. Navy in the drawings.</dd></div><div class="gi"><dt>Side chain (R)</dt><dd>The part that makes each amino acid different. Orange in the drawings.</dd></div><div class="gi"><dt>N end, C end</dt><dd>The two ends of a chain. Chains are built and read from N to C.</dd></div><div class="gi"><dt>DNA</dt><dd>The gene. Four letters: A, T, C, G.</dd></div><div class="gi"><dt>mRNA</dt><dd>The working copy of a gene. T becomes U.</dd></div><div class="gi"><dt>Codon</dt><dd>Three mRNA letters that call for one amino acid.</dd></div><div class="gi"><dt>Stop codon</dt><dd>UAA, UAG or UGA. Tells the ribosome the chain is done.</dd></div><div class="gi"><dt>Ribosome</dt><dd>The cell’s machine that reads mRNA and links amino acids.</dd></div><div class="gi"><dt>tRNA</dt><dd>The carrier that brings each amino acid to the ribosome.</dd></div><div class="gi"><dt>Essential</dt><dd>Your body can’t make it. It has to come from food.</dd></div><div class="gi"><dt>Conditionally essential</dt><dd>Your body makes it, but not always enough under stress or illness.</dd></div><div class="gi"><dt>BCAA</dt><dd>Branched-chain amino acids: leucine, isoleucine, valine.</dd></div><div class="gi"><dt>g/mol</dt><dd>Grams per mole. The standard unit for molecular weight.</dd></div><div class="gi"><dt>Monoisotopic mass</dt><dd>Weight counting only the most common atom of each element. Labs often report this one.</dd></div><div class="gi"><dt>D amino acid</dt><dd>The mirror image of the natural form. Resists breakdown, so peptides last longer.</dd></div><div class="gi"><dt>Aib</dt><dd>A lab-made amino acid that blocks enzymes from cutting the chain.</dd></div><div class="gi"><dt>Acetylated start</dt><dd>A small cap on the N end. Protects the chain from breakdown.</dd></div><div class="gi"><dt>Amide end</dt><dd>A cap on the C end. Same job: more stable, longer lasting.</dd></div><div class="gi"><dt>Cyclic</dt><dd>A chain closed into a ring. Stiffer and harder to break down.</dd></div><div class="gi"><dt>Bioregulator</dt><dd>Very short peptides, 2 to 4 amino acids, studied mainly in Russia for tissue-specific effects.</dd></div><div class="gi"><dt>Sequence</dt><dd>The order of amino acids in a chain, written N to C in one-letter codes.</dd></div><div class="gi"><dt>Folding</dt><dd>How a chain twists into its working shape: helices, sheets, then 3D.</dd></div><div class="gi"><dt>Lipidation</dt><dd>A fatty acid tail added so the peptide rides on albumin and lasts days.</dd></div><div class="gi"><dt>Pyroglutamate</dt><dd>A starting E that curls into a ring. A natural cap on some peptides.</dd></div><div class="gi"><dt>Recoded codon</dt><dd>UGA usually means stop. With a special signal it calls for selenocysteine.</dd></div></dl>
   </details>
 </div>
 
@@ -564,11 +589,23 @@ function tr(){
   const left=r.length%3&&!stop?`<p class="note">${r.length%3} leftover letter${r.length%3>1?"s":""} at the end, not a full codon.</p>`:"";
   const mod=head();
   $("#out").innerHTML=`${mod}<p class="lab">mRNA, read three letters at a time</p><div class="tape">${cd.join("")}</div>
-  <p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from N to C. In the body, it folds.</p>
+  <p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p>
   <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
   ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
   drawString(ch);fitDNA();
   renderPop();
+}
+Object.assign(PAL,{Plasticity:["Neural plasticity","#BAB802"],Reproductive:["Reproductive","#FF99D8"],Reward:["Reward & urges","#EA5E86"]});
+const STR={"BPC-157":["Inflammation","Pain","Gut","Repair"],"TB-500 frag 17–23":["Protection","Pain","Inflammation","Repair"],"TB-500 (Tβ4)":["Protection","Pain","Inflammation","Repair"],"TB-500 frag 1–4":["Repair","Pain","Inflammation","Heart"],"GHK-Cu":["Inflammation","Hair","Repair","Skin"],"GHK (no Cu)":["Repair","Cognition","Organ","Skin"],"AHK-Cu":["Protection","Skin","Hair"],"SNAP-8":["Skin"],"KPV":["Gut","Immunity","Repair","Inflammation"],"Semaglutide":["Heart","Reward","Glucose","Appetite"],"Tirzepatide":["Sleep","Pain","Glucose","Appetite"],"MOTS-c":["Fat","Drive","Glucose","Energy"],"SS-31":["Muscle","Drive","Protection","Energy"],"Ipamorelin":["Muscle","Pain","Sleep","Endocrine"],"CJC-1295 no DAC":["Sleep","Endocrine"],"CJC-1295 with DAC":["Sleep","Endocrine"],"Tesamorelin":["Organ","Sleep","Fat","Endocrine"],"Sermorelin":["Muscle","Sleep","Cognition","Endocrine"],"Kisspeptin-10":["Desire","Reproductive","Endocrine"],"Testagen":["Desire","Reproductive","Endocrine"],"GHRP-2":["Appetite","Sleep","Muscle","Endocrine"],"GHRP-6":["Sleep","Appetite","Endocrine"],"Hexarelin":["Muscle","Heart","Endocrine"],"IGF-1 LR3":["Repair","Muscle","Endocrine"],"PEG-MGF":["Repair","Muscle"],"AOD-9604":["Pain","Bone","Fat"],"HGH frag 176–191":["Bone","Endocrine","Fat"],"Adipotide":["Glucose","Fat"],"Selank":["Cognition","Sleep","Immunity","Mood"],"NA Selank Amidate":["Cognition","Sleep","Immunity","Mood"],"Semax":["Neuroprotection","Drive","Plasticity","Cognition"],"NA Semax Amidate":["Neuroprotection","Drive","Plasticity","Cognition"],"Pinealon":["Sleep","Mood","Neuroprotection","Cognition"],"DSIP":["Neuroprotection","Reward","Pain","Sleep"],"Epitalon":["DNA","Mood","Sleep","Aging"],"Thymosin Alpha-1":["Aging","Organ","Inflammation","Immunity"],"LL-37":["Repair","Organ","Inflammation","Immunity"],"Thymulin":["Inflammation","Protection","Endocrine","Immunity"],"Thymogen":["Inflammation","Skin","Repair","Immunity"],"Vilon":["Inflammation","DNA","Immunity"],"Crystagen":["Immunity"],"MT-2":["Desire","Appetite","Skin","Tanning"],"Melanotan 1":["Skin","Tanning"],"PT-141":["Tanning","Desire"],"Oxytocin":["Endocrine","Mood","Reproductive","Desire"],"Humanin":["Energy","Aging","Neuroprotection","Protection"],"Glutathione":["Organ","Neuroprotection","Skin","Protection"],"Cortagen":["DNA","Repair","Cognition","Neuroprotection"],"ARA-290":["Inflammation","Pain","Repair","Neuroprotection"],"VIP":["Desire","Neuroprotection","Inflammation","Organ"],"Teriparatide":["Pain","Endocrine","Bone"],"Cardiogen":["Repair","Heart"],"Vesugen":["DNA","Heart"],"Vesilute":["Organ"],"Chonluten":["Repair","Inflammation","Organ"],"Bronchogen":["Repair","Inflammation","Organ"],"Ovagen":["Protection","Aging","Organ"],"Pancragen":["Glucose","Repair","Organ"],"Livagen":["DNA","Repair","Organ"],"Prostamax":["Reproductive","Repair","Organ"],"Cartalax":["Pain","Aging","Bone"]};
+function stickerStripe(name,fallback){
+  const c=(STR[name]||(fallback?[fallback]:[])).filter(k=>PAL[k]);if(!c.length)return "";
+  const b=k=>`<i title="${PAL[k][0]}" style="background:${PAL[k][1]}"></i>`;
+  let h="";
+  if(c.length===4)h=`<span class="sc1 split">${b(c[0])}${b(c[1])}</span><span class="sc2">${b(c[2])}</span><span class="sc3">${b(c[3])}</span>`;
+  else if(c.length===3)h=`<span class="sc1">${b(c[0])}</span><span class="sc2">${b(c[1])}</span><span class="sc3">${b(c[2])}</span>`;
+  else if(c.length===2)h=`<span class="sc1 wide">${b(c[0])}</span><span class="sc3">${b(c[1])}</span>`;
+  else h=`<span class="sc3">${b(c[0])}</span>`;
+  return `<span class="pst" aria-label="Categories: ${c.map(k=>PAL[k][0]).join(", ")}">${h}</span>`;
 }
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
@@ -576,19 +613,19 @@ function drawString(ch){
   lastCh=ch;const box=$("#string");if(!box)return;
   if(!ch.length){box.innerHTML="";return}
   const W=box.clientWidth||320,mob=W<520;
-  const d=mob?26:30,step=d+(mob?9:12),rowH=mob?46:54,pad=Math.max(d/2+12,rowH/2+3);
+  const d=mob?21:24,step=d+(mob?7:9),rowH=mob?36:40,pad=Math.max(d/2+24,rowH/2+3);
   const per=Math.max(3,Math.floor((W-2*pad)/step)+1);
   const rows=Math.ceil(ch.length/per),top=d/2+6,H=top+(rows-1)*rowH+d/2+8;
   const pts=ch.map((a,i)=>{const r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH,r]});
-  const tail=14;
+  const tail=10;
   let p=`M${pts[0][0]-tail},${pts[0][1]} L${pts[0][0]},${pts[0][1]}`;
   for(let i=1;i<pts.length;i++){const[x0,y0]=pts[i-1],[x1,y1]=pts[i];
     if(y1===y0)p+=` L${x1},${y1}`;else{const rr=(y1-y0)/2,right=pts[i-1][2]%2===0;p+=` A${rr},${rr} 0 0 ${right?1:0} ${x1},${y1}`}}
   const L=pts[pts.length-1],lastRight=L[2]%2===0;p+=` L${L[0]+(lastRight?tail:-tail)},${L[1]}`;
   const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
-    return `<g class="bd" style="--i:${i}"><title>${i+1}. ${a[2]}</title><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+4.5}" text-anchor="middle" fill="${fg}" font-size="${mob?12.5:14}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
-  const nx=pts[0][0]-tail-4,cx2=L[0]+(lastRight?tail+4:-tail-4);
-  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+4}" text-anchor="end" font-size="10" fill="#6B76A8" font-family="JetBrains Mono,monospace">N</text><text x="${cx2}" y="${L[1]+4}" text-anchor="${lastRight?"start":"end"}" font-size="10" fill="#6B76A8" font-family="JetBrains Mono,monospace">C</text></svg>`;
+    return `<g class="bd" style="--i:${i}"><title>${i+1}. ${a[2]}</title><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="${fg}" font-size="${mob?10.5:12}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
+  const nx=pts[0][0]-tail-5,cx2=L[0]+(lastRight?tail+5:-tail-5);
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`;
 }
 const P=[
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
@@ -687,7 +724,7 @@ function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded
 function pick(i){cur=i;closeList();const p=P[i];$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
 function head(){
   if(cur===null){$("#pname").innerHTML="";return ""}
-  const p=P[cur];$("#pname").innerHTML=`<i class="pnb" style="${p[2]?sw(p[2],false):"background:var(--rule)"}"></i><div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>`;
+  const p=P[cur];$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p)});
