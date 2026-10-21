@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="The 21 amino acids that build every peptide: codons, weights, structure, roles, and a gene to peptide translator.">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Aminos · Bare Signals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one continuous phone scroll on cream sticker paper. Ruled square cells, no rounding. Code path first, then the 21 tiles, then the open card, then the translator. */
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --ink-soft:#6B76A8; --rule:#E3E0BF; --chip:#FFFFF4; --accent:#DB6830; --repair:#E1DE62; --repair-ink:#8A8712; --red:#FF5050; --grid:#6777B6;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:26px}
+h1{font:700 26px/1.05 var(--display);margin:0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+h2{font:700 18px/1.15 var(--display);margin:0 0 10px;text-wrap:balance}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+p{margin:0}
+.lede{color:var(--ink);max-width:62ch}
+.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--repair);border-left:2px solid var(--repair)}
+.path div{border-right:2px solid var(--repair);border-bottom:2px solid var(--repair);padding:9px 10px;min-width:0}
+.path b{display:block;font:500 10.5px var(--mono);color:var(--repair-ink);letter-spacing:.08em}
+.path strong{display:block;font:700 15px/1.15 var(--display);margin:2px 0}
+.path span{font-size:12.5px;color:var(--ink-soft)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.tile{all:unset;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:8px 8px 0;display:flex;flex-direction:column;gap:3px;min-height:112px;background:var(--paper)}
+.tile:hover{background:var(--chip)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.tile[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tile[aria-pressed="true"] .t3,.tile[aria-pressed="true"] .nm,.tile[aria-pressed="true"] .sg{color:var(--paper)}
+.tile .nm{font:italic 400 12px/1.15 var(--body);color:var(--ink);overflow-wrap:anywhere;min-height:2.3em}
+.tile .row2{display:flex;justify-content:space-between;align-items:center;gap:4px;height:14px;margin:2px 0 8px}
+.pips{display:flex;gap:2px}
+.pips i{width:5px;height:5px;background:currentColor;display:block}
+.sg{font:500 10.5px var(--mono);color:var(--ink-soft);display:flex;gap:4px;white-space:nowrap}
+.sg b{font-weight:500;border:1px solid currentColor;min-width:13px;height:13px;line-height:11px;text-align:center;padding:0 2px}
+.tile .top{display:flex;justify-content:space-between;align-items:flex-start}
+.tile .L{font:700 28px/1 var(--display)}
+.tile .t3{font:500 11px var(--mono);color:var(--ink-soft)}
+.mini{display:flex;height:12px;margin:auto -8px 0;border-top:1.5px solid var(--grid)}
+.mini i,.strip i{display:block;min-width:0}
+.ess{width:9px;height:9px;flex:none;margin-top:4px;background:currentColor}
+.ess.c{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+.ess.n{visibility:hidden}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key .ess{margin:0;color:var(--ink)}
+.card{border:1.5px solid var(--ink);background:var(--chip)}
+.ch{padding:14px 14px 12px;display:flex;gap:12px;align-items:center}
+.big{width:58px;height:58px;flex:none;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font:700 34px/1 var(--display);background:var(--paper)}
+.ch h3{font:700 21px/1.05 var(--display);margin:0}
+.ch .sub{font:500 12px var(--mono);color:var(--ink-soft);margin-top:4px}
+.strip{display:flex;height:40px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 0}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;background:var(--paper);border:1.5px solid var(--rule);padding:4px 10px 4px 5px}
+.chip i{width:15px;height:15px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.chip.cls{border-style:dashed;background:transparent;padding-left:10px}
+.sec{padding:14px 14px 0}
+.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+.spec td{border:1.5px solid var(--red);padding:6px 8px;vertical-align:top}
+.spec td:first-child{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);width:38%}
+.spec td:last-child{font-variant-numeric:tabular-nums}
+.cod{font:500 12.5px var(--mono);display:inline-block;margin:0 6px 2px 0}
+.struct{border:1.5px solid var(--rule);background:var(--paper);padding:10px;display:flex;flex-direction:column;gap:6px}
+.struct svg{width:100%;max-width:320px;height:auto;display:block}
+.roles{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.roles li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.roles li:last-child{border-bottom:0}
+.roles i{width:12px;height:12px;flex:none;margin-top:4px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.roles em{font:500 10.5px var(--mono);font-style:normal;color:var(--ink-soft);margin-left:auto;white-space:nowrap;padding-left:8px}
+.cardfoot{padding:12px 14px 14px;font-size:12.5px;color:var(--ink-soft)}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+button.b{font:500 13px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:6px 11px 6px 8px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+button.b i{width:14px;height:14px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+button.b:hover{background:var(--ink);color:var(--paper)}
+button.b:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#dna{width:100%;font:500 14px var(--mono);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:9px 10px;border-radius:0}
+#dna:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#err{font-size:13px;color:#C0392B;min-height:18px;margin-top:4px}
+.codons{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 10px}
+.codons span{font:500 12px var(--mono);border:1.5px solid var(--rule);background:var(--chip);padding:3px 6px}
+.codons span.stop{border-color:var(--accent);color:var(--accent)}
+.chain{display:flex;flex-wrap:wrap;border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink);margin-bottom:10px}
+.chain span{width:34px;height:40px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 17px/1 var(--display);position:relative;overflow:hidden}
+.chain span i{position:absolute;left:0;right:0;bottom:0;height:6px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
+.stats div{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:8px 10px}
+.stats strong{display:block;font:700 20px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+.pk{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 10px;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);font-size:13.5px;min-width:0;background:var(--paper)}
+.pk:hover{background:var(--chip)}
+.pk:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.pk[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.pk[aria-pressed="true"] .n{color:var(--paper)}
+.pk .sq{width:13px;height:13px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.pk .sq.none{background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule)}
+.pk .nmx{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pk .n{font:500 11px var(--mono);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.pk .bar{width:56px;height:5px;background:var(--rule);flex:none;position:relative}
+.pk .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--grid)}
+.pk[aria-pressed="true"] .bar i{background:var(--paper)}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+#q{flex:1;min-width:180px;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 10px;border-radius:0}
+#q:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;padding:7px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.plist{max-height:330px;overflow-y:auto;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin-bottom:18px}
+.plist .pk{width:100%;box-sizing:border-box}
+.empty{padding:12px;font-size:13px;color:var(--ink-soft);border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid)}
+#pname{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:4px 0 8px}
+#pname strong{font:700 18px/1.1 var(--display)}
+#pname span{font:500 11.5px var(--mono);color:var(--ink-soft)}
+.mod{font-size:12.5px;color:var(--accent);margin:-2px 0 8px}
+textarea#dna{resize:vertical;min-height:52px;line-height:1.4}
+.chain.long span{width:26px;height:32px;font-size:14px}
+.pop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+@media (max-width:480px){.pop{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pc{all:unset;cursor:pointer;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip);min-width:0}
+.pc .band{height:14px;border-bottom:1.5px solid var(--ink)}
+.pc .in{padding:8px 10px 9px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.pc .nm2{font:700 15px/1.15 var(--display);overflow-wrap:anywhere}
+.pc .aa{font:500 11.5px var(--mono);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.pc:hover{background:var(--paper)}
+.pc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pc[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.pc[aria-pressed="true"] .aa{color:var(--paper)}
+.pk .aa{font:500 11.5px var(--mono);color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pk[aria-pressed="true"] .aa{color:var(--paper)}
+.pop5{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.ch5{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:500 13px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:6px 10px 6px 7px}
+.ch5 i.sq{width:14px;height:14px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.ch5 em{font:italic 400 13px var(--body);color:var(--ink-soft)}
+.ch5:hover{background:var(--paper)}
+.ch5:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ch5[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.ch5[aria-pressed="true"] em{color:var(--paper)}
+.combo{position:relative;margin-bottom:16px}
+.combo .drop{border:1.5px solid var(--ink);border-top:0;background:var(--chip);max-height:260px;overflow-y:auto}
+.combo .drop .pk{border-right:0;border-bottom:1px solid var(--rule);width:100%;box-sizing:border-box;padding:9px 10px}
+.combo .drop .pk.hl{background:var(--paper)}
+.combo .drop .pk em{font:italic 400 13px var(--body);color:var(--ink-soft);margin-left:auto}
+.combo .drop .pk[aria-pressed="true"] em{color:var(--paper)}
+.combo .drop .let{font:500 10.5px var(--mono);letter-spacing:.12em;color:var(--accent);padding:6px 10px 4px;background:var(--paper);border-bottom:1px solid var(--rule);position:sticky;top:0}
+#q{width:100%}
+.log{font-size:12.5px;color:var(--ink-soft);border-top:1.5px solid var(--rule);padding-top:12px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media (min-width:900px){
+.wrap{max-width:1440px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:32px 44px;align-items:start;padding-block:24px 48px}
+.left{display:flex;flex-direction:column;gap:20px;min-width:0}
+.left .lede{max-width:none}
+#cardwrap{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));max-height:calc(100vh - 32px);overflow:auto;min-width:0}
+.path{grid-template-columns:repeat(6,minmax(0,1fr))}
+.tiles{grid-template-columns:repeat(7,minmax(0,1fr))}
+.tile{min-height:104px}
+.trans,.log{grid-column:1/-1}
+.trans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px;border-top:1.5px solid var(--ink);padding-top:22px}
+.trans>h2,.trans>p.note{grid-column:1/-1}
+.tl,.tr{min-width:0}
+.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.card>*{grid-column:1/-1}
+.card>.sec.half{grid-column:auto}
+}
+.kk{display:none}
+.grab,.tap{display:none}
+@media (max-width:899px){
+.wrap{gap:20px}
+.lede{font-size:14.5px}
+.path div{padding:7px 8px}
+.path strong{font-size:14px}
+.path span{font-size:11.5px;line-height:1.3;display:block}
+.tap{display:inline;font:italic 400 13px var(--body);color:var(--ink-soft)}
+.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tile{min-height:100px;padding:7px 7px 0}
+.tile .L{font-size:25px}
+.mini{margin:auto -7px 0}
+.key{display:none}
+.kk{display:grid;grid-column:span 3;grid-template-columns:repeat(3,minmax(0,1fr));align-content:center;gap:0 6px;padding:6px 0 6px 12px;background:var(--paper)}
+.kk>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.kk span{display:flex;align-items:center;gap:6px;font-size:11.5px;line-height:1.15;color:var(--ink);white-space:nowrap}
+.kk .ess{margin:0;color:var(--ink);width:9px;height:9px}
+.kk .ess.z{background:transparent;box-shadow:inset 0 0 0 1px var(--rule)}
+.kk .sg{color:var(--ink)}
+.kk .sg b{min-width:14px}
+.kk .pips{width:14px;flex-wrap:wrap;gap:1px}
+.kk .pips i{width:4px;height:4px}
+.scrim{position:fixed;inset:0;background:rgba(62,74,128,.35);z-index:19}
+#cardwrap{position:fixed;left:0;right:0;bottom:0;z-index:20;max-height:86vh;overflow-y:auto;background:var(--paper);border-top:1.5px solid var(--ink);padding:10px max(12px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));transform:translateY(105%);visibility:hidden;transition:transform .28s ease,visibility 0s linear .28s}
+#cardwrap.open{transform:none;visibility:visible;transition:transform .28s ease}
+.grab{display:flex;justify-content:space-between;align-items:center;margin:0 auto 8px;max-width:560px}
+#cardwrap .card{max-width:560px;margin-inline:auto}
+.grab .b{padding:5px 10px}
+}
+@media (max-width:899px) and (prefers-reduced-motion:reduce){#cardwrap{transition:none}}
+@media (max-width:899px){
+.tiles{grid-template-columns:repeat(5,minmax(0,1fr))}
+.tile{min-height:88px;padding:6px 6px 0;gap:2px}
+.tile .L{font-size:21px}
+.tile .t3{font-size:10px}
+.tile .nm{font-size:10.5px;min-height:2.3em}
+.tile .ess{width:7px;height:7px;margin-top:3px}
+.tile .row2{height:12px;margin:1px 0 6px}
+.pips i{width:4px;height:4px}
+.sg{font-size:9.5px;gap:3px}
+.sg b{min-width:11px;height:11px;line-height:9px;padding:0 1px}
+.mini{height:9px;margin:auto -6px 0}
+.kk{grid-column:span 4;padding:6px 0 6px 12px}
+.kk span{font-size:11px}
+.ch5{font-size:12px;padding:5px 8px 5px 6px;gap:6px}
+.ch5 em{font-size:12px}
+.ch5 i.sq{width:12px;height:12px}
+.pop5{gap:5px}
+h2{font-size:17px}
+}
+@media (max-width:360px){.tile .nm{font-size:10px}}
+.specg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--red);border-left:1.5px solid var(--red)}
+.specg>div{border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:6px 9px;min-width:0}
+.specg>div.w{grid-column:1/-1}
+.k9{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 2px}
+.v9{font-size:14px;margin:0;font-variant-numeric:tabular-nums}
+.struct svg{max-width:240px;margin:0 auto}
+.rr{font:500 13px var(--mono);color:var(--accent);margin:2px 0 0;overflow-wrap:anywhere}
+.rn{font-size:12px;color:var(--ink-soft);margin:0}
+.tile .nm{overflow-wrap:normal;hyphens:manual}
+.left>header,.wrap>header{margin-bottom:8px}
+details.log summary{list-style:none}
+details.log[open] summary{margin-bottom:8px}
+@media (min-width:900px){.specg{grid-template-columns:repeat(4,minmax(0,1fr))}.specg>div.w{grid-column:span 2}}
+.tabs,.x{display:none}
+@media (max-width:899px){
+.scrim{display:none!important}.grab{display:none!important}
+#cardwrap.inl{position:static;transform:none;visibility:visible;max-height:none;overflow:visible;padding:8px;border:0;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);background:var(--paper);grid-column:1/-1;transition:none}
+#cardwrap .card{max-width:none}
+#cardwrap .ch{padding:8px 46px 8px 10px;gap:10px;position:relative}
+#cardwrap .big{width:40px;height:40px;font-size:24px}
+#cardwrap .ch h3{font-size:17px}
+#cardwrap .ch .sub{font-size:11px;margin-top:2px}
+#cardwrap .strip{height:12px;border-bottom:0}
+#cardwrap .chips,#cardwrap .cardfoot{display:none}
+.tabs{display:flex;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.tabs button{flex:1;font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 0;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button.on{background:var(--ink);color:var(--paper)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+#cardwrap .pane{display:none;padding:10px}
+#cardwrap .pane.on{display:block}
+#cardwrap .pane .lab{display:none}
+#cardwrap .spec td{padding:4px 7px;font-size:12.5px}
+#cardwrap .spec td:first-child{font-size:9.5px}
+#cardwrap .struct svg{max-width:200px}
+#cardwrap .roles li{padding:5px 0;font-size:13px}
+.x{display:block;position:absolute;top:8px;right:8px;width:30px;height:30px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font:500 18px/1 var(--body);cursor:pointer;padding:0}
+.x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+}
+@media (max-width:899px){
+.tabs{display:none!important}
+#cardwrap .pane{display:block;padding:8px 8px 0}
+#cardwrap .pane .lab{display:block;font-size:9.5px;margin:0 0 4px}
+#cardwrap .chips{display:flex;padding:7px 8px 0;gap:4px}
+#cardwrap .chip{font-size:11px;padding:2px 7px 2px 3px;gap:5px}
+#cardwrap .chip i{width:11px;height:11px}
+#cardwrap .chip.cls{padding-left:7px}
+#cardwrap .card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+#cardwrap .card>*{grid-column:1/-1}
+#cardwrap .card>.sec.half{grid-column:auto}
+#cardwrap .ch{padding:7px 44px 7px 8px}
+#cardwrap .big{width:36px;height:36px;font-size:21px}
+#cardwrap .ch h3{font-size:16px}
+#cardwrap .strip{height:10px;border-bottom:1.5px solid var(--ink)}
+#cardwrap .spec td{padding:3px 6px;font-size:12px}
+#cardwrap .spec td:first-child{font-size:9px;width:40%}
+#cardwrap .cod{font-size:11px;margin:0 4px 0 0}
+#cardwrap .struct{padding:6px;gap:3px}
+#cardwrap .struct svg{max-width:150px}
+#cardwrap .rr{font-size:10.5px}
+#cardwrap .rn{font-size:10px}
+#cardwrap .roles li{padding:3px 0;font-size:11.5px;gap:6px;line-height:1.25}
+#cardwrap .roles i{width:9px;height:9px;margin-top:3px}
+#cardwrap .roles em{display:none}
+#cardwrap .cardfoot{display:block;font-size:10px;padding:6px 8px 8px;line-height:1.3}
+#cardwrap.inl{padding:6px}
+.x{width:26px;height:26px;font-size:16px;top:7px;right:7px}
+.tile{min-height:80px;padding:5px 5px 0}
+.tile .L{font-size:18px}
+.tile .t3{font-size:9px}
+.tile .nm{font-size:9.5px}
+.tile .ess{width:6px;height:6px}
+.tile .row2{height:11px;margin:1px 0 5px}
+.pips i{width:3.5px;height:3.5px}
+.sg{font-size:8.5px}
+.sg b{min-width:10px;height:10px;line-height:8px}
+.mini{height:8px;margin:auto -5px 0}
+.kk span{font-size:10.5px}
+.path div{padding:5px 7px}
+.path b{display:inline;margin-right:4px;font-size:9.5px}
+.path strong{display:inline;font-size:12.5px}
+.path span{font-size:10px;line-height:1.25;margin-top:1px}
+.lede{font-size:13.5px;line-height:1.4}
+h1{font-size:23px}
+.wrap{gap:16px}
+}
+</style>
+
+<div class="wrap">
+  <div class="left">
+  <header>
+    <p class="lab">Bare Signals reference</p>
+    <h1>Aminos<small>V11</small></h1>
+    <p class="lede" style="margin-top:8px">Every peptide on a Bare Signals card is a string of these 21 building blocks. Your genes spell them out three letters at a time, and the order decides what the chain becomes.</p>
+  </header>
+
+  <section>
+    <p class="lab">From gene to protein</p>
+    <div class="path">
+      <div><b>01</b><strong>DNA</strong><span>A, T, C, G in the nucleus</span></div>
+      <div><b>02</b><strong>mRNA</strong><span>Copied out, T swaps to U</span></div>
+      <div><b>03</b><strong>Codon</strong><span>3 letters, 64 options</span></div>
+      <div><b>04</b><strong>Amino acid</strong><span>tRNA brings the match</span></div>
+      <div><b>05</b><strong>Chain</strong><span>Peptide bonds, water leaves</span></div>
+      <div><b>06</b><strong>Fold</strong><span>Helix, sheet, 3D shape</span></div>
+    </div>
+    <p class="note">Under about 50 amino acids the chain is called a peptide. Above that it is a protein.</p>
+  </section>
+
+  <section>
+    <h2>The 21 <span class="tap">tap one to open its card, tap again to close</span></h2>
+    <div class="tiles" id="tiles"></div>
+    <div class="key">
+      <span><i class="ess"></i>Essential, must eat</span>
+      <span><i class="ess c"></i>Conditionally essential</span>
+      <span>No mark: body makes it</span>
+    </div>
+    <div class="key">
+      <span><span class="pips" style="color:var(--ink)"><i></i><i></i><i></i></span>Codons that spell it</span>
+      <span><span class="sg" style="color:var(--ink)"><b>+</b><b>−</b></span>Charge</span>
+      <span><span class="sg" style="color:var(--ink)"><b>⬡</b></span>Ring</span>
+      <span><span class="sg" style="color:var(--ink)"><b>S</b></span>Sulfur</span>
+      <span><span class="sg" style="color:var(--ink)"><b>▸</b></span>Start signal</span>
+      <span><span class="sg" style="color:var(--ink)"><b>B</b></span>Branched-chain (BCAA)</span>
+    </div>
+  </section>
+
+  </div>
+  <div class="scrim" id="scrim" hidden></div>
+  <section id="cardwrap" aria-label="Amino card"></section>
+
+  <section class="trans">
+    <h2>Gene to peptide translator</h2>
+    <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Most research peptides are built chemically, one residue at a time, so this shows the biology, not how a vial is made.</p>
+    <div class="tl">
+    <p class="lab">Popular</p>
+    <div class="pop5" id="pop"></div>
+    <p class="lab">All peptides <span id="cnt" style="letter-spacing:0;text-transform:none"></span></p>
+    <div class="combo">
+      <input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides">
+      <div class="drop" id="plist" role="listbox" hidden></div>
+    </div>
+    </div>
+    <div class="tr">
+    <div id="pname"></div>
+    <p class="lab">DNA</p>
+    <textarea id="dna" rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
+    <p id="err"></p>
+    <div id="out"></div>
+    </div>
+  </section>
+
+  <details class="log">
+    <summary class="lab" style="cursor:pointer">Version log</summary>
+    <p><b>V11:</b> phone only. Card back to the V2 structure with everything visible at once (name, stripe, categories, fact table, structure beside roles, weight note), no tabs, all in smaller type so it opens under the tapped row without filling the screen. The 21 tiles shrink again with smaller type. Gene to protein boxes compacted: step number and title on one line, smaller descriptions, same words. Laptop unchanged. V10 unchanged.</p>
+    <p style="margin-top:6px"><b>V10:</b> laptop card table back to the original one-fact-per-row red table. Phone card no longer slides over the page: tapping a tile opens a compact card right under that tile’s row and pushes the grid apart, so tiles and card are on screen together; tap the same tile or the × to close, tap another tile to switch. The phone card splits into three tabs (Facts, Structure, Roles) and drops the category chips and weight footnote so it fits in about a third of an iPhone screen; the tab you pick stays picked as you move between tiles. Laptop otherwise unchanged. V9 unchanged.</p>
+    <p style="margin-top:6px"><b>V9:</b> fixes. Card spec table rebuilt as label-over-value boxes: two across on phones, four across on laptops, codons in a wide box, so no half-empty row and no doubled borders. Structure drawing enlarged; the side chain formula and note now sit as text under it instead of being squeezed into the drawing. Long tile names break with a hyphen at a syllable (Phenyl-alanine, Seleno-cysteine) instead of mid-word. Version log folded behind a tap. V8 unchanged.</p>
+    <p style="margin-top:6px"><b>V8:</b> phone only. Tiles 5 across instead of 4, with smaller type, so the grid is 5 rows and the key gets four open spaces beside the last tile. Popular list cut from 24 to 18: Ipamorelin, CJC-1295 no DAC, Sermorelin, MT-2, PT-141 and LL-37 moved to the search list only. Thymosin Beta-4 renamed TB-500 (Tβ4) and kept next to TB-500 frag 17–23 so the difference is visible; searching Thymosin Beta-4 still finds it. Laptop layout unchanged. V7 unchanged.</p>
+    <p style="margin-top:6px"><b>V7:</b> laptop and phone in one page; the layout switches at 900px wide. Laptop is V6 Laptop unchanged. Phone is V6 Phone, except the key now sits open in the space beside the last tile, with no boxes around it: three columns, sorted into who makes it (must eat, sometimes, body makes it), what it is (codons, charge, ring) and what it carries (sulfur, start, BCAA). V6 Laptop and V6 Phone unchanged.</p>
+    <p style="margin-top:6px"><b>V6 Phone:</b> card slides up as a sheet, keys inside the grid, 4 across tiles, version log folded.</p>
+    <p style="margin-top:6px"><b>V6 Laptop:</b> two-pane layout for wide screens. Left: title, gene to protein path on one row of six, the 21 tiles as 7 by 3 with no empty boxes, and the keys. Right: the open card, pinned so it stays in view; spec table in two pairs per row, structure and roles side by side. Translator below in two halves, picker left and result right. Below 900px wide it falls back to one column. V5 unchanged.</p>
+    <p style="margin-top:6px"><b>V5:</b> popular peptides back to the compact V2 chip: colour square, name, a middle dot and the amino acid count in italics, so the 24 sit in a few rows on a phone. The full list is now a pick list that opens when you tap the search box, A to Z with letter dividers, filters as you type, and closes once you choose. Keyboard: arrows to move, Enter to pick, Esc to close. V4 unchanged.</p>
+    <p style="margin-top:6px"><b>V4:</b> popular peptides are now 24 separate boxes, each with its main sticker colour as a band and its amino acid count written out; 24 fills 3 columns (8 rows) and 2 columns on phones (12 rows) with no empty corner. Length bars removed from the full list, replaced by the count. Main colours read from the Canva stickers (widest block) and Stripe v3. List trimmed to compounds in the catalog; added Thymogen, Crystagen, Testagen, Thymulin, ARA-290, HGH frag 176–191, GHRP-2. V3 unchanged.</p>
+    <p style="margin-top:6px"><b>V3:</b> translator rebuilt. Popular grid of 20 peptides from the priority list, then the full list with search and a sort toggle, shortest first by default (Vilon, 2 amino acids, up to Tesamorelin and Thymosin Beta-4 at 44 and 43). Length bars show each one against the longest. Chains over 20 residues switch to smaller cells and wrap onto as many rows as needed. Modified residues (D forms, Aib, Nle, capped ends, rings, lipid chains) are flagged under the name; weights for those are the plain chain. Stripe v3 colours where a compound has one. V2 unchanged.</p>
+    <p style="margin-top:6px"><b>V2 tweak:</b> every tile now holds the name in a fixed two-line slot, so pips and signs sit on the same line in every box. Pale colours (Skin, Cellular energy, Cognition) lost their green edge inside stripes; the edge stays only on small swatches where pale pink would vanish on cream.</p>
+    <p style="margin-top:6px"><b>V2:</b> coloured rules. Gene to protein boxes in Tissue repair green, spec table in Inflammatory red, tile grid in Immunity purple. Tiles now show weight next to the three-letter code, the full name in italics, codon count as pips, and signs for charge, ring, sulfur, start signal and branched-chain. Translator buttons carry each compound's main colour from Stripe v3; Pinealon has no Stripe v3 entry yet, so it stays plain. V1 unchanged.</p>
+    <p style="margin-top:6px"><b>V1:</b> first version. 20 standard amino acids plus selenocysteine. Category colours and names taken from Bare Signals Stripe v3; chemistry class shown as dashed chips, kept outside the colour palette. Detox and clearance roles filed under Organ function until a colour is approved.</p>
+  </details>
+</div>
+
+<script>
+const PAL={Appetite:["Appetite & satiety","#DDD0F6"],Glucose:["Glucose & insulin","#FFCBAA"],Fat:["Fat metabolism","#FFA51F"],Energy:["Cellular energy","#DBFAB3"],Endocrine:["Endocrine & growth","#FFDE59"],Muscle:["Muscle & performance","#F28E79"],Bone:["Bone & cartilage","#C782A5"],Repair:["Tissue repair","#E1DE62"],Inflammation:["Inflammatory signaling","#FF5050"],Immunity:["Immunity","#6777B6"],Skin:["Skin & aesthetics","#FFEEEE"],Hair:["Hair","#924C1C"],Cognition:["Cognition","#C2DCFF"],Drive:["Drive & mental stamina","#B493E8"],Mood:["Mood","#CC007E"],Sleep:["Sleep & rhythms","#5271FF"],Protection:["Cellular protection","#99ACFF"],Organ:["Organ function","#FCB0B4"],Tanning:["Tanning","#B27205"],DNA:["DNA & telomeres","#74BCFF"],Pain:["Pain & sensory","#87CFC5"],Gut:["Digestive & gut","#AACC96"],Heart:["Heart & vessels","#9E1B32"],Aging:["Aging & senescence","#CCA300"],Desire:["Connection & desire","#BE5103"],Neuroprotection:["Neural protection","#CAF5F7"],Bone:["Bone & cartilage","#C782A5"]};
+const CLS={np:"Nonpolar",po:"Polar",pos:"Positive charge",neg:"Negative charge",ar:"Aromatic",sp:"Special shape"};
+const ESS={E:"Essential, must eat",C:"Conditionally essential",N:"Body makes it"};
+const A=[
+["A","Ala","Alanine",89.09,"GCU GCC GCA GCG","np","N","CH₃",[["Muscle","Fuel shuttle between muscle and liver"],["Glucose","Feeds new glucose when fasting"],["Organ","Carries nitrogen to the liver"]]],
+["R","Arg","Arginine",174.20,"CGU CGC CGA CGG AGA AGG","pos","C","(CH₂)₃NHC(NH)NH₂",[["Heart","Makes nitric oxide, widens vessels"],["Organ","Urea cycle, clears ammonia"],["Muscle","Creatine precursor"],["Repair","Wound healing"]]],
+["N","Asn","Asparagine",132.12,"AAU AAC","po","N","CH₂CONH₂",[["Cognition","Needed for brain development"],["Organ","Moves nitrogen between tissues"],["Protection","Anchor for sugar coats on proteins"]]],
+["D","Asp","Aspartic acid",133.10,"GAU GAC","neg","N","CH₂COOH",[["DNA","Builds DNA and RNA bases"],["Energy","Shuttles fuel into mitochondria"],["Organ","Urea cycle"]]],
+["C","Cys","Cysteine",121.16,"UGU UGC","po","C","CH₂SH",[["Protection","Glutathione, the master antioxidant"],["Hair","Disulfide bonds in keratin"],["Skin","Holds protein shapes together"]]],
+["Q","Gln","Glutamine",146.15,"CAA CAG","po","C","(CH₂)₂CONH₂",[["Gut","Main fuel for gut lining cells"],["Immunity","Fuel for immune cells"],["Muscle","Most abundant free amino acid"],["Energy","Nitrogen carrier in blood"]]],
+["E","Glu","Glutamic acid",147.13,"GAA GAG","neg","N","(CH₂)₂COOH",[["Cognition","Main excitatory brain signal"],["Mood","Converted to calming GABA"],["Protection","Part of glutathione"]]],
+["G","Gly","Glycine",75.07,"GGU GGC GGA GGG","sp","C","H",[["Skin","Every third link in collagen"],["Sleep","Calming signal in brainstem and spine"],["Protection","Part of glutathione"],["Bone","Collagen in bone and cartilage"]]],
+["H","His","Histidine",155.16,"CAU CAC","pos","E","CH₂–imidazole",[["Inflammation","Made into histamine"],["Muscle","Carnosine, buffers muscle acid"],["Immunity","Binds copper and zinc"]]],
+["I","Ile","Isoleucine",131.17,"AUU AUC AUA","np","E","CH(CH₃)CH₂CH₃",[["Muscle","Branched-chain, burned in muscle"],["Glucose","Helps cells take up glucose"],["Energy","Hemoglobin formation"]]],
+["L","Leu","Leucine",131.17,"UUA UUG CUU CUC CUA CUG","np","E","CH₂CH(CH₃)₂",[["Muscle","Main switch for muscle building (mTOR)"],["Energy","Branched-chain, burned for fuel"],["Glucose","Signals insulin release"]]],
+["K","Lys","Lysine",146.19,"AAA AAG","pos","E","(CH₂)₄NH₂",[["Skin","Cross-links collagen"],["Fat","Makes carnitine, moves fat into mitochondria"],["DNA","Tags on histones switch genes"],["Bone","Calcium absorption"]]],
+["M","Met","Methionine",149.21,"AUG","np","E","(CH₂)₂SCH₃",[["DNA","SAMe, the body's methyl donor"],["Protection","Feeds cysteine and glutathione"],["Organ","Liver fat processing"]]],
+["F","Phe","Phenylalanine",165.19,"UUU UUC","ar","E","CH₂–phenyl",[["Mood","Start of the dopamine pathway"],["Drive","Converted to tyrosine"],["Cognition","Restricted in PKU"]]],
+["P","Pro","Proline",115.13,"CCU CCC CCA CCG","sp","C","ring to backbone N",[["Skin","Collagen, as hydroxyproline"],["Repair","Wound and joint repair"],["Bone","Puts kinks and turns in chains"]]],
+["S","Ser","Serine",105.09,"UCU UCC UCA UCG AGU AGC","po","N","CH₂OH",[["Cognition","D-serine, memory receptor signal"],["DNA","Feeds one-carbon and nucleotides"],["Protection","Cell membrane lipids"]]],
+["T","Thr","Threonine",119.12,"ACU ACC ACA ACG","po","E","CH(OH)CH₃",[["Gut","Mucus that protects the gut wall"],["Skin","Collagen and elastin"],["Immunity","Antibody production"]]],
+["W","Trp","Tryptophan",204.23,"UGG","ar","E","CH₂–indole",[["Mood","Made into serotonin"],["Sleep","Serotonin then melatonin"],["Energy","Niacin (B3) precursor"]]],
+["Y","Tyr","Tyrosine",181.19,"UAU UAC","ar","C","CH₂–phenol",[["Drive","Dopamine and adrenaline"],["Endocrine","Thyroid hormone"],["Tanning","Melanin pigment"]]],
+["V","Val","Valine",117.15,"GUU GUC GUA GUG","np","E","CH(CH₃)₂",[["Muscle","Branched-chain, burned in muscle"],["Energy","Nitrogen balance"],["Repair","Tissue repair"]]],
+["U","Sec","Selenocysteine",168.05,"UGA, recoded","sp","N","CH₂SeH",[["Protection","Antioxidant enzymes (GPx)"],["Endocrine","Activates thyroid hormone"],["Immunity","Selenoprotein immune function"]]]
+];
+const WT=[10,7,5,3.5],H2O=18.015;
+const $=s=>document.querySelector(s);
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const sw=(c,edge=true)=>{const h=PAL[c][1];return `background:${h}${edge&&lum(h)>.8?";box-shadow:inset 0 0 0 1px #E1DE62":""}`};
+const essCls=e=>e==="E"?"":e==="C"?" c":" n";
+const stripe=(a,cls)=>`<div class="${cls}">${a[8].map((r,i)=>`<i style="${sw(r[0],false)};flex-grow:${WT[i]||3}"></i>`).join("")}</div>`;
+
+const KEYS=`<div class="kk" aria-label="Key"><div><span><i class="ess"></i>Must eat</span><span><i class="ess c"></i>Sometimes</span><span><i class="ess z"></i>Body makes it</span></div><div><span><span class="pips"><i></i><i></i><i></i></span>Codons</span><span><span class="sg"><b>+</b></span>Charge</span><span><span class="sg"><b>⬡</b></span>Ring</span></div><div><span><span class="sg"><b>S</b></span>Sulfur</span><span><span class="sg"><b>▸</b></span>Start</span><span><span class="sg"><b>B</b></span>BCAA</span></div></div>`;
+let openI=null,tab="f";
+const narrow=()=>innerWidth<900;
+function setTab(t){tab=t;document.querySelectorAll("#cardwrap .tabs button").forEach(b=>{b.classList.toggle("on",b.dataset.t===t);b.setAttribute("aria-selected",b.dataset.t===t)});document.querySelectorAll("#cardwrap .pane").forEach(p=>p.classList.toggle("on",p.dataset.t===t))}
+function openSheet(i){const cw=$("#cardwrap");const row=Math.floor(i/5);const after=row===4?document.querySelector(".kk"):document.getElementById("tile-"+Math.min(row*5+4,20));after.after(cw);cw.classList.add("inl");cw.hidden=false;openI=i;if(!matchMedia("(prefers-reduced-motion: reduce)").matches)cw.scrollIntoView({block:"nearest",behavior:"smooth"})}
+function closeSheet(){if(!narrow())return;const cw=$("#cardwrap");cw.hidden=true;openI=null;document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed","false"))}
+function home(){const cw=$("#cardwrap");if(narrow()){if(openI===null)cw.hidden=true}else{document.querySelector(".left").after(cw);cw.classList.remove("inl");cw.hidden=false}}
+const SHY={F:"Phenyl&shy;alanine",U:"Seleno&shy;cysteine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Glutamic acid",D:"Aspartic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
+const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S ▸",U:"Se",I:"B",L:"B",V:"B"};
+const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
+$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="top"><span class="L">${a[0]}</span><i class="ess${essCls(a[6])}" aria-hidden="true"></i></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="nm"><i>${SHY[a[0]]||a[2]}</i></span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span>${stripe(a,"mini")}</button>`).join("")+KEYS;
+
+function structSVG(r){
+  return `<svg viewBox="0 0 210 116" role="img" aria-label="Backbone with side chain ${r}">
+  <g font-family="JetBrains Mono,monospace" font-size="17" fill="#3E4A80">
+  <text x="4" y="70">H₂N</text><line x1="46" y1="64" x2="76" y2="64" stroke="#3E4A80" stroke-width="1.8"/>
+  <text x="82" y="70">C</text><text x="96" y="60" font-size="12" fill="#6B76A8">α</text>
+  <line x1="89" y1="47" x2="89" y2="27" stroke="#DB6830" stroke-width="1.8"/>
+  <text x="89" y="19" text-anchor="middle" fill="#DB6830">R</text>
+  <line x1="89" y1="74" x2="89" y2="94" stroke="#3E4A80" stroke-width="1.8"/><text x="83" y="112">H</text>
+  <line x1="104" y1="64" x2="134" y2="64" stroke="#3E4A80" stroke-width="1.8"/>
+  <text x="140" y="70">COOH</text></g></svg>`;
+}
+
+function show(i,scroll){
+  document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed",t.dataset.i==i?"true":"false"));
+  const a=A[i];
+  $("#cardwrap").innerHTML=`<div class="grab"><span class="lab" style="margin:0">Amino card</span><button class="b" id="cls">Close</button></div><article class="card">
+    <div class="ch"><button class="x" id="cls" aria-label="Close card">×</button><div class="big">${a[0]}</div><div><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p></div></div>
+    ${stripe(a,"strip")}
+    <div class="tabs" role="tablist"><button data-t="f">Facts</button><button data-t="s">Structure</button><button data-t="r">Roles</button></div>
+    <div class="chips">${a[8].map(r=>`<span class="chip"><i style="${sw(r[0])}"></i>${PAL[r[0]][0]}</span>`).join("")}<span class="chip cls">${CLS[a[5]]}</span></div>
+    <div class="sec pane on" data-t="f"><table class="spec"><tbody>
+      <tr><td>One-letter</td><td>${a[0]}</td></tr>
+      <tr><td>Three-letter</td><td>${a[1]}</td></tr>
+      <tr><td>Codons (mRNA)</td><td>${a[4].split(" ").map(c=>`<span class="cod">${c}</span>`).join("")}</td></tr>
+      <tr><td>Free weight</td><td>${a[3].toFixed(2)} g/mol</td></tr>
+      <tr><td>Weight in a chain</td><td>${(a[3]-H2O).toFixed(2)} g/mol</td></tr>
+      <tr><td>Class</td><td>${CLS[a[5]]}</td></tr>
+      <tr><td>Source</td><td>${ESS[a[6]]}</td></tr>
+    </tbody></table></div>
+    <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a[7])}<p class="rr">R = ${a[7]}</p><p class="rn">Shared backbone. Only R changes.</p></div></div>
+    <div class="sec half pane" data-t="r"><p class="lab">Roles in the body</p><ul class="roles">${a[8].map(r=>`<li><i style="${sw(r[0])}"></i><span>${r[1]}</span><em>${PAL[r[0]][0]}</em></li>`).join("")}</ul></div>
+    <p class="cardfoot">Weights are average molecular weight. Lab certificates often list monoisotopic mass, which runs slightly lower.</p>
+  </article>`;
+  setTab(tab);if(scroll&&narrow())openSheet(i);
+}
+$("#tiles").addEventListener("click",e=>{const t=e.target.closest(".tile");if(!t)return;const i=+t.dataset.i;if(narrow()&&openI===i){closeSheet();return}show(i,true)});
+
+const MAP={};A.forEach(a=>a[4].split(/[ ,]+/).forEach(c=>{if(/^[ACGU]{3}$/.test(c)&&a[0]!=="U")MAP[c]=a}));
+const REV={};A.forEach(a=>{if(a[0]!=="U")REV[a[0]]=a[4].split(" ")[0].replace(/U/g,"T")});
+function tr(){
+  const raw=$("#dna").value.toUpperCase().replace(/\s/g,"");$("#err").textContent="";$("#out").innerHTML="";
+  if(!raw){head();return}
+  if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";return}
+  const r=raw.replace(/T/g,"U");let ch=[],cd=[],stop=false;
+  for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="stop">${c} stop</span>`);stop=true;break}const a=MAP[c];cd.push(`<span>${c} ${a[0]}</span>`);ch.push(a)}
+  const mw=ch.length?ch.reduce((t,a)=>t+a[3]-H2O,0)+H2O:0;
+  const left=r.length%3&&!stop?`<p class="note">${r.length%3} leftover letter${r.length%3>1?"s":""} at the end, not a full codon.</p>`:"";
+  const mod=head();
+  $("#out").innerHTML=`${mod}<p class="lab">mRNA codons</p><div class="codons">${cd.join("")}</div>
+  <p class="lab">Chain</p><div class="chain${ch.length>20?" long":""}">${ch.map(a=>`<span title="${a[2]}">${a[0]}<i style="${sw(a[8][0][0],false)}"></i></span>`).join("")||"<span>–</span>"}</div>
+  <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
+  ${left}${stop?"":`<p class="note">No stop codon yet, so the ribosome would keep reading.</p>`}`;
+}
+const P=[
+["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
+["TB-500 frag 17–23","LKKTETQ","Repair","Acetylated start (Ac-), not shown",2],
+["GHK-Cu","GHK","Skin","Bound to one copper ion; weight shown is GHK alone",4],
+["KPV","KPV","Inflammation","",5],
+["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","Full Thymosin Beta-4 protein, 43 amino acids; acetylated start",3,"thymosin beta-4 tb4 full"],
+["Semaglutide","HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG","Appetite","Position 2 is Aib, shown as A; fatty acid chain on K20 not shown",6],
+["Tirzepatide","YAEGTFTSDYSIALDKIAQKAFVQWLIAGGPSSGAPPPS","Appetite","Positions 2 and 13 are Aib, shown as A; fatty acid chain on K20 and amide end not shown",7],
+["MOTS-c","MRWQEMGYIFYPRKLR","Energy","",8],
+["SS-31","RYKF","Energy","D-Arg shown as R; Dmt (dimethyl tyrosine) shown as Y; amide end",9],
+["Ipamorelin","AHAFK","Endocrine","Aib shown as A, D-2-naphthylalanine shown as A, D-Phe shown as F; amide end. Weight is approximate",0],
+["CJC-1295 no DAC","YADAIFTQSYRKVLAQLSARKLLQDILSR","Endocrine","Position 2 is D-Ala; amide end",0],
+["Tesamorelin","YADAIFTNSYRKVLGQLSARKLLQDIMSRQQGESNQERGARARL","Endocrine","Hexenoyl group on the start, amide end",10],
+["Sermorelin","YADAIFTNSYRKVLGQLSARKLLQDIMSR","Endocrine","Amide end",0],
+["Kisspeptin-10","YNWNSFGLRF","Endocrine","Amide end",11],
+["Selank","TKPRPGP","Mood","",12],
+["Semax","MEHFPGP","Cognition","",13],
+["Pinealon","EDR","Cognition","",14],
+["Epitalon","AEDG","Aging","",15],
+["DSIP","WAGGDASGE","Sleep","",16],
+["Thymosin Alpha-1","SDAAVDTSSEITTKDLKEKKEVVEEAEN","Immunity","Acetylated start, not shown",17],
+["LL-37","LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES","Immunity","",0],
+["MT-2","LDHFRWK","Tanning","Ring-closed (cyclic); Nle shown as L, D-Phe shown as F; acetylated start, amide end",0],
+["PT-141","LDHFRWK","Desire","Ring-closed (cyclic); Nle shown as L, D-Phe shown as F; acetylated start",0],
+["Oxytocin","CYIQNCPLG","Desire","Ring closed by a bridge between the two C; amide end",18],
+["TB-500 frag 1–4","SDKP","Heart","Acetylated start (Ac-SDKP), not shown",0],
+["NA Selank Amidate","TKPRPGP","Mood","Same residues as Selank; acetylated start, amide end",0],
+["NA Semax Amidate","MEHFPGP","Cognition","Same residues as Semax; acetylated start, amide end",0],
+["Glutathione","ECG","Protection","E is linked through its side chain (gamma bond), not the usual backbone",0],
+["Vilon","KE","Immunity","",0],
+["Thymogen","EW","Immunity","",0],
+["Crystagen","EDP","Immunity","",0],
+["Cortagen","AEDP","Neuroprotection","",0],
+["Testagen","KEDG","Endocrine","",0],
+["Thymulin","EAKSQGGSN","Immunity","Starts with pyroglutamate, shown as E; carries zinc",0],
+["ARA-290","EQLERALNSS","Neuroprotection","Starts with pyroglutamate, shown as E",0],
+["Humanin","MAPRGFSCLLLLTSEIDLPVKRRA","Protection","",0],
+["AOD-9604","YLRIVQCRSVEGSCGF","Fat","",0],
+["HGH frag 176–191","YLRIVQCRSVEGSCGF","Fat","Same chain as AOD-9604",0],
+["GHRP-2","AAAWFK","Endocrine","D-Ala and D-2-naphthylalanine shown as A, D-Phe shown as F; amide end",0],
+["GHRP-6","HWAWFK","Endocrine","D-Trp and D-Phe shown as W and F; amide end",0],
+["Hexarelin","HWAWFK","Endocrine","2-methyl-D-Trp and D-Phe shown as W and F; amide end",0],
+["Melanotan 1","SYSLEHFRWGKPV","Tanning","Nle shown as L, D-Phe shown as F; acetylated start, amide end",0],
+["VIP","HSDAVFTDNYTRLRKQMAVKKYLNSILN","Organ","Amide end",0],
+["Teriparatide","SVSEIQLMHNLGKHLNSMERVEWLRKKLQDVHNF","Bone","PTH 1–34",0]
+];
+let cur=null,sortBy="len";
+const MAXL=Math.max(...P.map(p=>p[1].length));
+const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><em>${p[1].length}</em></button>`};
+const chip=(i)=>{const p=P[i];return `<button class="ch5" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
+function renderPop(){$("#pop").innerHTML=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>chip(x[1])).join("")}
+let hl=-1,shown=[];
+function renderList(){
+  const q=$("#q").value.trim().toLowerCase().replace(/[\s\-–]/g,"");
+  shown=P.map((p,i)=>i).filter(i=>!q||(P[i][0]+" "+(P[i][5]||"")).toLowerCase().replace(/[\s\-–]/g,"").includes(q)).sort((a,b)=>P[a][0].localeCompare(P[b][0]));
+  let last="",h="";
+  shown.forEach((i,k)=>{const L=/[0-9]/.test(P[i][0][0])?"#":P[i][0][0].toUpperCase();if(!q&&L!==last){h+=`<div class="let">${L}</div>`;last=L}h+=pk(i).replace('class="pk"',`class="pk${k===hl?" hl":""}"`)});
+  $("#plist").innerHTML=shown.length?h:`<p class="empty" style="border:0">No match. Try another name.</p>`;
+}
+function openList(){$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
+function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
+function pick(i){cur=i;closeList();const p=P[i];$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
+function head(){
+  if(cur===null){$("#pname").innerHTML="";return ""}
+  const p=P[cur];$("#pname").innerHTML=`<strong>${p[0]}</strong><span>${p[1].length} amino acids</span>`;
+  return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
+}
+$("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p)});
+$("#plist").addEventListener("mousedown",e=>e.preventDefault());
+$("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p);$("#q").blur()}});
+$("#q").addEventListener("focus",openList);
+$("#q").addEventListener("click",openList);
+$("#q").addEventListener("blur",()=>setTimeout(closeList,120));
+$("#q").addEventListener("keydown",e=>{
+  if(e.key==="Escape"){closeList();return}
+  if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if($("#plist").hidden)openList();hl=Math.max(0,Math.min(shown.length-1,hl+(e.key==="ArrowDown"?1:-1)));renderList();const el=$("#plist .hl");if(el)el.scrollIntoView({block:"nearest"});return}
+  if(e.key==="Enter"&&shown.length){e.preventDefault();const i=shown[hl>=0?hl:0];$("#q").value="";pick(i);$("#q").blur()}
+});
+$("#q").addEventListener("input",()=>{hl=-1;openList()});
+$("#cnt").textContent="· "+P.length;
+$("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
+$("#scrim").addEventListener("click",closeSheet);
+$("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
+addEventListener("resize",home);
+show(11,false);home();pick(0);
+</script>
+
+</body>
+</html>
