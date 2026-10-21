@@ -667,13 +667,15 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 .ftxt p{margin:0 0 8px;font-size:14px;line-height:1.5;color:var(--ink)}
 .ffact{color:var(--ink-soft)!important}.ffact b{color:var(--accent)}
 @media (max-width:899px){.fpanel{grid-template-columns:1fr;padding:12px}.t3{font-size:26px}.ftabs button{padding:7px 9px;font-size:12.5px}}
+
+.omap i.on{box-shadow:inset 0 0 0 1px var(--ink)}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From gene to peptide<small>V37</small></h1>
+    <h1>From gene to peptide<small>V38</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -780,9 +782,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 37 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 37 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V37:</b> the page title is now From gene to peptide, with Aminos as the label above it; Part two becomes Build a peptide. The moving walk gains RNA polymerase, the enzyme that unzips DNA and writes the mRNA, sitting where the strands part, so the mRNA comes straight out of it. Motion runs at full frame rate. The amino acid bead now shows its name underneath. Part one gains a short introduction and a How to read a tile key (full name, three-letter code, one-letter code, weight, codon pips, stripe), and every amino acid card now says how to pronounce it. In Part three, Amino acid on the ladder jumps back to the 21 tiles, and Complex opens Five famous folds: collagen, keratin, hemoglobin, antibodies and myosin, each drawn with its size, job and one surprise.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 38 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 38 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V38:</b> in every map of where a peptide sits inside its parent protein, the known links now carry their real amino acid colours, the same as the chain beads, with the letter on hover. BPC-157’s 15 known links between the question marks are coloured the same way.</p>
+    <p style="margin-top:6px"><b>V37:</b> the page title is now From gene to peptide, with Aminos as the label above it; Part two becomes Build a peptide. The moving walk gains RNA polymerase, the enzyme that unzips DNA and writes the mRNA, sitting where the strands part, so the mRNA comes straight out of it. Motion runs at full frame rate. The amino acid bead now shows its name underneath. Part one gains a short introduction and a How to read a tile key (full name, three-letter code, one-letter code, weight, codon pips, stripe), and every amino acid card now says how to pronounce it. In Part three, Amino acid on the ladder jumps back to the 21 tiles, and Complex opens Five famous folds: collagen, keratin, hemoglobin, antibodies and myosin, each drawn with its size, job and one surprise.</p>
     <p style="margin-top:6px"><b>V36:</b> on laptops, Part two becomes two columns: the build on the left, the peptide picker beside it on the right third, staying in view while you scroll. Popular gains Show all, which opens every entry with sorting: popular, shortest, longest, A to Z, or grouped by origin (made by the body, cut from a protein, made by enzymes, lab-modified, lab-designed, reference, not a peptide). BPC-157 now sits between question-mark ghosts, since the rest of its parent protein is unknown. Every chain, even two or three links, now rides the S-curve. The fold at the top turns with the chain instead of against it. Bigger type for Aminos, the part labels and The 21 amino acids.</p>
     <p style="margin-top:6px"><b>V35:</b> the top is now a moving lesson: one string comes in from the left, touches the DNA ladder with its coloured A, T, C, G teeth, unzips into orange mRNA, is read three letters at a time, drops amino acids, links them into a chain and coils into a helix, in six captioned steps. Every entry’s origin line rewritten as a short story: who found it, how it got its name, the surprise. Khavinson bioregulators explained by tissue. Chains of ten or fewer now all use the large Vilon bead size; longer ones shrink gradually.</p>
     <p style="margin-top:6px"><b>V34:</b> the page now reads as a walk in three parts, with Part one · The letters added above the 21 tiles and Part three renamed The fold. New opening line: bare amino acids become bare signals. Thymosin Beta-4 opens as the First example, its name underlined with its full four-colour stripe instead of one green line. The non-peptide row reads often paired with them. Eight new entries: Retatrutide, Cagrilintide, Somatropin (HGH, 191), Gonadorelin, Larazotide, Carnosine, plus Creatine and Methylene blue as non-peptides with made-of panels. The two CJC-1295 forms now explain their difference.</p>
@@ -857,6 +860,7 @@ const A=[
 ];
 const WT=[10,7,5,3.5],H2O=18.015;
 const $=s=>document.querySelector(s);
+const dotC=L=>{const a=(typeof A!=="undefined"&&A.find)?A.find(x=>x[0]===L):null;return a?PAL[a[8][0][0]][1]:"#3E4A80"};const odot=(L)=>L?`<i class="on" title="${L}" style="background:${dotC(L)}"></i>`:`<i class="on"></i>`;
 const PRON={"A": "AL-uh-neen", "R": "AR-jih-neen", "N": "uh-SPAR-uh-jeen", "D": "uh-SPAR-tik acid", "C": "SIS-teh-een", "Q": "GLOO-tuh-meen", "E": "gloo-TAM-ik acid", "G": "GLY-seen", "H": "HIS-tih-deen", "I": "eye-so-LOO-seen", "L": "LOO-seen", "K": "LY-seen", "M": "meh-THY-oh-neen", "F": "fen-ul-AL-uh-neen", "P": "PRO-leen", "S": "SEER-een", "T": "THREE-oh-neen", "W": "TRIP-toh-fan", "Y": "TY-roh-seen", "V": "VAY-leen", "U": "seh-LEE-noh-SIS-teh-een"};
 const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
 const sw=(c,edge=true)=>{const h=PAL[c][1];return `background:${h}${edge&&lum(h)>.8?";box-shadow:inset 0 0 0 1px #E1DE62":""}`};
@@ -1145,8 +1149,8 @@ function madeOf(p){const el=$("#madeof");if(!el)return;const m=p&&!p[1]&&MADE[p[
   el.innerHTML=head+body+`<p class="mtxt">${m.t}</p>`;el.hidden=false}
 function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;madeOf(null);return}
   const t=OT[o[0]];let map="";
-  if(o[2]&&o[2].ghost){const g=o[2];let dots="";const gh=n=>Array.from({length:n},()=>`<i class="gh">?</i>`).join("");dots=gh(6)+Array.from({length:g.len},()=>`<i class="on"></i>`).join("")+gh(6);map=`<div class="omap ghost" style="--per:${g.len+12}">${dots}</div><p class="ocap">The <b>15 known links</b>, sitting inside a longer stomach protein that has never been published. The question marks are the unknown rest, on both sides. The 157 is part of its name, not its position: the chain itself is only 15 links long.</p>`}
-  else if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";for(let i=1;i<=g.len;i++){dots+=`<i class="${i>=g.a&&i<=g.b?"on":""}"></i>`}
+  if(o[2]&&o[2].ghost){const g=o[2];let dots="";const gh=n=>Array.from({length:n},()=>`<i class="gh">?</i>`).join("");dots=gh(6)+Array.from({length:g.len},(_,k)=>odot(((p&&p[1])||"")[k])).join("")+gh(6);map=`<div class="omap ghost" style="--per:${g.len+12}">${dots}</div><p class="ocap">The <b>15 known links</b>, sitting inside a longer stomach protein that has never been published. The question marks are the unknown rest, on both sides. The 157 is part of its name, not its position: the chain itself is only 15 links long.</p>`}
+  else if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";const sq=(p&&p[1])||"";for(let i=1;i<=g.len;i++){dots+=i>=g.a&&i<=g.b?odot(sq[i-g.a]):`<i></i>`}
     map=`<div class="omap" style="--per:${per}">${dots}</div><p class="ocap">Positions <b>${g.a}–${g.b}</b> of ${g.n} · ${g.len} amino acids. Faded dots are the rest of the original chain.</p>`}
   el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false;madeOf(p)}
 let folded=false;
