@@ -335,13 +335,31 @@ h1{font-size:23px}
 #pname strong{font:700 28px/1.05 var(--display);letter-spacing:-.01em;overflow-wrap:anywhere}
 #pname .pnc{font:500 12px var(--mono);color:var(--ink-soft)}
 @media (max-width:899px){#pname strong{font-size:23px}#pname .pnt{padding:8px 12px 9px}}
+#dna{resize:none!important;overflow:hidden;word-break:break-all;line-height:1.45;min-height:44px}
+@media (max-width:899px){#dna{font-size:12.5px;padding:8px 9px}}
+.tape{display:flex;flex-wrap:wrap;row-gap:6px;margin:6px 0 12px}
+.cs{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px 4px;background:var(--chip);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);border-left:1px dashed var(--rule)}
+.cs:first-child{border-left:1.5px solid var(--ink)}
+.cs b{font:500 12px var(--mono);letter-spacing:.04em;color:var(--ink)}
+.cs i{font:700 11px var(--display);font-style:normal;color:var(--ink-soft)}
+.cs.st{border:1.5px solid var(--accent);background:transparent}
+.cs.st b,.cs.st i{color:var(--accent)}
+@media (max-width:899px){.cs{padding:2px 5px 3px}.cs b{font-size:11px}.cs i{font-size:10px}}
+.string{width:100%;overflow:hidden;margin:4px 0 2px}
+.string svg{display:block;max-width:100%;height:auto}
+.string .bb{stroke-dasharray:1;stroke-dashoffset:0;animation:draw .7s ease-out}
+.string .bd{animation:pop .35s ease-out both;animation-delay:calc(var(--i)*12ms)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.string .bb,.string .bd{animation:none}}
+.snote{font-size:12px;color:var(--ink-soft);margin:2px 0 12px}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V17</small></h1>
+    <h1>Aminos<small>V18</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -403,7 +421,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
+    <p><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
+    <p style="margin-top:6px"><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
     <p style="margin-top:6px"><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
     <p style="margin-top:6px"><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
     <p style="margin-top:6px"><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
@@ -540,15 +559,36 @@ function tr(){
   if(!raw){head();return}
   if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";return}
   const r=raw.replace(/T/g,"U");let ch=[],cd=[],stop=false;
-  for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="stop">${c} stop</span>`);stop=true;break}const a=MAP[c];cd.push(`<span>${c} ${a[0]}</span>`);ch.push(a)}
+  for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="cs st"><b>${c}</b><i>stop</i></span>`);stop=true;break}const a=MAP[c];cd.push(`<span class="cs"><b>${c}</b><i>${a[0]}</i></span>`);ch.push(a)}
   const mw=ch.length?ch.reduce((t,a)=>t+a[3]-H2O,0)+H2O:0;
   const left=r.length%3&&!stop?`<p class="note">${r.length%3} leftover letter${r.length%3>1?"s":""} at the end, not a full codon.</p>`:"";
   const mod=head();
-  $("#out").innerHTML=`${mod}<p class="lab">mRNA codons</p><div class="codons">${cd.join("")}</div>
-  <p class="lab">Chain</p><div class="chain${ch.length>20?" long":""}">${ch.map(a=>`<span title="${a[2]}">${a[0]}<i style="${sw(a[8][0][0],false)}"></i></span>`).join("")||"<span>–</span>"}</div>
+  $("#out").innerHTML=`${mod}<p class="lab">mRNA, read three letters at a time</p><div class="tape">${cd.join("")}</div>
+  <p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from N to C. In the body, it folds.</p>
   <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
   ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
+  drawString(ch);fitDNA();
   renderPop();
+}
+let lastCh=[];
+function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
+function drawString(ch){
+  lastCh=ch;const box=$("#string");if(!box)return;
+  if(!ch.length){box.innerHTML="";return}
+  const W=box.clientWidth||320,mob=W<520;
+  const d=mob?26:30,step=d+(mob?9:12),rowH=mob?46:54,pad=Math.max(d/2+12,rowH/2+3);
+  const per=Math.max(3,Math.floor((W-2*pad)/step)+1);
+  const rows=Math.ceil(ch.length/per),top=d/2+6,H=top+(rows-1)*rowH+d/2+8;
+  const pts=ch.map((a,i)=>{const r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH,r]});
+  const tail=14;
+  let p=`M${pts[0][0]-tail},${pts[0][1]} L${pts[0][0]},${pts[0][1]}`;
+  for(let i=1;i<pts.length;i++){const[x0,y0]=pts[i-1],[x1,y1]=pts[i];
+    if(y1===y0)p+=` L${x1},${y1}`;else{const rr=(y1-y0)/2,right=pts[i-1][2]%2===0;p+=` A${rr},${rr} 0 0 ${right?1:0} ${x1},${y1}`}}
+  const L=pts[pts.length-1],lastRight=L[2]%2===0;p+=` L${L[0]+(lastRight?tail:-tail)},${L[1]}`;
+  const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
+    return `<g class="bd" style="--i:${i}"><title>${i+1}. ${a[2]}</title><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+4.5}" text-anchor="middle" fill="${fg}" font-size="${mob?12.5:14}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
+  const nx=pts[0][0]-tail-4,cx2=L[0]+(lastRight?tail+4:-tail-4);
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+4}" text-anchor="end" font-size="10" fill="#6B76A8" font-family="JetBrains Mono,monospace">N</text><text x="${cx2}" y="${L[1]+4}" text-anchor="${lastRight?"start":"end"}" font-size="10" fill="#6B76A8" font-family="JetBrains Mono,monospace">C</text></svg>`;
 }
 const P=[
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
@@ -667,7 +707,7 @@ $("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
 $("#scrim").addEventListener("click",closeSheet);
 $("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-addEventListener("resize",()=>{home();renderPop()});
+addEventListener("resize",()=>{home();drawString(lastCh);fitDNA();renderPop()});
 show(11,false);home();pick(0);
 </script>
 
