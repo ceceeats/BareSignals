@@ -520,13 +520,19 @@ h1{font-size:23px}
 .btip b{font:700 14px var(--display)}
 .btip span{font:500 10.5px var(--mono);opacity:.8}
 .btip::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink);border-bottom:0}
+.foldbar{justify-content:space-between!important;align-items:baseline;gap:10px;flex-wrap:wrap}
+.nowline{margin:0;font-size:13px;color:var(--ink-soft)}
+.nowline b{color:var(--ink);font-family:var(--display)}
+.tryb{background:none;border:0;padding:0;font:italic 400 13px var(--body);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+#pname{margin-top:0!important}
+@media (min-width:900px){.pop5 .ch5{flex-grow:1!important;max-width:240px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V27</small></h1>
+    <h1>Aminos<small>V28</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
@@ -570,11 +576,7 @@ h1{font-size:23px}
     <h2 class="t2">From gene to peptide</h2>
     <p class="lede2">Watch a gene become a peptide, one step at a time. Not every peptide here is made this way: some are cut from bigger proteins, some are designed in labs. This is how a gene would spell each one.</p>
     <div class="res">
-    <div id="pname"></div>
-    <div id="pleg" aria-label="Stripe colours"></div>
-    <div id="origin" hidden></div>
-    <div id="modbox"></div>
-    <div class="foldbar"><button type="button" id="foldall" class="foldall">Fold to one line ↑</button></div>
+    <div class="foldbar"><p class="nowline" id="nowline"></p><button type="button" id="foldall" class="foldall">Fold to one line ↑</button></div>
     <div class="step"><div class="sh"><b>01</b><h3>DNA</h3><p>The source code</p></div><div class="sb" id="dnasb" data-fold>
       <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
       <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
@@ -586,10 +588,14 @@ h1{font-size:23px}
     <div class="step"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb" id="codsb" data-fold><div id="tapebox"></div></div></div>
     <div class="conn"><span></span></div>
     <div class="step"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide. Each link is a peptide bond.</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. Long chains fold. Short ones often stay loose.</p></div></div></div>
-    <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="statsbox"></div><div id="endnote"></div></div></div>
+    <div class="conn"><span></span></div>
+    <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="pname"></div>
+    <div id="pleg" aria-label="Stripe colours"></div>
+    <div id="origin" hidden></div>
+    <div id="modbox"></div><div id="statsbox"></div><div id="endnote"></div></div></div>
     <div id="out" hidden></div>
     </div>
-    <div class="pick">
+    <div class="pick" id="pickers">
     <p class="lab">All peptides <span id="cnt" style="letter-spacing:0;text-transform:none"></span></p>
     <div class="combo">
       <input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides">
@@ -609,9 +615,10 @@ h1{font-size:23px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 27 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 27 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V27:</b> full DNA, mRNA and codons show by default, with one orange Fold to one line control above them that folds all three into swipeable lines, each giving a small sideways nudge to show it swipes; Expand code brings them back. Fixed lines not returning to normal after folding. Arrows larger and orange; step text moved closer together; T and U letters bold orange. Hover or tap any bead in the chain to see its name, code and position. Linked by peptide bonds moved beside Chain. V26 unchanged.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 28 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 28 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V28:</b> the walk now builds first and reveals after: DNA, mRNA, codons and chain come first, then step 05 shows what you built, with the peptide’s banner, colour key, origin and numbers together. A small line at the top says which peptide is building, with a jump to try another. Popular now shows 36 peptides on every screen. The helix beads take the colours of the chain you just built. V27 unchanged.</p>
+    <p style="margin-top:6px"><b>V27:</b> full DNA, mRNA and codons show by default, with one orange Fold to one line control above them that folds all three into swipeable lines, each giving a small sideways nudge to show it swipes; Expand code brings them back. Fixed lines not returning to normal after folding. Arrows larger and orange; step text moved closer together; T and U letters bold orange. Hover or tap any bead in the chain to see its name, code and position. Linked by peptide bonds moved beside Chain. V26 unchanged.</p>
     <p style="margin-top:6px"><b>V26:</b> fold control is now a clear button at the bottom right of each long step (Expand code, Fold back to one line), with the count on the left. The T becomes U note moved beside mRNA; the read three letters note removed. Accuracy pass from an outside review: peptide and protein no longer split at a fixed 50; chains fold only when long; amino acid sources use the standard terms (essential, conditionally essential, nonessential); colour keys marked as research associations; weight for modified peptides labelled backbone only. V25 unchanged.</p>
     <p style="margin-top:6px"><b>V25:</b> each peptide now says where it really comes from: made by the body, cut from a protein, lab-modified, lab-designed, or made by enzymes. Where the parent protein is known (TB-500 fragments, KPV, Sermorelin, CJC-1295, Kisspeptin-10, growth hormone fragments, Teriparatide, LL-37), a small map shows its position in the original chain, with the rest faded. On phones, long DNA, mRNA and codons fold to a single swipeable line with a count and a show-all toggle. Top copy sharpened; protein set in bold at the close. V24 unchanged.</p>
     <p style="margin-top:6px"><b>V24:</b> the translator becomes Part two, a walk from gene to peptide under a large centred title: 01 DNA, the source code; 02 mRNA, the working copy; 03 codons; 04 the chain; 05 what you built, joined by dashed arrows (transcribed, read three letters at a time, linked by peptide bonds). Each step lifts into view as you scroll, laid out as label and content side by side on laptop and stacked on phones. Picking a peptide scrolls back to the top so you watch it rebuild. Part three closes the page: past 50 amino acids the chain is a protein, shown as a slowly turning alpha helix, with a button that loads IGF-1 LR3. V23 unchanged.</p>
@@ -800,7 +807,7 @@ function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf
     const at=t=>[pad+rx+(t/(2*Math.PI))*pitch+rx*Math.cos(t+ph),cy+A*Math.sin(t+ph),Math.cos(t+ph)];
     let back="",front="",prev=at(0);for(let t=.07;t<=T;t+=.07){const p=at(t),z=(p[2]+prev[2])/2;const seg=`<line x1="${prev[0].toFixed(1)}" y1="${prev[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#3E4A80" stroke-linecap="round" stroke-width="${z>0?2.4:1.6}" opacity="${z>0?1:.42}"/>`;if(z>0)front+=seg;else back+=seg;prev=p}
     const bs=[];for(let t=0;t<=T;t+=2*Math.PI/3.6){bs.push(at(t))}
-    const beads=bs.sort((a,b)=>a[2]-b[2]).map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${(mob?4:5)+p[2]*1.8}" fill="${p[2]>0?"#FFFFF4":"#E3E0BF"}" stroke="#3E4A80" stroke-width="${p[2]>0?1.5:1}" opacity="${p[2]>0?1:.45}"/>`).join("");
+    const src=lastCh.length?lastCh:A.slice(0,20);const beads=bs.map((p,k)=>[p,PAL[src[k%src.length][8][0][0]][1]]).sort((a,b)=>a[0][2]-b[0][2]).map(([p,col])=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${((mob?4.5:5.5)+p[2]*2).toFixed(1)}" fill="${col}" stroke="#3E4A80" stroke-width="${p[2]>0?1.5:1}" opacity="${p[2]>0?1:.5}"/>`).join("");
     box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${back}${beads}${front}</svg>`}
   function loop(){ph-=.012;draw();if(run)raf=requestAnimationFrame(loop)}
   draw();if(still||!("IntersectionObserver" in window))return;
@@ -932,23 +939,12 @@ const P=[
 let cur=null,sortBy="len";
 const MAXL=Math.max(...P.map(p=>p[1].length));
 const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><em>${p[1].length}</em></button>`};
-const chip=(i)=>{const p=P[i];return `<button class="ch5${p[4]>18?" wo":""}" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
+const chip=(i)=>{const p=P[i];return `<button class="ch5" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
 function renderPop(){
   const pop=$("#pop");const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
-  pop.innerHTML=base.map(chip).join("");
-  if(innerWidth<900)return;
-  const res=document.querySelector(".res");if(!res)return;
-  const limit=res.getBoundingClientRect().bottom;
   const extra=P.map((p,i)=>i).filter(i=>!P[i][4]).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
-  const fits=()=>pop.getBoundingClientRect().bottom<=limit+1;
-  let filling=true;
-  for(const i of extra){
-    pop.insertAdjacentHTML("beforeend",chip(i));const el=pop.lastElementChild;
-    if(!fits()){el.remove();break}
-  }
-  const kids=[...pop.children];if(kids.length<2)return;
-  const lastTop=kids[kids.length-1].offsetTop;const lastRow=kids.filter(k=>k.offsetTop===lastTop);
-  if(lastRow.length<4&&kids.length>lastRow.length){lastRow.forEach(k=>k.remove())}
+  const show=base.concat(extra).slice(0,36);
+  pop.innerHTML=show.map(chip).join("");
 }
 let hl=-1,shown=[];
 function renderList(){
@@ -960,11 +956,11 @@ function renderList(){
 }
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
-function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr();if(go){const t=$("#pname");if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}}
+function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr();if(go){const t=$("#nowline");if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}}
 function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
 function head(){
-  if(cur===null){$("#pname").innerHTML="";legend(null);return ""}
-  const p=P[cur];legend(p);$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
+  if(cur===null){$("#pname").innerHTML="";legend(null);const nl=$("#nowline");if(nl)nl.innerHTML="Building <b>your own DNA</b>";return ""}
+  const p=P[cur];legend(p);const nl=$("#nowline");if(nl)nl.innerHTML=`Building <b>${p[0]}</b> · <button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">You built</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)});
