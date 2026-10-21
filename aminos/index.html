@@ -489,13 +489,21 @@ h1{font-size:23px}
 .sb.fold #dna{white-space:pre-wrap}
 #err:empty{display:none}
 .sb .fbtn{margin-top:-4px}
+.conn{height:34px}
+.sb[data-fold] .code{margin-bottom:6px!important}
+.fbtn{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:10px;margin-top:8px!important;text-decoration:none!important;font:inherit!important}
+.fbtn span{font:500 11.5px var(--mono);color:var(--ink-soft)}
+.fbtn b{font:700 13px var(--display);color:var(--paper);background:var(--ink);padding:7px 12px;border:1.5px solid var(--ink);white-space:nowrap}
+.fbtn:hover b{background:var(--paper);color:var(--ink)}
+.sb .fbtn{margin-top:0!important}
+#pleg em{flex-basis:100%;font-size:11px;color:var(--ink-soft);font-style:italic}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V25</small></h1>
+    <h1>Aminos<small>V26</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
@@ -509,7 +517,7 @@ h1{font-size:23px}
       <div><b>05</b><strong>Chain</strong><span>Links lock. Water leaves.</span></div>
       <div><b>06</b><strong>Fold</strong><span>The chain finds its shape.</span></div>
     </div>
-    <p class="note">Short chain, peptide. Long chain, protein. The line blurs near 50.</p>
+    <p class="note">Peptides are short chains. Proteins are long, folded ones. No single length divides them.</p>
   </section>
 
   <section>
@@ -518,7 +526,7 @@ h1{font-size:23px}
     <div class="key">
       <span><i class="ess"></i>Essential, must eat</span>
       <span><i class="ess c"></i>Conditionally essential</span>
-      <span>No mark: body makes it</span>
+      <span>No mark: nonessential</span>
     </div>
     <div class="key">
       <span><span class="pips" style="color:var(--ink)"><i></i><i></i><i></i></span>Codons that spell it</span>
@@ -548,12 +556,12 @@ h1{font-size:23px}
       <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
       <p id="err"></p>
     </div></div>
-    <div class="conn"><span>transcribed · every T becomes U</span></div>
-    <div class="step"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy</p></div><div class="sb" id="mrnasb" data-fold><div class="code light" id="mrna"></div></div></div>
-    <div class="conn"><span>read three letters at a time</span></div>
+    <div class="conn"><span></span></div>
+    <div class="step"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy. Transcribed, every T becomes U.</p></div><div class="sb" id="mrnasb" data-fold><div class="code light" id="mrna"></div></div></div>
+    <div class="conn"><span></span></div>
     <div class="step"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb" id="codsb" data-fold><div id="tapebox"></div></div></div>
     <div class="conn"><span>linked by peptide bonds</span></div>
-    <div class="step"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div></div></div>
+    <div class="step"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. Long chains fold. Short ones often stay loose.</p></div></div></div>
     <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="statsbox"></div><div id="endnote"></div></div></div>
     <div id="out" hidden></div>
     </div>
@@ -567,19 +575,20 @@ h1{font-size:23px}
     <div class="pop5" id="pop"></div>
     </div>
   </section>
-  <div class="divider"><span>Part three · Beyond 50</span></div>
+  <div class="divider"><span>Part three · Longer chains</span></div>
   <section class="finale">
     <h2 class="t2">Then it folds</h2>
-    <p class="lede2">Past about 50 amino acids, the chain is a <strong class="pword">protein</strong>. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
+    <p class="lede2">As chains grow longer, most become <strong class="pword">proteins</strong>. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
     <div class="helix" id="helix" aria-hidden="true"></div>
     <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
     <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 25 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 25 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V25:</b> each peptide now says where it really comes from: made by the body, cut from a protein, lab-modified, lab-designed, or made by enzymes. Where the parent protein is known (TB-500 fragments, KPV, Sermorelin, CJC-1295, Kisspeptin-10, growth hormone fragments, Teriparatide, LL-37), a small map shows its position in the original chain, with the rest faded. On phones, long DNA, mRNA and codons fold to a single swipeable line with a count and a show-all toggle. Top copy sharpened; protein set in bold at the close. V24 unchanged.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 26 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 26 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V26:</b> fold control is now a clear button at the bottom right of each long step (Expand code, Fold back to one line), with the count on the left. The T becomes U note moved beside mRNA; the read three letters note removed. Accuracy pass from an outside review: peptide and protein no longer split at a fixed 50; chains fold only when long; amino acid sources use the standard terms (essential, conditionally essential, nonessential); colour keys marked as research associations; weight for modified peptides labelled backbone only. V25 unchanged.</p>
+    <p style="margin-top:6px"><b>V25:</b> each peptide now says where it really comes from: made by the body, cut from a protein, lab-modified, lab-designed, or made by enzymes. Where the parent protein is known (TB-500 fragments, KPV, Sermorelin, CJC-1295, Kisspeptin-10, growth hormone fragments, Teriparatide, LL-37), a small map shows its position in the original chain, with the rest faded. On phones, long DNA, mRNA and codons fold to a single swipeable line with a count and a show-all toggle. Top copy sharpened; protein set in bold at the close. V24 unchanged.</p>
     <p style="margin-top:6px"><b>V24:</b> the translator becomes Part two, a walk from gene to peptide under a large centred title: 01 DNA, the source code; 02 mRNA, the working copy; 03 codons; 04 the chain; 05 what you built, joined by dashed arrows (transcribed, read three letters at a time, linked by peptide bonds). Each step lifts into view as you scroll, laid out as label and content side by side on laptop and stacked on phones. Picking a peptide scrolls back to the top so you watch it rebuild. Part three closes the page: past 50 amino acids the chain is a protein, shown as a slowly turning alpha helix, with a button that loads IGF-1 LR3. V23 unchanged.</p>
     <p style="margin-top:6px"><b>V23:</b> translator opens on TB-500 (Tβ4), now first among the popular chips. A one-line colour key sits under the banner naming each stripe block in order. Tile names a size up; the short code now sits right under the name, and the codon pips drop to the bottom of the tile, leaving clear space between. V22 unchanged.</p>
     <p style="margin-top:6px"><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
@@ -616,7 +625,7 @@ h1{font-size:23px}
 <script>
 const PAL={Appetite:["Appetite & satiety","#DDD0F6"],Glucose:["Glucose & insulin","#FFCBAA"],Fat:["Fat metabolism","#FFA51F"],Energy:["Cellular energy","#DBFAB3"],Endocrine:["Endocrine & growth","#FFDE59"],Muscle:["Muscle & performance","#F28E79"],Bone:["Bone & cartilage","#C782A5"],Repair:["Tissue repair","#E1DE62"],Inflammation:["Inflammatory signaling","#FF5050"],Immunity:["Immunity","#6777B6"],Skin:["Skin & aesthetics","#FFEEEE"],Hair:["Hair","#924C1C"],Cognition:["Cognition","#C2DCFF"],Drive:["Drive & mental stamina","#B493E8"],Mood:["Mood","#CC007E"],Sleep:["Sleep & rhythms","#5271FF"],Protection:["Cellular protection","#99ACFF"],Organ:["Organ function","#FCB0B4"],Tanning:["Tanning","#B27205"],DNA:["DNA & telomeres","#74BCFF"],Pain:["Pain & sensory","#87CFC5"],Gut:["Digestive & gut","#AACC96"],Heart:["Heart & vessels","#9E1B32"],Aging:["Aging & senescence","#CCA300"],Desire:["Connection & desire","#BE5103"],Neuroprotection:["Neural protection","#CAF5F7"],Bone:["Bone & cartilage","#C782A5"]};
 const CLS={np:"Nonpolar",po:"Polar",pos:"Positive charge",neg:"Negative charge",ar:"Aromatic",sp:"Special shape"};
-const ESS={E:"Essential, must eat",C:"Conditionally essential",N:"Body makes it"};
+const ESS={E:"Essential, must eat",C:"Conditionally essential",N:"Nonessential, body makes it"};
 const A=[
 ["A","Ala","Alanine",89.09,"GCU GCC GCA GCG","np","N","CH₃",[["Muscle","Fuel shuttle between muscle and liver"],["Glucose","Feeds new glucose when fasting"],["Organ","Carries nitrogen to the liver"]]],
 ["R","Arg","Arginine",174.20,"CGU CGC CGA CGG AGA AGG","pos","C","(CH₂)₃NHC(NH)NH₂",[["Heart","Makes nitric oxide, widens vessels"],["Organ","Urea cycle, clears ammonia"],["Muscle","Creatine precursor"],["Repair","Wound healing"]]],
@@ -647,7 +656,7 @@ const sw=(c,edge=true)=>{const h=PAL[c][1];return `background:${h}${edge&&lum(h)
 const essCls=e=>e==="E"?"":e==="C"?" c":" n";
 const stripe=(a,cls)=>`<div class="${cls}">${a[8].map((r,i)=>`<i style="${sw(r[0],false)};flex-grow:${WT[i]||3}"></i>`).join("")}</div>`;
 
-const KEYS=`<div class="kk" aria-label="Key"><div><span><i class="ess"></i>Must eat</span><span><i class="ess c"></i>Sometimes</span><span><i class="ess z"></i>Body makes it</span></div><div><span><span class="pips"><i></i><i></i><i></i></span>Codons</span><span><span class="sg"><b>+</b></span>Charge</span><span><span class="sg"><b>⬡</b></span>Ring</span></div><div><span><span class="sg"><b>S</b></span>Sulfur</span><span><span class="sg"><b>▸</b></span>Start</span><span><span class="sg"><b>B</b></span>BCAA</span></div></div>`;
+const KEYS=`<div class="kk" aria-label="Key"><div><span><i class="ess"></i>Essential</span><span><i class="ess c"></i>Conditional</span><span><i class="ess z"></i>Nonessential</span></div><div><span><span class="pips"><i></i><i></i><i></i></span>Codons</span><span><span class="sg"><b>+</b></span>Charge</span><span><span class="sg"><b>⬡</b></span>Ring</span></div><div><span><span class="sg"><b>S</b></span>Sulfur</span><span><span class="sg"><b>▸</b></span>Start</span><span><span class="sg"><b>B</b></span>BCAA</span></div></div>`;
 let openI=null,tab="f";
 const narrow=()=>innerWidth<900;
 function setTab(t){tab=t;document.querySelectorAll("#cardwrap .tabs button").forEach(b=>{b.classList.toggle("on",b.dataset.t===t);b.setAttribute("aria-selected",b.dataset.t===t)});document.querySelectorAll("#cardwrap .pane").forEach(p=>p.classList.toggle("on",p.dataset.t===t))}
@@ -736,7 +745,7 @@ function tr(){
   $("#modbox").innerHTML=head();
   $("#mrna").innerHTML=r.replace(/U/g,"<i>U</i>");
   $("#tapebox").innerHTML=`<div class="tape">${cd.join("")}</div>`;
-  $("#statsbox").innerHTML=`<div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>`;
+  $("#statsbox").innerHTML=`<div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">${cur!==null&&P[cur][3]?"Weight · backbone only":"Weight"}</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>`;
   $("#endnote").innerHTML=`${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
   drawString(ch);fitDNA();setFolds(r.length,cd.length);origin(cur===null?null:P[cur]);
   renderPop();
@@ -773,7 +782,7 @@ function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;loop()}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box);
   addEventListener("resize",()=>{if(!run)draw()})}
 const OT={nat:["Made by the body","A natural peptide, spelled by a gene"],frag:["Cut from a protein","A natural piece of a longer chain"],mod:["Lab-modified","A natural chain, changed in the lab"],syn:["Lab-designed","Designed in a lab, not found in the body"],enz:["Made by enzymes","Built in the body, but not from a gene"]};
-const ORI={"TB-500 (Tβ4)":["nat","Thymosin Beta-4 is made by most cells in the body."],"TB-500 frag 17–23":["frag","Amino acids 17 to 23 of Thymosin Beta-4.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Amino acids 1 to 4 of Thymosin Beta-4. The body also releases it naturally.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
+const ORI={"TB-500 (Tβ4)":["nat","Thymosin Beta-4, made by most cells in the body. Its start carries a natural acetyl cap."],"TB-500 frag 17–23":["frag","Amino acids 17 to 23 of Thymosin Beta-4.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Amino acids 1 to 4 of Thymosin Beta-4. The body also releases it naturally.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
 "BPC-157":["frag","Reported as a piece of a larger stomach protein. That protein’s full sequence has never been published, so the rest of the chain can’t be shown."],
 "KPV":["frag","The last 3 amino acids of α-MSH, a skin and brain hormone.",{n:"α-MSH",len:13,a:11,b:13}],
 "GHK-Cu":["frag","Found naturally in blood plasma, bound to copper. Levels fall with age."],"GHK (no Cu)":["frag","The same natural GHK, without its copper."],"AHK-Cu":["syn","A lab cousin of GHK-Cu, with A in place of G."],
@@ -799,7 +808,7 @@ function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!
     map=`<div class="omap" style="--per:${per}">${dots}</div><p class="ocap">Positions <b>${g.a}–${g.b}</b> of ${g.n} · ${g.len} amino acids. Faded dots are the rest of the original chain.</p>`}
   el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false}
 function foldUI(){document.querySelectorAll(".sb[data-fold]").forEach(sb=>{let btn=sb.querySelector(".fbtn");if(!btn){btn=document.createElement("button");btn.className="fbtn";btn.type="button";sb.appendChild(btn);btn.addEventListener("click",()=>{sb.classList.toggle("fold");setBtn(sb)})}setBtn(sb)})}
-function setBtn(sb){const b=sb.querySelector(".fbtn"),n=+sb.dataset.n||0,unit=sb.dataset.unit||"letters";b.textContent=sb.classList.contains("fold")?`${n} ${unit} · swipe, or show all`:"Fold to one line";b.hidden=n<=(unit==="codons"?12:60)}
+function setBtn(sb){const b=sb.querySelector(".fbtn"),n=+sb.dataset.n||0,unit=sb.dataset.unit||"letters";b.innerHTML=sb.classList.contains("fold")?`<span>${n} ${unit} · swipe</span><b>Expand code ↓</b>`:`<span>${n} ${unit}</span><b>Fold back to one line ↑</b>`;b.hidden=n<=(unit==="codons"?12:60)}
 function setFolds(dna,cod){const nar=innerWidth<900;[["dnasb",dna,"letters"],["mrnasb",dna,"letters"],["codsb",cod,"codons"]].forEach(([id,n,u])=>{const sb=document.getElementById(id);if(!sb)return;sb.dataset.n=n;sb.dataset.unit=u;sb.classList.toggle("fold",nar&&n>(u==="codons"?12:60))});foldUI()}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
@@ -826,7 +835,7 @@ const P=[
 ["TB-500 frag 17–23","LKKTETQ","Repair","Acetylated start (Ac-), not shown",3],
 ["GHK-Cu","GHK","Skin","Bound to one copper ion; weight shown is GHK alone",4],
 ["KPV","KPV","Inflammation","",5],
-["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","Full Thymosin Beta-4 protein, 43 amino acids; acetylated start",1,"thymosin beta-4 tb4 full"],
+["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","",1,"thymosin beta-4 tb4 full"],
 ["Semaglutide","HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG","Appetite","Position 2 is Aib, shown as A; fatty acid chain on K20 not shown",6],
 ["Tirzepatide","YAEGTFTSDYSIALDKIAQKAFVQWLIAGGPSSGAPPPS","Appetite","Positions 2 and 13 are Aib, shown as A; fatty acid chain on K20 and amide end not shown",7],
 ["MOTS-c","MRWQEMGYIFYPRKLR","Energy","",8],
@@ -916,7 +925,7 @@ function renderList(){
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
 function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr();if(go){const t=$("#pname");if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}}
-function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");el.hidden=!c.length}
+function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
 function head(){
   if(cur===null){$("#pname").innerHTML="";legend(null);return ""}
   const p=P[cur];legend(p);$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
