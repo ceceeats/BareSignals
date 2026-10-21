@@ -631,13 +631,49 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 .t2{font-size:46px!important}
 .lede2{font-size:17px!important}
 }
+
+.p1lede{font-size:16px;line-height:1.55;color:var(--ink);max-width:68ch;margin:-2px 0 12px}
+.howto{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 14px;padding:0}
+.howto summary{cursor:pointer;list-style:none;font:700 15px var(--display);padding:10px 12px;color:var(--ink)}
+.howto summary::-webkit-details-marker{display:none}
+.howto summary::after{content:" −";color:var(--accent)}
+.howto:not([open]) summary::after{content:" +"}
+.hx{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px 20px;padding:2px 14px 14px;align-items:start}
+.hxt{position:relative;border:1.5px solid var(--ink);background:var(--paper);height:132px;padding:8px 9px 0;box-sizing:border-box;overflow:visible}
+.hxt strong{display:block;font:700 17px var(--display);color:var(--ink)}
+.hxt .hm{display:block;font:500 12px var(--mono);color:var(--ink-soft);margin-top:6px}
+.hxt .hp{display:flex;gap:3px;margin-top:12px}.hxt .hp i{width:7px;height:7px;background:var(--ink)}
+.hxt em{position:absolute;right:8px;bottom:12px;font:700 40px/1 var(--display);color:var(--ink);opacity:.13;font-style:normal}
+.hxt .hs{position:absolute;left:0;right:0;bottom:0;display:flex;height:8px}.hxt .hs i{flex:1}
+.hxt b{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--accent);color:var(--paper);font:700 10px/17px var(--mono);text-align:center}
+.hxt .c1{left:-9px;top:8px}.hxt .c2{left:-9px;top:34px}.hxt .c3{left:-9px;top:56px}.hxt .c4{right:-9px;bottom:26px}.hxt .c5{right:-9px;bottom:-5px}
+.hxk{margin:0;padding:0 0 0 20px;font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+.hxk li{margin:0 0 6px}.hxk li::marker{color:var(--accent);font:700 12px var(--mono)}
+.hxk b{color:var(--ink)}.hxk i{color:var(--accent);font-style:normal;font-weight:700}
+@media (max-width:560px){.hx{grid-template-columns:1fr}.hxt{width:150px;margin:6px 0 0 12px}}
+.say{margin:2px 0 0;font:500 12px var(--mono);color:var(--ink-soft)}.say i{font-style:normal;color:var(--accent);font-weight:700}
+.famous{margin-top:34px;border-top:1.5px solid var(--ink);padding-top:22px}
+.t3{font:700 32px/1.1 var(--display);text-align:center;margin:0 0 8px;color:var(--ink)}
+.ftabs{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border:1.5px solid var(--ink);width:max-content;max-width:100%;margin:4px auto 14px}
+.ftabs button{font:600 13.5px var(--body);color:var(--ink);background:var(--chip);border:0;border-right:1px solid var(--rule);padding:8px 12px;cursor:pointer}
+.ftabs button:last-child{border-right:0}
+.ftabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.fpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px 26px;align-items:center;max-width:900px;margin:0 auto;border:1.5px solid var(--rule);background:var(--chip);padding:16px}
+.fart svg{width:100%;height:auto;display:block}
+.ftxt h4{font:700 24px var(--display);margin:0;color:var(--ink)}
+.fsz{font:500 12px var(--mono);color:var(--accent);margin:2px 0 8px}
+.fcats{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0 0 8px;font-size:12.5px;color:var(--ink-soft)}
+.fcats span{display:inline-flex;align-items:center;gap:5px}.fcats i{width:11px;height:11px;display:inline-block}
+.ftxt p{margin:0 0 8px;font-size:14px;line-height:1.5;color:var(--ink)}
+.ffact{color:var(--ink-soft)!important}.ffact b{color:var(--accent)}
+@media (max-width:899px){.fpanel{grid-template-columns:1fr;padding:12px}.t3{font-size:26px}.ftabs button{padding:7px 9px;font-size:12.5px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
-    <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V36</small></h1>
+    <p class="lab">Bare Signals · Aminos</p>
+    <h1>From gene to peptide<small>V37</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -646,8 +682,8 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     <div class="walk" id="walk">
       <svg class="wsvg" aria-hidden="true"></svg>
       <div class="wc"><div class="wa"></div><b>01</b><strong>DNA</strong><span>The archive, two strands zipped by teeth: <i style="--c:#F28E79">A</i> <i style="--c:#74BCFF">T</i> <i style="--c:#E1DE62">C</i> <i style="--c:#AACC96">G</i>.</span></div>
-      <div class="wc"><div class="wa"></div><b>02</b><strong>mRNA</strong><span>It unzips; one side is copied. T becomes <i style="--c:#B493E8">U</i>.</span></div>
-      <div class="wc"><div class="wa"></div><b>03</b><strong>Codon</strong><span>Read three letters at a time.</span></div>
+      <div class="wc"><div class="wa"></div><b>02</b><strong>mRNA</strong><span>RNA polymerase unzips it and copies one side. T becomes <i style="--c:#B493E8">U</i>.</span></div>
+      <div class="wc"><div class="wa"></div><b>03</b><strong>Codon</strong><span>The ribosome reads three letters at a time.</span></div>
       <div class="wc"><div class="wa"></div><b>04</b><strong>Amino acid</strong><span>Each three calls one amino acid.</span></div>
       <div class="wc"><div class="wa"></div><b>05</b><strong>Chain</strong><span>Links lock. Water leaves.</span></div>
       <div class="wc"><div class="wa"></div><b>06</b><strong>Fold</strong><span>The chain coils into its shape.</span></div>
@@ -658,6 +694,20 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   <section>
     <div class="divider p1"><span>Part one · The letters</span></div>
     <h2>The 21 amino acids <span class="tap">tap one to open its card, tap again to close</span></h2>
+    <p class="p1lede">Think of this as the periodic table of life. Every peptide and protein in your body is spelled from these 21 letters, in different orders and lengths. Each tile is one amino acid: tap it to see its structure, its weight and what it does in the body.</p>
+    <details class="howto" open><summary>How to read a tile</summary>
+      <div class="hx">
+        <div class="hxt"><strong>Alanine</strong><span class="hm">Ala · 89</span><span class="hp"><i></i><i></i><i></i><i></i></span><em>A</em><span class="hs"><i style="background:#F28E79"></i><i style="background:#FFCBAA"></i><i style="background:#FCB0B4"></i></span>
+          <b class="c1">1</b><b class="c2">2</b><b class="c3">3</b><b class="c4">4</b><b class="c5">5</b></div>
+        <ol class="hxk">
+          <li><b>Alanine</b> is the full name. Say it <i>AL-uh-neen</i>. Every card below shows how to say its name.</li>
+          <li><b>Ala</b> is the three-letter code, the short name scientists write. <b>89</b> is its weight: 89 g/mol. Glycine is the lightest at 75, tryptophan the heaviest at 204.</li>
+          <li>The <b>squares</b> count the codons that spell it. Alanine has four; methionine and tryptophan have only one.</li>
+          <li>The big faded <b>A</b> is the one-letter code. It is the letter used to write every sequence on this page.</li>
+          <li>The <b>stripe</b> shows what it is known for in the body, in Bare Signals colours. Small marks in the top corner show essential or not, charge, rings and sulfur; the key is under the grid.</li>
+        </ol>
+      </div>
+    </details>
     <div class="tiles" id="tiles"></div>
     <div class="key">
       <span><i class="ess"></i>Essential, must eat</span>
@@ -680,7 +730,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 
   <div class="divider"><span>Part two · The build</span></div>
   <section class="trans">
-    <h2 class="t2">From gene to peptide</h2>
+    <h2 class="t2">Build a peptide</h2>
     <p class="lede2">Watch a gene become a peptide, one step at a time. Not every peptide here is made this way: some are cut from bigger proteins, some are designed in labs. This is how a gene would spell each one.</p>
     <div class="res">
     <div class="foldbar"><p class="nowline" id="nowline"></p></div>
@@ -721,12 +771,19 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     <div class="helix" id="helix" aria-hidden="true"></div>
     <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
     <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
+    <div class="famous" id="famous">
+      <h3 class="t3">Five famous folds</h3>
+      <p class="lede2">Past 50 links, chains stop being strings and become machines. Several folded chains often work as one. Five you already know, each a different shape for a different job.</p>
+      <div class="ftabs" id="ftabs" role="tablist"></div>
+      <div class="fpanel" id="fpanel"></div>
+    </div>
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 36 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 36 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V36:</b> on laptops, Part two becomes two columns: the build on the left, the peptide picker beside it on the right third, staying in view while you scroll. Popular gains Show all, which opens every entry with sorting: popular, shortest, longest, A to Z, or grouped by origin (made by the body, cut from a protein, made by enzymes, lab-modified, lab-designed, reference, not a peptide). BPC-157 now sits between question-mark ghosts, since the rest of its parent protein is unknown. Every chain, even two or three links, now rides the S-curve. The fold at the top turns with the chain instead of against it. Bigger type for Aminos, the part labels and The 21 amino acids.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 37 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 37 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V37:</b> the page title is now From gene to peptide, with Aminos as the label above it; Part two becomes Build a peptide. The moving walk gains RNA polymerase, the enzyme that unzips DNA and writes the mRNA, sitting where the strands part, so the mRNA comes straight out of it. Motion runs at full frame rate. The amino acid bead now shows its name underneath. Part one gains a short introduction and a How to read a tile key (full name, three-letter code, one-letter code, weight, codon pips, stripe), and every amino acid card now says how to pronounce it. In Part three, Amino acid on the ladder jumps back to the 21 tiles, and Complex opens Five famous folds: collagen, keratin, hemoglobin, antibodies and myosin, each drawn with its size, job and one surprise.</p>
+    <p style="margin-top:6px"><b>V36:</b> on laptops, Part two becomes two columns: the build on the left, the peptide picker beside it on the right third, staying in view while you scroll. Popular gains Show all, which opens every entry with sorting: popular, shortest, longest, A to Z, or grouped by origin (made by the body, cut from a protein, made by enzymes, lab-modified, lab-designed, reference, not a peptide). BPC-157 now sits between question-mark ghosts, since the rest of its parent protein is unknown. Every chain, even two or three links, now rides the S-curve. The fold at the top turns with the chain instead of against it. Bigger type for Aminos, the part labels and The 21 amino acids.</p>
     <p style="margin-top:6px"><b>V35:</b> the top is now a moving lesson: one string comes in from the left, touches the DNA ladder with its coloured A, T, C, G teeth, unzips into orange mRNA, is read three letters at a time, drops amino acids, links them into a chain and coils into a helix, in six captioned steps. Every entry’s origin line rewritten as a short story: who found it, how it got its name, the surprise. Khavinson bioregulators explained by tissue. Chains of ten or fewer now all use the large Vilon bead size; longer ones shrink gradually.</p>
     <p style="margin-top:6px"><b>V34:</b> the page now reads as a walk in three parts, with Part one · The letters added above the 21 tiles and Part three renamed The fold. New opening line: bare amino acids become bare signals. Thymosin Beta-4 opens as the First example, its name underlined with its full four-colour stripe instead of one green line. The non-peptide row reads often paired with them. Eight new entries: Retatrutide, Cagrilintide, Somatropin (HGH, 191), Gonadorelin, Larazotide, Carnosine, plus Creatine and Methylene blue as non-peptides with made-of panels. The two CJC-1295 forms now explain their difference.</p>
     <p style="margin-top:6px"><b>V33:</b> helix beads now cycle through the full palette instead of the last chain’s colours. Chain beads scale with length: chains of six or fewer keep the Vilon size, then beads shrink gradually down to the old size near 36 links. Every chain longer than six now rides a gentle wave, so mid-length peptides like oxytocin and BPC-157 look like they are starting to fold. Single-row chains sit centred. Two more non-peptides: MK-677 and SLU-PP-332. The 21 amino acids heading gets room above it, with the tap hint on its own line on phones.</p>
@@ -800,6 +857,7 @@ const A=[
 ];
 const WT=[10,7,5,3.5],H2O=18.015;
 const $=s=>document.querySelector(s);
+const PRON={"A": "AL-uh-neen", "R": "AR-jih-neen", "N": "uh-SPAR-uh-jeen", "D": "uh-SPAR-tik acid", "C": "SIS-teh-een", "Q": "GLOO-tuh-meen", "E": "gloo-TAM-ik acid", "G": "GLY-seen", "H": "HIS-tih-deen", "I": "eye-so-LOO-seen", "L": "LOO-seen", "K": "LY-seen", "M": "meh-THY-oh-neen", "F": "fen-ul-AL-uh-neen", "P": "PRO-leen", "S": "SEER-een", "T": "THREE-oh-neen", "W": "TRIP-toh-fan", "Y": "TY-roh-seen", "V": "VAY-leen", "U": "seh-LEE-noh-SIS-teh-een"};
 const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
 const sw=(c,edge=true)=>{const h=PAL[c][1];return `background:${h}${edge&&lum(h)>.8?";box-shadow:inset 0 0 0 1px #E1DE62":""}`};
 const essCls=e=>e==="E"?"":e==="C"?" c":" n";
@@ -858,7 +916,7 @@ function show(i,scroll){
   document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed",t.dataset.i==i?"true":"false"));
   const a=A[i];
   $("#cardwrap").innerHTML=`<article class="card">
-    <div class="ch"><button class="x" id="cls" aria-label="Close card">×</button><div class="big">${a[0]}</div><div><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p></div></div>
+    <div class="ch"><button class="x" id="cls" aria-label="Close card">×</button><div class="big">${a[0]}</div><div><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p><p class="say">say <i>${PRON[a[0]]||""}</i></p></div></div>
     ${stripe(a,"strip")}
     <div class="tabs" role="tablist"><button data-t="f">Facts</button><button data-t="s">Structure</button><button data-t="r">Roles</button></div>
     <div class="chips">${a[8].map(r=>`<span class="chip"><i style="${sw(r[0])}"></i>${PAL[r[0]][0]}</span>`).join("")}<span class="chip cls">${CLS[a[5]]}</span></div>
@@ -930,7 +988,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
   function measure(){const b=box.getBoundingClientRect();W=box.clientWidth;H=box.clientHeight;Rs=[...box.querySelectorAll(".wa")].map(e=>{const r=e.getBoundingClientRect();return{x:r.left-b.left,y:r.top-b.top,w:r.width,h:r.height}});svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${W} ${H}`)}
   const ln=(x1,y1,x2,y2,c,w=2,ex="")=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${ex}/>`;
   const tx=(x,y,c,str,fs=8,fw=500)=>`<text x="${f1(x)}" y="${f1(y)}" text-anchor="middle" font-size="${fs}" font-weight="${fw}" fill="${c}" font-family="JetBrains Mono,monospace">${str}</text>`;
-  function draw(){if(!Rs.length)measure();const INK="#3E4A80",OR="#DB6830";let o="";const r=Rs,cyOf=k=>r[k].y+r[k].h*.5;
+  function draw(){if(!Rs.length)measure();const INK="#3E4A80",OR="#DB6830";let o="",polX=0,polY=0;const r=Rs,cyOf=k=>r[k].y+r[k].h*.5;
     const g=Math.floor(t*.7)%CODS.length,fph=(t*.7)%1;
     // lead in
     o+=ln(0,cyOf(0),r[0].x+2,cyOf(0),INK,2);
@@ -942,7 +1000,8 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
         else{teeth+=ln(x,ya,x,ya+6,BC[b],3)+ln(x,yb,x,yb-6,BC[PAIR[b]],3)}}
       let p1="",p2="";for(let x=x0;x<=x1;x+=2){const[ya,yb]=yA(x);p1+=(p1?"L":"M")+f1(x)+","+f1(ya);p2+=(p2?"L":"M")+f1(x)+","+f1(yb)}
       o+=rungs+teeth+`<path d="${p1}" fill="none" stroke="${INK}" stroke-width="2" opacity=".9"/><path d="${p2}" fill="none" stroke="${INK}" stroke-width="2"/>`;
-      const [ye]=yA(x1);o+=`<circle cx="${f1(x1)}" cy="${f1(ye)}" r="2.2" fill="${INK}"/>`}
+      const [ye]=yA(x1);o+=`<circle cx="${f1(x1)}" cy="${f1(ye)}" r="2.2" fill="${INK}"/>`;
+      polX=x1-4;polY=cy}
     // connectors helper
     const join=(a,b,c)=>{const xa=r[a].x+r[a].w,ya=cyOf(a),xb=r[b].x,yb=cyOf(b);
       if(Math.abs(ya-yb)<4)return ln(xa,ya,xb,yb,c,2);
@@ -963,7 +1022,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
       o+=`<path d="M${f1(q.x)},${f1(cy)} C${f1(q.x+q.w*.3)},${f1(cy)} ${f1(xm-14)},${f1(dip)} ${f1(xm)},${f1(dip)} S${f1(q.x+q.w*.7)},${f1(cy)} ${f1(q.x+q.w)},${f1(cy)}" fill="none" stroke="${INK}" stroke-width="2"/>`;
       const nx=CODS[(g+1)%CODS.length][1],fy=q.y+4+fph*(dip-14-q.y-4);
       o+=`<circle cx="${f1(xm)}" cy="${f1(fy)}" r="${f1(4+fph*3)}" fill="${acol(nx)}" stroke="${INK}" stroke-width="1.2" opacity="${f1(1-fph*.6)}"/>`;
-      o+=`<circle cx="${f1(xm)}" cy="${f1(dip)}" r="13" fill="${c}" stroke="${INK}" stroke-width="1.6"/>`+`<text x="${f1(xm)}" y="${f1(dip+4.5)}" text-anchor="middle" font-size="13" font-weight="700" fill="${lum(c)>.42?INK:"#FFFFE2"}" font-family="Bricolage Grotesque,sans-serif">${Lr}</text>`}
+      o+=`<circle cx="${f1(xm)}" cy="${f1(dip)}" r="13" fill="${c}" stroke="${INK}" stroke-width="1.6"/>`+`<text x="${f1(xm)}" y="${f1(dip+4.5)}" text-anchor="middle" font-size="13" font-weight="700" fill="${lum(c)>.42?INK:"#FFFFE2"}" font-family="Bricolage Grotesque,sans-serif">${Lr}</text>`+tx(xm,dip+26,"#3E4A80",(A.find(x=>x[0]===Lr)||[0,0,""])[2],8.5,700)}
     // 05 Chain
     {const q=r[4],cy=cyOf(4),sp=19,sh=(t*9)%sp,base=Math.floor(t*9/sp),Y=x=>{const u=(x-q.x)/q.w,e=Math.sin(Math.PI*u);return cy-e*(8+5*Math.sin(u*Math.PI*2-t*.9))};let p="";for(let x=q.x;x<=q.x+q.w;x+=2)p+=(p?"L":"M")+f1(x)+","+f1(Y(x));
       let bd="";for(let i=0;;i++){const x=q.x+6+i*sp+sh;if(x>q.x+q.w-6)break;const L=CODS[((i-base)%CODS.length+CODS.length)%CODS.length][1],c=acol(L),edge=Math.min(1,(x-q.x)/14,(q.x+q.w-x)/14);
@@ -977,12 +1036,33 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
       const HXC=["Inflammation","Drive","Gut","Muscle","DNA","Endocrine","Mood","Pain","Fat","Immunity","Organ","Repair"];let bs=[];let kk=0;for(let v=0;v<=TT;v+=2*Math.PI/3.6,kk++){bs.push([at(v),PAL[HXC[kk%HXC.length]][1]])}
       bs.sort((a,b)=>a[0][2]-b[0][2]);const beads=bs.map(([p,c])=>`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="${f1(3.4+p[2]*1.6)}" fill="${c}" stroke="${INK}" stroke-width="1.1" opacity="${p[2]>0?1:.55}"/>`).join("");
       o+=back+beads+front}
+    {const wob=Math.sin(t*2.2)*1.2;o+=`<g><ellipse cx="${f1(polX+wob)}" cy="${f1(polY)}" rx="15" ry="17" fill="#C2DCFF" fill-opacity=".92" stroke="#3E4A80" stroke-width="1.6"/><ellipse cx="${f1(polX+wob+5)}" cy="${f1(polY-4)}" rx="5" ry="6" fill="#FFFFF4" opacity=".55"/>`+tx(polX,polY+30,"#3E4A80","RNA polymerase",7.5,700)+`</g>`}
     svg.innerHTML=o}
-  function loop(now){if(!run)return;if(now-last>33){t+=(now-last>200?.033:(now-last)/1000);last=now;draw()}raf=requestAnimationFrame(loop)}
+  function loop(now){if(!run)return;const dt=now-last;last=now;t+=Math.min(.05,Math.max(0,dt/1000))*.8;draw();raf=requestAnimationFrame(loop)}
   measure();draw();let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth===lw&&Rs.length)return;lw=innerWidth;clearTimeout(walkInit.rt);walkInit.rt=setTimeout(()=>{measure();draw()},120)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{measure();draw()});
   if(still||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;last=performance.now();raf=requestAnimationFrame(loop)}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box)}
+
+const FF=[
+{n:"Collagen",sz:"3 chains · about 1,000 links each",cats:["Skin","Bone","Repair"],does:"The body’s rope. It holds skin, tendons, bone and blood vessels together, and makes up about a third of all the protein in you.",fact:"Every third link is glycine, the smallest amino acid, the only one thin enough to fit in the middle of the triple twist. Setting it needs vitamin C, which is why sailors without fruit got scurvy: their collagen came apart.",draw:"col"},
+{n:"Keratin",sz:"pairs of chains · about 400 to 500 links each",cats:["Hair","Skin"],does:"Hair, nails and the outer layer of skin. Pairs of chains wind around each other into tough cables.",fact:"Cysteine bridges, sulfur to sulfur, lock the cables together. A perm breaks those bridges, curls the hair, then lets them reform in the new shape. Burning hair smells of sulfur for the same reason.",draw:"ker"},
+{n:"Hemoglobin",sz:"4 chains · 141 and 146 links",cats:["Heart","Energy"],does:"Carries oxygen in red blood cells. Each of its four chains holds an iron disc, so one molecule carries four oxygens. A single red cell holds about 270 million of them.",fact:"One wrong letter changes everything: swap E for V at position 6 of the second chain and the molecules stick together into rods. That single swap is sickle cell disease.",draw:"hem"},
+{n:"Antibody",sz:"4 chains · about 1,300 links in total",cats:["Immunity","Inflammation"],does:"The immune system’s tags. Two long and two short chains form a Y; the two tips grab one exact shape on a virus or bacterium and flag it for destruction.",fact:"Only the tips change. By shuffling gene pieces, your body can make billions of different tips from a small set of genes, so there is an antibody for shapes it has never met.",draw:"ab"},
+{n:"Myosin",sz:"2 heavy chains · about 1,940 links each",cats:["Muscle","Energy"],does:"The motor in every muscle. Two heads walk along actin filaments, pulling them past each other: that slide is a muscle contracting.",fact:"Each step burns one ATP. Actin, the track it walks on, is the same scaffolding Thymosin Beta-4 holds ready in your cells.",draw:"myo"}];
+function ffSVG(k){const INK="#3E4A80",W=320,H=150,f=v=>v.toFixed(1);let o="";
+  const strand=(ph,c,amp,y0,w=7,x0=20,x1=300,per=60)=>{let p="";for(let x=x0;x<=x1;x+=3)p+=(p?"L":"M")+f(x)+","+f(y0+amp*Math.sin((x/per)*2*Math.PI+ph));return `<path d="${p}" fill="none" stroke="${INK}" stroke-width="${w+3}" stroke-linecap="round"/><path d="${p}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`};
+  if(k==="col"){o+=strand(0,"#FFEEEE",14,75)+strand(2.09,"#C782A5",14,75)+strand(4.19,"#E1DE62",14,75)}
+  if(k==="ker"){for(let x=36;x<300;x+=30){const y1=75+16*Math.sin((x/70)*2*Math.PI),y2=75+16*Math.sin((x/70)*2*Math.PI+Math.PI);o+=`<line x1="${x}" y1="${f(y1)}" x2="${x}" y2="${f(y2)}" stroke="#E1DE62" stroke-width="3"/><text x="${x+5}" y="${f((y1+y2)/2+3)}" font-size="8" font-weight="700" fill="${INK}" font-family="JetBrains Mono,monospace">S</text>`}
+    o=strand(0,"#924C1C",16,75,7,20,300,70)+o+strand(Math.PI,"#FFEEEE",16,75,7,20,300,70)}
+  if(k==="hem"){const cs=["#9E1B32","#9E1B32","#FF5050","#FF5050"],P=[[125,52],[195,52],[125,104],[195,104]];P.forEach(([x,y],i)=>{o+=`<path d="M${x-32},${y} C${x-34},${y-30} ${x+30},${y-34} ${x+33},${y-4} C${x+36},${y+26} ${x-26},${y+32} ${x-32},${y}Z" fill="${cs[i]}" fill-opacity=".85" stroke="${INK}" stroke-width="1.8"/><rect x="${x-6}" y="${y-6}" width="12" height="12" transform="rotate(45 ${x} ${y})" fill="#FFDE59" stroke="${INK}" stroke-width="1.4"/>`});o+=`<text x="76" y="56" font-size="10" fill="${INK}" font-family="JetBrains Mono,monospace">α</text><text x="76" y="108" font-size="10" fill="${INK}" font-family="JetBrains Mono,monospace">β</text><text x="246" y="140" font-size="9" fill="${INK}" font-family="JetBrains Mono,monospace">◆ iron disc</text>`}
+  if(k==="ab"){const arm=(x1,y1,x2,y2,c,w)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${INK}" stroke-width="${w+3}" stroke-linecap="round"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+    o+=arm(160,140,160,80,"#6777B6",16)+arm(160,80,108,26,"#6777B6",14)+arm(160,80,212,26,"#6777B6",14)+arm(136,84,96,42,"#C2DCFF",10)+arm(184,84,224,42,"#C2DCFF",10)+`<circle cx="100" cy="26" r="9" fill="#DB6830" stroke="${INK}" stroke-width="1.6"/><circle cx="220" cy="26" r="9" fill="#DB6830" stroke="${INK}" stroke-width="1.6"/><text x="236" y="30" font-size="9" fill="${INK}" font-family="JetBrains Mono,monospace">tips</text>`}
+  if(k==="myo"){for(let x=20;x<=300;x+=13)o+=`<circle cx="${x}" cy="128" r="6" fill="#F28E79" stroke="${INK}" stroke-width="1.1"/>`;o+=`<text x="20" y="148" font-size="9" fill="${INK}" font-family="JetBrains Mono,monospace">actin track</text>`;
+    o+=strand(0,"#F28E79",4,60,5,120,300,26)+strand(Math.PI,"#FFA51F",4,60,5,120,300,26)+`<path d="M120,60 C100,60 90,80 92,100" fill="none" stroke="${INK}" stroke-width="4"/><path d="M120,60 C112,70 118,92 128,104" fill="none" stroke="${INK}" stroke-width="4"/><ellipse cx="90" cy="108" rx="14" ry="10" fill="#FFA51F" stroke="${INK}" stroke-width="1.8"/><ellipse cx="130" cy="110" rx="14" ry="10" fill="#F28E79" stroke="${INK}" stroke-width="1.8"/><text x="64" y="86" font-size="9" fill="${INK}" font-family="JetBrains Mono,monospace">heads</text>`}
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${k}">${o}</svg>`}
+let ffi=0;function famous(){const tb=$("#ftabs"),pn=$("#fpanel");if(!tb)return;tb.innerHTML=FF.map((x,i)=>`<button type="button" role="tab" aria-selected="${i===ffi}" data-i="${i}">${x.n}</button>`).join("");const x=FF[ffi];
+  pn.innerHTML=`<div class="fart">${ffSVG(x.draw)}</div><div class="ftxt"><h4>${x.n}</h4><p class="fsz">${x.sz}</p><div class="fcats">${x.cats.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("")}</div><p>${x.does}</p><p class="ffact"><b>The surprise.</b> ${x.fact}</p></div>`}
 function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf=0;const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
   function draw(){const W=box.clientWidth||320,mob=W<520,H=mob?130:160,A=H*.3,cy=H/2,pad=26,pitch=mob?58:78,rx=pitch*.32,turns=(W-2*pad-rx*2)/pitch,T=turns*2*Math.PI;
     const at=t=>[pad+rx+(t/(2*Math.PI))*pitch+rx*Math.cos(t+ph),cy+A*Math.sin(t+ph),Math.cos(t+ph)];
@@ -1088,9 +1168,9 @@ function beadTip(){const box=$("#string");if(!box)return;const tip=document.crea
   box.addEventListener("pointerup",e=>{if(e.pointerType!=="mouse")hideLater(1800)});
   box.addEventListener("pointercancel",()=>hideLater(1800));
   box.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse")hideLater(150)})}
-const LAD=[["Amino acid","1",null,"A single building block."],["Dipeptide","2","Vilon","Two linked. The smallest peptide."],["Tripeptide","3","GHK-Cu","Three linked."],["Oligopeptide","4 to 20","BPC-157","A few linked. Most research peptides live here."],["Polypeptide","20 to 50","Thymosin Beta-4","A long chain, often still loose."],["Protein","50+","Ubiquitin","Long enough to fold into a working shape."],["Complex","many chains",null,"Several folded proteins working as one, like hemoglobin’s four chains. Bigger still: the ribosome, built from dozens of proteins and RNA."]];
+const LAD=[["Amino acid","1",null,"A single building block."],["Dipeptide","2","Vilon","Two linked. The smallest peptide."],["Tripeptide","3","GHK-Cu","Three linked."],["Oligopeptide","4 to 20","BPC-157","A few linked. Most research peptides live here."],["Polypeptide","20 to 50","Thymosin Beta-4","A long chain, often still loose."],["Protein","50+","Ubiquitin","Long enough to fold into a working shape."],["Complex","many chains","famous","Several folded proteins working as one, like hemoglobin’s four chains. Bigger still: the ribosome, built from dozens of proteins and RNA."]];
 function ladder(){const el=$("#ladder");if(!el)return;const n=lastCh.length;const lv=n<=1?0:n===2?1:n===3?2:n<=20?3:n<50?4:5;
-  el.innerHTML=LAD.map((r,k)=>`<button type="button" class="rung${k===lv?" on":""}${r[2]?"":" nolink"}" data-k="${k}"><b>${r[0]}</b><span>${r[1]}</span></button>`).join('<i class="rar" aria-hidden="true"></i>');
+  el.innerHTML=LAD.map((r,k)=>`<button type="button" class="rung${k===lv?" on":""}" data-k="${k}"><b>${r[0]}</b><span>${r[1]}</span></button>`).join('<i class="rar" aria-hidden="true"></i>');
   const c=$("#lcap");if(c)c.innerHTML=`<b>${LAD[lv][0]}.</b> ${LAD[lv][3]}`}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
@@ -1262,7 +1342,7 @@ let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===las
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"),false,true);steps();helixInit();walkInit();$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
+show(11,false);home();pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"),false,true);steps();helixInit();walkInit();famous();$("#ftabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;ffi=+b.dataset.i;famous()});$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(+r.dataset.k===0){const h=document.querySelector("h2:has(.tap)")||$("#tiles");h.scrollIntoView({behavior:"smooth",block:"start"});return}if(+r.dataset.k===LAD.length-1){$("#famous").scrollIntoView({behavior:"smooth",block:"start"});return}if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 </script>
 </body>
 </html>
