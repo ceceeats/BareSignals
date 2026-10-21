@@ -162,7 +162,7 @@ textarea#dna{resize:vertical;min-height:52px;line-height:1.4}
 .wrap{max-width:1440px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:32px 44px;align-items:start;padding-block:24px 48px}
 .left{display:flex;flex-direction:column;gap:20px;min-width:0}
 .left .lede{max-width:none}
-#cardwrap{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));max-height:calc(100vh - 32px);overflow:auto;min-width:0}
+#cardwrap{min-width:0}
 .path{grid-template-columns:repeat(6,minmax(0,1fr))}
 .tiles{grid-template-columns:repeat(7,minmax(0,1fr))}
 .tile{min-height:104px}
@@ -318,7 +318,7 @@ h1{font-size:23px}
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V11</small></h1>
+    <h1>Aminos<small>V12</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide on a Bare Signals card is a string of these 21 building blocks. Your genes spell them out three letters at a time, and the order decides what the chain becomes.</p>
   </header>
 
@@ -380,7 +380,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V11:</b> phone only. Card back to the V2 structure with everything visible at once (name, stripe, categories, fact table, structure beside roles, weight note), no tabs, all in smaller type so it opens under the tapped row without filling the screen. The 21 tiles shrink again with smaller type. Gene to protein boxes compacted: step number and title on one line, smaller descriptions, same words. Laptop unchanged. V10 unchanged.</p>
+    <p><b>V12:</b> laptop card no longer pinned: it scrolls with the page instead of sliding over the translator. V11 unchanged.</p>
+    <p style="margin-top:6px"><b>V11:</b> phone only. Card back to the V2 structure with everything visible at once (name, stripe, categories, fact table, structure beside roles, weight note), no tabs, all in smaller type so it opens under the tapped row without filling the screen. The 21 tiles shrink again with smaller type. Gene to protein boxes compacted: step number and title on one line, smaller descriptions, same words. Laptop unchanged. V10 unchanged.</p>
     <p style="margin-top:6px"><b>V10:</b> laptop card table back to the original one-fact-per-row red table. Phone card no longer slides over the page: tapping a tile opens a compact card right under that tile’s row and pushes the grid apart, so tiles and card are on screen together; tap the same tile or the × to close, tap another tile to switch. The phone card splits into three tabs (Facts, Structure, Roles) and drops the category chips and weight footnote so it fits in about a third of an iPhone screen; the tab you pick stays picked as you move between tiles. Laptop otherwise unchanged. V9 unchanged.</p>
     <p style="margin-top:6px"><b>V9:</b> fixes. Card spec table rebuilt as label-over-value boxes: two across on phones, four across on laptops, codons in a wide box, so no half-empty row and no doubled borders. Structure drawing enlarged; the side chain formula and note now sit as text under it instead of being squeezed into the drawing. Long tile names break with a hyphen at a syllable (Phenyl-alanine, Seleno-cysteine) instead of mid-word. Version log folded behind a tap. V8 unchanged.</p>
     <p style="margin-top:6px"><b>V8:</b> phone only. Tiles 5 across instead of 4, with smaller type, so the grid is 5 rows and the key gets four open spaces beside the last tile. Popular list cut from 24 to 18: Ipamorelin, CJC-1295 no DAC, Sermorelin, MT-2, PT-141 and LL-37 moved to the search list only. Thymosin Beta-4 renamed TB-500 (Tβ4) and kept next to TB-500 frag 17–23 so the difference is visible; searching Thymosin Beta-4 still finds it. Laptop layout unchanged. V7 unchanged.</p>
