@@ -669,13 +669,19 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 @media (max-width:899px){.fpanel{grid-template-columns:1fr;padding:12px}.t3{font-size:26px}.ftabs button{padding:7px 9px;font-size:12.5px}}
 
 .omap i.on{box-shadow:inset 0 0 0 1px var(--ink)}
+
+.howto{display:block;width:max-content;max-width:100%}
+.howto[open]{width:auto}
+.howto summary{font-size:13px!important;padding:6px 10px!important}
+#q{font-size:16px!important}
+.more2{margin:-6px 0 10px auto;font-size:13px}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From gene to peptide<small>V38</small></h1>
+    <h1>From gene to peptide<small>V39</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -697,7 +703,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     <div class="divider p1"><span>Part one · The letters</span></div>
     <h2>The 21 amino acids <span class="tap">tap one to open its card, tap again to close</span></h2>
     <p class="p1lede">Think of this as the periodic table of life. Every peptide and protein in your body is spelled from these 21 letters, in different orders and lengths. Each tile is one amino acid: tap it to see its structure, its weight and what it does in the body.</p>
-    <details class="howto" open><summary>How to read a tile</summary>
+    <details class="howto"><summary>How to read a tile</summary>
       <div class="hx">
         <div class="hxt"><strong>Alanine</strong><span class="hm">Ala · 89</span><span class="hp"><i></i><i></i><i></i><i></i></span><em>A</em><span class="hs"><i style="background:#F28E79"></i><i style="background:#FFCBAA"></i><i style="background:#FCB0B4"></i></span>
           <b class="c1">1</b><b class="c2">2</b><b class="c3">3</b><b class="c4">4</b><b class="c5">5</b></div>
@@ -718,11 +724,11 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     </div>
     <div class="key">
       <span><span class="pips" style="color:var(--ink)"><i></i><i></i><i></i></span>Codons that spell it</span>
-      <span><span class="sg" style="color:var(--ink)"><b>+</b><b>−</b></span>Charge</span>
-      <span><span class="sg" style="color:var(--ink)"><b>⬡</b></span>Ring</span>
-      <span><span class="sg" style="color:var(--ink)"><b>S</b></span>Sulfur</span>
-      <span><span class="sg" style="color:var(--ink)"><b>▸</b></span>Start signal</span>
-      <span><span class="sg" style="color:var(--ink)"><b>B</b></span>Branched-chain (BCAA)</span>
+      <span><span class="sg" style="color:var(--accent)"><b>+</b><b>−</b></span>Charge</span>
+      <span><span class="sg" style="color:var(--accent)"><b>⬡</b></span>Ring</span>
+      <span><span class="sg" style="color:var(--accent)"><b>S</b></span>Sulfur</span>
+      <span><span class="sg" style="color:var(--accent)"><b>▸</b></span>Start signal</span>
+      <span><span class="sg" style="color:var(--accent)"><b>B</b></span>Branched-chain (BCAA)</span>
     </div>
   </section>
 
@@ -757,6 +763,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
       <span class="qwrap"><svg class="mag" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.8 12.8 L17.5 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides"></span>
       <div class="drop" id="plist" role="listbox" hidden></div>
     </div>
+    <button type="button" class="more more2" id="popmore2">Show all</button>
     <div class="poph"><p class="lab" id="poplab">Popular</p><div class="psort" id="psort" hidden><button type="button" data-s="pop" aria-pressed="true">Popular</button><button type="button" data-s="short" aria-pressed="false">Shortest</button><button type="button" data-s="long" aria-pressed="false">Longest</button><button type="button" data-s="az" aria-pressed="false">A–Z</button><button type="button" data-s="ori" aria-pressed="false">By origin</button></div></div>
     <div class="pop5" id="pop"></div>
     <p class="lab" style="margin-top:14px">Not peptides, often paired with them</p>
@@ -774,7 +781,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
     <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
     <div class="famous" id="famous">
-      <h3 class="t3">Five famous folds</h3>
+      <h3 class="t3">Proteins you already know</h3>
       <p class="lede2">Past 50 links, chains stop being strings and become machines. Several folded chains often work as one. Five you already know, each a different shape for a different job.</p>
       <div class="ftabs" id="ftabs" role="tablist"></div>
       <div class="fpanel" id="fpanel"></div>
@@ -782,9 +789,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 38 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 38 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V38:</b> in every map of where a peptide sits inside its parent protein, the known links now carry their real amino acid colours, the same as the chain beads, with the letter on hover. BPC-157’s 15 known links between the question marks are coloured the same way.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 39 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 39 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V39:</b> How to read a tile starts closed, as a small box. The tile key’s signs are now orange, matching the tiles. In the moving walk the mRNA wave settles flat at both ends so DNA, mRNA and codons join cleanly, and the turn between rows is one soft curve instead of square corners. Show all now also sits right under the search box. Search understands origin words: not a peptide, lab-made, natural, fragment, modified, enzyme-made. The search box no longer zooms the page on iPhone. GHK-Cu and AHK-Cu show their copper atom bound to the chain. Five famous folds renamed Proteins you already know.</p>
+    <p style="margin-top:6px"><b>V38:</b> in every map of where a peptide sits inside its parent protein, the known links now carry their real amino acid colours, the same as the chain beads, with the letter on hover. BPC-157’s 15 known links between the question marks are coloured the same way.</p>
     <p style="margin-top:6px"><b>V37:</b> the page title is now From gene to peptide, with Aminos as the label above it; Part two becomes Build a peptide. The moving walk gains RNA polymerase, the enzyme that unzips DNA and writes the mRNA, sitting where the strands part, so the mRNA comes straight out of it. Motion runs at full frame rate. The amino acid bead now shows its name underneath. Part one gains a short introduction and a How to read a tile key (full name, three-letter code, one-letter code, weight, codon pips, stripe), and every amino acid card now says how to pronounce it. In Part three, Amino acid on the ladder jumps back to the 21 tiles, and Complex opens Five famous folds: collagen, keratin, hemoglobin, antibodies and myosin, each drawn with its size, job and one surprise.</p>
     <p style="margin-top:6px"><b>V36:</b> on laptops, Part two becomes two columns: the build on the left, the peptide picker beside it on the right third, staying in view while you scroll. Popular gains Show all, which opens every entry with sorting: popular, shortest, longest, A to Z, or grouped by origin (made by the body, cut from a protein, made by enzymes, lab-modified, lab-designed, reference, not a peptide). BPC-157 now sits between question-mark ghosts, since the rest of its parent protein is unknown. Every chain, even two or three links, now rides the S-curve. The fold at the top turns with the chain instead of against it. Bigger type for Aminos, the part labels and The 21 amino acids.</p>
     <p style="margin-top:6px"><b>V35:</b> the top is now a moving lesson: one string comes in from the left, touches the DNA ladder with its coloured A, T, C, G teeth, unzips into orange mRNA, is read three letters at a time, drops amino acids, links them into a chain and coils into a helix, in six captioned steps. Every entry’s origin line rewritten as a short story: who found it, how it got its name, the surprise. Khavinson bioregulators explained by tissue. Chains of ten or fewer now all use the large Vilon bead size; longer ones shrink gradually.</p>
@@ -1009,11 +1017,11 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
     // connectors helper
     const join=(a,b,c)=>{const xa=r[a].x+r[a].w,ya=cyOf(a),xb=r[b].x,yb=cyOf(b);
       if(Math.abs(ya-yb)<4)return ln(xa,ya,xb,yb,c,2);
-      const ym=r[b].y-9,R0=10,xr=W-3,xl=3;return `<path d="M${f1(xa)},${f1(ya)} L${f1(xr-R0)},${f1(ya)} Q${f1(xr)},${f1(ya)} ${f1(xr)},${f1(ya+R0)} L${f1(xr)},${f1(ym-R0)} Q${f1(xr)},${f1(ym)} ${f1(xr-R0)},${f1(ym)} L${f1(xl+R0)},${f1(ym)} Q${f1(xl)},${f1(ym)} ${f1(xl)},${f1(ym+R0)} L${f1(xl)},${f1(yb-R0)} Q${f1(xl)},${f1(yb)} ${f1(xl+R0)},${f1(yb)} L${f1(xb)},${f1(yb)}" fill="none" stroke="${c}" stroke-width="2"/>`};
+      const ym=r[b].y-12;return `<path d="M${f1(xa)},${f1(ya)} Q${f1(W-3)},${f1(ya)} ${f1(W-3)},${f1(ya+24)} L${f1(W-3)},${f1(ym-26)} C${f1(W-3)},${f1(ym-4)} ${f1(W-34)},${f1(ym)} ${f1(W/2)},${f1(ym)} C${f1(30)},${f1(ym)} ${f1(3)},${f1(ym+6)} ${f1(3)},${f1((ym+yb)/2)} S${f1(10)},${f1(yb)} ${f1(xb)},${f1(yb)}" fill="none" stroke="${c}" stroke-width="2"/>`};
     o+=join(0,1,OR)+join(1,2,OR)+join(2,3,INK)+join(3,4,INK)+join(4,5,INK);
     // 02 mRNA
-    {const q=r[1],cy=cyOf(1),sp=8,sh=(t*13)%sp,base=Math.floor(t*13/sp);let p="";for(let x=q.x;x<=q.x+q.w;x+=2){p+=(p?"L":"M")+f1(x)+","+f1(cy+2.5*Math.sin(x*.12-t*2))}
-      let te="";for(let i=0;;i++){const x=q.x+4+i*sp+sh;if(x>q.x+q.w-3)break;const b=WSEQ[((i-base)%WSEQ.length+WSEQ.length)%WSEQ.length].replace("T","U"),y=cy+2.5*Math.sin(x*.12-t*2);te+=ln(x,y,x,y+9,BC[b],3)+tx(x,y+20,"#6B76A8",b,7.5)}
+    {const q=r[1],cy=cyOf(1),sp=8,sh=(t*13)%sp,base=Math.floor(t*13/sp);let p="";for(let x=q.x;x<=q.x+q.w;x+=2){p+=(p?"L":"M")+f1(x)+","+f1(cy+2.5*Math.sin(x*.12-t*2)*Math.sin(Math.PI*Math.min(1,Math.max(0,(x-q.x)/q.w))))}
+      let te="";for(let i=0;;i++){const x=q.x+4+i*sp+sh;if(x>q.x+q.w-3)break;const b=WSEQ[((i-base)%WSEQ.length+WSEQ.length)%WSEQ.length].replace("T","U"),y=cy+2.5*Math.sin(x*.12-t*2)*Math.sin(Math.PI*Math.min(1,Math.max(0,(x-q.x)/q.w)));te+=ln(x,y,x,y+9,BC[b],3)+tx(x,y+20,"#6B76A8",b,7.5)}
       o+=te+`<path d="${p}" fill="none" stroke="${OR}" stroke-width="2.4"/>`}
     // 03 Codon
     {const q=r[2],cy=cyOf(2),gw=27,gap=4,n=Math.max(2,Math.floor((q.w-4)/(gw+gap))),x00=q.x+(q.w-(n*gw+(n-1)*gap))/2;let o3="";
@@ -1182,11 +1190,11 @@ function drawString(ch,still){
   lastCh=ch;const box=$("#string");if(!box)return;
   if(!ch.length){box.querySelectorAll("svg").forEach(n=>n.remove());return}
   const W=box.clientWidth||320,mob=W<520;
-  const n=ch.length,small=n<=6,bigM=n<=10,big=mob?40:50,minD=mob?21:24,tt=Math.min(1,Math.max(0,(n-10)/30));
+  const n=ch.length,small=n<=6,bigM=n<=10,cuOn=cur!==null&&P[cur]&&/-Cu$/.test(P[cur][0])&&n===P[cur][1].length&&n>=2,big=mob?40:50,minD=mob?21:24,tt=Math.min(1,Math.max(0,(n-10)/30));
   const d=Math.round(big-(big-minD)*Math.pow(tt,.6)),step=d+Math.round(d*(small?.35:.3)),fs=Math.max(10.5,Math.round(d*.44));
   const amp=d*(small?.3:bigM?.24:.3),rowH=Math.round(d+Math.max(12,d*.5)+2*amp),padMin=d/2+26;
   const fit=Math.max(3,Math.floor((W-2*padMin)/step)+1),per=n<=fit?n:fit,pad=n<=fit?(W-(n-1)*step)/2:padMin;
-  const rows=Math.ceil(n/per),top=d/2+6+amp,H=top+(rows-1)*rowH+d/2+8+amp;
+  const rows=Math.ceil(n/per),top=d/2+6+amp+(cuOn?d*1.25:0),H=top+(rows-1)*rowH+d/2+8+amp;
   const pts=ch.map((a,i)=>{const r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH+(small?amp*(i%2?1:-1):amp*Math.sin(i*.85)),r]});
   const tail=small?d/2+8:Math.max(10,Math.round(d*.4));
   let p=`M${pts[0][0]-tail},${pts[0][1]} L${pts[0][0]},${pts[0][1]}`;
@@ -1196,7 +1204,7 @@ function drawString(ch,still){
   const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
     return `<g class="bd" data-i="${i}" style="--i:${i}"><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+fs*.36}" text-anchor="middle" fill="${fg}" font-size="${fs}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
   const nx=pts[0][0]-tail-5,cx2=L[0]+(lastRight?tail+5:-tail-5);
-  box.classList.toggle("still",!!still);box.dataset.n=ch.length;box.querySelectorAll('svg').forEach(n=>n.remove());box.insertAdjacentHTML('afterbegin',`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`);
+  box.classList.toggle("still",!!still);box.dataset.n=ch.length;box.querySelectorAll('svg').forEach(n=>n.remove());box.insertAdjacentHTML('afterbegin',`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}${cuOn?(()=>{const g=pts[0],h=pts[1],k=pts[2]||pts[1],cx=(g[0]+h[0])/2,cyy=Math.min(g[1],h[1])-d*1.15,rr=d*.42;return `<g class="cu"><line x1="${cx}" y1="${cyy}" x2="${g[0]}" y2="${g[1]-d/2}" stroke="#B87333" stroke-width="2" stroke-dasharray="3 3"/><line x1="${cx}" y1="${cyy}" x2="${h[0]}" y2="${h[1]-d/2}" stroke="#B87333" stroke-width="2" stroke-dasharray="3 3"/><line x1="${cx}" y1="${cyy}" x2="${k[0]}" y2="${k[1]-d/2}" stroke="#B87333" stroke-width="1.4" stroke-dasharray="2 3" opacity=".6"/><circle cx="${cx}" cy="${cyy}" r="${rr}" fill="#B87333" stroke="#3E4A80" stroke-width="1.5"/><text x="${cx}" y="${cyy+rr*.36}" text-anchor="middle" font-size="${Math.round(rr*.95)}" font-weight="700" fill="#FFFFE2" font-family="Bricolage Grotesque,sans-serif">Cu</text><text x="${cx+rr+6}" y="${cyy+4}" font-size="11" fill="#6B76A8" font-family="JetBrains Mono,monospace">copper</text></g>`})():""}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`);
 }
 const P=[
 ["Insulin","FVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN","Glucose","Shown as proinsulin, the single chain the body first makes. Two cuts remove the middle; the B chain (first 30) and A chain (last 21) stay, joined by two bridges between C pairs",4,"proinsulin hormone"],
@@ -1293,7 +1301,7 @@ function renderPop(){
   const extra=all.filter(i=>!P[i][4]&&!isNP(i)&&ty(i)!=="ref").sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
   const npRow=all.filter(isNP).sort((a,b)=>(P[a][4]||99)-(P[b][4]||99));
   const lab=$("#poplab"),ps=$("#psort"),more=$("#popmore"),pn=$("#popnp"),pnl=pn&&pn.previousElementSibling;
-  if(more)more.textContent=popAll?"Show less ↑":`Show all ${P.length} ↓`;if(ps)ps.hidden=!popAll;if(lab)lab.textContent=popAll?`All ${P.length}`:"Popular";
+  if(more)more.textContent=popAll?"Show less ↑":`Show all ${P.length} ↓`;const m2=$("#popmore2");if(m2)m2.textContent=popAll?"Show less ↑":`Show all ${P.length} ↓`;if(ps)ps.hidden=!popAll;if(lab)lab.textContent=popAll?`All ${P.length}`:"Popular";
   if(pn){pn.hidden=popAll;if(pnl)pnl.hidden=popAll}
   if(ps)ps.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===popSort));
   if(!popAll){pop.innerHTML=base.concat(extra).slice(0,innerWidth<900?44:48).map(chip).join("");if(pn)pn.innerHTML=npRow.map(chip).join("");return}
@@ -1309,7 +1317,7 @@ function renderPop(){
 let hl=-1,shown=[];
 function renderList(){
   const q=$("#q").value.trim().toLowerCase().replace(/[\s\-–]/g,"");
-  shown=P.map((p,i)=>i).filter(i=>!q||(P[i][0]+" "+(P[i][5]||"")).toLowerCase().replace(/[\s\-–]/g,"").includes(q)).sort((a,b)=>P[a][0].localeCompare(P[b][0]));
+  shown=P.map((p,i)=>i).filter(i=>{if(!q)return true;const o=(ORI[P[i][0]]||["syn"])[0];return (P[i][0]+" "+(P[i][5]||"")+" "+OT[o][0]+" "+(SHORT[o]||"")+(o==="np"?" not a peptide nonpeptide":"")+(o==="syn"?" lab made synthetic":"")).toLowerCase().replace(/[\s\-–]/g,"").includes(q)}).sort((a,b)=>P[a][0].localeCompare(P[b][0]));
   let last="",h="";
   shown.forEach((i,k)=>{const L=/[0-9]/.test(P[i][0][0])?"#":P[i][0][0].toUpperCase();if(!q&&L!==last){h+=`<div class="let">${L}</div>`;last=L}h+=pk(i).replace('class="pk"',`class="pk${k===hl?" hl":""}"`)});
   $("#plist").innerHTML=shown.length?h:`<p class="empty" style="border:0">No match. Try another name.</p>`;
@@ -1324,7 +1332,7 @@ function head(){
   const p=P[cur];legend(p);{const np=!p[1];$("#s5n").classList.toggle("gone",np);$("#s5h").textContent=np?"What it is":"Built";$("#s5p").textContent=np?"Not built from a gene":"What you made"}const nl=$("#nowline");const uc=(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]).map(k=>PAL[k][1]);const ug=uc.length?`linear-gradient(90deg,${uc.map((c,k)=>`${c} ${(k*100/uc.length).toFixed(1)}% ${((k+1)*100/uc.length).toFixed(1)}%`).join(",")})`:"linear-gradient(#3E4A80,#3E4A80)";if(nl)nl.innerHTML=`<span class="nwl">${demo?"First example":"Building"}</span><b class="nwn" style="--ug:${ug}">${p[0]}</b><button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
-$("#popmore").addEventListener("click",()=>{popAll=!popAll;renderPop();if(!popAll)$("#pickers").scrollIntoView({block:"start",behavior:"smooth"})});$("#psort").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;popSort=b.dataset.s;renderPop()});
+$("#popmore2").addEventListener("click",()=>{popAll=!popAll;renderPop();if(popAll)$("#pop").scrollIntoView({block:"nearest",behavior:"smooth"})});$("#popmore").addEventListener("click",()=>{popAll=!popAll;renderPop();if(!popAll)$("#pickers").scrollIntoView({block:"start",behavior:"smooth"})});$("#psort").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;popSort=b.dataset.s;renderPop()});
 ["#pop","#popnp"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)}));
 $("#plist").addEventListener("mousedown",e=>e.preventDefault());
 $("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p,true);$("#q").blur()}});
