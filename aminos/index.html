@@ -559,13 +559,35 @@ h1{font-size:23px}
 .res.np .nowline{display:none}
 .ch5.npc{border-style:dashed}
 .ch5.npc em{font-size:11.5px}
+
+.qwrap{position:relative;display:block}
+.qwrap .mag{position:absolute;left:11px;top:50%;width:17px;height:17px;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.qwrap #q{padding-left:36px!important;width:100%;box-sizing:border-box}
+.gi.core dt,.gi.core dd{color:var(--accent)}
+.gi.core dd{font-weight:500}
+#madeof{margin-top:14px}
+.mk{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:0 0 10px}
+.mk b{font:700 13px var(--display);color:var(--paper);background:var(--ink);padding:2px 8px}
+.mk span{font:500 12.5px var(--mono);color:var(--ink)}
+.mk span i{font-style:normal;color:var(--ink-soft)}
+.parts{display:flex;align-items:flex-start;justify-content:center;gap:0;overflow-x:auto;padding:4px 2px 2px}
+.pt{flex:0 1 92px;min-width:56px;padding:0 3px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.pt+.pt::before{content:"";position:absolute;top:24px;right:calc(50% + 22px);width:calc(100% - 44px);border-top:2px solid var(--ink)}
+.pt svg{width:48px;height:48px;display:block;position:relative;z-index:1}
+.pt strong{font:700 12.5px/1.15 var(--display);color:var(--ink);margin-top:5px;hyphens:manual}
+.pt em{font:italic 400 11px/1.2 var(--body);color:var(--ink-soft);margin-top:1px}
+.pt.on strong{color:var(--accent)}
+.soup svg{width:100%;height:auto;display:block}
+.mtxt{margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.mtxt b{color:var(--accent)}
+@media (max-width:420px){.pt{min-width:50px}.pt svg{width:40px;height:40px}.pt+.pt::before{top:20px;right:calc(50% + 18px);width:calc(100% - 36px)}.pt strong{font-size:11px}.pt em{font-size:10px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V30</small></h1>
+    <h1>Aminos<small>V31</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
@@ -621,13 +643,14 @@ h1{font-size:23px}
     <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="pname"></div>
     <div id="pleg" aria-label="Stripe colours"></div>
     <div id="origin" hidden></div>
+    <div id="madeof" hidden></div>
     <div id="modbox"></div><div id="statsbox"></div><div id="endnote"></div></div></div>
     <div id="out" hidden></div>
     </div>
     <div class="pick" id="pickers">
     <p class="lab">All peptides <span id="cnt" style="letter-spacing:0;text-transform:none"></span></p>
     <div class="combo">
-      <input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides">
+      <span class="qwrap"><svg class="mag" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.8 12.8 L17.5 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides"></span>
       <div class="drop" id="plist" role="listbox" hidden></div>
     </div>
     <p class="lab">Popular</p>
@@ -646,9 +669,10 @@ h1{font-size:23px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 30 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 30 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V30:</b> arrows removed; each step now carries a large orange number instead. Fold to one line moved under the codons, bottom right. The N and C ends explained in a short paragraph. Chains of six or fewer sit centred with big beads, so tiny peptides look as small and whole as they are. Added Insulin, shown as proinsulin (86) with its history, FOXO4-DRI, and NAD+, 5-Amino-1MQ, Cerebrolysin and Bromantane as not-a-peptide entries that explain why there is no chain; NAD+, Humanin, Glutathione, Cerebrolysin, FOXO4-DRI and Bromantane joined the popular list. V29 unchanged.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 31 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 31 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V31:</b> a magnifier in the pick and search box. Glossary rewritten to two or three sentences per term; amino acid, peptide and protein now in orange, word and meaning alike. Three new terms: nucleotide, small molecule, coenzyme. The four non-peptides now show what they are made of instead of an empty panel: NAD+ as its six parts, 5-Amino-1MQ and Bromantane as rings, cage and atoms, Cerebrolysin as a soup of loose amino acids and short chains, each with formula and weight.</p>
+    <p style="margin-top:6px"><b>V30:</b> arrows removed; each step now carries a large orange number instead. Fold to one line moved under the codons, bottom right. The N and C ends explained in a short paragraph. Chains of six or fewer sit centred with big beads, so tiny peptides look as small and whole as they are. Added Insulin, shown as proinsulin (86) with its history, FOXO4-DRI, and NAD+, 5-Amino-1MQ, Cerebrolysin and Bromantane as not-a-peptide entries that explain why there is no chain; NAD+, Humanin, Glutathione, Cerebrolysin, FOXO4-DRI and Bromantane joined the popular list. V29 unchanged.</p>
     <p style="margin-top:6px"><b>V29:</b> glide a finger or mouse along the chain and each bead names itself as you pass; it lingers where you stop, then fades. Thymosin Beta-4 renamed, underlined in its colour in the Building line. Arrows are now solid orange triangles; tighter gap before Built. Fold control in its own orange box. More popular peptides (44 on phones, 48 on laptops). Every entry in the list shows its origin and flags proteins; the banner says a protein when it is one. Added five reference peptides for comparison: GLP-1, Glucagon, Exenatide, Amylin and Ubiquitin (76, a true protein). The close now climbs a ladder, amino acid to dipeptide to protein to complex, with your current build lit; tap a rung to load an example. Helix gains a yellow ribbon. V28 unchanged.</p>
     <p style="margin-top:6px"><b>V28:</b> the walk now builds first and reveals after: DNA, mRNA, codons and chain come first, then step 05 shows what you built, with the peptide’s banner, colour key, origin and numbers together. A small line at the top says which peptide is building, with a jump to try another. Popular now shows 36 peptides on every screen. The helix beads take the colours of the chain you just built. V27 unchanged.</p>
     <p style="margin-top:6px"><b>V27:</b> full DNA, mRNA and codons show by default, with one orange Fold to one line control above them that folds all three into swipeable lines, each giving a small sideways nudge to show it swipes; Expand code brings them back. Fixed lines not returning to normal after folding. Arrows larger and orange; step text moved closer together; T and U letters bold orange. Hover or tap any bead in the chain to see its name, code and position. Linked by peptide bonds moved beside Chain. V26 unchanged.</p>
@@ -682,8 +706,8 @@ h1{font-size:23px}
     <p style="margin-top:6px"><b>V1:</b> first version. 20 standard amino acids plus selenocysteine. Category colours and names taken from Bare Signals Stripe v3; chemistry class shown as dashed chips, kept outside the colour palette. Detox and clearance roles filed under Organ function until a colour is approved.</p>
   </details>
   <details class="gloss" id="glossary">
-    <summary>Glossary <span>· 30 terms</span></summary>
-    <dl><div class="gi"><dt>Amino acid</dt><dd>One of the 21 building blocks. Same backbone, different side chain.</dd></div><div class="gi"><dt>Peptide</dt><dd>A short chain of amino acids. Usually under about 50.</dd></div><div class="gi"><dt>Protein</dt><dd>A long chain that folds into a working 3D shape.</dd></div><div class="gi"><dt>Residue</dt><dd>One amino acid once it sits inside a chain.</dd></div><div class="gi"><dt>Peptide bond</dt><dd>The link between two amino acids. A water molecule leaves each time one forms.</dd></div><div class="gi"><dt>Backbone</dt><dd>The repeating N, C, C spine every amino acid shares. Navy in the drawings.</dd></div><div class="gi"><dt>Side chain (R)</dt><dd>The part that makes each amino acid different. Orange in the drawings.</dd></div><div class="gi"><dt>N end, C end</dt><dd>The two ends of a chain. Chains are built and read from N to C.</dd></div><div class="gi"><dt>DNA</dt><dd>The gene. Four letters: A, T, C, G.</dd></div><div class="gi"><dt>mRNA</dt><dd>The working copy of a gene. T becomes U.</dd></div><div class="gi"><dt>Codon</dt><dd>Three mRNA letters that call for one amino acid.</dd></div><div class="gi"><dt>Stop codon</dt><dd>UAA, UAG or UGA. Tells the ribosome the chain is done.</dd></div><div class="gi"><dt>Ribosome</dt><dd>The cell’s machine that reads mRNA and links amino acids.</dd></div><div class="gi"><dt>tRNA</dt><dd>The carrier that brings each amino acid to the ribosome.</dd></div><div class="gi"><dt>Essential</dt><dd>Your body can’t make it. It has to come from food.</dd></div><div class="gi"><dt>Conditionally essential</dt><dd>Your body makes it, but not always enough under stress or illness.</dd></div><div class="gi"><dt>BCAA</dt><dd>Branched-chain amino acids: leucine, isoleucine, valine.</dd></div><div class="gi"><dt>g/mol</dt><dd>Grams per mole. The standard unit for molecular weight.</dd></div><div class="gi"><dt>Monoisotopic mass</dt><dd>Weight counting only the most common atom of each element. Labs often report this one.</dd></div><div class="gi"><dt>D amino acid</dt><dd>The mirror image of the natural form. Resists breakdown, so peptides last longer.</dd></div><div class="gi"><dt>Aib</dt><dd>A lab-made amino acid that blocks enzymes from cutting the chain.</dd></div><div class="gi"><dt>Acetylated start</dt><dd>A small cap on the N end. Protects the chain from breakdown.</dd></div><div class="gi"><dt>Amide end</dt><dd>A cap on the C end. Same job: more stable, longer lasting.</dd></div><div class="gi"><dt>Cyclic</dt><dd>A chain closed into a ring. Stiffer and harder to break down.</dd></div><div class="gi"><dt>Bioregulator</dt><dd>Very short peptides, 2 to 4 amino acids, studied mainly in Russia for tissue-specific effects.</dd></div><div class="gi"><dt>Sequence</dt><dd>The order of amino acids in a chain, written N to C in one-letter codes.</dd></div><div class="gi"><dt>Folding</dt><dd>How a chain twists into its working shape: helices, sheets, then 3D.</dd></div><div class="gi"><dt>Lipidation</dt><dd>A fatty acid tail added so the peptide rides on albumin and lasts days.</dd></div><div class="gi"><dt>Pyroglutamate</dt><dd>A starting E that curls into a ring. A natural cap on some peptides.</dd></div><div class="gi"><dt>Recoded codon</dt><dd>UGA usually means stop. With a special signal it calls for selenocysteine.</dd></div></dl>
+    <summary>Glossary <span>· 33 terms</span></summary>
+    <dl><div class="gi core"><dt>Amino acid</dt><dd>One of the 21 building blocks of every peptide and protein. All share the same backbone; only the side chain changes. That one small difference decides whether it loves water, carries a charge or bends the chain.</dd></div><div class="gi core"><dt>Peptide</dt><dd>A short chain of amino acids, usually under about 50. Many work as messengers, carrying a signal from one tissue to another. Small enough to be built in a lab one link at a time.</dd></div><div class="gi core"><dt>Protein</dt><dd>A long chain that folds into a working 3D shape. The shape is the job: enzymes, muscle fibres, antibodies, hormones. Your body runs on tens of thousands of different ones.</dd></div><div class="gi"><dt>Residue</dt><dd>One amino acid once it sits inside a chain. It lost a little water when it joined, so it weighs slightly less than on its own. Chains are measured in residues.</dd></div><div class="gi"><dt>Peptide bond</dt><dd>The link between two amino acids. A water molecule leaves each time one forms. Flat and stiff, which is part of why chains fold the way they do.</dd></div><div class="gi"><dt>Backbone</dt><dd>The repeating N, C, C spine every amino acid shares. Navy in the drawings. It is the same in every chain on earth; only the side chains hanging off it change.</dd></div><div class="gi"><dt>Side chain (R)</dt><dd>The part that makes each amino acid different. Orange in the drawings. It can be a single hydrogen, as in glycine, or a double ring, as in tryptophan.</dd></div><div class="gi"><dt>N end, C end</dt><dd>The two ends of a chain. N keeps a free nitrogen group, C a free acid group. Chains are always built and written from N to C.</dd></div><div class="gi"><dt>DNA</dt><dd>The gene, written in four letters: A, T, C, G. Every cell carries the full set of about 20,000 protein recipes. It stays in the nucleus and is never used directly.</dd></div><div class="gi"><dt>mRNA</dt><dd>The working copy of a gene, sent out to be read. T becomes U. Short-lived on purpose, so the cell can switch a recipe off quickly.</dd></div><div class="gi"><dt>Codon</dt><dd>Three mRNA letters that call for one amino acid. Four letters in threes give 64 codons for 21 amino acids, so most amino acids have several spellings.</dd></div><div class="gi"><dt>Stop codon</dt><dd>UAA, UAG or UGA. Calls for no amino acid; it tells the ribosome the chain is done. Without one, the ribosome keeps reading.</dd></div><div class="gi"><dt>Ribosome</dt><dd>The cell’s machine that reads mRNA and links amino acids. Its core is made of RNA, not protein. It adds a few links per second, one at the C end.</dd></div><div class="gi"><dt>tRNA</dt><dd>The carrier that brings each amino acid to the ribosome. One end reads a codon, the other holds the matching amino acid. The cell’s translator in a single molecule.</dd></div><div class="gi"><dt>Essential</dt><dd>Your body can’t make it, so it has to come from food. Nine amino acids are essential for adults. Leucine, the muscle-building switch, is one.</dd></div><div class="gi"><dt>Conditionally essential</dt><dd>Your body makes it, but not always enough under stress, growth or illness. Arginine and glutamine are classic examples. Need rises when repair work rises.</dd></div><div class="gi"><dt>BCAA</dt><dd>Branched-chain amino acids: leucine, isoleucine, valine. Their side chains fork like a Y. Unusually, they are burned mainly in muscle rather than the liver.</dd></div><div class="gi"><dt>g/mol</dt><dd>Grams per mole, the standard unit for molecular weight. A mole is a fixed count of molecules, so the number tells you how heavy one molecule is compared with another.</dd></div><div class="gi"><dt>Monoisotopic mass</dt><dd>Weight counting only the most common form of each atom. Labs measuring peptides by mass spectrometry often report this one. It reads slightly lower than average weight.</dd></div><div class="gi"><dt>D amino acid</dt><dd>The mirror image of the natural form, like a left and right hand. The body’s enzymes struggle to cut it. Swapping one in makes a peptide last longer.</dd></div><div class="gi"><dt>Aib</dt><dd>A lab-made amino acid with two methyl groups where a hydrogen would be. Enzymes can’t grip it, so the chain survives. Semaglutide uses one.</dd></div><div class="gi"><dt>Acetylated start</dt><dd>A small cap on the N end. Protects the chain from enzymes that chew from the front. Thymosin Beta-4 carries one naturally.</dd></div><div class="gi"><dt>Amide end</dt><dd>A cap on the C end. Same job from the other side: more stable, longer lasting. Many natural hormones end this way, oxytocin included.</dd></div><div class="gi"><dt>Cyclic</dt><dd>A chain closed into a ring. Stiffer and harder to break down, with no loose ends for enzymes to start on. Some of the strongest peptides are rings.</dd></div><div class="gi"><dt>Bioregulator</dt><dd>Very short peptides, 2 to 4 amino acids, studied mainly in Russia for tissue-specific effects. Each is named for the tissue it was modelled on. Most evidence is early.</dd></div><div class="gi"><dt>Sequence</dt><dd>The order of amino acids in a chain, written N to C in one-letter codes. Change one letter and the shape, and the job, can change with it.</dd></div><div class="gi"><dt>Folding</dt><dd>How a chain twists into its working shape: helices and sheets first, then the full 3D form. It happens in milliseconds to seconds. A misfolded protein can stop working or clump.</dd></div><div class="gi"><dt>Lipidation</dt><dd>A fatty acid tail added so the peptide rides on albumin, the blood’s main carrier protein. Hidden there, it escapes the kidneys and lasts days instead of minutes.</dd></div><div class="gi"><dt>Pyroglutamate</dt><dd>A starting E that curls into a ring. A natural cap on some peptides. It shields the N end the way an acetyl cap does.</dd></div><div class="gi"><dt>Recoded codon</dt><dd>UGA usually means stop. With a special signal further along the mRNA, it calls for selenocysteine instead. The genetic code’s one widely used exception.</dd></div><div class="gi"><dt>Nucleotide</dt><dd>The unit DNA and RNA are made of: a base, a sugar and a phosphate. The base is the letter, A, T, C, G or U. Two of them joined make NAD+.</dd></div><div class="gi"><dt>Small molecule</dt><dd>A compound far smaller than a peptide, built from rings and atoms rather than links. Most pills are small molecules. Bromantane and 5-Amino-1MQ are two.</dd></div><div class="gi"><dt>Coenzyme</dt><dd>A helper molecule an enzyme needs to do its job. It is reused over and over rather than used up. NAD+ is one of the busiest in the body.</dd></div></dl>
   </details>
 </div>
 
@@ -869,11 +893,48 @@ const ORI={"Insulin":["nat","The first protein ever sequenced (1955) and the fir
 "MT-2":["syn","A lab analog of α-MSH, ring-closed for strength."],"PT-141":["syn","A lab analog of α-MSH, ring-closed for strength."],"Melanotan 1":["syn","A lab analog of α-MSH, with two swaps."],
 "Glutathione":["enz","The body makes it, but with two enzymes, not a gene and a ribosome."],"SNAP-8":["syn","A lab-made cosmetic peptide."],"Adipotide":["syn","A lab-designed peptide that targets blood vessels in fat."],"ARA-290":["syn","Lab-designed from one helix of the hormone EPO."]};
 ["Cardiogen","Chonluten","Bronchogen","Ovagen","Pancragen","Livagen","Prostamax","Vesugen","Vesilute","Cartalax","Vilon","Thymogen","Crystagen","Cortagen","Testagen"].forEach(n=>{ORI[n]=["syn","A lab-made bioregulator, modelled on tissue extracts."]});
-function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;return}
+
+const MADE={
+"NAD+":{k:"Coenzyme",f:"C₂₁H₂₇N₇O₁₄P₂",w:"663.4 g/mol",parts:[["hexN","Nicotin&shy;amide","vitamin B3",1],["pent","Ribose","sugar"],["P","Phos&shy;phate",""],["P","Phos&shy;phate",""],["pent","Ribose","sugar"],["purine","Adenine","DNA’s A",1]],
+ t:"Two <b>nucleotides</b>, joined at their phosphates. One half carries adenine, the same A you saw in the DNA above. The other carries nicotinamide, a form of vitamin B3, and that end is the one that passes electrons along when cells burn food."},
+"5-Amino-1MQ":{k:"Small molecule",f:"C₁₀H₁₁N₂⁺",w:"159.2 g/mol",parts:[["atom","CH₃","methyl","CH₃"],["quin","Quinoline","two fused rings",1],["atom","NH₂","amino group","NH₂"]],
+ t:"Two six-sided rings fused together, one holding a nitrogen. A <b>methyl</b> on that nitrogen gives it a permanent positive charge; an <b>amino group</b> sits on the far ring. Studied for blocking NNMT, an enzyme in fat cells. Related to fat, not made of it."},
+"Bromantane":{k:"Small molecule",f:"C₁₆H₂₀BrN",w:"306.2 g/mol",parts:[["cage","Adaman&shy;tane","carbon cage",1],["atom","NH","nitrogen link","N"],["hex","Benzene","carbon ring"],["atom","Br","bromine","Br"]],
+ t:"Its core is <b>adamantane</b>: ten carbon atoms locked into a cage, the same arrangement as a tiny piece of diamond. A single nitrogen links one corner to a ring that carries a bromine atom. Sold in Russia as Ladasten."},
+"Cerebrolysin":{k:"Mixture",f:"No single formula",w:"many weights",soup:1,
+ t:"Purified pig brain proteins, broken down by enzymes. What is left is a <b>soup</b>: mostly loose amino acids, plus many short peptides. No one sequence, so there is no chain to build here, only a handful of the pieces."}};
+function partIcon(k,lab){const S='stroke="#3E4A80" stroke-width="2" stroke-linejoin="round"',F='fill="#FFFFF4"',O='fill="#F7D9C8"';
+  const hex=(cx,cy,r)=>Array.from({length:6},(_,i)=>{const a=Math.PI/180*(60*i-90);return (cx+r*Math.cos(a)).toFixed(1)+","+(cy+r*Math.sin(a)).toFixed(1)}).join(" ");
+  const pent=(cx,cy,r)=>Array.from({length:5},(_,i)=>{const a=Math.PI/180*(72*i-90);return (cx+r*Math.cos(a)).toFixed(1)+","+(cy+r*Math.sin(a)).toFixed(1)}).join(" ");
+  const T=(x,y,t,fs=11)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${fs}" font-weight="700" fill="#3E4A80" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${t}</text>`;
+  let g="";
+  if(k==="hex")g=`<polygon points="${hex(24,24,15)}" ${F} ${S}/><circle cx="24" cy="24" r="7.5" fill="none" stroke="#3E4A80" stroke-width="1.6"/>`;
+  if(k==="hexN")g=`<polygon points="${hex(24,24,15)}" ${O} ${S}/>${T(24,28,"N",12)}`;
+  if(k==="pent")g=`<polygon points="${pent(24,26,14)}" fill="#FDF6B8" ${S}/>${T(24,30,"O",10)}`;
+  if(k==="P")g=`<circle cx="24" cy="24" r="13" fill="#3E4A80"/><text x="24" y="28.5" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFE2" font-family="Bricolage Grotesque,sans-serif">P</text>`;
+  if(k==="purine")g=`<polygon points="${hex(19,24,12.5)}" ${O} ${S}/><polygon points="40.5,24 36.3,14.6 29.8,17.8 29.8,30.2 36.3,33.4" ${O} ${S}/>${T(19,28,"A",12)}`;
+  if(k==="quin")g=`<polygon points="${hex(14.5,24,11.5)}" ${O} ${S}/><polygon points="${hex(34.4,24,11.5)}" ${O} ${S}/>${T(14.5,28,"N",11)}`;
+  if(k==="cage")g=`<polygon points="${hex(24,24,16)}" ${O} ${S}/><path d="M24 24 L24 8 M24 24 L10.1 32 M24 24 L37.9 32" stroke="#3E4A80" stroke-width="1.6"/><path d="M10.1 16 L24 24 M37.9 16 L24 24 M24 40 L24 24" stroke="#3E4A80" stroke-width="1" stroke-dasharray="2 2" opacity=".55"/>`;
+  if(k==="atom"){const fs=lab.length>2?10:12;g=`<circle cx="24" cy="24" r="12" ${F} ${S}/>${T(24,24+fs*.36,lab,fs)}`}
+  return `<svg viewBox="0 0 48 48" aria-hidden="true">${g}</svg>`}
+function soupSVG(){const W=320,H=118;let r=7,seed=11;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+  const col=k=>PAL[A[k%20][8][0][0]][1];let out="",lines="";const groups=[1,1,3,1,2,1,1,4,1,1,2,1,1,3,1,1,1,2,1,1,5,1,1];
+  const cols=8,rows=3,cw=W/cols,rh=H/rows;let slot=0;
+  groups.forEach((n,gi)=>{if(slot>=cols*rows)return;const cx=(slot%cols)*cw+cw/2+(rnd()-.5)*cw*.35,cy=Math.floor(slot/cols)*rh+rh/2+(rnd()-.5)*rh*.3;slot+=n>2?2:1;
+    const ang=(rnd()-.5)*1.2;let pts=[];for(let j=0;j<n;j++){const off=(j-(n-1)/2)*(r*2+3);pts.push([cx+off*Math.cos(ang),cy+off*Math.sin(ang)])}
+    const mnx=Math.min(...pts.map(q=>q[0]))-r-2,mxx=Math.max(...pts.map(q=>q[0]))+r+2;const sh=mnx<0?-mnx:mxx>W?W-mxx:0;pts=pts.map(q=>[q[0]+sh,Math.min(H-r-2,Math.max(r+2,q[1]))]);
+    if(n>1)lines+=`<path d="M${pts.map(p=>p[0].toFixed(1)+","+p[1].toFixed(1)).join(" L")}" stroke="#3E4A80" stroke-width="2" fill="none"/>`;
+    pts.forEach(p=>{const c=col(Math.floor(rnd()*20));out+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${r}" fill="${c}" stroke="#3E4A80" stroke-width="1.4"/>`})});
+  return `<div class="soup"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Loose amino acids and short peptide chains">${lines}${out}</svg></div>`}
+function madeOf(p){const el=$("#madeof");if(!el)return;const m=p&&!p[1]&&MADE[p[0]];if(!m){el.innerHTML="";el.hidden=true;return}
+  const head=`<p class="lab">What it’s made of</p><div class="mk"><b>${m.k}</b><span>${m.f}</span><span><i>·</i> ${m.w}</span></div>`;
+  const body=m.soup?soupSVG():`<div class="parts">${m.parts.map(x=>`<div class="pt${x[3]===1?" on":""}">${partIcon(x[0],x[3]&&x[3]!==1?x[3]:"")}<strong>${x[1]}</strong>${x[2]?`<em>${x[2]}</em>`:""}</div>`).join("")}</div>`;
+  el.innerHTML=head+body+`<p class="mtxt">${m.t}</p>`;el.hidden=false}
+function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;madeOf(null);return}
   const t=OT[o[0]];let map="";
   if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";for(let i=1;i<=g.len;i++){dots+=`<i class="${i>=g.a&&i<=g.b?"on":""}"></i>`}
     map=`<div class="omap" style="--per:${per}">${dots}</div><p class="ocap">Positions <b>${g.a}–${g.b}</b> of ${g.n} · ${g.len} amino acids. Faded dots are the rest of the original chain.</p>`}
-  el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false}
+  el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false;madeOf(p)}
 let folded=false;
 function applyFold(nudge){const ids=["dnasb","mrnasb","codsb"];ids.forEach(id=>{const sb=document.getElementById(id);if(!sb)return;sb.classList.toggle("fold",folded);sb.querySelectorAll(".code,.tape").forEach(el=>{el.scrollLeft=0})});
   const b=$("#foldall");if(b)b.textContent=folded?"Expand code ↓":"Fold to one line ↑";
@@ -1041,6 +1102,5 @@ $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
 show(11,false);home();pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"));steps();helixInit();$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 </script>
-
 </body>
 </html>
