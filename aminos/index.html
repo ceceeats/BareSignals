@@ -408,13 +408,31 @@ h1{font-size:23px}
 .tile .gh{font-size:24px;right:5px;bottom:12px;opacity:.11}
 .tile .row2{margin:auto 0 5px}
 }
+#pname{margin-bottom:6px!important}
+#pleg{display:flex;flex-wrap:wrap;gap:3px 12px;margin:0 0 14px;font-size:11.5px;color:var(--ink-soft);line-height:1.3}
+#pleg span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+#pleg i{width:10px;height:10px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+@media (max-width:899px){#pleg{font-size:10.5px;gap:3px 10px}}
+.tile .nmA{min-height:0!important;font-size:16.5px}
+.tile .t3{margin-top:1px!important}
+.tile .row2{margin:auto 0 7px!important}
+.tile .pips i{width:5px;height:5px}
+@media (max-width:899px){
+.tile .nmA{font-size:11.5px}
+.tile .t3{margin-top:2px!important}
+.tile .row2{margin:auto 0 6px!important}
+.tile .pips i{width:4px;height:4px}
+}
+@media (max-width:899px){.tile .nmA.lng{font-size:10.5px;letter-spacing:-.015em}}
+@media (max-width:380px){.tile .nmA{font-size:10.5px}}
+@media (max-width:380px){.tile .nmA.lng{font-size:9.5px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V22</small></h1>
+    <h1>Aminos<small>V23</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -458,6 +476,7 @@ h1{font-size:23px}
     <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
     <div class="res">
     <div id="pname"></div>
+    <div id="pleg" aria-label="Stripe colours"></div>
     <div id="chainbox"><p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div>
     <p class="lab">DNA <span class="lsub">the source code</span></p>
     <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
@@ -478,7 +497,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
+    <p><b>V23:</b> translator opens on TB-500 (Tβ4), now first among the popular chips. A one-line colour key sits under the banner naming each stripe block in order. Tile names a size up; the short code now sits right under the name, and the codon pips drop to the bottom of the tile, leaving clear space between. V22 unchanged.</p>
+    <p style="margin-top:6px"><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
     <p style="margin-top:6px"><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
     <p style="margin-top:6px"><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
     <p style="margin-top:6px"><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
@@ -553,7 +573,7 @@ function home(){const cw=$("#cardwrap");if(narrow()){if(openI===null)cw.hidden=t
 const SHY={R:"Argi&shy;nine",Y:"Tyro&shy;sine",F:"Phenyl&shy;alanine",U:"Seleno&shy;cys&shy;teine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Gluta&shy;mic acid",D:"Aspar&shy;tic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
 const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S ▸",U:"Se",I:"B",L:"B",V:"B"};
 const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
-$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gh" aria-hidden="true">${a[0]}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
+$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA${a[2].length>13?" lng":""}">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gh" aria-hidden="true">${a[0]}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
 
 const SC={A:["CH₃"],R:["CH₂","CH₂","CH₂","NH","C(=NH)NH₂"],N:["CH₂","C(=O)NH₂"],D:["CH₂","COOH"],C:["CH₂","SH"],Q:["CH₂","CH₂","C(=O)NH₂"],E:["CH₂","CH₂","COOH"],G:["H"],H:["CH₂",{ring:"imid"}],I:[{t:"CH",b:"CH₃"},"CH₂","CH₃"],L:["CH₂",{t:"CH",b:"CH₃"},"CH₃"],K:["CH₂","CH₂","CH₂","CH₂","NH₂"],M:["CH₂","CH₂","S","CH₃"],F:["CH₂",{ring:"ph"}],P:[],S:["CH₂","OH"],T:[{t:"CH",b:"CH₃"},"OH"],W:["CH₂",{ring:"ind"}],Y:["CH₂",{ring:"phOH"}],V:[{t:"CH",b:"CH₃"},"CH₃"],U:["CH₂","SeH"]};
 function structSVG(a){
@@ -674,11 +694,11 @@ function drawString(ch,still){
   box.classList.toggle("still",!!still);box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`;
 }
 const P=[
-["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
-["TB-500 frag 17–23","LKKTETQ","Repair","Acetylated start (Ac-), not shown",2],
+["BPC-157","GEPPPGKPADDAGLV","Repair","",2],
+["TB-500 frag 17–23","LKKTETQ","Repair","Acetylated start (Ac-), not shown",3],
 ["GHK-Cu","GHK","Skin","Bound to one copper ion; weight shown is GHK alone",4],
 ["KPV","KPV","Inflammation","",5],
-["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","Full Thymosin Beta-4 protein, 43 amino acids; acetylated start",3,"thymosin beta-4 tb4 full"],
+["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","Full Thymosin Beta-4 protein, 43 amino acids; acetylated start",1,"thymosin beta-4 tb4 full"],
 ["Semaglutide","HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG","Appetite","Position 2 is Aib, shown as A; fatty acid chain on K20 not shown",6],
 ["Tirzepatide","YAEGTFTSDYSIALDKIAQKAFVQWLIAGGPSSGAPPPS","Appetite","Positions 2 and 13 are Aib, shown as A; fatty acid chain on K20 and amide end not shown",7],
 ["MOTS-c","MRWQEMGYIFYPRKLR","Energy","",8],
@@ -768,9 +788,10 @@ function renderList(){
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
 function pick(i){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
+function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");el.hidden=!c.length}
 function head(){
-  if(cur===null){$("#pname").innerHTML="";return ""}
-  const p=P[cur];$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
+  if(cur===null){$("#pname").innerHTML="";legend(null);return ""}
+  const p=P[cur];legend(p);$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p)});
@@ -794,7 +815,7 @@ let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===las
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();pick(0);watchString();
+show(11,false);home();pick(P.findIndex(p=>p[0]==="TB-500 (Tβ4)"));watchString();
 </script>
 
 </body>
