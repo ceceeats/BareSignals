@@ -386,13 +386,35 @@ h1{font-size:23px}
 .cs b u{text-decoration:none;color:var(--accent)}
 #chainbox{margin-bottom:6px}
 @media (max-width:899px){.code,#dna{font-size:12px!important;padding:10px 11px!important}}
+.tile{position:relative}
+.tile .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:4px;min-width:0}
+.tile .nmA{font:700 15px/1.12 var(--display);letter-spacing:-.005em;hyphens:manual;overflow-wrap:normal;min-width:0;color:var(--ink);min-height:2.24em}
+.tile .mk{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none;padding-top:2px}
+.tile .mk .ess{margin:0}
+.tile .mk .sg{flex-direction:row;align-items:center;gap:2px}
+@media (max-width:899px){.tile .mk .sg{flex-direction:column;align-items:flex-end}}
+@media (max-width:380px){.tile{padding:5px 4px 0}.tile .nmA{font-size:9.5px;letter-spacing:-.01em}.tile .mk{gap:1px}.tile .mk .sg b{min-width:8px;height:8px;line-height:6px;font-size:6.5px;padding:0}.tile .ess{width:5px;height:5px}.tile .gh{font-size:21px}.tile .t3{font-size:8px}}
+.tile .t3{margin-top:2px}
+.tile .row2{justify-content:flex-start;position:relative;z-index:1}
+.tile .gh{position:absolute;right:7px;bottom:14px;font:700 40px/1 var(--display);color:var(--ink);opacity:.12;pointer-events:none}
+.tile[aria-pressed="true"] .nmA{color:var(--paper)}
+.tile[aria-pressed="true"] .gh{color:var(--paper);opacity:.22}
+@media (max-width:899px){
+.tile{min-height:86px;padding:6px 6px 0}
+.tile .nmA{font-size:10.5px;line-height:1.15;min-height:2.3em}
+.tile .t3{font-size:8.5px;margin-top:3px}
+.tile .mk{gap:2px;padding-top:1px}
+.tile .mk .sg b{min-width:9px;height:9px;line-height:7px;font-size:7.5px}
+.tile .gh{font-size:24px;right:5px;bottom:12px;opacity:.11}
+.tile .row2{margin:auto 0 5px}
+}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V21</small></h1>
+    <h1>Aminos<small>V22</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -456,7 +478,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
+    <p><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
+    <p style="margin-top:6px"><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
     <p style="margin-top:6px"><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
     <p style="margin-top:6px"><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
     <p style="margin-top:6px"><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
@@ -527,10 +550,10 @@ function setTab(t){tab=t;document.querySelectorAll("#cardwrap .tabs button").for
 function openSheet(i){const cw=$("#cardwrap");const row=Math.floor(i/5);const after=row===4?document.querySelector(".kk"):document.getElementById("tile-"+Math.min(row*5+4,20));after.after(cw);cw.classList.add("inl");cw.hidden=false;openI=i;if(!matchMedia("(prefers-reduced-motion: reduce)").matches)cw.scrollIntoView({block:"nearest",behavior:"smooth"})}
 function closeSheet(){if(!narrow())return;const cw=$("#cardwrap");cw.hidden=true;openI=null;document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed","false"))}
 function home(){const cw=$("#cardwrap");if(narrow()){if(openI===null)cw.hidden=true}else{document.querySelector(".left").after(cw);cw.classList.remove("inl");cw.hidden=false}}
-const SHY={F:"Phenyl&shy;alanine",U:"Seleno&shy;cysteine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Glutamic acid",D:"Aspartic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
+const SHY={R:"Argi&shy;nine",Y:"Tyro&shy;sine",F:"Phenyl&shy;alanine",U:"Seleno&shy;cys&shy;teine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Gluta&shy;mic acid",D:"Aspar&shy;tic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
 const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S ▸",U:"Se",I:"B",L:"B",V:"B"};
 const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
-$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="top"><span class="L">${a[0]}</span><i class="ess${essCls(a[6])}" aria-hidden="true"></i></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="nm"><i>${SHY[a[0]]||a[2]}</i></span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span>${stripe(a,"mini")}</button>`).join("")+KEYS;
+$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gh" aria-hidden="true">${a[0]}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
 
 const SC={A:["CH₃"],R:["CH₂","CH₂","CH₂","NH","C(=NH)NH₂"],N:["CH₂","C(=O)NH₂"],D:["CH₂","COOH"],C:["CH₂","SH"],Q:["CH₂","CH₂","C(=O)NH₂"],E:["CH₂","CH₂","COOH"],G:["H"],H:["CH₂",{ring:"imid"}],I:[{t:"CH",b:"CH₃"},"CH₂","CH₃"],L:["CH₂",{t:"CH",b:"CH₃"},"CH₃"],K:["CH₂","CH₂","CH₂","CH₂","NH₂"],M:["CH₂","CH₂","S","CH₃"],F:["CH₂",{ring:"ph"}],P:[],S:["CH₂","OH"],T:[{t:"CH",b:"CH₃"},"OH"],W:["CH₂",{ring:"ind"}],Y:["CH₂",{ring:"phOH"}],V:[{t:"CH",b:"CH₃"},"CH₃"],U:["CH₂","SeH"]};
 function structSVG(a){
