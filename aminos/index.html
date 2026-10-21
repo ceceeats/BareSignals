@@ -467,25 +467,47 @@ h1{font-size:23px}
 .conn{display:block;height:40px}
 .conn span{height:100%;padding-left:20px}
 }
+#origin{margin:0 0 14px}
+.otag{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;border-left:3px solid var(--ink);padding:4px 0 4px 10px}
+.otag b{font:700 13px var(--display);letter-spacing:.01em}
+.otag span{font-size:13px;color:var(--ink-soft)}
+.otag.syn,.otag.mod{border-left-color:var(--accent)}
+.otag.syn b,.otag.mod b{color:var(--accent)}
+.omap{display:grid;grid-template-columns:repeat(var(--per),minmax(0,1fr));gap:3px;margin:10px 0 4px;max-width:640px}
+.omap i{display:block;aspect-ratio:1;border-radius:50%;background:var(--rule);opacity:.6;max-width:12px}
+.omap i.on{background:var(--ink);opacity:1}
+.ocap{font-size:12px;color:var(--ink-soft);margin:0}
+.ocap b{color:var(--ink)}
+.pword{font:700 1.18em var(--display);color:var(--ink)}
+.fbtn{display:inline-block;margin-top:6px;background:none;border:0;padding:2px 0;font:italic 400 12.5px var(--body);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.fbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sb.fold .code{white-space:nowrap;overflow-x:auto;word-break:normal;-webkit-overflow-scrolling:touch;scrollbar-width:none;mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.sb.fold .code::-webkit-scrollbar{display:none}
+.sb.fold .tape{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.sb.fold .tape::-webkit-scrollbar{display:none}
+.sb.fold .cs{flex:none}
+.sb.fold #dna{white-space:pre-wrap}
+#err:empty{display:none}
+.sb .fbtn{margin-top:-4px}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V24</small></h1>
-    <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
+    <h1>Aminos<small>V25</small></h1>
+    <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
   <section>
     <p class="lab">From gene to protein</p>
     <div class="path">
-      <div><b>01</b><strong>DNA</strong><span>A, T, C, G in the nucleus</span></div>
-      <div><b>02</b><strong>mRNA</strong><span>Copied out, T swaps to U</span></div>
-      <div><b>03</b><strong>Codon</strong><span>3 letters, 64 options</span></div>
-      <div><b>04</b><strong>Amino acid</strong><span>tRNA brings the match</span></div>
-      <div><b>05</b><strong>Chain</strong><span>Peptide bonds, water leaves</span></div>
-      <div><b>06</b><strong>Fold</strong><span>Helix, sheet, 3D shape</span></div>
+      <div><b>01</b><strong>DNA</strong><span>The archive. A, T, C, G.</span></div>
+      <div><b>02</b><strong>mRNA</strong><span>The copy. T becomes U.</span></div>
+      <div><b>03</b><strong>Codon</strong><span>Three letters, one instruction.</span></div>
+      <div><b>04</b><strong>Amino acid</strong><span>Delivered by tRNA.</span></div>
+      <div><b>05</b><strong>Chain</strong><span>Links lock. Water leaves.</span></div>
+      <div><b>06</b><strong>Fold</strong><span>The chain finds its shape.</span></div>
     </div>
     <p class="note">Short chain, peptide. Long chain, protein. The line blurs near 50.</p>
   </section>
@@ -515,20 +537,21 @@ h1{font-size:23px}
   <div class="divider"><span>Part two · The build</span></div>
   <section class="trans">
     <h2 class="t2">From gene to peptide</h2>
-    <p class="lede2">Watch a gene become a peptide, one step at a time. Pick one below or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
+    <p class="lede2">Watch a gene become a peptide, one step at a time. Not every peptide here is made this way: some are cut from bigger proteins, some are designed in labs. This is how a gene would spell each one.</p>
     <div class="res">
     <div id="pname"></div>
     <div id="pleg" aria-label="Stripe colours"></div>
+    <div id="origin" hidden></div>
     <div id="modbox"></div>
-    <div class="step"><div class="sh"><b>01</b><h3>DNA</h3><p>The source code</p></div><div class="sb">
+    <div class="step"><div class="sh"><b>01</b><h3>DNA</h3><p>The source code</p></div><div class="sb" id="dnasb" data-fold>
       <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
       <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
       <p id="err"></p>
     </div></div>
     <div class="conn"><span>transcribed · every T becomes U</span></div>
-    <div class="step"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy</p></div><div class="sb"><div class="code light" id="mrna"></div></div></div>
+    <div class="step"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy</p></div><div class="sb" id="mrnasb" data-fold><div class="code light" id="mrna"></div></div></div>
     <div class="conn"><span>read three letters at a time</span></div>
-    <div class="step"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb"><div id="tapebox"></div></div></div>
+    <div class="step"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb" id="codsb" data-fold><div id="tapebox"></div></div></div>
     <div class="conn"><span>linked by peptide bonds</span></div>
     <div class="step"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div></div></div>
     <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="statsbox"></div><div id="endnote"></div></div></div>
@@ -547,15 +570,17 @@ h1{font-size:23px}
   <div class="divider"><span>Part three · Beyond 50</span></div>
   <section class="finale">
     <h2 class="t2">Then it folds</h2>
-    <p class="lede2">Past about 50 amino acids, the chain is a protein. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
+    <p class="lede2">Past about 50 amino acids, the chain is a <strong class="pword">protein</strong>. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
     <div class="helix" id="helix" aria-hidden="true"></div>
     <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
     <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V24:</b> the translator becomes Part two, a walk from gene to peptide under a large centred title: 01 DNA, the source code; 02 mRNA, the working copy; 03 codons; 04 the chain; 05 what you built, joined by dashed arrows (transcribed, read three letters at a time, linked by peptide bonds). Each step lifts into view as you scroll, laid out as label and content side by side on laptop and stacked on phones. Picking a peptide scrolls back to the top so you watch it rebuild. Part three closes the page: past 50 amino acids the chain is a protein, shown as a slowly turning alpha helix, with a button that loads IGF-1 LR3. V23 unchanged.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 25 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 25 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V25:</b> each peptide now says where it really comes from: made by the body, cut from a protein, lab-modified, lab-designed, or made by enzymes. Where the parent protein is known (TB-500 fragments, KPV, Sermorelin, CJC-1295, Kisspeptin-10, growth hormone fragments, Teriparatide, LL-37), a small map shows its position in the original chain, with the rest faded. On phones, long DNA, mRNA and codons fold to a single swipeable line with a count and a show-all toggle. Top copy sharpened; protein set in bold at the close. V24 unchanged.</p>
+    <p style="margin-top:6px"><b>V24:</b> the translator becomes Part two, a walk from gene to peptide under a large centred title: 01 DNA, the source code; 02 mRNA, the working copy; 03 codons; 04 the chain; 05 what you built, joined by dashed arrows (transcribed, read three letters at a time, linked by peptide bonds). Each step lifts into view as you scroll, laid out as label and content side by side on laptop and stacked on phones. Picking a peptide scrolls back to the top so you watch it rebuild. Part three closes the page: past 50 amino acids the chain is a protein, shown as a slowly turning alpha helix, with a button that loads IGF-1 LR3. V23 unchanged.</p>
     <p style="margin-top:6px"><b>V23:</b> translator opens on TB-500 (Tβ4), now first among the popular chips. A one-line colour key sits under the banner naming each stripe block in order. Tile names a size up; the short code now sits right under the name, and the codon pips drop to the bottom of the tile, leaving clear space between. V22 unchanged.</p>
     <p style="margin-top:6px"><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
     <p style="margin-top:6px"><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
@@ -713,7 +738,7 @@ function tr(){
   $("#tapebox").innerHTML=`<div class="tape">${cd.join("")}</div>`;
   $("#statsbox").innerHTML=`<div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>`;
   $("#endnote").innerHTML=`${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
-  drawString(ch);fitDNA();
+  drawString(ch);fitDNA();setFolds(r.length,cd.length);origin(cur===null?null:P[cur]);
   renderPop();
 }
 Object.assign(PAL,{Plasticity:["Neural plasticity","#BAB802"],Reproductive:["Reproductive","#FF99D8"],Reward:["Reward & urges","#EA5E86"]});
@@ -747,6 +772,35 @@ function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf
   draw();if(still||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;loop()}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box);
   addEventListener("resize",()=>{if(!run)draw()})}
+const OT={nat:["Made by the body","A natural peptide, spelled by a gene"],frag:["Cut from a protein","A natural piece of a longer chain"],mod:["Lab-modified","A natural chain, changed in the lab"],syn:["Lab-designed","Designed in a lab, not found in the body"],enz:["Made by enzymes","Built in the body, but not from a gene"]};
+const ORI={"TB-500 (Tβ4)":["nat","Thymosin Beta-4 is made by most cells in the body."],"TB-500 frag 17–23":["frag","Amino acids 17 to 23 of Thymosin Beta-4.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Amino acids 1 to 4 of Thymosin Beta-4. The body also releases it naturally.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
+"BPC-157":["frag","Reported as a piece of a larger stomach protein. That protein’s full sequence has never been published, so the rest of the chain can’t be shown."],
+"KPV":["frag","The last 3 amino acids of α-MSH, a skin and brain hormone.",{n:"α-MSH",len:13,a:11,b:13}],
+"GHK-Cu":["frag","Found naturally in blood plasma, bound to copper. Levels fall with age."],"GHK (no Cu)":["frag","The same natural GHK, without its copper."],"AHK-Cu":["syn","A lab cousin of GHK-Cu, with A in place of G."],
+"Semaglutide":["mod","Built on the body’s GLP-1 hormone, then changed to last a week instead of minutes."],"Tirzepatide":["syn","A lab-designed chain that acts on two gut hormone receptors at once."],
+"MOTS-c":["nat","Made by mitochondria, from a gene in their own DNA."],"SS-31":["syn","A lab-designed four-link peptide aimed at mitochondria."],"Humanin":["nat","Made by mitochondria, from a gene in their own DNA."],
+"Ipamorelin":["syn","Lab-designed to signal growth hormone release."],"GHRP-2":["syn","Lab-designed to signal growth hormone release."],"GHRP-6":["syn","Lab-designed to signal growth hormone release."],"Hexarelin":["syn","Lab-designed to signal growth hormone release."],
+"Sermorelin":["frag","The first 29 amino acids of the body’s GHRH, the part that does the work.",{n:"GHRH",len:44,a:1,b:29}],"Tesamorelin":["mod","The body’s full GHRH, with a small cap added so it lasts longer."],"CJC-1295 no DAC":["mod","GHRH’s first 29, with four swaps to resist breakdown.",{n:"GHRH",len:44,a:1,b:29}],"CJC-1295 with DAC":["mod","GHRH’s first 29 with swaps, plus a linker that grips albumin for days.",{n:"GHRH",len:44,a:1,b:29}],
+"Kisspeptin-10":["frag","The last 10 amino acids of kisspeptin-54, the hormone that starts puberty.",{n:"Kisspeptin-54",len:54,a:45,b:54}],
+"HGH frag 176–191":["frag","The tail end of human growth hormone.",{n:"Growth hormone",len:191,a:176,b:191}],"AOD-9604":["mod","Growth hormone’s tail, with one extra amino acid added at the start.",{n:"Growth hormone",len:191,a:177,b:191}],
+"IGF-1 LR3":["mod","The body’s IGF-1, with one swap and a 13-link tail so it slips past its binding proteins."],"PEG-MGF":["mod","A natural splice piece of IGF-1, with a PEG chain added to last longer."],
+"Teriparatide":["frag","The first 34 amino acids of parathyroid hormone.",{n:"Parathyroid hormone",len:84,a:1,b:34}],
+"LL-37":["frag","The last 37 amino acids of hCAP18, cut free when the body fights infection.",{n:"hCAP18",len:170,a:134,b:170}],
+"Thymosin Alpha-1":["frag","Cut from the start of prothymosin α, a larger thymus protein."],"Thymulin":["nat","A natural thymus hormone that carries zinc."],
+"Selank":["syn","Lab-designed from tuftsin, a natural immune peptide, plus three amino acids for stability."],"NA Selank Amidate":["syn","Selank with both ends capped."],"Semax":["syn","Lab-designed from a 4-link piece of ACTH, plus three for stability."],"NA Semax Amidate":["syn","Semax with both ends capped."],
+"Pinealon":["syn","A lab-made bioregulator."],"Epitalon":["syn","Lab-made, modelled on an extract of the pineal gland."],"DSIP":["nat","First isolated from the brains of sleeping rabbits."],
+"Oxytocin":["nat","The body’s bonding and birth hormone, cut from a longer precursor."],"VIP":["nat","A natural gut and brain hormone, cut from a longer precursor."],
+"MT-2":["syn","A lab analog of α-MSH, ring-closed for strength."],"PT-141":["syn","A lab analog of α-MSH, ring-closed for strength."],"Melanotan 1":["syn","A lab analog of α-MSH, with two swaps."],
+"Glutathione":["enz","The body makes it, but with two enzymes, not a gene and a ribosome."],"SNAP-8":["syn","A lab-made cosmetic peptide."],"Adipotide":["syn","A lab-designed peptide that targets blood vessels in fat."],"ARA-290":["syn","Lab-designed from one helix of the hormone EPO."]};
+["Cardiogen","Chonluten","Bronchogen","Ovagen","Pancragen","Livagen","Prostamax","Vesugen","Vesilute","Cartalax","Vilon","Thymogen","Crystagen","Cortagen","Testagen"].forEach(n=>{ORI[n]=["syn","A lab-made bioregulator, modelled on tissue extracts."]});
+function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;return}
+  const t=OT[o[0]];let map="";
+  if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";for(let i=1;i<=g.len;i++){dots+=`<i class="${i>=g.a&&i<=g.b?"on":""}"></i>`}
+    map=`<div class="omap" style="--per:${per}">${dots}</div><p class="ocap">Positions <b>${g.a}–${g.b}</b> of ${g.n} · ${g.len} amino acids. Faded dots are the rest of the original chain.</p>`}
+  el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false}
+function foldUI(){document.querySelectorAll(".sb[data-fold]").forEach(sb=>{let btn=sb.querySelector(".fbtn");if(!btn){btn=document.createElement("button");btn.className="fbtn";btn.type="button";sb.appendChild(btn);btn.addEventListener("click",()=>{sb.classList.toggle("fold");setBtn(sb)})}setBtn(sb)})}
+function setBtn(sb){const b=sb.querySelector(".fbtn"),n=+sb.dataset.n||0,unit=sb.dataset.unit||"letters";b.textContent=sb.classList.contains("fold")?`${n} ${unit} · swipe, or show all`:"Fold to one line";b.hidden=n<=(unit==="codons"?12:60)}
+function setFolds(dna,cod){const nar=innerWidth<900;[["dnasb",dna,"letters"],["mrnasb",dna,"letters"],["codsb",cod,"codons"]].forEach(([id,n,u])=>{const sb=document.getElementById(id);if(!sb)return;sb.dataset.n=n;sb.dataset.unit=u;sb.classList.toggle("fold",nar&&n>(u==="codons"?12:60))});foldUI()}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
 function drawString(ch,still){
