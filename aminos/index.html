@@ -319,13 +319,21 @@ h1{font-size:23px}
 .ch5.wo{display:none}
 @media (min-width:900px){.ch5.wo{display:inline-flex}.pop5{gap:8px}.pop5 .ch5{flex-grow:1}}
 .res #pname{margin-top:14px}
+@media (min-width:900px){
+.trans{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px;align-items:start}
+.trans>h2,.trans>p.note{grid-column:1/-1}
+.trans>.pick{grid-column:1;grid-row:3;margin-top:0;border-top:0;padding-top:0}
+.trans>.res{grid-column:2;grid-row:3}
+.res #pname{margin-top:0}
+.trans>p.note{margin-bottom:14px!important}
+}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V15</small></h1>
+    <h1>Aminos<small>V16</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -387,7 +395,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
+    <p><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
+    <p style="margin-top:6px"><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
     <p style="margin-top:6px"><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
     <p style="margin-top:6px"><b>V13:</b> translator reordered: the result (name, DNA, codons, chain, residues, weight, class) now sits right under the intro line, then the All peptides search, then the Popular chips. Full width on laptop, and the laptop shows 24 popular chips (Ipamorelin, CJC-1295 no DAC, Sermorelin, LL-37, MT-2, PT-141 added back) so the rows fill out; phones keep 18. V12 unchanged.</p>
     <p style="margin-top:6px"><b>V12:</b> laptop card no longer pinned: it scrolls with the page instead of sliding over the translator. V11 unchanged.</p>
@@ -530,6 +539,7 @@ function tr(){
   <p class="lab">Chain</p><div class="chain${ch.length>20?" long":""}">${ch.map(a=>`<span title="${a[2]}">${a[0]}<i style="${sw(a[8][0][0],false)}"></i></span>`).join("")||"<span>–</span>"}</div>
   <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
   ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
+  renderPop();
 }
 const P=[
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
@@ -598,7 +608,23 @@ let cur=null,sortBy="len";
 const MAXL=Math.max(...P.map(p=>p[1].length));
 const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><em>${p[1].length}</em></button>`};
 const chip=(i)=>{const p=P[i];return `<button class="ch5${p[4]>18?" wo":""}" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
-function renderPop(){$("#pop").innerHTML=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>chip(x[1])).join("")}
+function renderPop(){
+  const pop=$("#pop");const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
+  pop.innerHTML=base.map(chip).join("");
+  if(innerWidth<900)return;
+  const res=document.querySelector(".res");if(!res)return;
+  const limit=res.getBoundingClientRect().bottom;
+  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
+  const fits=()=>pop.getBoundingClientRect().bottom<=limit+1;
+  let filling=true;
+  for(const i of extra){
+    pop.insertAdjacentHTML("beforeend",chip(i));const el=pop.lastElementChild;
+    if(!fits()){el.remove();break}
+  }
+  const kids=[...pop.children];if(kids.length<2)return;
+  const lastTop=kids[kids.length-1].offsetTop;const lastRow=kids.filter(k=>k.offsetTop===lastTop);
+  if(lastRow.length<4&&kids.length>lastRow.length){lastRow.forEach(k=>k.remove())}
+}
 let hl=-1,shown=[];
 function renderList(){
   const q=$("#q").value.trim().toLowerCase().replace(/[\s\-–]/g,"");
@@ -632,7 +658,7 @@ $("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
 $("#scrim").addEventListener("click",closeSheet);
 $("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-addEventListener("resize",home);
+addEventListener("resize",()=>{home();renderPop()});
 show(11,false);home();pick(0);
 </script>
 
