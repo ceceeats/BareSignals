@@ -347,8 +347,9 @@ h1{font-size:23px}
 @media (max-width:899px){.cs{padding:2px 5px 3px}.cs b{font-size:11px}.cs i{font-size:10px}}
 .string{width:100%;overflow:hidden;margin:4px 0 2px}
 .string svg{display:block;max-width:100%;height:auto}
-.string .bb{stroke-dasharray:1;stroke-dashoffset:0;animation:draw .7s ease-out}
-.string .bd{animation:pop .35s ease-out both;animation-delay:calc(var(--i)*12ms)}
+.string .bb{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 1.2s ease-out}
+.string .bd{animation:pop .5s ease-out both;animation-delay:calc(var(--i)*20ms)}
+.string.still .bb,.string.still .bd{animation:none}
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes pop{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.string .bb,.string .bd{animation:none}}
@@ -379,7 +380,7 @@ h1{font-size:23px}
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V19</small></h1>
+    <h1>Aminos<small>V20</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -441,7 +442,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
+    <p><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
+    <p style="margin-top:6px"><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
     <p style="margin-top:6px"><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
     <p style="margin-top:6px"><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
     <p style="margin-top:6px"><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
@@ -609,7 +611,7 @@ function stickerStripe(name,fallback){
 }
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
-function drawString(ch){
+function drawString(ch,still){
   lastCh=ch;const box=$("#string");if(!box)return;
   if(!ch.length){box.innerHTML="";return}
   const W=box.clientWidth||320,mob=W<520;
@@ -625,7 +627,7 @@ function drawString(ch){
   const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
     return `<g class="bd" style="--i:${i}"><title>${i+1}. ${a[2]}</title><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="${fg}" font-size="${mob?10.5:12}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
   const nx=pts[0][0]-tail-5,cx2=L[0]+(lastRight?tail+5:-tail-5);
-  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`;
+  box.classList.toggle("still",!!still);box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`;
 }
 const P=[
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
@@ -744,7 +746,7 @@ $("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
 $("#scrim").addEventListener("click",closeSheet);
 $("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-addEventListener("resize",()=>{home();drawString(lastCh);fitDNA();renderPop()});
+let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();drawString(lastCh,true);fitDNA();renderPop()},200)});
 show(11,false);home();pick(0);
 </script>
 
