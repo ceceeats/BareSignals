@@ -327,13 +327,21 @@ h1{font-size:23px}
 .res #pname{margin-top:0}
 .trans>p.note{margin-bottom:14px!important}
 }
+#pname{display:flex;align-items:stretch;gap:0;border:1.5px solid var(--ink);background:var(--chip);margin:0 0 12px;padding:0}
+#pname:empty{display:none}
+#pname .pnb{width:14px;flex:none;border-right:1.5px solid var(--ink)}
+#pname .pnt{display:flex;flex-direction:column;gap:2px;padding:10px 14px 11px;min-width:0}
+#pname .pnl{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+#pname strong{font:700 28px/1.05 var(--display);letter-spacing:-.01em;overflow-wrap:anywhere}
+#pname .pnc{font:500 12px var(--mono);color:var(--ink-soft)}
+@media (max-width:899px){#pname strong{font-size:23px}#pname .pnt{padding:8px 12px 9px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V16</small></h1>
+    <h1>Aminos<small>V17</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -395,7 +403,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
+    <p><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
+    <p style="margin-top:6px"><b>V16:</b> laptop translator split again: search and popular peptides on the left, the result on the right. The popular chips keep adding more peptides from the catalog (shortest first) until they reach the bottom of the residues, weight and class boxes, and a short last row is dropped instead of being stretched into wide blocks; the fill re-runs when you pick a peptide with a longer chain. Phone unchanged. V15 unchanged.</p>
     <p style="margin-top:6px"><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
     <p style="margin-top:6px"><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
     <p style="margin-top:6px"><b>V13:</b> translator reordered: the result (name, DNA, codons, chain, residues, weight, class) now sits right under the intro line, then the All peptides search, then the Popular chips. Full width on laptop, and the laptop shows 24 popular chips (Ipamorelin, CJC-1295 no DAC, Sermorelin, LL-37, MT-2, PT-141 added back) so the rows fill out; phones keep 18. V12 unchanged.</p>
@@ -638,7 +647,7 @@ function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded
 function pick(i){cur=i;closeList();const p=P[i];$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
 function head(){
   if(cur===null){$("#pname").innerHTML="";return ""}
-  const p=P[cur];$("#pname").innerHTML=`<strong>${p[0]}</strong><span>${p[1].length} amino acids</span>`;
+  const p=P[cur];$("#pname").innerHTML=`<i class="pnb" style="${p[2]?sw(p[2],false):"background:var(--rule)"}"></i><div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p)});
