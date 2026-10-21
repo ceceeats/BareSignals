@@ -526,13 +526,37 @@ h1{font-size:23px}
 .tryb{background:none;border:0;padding:0;font:italic 400 13px var(--body);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 #pname{margin-top:0!important}
 @media (min-width:900px){.pop5 .ch5{flex-grow:1!important;max-width:240px}}
+.conn span::before{display:none!important}
+.conn span::after{left:2px!important;bottom:4px!important;border-width:0!important;border-style:solid!important;border-color:transparent!important;border-left:9px solid transparent!important;border-right:9px solid transparent!important;border-top:13px solid var(--accent)!important}
+.conn{height:26px!important}
+.snote{margin-bottom:4px!important}
+.foldall{background:var(--accent)!important;color:var(--paper)!important;padding:6px 12px!important;border:1.5px solid var(--accent)!important}
+.foldall:hover{background:var(--paper)!important;color:var(--accent)!important;text-decoration:none!important}
+.nwn{text-decoration:underline;text-decoration-color:var(--u);text-decoration-thickness:4px;text-underline-offset:4px}
+.otg{font:500 10px var(--mono);color:var(--ink-soft);margin-left:auto;padding-left:6px;white-space:nowrap}
+.pk .otg+em{margin-left:8px!important}
+.pk[aria-pressed="true"] .otg{color:var(--paper)}
+.isprot{color:var(--accent);font-weight:700}
+.string{touch-action:pan-y}
+.ladder{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 2px;margin:6px auto 8px;max-width:860px}
+.rung{background:var(--chip);border:1.5px solid var(--ink);padding:6px 10px;display:flex;flex-direction:column;align-items:center;cursor:pointer;color:var(--ink)}
+.rung b{font:700 13px var(--display)}
+.rung span{font:500 10px var(--mono);color:var(--ink-soft)}
+.rung.on{background:var(--ink);color:var(--paper)}
+.rung.on span{color:var(--paper);opacity:.8}
+.rung.nolink{border-style:dashed}
+.rung:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rar{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:7px solid var(--accent);margin:0 3px}
+.lcap{text-align:center;font-size:13.5px;color:var(--ink-soft);margin:0 auto 6px;max-width:60ch;min-height:2.8em}
+.lcap b{color:var(--ink)}
+@media (max-width:899px){.rung{padding:5px 7px}.rung b{font-size:11.5px}.rung span{font-size:9px}.rar{margin:0 1px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V28</small></h1>
+    <h1>Aminos<small>V29</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
@@ -609,15 +633,18 @@ h1{font-size:23px}
   <section class="finale">
     <h2 class="t2">Then it folds</h2>
     <p class="lede2">As chains grow longer, most become <strong class="pword">proteins</strong>. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
+    <div class="ladder" id="ladder"></div>
+    <p class="lcap" id="lcap"></p>
     <div class="helix" id="helix" aria-hidden="true"></div>
     <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
     <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 28 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 28 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V28:</b> the walk now builds first and reveals after: DNA, mRNA, codons and chain come first, then step 05 shows what you built, with the peptide’s banner, colour key, origin and numbers together. A small line at the top says which peptide is building, with a jump to try another. Popular now shows 36 peptides on every screen. The helix beads take the colours of the chain you just built. V27 unchanged.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 29 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 29 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V29:</b> glide a finger or mouse along the chain and each bead names itself as you pass; it lingers where you stop, then fades. Thymosin Beta-4 renamed, underlined in its colour in the Building line. Arrows are now solid orange triangles; tighter gap before Built. Fold control in its own orange box. More popular peptides (44 on phones, 48 on laptops). Every entry in the list shows its origin and flags proteins; the banner says a protein when it is one. Added five reference peptides for comparison: GLP-1, Glucagon, Exenatide, Amylin and Ubiquitin (76, a true protein). The close now climbs a ladder, amino acid to dipeptide to protein to complex, with your current build lit; tap a rung to load an example. Helix gains a yellow ribbon. V28 unchanged.</p>
+    <p style="margin-top:6px"><b>V28:</b> the walk now builds first and reveals after: DNA, mRNA, codons and chain come first, then step 05 shows what you built, with the peptide’s banner, colour key, origin and numbers together. A small line at the top says which peptide is building, with a jump to try another. Popular now shows 36 peptides on every screen. The helix beads take the colours of the chain you just built. V27 unchanged.</p>
     <p style="margin-top:6px"><b>V27:</b> full DNA, mRNA and codons show by default, with one orange Fold to one line control above them that folds all three into swipeable lines, each giving a small sideways nudge to show it swipes; Expand code brings them back. Fixed lines not returning to normal after folding. Arrows larger and orange; step text moved closer together; T and U letters bold orange. Hover or tap any bead in the chain to see its name, code and position. Linked by peptide bonds moved beside Chain. V26 unchanged.</p>
     <p style="margin-top:6px"><b>V26:</b> fold control is now a clear button at the bottom right of each long step (Expand code, Fold back to one line), with the count on the left. The T becomes U note moved beside mRNA; the read three letters note removed. Accuracy pass from an outside review: peptide and protein no longer split at a fixed 50; chains fold only when long; amino acid sources use the standard terms (essential, conditionally essential, nonessential); colour keys marked as research associations; weight for modified peptides labelled backbone only. V25 unchanged.</p>
     <p style="margin-top:6px"><b>V25:</b> each peptide now says where it really comes from: made by the body, cut from a protein, lab-modified, lab-designed, or made by enzymes. Where the parent protein is known (TB-500 fragments, KPV, Sermorelin, CJC-1295, Kisspeptin-10, growth hormone fragments, Teriparatide, LL-37), a small map shows its position in the original chain, with the rest faded. On phones, long DNA, mRNA and codons fold to a single swipeable line with a count and a show-all toggle. Top copy sharpened; protein set in bold at the close. V24 unchanged.</p>
@@ -779,11 +806,11 @@ function tr(){
   $("#tapebox").innerHTML=`<div class="tape">${cd.join("")}</div>`;
   $("#statsbox").innerHTML=`<div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">${cur!==null&&P[cur][3]?"Weight · backbone only":"Weight"}</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>`;
   $("#endnote").innerHTML=`${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
-  drawString(ch);setFolds();origin(cur===null?null:P[cur]);
+  drawString(ch);setFolds();ladder();origin(cur===null?null:P[cur]);
   renderPop();
 }
 Object.assign(PAL,{Plasticity:["Neural plasticity","#BAB802"],Reproductive:["Reproductive","#FF99D8"],Reward:["Reward & urges","#EA5E86"]});
-const STR={"BPC-157":["Inflammation","Pain","Gut","Repair"],"TB-500 frag 17–23":["Protection","Pain","Inflammation","Repair"],"TB-500 (Tβ4)":["Protection","Pain","Inflammation","Repair"],"TB-500 frag 1–4":["Repair","Pain","Inflammation","Heart"],"GHK-Cu":["Inflammation","Hair","Repair","Skin"],"GHK (no Cu)":["Repair","Cognition","Organ","Skin"],"AHK-Cu":["Protection","Skin","Hair"],"SNAP-8":["Skin"],"KPV":["Gut","Immunity","Repair","Inflammation"],"Semaglutide":["Heart","Reward","Glucose","Appetite"],"Tirzepatide":["Sleep","Pain","Glucose","Appetite"],"MOTS-c":["Fat","Drive","Glucose","Energy"],"SS-31":["Muscle","Drive","Protection","Energy"],"Ipamorelin":["Muscle","Pain","Sleep","Endocrine"],"CJC-1295 no DAC":["Sleep","Endocrine"],"CJC-1295 with DAC":["Sleep","Endocrine"],"Tesamorelin":["Organ","Sleep","Fat","Endocrine"],"Sermorelin":["Muscle","Sleep","Cognition","Endocrine"],"Kisspeptin-10":["Desire","Reproductive","Endocrine"],"Testagen":["Desire","Reproductive","Endocrine"],"GHRP-2":["Appetite","Sleep","Muscle","Endocrine"],"GHRP-6":["Sleep","Appetite","Endocrine"],"Hexarelin":["Muscle","Heart","Endocrine"],"IGF-1 LR3":["Repair","Muscle","Endocrine"],"PEG-MGF":["Repair","Muscle"],"AOD-9604":["Pain","Bone","Fat"],"HGH frag 176–191":["Bone","Endocrine","Fat"],"Adipotide":["Glucose","Fat"],"Selank":["Cognition","Sleep","Immunity","Mood"],"NA Selank Amidate":["Cognition","Sleep","Immunity","Mood"],"Semax":["Neuroprotection","Drive","Plasticity","Cognition"],"NA Semax Amidate":["Neuroprotection","Drive","Plasticity","Cognition"],"Pinealon":["Sleep","Mood","Neuroprotection","Cognition"],"DSIP":["Neuroprotection","Reward","Pain","Sleep"],"Epitalon":["DNA","Mood","Sleep","Aging"],"Thymosin Alpha-1":["Aging","Organ","Inflammation","Immunity"],"LL-37":["Repair","Organ","Inflammation","Immunity"],"Thymulin":["Inflammation","Protection","Endocrine","Immunity"],"Thymogen":["Inflammation","Skin","Repair","Immunity"],"Vilon":["Inflammation","DNA","Immunity"],"Crystagen":["Immunity"],"MT-2":["Desire","Appetite","Skin","Tanning"],"Melanotan 1":["Skin","Tanning"],"PT-141":["Tanning","Desire"],"Oxytocin":["Endocrine","Mood","Reproductive","Desire"],"Humanin":["Energy","Aging","Neuroprotection","Protection"],"Glutathione":["Organ","Neuroprotection","Skin","Protection"],"Cortagen":["DNA","Repair","Cognition","Neuroprotection"],"ARA-290":["Inflammation","Pain","Repair","Neuroprotection"],"VIP":["Desire","Neuroprotection","Inflammation","Organ"],"Teriparatide":["Pain","Endocrine","Bone"],"Cardiogen":["Repair","Heart"],"Vesugen":["DNA","Heart"],"Vesilute":["Organ"],"Chonluten":["Repair","Inflammation","Organ"],"Bronchogen":["Repair","Inflammation","Organ"],"Ovagen":["Protection","Aging","Organ"],"Pancragen":["Glucose","Repair","Organ"],"Livagen":["DNA","Repair","Organ"],"Prostamax":["Reproductive","Repair","Organ"],"Cartalax":["Pain","Aging","Bone"]};
+const STR={"GLP-1":["Heart","Glucose","Appetite"],"Glucagon":["Fat","Energy","Glucose"],"Exenatide":["Heart","Glucose","Appetite"],"Amylin":["Gut","Glucose","Appetite"],"Ubiquitin":["DNA","Immunity","Organ","Protection"],"BPC-157":["Inflammation","Pain","Gut","Repair"],"TB-500 frag 17–23":["Protection","Pain","Inflammation","Repair"],"Thymosin Beta-4":["Protection","Pain","Inflammation","Repair"],"TB-500 frag 1–4":["Repair","Pain","Inflammation","Heart"],"GHK-Cu":["Inflammation","Hair","Repair","Skin"],"GHK (no Cu)":["Repair","Cognition","Organ","Skin"],"AHK-Cu":["Protection","Skin","Hair"],"SNAP-8":["Skin"],"KPV":["Gut","Immunity","Repair","Inflammation"],"Semaglutide":["Heart","Reward","Glucose","Appetite"],"Tirzepatide":["Sleep","Pain","Glucose","Appetite"],"MOTS-c":["Fat","Drive","Glucose","Energy"],"SS-31":["Muscle","Drive","Protection","Energy"],"Ipamorelin":["Muscle","Pain","Sleep","Endocrine"],"CJC-1295 no DAC":["Sleep","Endocrine"],"CJC-1295 with DAC":["Sleep","Endocrine"],"Tesamorelin":["Organ","Sleep","Fat","Endocrine"],"Sermorelin":["Muscle","Sleep","Cognition","Endocrine"],"Kisspeptin-10":["Desire","Reproductive","Endocrine"],"Testagen":["Desire","Reproductive","Endocrine"],"GHRP-2":["Appetite","Sleep","Muscle","Endocrine"],"GHRP-6":["Sleep","Appetite","Endocrine"],"Hexarelin":["Muscle","Heart","Endocrine"],"IGF-1 LR3":["Repair","Muscle","Endocrine"],"PEG-MGF":["Repair","Muscle"],"AOD-9604":["Pain","Bone","Fat"],"HGH frag 176–191":["Bone","Endocrine","Fat"],"Adipotide":["Glucose","Fat"],"Selank":["Cognition","Sleep","Immunity","Mood"],"NA Selank Amidate":["Cognition","Sleep","Immunity","Mood"],"Semax":["Neuroprotection","Drive","Plasticity","Cognition"],"NA Semax Amidate":["Neuroprotection","Drive","Plasticity","Cognition"],"Pinealon":["Sleep","Mood","Neuroprotection","Cognition"],"DSIP":["Neuroprotection","Reward","Pain","Sleep"],"Epitalon":["DNA","Mood","Sleep","Aging"],"Thymosin Alpha-1":["Aging","Organ","Inflammation","Immunity"],"LL-37":["Repair","Organ","Inflammation","Immunity"],"Thymulin":["Inflammation","Protection","Endocrine","Immunity"],"Thymogen":["Inflammation","Skin","Repair","Immunity"],"Vilon":["Inflammation","DNA","Immunity"],"Crystagen":["Immunity"],"MT-2":["Desire","Appetite","Skin","Tanning"],"Melanotan 1":["Skin","Tanning"],"PT-141":["Tanning","Desire"],"Oxytocin":["Endocrine","Mood","Reproductive","Desire"],"Humanin":["Energy","Aging","Neuroprotection","Protection"],"Glutathione":["Organ","Neuroprotection","Skin","Protection"],"Cortagen":["DNA","Repair","Cognition","Neuroprotection"],"ARA-290":["Inflammation","Pain","Repair","Neuroprotection"],"VIP":["Desire","Neuroprotection","Inflammation","Organ"],"Teriparatide":["Pain","Endocrine","Bone"],"Cardiogen":["Repair","Heart"],"Vesugen":["DNA","Heart"],"Vesilute":["Organ"],"Chonluten":["Repair","Inflammation","Organ"],"Bronchogen":["Repair","Inflammation","Organ"],"Ovagen":["Protection","Aging","Organ"],"Pancragen":["Glucose","Repair","Organ"],"Livagen":["DNA","Repair","Organ"],"Prostamax":["Reproductive","Repair","Organ"],"Cartalax":["Pain","Aging","Bone"]};
 function stickerStripe(name,fallback){
   const c=(STR[name]||(fallback?[fallback]:[])).filter(k=>PAL[k]);if(!c.length)return "";
   const b=k=>`<i title="${PAL[k][0]}" style="background:${PAL[k][1]}"></i>`;
@@ -805,16 +832,17 @@ function steps(){const els=[...document.querySelectorAll(".step")];if(!("Interse
 function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf=0;const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
   function draw(){const W=box.clientWidth||320,mob=W<520,H=mob?130:160,A=H*.3,cy=H/2,pad=26,pitch=mob?58:78,rx=pitch*.32,turns=(W-2*pad-rx*2)/pitch,T=turns*2*Math.PI;
     const at=t=>[pad+rx+(t/(2*Math.PI))*pitch+rx*Math.cos(t+ph),cy+A*Math.sin(t+ph),Math.cos(t+ph)];
-    let back="",front="",prev=at(0);for(let t=.07;t<=T;t+=.07){const p=at(t),z=(p[2]+prev[2])/2;const seg=`<line x1="${prev[0].toFixed(1)}" y1="${prev[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#3E4A80" stroke-linecap="round" stroke-width="${z>0?2.4:1.6}" opacity="${z>0?1:.42}"/>`;if(z>0)front+=seg;else back+=seg;prev=p}
+    let back="",front="",fy="",prev=at(0);for(let t=.07;t<=T;t+=.07){const p=at(t),z=(p[2]+prev[2])/2;const seg=`<line x1="${prev[0].toFixed(1)}" y1="${prev[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#3E4A80" stroke-linecap="round" stroke-width="${z>0?2.4:1.6}" opacity="${z>0?1:.42}"/>`;if(z>0){fy+=seg.replace('stroke="#3E4A80"','stroke="#FFDE59"').replace(/stroke-width="[^"]*"/,'stroke-width="9"').replace(/opacity="[^"]*"/,'opacity=".8"');front+=seg}else back+=seg;prev=p}
     const bs=[];for(let t=0;t<=T;t+=2*Math.PI/3.6){bs.push(at(t))}
     const src=lastCh.length?lastCh:A.slice(0,20);const beads=bs.map((p,k)=>[p,PAL[src[k%src.length][8][0][0]][1]]).sort((a,b)=>a[0][2]-b[0][2]).map(([p,col])=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${((mob?4.5:5.5)+p[2]*2).toFixed(1)}" fill="${col}" stroke="#3E4A80" stroke-width="${p[2]>0?1.5:1}" opacity="${p[2]>0?1:.5}"/>`).join("");
-    box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${back}${beads}${front}</svg>`}
+    box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${back}${fy}${beads}${front}</svg>`}
   function loop(){ph-=.012;draw();if(run)raf=requestAnimationFrame(loop)}
   draw();if(still||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;loop()}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box);
   addEventListener("resize",()=>{if(!run)draw()})}
-const OT={nat:["Made by the body","A natural peptide, spelled by a gene"],frag:["Cut from a protein","A natural piece of a longer chain"],mod:["Lab-modified","A natural chain, changed in the lab"],syn:["Lab-designed","Designed in a lab, not found in the body"],enz:["Made by enzymes","Built in the body, but not from a gene"]};
-const ORI={"TB-500 (Tβ4)":["nat","Thymosin Beta-4, made by most cells in the body. Its start carries a natural acetyl cap."],"TB-500 frag 17–23":["frag","Amino acids 17 to 23 of Thymosin Beta-4.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Amino acids 1 to 4 of Thymosin Beta-4. The body also releases it naturally.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
+const SHORT={nat:"natural",frag:"fragment",mod:"modified",syn:"lab-made",enz:"enzyme-made",ref:"reference"};
+const OT={ref:["Reference","Well-known, for comparison. Not in the catalog"],nat:["Made by the body","A natural peptide, spelled by a gene"],frag:["Cut from a protein","A natural piece of a longer chain"],mod:["Lab-modified","A natural chain, changed in the lab"],syn:["Lab-designed","Designed in a lab, not found in the body"],enz:["Made by enzymes","Built in the body, but not from a gene"]};
+const ORI={"GLP-1":["ref","The body’s own appetite hormone, made in the gut. Semaglutide is built on it."],"Glucagon":["ref","The body’s blood-sugar-raising hormone, made in the pancreas."],"Exenatide":["ref","First found in Gila monster saliva. The first GLP-1 drug."],"Amylin":["ref","Made alongside insulin in the pancreas. Cagrilintide is built on it."],"Ubiquitin":["ref","A small protein in almost every cell. It tags other proteins for recycling."],"Thymosin Beta-4":["nat","Thymosin Beta-4, made by most cells in the body. Its start carries a natural acetyl cap."],"TB-500 frag 17–23":["frag","Amino acids 17 to 23 of Thymosin Beta-4.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Amino acids 1 to 4 of Thymosin Beta-4. The body also releases it naturally.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
 "BPC-157":["frag","Reported as a piece of a larger stomach protein. That protein’s full sequence has never been published, so the rest of the chain can’t be shown."],
 "KPV":["frag","The last 3 amino acids of α-MSH, a skin and brain hormone.",{n:"α-MSH",len:13,a:11,b:13}],
 "GHK-Cu":["frag","Found naturally in blood plasma, bound to copper. Levels fall with age."],"GHK (no Cu)":["frag","The same natural GHK, without its copper."],"AHK-Cu":["syn","A lab cousin of GHK-Cu, with A in place of G."],
@@ -845,14 +873,23 @@ function applyFold(nudge){const ids=["dnasb","mrnasb","codsb"];ids.forEach(id=>{
   fitDNA();
   if(folded&&nudge&&!matchMedia("(prefers-reduced-motion: reduce)").matches){ids.forEach((id,k)=>{const el=document.querySelector("#"+id+" .code:not([hidden]),#"+id+" .tape");if(!el)return;setTimeout(()=>{el.scrollTo({left:46,behavior:"smooth"});setTimeout(()=>el.scrollTo({left:0,behavior:"smooth"}),450)},150+k*160)})}}
 function setFolds(){applyFold(false)}
-function beadTip(){const box=$("#string");if(!box)return;const tip=document.createElement("div");tip.className="btip";tip.hidden=true;box.appendChild(tip);let hideT=null;
-  const show=e=>{const g=e.target.closest&&e.target.closest(".bd");if(!g){return}const i=+g.dataset.i,a=lastCh[i];if(!a)return;const c=g.querySelector("circle").getBoundingClientRect(),b=box.getBoundingClientRect();
+function beadTip(){const box=$("#string");if(!box)return;const tip=document.createElement("div");tip.className="btip";tip.hidden=true;box.appendChild(tip);let hideT=null,curG=null;
+  const clearHot=()=>document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"));
+  const showG=g=>{clearTimeout(hideT);if(g===curG&&!tip.hidden)return;curG=g;const i=+g.dataset.i,a=lastCh[i];if(!a)return;const c=g.querySelector("circle").getBoundingClientRect(),b=box.getBoundingClientRect();
     tip.innerHTML=`<b>${a[2]}</b><span>${a[1]} · ${a[0]} · position ${i+1}</span>`;tip.hidden=false;
-    const x=c.left-b.left+c.width/2,y=c.top-b.top;tip.style.left=Math.min(Math.max(x,70),b.width-70)+"px";const below=y<60;tip.classList.toggle("below",below);tip.style.top=(below?y+c.height:y)+"px";
-    document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"));g.classList.add("hot");clearTimeout(hideT)};
-  const hide=()=>{hideT=setTimeout(()=>{tip.hidden=true;document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"))},120)};
-  box.addEventListener("pointerover",e=>{if(e.pointerType==="mouse")show(e)});box.addEventListener("pointerout",e=>{if(e.pointerType!=="mouse")return;if(!e.relatedTarget||!box.contains(e.relatedTarget)||!e.relatedTarget.closest(".bd"))hide()});
-  box.addEventListener("pointerdown",e=>{show(e);if(e.pointerType!=="mouse"){clearTimeout(hideT);hideT=setTimeout(()=>{tip.hidden=true;document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"))},1800)}})}
+    const x=c.left-b.left+c.width/2,y=c.top-b.top,below=y<60;tip.classList.toggle("below",below);tip.style.left=Math.min(Math.max(x,70),b.width-70)+"px";tip.style.top=(below?y+c.height:y)+"px";clearHot();g.classList.add("hot")};
+  const hideNow=()=>{tip.hidden=true;curG=null;clearHot()};
+  const hideLater=ms=>{clearTimeout(hideT);hideT=setTimeout(hideNow,ms)};
+  const at=(x,y)=>{const el=document.elementFromPoint(x,y);return el&&el.closest?el.closest("#string .bd"):null};
+  box.addEventListener("pointermove",e=>{const g=at(e.clientX,e.clientY);if(g)showG(g);else if(e.pointerType==="mouse")hideLater(150)});
+  box.addEventListener("pointerdown",e=>{const g=at(e.clientX,e.clientY);if(g)showG(g)});
+  box.addEventListener("pointerup",e=>{if(e.pointerType!=="mouse")hideLater(1800)});
+  box.addEventListener("pointercancel",()=>hideLater(1800));
+  box.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse")hideLater(150)})}
+const LAD=[["Amino acid","1",null,"A single building block."],["Dipeptide","2","Vilon","Two linked. The smallest peptide."],["Tripeptide","3","GHK-Cu","Three linked."],["Oligopeptide","4 to 20","BPC-157","A few linked. Most research peptides live here."],["Polypeptide","20 to 50","Thymosin Beta-4","A long chain, often still loose."],["Protein","50+","Ubiquitin","Long enough to fold into a working shape."],["Complex","many chains",null,"Several folded proteins working as one, like hemoglobin’s four chains. Bigger still: the ribosome, built from dozens of proteins and RNA."]];
+function ladder(){const el=$("#ladder");if(!el)return;const n=lastCh.length;const lv=n<=1?0:n===2?1:n===3?2:n<=20?3:n<50?4:5;
+  el.innerHTML=LAD.map((r,k)=>`<button type="button" class="rung${k===lv?" on":""}${r[2]?"":" nolink"}" data-k="${k}"><b>${r[0]}</b><span>${r[1]}</span></button>`).join('<i class="rar" aria-hidden="true"></i>');
+  const c=$("#lcap");if(c)c.innerHTML=`<b>${LAD[lv][0]}.</b> ${LAD[lv][3]}`}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
 function drawString(ch,still){
@@ -874,11 +911,16 @@ function drawString(ch,still){
   box.classList.toggle("still",!!still);box.dataset.n=ch.length;box.querySelectorAll('svg').forEach(n=>n.remove());box.insertAdjacentHTML('afterbegin',`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></svg>`);
 }
 const P=[
+["GLP-1","HAEGTFTSDVSSYLEGQAAKEFIAWLVKGR","Appetite","GLP-1 (7–36); the body also makes a 37 version",0,"glucagon-like peptide reference"],
+["Glucagon","HSQGTFTSDYSKYLDSRRAQDFVQWLMNT","Glucose","",0,"reference"],
+["Exenatide","HGEGTFTSDLSKQMEEEAVRLFIEWLKNGGPSSGAPPPS","Appetite","Amide end",0,"exendin-4 gila monster reference"],
+["Amylin","KCNTATCATQRLANFLVHSSNNFGAILSSTNVGSNTY","Appetite","Ring closed between the two C; amide end",0,"iapp reference"],
+["Ubiquitin","MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG","Protection","",0,"protein reference"],
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",2],
 ["TB-500 frag 17–23","LKKTETQ","Repair","Acetylated start (Ac-), not shown",3],
 ["GHK-Cu","GHK","Skin","Bound to one copper ion; weight shown is GHK alone",4],
 ["KPV","KPV","Inflammation","",5],
-["TB-500 (Tβ4)","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","",1,"thymosin beta-4 tb4 full"],
+["Thymosin Beta-4","SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES","Repair","",1,"tb-500 tb500 tb4 thymosin beta-4 full"],
 ["Semaglutide","HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG","Appetite","Position 2 is Aib, shown as A; fatty acid chain on K20 not shown",6],
 ["Tirzepatide","YAEGTFTSDYSIALDKIAQKAFVQWLIAGGPSSGAPPPS","Appetite","Positions 2 and 13 are Aib, shown as A; fatty acid chain on K20 and amide end not shown",7],
 ["MOTS-c","MRWQEMGYIFYPRKLR","Energy","",8],
@@ -938,12 +980,12 @@ const P=[
 ];
 let cur=null,sortBy="len";
 const MAXL=Math.max(...P.map(p=>p[1].length));
-const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><em>${p[1].length}</em></button>`};
+const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><span class="otg">${(ORI[p[0]]?SHORT[ORI[p[0]][0]]:"")}${p[1].length>=50?" · protein":""}</span><em>${p[1].length}</em></button>`};
 const chip=(i)=>{const p=P[i];return `<button class="ch5" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
 function renderPop(){
   const pop=$("#pop");const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
-  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
-  const show=base.concat(extra).slice(0,36);
+  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]&&!(ORI[P[i][0]]&&ORI[P[i][0]][0]==="ref")).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
+  const show=base.concat(extra).slice(0,innerWidth<900?44:48);
   pop.innerHTML=show.map(chip).join("");
 }
 let hl=-1,shown=[];
@@ -960,7 +1002,7 @@ function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dna
 function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
 function head(){
   if(cur===null){$("#pname").innerHTML="";legend(null);const nl=$("#nowline");if(nl)nl.innerHTML="Building <b>your own DNA</b>";return ""}
-  const p=P[cur];legend(p);const nl=$("#nowline");if(nl)nl.innerHTML=`Building <b>${p[0]}</b> · <button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">You built</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
+  const p=P[cur];legend(p);const nl=$("#nowline");if(nl)nl.innerHTML=`Building <b class="nwn" style="--u:${p[2]?PAL[p[2]][1]:'#3E4A80'}">${p[0]}</b> · <button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">You built</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)});
@@ -984,7 +1026,7 @@ let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===las
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();pick(P.findIndex(p=>p[0]==="TB-500 (Tβ4)"));steps();helixInit();beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
+show(11,false);home();pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"));steps();helixInit();$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 </script>
 
 </body>
