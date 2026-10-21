@@ -374,13 +374,25 @@ h1{font-size:23px}
 .gi{padding:9px 11px;border-right:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);min-width:0}
 .gi dt{font:700 14px var(--display);margin:0 0 2px}
 .gi dd{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.4}
+.lsub{letter-spacing:0;text-transform:none;font:italic 400 12px var(--body);color:var(--ink-soft);margin-left:4px}
+.code,#dna{background:var(--ink)!important;color:var(--paper)!important;border:0!important;font:500 13.5px/1.55 var(--mono)!important;letter-spacing:.06em;padding:12px 14px!important;word-break:break-all;margin:0 0 12px;cursor:text}
+.code i{font-style:normal;color:#F0997B}
+.code .ph{color:#B9BEDB;font-style:italic;letter-spacing:0;font-family:var(--body)}
+.code .cur{display:inline-block;width:7px;height:1.05em;vertical-align:-2px;background:var(--paper);margin-left:2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.code .cur{animation:none}}
+.code:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#dna{caret-color:var(--paper)}
+.cs b u{text-decoration:none;color:var(--accent)}
+#chainbox{margin-bottom:6px}
+@media (max-width:899px){.code,#dna{font-size:12px!important;padding:10px 11px!important}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V20</small></h1>
+    <h1>Aminos<small>V21</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -424,8 +436,10 @@ h1{font-size:23px}
     <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
     <div class="res">
     <div id="pname"></div>
-    <p class="lab">DNA</p>
-    <textarea id="dna" rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
+    <div id="chainbox"><p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div>
+    <p class="lab">DNA <span class="lsub">the source code</span></p>
+    <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
+    <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
     <p id="err"></p>
     <div id="out"></div>
         </div>
@@ -442,7 +456,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
+    <p><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
+    <p style="margin-top:6px"><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
     <p style="margin-top:6px"><b>V19:</b> bead string about 20% smaller; N and C ends now large orange letters. The Now translating banner carries the peptide’s sticker stripe on its right: up to four blocks in the Canva layout (two stacked, one medium, the widest on the right), scaling with the screen. New glossary under the version log with 30 terms used on the page. V18 unchanged.</p>
     <p style="margin-top:6px"><b>V18:</b> the chain is now drawn as beads on one string, snaking left to right and back like an S, from the N end to the C end, with a note that in the body it folds. mRNA codons sit on one continuous tape instead of separate boxes. The DNA box grows to fit the whole sequence and breaks lines cleanly on phones instead of cutting text off. V17 unchanged.</p>
     <p style="margin-top:6px"><b>V17:</b> the translated peptide now has its own banner: a band in its sticker colour, a "Now translating" label, the name in large type, and its length and main category. On laptop the taller banner gives the popular list room for one more row of peptides, filled automatically. V16 unchanged.</p>
@@ -582,17 +597,17 @@ $("#tiles").addEventListener("click",e=>{const t=e.target.closest(".tile");if(!t
 const MAP={};A.forEach(a=>a[4].split(/[ ,]+/).forEach(c=>{if(/^[ACGU]{3}$/.test(c)&&a[0]!=="U")MAP[c]=a}));
 const REV={};A.forEach(a=>{if(a[0]!=="U")REV[a[0]]=a[4].split(" ")[0].replace(/U/g,"T")});
 function tr(){
-  const raw=$("#dna").value.toUpperCase().replace(/\s/g,"");$("#err").textContent="";$("#out").innerHTML="";
-  if(!raw){head();return}
-  if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";return}
+  const raw=$("#dna").value.toUpperCase().replace(/\s/g,"");$("#err").textContent="";$("#out").innerHTML="";renderCode();
+  if(!raw){head();drawString([]);$("#chainbox").hidden=true;return}
+  if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";drawString([]);$("#chainbox").hidden=true;return}
+  $("#chainbox").hidden=false;
   const r=raw.replace(/T/g,"U");let ch=[],cd=[],stop=false;
-  for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="cs st"><b>${c}</b><i>stop</i></span>`);stop=true;break}const a=MAP[c];cd.push(`<span class="cs"><b>${c}</b><i>${a[0]}</i></span>`);ch.push(a)}
+  for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="cs st"><b>${c.replace(/U/g,"<u>U</u>")}</b><i>stop</i></span>`);stop=true;break}const a=MAP[c];cd.push(`<span class="cs"><b>${c.replace(/U/g,"<u>U</u>")}</b><i>${a[0]}</i></span>`);ch.push(a)}
   const mw=ch.length?ch.reduce((t,a)=>t+a[3]-H2O,0)+H2O:0;
   const left=r.length%3&&!stop?`<p class="note">${r.length%3} leftover letter${r.length%3>1?"s":""} at the end, not a full codon.</p>`:"";
   const mod=head();
-  $("#out").innerHTML=`${mod}<p class="lab">mRNA, read three letters at a time</p><div class="tape">${cd.join("")}</div>
-  <p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p>
-  <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
+  $("#out").innerHTML=`${mod}<p class="lab">mRNA <span class="lsub">the working copy, T becomes U</span></p><div class="tape">${cd.join("")}</div>
+    <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
   ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
   drawString(ch);fitDNA();
   renderPop();
@@ -609,6 +624,12 @@ function stickerStripe(name,fallback){
   else h=`<span class="sc3">${b(c[0])}</span>`;
   return `<span class="pst" aria-label="Categories: ${c.map(k=>PAL[k][0]).join(", ")}">${h}</span>`;
 }
+function renderCode(){const v=$("#dnaview");if(!v)return;const t=$("#dna").value.toUpperCase().replace(/\s/g,"");v.innerHTML=t?t.replace(/T/g,"<i>T</i>")+'<span class="cur"></span>':'<span class="ph">Tap to type your own DNA</span>'}
+function editDNA(){const v=$("#dnaview"),t=$("#dna");v.hidden=true;t.hidden=false;fitDNA();t.focus()}
+let seen=false,away=true;
+function watchString(){const box=$("#string");if(!box||!("IntersectionObserver" in window))return;
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.intersectionRatio===0){away=true;return}
+    if(e.intersectionRatio>=.35&&away&&lastCh.length){away=false;drawString(lastCh)}}),{threshold:[0,.35]}).observe(box)}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
 function drawString(ch,still){
@@ -723,7 +744,7 @@ function renderList(){
 }
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
-function pick(i){cur=i;closeList();const p=P[i];$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
+function pick(i){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
 function head(){
   if(cur===null){$("#pname").innerHTML="";return ""}
   const p=P[cur];$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
@@ -747,7 +768,10 @@ $("#scrim").addEventListener("click",closeSheet);
 $("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
 let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();drawString(lastCh,true);fitDNA();renderPop()},200)});
-show(11,false);home();pick(0);
+$("#dnaview").addEventListener("click",editDNA);
+$("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
+$("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
+show(11,false);home();pick(0);watchString();
 </script>
 
 </body>
