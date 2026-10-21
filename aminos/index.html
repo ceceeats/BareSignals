@@ -231,7 +231,7 @@ h2{font-size:17px}
 .specg>div.w{grid-column:1/-1}
 .k9{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 2px}
 .v9{font-size:14px;margin:0;font-variant-numeric:tabular-nums}
-.struct svg{max-width:240px;margin:0 auto}
+.struct svg{max-width:230px;max-height:260px;margin:0 auto;width:100%}
 .rr{font:500 13px var(--mono);color:var(--accent);margin:2px 0 0;overflow-wrap:anywhere}
 .rn{font-size:12px;color:var(--ink-soft);margin:0}
 .tile .nm{overflow-wrap:normal;hyphens:manual}
@@ -325,7 +325,7 @@ h1{font-size:23px}
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V13</small></h1>
+    <h1>Aminos<small>V14</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide on a Bare Signals card is a string of these 21 building blocks. Your genes spell them out three letters at a time, and the order decides what the chain becomes.</p>
   </header>
 
@@ -343,7 +343,7 @@ h1{font-size:23px}
   </section>
 
   <section>
-    <h2>The 21 <span class="tap">tap one to open its card, tap again to close</span></h2>
+    <h2>The 21 amino acids <span class="tap">tap one to open its card, tap again to close</span></h2>
     <div class="tiles" id="tiles"></div>
     <div class="key">
       <span><i class="ess"></i>Essential, must eat</span>
@@ -387,7 +387,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V13:</b> translator reordered: the result (name, DNA, codons, chain, residues, weight, class) now sits right under the intro line, then the All peptides search, then the Popular chips. Full width on laptop, and the laptop shows 24 popular chips (Ipamorelin, CJC-1295 no DAC, Sermorelin, LL-37, MT-2, PT-141 added back) so the rows fill out; phones keep 18. V12 unchanged.</p>
+    <p><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
+    <p style="margin-top:6px"><b>V13:</b> translator reordered: the result (name, DNA, codons, chain, residues, weight, class) now sits right under the intro line, then the All peptides search, then the Popular chips. Full width on laptop, and the laptop shows 24 popular chips (Ipamorelin, CJC-1295 no DAC, Sermorelin, LL-37, MT-2, PT-141 added back) so the rows fill out; phones keep 18. V12 unchanged.</p>
     <p style="margin-top:6px"><b>V12:</b> laptop card no longer pinned: it scrolls with the page instead of sliding over the translator. V11 unchanged.</p>
     <p style="margin-top:6px"><b>V11:</b> phone only. Card back to the V2 structure with everything visible at once (name, stripe, categories, fact table, structure beside roles, weight note), no tabs, all in smaller type so it opens under the tapped row without filling the screen. The 21 tiles shrink again with smaller type. Gene to protein boxes compacted: step number and title on one line, smaller descriptions, same words. Laptop unchanged. V10 unchanged.</p>
     <p style="margin-top:6px"><b>V10:</b> laptop card table back to the original one-fact-per-row red table. Phone card no longer slides over the page: tapping a tile opens a compact card right under that tile’s row and pushes the grid apart, so tiles and card are on screen together; tap the same tile or the × to close, tap another tile to switch. The phone card splits into three tabs (Facts, Structure, Roles) and drops the category chips and weight footnote so it fits in about a third of an iPhone screen; the tab you pick stays picked as you move between tiles. Laptop otherwise unchanged. V9 unchanged.</p>
@@ -451,16 +452,41 @@ const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S 
 const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
 $("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="top"><span class="L">${a[0]}</span><i class="ess${essCls(a[6])}" aria-hidden="true"></i></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="nm"><i>${SHY[a[0]]||a[2]}</i></span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span>${stripe(a,"mini")}</button>`).join("")+KEYS;
 
-function structSVG(r){
-  return `<svg viewBox="0 0 210 116" role="img" aria-label="Backbone with side chain ${r}">
-  <g font-family="JetBrains Mono,monospace" font-size="17" fill="#3E4A80">
-  <text x="4" y="70">H₂N</text><line x1="46" y1="64" x2="76" y2="64" stroke="#3E4A80" stroke-width="1.8"/>
-  <text x="82" y="70">C</text><text x="96" y="60" font-size="12" fill="#6B76A8">α</text>
-  <line x1="89" y1="47" x2="89" y2="27" stroke="#DB6830" stroke-width="1.8"/>
-  <text x="89" y="19" text-anchor="middle" fill="#DB6830">R</text>
-  <line x1="89" y1="74" x2="89" y2="94" stroke="#3E4A80" stroke-width="1.8"/><text x="83" y="112">H</text>
-  <line x1="104" y1="64" x2="134" y2="64" stroke="#3E4A80" stroke-width="1.8"/>
-  <text x="140" y="70">COOH</text></g></svg>`;
+const SC={A:["CH₃"],R:["CH₂","CH₂","CH₂","NH","C(=NH)NH₂"],N:["CH₂","C(=O)NH₂"],D:["CH₂","COOH"],C:["CH₂","SH"],Q:["CH₂","CH₂","C(=O)NH₂"],E:["CH₂","CH₂","COOH"],G:["H"],H:["CH₂",{ring:"imid"}],I:[{t:"CH",b:"CH₃"},"CH₂","CH₃"],L:["CH₂",{t:"CH",b:"CH₃"},"CH₃"],K:["CH₂","CH₂","CH₂","CH₂","NH₂"],M:["CH₂","CH₂","S","CH₃"],F:["CH₂",{ring:"ph"}],P:[],S:["CH₂","OH"],T:[{t:"CH",b:"CH₃"},"OH"],W:["CH₂",{ring:"ind"}],Y:["CH₂",{ring:"phOH"}],V:[{t:"CH",b:"CH₃"},"CH₃"],U:["CH₂","SeH"]};
+function structSVG(a){
+  const L=a[0],S=SC[L]||[],INK="#3E4A80",ACC="#DB6830",cx=110;
+  const T=(x,y,s,c,anc="middle",fs=14)=>`<text x="${x}" y="${y}" fill="${c}" font-size="${fs}" text-anchor="${anc}">${s}</text>`;
+  const Ln=(x1,y1,x2,y2,c)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="1.7"/>`;
+  const poly=(pts,c)=>`<polygon points="${pts.map(p=>p.map(v=>v.toFixed(1)).join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="1.7"/>`;
+  const ngon=(n,r,x,y,rot)=>Array.from({length:n},(_,k)=>{const t=(rot+k*360/n)*Math.PI/180;return[x+r*Math.cos(t),y+r*Math.sin(t)]});
+  let nodes=0,ring=null;S.forEach(x=>{if(x.ring)ring=x.ring;else nodes++});
+  const ringH=ring==="phOH"?78:ring?56:0;
+  const H=L==="P"?120:16+nodes*28+ringH+64;
+  const yb=H-44;let g="";
+  g+=T(cx-60,yb+5,L==="P"?"HN":"H₂N",INK,"middle",15)+Ln(cx-42,yb,cx-12,yb,INK)+T(cx,yb+5,"C",INK,"middle",15)+T(cx+11,yb-5,"α","#6B76A8","middle",10)+Ln(cx+12,yb,cx+40,yb,INK)+T(cx+66,yb+5,"COOH",INK,"middle",15)+Ln(cx,yb+8,cx,yb+22,INK)+T(cx,yb+36,"H",INK,"middle",15);
+  if(L==="P"){
+    const N=[cx-60,yb-8],p1=[cx-72,yb-40],p2=[cx-30,yb-66],p3=[cx+8,yb-40];
+    g+=Ln(N[0],N[1]-4,p1[0]+6,p1[1]+6,ACC)+Ln(p1[0]+14,p1[1]-10,p2[0]-14,p2[1]+6,ACC)+Ln(p2[0]+14,p2[1]+6,p3[0]-8,p3[1]-10,ACC)+Ln(p3[0]-2,p3[1]+6,cx-4,yb-10,ACC);
+    g+=T(p1[0],p1[1],"CH₂",ACC)+T(p2[0],p2[1],"CH₂",ACC)+T(p3[0],p3[1],"CH₂",ACC);
+  }else{
+    let y=yb-10;
+    S.forEach(x=>{
+      if(x.ring){
+        const r=x.ring==="imid"||x.ring==="ind"?15:17;
+        g+=Ln(cx,y,cx,y-10,ACC);
+        const cy=y-10-r;
+        if(x.ring==="ph"||x.ring==="phOH"){g+=poly(ngon(6,r,cx,cy,90),ACC);if(x.ring==="phOH"){g+=Ln(cx,cy-r,cx,cy-r-12,ACC)+T(cx,cy-r-16,"OH",ACC)}}
+        if(x.ring==="imid"){const p=ngon(5,r,cx,cy,90);g+=poly(p,ACC)+T(p[2][0]-10,p[2][1]-2,"N",ACC,"end",11)+T(p[4][0]+10,p[4][1]-2,"NH",ACC,"start",11)}
+        if(x.ring==="ind"){const p=ngon(5,r,cx,cy,90);g+=poly(p,ACC);const e1=p[3],e2=p[4];const mx=(e1[0]+e2[0])/2,my=(e1[1]+e2[1])/2;const d=Math.hypot(e2[0]-e1[0],e2[1]-e1[1]);const ox=mx-cx,oy=my-cy,ol=Math.hypot(ox,oy);const hc=[mx+ox/ol*d*0.866,my+oy/ol*d*0.866];const h=ngon(6,d,hc[0],hc[1],Math.atan2(e1[1]-hc[1],e1[0]-hc[0])*180/Math.PI);g+=poly(h,ACC)+T(p[2][0]-4,p[2][1]+2,"NH",ACC,"end",11)}
+        return;
+      }
+      const t=typeof x==="string"?x:x.t;
+      g+=Ln(cx,y,cx,y-10,ACC)+T(cx,y-14,t,ACC);
+      if(x.b)g+=Ln(cx+16,y-18,cx+36,y-18,ACC)+T(cx+40,y-14,x.b,ACC,"start");
+      y-=28;
+    });
+  }
+  return `<svg viewBox="0 0 230 ${H}" role="img" aria-label="Structure of ${a[2]}: shared backbone with side chain ${a[7]}"><g font-family="JetBrains Mono,monospace">${g}</g></svg>`;
 }
 
 function show(i,scroll){
@@ -480,7 +506,7 @@ function show(i,scroll){
       <tr><td>Class</td><td>${CLS[a[5]]}</td></tr>
       <tr><td>Source</td><td>${ESS[a[6]]}</td></tr>
     </tbody></table></div>
-    <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a[7])}<p class="rr">R = ${a[7]}</p><p class="rn">Shared backbone. Only R changes.</p></div></div>
+    <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a)}<p class="rr">R = ${a[7]}</p><p class="rn"><span style="color:var(--accent)">Orange</span> is the side chain, the only part that changes. The backbone is the same in all 21.</p></div></div>
     <div class="sec half pane" data-t="r"><p class="lab">Roles in the body</p><ul class="roles">${a[8].map(r=>`<li><i style="${sw(r[0])}"></i><span>${r[1]}</span><em>${PAL[r[0]][0]}</em></li>`).join("")}</ul></div>
     <p class="cardfoot">Weights are average molecular weight. Lab certificates often list monoisotopic mass, which runs slightly lower.</p>
   </article>`;
