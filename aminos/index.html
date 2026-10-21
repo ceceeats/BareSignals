@@ -426,13 +426,54 @@ h1{font-size:23px}
 @media (max-width:899px){.tile .nmA.lng{font-size:10.5px;letter-spacing:-.015em}}
 @media (max-width:380px){.tile .nmA{font-size:10.5px}}
 @media (max-width:380px){.tile .nmA.lng{font-size:9.5px}}
+.divider{display:flex;align-items:center;gap:14px;margin:30px 0 4px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
+.divider span{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.trans{display:block!important;max-width:900px;margin:0 auto;width:100%;border-top:0!important;padding-top:0!important}
+.t2{font:700 38px/1.05 var(--display);text-align:center;margin:6px 0 10px;letter-spacing:-.01em}
+.lede2{text-align:center;max-width:58ch;margin:0 auto 22px;font-size:15px;color:var(--ink-soft);line-height:1.5}
+.trans>.res,.trans>.pick{grid-column:auto!important;grid-row:auto!important}
+.trans>.pick{margin-top:26px!important;border-top:1.5px solid var(--rule)!important;padding-top:16px!important}
+.step{display:grid;grid-template-columns:170px minmax(0,1fr);gap:0 28px;align-items:start;transition:opacity .6s ease,transform .6s ease}
+.step:not(.in){opacity:.3;transform:translateY(12px)}
+.sh{padding-top:2px}
+.sh b{display:block;font:500 11px var(--mono);letter-spacing:.12em;color:var(--accent)}
+.sh h3{font:700 22px/1.1 var(--display);margin:2px 0 2px}
+.sh p{font:italic 400 13px var(--body);color:var(--ink-soft);margin:0}
+.sb{min-width:0}
+.conn{display:grid;grid-template-columns:170px minmax(0,1fr);gap:0 28px;height:46px}
+.conn span{grid-column:2;position:relative;display:flex;align-items:center;padding-left:22px;font:italic 400 12.5px var(--body);color:var(--ink-soft)}
+.conn span::before{content:"";position:absolute;left:8px;top:0;bottom:0;border-left:1.5px dashed var(--ink-soft)}
+.conn span::after{content:"";position:absolute;left:4px;bottom:2px;border:4.5px solid transparent;border-top:6px solid var(--ink-soft);border-bottom:0}
+.code.light{background:var(--chip)!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;cursor:default}
+.code.light i{color:var(--accent)}
+#modbox .mod{margin:0 0 14px}
+#chainbox{margin:0}
+.step .tape{margin:0}
+.step .stats{margin-top:0}
+.finale{max-width:900px;margin:0 auto;width:100%}
+@media (min-width:900px){.wrap>.divider,.wrap>.finale{grid-column:1/-1}}
+.helix{width:100%;overflow:hidden;margin:4px 0 6px}
+.helix svg{display:block;max-width:100%;height:auto;margin:0 auto}
+.hcap{text-align:center;font:italic 400 13px var(--body);color:var(--ink-soft);margin:0 0 14px}
+.hbtn{text-align:center}
+@media (max-width:899px){
+.t2{font-size:28px}
+.lede2{font-size:14px;margin-bottom:18px}
+.step{display:block}
+.sh{display:flex;align-items:baseline;gap:8px;margin:0 0 8px;flex-wrap:wrap}
+.sh b{display:inline}
+.sh h3{font-size:19px;margin:0}
+.conn{display:block;height:40px}
+.conn span{height:100%;padding-left:20px}
+}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V23</small></h1>
+    <h1>Aminos<small>V24</small></h1>
     <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
@@ -471,19 +512,28 @@ h1{font-size:23px}
   <div class="scrim" id="scrim" hidden></div>
   <section id="cardwrap" aria-label="Amino card"></section>
 
+  <div class="divider"><span>Part two · The build</span></div>
   <section class="trans">
-    <h2>Gene to peptide translator</h2>
-    <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
+    <h2 class="t2">From gene to peptide</h2>
+    <p class="lede2">Watch a gene become a peptide, one step at a time. Pick one below or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
     <div class="res">
     <div id="pname"></div>
     <div id="pleg" aria-label="Stripe colours"></div>
-    <div id="chainbox"><p class="lab">Chain</p><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div>
-    <p class="lab">DNA <span class="lsub">the source code</span></p>
-    <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
-    <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
-    <p id="err"></p>
-    <div id="out"></div>
-        </div>
+    <div id="modbox"></div>
+    <div class="step"><div class="sh"><b>01</b><h3>DNA</h3><p>The source code</p></div><div class="sb">
+      <div class="code" id="dnaview" role="button" tabindex="0" aria-label="DNA sequence. Tap to type your own."></div>
+      <textarea id="dna" hidden rows="2" placeholder="GGCCATAAATAA" autocomplete="off" spellcheck="false" aria-label="DNA sequence"></textarea>
+      <p id="err"></p>
+    </div></div>
+    <div class="conn"><span>transcribed · every T becomes U</span></div>
+    <div class="step"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy</p></div><div class="sb"><div class="code light" id="mrna"></div></div></div>
+    <div class="conn"><span>read three letters at a time</span></div>
+    <div class="step"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb"><div id="tapebox"></div></div></div>
+    <div class="conn"><span>linked by peptide bonds</span></div>
+    <div class="step"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain, read from <b>N</b> to <b>C</b>. In the body, it folds.</p></div></div></div>
+    <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="statsbox"></div><div id="endnote"></div></div></div>
+    <div id="out" hidden></div>
+    </div>
     <div class="pick">
     <p class="lab">All peptides <span id="cnt" style="letter-spacing:0;text-transform:none"></span></p>
     <div class="combo">
@@ -494,10 +544,19 @@ h1{font-size:23px}
     <div class="pop5" id="pop"></div>
     </div>
   </section>
+  <div class="divider"><span>Part three · Beyond 50</span></div>
+  <section class="finale">
+    <h2 class="t2">Then it folds</h2>
+    <p class="lede2">Past about 50 amino acids, the chain is a protein. Stretches of it coil into helices like this one, others pleat into sheets, and the whole chain packs into a working shape.</p>
+    <div class="helix" id="helix" aria-hidden="true"></div>
+    <p class="hcap">An alpha helix turns every 3.6 amino acids.</p>
+    <div class="hbtn"><button class="b" id="seeprot">See a protein: IGF-1 LR3 · 83</button></div>
+  </section>
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V23:</b> translator opens on TB-500 (Tβ4), now first among the popular chips. A one-line colour key sits under the banner naming each stripe block in order. Tile names a size up; the short code now sits right under the name, and the codon pips drop to the bottom of the tile, leaving clear space between. V22 unchanged.</p>
+    <p><b>V24:</b> the translator becomes Part two, a walk from gene to peptide under a large centred title: 01 DNA, the source code; 02 mRNA, the working copy; 03 codons; 04 the chain; 05 what you built, joined by dashed arrows (transcribed, read three letters at a time, linked by peptide bonds). Each step lifts into view as you scroll, laid out as label and content side by side on laptop and stacked on phones. Picking a peptide scrolls back to the top so you watch it rebuild. Part three closes the page: past 50 amino acids the chain is a protein, shown as a slowly turning alpha helix, with a button that loads IGF-1 LR3. V23 unchanged.</p>
+    <p style="margin-top:6px"><b>V23:</b> translator opens on TB-500 (Tβ4), now first among the popular chips. A one-line colour key sits under the banner naming each stripe block in order. Tile names a size up; the short code now sits right under the name, and the codon pips drop to the bottom of the tile, leaving clear space between. V22 unchanged.</p>
     <p style="margin-top:6px"><b>V22:</b> tiles lead with the full name in bold (Lysine, Tryptophan) instead of the letter. The one-letter code sits large and faint in the bottom corner like a watermark; the essential square and the charge, ring, sulfur, start and BCAA signs stack in the top corner; codon pips stay bottom left, so nothing overlaps. On phones the name and watermark are smaller with more breathing room. V21 unchanged.</p>
     <p style="margin-top:6px"><b>V21:</b> order is now banner, chain, DNA, mRNA, numbers, so the chain is the first thing you see. DNA is shown as dark source code with its T letters lit, labelled the source code; mRNA is labelled the working copy, with every U lit in the same orange so the T to U swap reads at a glance. Tap the code to type your own. The bead string replays its reveal each time it scrolls back into view after leaving the screen. V20 unchanged.</p>
     <p style="margin-top:6px"><b>V20:</b> fixed the bead string replaying on phones while scrolling: Safari reports a resize every time its address bar slides in or out, and the page was redrawing the string each time. It now redraws only when the screen width truly changes, and without the animation. The reveal itself is slower and calmer (about half a second longer). V19 unchanged.</p>
@@ -640,18 +699,20 @@ $("#tiles").addEventListener("click",e=>{const t=e.target.closest(".tile");if(!t
 const MAP={};A.forEach(a=>a[4].split(/[ ,]+/).forEach(c=>{if(/^[ACGU]{3}$/.test(c)&&a[0]!=="U")MAP[c]=a}));
 const REV={};A.forEach(a=>{if(a[0]!=="U")REV[a[0]]=a[4].split(" ")[0].replace(/U/g,"T")});
 function tr(){
-  const raw=$("#dna").value.toUpperCase().replace(/\s/g,"");$("#err").textContent="";$("#out").innerHTML="";renderCode();
-  if(!raw){head();drawString([]);$("#chainbox").hidden=true;return}
-  if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";drawString([]);$("#chainbox").hidden=true;return}
+  const raw=$("#dna").value.toUpperCase().replace(/\s/g,"");$("#err").textContent="";renderCode();
+  const clear=()=>{["#mrna","#tapebox","#statsbox","#modbox","#endnote"].forEach(x=>$(x).innerHTML="");drawString([]);$("#chainbox").hidden=true};
+  if(!raw){head();clear();return}
+  if(/[^ATCG]/.test(raw)){$("#err").textContent="Use only A, T, C and G.";clear();return}
   $("#chainbox").hidden=false;
   const r=raw.replace(/T/g,"U");let ch=[],cd=[],stop=false;
   for(let i=0;i+3<=r.length;i+=3){const c=r.slice(i,i+3);if(["UAA","UAG","UGA"].includes(c)){cd.push(`<span class="cs st"><b>${c.replace(/U/g,"<u>U</u>")}</b><i>stop</i></span>`);stop=true;break}const a=MAP[c];cd.push(`<span class="cs"><b>${c.replace(/U/g,"<u>U</u>")}</b><i>${a[0]}</i></span>`);ch.push(a)}
   const mw=ch.length?ch.reduce((t,a)=>t+a[3]-H2O,0)+H2O:0;
   const left=r.length%3&&!stop?`<p class="note">${r.length%3} leftover letter${r.length%3>1?"s":""} at the end, not a full codon.</p>`:"";
-  const mod=head();
-  $("#out").innerHTML=`${mod}<p class="lab">mRNA <span class="lsub">the working copy, T becomes U</span></p><div class="tape">${cd.join("")}</div>
-    <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
-  ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
+  $("#modbox").innerHTML=head();
+  $("#mrna").innerHTML=r.replace(/U/g,"<i>U</i>");
+  $("#tapebox").innerHTML=`<div class="tape">${cd.join("")}</div>`;
+  $("#statsbox").innerHTML=`<div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>`;
+  $("#endnote").innerHTML=`${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
   drawString(ch);fitDNA();
   renderPop();
 }
@@ -673,6 +734,19 @@ let seen=false,away=true;
 function watchString(){const box=$("#string");if(!box||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.intersectionRatio===0){away=true;return}
     if(e.intersectionRatio>=.35&&away&&lastCh.length){away=false;drawString(lastCh)}}),{threshold:[0,.35]}).observe(box)}
+function steps(){const els=[...document.querySelectorAll(".step")];if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in");else if(e.boundingClientRect.top>0)e.target.classList.remove("in")}),{threshold:.15});els.forEach(e=>io.observe(e))}
+function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf=0;const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function draw(){const W=box.clientWidth||320,mob=W<520,H=mob?130:160,A=H*.3,cy=H/2,pad=26,pitch=mob?58:78,rx=pitch*.32,turns=(W-2*pad-rx*2)/pitch,T=turns*2*Math.PI;
+    const at=t=>[pad+rx+(t/(2*Math.PI))*pitch+rx*Math.cos(t+ph),cy+A*Math.sin(t+ph),Math.cos(t+ph)];
+    let back="",front="",prev=at(0);for(let t=.07;t<=T;t+=.07){const p=at(t),z=(p[2]+prev[2])/2;const seg=`<line x1="${prev[0].toFixed(1)}" y1="${prev[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#3E4A80" stroke-linecap="round" stroke-width="${z>0?2.4:1.6}" opacity="${z>0?1:.42}"/>`;if(z>0)front+=seg;else back+=seg;prev=p}
+    const bs=[];for(let t=0;t<=T;t+=2*Math.PI/3.6){bs.push(at(t))}
+    const beads=bs.sort((a,b)=>a[2]-b[2]).map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${(mob?4:5)+p[2]*1.8}" fill="${p[2]>0?"#FFFFF4":"#E3E0BF"}" stroke="#3E4A80" stroke-width="${p[2]>0?1.5:1}" opacity="${p[2]>0?1:.45}"/>`).join("");
+    box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${back}${beads}${front}</svg>`}
+  function loop(){ph-=.012;draw();if(run)raf=requestAnimationFrame(loop)}
+  draw();if(still||!("IntersectionObserver" in window))return;
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;loop()}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box);
+  addEventListener("resize",()=>{if(!run)draw()})}
 let lastCh=[];
 function fitDNA(){const t=$("#dna");if(!t)return;t.style.height="auto";t.style.height=(t.scrollHeight+3)+"px"}
 function drawString(ch,still){
@@ -787,23 +861,23 @@ function renderList(){
 }
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
-function pick(i){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
+function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr();if(go){const t=$("#pname");if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}}
 function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");el.hidden=!c.length}
 function head(){
   if(cur===null){$("#pname").innerHTML="";legend(null);return ""}
   const p=P[cur];legend(p);$("#pname").innerHTML=`<div class="pnt"><span class="pnl">Now translating</span><strong>${p[0]}</strong><span class="pnc">${p[1].length} amino acids${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
-$("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p)});
+$("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)});
 $("#plist").addEventListener("mousedown",e=>e.preventDefault());
-$("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p);$("#q").blur()}});
+$("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p,true);$("#q").blur()}});
 $("#q").addEventListener("focus",openList);
 $("#q").addEventListener("click",openList);
 let blurT=null;$("#q").addEventListener("blur",()=>{clearTimeout(blurT);blurT=setTimeout(closeList,120)});
 $("#q").addEventListener("keydown",e=>{
   if(e.key==="Escape"){closeList();return}
   if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if($("#plist").hidden)openList();hl=Math.max(0,Math.min(shown.length-1,hl+(e.key==="ArrowDown"?1:-1)));renderList();const el=$("#plist .hl");if(el)el.scrollIntoView({block:"nearest"});return}
-  if(e.key==="Enter"&&shown.length){e.preventDefault();const i=shown[hl>=0?hl:0];$("#q").value="";pick(i);$("#q").blur()}
+  if(e.key==="Enter"&&shown.length){e.preventDefault();const i=shown[hl>=0?hl:0];$("#q").value="";pick(i,true);$("#q").blur()}
 });
 $("#q").addEventListener("input",()=>{hl=-1;openList()});
 $("#cnt").textContent="· "+P.length;
@@ -815,7 +889,7 @@ let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===las
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();pick(P.findIndex(p=>p[0]==="TB-500 (Tβ4)"));watchString();
+show(11,false);home();pick(P.findIndex(p=>p[0]==="TB-500 (Tβ4)"));steps();helixInit();$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 </script>
 
 </body>
