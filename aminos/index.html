@@ -563,11 +563,11 @@ h1{font-size:23px}
 .qwrap{position:relative;display:block}
 .qwrap .mag{position:absolute;left:11px;top:50%;width:17px;height:17px;transform:translateY(-50%);color:var(--accent);pointer-events:none}
 .qwrap #q{padding-left:36px!important;width:100%;box-sizing:border-box}
-.gi.core dt,.gi.core dd{color:var(--accent)}
-.gi.core dd{font-weight:500}
+.gi dt{color:var(--accent)!important}
 #madeof{margin-top:14px}
-.mk{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:0 0 10px}
-.mk b{font:700 13px var(--display);color:var(--paper);background:var(--ink);padding:2px 8px}
+.mk{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 12px;margin:0 0 12px;text-align:center}
+.mk b{font:700 12px var(--mono);color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+#madeof>.lab{text-align:center}
 .mk span{font:500 12.5px var(--mono);color:var(--ink)}
 .mk span i{font-style:normal;color:var(--ink-soft)}
 .parts{display:flex;align-items:flex-start;justify-content:center;gap:0;overflow-x:auto;padding:4px 2px 2px}
@@ -581,13 +581,21 @@ h1{font-size:23px}
 .mtxt{margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink)}
 .mtxt b{color:var(--accent)}
 @media (max-width:420px){.pt{min-width:50px}.pt svg{width:40px;height:40px}.pt+.pt::before{top:20px;right:calc(50% + 18px);width:calc(100% - 36px)}.pt strong{font-size:11px}.pt em{font-size:10px}}
+
+.foldbar{justify-content:center!important}
+.sh b.gone{display:none!important}
+.nowline{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;width:100%;margin:6px 0 10px!important}
+.nwl{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.nowline b.nwn{font:700 46px/1.05 var(--display);color:var(--ink);letter-spacing:-.02em;text-underline-offset:7px;text-decoration-thickness:5px;overflow-wrap:anywhere}
+.nowline .tryb{margin-top:6px;font-size:14px}
+@media (max-width:899px){.nowline b.nwn{font-size:34px}}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V31</small></h1>
+    <h1>Aminos<small>V32</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one building blocks write every peptide. Genes spell them in threes. The order is the meaning.</p>
   </header>
 
@@ -640,7 +648,7 @@ h1{font-size:23px}
     <div class="step sx"><div class="sh"><b>02</b><h3>mRNA</h3><p>The working copy. Transcribed, every T becomes U.</p></div><div class="sb" id="mrnasb" data-fold><div class="code light" id="mrna"></div></div></div>
     <div class="step sx"><div class="sh"><b>03</b><h3>Codons</h3><p>Three letters, one amino acid</p></div><div class="sb" id="codsb" data-fold><div id="tapebox"></div><div class="foldrow"><button type="button" id="foldall" class="foldall">Fold to one line ↑</button></div></div></div>
     <div class="step sx"><div class="sh"><b>04</b><h3>Chain</h3><p>The peptide. Each link is a peptide bond.</p></div><div class="sb"><div id="chainbox"><div class="string" id="string"></div><p class="snote">One continuous chain. <b>N</b> is the amino end, where the first amino acid still has its free nitrogen group (NH₂). <b>C</b> is the carboxyl end, where the last one still has its free acid group (COOH). The ribosome always builds from N to C, adding each new link at the C end. Long chains fold into shapes; short ones often stay loose.</p></div></div></div>
-    <div class="step"><div class="sh"><b>05</b><h3>Built</h3><p>What you made</p></div><div class="sb"><div id="pname"></div>
+    <div class="step" id="s5"><div class="sh"><b id="s5n">05</b><h3 id="s5h">Built</h3><p id="s5p">What you made</p></div><div class="sb"><div id="pname"></div>
     <div id="pleg" aria-label="Stripe colours"></div>
     <div id="origin" hidden></div>
     <div id="madeof" hidden></div>
@@ -655,6 +663,8 @@ h1{font-size:23px}
     </div>
     <p class="lab">Popular</p>
     <div class="pop5" id="pop"></div>
+    <p class="lab" style="margin-top:14px">Not peptides, often sold with them</p>
+    <div class="pop5" id="popnp"></div>
     </div>
   </section>
   <div class="divider"><span>Part three · Longer chains</span></div>
@@ -669,9 +679,10 @@ h1{font-size:23px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 31 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 31 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V31:</b> a magnifier in the pick and search box. Glossary rewritten to two or three sentences per term; amino acid, peptide and protein now in orange, word and meaning alike. Three new terms: nucleotide, small molecule, coenzyme. The four non-peptides now show what they are made of instead of an empty panel: NAD+ as its six parts, 5-Amino-1MQ and Bromantane as rings, cage and atoms, Cerebrolysin as a soup of loose amino acids and short chains, each with formula and weight.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 32 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 32 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V32:</b> picking a non-peptide now scrolls up to its panel instead of dropping toward Then it folds. For non-peptides, step 05 loses its number and reads What it is, since nothing is built. The Building line is centred: a small label on top, the name as large as the step numbers, try another underneath. Non-peptides left the Popular peptides and got their own row: Not peptides, often sold with them. Glossary words orange, meanings back in the page’s blue. The made-of type line is centred plain capitals, no box, so it no longer looks like a button.</p>
+    <p style="margin-top:6px"><b>V31:</b> a magnifier in the pick and search box. Glossary rewritten to two or three sentences per term; amino acid, peptide and protein now in orange, word and meaning alike. Three new terms: nucleotide, small molecule, coenzyme. The four non-peptides now show what they are made of instead of an empty panel: NAD+ as its six parts, 5-Amino-1MQ and Bromantane as rings, cage and atoms, Cerebrolysin as a soup of loose amino acids and short chains, each with formula and weight.</p>
     <p style="margin-top:6px"><b>V30:</b> arrows removed; each step now carries a large orange number instead. Fold to one line moved under the codons, bottom right. The N and C ends explained in a short paragraph. Chains of six or fewer sit centred with big beads, so tiny peptides look as small and whole as they are. Added Insulin, shown as proinsulin (86) with its history, FOXO4-DRI, and NAD+, 5-Amino-1MQ, Cerebrolysin and Bromantane as not-a-peptide entries that explain why there is no chain; NAD+, Humanin, Glutathione, Cerebrolysin, FOXO4-DRI and Bromantane joined the popular list. V29 unchanged.</p>
     <p style="margin-top:6px"><b>V29:</b> glide a finger or mouse along the chain and each bead names itself as you pass; it lingers where you stop, then fades. Thymosin Beta-4 renamed, underlined in its colour in the Building line. Arrows are now solid orange triangles; tighter gap before Built. Fold control in its own orange box. More popular peptides (44 on phones, 48 on laptops). Every entry in the list shows its origin and flags proteins; the banner says a protein when it is one. Added five reference peptides for comparison: GLP-1, Glucagon, Exenatide, Amylin and Ubiquitin (76, a true protein). The close now climbs a ladder, amino acid to dipeptide to protein to complex, with your current build lit; tap a rung to load an example. Helix gains a yellow ribbon. V28 unchanged.</p>
     <p style="margin-top:6px"><b>V28:</b> the walk now builds first and reveals after: DNA, mRNA, codons and chain come first, then step 05 shows what you built, with the peptide’s banner, colour key, origin and numbers together. A small line at the top says which peptide is building, with a jump to try another. Popular now shows 36 peptides on every screen. The helix beads take the colours of the chain you just built. V27 unchanged.</p>
@@ -1057,10 +1068,10 @@ const MAXL=Math.max(...P.map(p=>p[1].length));
 const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><span class="otg">${(ORI[p[0]]?SHORT[ORI[p[0]][0]]:"")}${p[1].length>=50?" · protein":""}</span><em>${p[1].length||"–"}</em></button>`};
 const chip=(i)=>{const p=P[i];if(!p[1])return `<button class="ch5 npc" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>not a peptide</em></button>`;return `<button class="ch5" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
 function renderPop(){
-  const pop=$("#pop");const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
-  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]&&!(ORI[P[i][0]]&&ORI[P[i][0]][0]==="ref")).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
+  const pop=$("#pop");const isNP=i=>!P[i][1];const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]&&x[0][1]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
+  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]&&!isNP(i)&&!(ORI[P[i][0]]&&ORI[P[i][0]][0]==="ref")).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
   const show=base.concat(extra).slice(0,innerWidth<900?44:48);
-  pop.innerHTML=show.map(chip).join("");
+  pop.innerHTML=show.map(chip).join("");const pn=$("#popnp");if(pn)pn.innerHTML=P.map((p,i)=>i).filter(isNP).map(chip).join("");
 }
 let hl=-1,shown=[];
 function renderList(){
@@ -1072,14 +1083,14 @@ function renderList(){
 }
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
-function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1]?p[1].split("").map(x=>REV[x]).join("")+"TAA":"";document.querySelector(".res").classList.toggle("np",!p[1]);renderPop();renderList();tr();if(!p[1]){head();origin(p);$("#statsbox").innerHTML="";}if(go){const t=$("#nowline");if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}}
+function pick(i,go){cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1]?p[1].split("").map(x=>REV[x]).join("")+"TAA":"";document.querySelector(".res").classList.toggle("np",!p[1]);renderPop();renderList();tr();if(!p[1]){head();origin(p);$("#statsbox").innerHTML="";}if(go){requestAnimationFrame(()=>{const t=p[1]?$("#nowline"):$("#s5");if(!t)return;const y=t.getBoundingClientRect().top+scrollY-14;scrollTo({top:Math.max(0,y),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})})}}
 function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
 function head(){
-  if(cur===null){$("#pname").innerHTML="";legend(null);const nl=$("#nowline");if(nl)nl.innerHTML="Building <b>your own DNA</b>";return ""}
-  const p=P[cur];legend(p);const nl=$("#nowline");if(nl)nl.innerHTML=`Building <b class="nwn" style="--u:${p[2]?PAL[p[2]][1]:'#3E4A80'}">${p[0]}</b> · <button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
+  if(cur===null){$("#s5n").classList.remove("gone");$("#s5h").textContent="Built";$("#s5p").textContent="What you made";$("#pname").innerHTML="";legend(null);const nl=$("#nowline");if(nl)nl.innerHTML=`<span class="nwl">Building</span><b class="nwn">your own DNA</b>`;return ""}
+  const p=P[cur];legend(p);{const np=!p[1];$("#s5n").classList.toggle("gone",np);$("#s5h").textContent=np?"What it is":"Built";$("#s5p").textContent=np?"Not built from a gene":"What you made"}const nl=$("#nowline");if(nl)nl.innerHTML=`<span class="nwl">Building</span><b class="nwn" style="--u:${p[2]?PAL[p[2]][1]:'#3E4A80'}">${p[0]}</b><button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
-$("#pop").addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)});
+["#pop","#popnp"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)}));
 $("#plist").addEventListener("mousedown",e=>e.preventDefault());
 $("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p,true);$("#q").blur()}});
 $("#q").addEventListener("focus",openList);
