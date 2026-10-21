@@ -325,8 +325,8 @@ h1{font-size:23px}
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V14</small></h1>
-    <p class="lede" style="margin-top:8px">Every peptide on a Bare Signals card is a string of these 21 building blocks. Your genes spell them out three letters at a time, and the order decides what the chain becomes.</p>
+    <h1>Aminos<small>V15</small></h1>
+    <p class="lede" style="margin-top:8px">Every peptide is a string of these 21. Genes spell them three letters at a time. The order decides everything.</p>
   </header>
 
   <section>
@@ -339,7 +339,7 @@ h1{font-size:23px}
       <div><b>05</b><strong>Chain</strong><span>Peptide bonds, water leaves</span></div>
       <div><b>06</b><strong>Fold</strong><span>Helix, sheet, 3D shape</span></div>
     </div>
-    <p class="note">Under about 50 amino acids the chain is called a peptide. Above that it is a protein.</p>
+    <p class="note">Short chain, peptide. Long chain, protein. The line blurs near 50.</p>
   </section>
 
   <section>
@@ -366,7 +366,7 @@ h1{font-size:23px}
 
   <section class="trans">
     <h2>Gene to peptide translator</h2>
-    <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Most research peptides are built chemically, one residue at a time, so this shows the biology, not how a vial is made.</p>
+    <p class="note" style="margin:0 0 12px">Pick a peptide to see the gene that would spell it, or type your own DNA. Labs build most peptides chemically, link by link. This is the biology, not the vial.</p>
     <div class="res">
     <div id="pname"></div>
     <p class="lab">DNA</p>
@@ -387,7 +387,8 @@ h1{font-size:23px}
 
   <details class="log">
     <summary class="lab" style="cursor:pointer">Version log</summary>
-    <p><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
+    <p><b>V15:</b> tighter copy throughout (intro, peptide vs protein line, translator note, structure note, weight note). Search list now covers every peptide in the catalog with a known sequence: added CJC-1295 with DAC, IGF-1 LR3 (83, the longest), PEG-MGF, GHK (no Cu), AHK-Cu, SNAP-8, Adipotide and the bioregulators Cardiogen, Chonluten, Bronchogen, Ovagen, Pancragen, Livagen, Prostamax, Vesugen, Vesilute and Cartalax, each in its sticker colour; searching "bioregulator" finds the whole family. V14 unchanged.</p>
+    <p style="margin-top:6px"><b>V14:</b> structure drawing now shows each amino acid’s real side chain in orange (chains, branches, rings, Proline’s ring back to the nitrogen) on the same backbone, instead of one generic drawing with only the formula line changing. Section title renamed from The 21 to The 21 amino acids. V13 unchanged.</p>
     <p style="margin-top:6px"><b>V13:</b> translator reordered: the result (name, DNA, codons, chain, residues, weight, class) now sits right under the intro line, then the All peptides search, then the Popular chips. Full width on laptop, and the laptop shows 24 popular chips (Ipamorelin, CJC-1295 no DAC, Sermorelin, LL-37, MT-2, PT-141 added back) so the rows fill out; phones keep 18. V12 unchanged.</p>
     <p style="margin-top:6px"><b>V12:</b> laptop card no longer pinned: it scrolls with the page instead of sliding over the translator. V11 unchanged.</p>
     <p style="margin-top:6px"><b>V11:</b> phone only. Card back to the V2 structure with everything visible at once (name, stripe, categories, fact table, structure beside roles, weight note), no tabs, all in smaller type so it opens under the tapped row without filling the screen. The 21 tiles shrink again with smaller type. Gene to protein boxes compacted: step number and title on one line, smaller descriptions, same words. Laptop unchanged. V10 unchanged.</p>
@@ -492,7 +493,7 @@ function structSVG(a){
 function show(i,scroll){
   document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed",t.dataset.i==i?"true":"false"));
   const a=A[i];
-  $("#cardwrap").innerHTML=`<div class="grab"><span class="lab" style="margin:0">Amino card</span><button class="b" id="cls">Close</button></div><article class="card">
+  $("#cardwrap").innerHTML=`<article class="card">
     <div class="ch"><button class="x" id="cls" aria-label="Close card">×</button><div class="big">${a[0]}</div><div><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p></div></div>
     ${stripe(a,"strip")}
     <div class="tabs" role="tablist"><button data-t="f">Facts</button><button data-t="s">Structure</button><button data-t="r">Roles</button></div>
@@ -506,9 +507,9 @@ function show(i,scroll){
       <tr><td>Class</td><td>${CLS[a[5]]}</td></tr>
       <tr><td>Source</td><td>${ESS[a[6]]}</td></tr>
     </tbody></table></div>
-    <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a)}<p class="rr">R = ${a[7]}</p><p class="rn"><span style="color:var(--accent)">Orange</span> is the side chain, the only part that changes. The backbone is the same in all 21.</p></div></div>
+    <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a)}<p class="rr">R = ${a[7]}</p><p class="rn"><span style="color:var(--accent)">Orange</span>: the side chain, the only part that changes. Navy: the backbone, shared by all 21.</p></div></div>
     <div class="sec half pane" data-t="r"><p class="lab">Roles in the body</p><ul class="roles">${a[8].map(r=>`<li><i style="${sw(r[0])}"></i><span>${r[1]}</span><em>${PAL[r[0]][0]}</em></li>`).join("")}</ul></div>
-    <p class="cardfoot">Weights are average molecular weight. Lab certificates often list monoisotopic mass, which runs slightly lower.</p>
+    <p class="cardfoot">Average weights. Lab certificates often list monoisotopic mass, slightly lower.</p>
   </article>`;
   setTab(tab);if(scroll&&narrow())openSheet(i);
 }
@@ -528,7 +529,7 @@ function tr(){
   $("#out").innerHTML=`${mod}<p class="lab">mRNA codons</p><div class="codons">${cd.join("")}</div>
   <p class="lab">Chain</p><div class="chain${ch.length>20?" long":""}">${ch.map(a=>`<span title="${a[2]}">${a[0]}<i style="${sw(a[8][0][0],false)}"></i></span>`).join("")||"<span>–</span>"}</div>
   <div class="stats"><div><p class="lab">Residues</p><strong>${ch.length}</strong></div><div><p class="lab">Weight</p><strong>${mw.toFixed(1)}</strong></div><div><p class="lab">Class</p><strong>${ch.length>=50?"Protein":"Peptide"}</strong></div></div>
-  ${left}${stop?"":`<p class="note">No stop codon yet, so the ribosome would keep reading.</p>`}`;
+  ${left}${stop?"":`<p class="note">No stop codon yet. The ribosome keeps reading.</p>`}`;
 }
 const P=[
 ["BPC-157","GEPPPGKPADDAGLV","Repair","",1],
@@ -555,15 +556,32 @@ const P=[
 ["MT-2","LDHFRWK","Tanning","Ring-closed (cyclic); Nle shown as L, D-Phe shown as F; acetylated start, amide end",23],
 ["PT-141","LDHFRWK","Desire","Ring-closed (cyclic); Nle shown as L, D-Phe shown as F; acetylated start",24],
 ["Oxytocin","CYIQNCPLG","Desire","Ring closed by a bridge between the two C; amide end",18],
+["CJC-1295 with DAC","YADAIFTQSYRKVLAQLSARKLLQDILSRK","Endocrine","Position 2 is D-Ala; the last K carries the DAC (maleimide) linker that binds albumin; amide end",0],
+["IGF-1 LR3","MFPAMPLSSLFVNGPRTLCGAELVDALQFVCGDRGFYFNKPTGYGSSSRRAPQTGIVDECCFRSCDLRRLEMYCAPLKPAKSA","Endocrine","IGF-1 with position 3 swapped (E to R) and a 13 amino acid tail added; three internal bridges between C pairs",0,"igf1 lr3 long r3"],
+["PEG-MGF","YQPPSTNKNTKSQRRKGSTFEEHK","Muscle","MGF E-domain peptide with a PEG chain attached, not shown",0,"mgf mechano growth factor"],
+["GHK (no Cu)","GHK","Skin","Same chain as GHK-Cu, without the copper",0,"ghk copper free"],
+["AHK-Cu","AHK","Hair","Bound to one copper ion; weight shown is AHK alone",0],
+["SNAP-8","EEMQRRAD","Skin","Acetylated start, amide end (acetyl octapeptide-3)",0,"acetyl octapeptide"],
+["Adipotide","CKGGRAKDCGGKLAKLAKKLAKLAK","Fat","Ring closed between the two C at the start; the KLAKLAK half is made of D amino acids",0,"ftpp prohibitin"],
+["Cardiogen","AEDR","Heart","",0,"bioregulator"],
+["Chonluten","EDG","Organ","",0,"bioregulator"],
+["Bronchogen","AEDL","Organ","",0,"bioregulator"],
+["Ovagen","EDL","Organ","",0,"bioregulator"],
+["Pancragen","KEDW","Organ","",0,"bioregulator"],
+["Livagen","KEDA","Organ","",0,"bioregulator"],
+["Prostamax","KEDP","Organ","",0,"bioregulator"],
+["Vesugen","KED","Heart","",0,"bioregulator"],
+["Vesilute","ED","Organ","",0,"bioregulator"],
+["Cartalax","AED","Bone","",0,"bioregulator"],
 ["TB-500 frag 1–4","SDKP","Heart","Acetylated start (Ac-SDKP), not shown",0],
 ["NA Selank Amidate","TKPRPGP","Mood","Same residues as Selank; acetylated start, amide end",0],
 ["NA Semax Amidate","MEHFPGP","Cognition","Same residues as Semax; acetylated start, amide end",0],
 ["Glutathione","ECG","Protection","E is linked through its side chain (gamma bond), not the usual backbone",0],
-["Vilon","KE","Immunity","",0],
-["Thymogen","EW","Immunity","",0],
-["Crystagen","EDP","Immunity","",0],
-["Cortagen","AEDP","Neuroprotection","",0],
-["Testagen","KEDG","Endocrine","",0],
+["Vilon","KE","Immunity","",0,"bioregulator"],
+["Thymogen","EW","Immunity","",0,"bioregulator"],
+["Crystagen","EDP","Immunity","",0,"bioregulator"],
+["Cortagen","AEDP","Neuroprotection","",0,"bioregulator"],
+["Testagen","KEDG","Endocrine","",0,"bioregulator"],
 ["Thymulin","EAKSQGGSN","Immunity","Starts with pyroglutamate, shown as E; carries zinc",0],
 ["ARA-290","EQLERALNSS","Neuroprotection","Starts with pyroglutamate, shown as E",0],
 ["Humanin","MAPRGFSCLLLLTSEIDLPVKRRA","Protection","",0],
@@ -589,7 +607,7 @@ function renderList(){
   shown.forEach((i,k)=>{const L=/[0-9]/.test(P[i][0][0])?"#":P[i][0][0].toUpperCase();if(!q&&L!==last){h+=`<div class="let">${L}</div>`;last=L}h+=pk(i).replace('class="pk"',`class="pk${k===hl?" hl":""}"`)});
   $("#plist").innerHTML=shown.length?h:`<p class="empty" style="border:0">No match. Try another name.</p>`;
 }
-function openList(){$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
+function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
 function pick(i){cur=i;closeList();const p=P[i];$("#dna").value=p[1].split("").map(x=>REV[x]).join("")+"TAA";renderPop();renderList();tr()}
 function head(){
@@ -602,7 +620,7 @@ $("#plist").addEventListener("mousedown",e=>e.preventDefault());
 $("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p);$("#q").blur()}});
 $("#q").addEventListener("focus",openList);
 $("#q").addEventListener("click",openList);
-$("#q").addEventListener("blur",()=>setTimeout(closeList,120));
+let blurT=null;$("#q").addEventListener("blur",()=>{clearTimeout(blurT);blurT=setTimeout(closeList,120)});
 $("#q").addEventListener("keydown",e=>{
   if(e.key==="Escape"){closeList();return}
   if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if($("#plist").hidden)openList();hl=Math.max(0,Math.min(shown.length-1,hl+(e.key==="ArrowDown"?1:-1)));renderList();const el=$("#plist .hl");if(el)el.scrollIntoView({block:"nearest"});return}
