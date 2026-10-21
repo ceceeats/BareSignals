@@ -604,13 +604,40 @@ h1{font-size:23px}
 .wc span{display:block;font-size:12px;line-height:1.35;color:var(--ink-soft)}
 .wc span i{font-style:normal;font-weight:700;color:var(--ink);box-shadow:inset 0 -4px 0 var(--c)}
 @media (max-width:899px){.walk{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 10px;padding-left:12px}.wa{height:92px}.wc b{font-size:20px}.wc strong{font-size:14px}.wc span{font-size:11.5px}}
+
+.omap.ghost{max-width:none}
+.omap i.gh{background:none;border:1.2px dashed var(--ink-soft);opacity:.55;display:flex;align-items:center;justify-content:center;font:700 7px/1 var(--mono);color:var(--ink-soft);font-style:normal;box-sizing:border-box}
+.poph{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px}
+.psort{display:flex;flex-wrap:wrap;gap:0;border:1.5px solid var(--ink);margin-bottom:10px}
+.psort button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1px solid var(--rule);padding:6px 9px;cursor:pointer}
+.psort button:last-child{border-right:0}
+.psort button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.more{display:block;margin:2px 0 6px auto;background:none;border:0;padding:4px 0;font:700 14px var(--display);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.glab{flex:0 0 100%;grid-column:1/-1;margin:10px 0 2px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.glab span{color:var(--ink-soft)}
+.glab:first-child{margin-top:0}
+h1{font-size:46px!important;letter-spacing:-.02em}
+h1 small{font-size:14px!important;vertical-align:super}
+.left .lede{font-size:17px!important;line-height:1.5}
+.divider span{font-size:14px!important;letter-spacing:.16em!important;color:var(--ink)!important;font-weight:500}
+h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
+@media (max-width:899px){h1{font-size:38px!important}.left .lede{font-size:15.5px!important}.divider span{font-size:12px!important}h2:has(.tap){font-size:25px!important}}
+@media (min-width:900px){
+.trans{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:0 40px;max-width:none!important;align-items:start}
+.trans>h2,.trans>.lede2{grid-column:1/-1}
+.trans>.res{grid-column:1!important;grid-row:3!important;min-width:0}
+.trans>.pick{grid-column:2!important;grid-row:3!important;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow-y:auto;margin-top:0!important;border-top:0!important;padding:0 6px 10px 22px!important;border-left:1.5px solid var(--rule);overscroll-behavior:contain}
+.trans>.pick .pop5 .ch5{flex-grow:0!important}
+.t2{font-size:46px!important}
+.lede2{font-size:17px!important}
+}
 </style>
 
 <div class="wrap">
   <div class="left">
   <header>
     <p class="lab">Bare Signals reference</p>
-    <h1>Aminos<small>V35</small></h1>
+    <h1>Aminos<small>V36</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -678,10 +705,11 @@ h1{font-size:23px}
       <span class="qwrap"><svg class="mag" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.8 12.8 L17.5 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><input id="q" type="text" role="combobox" aria-expanded="false" aria-controls="plist" placeholder="Tap to pick or search, A–Z" autocomplete="off" aria-label="Search peptides"></span>
       <div class="drop" id="plist" role="listbox" hidden></div>
     </div>
-    <p class="lab">Popular</p>
+    <div class="poph"><p class="lab" id="poplab">Popular</p><div class="psort" id="psort" hidden><button type="button" data-s="pop" aria-pressed="true">Popular</button><button type="button" data-s="short" aria-pressed="false">Shortest</button><button type="button" data-s="long" aria-pressed="false">Longest</button><button type="button" data-s="az" aria-pressed="false">A–Z</button><button type="button" data-s="ori" aria-pressed="false">By origin</button></div></div>
     <div class="pop5" id="pop"></div>
     <p class="lab" style="margin-top:14px">Not peptides, often paired with them</p>
     <div class="pop5" id="popnp"></div>
+    <button type="button" class="more" id="popmore">Show all</button>
     </div>
   </section>
   <div class="divider"><span>Part three · The fold</span></div>
@@ -696,9 +724,10 @@ h1{font-size:23px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 35 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 35 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V35:</b> the top is now a moving lesson: one string comes in from the left, touches the DNA ladder with its coloured A, T, C, G teeth, unzips into orange mRNA, is read three letters at a time, drops amino acids, links them into a chain and coils into a helix, in six captioned steps. Every entry’s origin line rewritten as a short story: who found it, how it got its name, the surprise. Khavinson bioregulators explained by tissue. Chains of ten or fewer now all use the large Vilon bead size; longer ones shrink gradually.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 36 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 36 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V36:</b> on laptops, Part two becomes two columns: the build on the left, the peptide picker beside it on the right third, staying in view while you scroll. Popular gains Show all, which opens every entry with sorting: popular, shortest, longest, A to Z, or grouped by origin (made by the body, cut from a protein, made by enzymes, lab-modified, lab-designed, reference, not a peptide). BPC-157 now sits between question-mark ghosts, since the rest of its parent protein is unknown. Every chain, even two or three links, now rides the S-curve. The fold at the top turns with the chain instead of against it. Bigger type for Aminos, the part labels and The 21 amino acids.</p>
+    <p style="margin-top:6px"><b>V35:</b> the top is now a moving lesson: one string comes in from the left, touches the DNA ladder with its coloured A, T, C, G teeth, unzips into orange mRNA, is read three letters at a time, drops amino acids, links them into a chain and coils into a helix, in six captioned steps. Every entry’s origin line rewritten as a short story: who found it, how it got its name, the surprise. Khavinson bioregulators explained by tissue. Chains of ten or fewer now all use the large Vilon bead size; longer ones shrink gradually.</p>
     <p style="margin-top:6px"><b>V34:</b> the page now reads as a walk in three parts, with Part one · The letters added above the 21 tiles and Part three renamed The fold. New opening line: bare amino acids become bare signals. Thymosin Beta-4 opens as the First example, its name underlined with its full four-colour stripe instead of one green line. The non-peptide row reads often paired with them. Eight new entries: Retatrutide, Cagrilintide, Somatropin (HGH, 191), Gonadorelin, Larazotide, Carnosine, plus Creatine and Methylene blue as non-peptides with made-of panels. The two CJC-1295 forms now explain their difference.</p>
     <p style="margin-top:6px"><b>V33:</b> helix beads now cycle through the full palette instead of the last chain’s colours. Chain beads scale with length: chains of six or fewer keep the Vilon size, then beads shrink gradually down to the old size near 36 links. Every chain longer than six now rides a gentle wave, so mid-length peptides like oxytocin and BPC-157 look like they are starting to fold. Single-row chains sit centred. Two more non-peptides: MK-677 and SLU-PP-332. The 21 amino acids heading gets room above it, with the tap hint on its own line on phones.</p>
     <p style="margin-top:6px"><b>V32:</b> picking a non-peptide now scrolls up to its panel instead of dropping toward Then it folds. For non-peptides, step 05 loses its number and reads What it is, since nothing is built. The Building line is centred: a small label on top, the name as large as the step numbers, try another underneath. Non-peptides left the Popular peptides and got their own row: Not peptides, often paired with them. Glossary words orange, meanings back in the page’s blue. The made-of type line is centred plain capitals, no box, so it no longer looks like a button.</p>
@@ -941,7 +970,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
         bd+=`<g opacity="${f1(Math.max(0,edge))}"><circle cx="${f1(x)}" cy="${f1(Y(x))}" r="7.5" fill="${c}" stroke="${INK}" stroke-width="1.3"/><text x="${f1(x)}" y="${f1(Y(x)+3)}" text-anchor="middle" font-size="8.5" font-weight="700" fill="${lum(c)>.42?INK:"#FFFFE2"}" font-family="Bricolage Grotesque,sans-serif">${L}</text></g>`}
       o+=`<path d="${p}" fill="none" stroke="${INK}" stroke-width="2"/>`+bd}
     // 06 Fold
-    {const q=r[5],cy=cyOf(5),pad=6,rx=5,pitch=Math.max(14,q.w/5.2),Am=Math.min(24,q.h*.26),xs=q.x+pad,turns=(q.w-2*pad-rx*2)/pitch,TT=turns*2*Math.PI,ph=-t*1.1;
+    {const q=r[5],cy=cyOf(5),pad=6,rx=5,pitch=Math.max(14,q.w/5.2),Am=Math.min(24,q.h*.26),xs=q.x+pad,turns=(q.w-2*pad-rx*2)/pitch,TT=turns*2*Math.PI,ph=t*1.1;
       const at=v=>[xs+rx+(v/(2*Math.PI))*pitch+rx*Math.cos(v+ph),cy+Am*Math.sin(v+ph)*Math.min(1,v/2.2),Math.cos(v+ph)];
       let back="",front="",prev=at(0);o+=ln(q.x,cy,prev[0],prev[1],INK,2);
       for(let v=.12;v<=TT;v+=.12){const pt=at(v),z=(pt[2]+prev[2])/2,seg=ln(prev[0],prev[1],pt[0],pt[1],INK,z>0?2.6:1.4,z>0?"":`opacity=".45"`);if(z>0)front+=seg;else back+=seg;prev=pt}
@@ -968,7 +997,7 @@ function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf
 const SHORT={np:"not a peptide",nat:"natural",frag:"fragment",mod:"modified",syn:"lab-made",enz:"enzyme-made",ref:"reference"};
 const OT={np:["Not a peptide","No gene spells it, so there is no chain to build"],ref:["Reference","Well-known, for comparison. Not in the catalog"],nat:["Made by the body","A natural peptide, spelled by a gene"],frag:["Cut from a protein","A natural piece of a longer chain"],mod:["Lab-modified","A natural chain, changed in the lab"],syn:["Lab-designed","Designed in a lab, not found in the body"],enz:["Made by enzymes","Built in the body, but not from a gene"]};
 const ORI={"Retatrutide":["syn","Eli Lilly’s chain that hits three gut hormone receptors at once: GLP-1, GIP and glucagon, which is why the internet nicknamed it GLP-3. Still in trials, but its structure is published, so this chain is the real one."],"Cagrilintide":["mod","Novo Nordisk rebuilt amylin, the fullness hormone that leaves the pancreas alongside insulin, to last a week. Paired with semaglutide it becomes CagriSema."],"Somatropin (HGH)":["nat","Until 1985, growth hormone was collected from the pituitary glands of people who had died. That stopped when it was found to spread a rare prion disease; engineered bacteria have made it ever since. 191 links: a true protein."],"Gonadorelin":["nat","The brain’s ten-link signal to the reproductive system. Its discovery shared the 1977 Nobel Prize between two rivals, Roger Guillemin and Andrew Schally. The twist: pulses switch the system on, a steady supply switches it off."],"Larazotide":["syn","Cholera bacteria make a toxin that pries open the gaps in the gut lining. Larazotide was designed from that toxin to block the same door, keeping the lining tight."],"Carnosine":["enz","Found in 1900 by Vladimir Gulevich in meat extract; the name comes from the Latin for flesh. Made by an enzyme, not a gene, and stored mostly in muscle."],"Creatine":["np","Found in 1832 by Michel Chevreul in meat broth, and named after the Greek word for meat. Built from three amino acids without a single peptide bond."],"Methylene blue":["np","First made in 1876 as a textile dye. In 1891 Paul Ehrlich treated malaria with it, making it one of the first fully synthetic drugs."],"MK-677":["np","MK is Merck’s code: Merck built it in the 1990s as a growth hormone releaser you could swallow. Peptide-like, not a peptide."],"SLU-PP-332":["np","Named after Saint Louis University, where it was made. In mice it acts like an exercise mimic. Often paired with peptides, built nothing like one."],"Insulin":["nat","The first protein ever sequenced (1955) and the first hormone ever injected to save a life (1922). In 1982 it became the first medicine made by engineered bacteria."],"FOXO4-DRI":["syn","Built in 2017 by Peter de Keizer’s team as a decoy: it breaks the grip FOXO4 uses to keep worn-out cells alive. Old mice regrew fur and ran further. Made of mirror-image amino acids in reverse order."],"NAD+":["np","Found in 1906 by Arthur Harden and William Young as the helper yeast needs to ferment sugar. Today every cell runs its energy on it. A coenzyme, built from two nucleotides."],"5-Amino-1MQ":["np","A small lab molecule designed to block NNMT, an enzyme that runs busier in fat cells. Not a chain of amino acids."],"Cerebrolysin":["np","Made in Austria by digesting purified pig brain proteins with enzymes. What comes out is a mixture of short peptides and loose amino acids, not one chain."],"Bromantane":["np","Developed in Russia as a stamina drug. It made headlines when Russian athletes tested positive for it at the 1996 Atlanta Olympics. A carbon cage, not a peptide."],"GLP-1":["ref","The gut’s fullness signal, released minutes after a meal and gone in about two. Every GLP-1 drug is an attempt to make it last."],"Glucagon":["ref","Named in 1923 from glucose agonist: the hormone that raises blood sugar. Insulin’s opposite, made by the same pancreas."],"Exenatide":["ref","Found in 1992 by John Eng in Gila monster saliva. The lizard eats only a few times a year, and its version of GLP-1 lasts far longer than ours. The first GLP-1 drug, 2005."],"Amylin":["ref","Found in 1987 in the clumps, called amyloid, that build up in a diabetic pancreas; that is where its name comes from. Released with insulin to slow the stomach."],"Ubiquitin":["ref","Named for being everywhere: almost every cell of every animal and plant makes it, nearly unchanged. Its job tagging proteins for recycling won the 2004 Nobel Prize."],"Thymosin Beta-4":["nat","Named for the thymus, where it was found in 1981, yet nearly every cell makes it, and platelets carry the most. Its main job is holding actin, the cell’s scaffolding, ready to rebuild. Its start carries a natural acetyl cap."],"TB-500 frag 17–23":["frag","The actin-grabbing stretch of Thymosin Beta-4, LKKTETQ. The name TB-500 surfaced in horse racing, where it turned up in tested horses.",{n:"Thymosin Beta-4",len:43,a:17,b:23}],"TB-500 frag 1–4":["frag","Ac-SDKP, cut naturally from Thymosin Beta-4 by an enzyme. It keeps blood stem cells resting. Blood pressure pills called ACE inhibitors raise its level, because ACE is what breaks it down.",{n:"Thymosin Beta-4",len:43,a:1,b:4}],
-"BPC-157":["frag","BPC stands for Body Protection Compound. A Zagreb team reported it in the early 1990s from human gastric juice, and it is unusually stable in stomach acid. The protein it comes from has never been published."],
+"BPC-157":["frag","BPC stands for Body Protection Compound. A Zagreb team reported it in the early 1990s from human gastric juice, and it is unusually stable in stomach acid. The protein it comes from has never been published.",{ghost:1,len:15}],
 "KPV":["frag","The last three links of α-MSH, the hormone that tans skin. It keeps the calming, anti-inflammatory part and leaves the tanning behind.",{n:"α-MSH",len:13,a:11,b:13}],
 "GHK-Cu":["frag","Found in 1973 by Loren Pickart: young blood plasma made old liver tissue act young, and this tiny copper carrier was the reason. The copper turns it blue. Levels fall by more than half between 20 and 60."],"GHK (no Cu)":["frag","The same three links without copper, so clear instead of blue. In the body it picks up copper on its own."],"AHK-Cu":["syn","GHK-Cu’s lab cousin, one letter changed. Studied mostly for hair follicles."],
 "Semaglutide":["mod","Novo Nordisk’s GLP-1, with one Aib swap and a fat tail that rides albumin, stretching two minutes into a week. It began as a diabetes drug; the weight loss became the headline."],"Tirzepatide":["syn","Eli Lilly built it mostly on GIP, with GLP-1 features mixed in, so one chain works two receptors. The first of its kind, approved in 2022."],
@@ -1036,7 +1065,8 @@ function madeOf(p){const el=$("#madeof");if(!el)return;const m=p&&!p[1]&&MADE[p[
   el.innerHTML=head+body+`<p class="mtxt">${m.t}</p>`;el.hidden=false}
 function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;madeOf(null);return}
   const t=OT[o[0]];let map="";
-  if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";for(let i=1;i<=g.len;i++){dots+=`<i class="${i>=g.a&&i<=g.b?"on":""}"></i>`}
+  if(o[2]&&o[2].ghost){const g=o[2];let dots="";const gh=n=>Array.from({length:n},()=>`<i class="gh">?</i>`).join("");dots=gh(6)+Array.from({length:g.len},()=>`<i class="on"></i>`).join("")+gh(6);map=`<div class="omap ghost" style="--per:${g.len+12}">${dots}</div><p class="ocap">The <b>15 known links</b>, sitting inside a longer stomach protein that has never been published. The question marks are the unknown rest, on both sides. The 157 is part of its name, not its position: the chain itself is only 15 links long.</p>`}
+  else if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";for(let i=1;i<=g.len;i++){dots+=`<i class="${i>=g.a&&i<=g.b?"on":""}"></i>`}
     map=`<div class="omap" style="--per:${per}">${dots}</div><p class="ocap">Positions <b>${g.a}–${g.b}</b> of ${g.n} · ${g.len} amino acids. Faded dots are the rest of the original chain.</p>`}
   el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>${map}`;el.hidden=false;madeOf(p)}
 let folded=false;
@@ -1070,14 +1100,14 @@ function drawString(ch,still){
   const W=box.clientWidth||320,mob=W<520;
   const n=ch.length,small=n<=6,bigM=n<=10,big=mob?40:50,minD=mob?21:24,tt=Math.min(1,Math.max(0,(n-10)/30));
   const d=Math.round(big-(big-minD)*Math.pow(tt,.6)),step=d+Math.round(d*(small?.35:.3)),fs=Math.max(10.5,Math.round(d*.44));
-  const amp=small?0:d*(bigM?.22:.3),rowH=Math.round(d+Math.max(12,d*.5)+2*amp),padMin=d/2+26;
+  const amp=d*(small?.3:bigM?.24:.3),rowH=Math.round(d+Math.max(12,d*.5)+2*amp),padMin=d/2+26;
   const fit=Math.max(3,Math.floor((W-2*padMin)/step)+1),per=n<=fit?n:fit,pad=n<=fit?(W-(n-1)*step)/2:padMin;
   const rows=Math.ceil(n/per),top=d/2+6+amp,H=top+(rows-1)*rowH+d/2+8+amp;
-  const pts=ch.map((a,i)=>{const r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH+amp*Math.sin(i*.85),r]});
+  const pts=ch.map((a,i)=>{const r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH+(small?amp*(i%2?1:-1):amp*Math.sin(i*.85)),r]});
   const tail=small?d/2+8:Math.max(10,Math.round(d*.4));
   let p=`M${pts[0][0]-tail},${pts[0][1]} L${pts[0][0]},${pts[0][1]}`;
   for(let i=1;i<pts.length;i++){const[x0,y0]=pts[i-1],[x1,y1]=pts[i];
-    if(pts[i][2]===pts[i-1][2])p+=` L${x1.toFixed(1)},${y1.toFixed(1)}`;else{const rr=((y1-y0)/2).toFixed(1),right=pts[i-1][2]%2===0;p+=` A${rr},${rr} 0 0 ${right?1:0} ${x1},${y1}`}}
+    if(pts[i][2]===pts[i-1][2]){const hx=(x1-x0)/2;p+=` C${(x0+hx).toFixed(1)},${y0.toFixed(1)} ${(x1-hx).toFixed(1)},${y1.toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`}else{const rr=((y1-y0)/2).toFixed(1),right=pts[i-1][2]%2===0;p+=` A${rr},${rr} 0 0 ${right?1:0} ${x1},${y1}`}}
   const L=pts[pts.length-1],lastRight=L[2]%2===0;p+=` L${L[0]+(lastRight?tail:-tail)},${L[1]}`;
   const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
     return `<g class="bd" data-i="${i}" style="--i:${i}"><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+fs*.36}" text-anchor="middle" fill="${fg}" font-size="${fs}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
@@ -1172,12 +1202,26 @@ let cur=null,sortBy="len";
 const MAXL=Math.max(...P.map(p=>p[1].length));
 const pk=(i)=>{const p=P[i];return `<button class="pk" role="option" data-p="${i}" aria-pressed="${cur===i}"><i class="sq${p[2]?"":" none"}" style="${p[2]?sw(p[2]):""}"></i><span class="nmx">${p[0]}</span><span class="otg">${(ORI[p[0]]?SHORT[ORI[p[0]][0]]:"")}${p[1].length>=50?" · protein":""}</span><em>${p[1].length||"–"}</em></button>`};
 const chip=(i)=>{const p=P[i];if(!p[1])return `<button class="ch5 npc" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>not a peptide</em></button>`;return `<button class="ch5" data-p="${i}" aria-pressed="${cur===i}"><i class="sq" style="${sw(p[2])}"></i>${p[0]} <span aria-hidden="true">·</span> <em>${p[1].length}</em></button>`};
+let popAll=false,popSort="pop";
 function renderPop(){
-  const pop=$("#pop");const isNP=i=>!P[i][1];const base=P.map((p,i)=>[p,i]).filter(x=>x[0][4]&&x[0][1]).sort((a,b)=>a[0][4]-b[0][4]).map(x=>x[1]);
-  const extra=P.map((p,i)=>i).filter(i=>!P[i][4]&&!isNP(i)&&!(ORI[P[i][0]]&&ORI[P[i][0]][0]==="ref")).sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
-  const show=base.concat(extra).slice(0,innerWidth<900?44:48);
-  pop.innerHTML=show.map(chip).join("");const pn=$("#popnp");if(pn)pn.innerHTML=P.map((p,i)=>i).filter(isNP).sort((a,b)=>(P[a][4]||99)-(P[b][4]||99)).map(chip).join("");
-}
+  const pop=$("#pop");const isNP=i=>!P[i][1];const all=P.map((p,i)=>i);const ty=i=>(ORI[P[i][0]]||["syn"])[0];
+  const base=all.filter(i=>P[i][4]&&P[i][1]).sort((a,b)=>P[a][4]-P[b][4]);
+  const extra=all.filter(i=>!P[i][4]&&!isNP(i)&&ty(i)!=="ref").sort((a,b)=>P[a][1].length-P[b][1].length||P[a][0].localeCompare(P[b][0]));
+  const npRow=all.filter(isNP).sort((a,b)=>(P[a][4]||99)-(P[b][4]||99));
+  const lab=$("#poplab"),ps=$("#psort"),more=$("#popmore"),pn=$("#popnp"),pnl=pn&&pn.previousElementSibling;
+  if(more)more.textContent=popAll?"Show less ↑":`Show all ${P.length} ↓`;if(ps)ps.hidden=!popAll;if(lab)lab.textContent=popAll?`All ${P.length}`:"Popular";
+  if(pn){pn.hidden=popAll;if(pnl)pnl.hidden=popAll}
+  if(ps)ps.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===popSort));
+  if(!popAll){pop.innerHTML=base.concat(extra).slice(0,innerWidth<900?44:48).map(chip).join("");if(pn)pn.innerHTML=npRow.map(chip).join("");return}
+  const L=i=>P[i][1].length;let html="";
+  if(popSort==="ori"){const OR=["nat","frag","enz","mod","syn","ref","np"];OR.forEach(k=>{const g=all.filter(i=>ty(i)===k).sort((a,b)=>(L(a)-L(b))||P[a][0].localeCompare(P[b][0]));if(g.length)html+=`<p class="glab">${OT[k][0]} <span>${g.length}</span></p>`+g.map(chip).join("")})}
+  else{let o;
+    if(popSort==="short")o=all.filter(i=>!isNP(i)).sort((a,b)=>L(a)-L(b)||P[a][0].localeCompare(P[b][0])).concat(npRow);
+    else if(popSort==="long")o=all.filter(i=>!isNP(i)).sort((a,b)=>L(b)-L(a)||P[a][0].localeCompare(P[b][0])).concat(npRow);
+    else if(popSort==="az")o=all.slice().sort((a,b)=>P[a][0].localeCompare(P[b][0]));
+    else{const rest=all.filter(i=>!base.includes(i)&&!isNP(i)).sort((a,b)=>L(a)-L(b)||P[a][0].localeCompare(P[b][0]));o=base.concat(rest,npRow)}
+    html=o.map(chip).join("")}
+  pop.innerHTML=html}
 let hl=-1,shown=[];
 function renderList(){
   const q=$("#q").value.trim().toLowerCase().replace(/[\s\-–]/g,"");
@@ -1196,6 +1240,7 @@ function head(){
   const p=P[cur];legend(p);{const np=!p[1];$("#s5n").classList.toggle("gone",np);$("#s5h").textContent=np?"What it is":"Built";$("#s5p").textContent=np?"Not built from a gene":"What you made"}const nl=$("#nowline");const uc=(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]).map(k=>PAL[k][1]);const ug=uc.length?`linear-gradient(90deg,${uc.map((c,k)=>`${c} ${(k*100/uc.length).toFixed(1)}% ${((k+1)*100/uc.length).toFixed(1)}%`).join(",")})`:"linear-gradient(#3E4A80,#3E4A80)";if(nl)nl.innerHTML=`<span class="nwl">${demo?"First example":"Building"}</span><b class="nwn" style="--ug:${ug}">${p[0]}</b><button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">try another ↓</button>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span></div>${stickerStripe(p[0],p[2])}`;
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
+$("#popmore").addEventListener("click",()=>{popAll=!popAll;renderPop();if(!popAll)$("#pickers").scrollIntoView({block:"start",behavior:"smooth"})});$("#psort").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;popSort=b.dataset.s;renderPop()});
 ["#pop","#popnp"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest(".ch5");if(b)pick(+b.dataset.p,true)}));
 $("#plist").addEventListener("mousedown",e=>e.preventDefault());
 $("#plist").addEventListener("click",e=>{const b=e.target.closest(".pk");if(b){$("#q").value="";pick(+b.dataset.p,true);$("#q").blur()}});
