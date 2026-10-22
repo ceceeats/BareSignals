@@ -3,6 +3,17 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v6 (22 Oct 2026) at /supplements/v6/
+- Built on v5: keeps the "See their doses side by side" link to Dosage.
+- Deep research pass on every card (NIH ODS, Linus Pauling Institute, NCCIH, MSK, Cochrane, ISSN, IOC, EFSA, FDA, trial papers). Every dose row, new finding and source carries a confidence flag: V verified (source opened), R reported, I inferred.
+- Tiles: one per row on phones (landscape), richer line on what it does, the typical dose and how often, evidence tier (Strong, Moderate, Limited, Emerging, Traditional) and who it is for.
+- Cards: typical dose and how often up top, "The short version" benefits summary, full dose table (Bare Signals protocol, RDA by sex and life stage, upper limit, common dose, trial doses, other routes such as IV marked clinical only), what form to buy and what to skip, label checks, warnings, interactions, ways it is taken, new findings 2023 to 2026, who it is for, numbered sources.
+- Protocol doses at or above a reference limit are flagged in red on the card: Vitamin D3 (5,000 IU vs 4,000 IU limit), Zinc (30-50 mg vs 40 mg), Magnesium Glycinate (400 mg vs 350 mg supplemental), Magnesium L-Threonate (stacked total about 550 mg), Electrolytes (magnesium 400 mg; potassium must come from food), Niacin (500 mg, 14 times the 35 mg limit), Vitamin C (2 g, at the limit), Vitamin E (400 IU, the SELECT dose), Protein (above the 2025 GLP-1 advisory range).
+- Melatonin note corrected: no evidence was found that a high dose suppresses GH (0.5 mg and 5 mg raised GH equally in small trials).
+- 11 new evidence-strong entries from the research report: Folic Acid, Iron, Iodine, Vitamin B12 (Foundations), Psyllium, Cranberry, Plant Sterols, Caffeine, Beta-Alanine, Sodium Bicarbonate, Lutein and Zeaxanthin. New groups: Sport and Performance, Eye Health. 75 supplements total.
+- Search: the placeholder types example searches, a "Try" row of tappable keywords and a "For" row of personal filters (Women, Pregnancy safe, Avoid in pregnancy, Breastfeeding, Childbearing age, Menopause, 50+, 65+, Vegan, Strength training, Endurance, Strong evidence). Fixes the cut-off search text on phones.
+- Tags follow the report's rule: only where a named guideline, Cochrane review or trial population supports it. Removed: Breastfeeding on Berberine and Ashwagandha (both are avoid), Menopause on Collagen (one industry-funded trial).
+
 ## v5 (22 Oct 2026) at /supplements/v5/
 - "Goes with" ends with "See their doses side by side →". It opens the Dosage page filtered to just the peptides that go with this supplement, with a "Show all" button (/dosage/?only=<slugs>&from=<supplement>). Library chips unchanged.
 - Dosage v12 links back: each dosage card shows how many supplements people pair with it, and the expand panel lists them as links to their supplement cards.
