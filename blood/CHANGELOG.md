@@ -5,6 +5,18 @@
 ## v6 (22 Oct 2026) at /blood/v6/
 - Every compound card now links to its reported dosage ("Reported dosage →", /dosage/#<slug>) next to "Full entry in the Library". Shipped with Dosage v11 (which links back to each compound's blood work) and Library v25. Data, tests and layout unchanged from v5.
 
+## v9 (23 Oct 2026) at /blood/v9/
+- Compact compound cards. Each card opens short: the 4 main labels, then "Before you start" and "While on it" as plain test names (like the supplement list), with a small red dot for danger and an amber dot for watch. Danger and watch tests come first.
+- "Show full card" expands the rest: every Library label with what it does (main, reported, in trials, mechanism), the blood markers it moves grouped by colour, the tests as compact rows with notes, arrows and cost tier, how often, red flags, test prep, markers, notes in full, sources and supplements. Opening a compound from a link (/blood/#/c/<id>) expands it.
+- Orange tint = something you do: Add to my plan (left, orange), the plan search box, the add buttons, picked compounds, copy link and print. Full entry in the Library and Reported dosage sit on the right. "Also check while on it" heading moved from orange to ink so orange only means action.
+- Bigger text: card title, labels and test names.
+- Test prep, from the Oct 2026 prep research (sourced, tagged verified/reported/inferred):
+  - Blood tests tab: "Before any blood test" box with the 9 general rules (water only when fasting, normal water intake, 7 to 10am at the same time each retest, biotin stop, 48h no hard training, 24h no alcohol, postpone when sick, same lab, keep prescribed medicines).
+  - Every test explainer: "Before the test" with that test's rules. "Fast first?" corrected for 24 tests (e.g. lipids no longer need fasting, testosterone and folate do); the Encyclopedia's original note is shown under it.
+  - Compound cards: "Before the blood draw" with class rules (GLP-1 lipase reads higher, GH axis timing, hCG, teriparatide calcium timing, creatine, methylene blue and more), filtered so a card only shows rules for itself.
+  - My plan: "Before your draw" checklist grouped Every draw / For the tests in your plan / For your compounds. Ticks saved in this browser.
+- Data: /blood/v9/data.js = v8 + prep + every Library label per compound. v8 files stay in place (Library v28 and Supplements v7 read /blood/v8/lib.js and supp.js).
+
 ## v8 (22 Oct 2026) at /blood/v8/
 Shipped with Library v28 (on the other session's v27) and Supplements v7 (on the other session's v6).
 - TB-500 now means frag 17–23, the form sold as TB-500 (the July 2026 FDA briefing confirms TB-500 is the 17–23 fragment and not thymosin beta-4). The Encyclopedia's TB-500 protocol and the frag 17–23 research are one card: "TB-500 (frag 17–23)", with "Also researched Oct 2026" and sources. Library links follow.
