@@ -69,11 +69,11 @@
 .nowline .tchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .nowline .tchips{justify-content:inherit}
 .tch{position:relative;overflow:hidden;background:var(--chip);border:1.5px solid var(--ink);color:var(--ink);font:600 12.5px var(--body);padding:5px 10px;cursor:pointer}
-.tch::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,222,89,.85),transparent);animation:shine 3.2s ease-in-out infinite;animation-delay:calc(var(--d,0)*1s)}
+.tch::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,222,89,.38),transparent);animation:shine 12s ease-in-out infinite;animation-delay:calc(var(--d,0)*3.6s)}
 .tch:nth-child(2)::after{--d:.35}.tch:nth-child(3)::after{--d:.7}.tch:nth-child(4)::after{--d:1.05}.tch:nth-child(5)::after{--d:1.4}.tch:nth-child(6)::after{--d:1.75}.tch:nth-child(7)::after{--d:2.1}.tch:nth-child(8)::after{--d:2.45}.tch:nth-child(9)::after{--d:2.8}
 .tch.on{background:var(--ink);color:var(--paper)}
 .tch.on::after{display:none}
-@keyframes shine{0%{left:-60%}35%{left:120%}100%{left:120%}}
+@keyframes shine{0%{left:-60%}9%{left:120%}100%{left:120%}}
 @media (prefers-reduced-motion:reduce){.tch::after{display:none}}
 @media (max-width:899px){.nowline .tline{font-size:14px;text-align:center}.nowline .tbtns,.nowline .tchips{justify-content:center}.tch{font-size:12px;padding:5px 8px}}
 </style>
@@ -759,7 +759,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   <div class="top">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From Gene to Peptide<small>V48</small></h1>
+    <h1>From Gene to Peptide<small>V49</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -876,9 +876,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 48 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 48 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V48:</b> title capitalised: From Gene to Peptide. Build a peptide now opens as a guided tour of nine examples, each chosen because it is different: Thymosin Beta-4 made whole by the body, BPC-157 cut from an unknown protein, Kisspeptin-10 cut from the end of a hormone, GHK-Cu holding copper, oxytocin closed in a ring, semaglutide rebuilt to last, FOXO4-DRI in mirror image, insulin long enough to be a protein, and Cerebrolysin, not a peptide at all. Each shows one line on what makes it different, a Next example button, and shimmering chips to jump between them. <a href="/aminos/v47/">V47 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 49 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 49 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V49:</b> the shimmer on the tour chips is softer, slower and rarer: a faint gold glint that crosses one chip at a time about every 12 seconds. <a href="/aminos/v48/">V48 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V48:</b> title capitalised: From Gene to Peptide. Build a peptide now opens as a guided tour of nine examples, each chosen because it is different: Thymosin Beta-4 made whole by the body, BPC-157 cut from an unknown protein, Kisspeptin-10 cut from the end of a hormone, GHK-Cu holding copper, oxytocin closed in a ring, semaglutide rebuilt to last, FOXO4-DRI in mirror image, insulin long enough to be a protein, and Cerebrolysin, not a peptide at all. Each shows one line on what makes it different, a Next example button, and shimmering chips to jump between them. <a href="/aminos/v47/">V47 kept here</a>.</p>
     <p style="margin-top:6px"><b>V47:</b> the page ends with a Next link to Made (From cell to vial), the page on how peptides are made, purified and tested. <a href="/aminos/v46/">V46 kept here</a>.</p>
     <p style="margin-top:6px"><b>V46:</b> chains now keep moving after they are built, as a second layer on top of the build animation: flexible chains ripple, glycines swing widest, prolines barely move, and ringed or copper-held chains rock gently as one stiff piece. Every amino acid card gains Size and shape: how big its side chain is on a scale from glycine to tryptophan, and what shape it takes. The discovery timeline is compact, with the name stories one tap away. On laptops the First example name lines up with the DNA and mRNA boxes. <a href="/aminos/v45/">V45 kept here</a>.</p>
     <p style="margin-top:6px"><b>V45:</b> laptop only. In Build a peptide the dividing line moves toward the middle, giving the picker and Popular list far more room. The First example and Building line sits on the left, in line with the steps. The empty space under the amino acid grid now holds When each letter was found, a timeline of the year each amino acid was discovered, with where it came from and how it got its name. <a href="/aminos/v44/">V44 kept here</a>.</p>
