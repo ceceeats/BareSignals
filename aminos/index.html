@@ -29,6 +29,19 @@
 .tiles .tile .t3{margin:4px 0 0!important;text-align:left}
 .tiles .tile .row2{margin:6px 0 auto!important;height:auto!important;align-items:flex-start}
 }
+
+.found{display:none}
+@media (min-width:900px){
+.found{display:block;margin-top:26px;border-top:1.5px solid var(--rule);padding-top:16px}
+.found .fl{font-size:14.5px;line-height:1.5;color:var(--ink);margin:4px 0 12px;max-width:68ch}
+.found ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}
+.found li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:8px;padding:7px 0;border-bottom:1px solid var(--rule)}
+.found li b{grid-row:1/3;font:700 14px var(--mono);color:var(--accent)}
+.found li strong{font:700 14px var(--display);color:var(--ink)}
+.found li span{font-size:12px;line-height:1.35;color:var(--ink-soft)}
+.trans .foldbar{justify-content:flex-start!important}
+.trans .nowline{align-items:flex-start!important;text-align:left!important}
+}
 </style>
 <script src="/nav.js" defer></script>
 </head>
@@ -649,7 +662,7 @@ h1 small{font-size:14px!important;vertical-align:super}
 h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 @media (max-width:899px){h1{font-size:38px!important}.left .lede{font-size:15.5px!important}.divider span{font-size:12px!important}h2:has(.tap){font-size:25px!important}}
 @media (min-width:900px){
-.trans{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:0 40px;max-width:none!important;align-items:start}
+.trans{display:grid!important;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0 40px;max-width:none!important;align-items:start}
 .trans>h2,.trans>.lede2{grid-column:1/-1}
 .trans>.res{grid-column:1!important;grid-row:3!important;min-width:0}
 .trans>.pick{grid-column:2!important;grid-row:3!important;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow-y:auto;margin-top:0!important;border-top:0!important;padding:0 6px 10px 22px!important;border-left:1.5px solid var(--rule);overscroll-behavior:contain}
@@ -707,7 +720,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   <div class="top">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From gene to peptide<small>V44</small></h1>
+    <h1>From gene to peptide<small>V45</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -757,6 +770,11 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
       <span><span class="sg" style="color:var(--accent)"><b>S</b></span>Sulfur</span>
       <span><span class="sg" style="color:var(--accent)"><b>▸</b></span>Start signal</span>
       <span><span class="sg" style="color:var(--accent)"><b>B</b></span>Branched-chain (BCAA)</span>
+    </div>
+    <div class="found">
+      <p class="lab">When each letter was found</p>
+      <p class="fl">Asparagine came first, from asparagus juice in 1806. It took 129 years to find all twenty; the twenty-first only turned up in 1974.</p>
+      <ol><li><b>1806</b><strong>Asparagine</strong><span>the first ever found, crystallised from asparagus juice</span></li><li><b>1810</b><strong>Cysteine</strong><span>found as cystine, in a bladder stone</span></li><li><b>1819</b><strong>Leucine</strong><span>from cheese; Greek leukos, white, for its crystals</span></li><li><b>1820</b><strong>Glycine</strong><span>boiled out of gelatin; Greek glykys, sweet, for its taste</span></li><li><b>1827</b><strong>Aspartic acid</strong><span>split off asparagine, its close cousin</span></li><li><b>1846</b><strong>Tyrosine</strong><span>from cheese; Greek tyros, cheese</span></li><li><b>1850</b><strong>Alanine</strong><span>made in a lab before anyone found it in protein</span></li><li><b>1865</b><strong>Serine</strong><span>from silk; Latin sericum, silk</span></li><li><b>1866</b><strong>Glutamic acid</strong><span>from wheat gluten</span></li><li><b>1879</b><strong>Phenylalanine</strong><span>from lupin seedlings</span></li><li><b>1883</b><strong>Glutamine</strong><span>from beet juice</span></li><li><b>1886</b><strong>Arginine</strong><span>from lupin seedlings; Greek argyros, silver, for its shiny salts</span></li><li><b>1889</b><strong>Lysine</strong><span>from milk protein; Greek lysis, loosening</span></li><li><b>1896</b><strong>Histidine</strong><span>from fish sperm protein; Greek histos, tissue</span></li><li><b>1901</b><strong>Valine</strong><span>named after valerian, the root of the sleep herb</span></li><li><b>1901</b><strong>Proline</strong><span>from milk protein, the year it was shown in protein</span></li><li><b>1901</b><strong>Tryptophan</strong><span>from milk protein; named after trypsin, the enzyme that freed it</span></li><li><b>1904</b><strong>Isoleucine</strong><span>from sugar beet molasses, a twin of leucine</span></li><li><b>1922</b><strong>Methionine</strong><span>from milk protein; the start signal of every gene</span></li><li><b>1935</b><strong>Threonine</strong><span>the last of the twenty; named after the sugar threose</span></li><li><b>1974</b><strong>Selenocysteine</strong><span>the 21st, carrying selenium, read from a stop codon</span></li></ol>
     </div>
   </section>
 
@@ -817,9 +835,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 44 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 44 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V44:</b> on phones every amino acid tile now reads like the How to read a tile example: name, then the code and weight right under it, then the codon squares, evenly spaced; the corner marks no longer push the code down. Chains now bend by their letters: glycine hinges swing wider, prolines hold stiff kinks. Under each chain, three estimated traits from its sequence: how it moves, how it sits with water (Kyte-Doolittle score) and how long it lasts. <a href="/aminos/v43/">V43 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 45 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 45 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V45:</b> laptop only. In Build a peptide the dividing line moves toward the middle, giving the picker and Popular list far more room. The First example and Building line sits on the left, in line with the steps. The empty space under the amino acid grid now holds When each letter was found, a timeline of the year each amino acid was discovered, with where it came from and how it got its name. <a href="/aminos/v44/">V44 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V44:</b> on phones every amino acid tile now reads like the How to read a tile example: name, then the code and weight right under it, then the codon squares, evenly spaced; the corner marks no longer push the code down. Chains now bend by their letters: glycine hinges swing wider, prolines hold stiff kinks. Under each chain, three estimated traits from its sequence: how it moves, how it sits with water (Kyte-Doolittle score) and how long it lasts. <a href="/aminos/v43/">V43 kept here</a>.</p>
     <p style="margin-top:6px"><b>V43:</b> on laptops the title and the moving walk now span the full width of the page, drawn about 45% larger, with bigger step numbers and captions. The amino acid grid and its card sit side by side below it. <a href="/aminos/v42/">V42 kept here</a>.</p>
     <p style="margin-top:6px"><b>V42:</b> the Bare Signals bar across the top links Home, Library, Aminos, Dosage and the Calculator on every page. <a href="/aminos/v41/">V41 kept here</a>.</p>
     <p style="margin-top:6px"><b>V41:</b> every amino acid has its own link now, like baresignals.co/aminos/#K for lysine, so the Peptide and Compound Library can send you straight to an amino card. Each built peptide gets a Read in the library link to its full library page. <a href="/aminos/v40/">V40 kept here</a>.</p>
