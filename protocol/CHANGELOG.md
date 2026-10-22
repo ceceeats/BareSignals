@@ -2,6 +2,19 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v2 (22 Oct 2026) at /protocol/v2/
+- Walkthrough: four steps split by Aminos-style dividers (Step one to four) with a big centred question per step, so it no longer reads as one continuous page.
+- Step one: role tags are red (palette #FF5050), filled red when picked; suggestions show 5 with "Show N more".
+- Step two: each compound is one compact row (colour band, name, one-line summary). One editor open at a time, all tap-to-pick: dose chips from the reported range plus Other, how often, how long (reported cycle, Ongoing, Other), Starting fresh or Already on it (with optional since date). Done collapses it and opens the next one still to set.
+- Orange blinker (same as Draw Line) on every row and question still needing a dose. Save stack stays locked until every dose is set, then blinks orange. Step three and four unlock after saving; changing anything later shows "Your stack changed · Save to update".
+- Fix: dose no longer shows "not set" in the text when the field was only showing the reported dose as a hint. The dose is now picked or typed and confirmed.
+- As needed (PT-141 and anything set to As needed) gets its own lane on the timeline and in the one-week view: dotted line, optional "up to N× a week", no fixed days, no start week.
+- Optional start date puts real dates under each week on the timeline. "Already on it" items run from week one with a ◀ marker and are left out of the stagger.
+- Stack check lines are one short sentence each, the reasoning sits behind "why ›".
+- Results: timeline full width on laptop with check and blood work side by side under it; on phone the order is check, timeline, blood work. Timeline extends to include the last recheck.
+- Paste it back tested three ways: full AI text, reopen link, and plain names ("bpc-157, klow and tesamorelin", which opens with doses to set). v1 codes and a v1 saved stack still open in v2.
+- v1 kept at /protocol/v1/.
+
 ## v1 (22 Oct 2026) at /protocol/v1/
 First build. Reads Library v28 data and Blood Work v8 lib, so it updates when those do.
 - 1 · What you're dealing with: tap role tags from the 30-colour palette (18 common shown, "All 30" for the rest) or type in your own words. Lists what people most often report using for it, ranked by how tightly each compound is tied to the pick, then by popularity. Reference entries (Insulin, GLP-1, Glucagon, Exenatide, Amylin, Ubiquitin) are left out of suggestions.
