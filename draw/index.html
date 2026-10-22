@@ -440,7 +440,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v13</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v14</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -735,6 +735,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v14: the Luer funnel now fills completely, so the trapped blue reads about ten times the insulin syringe, matching 0.05 mL against 0.005 mL. The water fills the whole triangle on the way down, not just a thin line through it. v1 to v13 are unchanged.</span>
   <span>v13: the water now flows. As the plunger pushes, a blue front travels down into the funnel and along the full length of the needle, instead of the needle changing from white to blue at once. What the plunger cannot push past stays as the trapped residue. v1 to v12 are unchanged.</span>
   <span>v12: the trapped liquid is primed from the start and stays put as the plunger pushes, so it reads as liquid draining, not popping in at the end. Real geometry: on the Luer lock the outer threaded collar and the hub walls are plastic, so only the inner bore, the luer taper and the needle hold water; the insulin syringe keeps water in the needle alone. v1 to v11 are unchanged.</span>
   <span>v11: the stuck liquid now fills the real dead space in blue, the colour of the water. In the insulin syringe the plunger meets the needle, so only the needle holds residue. In the Luer lock the plunger stops at the funnel, so the funnel, the hub and the needle all stay full, which is why it wastes more. The orange call-out stays. v1 to v10 are unchanged.</span>
@@ -833,7 +834,8 @@ function Syr(host,c,type,o){
       '<line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
       '<line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
       '<g clip-path="url(#'+dgid+')">'+
-        '<path class="dead" d="M'+(cx-3)+' '+yb+'L'+(cx+3)+' '+yb+'L'+(cx+2.4)+' '+(yb+18)+'L'+(cx-2.4)+' '+(yb+18)+'Z"/>'+
+        '<path class="dead" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+6)+' '+(yb+9)+'L'+(cx-6)+' '+(yb+9)+'Z"/>'+
+        '<rect class="dead" x="'+(cx-3.5)+'" y="'+(yb+9)+'" width="7" height="11"/>'+
         '<rect class="dead hubl hub" x="'+(cx-4)+'" y="'+(yb+18)+'" width="8" height="22"/>'+
         '<path class="dead" d="M'+(cx-1.6)+' '+(yb+40)+'L'+(cx+1.6)+' '+(yb+40)+'L'+(cx+.5)+' '+(yb+88)+'L'+(cx-.5)+' '+(yb+88)+'Z"/>'+
       '</g>';
