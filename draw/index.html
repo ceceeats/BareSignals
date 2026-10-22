@@ -287,7 +287,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .tl{font:500 10px var(--mono);fill:var(--ink)}
 .hubf{fill:var(--syl);stroke:var(--syd);stroke-width:1.1}
 .hubl{fill:none}
-.hubl.waste{fill:rgba(219,104,48,.1);stroke:var(--accent);stroke-width:1.3}
+.hubl.waste{fill:var(--liquid);fill-opacity:.95;stroke:var(--accent);stroke-width:1.4}
 .ndl{fill:var(--paper);stroke:var(--ink);stroke-width:.9}
 .col2{fill:none;stroke:var(--ink);stroke-width:1.3}
 .tagr{fill:var(--ink)}
@@ -438,7 +438,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v9</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v10</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -733,6 +733,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v10: the liquid left stuck in the hub after the push now shows blue, the same colour as the water in the vial, so you see how much is left behind. v1 to v9 are unchanged.</span>
   <span>v9: brighter orange numbers in the vial, liquid and dose inputs, a wider Take row with Daily, Every other day, Weekly, 5 on 2 off and When needed, days that open and nudge when you pick Weekly, a reported dose teaser on the card (most common dose, how often, cycle) so you keep your typing, Show the math collapsed by default, the Luer lock needle kept in frame on push so you see where it comes out, and the gauge drawn as an angled needle with 32, 33 and 34 added and a 31G reference. v1 to v8 are unchanged.</span>
   <span>v8: laptop layout with Weight and Mixing on the left and Syringes on the right, one I know all three button, larger vials on laptop, vials on one level, green diluent, a fuller powder, orange vial and liquid numbers in the Mixing sample, rotating example names (BPC-157, TB-500, GLOW) and notes (collagen, vitamin C, ubiquinol), orange Dates and notes labels, Reported doses now links to the Dosage page and the Library entry for the compound you type. v1 to v7 are unchanged.</span>
   <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
