@@ -52,7 +52,7 @@ h1{font:700 34px/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
 .q{min-height:30px;padding:3px 9px;font:500 12px var(--mono)}
 input[type=text],input[type=number]{color:var(--accent-ink);width:100%;min-height:40px;padding:6px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:600 18px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
 input[type=text]{font:500 16px var(--body);min-height:38px;color:var(--ink)}
-input[type=date]{width:100%;min-height:38px;padding:4px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:500 14px var(--mono);color:var(--ink)}
+input[type=date]{width:100%;min-height:34px;padding:4px 10px;text-align:center;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:500 14px var(--mono);color:var(--ink)}
 input[type=number]{-moz-appearance:textfield;appearance:textfield}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 ::placeholder{color:#8A93BE}
@@ -202,41 +202,49 @@ body:not([data-mode="quick"]) .tmath{display:none}
 /* card */
 .shot{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
 .copyrow{margin-top:26px;display:flex;justify-content:center}
-.rec{padding:8px 12px 0}
+.ctop{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:0 10px;padding-bottom:10px}
+.ctop .dn{padding:10px 0 0 12px}
+.rec{padding:8px 0 0 12px}
 .rec span{display:inline-block;font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);border:1.5px solid var(--accent);padding:2px 6px}
-.drawto{border-top:1.5px solid var(--ink);padding-top:10px}
-.plan{display:grid;gap:3px;margin-top:8px}
-.pln{display:flex;gap:8px;align-items:baseline}
+.drawto{padding:9px 12px 0 0;text-align:right}
+.drawto .big{justify-content:flex-end;flex-wrap:nowrap}
+.meta{display:grid}
+.plan{display:grid;gap:0}
+.pln{display:flex;gap:8px;align-items:baseline;border-top:1px solid var(--rule);padding:5px 0}
 .pln span{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);flex:none;min-width:38px}
 .pln b{font:500 12px var(--body);overflow-wrap:anywhere}
 .dates{margin-top:10px;display:grid;gap:6px;width:100%}
 .dt span{display:block;font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .dt b{font:500 11.5px var(--mono)}
 .dt small{display:block;font:400 10px var(--mono);color:var(--soft)}
-.nbody{padding:2px 10px 10px;display:flex;flex-direction:column;gap:8px}
-.nl{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:2px}
+.nbody{padding:0 10px 10px;display:flex;flex-direction:column;gap:4px;align-items:stretch}
+.tight{display:flex;flex-wrap:wrap;gap:0;padding:0 0 1.5px 0}
+.tight .q{flex:1 1 auto;margin:0 -1.5px -1.5px 0;text-align:center;min-height:32px}
+.tight .q[aria-pressed="true"]{position:relative;z-index:1}
+.nl{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:4px;text-align:center}
 .otag{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
 .draw{border:1.5px solid var(--ink);background:var(--paper)}
 .dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
 .dn{padding:10px 12px 0;font:700 20px/1.1 var(--display);overflow-wrap:anywhere}
 .dn.ph{color:var(--soft)}
-.db{display:grid;grid-template-columns:clamp(96px,32%,128px) minmax(0,1fr);margin-top:10px;border-top:1.5px solid var(--ink)}
+.db{display:grid;grid-template-columns:clamp(96px,32%,128px) minmax(0,1fr);border-top:1.5px solid var(--ink)}
 .syrcol{border-right:1.5px solid var(--ink);background:var(--chip);padding:8px 6px 6px;display:flex;flex-direction:column;align-items:center;min-width:0}
 .syr{width:100%}
 .syr svg{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22px);mask-image:linear-gradient(to bottom,transparent 0,#000 22px)}
 .syrnote{font:500 10.5px var(--mono);color:var(--soft);text-align:center;margin-top:4px}
-.datacol{padding:10px 12px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.datacol{padding:4px 12px 8px;min-width:0}
 .lab{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 .big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
-.bn{font:700 50px/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bn{font:700 42px/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .bu{font:600 13px var(--mono)}
 .sec{font:500 12px var(--mono);color:var(--soft);margin-top:4px}
-.kvs{margin-top:12px;display:grid}
+.kvs{display:grid}
 .kv{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--rule);padding:5px 0;font-size:12.5px}
 .kv span{color:var(--soft)}
 .kv b{font:500 13px var(--mono);text-align:right;font-variant-numeric:tabular-nums}
 .kv b.o{color:var(--accent-ink);font-weight:600}
 .kv small{font:400 11px var(--mono);color:var(--soft)}
+.kv:first-child{border-top:0}
 .pills{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1.5px solid var(--ink)}
 .pill{font:600 11px/1.3 var(--mono);padding:4px 8px;border:1.5px solid}
 .pill.ok{color:var(--ok);background:var(--okbg);border-color:var(--ok)}
@@ -335,7 +343,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .faqbig{display:block;font:700 40px/1 var(--display);color:var(--accent);letter-spacing:-.01em}
 .faqsub{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:4px}
 .qa{border-top:1.5px solid var(--line);padding-top:8px}
-.qa summary{cursor:pointer;list-style:none;font:700 15px var(--display)}
+.qa summary{cursor:pointer;list-style:none;font:600 10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
 .qa summary::-webkit-details-marker{display:none}
 .qa summary::after{content:" +";color:var(--accent)}
 .qa[open] summary::after{content:" \2212"}
@@ -359,22 +367,22 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .needle{display:flex;align-items:center;gap:14px;margin:4px 0;min-height:44px}
 .needle .bar{width:140px;max-width:45%;background:var(--ink);flex:none;transition:height .3s}
 .needle span{font:500 12.5px var(--mono)}
-.gloss{border-top:1.5px solid var(--line);padding-top:10px}
-.gloss summary{cursor:pointer;list-style:none;font:700 17px var(--display);color:var(--ink)}
-.gloss summary::-webkit-details-marker{display:none}
-.gloss summary span{font:500 12px var(--mono);color:var(--soft)}
-.gloss summary::after{content:" +";color:var(--accent)}
-.gloss[open] summary::after{content:" \2212"}
-.gloss dl{margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule)}
-.gi{padding:9px 11px;border-right:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);min-width:0}
-.gi dt{font:700 14px var(--display);margin:0 0 2px;color:var(--accent-ink)}
-.gi dt em{font:500 12px var(--mono);font-style:normal;color:var(--soft);margin-left:4px}
-.gi dd{margin:0;font-size:13px;color:var(--soft);line-height:1.4}
+.glos{border-top:1.5px solid var(--ink);padding-top:10px}
+.glos summary{cursor:pointer;list-style:none;font:700 18px var(--display);color:var(--accent)}
+.glos summary::-webkit-details-marker{display:none}
+.glos summary span{font:600 12px var(--mono);color:var(--ink)}
+.glos summary::after{content:" +";color:var(--accent)}
+.glos[open] summary::after{content:" \2212"}
+.glos dl{margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule)}
+.gi{padding:10px 11px;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);background:#fff;min-width:0}
+.gi dt{font:700 15px var(--display);margin:0 0 3px;color:var(--accent)}
+.gi dt em{font:600 12px var(--mono);font-style:normal;color:var(--ink);margin-left:4px}
+.gi dd{margin:0;font-size:13px;color:var(--ink);line-height:1.4}
 .foot{border-top:1.5px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font:500 11.5px/1.5 var(--mono);color:var(--soft)}
 
 @media(max-width:560px){
   h1{font-size:32px}
-  .bn{font-size:44px}
+  .bn{font-size:38px}
 }
 @media(prefers-reduced-motion:reduce){
   .fold,.hubl,.needle .bar,.wstripe,.wrow{transition:none}
@@ -387,6 +395,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <script src="/nav.js" defer></script>
 </head>
 <body>
+
+
 <div class="page">
 
 <header class="top">
@@ -395,7 +405,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v6</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v7</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -415,7 +425,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="wbox">
         <div id="wgrid"></div>
         <div class="wtabs" role="group" aria-label="Weight unit">
-          <button class="btn wt" type="button" data-u="mcg" aria-pressed="true"><b>mcg</b><span>microgram</span></button>
+          <button class="btn wt" type="button" data-u="mcg" aria-pressed="true"><b>mcg</b><span>microgram · µg</span></button>
           <button class="btn wt" type="button" data-u="mg" aria-pressed="false"><b>mg</b><span>milligram</span></button>
           <button class="btn wt" type="button" data-u="g" aria-pressed="false"><b>g</b><span>gram</span></button>
         </div>
@@ -509,13 +519,13 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="blk" data-k="n" data-open="1" style="min-width:0">
         <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Add" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
         <div class="bf"><div class="bfi"><div class="nbody">
-          <label class="nl" for="mixed">Mixed on</label>
+          <label class="nl" for="mixed">Mixed on (today by default)</label>
           <input type="date" id="mixed">
           <div class="nl">Take</div>
-          <div class="qchips" id="freqQ" role="group" aria-label="How often"></div>
-          <div class="qchips" id="dayQ" role="group" aria-label="Days"></div>
+          <div class="qchips tight" id="freqQ" role="group" aria-label="How often"></div>
+          <div class="qchips tight" id="dayQ" role="group" aria-label="Days"></div>
           <div class="nl">When</div>
-          <div class="qchips" id="timeQ" role="group" aria-label="Time of day"></div>
+          <div class="qchips tight" id="timeQ" role="group" aria-label="Time of day"></div>
           <label class="nl" for="note">Your notes</label>
           <input type="text" id="note" maxlength="60" autocomplete="off" placeholder="For example: taken at night, empty stomach">
         </div></div></div>
@@ -539,24 +549,25 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="shot">Screenshot this card</div>
     <div class="draw" id="draw">
       <div class="dh"><span>Bare Signals</span><span>Draw Line · Draft</span></div>
-      <div class="dn ph" id="cName">Your peptide</div>
-      <div class="rec"><span>Insulin syringe recommended</span></div>
+      <div class="ctop">
+        <div>
+          <div class="dn ph" id="cName">Your peptide</div>
+          <div class="rec"><span>Insulin syringe recommended</span></div>
+        </div>
+        <div class="drawto">
+          <div class="lab">Draw to</div>
+          <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
+          <div class="sec" id="bigS"></div>
+        </div>
+      </div>
       <div class="db">
         <div class="syrcol">
           <div class="syr" id="syrMain"></div>
-          <div class="syrnote" id="syrNote"></div>
-          <div class="dates" id="dates"></div>
         </div>
         <div class="datacol">
-          <div>
-            <div class="kvs" id="kvs"></div>
-            <div class="plan" id="plan" hidden></div>
-          </div>
-          <div class="drawto">
-            <div class="lab">Draw to</div>
-            <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
-            <div class="sec" id="bigS"></div>
-          </div>
+          <div class="meta kvs" id="meta"></div>
+          <div class="kvs" id="kvs"></div>
+          <div class="plan" id="plan" hidden></div>
         </div>
       </div>
       <div class="pills" id="pills"></div>
@@ -655,11 +666,11 @@ body:not([data-mode="quick"]) .tmath{display:none}
   </details>
 </section>
 
-<details class="gloss" id="glossary">
+<details class="glos" id="glossary">
   <summary>Glossary <span>· 20 terms</span></summary>
   <dl>
     <div class="gi"><dt>Nanogram <em>ng</em></dt><dd>One thousandth of a microgram. You see it on lab results, not on vials.</dd></div>
-    <div class="gi"><dt>Microgram <em>mcg · µg</em></dt><dd>One thousandth of a milligram. Doses are usually in mcg.</dd></div>
+    <div class="gi"><dt>Microgram <em>mcg · µg</em></dt><dd>One thousandth of a milligram. Said "MY-kro-gram". Also written µg: µ is the Greek letter mu, so it looks like "ug", but it is still read "microgram". Labels favour mcg because µg is easy to misread as mg.</dd></div>
     <div class="gi"><dt>Milligram <em>mg</em></dt><dd>One thousandth of a gram. Vial sizes are in mg.</dd></div>
     <div class="gi"><dt>Gram <em>g</em></dt><dd>A unit of weight. About one paperclip.</dd></div>
     <div class="gi"><dt>Milliliter <em>mL</em></dt><dd>A unit of liquid volume. A 1 mL syringe holds 1 mL.</dd></div>
@@ -683,6 +694,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
   <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
   <span>Bare Signals · baresignals.co · Draw Line · Draft</span>
 </footer>
@@ -1023,7 +1035,7 @@ function renderLadder(){
   const rd={
     g:'<b>g</b> The whole box is 1 gram: 1,000 small squares. Each square is 1 mg.',
     mg:'<b>mg</b> A 10 mg vial is 10 squares. It holds 10,000 mcg.',
-    mcg:'<b>mcg</b> One square is 1 mg. Zoom in and 1 mcg is the dot: 1,000 dots fill that one square.'
+    mcg:'<b>mcg</b> One square is 1 mg. Zoom in and 1 mcg is the dot: 1,000 dots fill that one square. Also written <b>µg</b> (Greek mu plus g). Same thing, still said "microgram".'
   };
   $('#wread').innerHTML=rd[wu];
   $('#wzm').hidden=wu!=='mcg';
@@ -1085,7 +1097,6 @@ function update(){
   const c0=cfg(),nm=S.name.trim();
   const cn=$('#cName');cn.textContent=(nm||'Your peptide')+(isFinite(S.vial)?' · '+nf(S.vial,3)+' mg vial':'');cn.classList.toggle('ph',!nm);
   renderPlan();
-  $('#syrNote').textContent=S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock');
 
   if(!ok){
     $('#bigN').textContent='—';$('#bigU').textContent='';$('#bigS').textContent='Fill in vial, liquid and dose';
@@ -1229,7 +1240,7 @@ function renderPlan(){
   const el=$('#plan');
   el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
   el.hidden=!rows.length;
-  $('#dates').innerHTML=S.mixed?'<div class="dt"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="dt"><span>Use by</span><b>'+fmtDate(addDays(S.mixed,28))+'</b><small>28 days after mixing</small></div>':'';
+  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b>'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
 }
 function buildTxt(c,luer,nm){
   const pb=planBits(),L=[];
@@ -1371,7 +1382,8 @@ setMode(startMode);
   mk2('#freqQ',['Daily','Weekly'],function(v){return S.freq===v;},function(v){S.freq=S.freq===v?'':v;});
   mk2('#dayQ',DAYS,function(v){return S.days.indexOf(v)>-1;},function(v){const i=S.days.indexOf(v);if(i>-1)S.days.splice(i,1);else S.days.push(v);});
   mk2('#timeQ',TIMES,function(v){return S.times.indexOf(v)>-1;},function(v){const i=S.times.indexOf(v);if(i>-1)S.times.splice(i,1);else S.times.push(v);});
-  $('#mixed').addEventListener('input',function(){S.mixed=this.value;update();});
+  $('#mixed').addEventListener('input',function(){S.mixed=this.value||todayISO();update();});
+  $('#mixed').addEventListener('change',function(){if(!this.value)this.value=todayISO();S.mixed=this.value;update();});
   $('#note').addEventListener('input',function(){S.note=this.value;update();});
 })();
 renderLadder();renderMix();wasteReset();
