@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<meta name="description" content="Bare Signals Peptide and Compound Library: every compound researched so far, as stickers. When it was found, what it was first meant for, what was tested, what worked, and what people report.">
+<title>Library · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Library v3. Cream sticker paper, periwinkle ink, square ruled cells, Stripe v3 colours. No animation. */
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --ink-soft:#6B76A8; --rule:#E3E0BF; --chip:#FFFFF4; --accent:#DB6830; --grid:#6777B6; --red:#FF5050; --name:#6777B6;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font:700 26px/1.05 var(--display);margin:0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.lede{margin:8px 0 0;max-width:64ch}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.top a.home{font:500 12px var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+
+/* controls */
+.ctl{margin:20px 0 14px;display:flex;flex-direction:column;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row .lab{margin:0;width:64px;flex:none}
+#q{flex:1;min-width:180px;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 10px;border-radius:0}
+#q:focus-visible,.seg button:focus-visible,.sw:focus-visible,.tg:focus-visible,.stk:focus-visible,.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1.5px solid var(--ink)}
+.seg button{font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 10px;cursor:pointer;min-height:34px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button em{font:500 10.5px var(--mono);font-style:normal;opacity:.75;margin-left:4px}
+.tg{font:500 12.5px var(--body);color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:7px 10px;cursor:pointer;min-height:34px}
+.tg[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sws{display:flex;flex-wrap:wrap;gap:4px;flex:1;min-width:0}
+.sw{width:26px;height:26px;border:0;padding:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22);position:relative}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--ink)}
+.sw.dim{opacity:.28}
+.selnote{font-size:12.5px;color:var(--ink-soft);min-height:18px}
+.selnote b{color:var(--ink);font-weight:600}
+.selnote button{font:500 12px var(--body);color:var(--accent);background:none;border:0;padding:0 0 0 8px;cursor:pointer;text-decoration:underline}
+.key{border:1.5px solid var(--ink);background:var(--chip);margin:18px 0 0}
+.key summary{cursor:pointer;padding:10px 14px;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:10px}
+.key summary::-webkit-details-marker{display:none}
+.key summary::after{content:"Close";color:var(--accent)}
+.key:not([open]) summary::after{content:"Open"}
+.key summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.key .kb{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:4px 14px 14px;align-items:start}
+.key ol{margin:0;padding-left:18px;font-size:13.5px;max-width:62ch}
+.key li{margin:0 0 7px}
+.kd{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin:0 4px 0 2px}
+.fam{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px 18px;flex:1;min-width:0}
+.fam .fl{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 5px}
+.tags2{display:flex;flex-wrap:wrap;gap:5px}
+.rt{display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--rule);padding:4px 9px 4px 5px;cursor:pointer;min-height:32px}
+.rt i{width:14px;height:14px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.rt em{font:500 10px var(--mono);font-style:normal;color:var(--ink-soft)}
+.rt:hover{border-color:var(--ink)}
+.rt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rt[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rt[aria-pressed="true"] em{color:var(--paper)}
+.pr{display:flex;align-items:center;gap:6px;min-width:0;font:500 12px/1.2 var(--body);color:var(--ink)}
+.pr i{width:11px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.pr span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+a.chip{text-decoration:none;color:var(--ink)}
+a.chip:hover{border-color:var(--ink)}
+a.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip small{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-left:2px}
+.count{font:500 11px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase}
+
+/* sticker grid: ruled square cells */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.cell{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:10px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.ghead{grid-column:1/-1;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:8px 10px;display:flex;align-items:center;gap:8px;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip)}
+.ghead i{width:14px;height:14px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.meta{display:flex;justify-content:space-between;gap:6px;font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);min-height:12px}
+.meta .lg{color:var(--accent)}
+.empty{grid-column:1/-1;padding:18px 12px;font-size:14px;color:var(--ink-soft);border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid)}
+
+/* the sticker front, drawn from the Canva geometry (447 px master) */
+.stk{display:block;width:100%;aspect-ratio:1;position:relative;background:var(--paper);container-type:inline-size;text-decoration:none;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.stk .nm{position:absolute;left:10%;top:9.6%;right:6%;font-family:var(--display);font-weight:700;color:var(--name);line-height:.98;letter-spacing:-.005em}
+.stk .nm span{display:block;white-space:nowrap}
+.stk .nm .sb{font:italic 400 9.2cqw/1.15 var(--body);letter-spacing:0;margin-top:1.5cqw}
+.stk .b{position:absolute;display:block}
+.stk .nm{font-optical-sizing:none;font-variation-settings:"opsz" 14}
+.stk .dots{position:absolute;right:8.95%;top:53%;display:flex;gap:2.35cqw}
+.stk .dots i{display:block;width:6.5cqw;height:6.5cqw;border-radius:50%}
+.stk .wm{position:absolute;right:10%;bottom:9.6%;font:500 8.7cqw/1.02 var(--body);letter-spacing:.04em;margin-right:-.04em;text-align:right;z-index:2}
+
+/* compound page */
+.back{display:inline-block;font:500 12px var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1.5px solid var(--accent);margin-bottom:16px}
+.cp{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.hero{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:start}
+.hero .stk{max-width:150px}
+.hero h1{font-size:30px}
+.hero .aka{font:500 12px var(--mono);color:var(--ink-soft);margin-top:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--ink);padding:3px 7px;background:var(--chip)}
+.tag.lg{border-color:var(--accent);color:var(--accent)}
+.tag.dr{border-style:dashed;color:var(--ink-soft);border-color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;background:var(--chip);border:1.5px solid var(--rule);padding:4px 10px 4px 5px}
+.chip i{width:15px;height:15px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.chip.rep{border-style:dashed;background:transparent}
+.chip.fda i{border-radius:50%;background:#FF0000;box-shadow:none}
+.chip.fda.ring i{background:transparent;box-shadow:inset 0 0 0 2.5px #FF0000}
+.box{border:1.5px solid var(--ink);background:var(--chip)}
+.box .bh{padding:10px 14px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.box .bh .lab{margin:0}
+.sec{padding:12px 14px;border-bottom:1.5px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.sec p{margin:0;max-width:72ch}
+.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+.spec td{border:1.5px solid var(--red);padding:6px 8px;vertical-align:top}
+.spec td:first-child{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);width:34%}
+.seqv{font:500 12.5px var(--mono);overflow-wrap:anywhere;word-break:break-all}
+.pools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
+.pools div{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:9px 10px;min-width:0}
+.pools strong{display:block;font:700 22px/1.05 var(--display);font-variant-numeric:tabular-nums}
+.pools span{display:block;font-size:12.5px;margin-top:2px}
+.pools em{display:block;font:500 9.5px var(--mono);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+.src{margin:0;padding:0 0 0 18px;font-size:13px}
+.src li{margin:2px 0}
+.src a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.note{font-size:12.5px;color:var(--ink-soft)}
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.nav a{font:500 12px var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.log{font-size:12.5px;color:var(--ink-soft);border-top:1.5px solid var(--rule);padding-top:12px;margin-top:28px;max-width:90ch}
+.log p{margin:0 0 6px}
+
+@media (max-width:560px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .cell{padding:6px}
+ .meta{font-size:8.5px}
+ .row .lab{width:100%}
+ .key .kb{grid-template-columns:96px minmax(0,1fr);gap:12px}
+ .key ol{font-size:13px}
+ .pr{font-size:10.5px}
+ .fam{grid-template-columns:minmax(0,1fr)}
+ .hero{grid-template-columns:110px minmax(0,1fr);gap:12px}
+ .hero h1{font-size:24px}
+ .pools{grid-template-columns:minmax(0,1fr)}
+ .sw{width:30px;height:30px}
+}
+@media (min-width:900px){
+ .grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .cp{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px 36px;align-items:start}
+ .cp .full{grid-column:1/-1}
+ .hero{grid-template-columns:200px minmax(0,1fr)}
+ .hero .stk{max-width:200px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="list">
+    <div class="top">
+      <div>
+        <p class="lab">Bare Signals</p>
+        <h1>Peptide and Compound Library<small>V3</small></h1>
+      </div>
+      <a class="home" href="/aminos/">Aminos</a>
+    </div>
+    <p class="lede">Every peptide and compound researched so far, shown as its sticker. Each colour is a role, like Tissue repair or Sleep. Tap a role to see every compound that carries it, or tap a sticker to open its page.</p>
+    <details class="key" id="key" open>
+      <summary>How to read a sticker</summary>
+      <div class="kb">
+        <span class="stk" id="keystk" aria-hidden="true"></span>
+        <ol>
+          <li><b>Big block</b>, behind the wordmark: the main research area.</li>
+          <li><b>Middle block and left side</b>: other research areas.</li>
+          <li><b>Bottom-left corner</b>: what people report feeling.</li>
+          <li><b>Dots</b>: extra connections. <span class="kd" style="background:var(--ink)"></span>Filled means human research for that effect; <span class="kd" style="box-shadow:inset 0 0 0 2px var(--ink)"></span>a ring means animal studies or community reports only.</li>
+          <li><span class="kd" style="background:#FF0000"></span>Red dot: an FDA-approved medicine exists (not this vial). <span class="kd" style="box-shadow:inset 0 0 0 2px #FF0000"></span>Red ring: approved outside the US only.</li>
+        </ol>
+      </div>
+    </details>
+
+    <div class="ctl">
+      <div class="row"><input id="q" type="search" placeholder="Search a name or other name" aria-label="Search compounds" autocomplete="off"></div>
+      <div class="row"><span class="lab">Origin</span><div class="seg" id="origin" role="group" aria-label="Filter by origin"></div></div>
+      <div class="row"><span class="lab">Show</span>
+        <button class="tg" id="pop" aria-pressed="false">Popular only</button>
+        <span class="lab" style="width:auto;margin-left:6px">Sort</span>
+        <div class="seg" id="sort" role="group" aria-label="Sort"></div>
+      </div>
+      <div class="row" style="align-items:flex-start"><span class="lab" style="padding-top:6px">Role</span><div class="fam" id="roles" role="group" aria-label="Filter by role"></div></div>
+      <div class="selnote" id="selnote" aria-live="polite"></div>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="grid" id="grid"></div>
+
+    <div class="log">
+      <p><b>V3 · 22 Oct 2026.</b> Renamed from Encyclopedia to Peptide and Compound Library, now at /library/. Colour swatches replaced by named role tags in five families, each with a count. A "How to read a sticker" key from the Canva legend. Each sticker names its main role underneath. On a compound page, roles are split into research areas, what people report feeling, and extra connections (human research or animal and community), and every role links to the full list for that role. <a href="/encyclopedia/v2/">V2 kept here</a>.</p>
+      <p><b>V2 · 22 Oct 2026.</b> Double-checked. Stickers re-measured against the Canva file: name size, dots and wordmark now match; Crystagen sits on one line as in Canva. Draft facts checked against web sources by two independent reviewers; about 30 corrections, including Retatrutide Phase 3 results, MK-677 back in Phase 3, GHRP-2 approved in Japan, Selank and Semax identity, Thymosin Beta-4 eye trials, and Khavinson bioregulators no longer described as approved drugs. Still drafts until each gets its research sweep. <a href="/encyclopedia/v1/">V1 kept here</a>.</p>
+      <p><b>V1 · 22 Oct 2026.</b> First build. The 82 compounds from the Aminos page. Sticker colours and dots were sampled from each page of the Canva sticker file; 14 compounds with no sticker yet use their Aminos stripe in the same layout (marked on their page). Four pages are logged research (BPC-157, TB-500 frag 17–23, GHK-Cu, KPV); the rest are drafts written from background knowledge, waiting for a sweep, with status lines not yet re-checked. Reported data, not medical advice.</p>
+    </div>
+  </div>
+
+  <div id="page" hidden></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D=window.BS_DATA, PAL=window.BS_PALETTE;
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])), LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]]));
+const ORDER=Object.fromEntries(PAL.map((p,i)=>[p[0],i]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const edge=h=>lum(h)>.8?';box-shadow:inset 0 0 0 1px #E1DE62':'';
+const ORIG=[['all','All'],['body','Made by the body'],['frag','Fragment'],['lab','Lab-made'],['np','Not a peptide']];
+const SORTS=[['pop','Popular'],['az','A to Z'],['col','Main role']];
+const FAM=[['Body and metabolism',['Appetite','Glucose','Fat','Energy','Endocrine','Muscle']],['Repair and structure',['Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning']],['Protection and organs',['Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer']],['Brain and mood',['Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward']],['Sex and reproduction',['Desire','Reproductive']]];
+const has=(o,k)=>o.roles.includes(k)||o.reported.includes(k);
+const keyOf=s=>PAL.find(p=>p[0].toLowerCase()===String(s).toLowerCase());
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let st=Object.assign({origin:'all',pop:false,sort:'pop',cols:[],q:''},store.get('bs-lib-v3',{}));
+st.q='';
+
+/* sticker front: Canva master is 447 px; band starts at 287 (64.2%), left column 0-71 (15.9%), mid 71-188 (to 42.1%), wide 188-447.
+   Two-colour stickers use a 117 px (26.2%) left block. */
+function sticker(o){
+  const s=o.sticker, b=s.blocks, H=c=>HEX[c]||'#FFFFE2';
+  const two=b.lt===b.lb&&b.mid===b.wide&&b.lt!==b.wide;
+  const one=b.lt===b.wide&&b.mid===b.wide&&b.lb===b.wide;
+  const T='top:64.2%;bottom:0;';
+  let h='';
+  if(one){h+=`<i class="b" style="${T}left:0;right:0;background:${H(b.wide)}"></i>`}
+  else if(two){h+=`<i class="b" style="${T}left:0;width:26.2%;background:${H(b.lt)}"></i><i class="b" style="${T}left:26.2%;right:0;background:${H(b.wide)}"></i>`}
+  else{
+    h+=`<i class="b" style="${T}left:42.1%;right:0;background:${H(b.wide)}"></i>`;
+    h+=`<i class="b" style="${T}left:15.9%;width:26.2%;background:${H(b.mid)}"></i>`;
+    if(b.lt===b.lb)h+=`<i class="b" style="${T}left:0;width:15.9%;background:${H(b.lt)}"></i>`;
+    else h+=`<i class="b" style="top:64.2%;height:17.9%;left:0;width:15.9%;background:${H(b.lt)}"></i><i class="b" style="top:82.1%;bottom:0;left:0;width:15.9%;background:${H(b.lb)}"></i>`;
+  }
+  const dots=(s.dots||[]).map(d=>{const c=d.c==='FDA'?'#FF0000':H(d.c);return d.f?`<i style="background:${c}"></i>`:`<i style="box-shadow:inset 0 0 0 1.35cqw ${c}"></i>`}).join('');
+  const lines=o.sub?o.sub:(o.lines||[o.name]);
+  const main=o.sub?(o.sub[0]?[o.sub[0]]:(o.lines||[o.name])):lines;
+  const longest=Math.max(...main.map(l=>l.length));
+  const fs=o.fsz||Math.min(17.6,17.6*7.6/Math.max(longest,1));
+  let nm=main.map(l=>`<span>${esc(l)}</span>`).join('');
+  if(o.sub&&o.sub[1])nm+=`<span class="sb">${esc(o.sub[1])}</span>`;
+  return `<span class="nm" style="font-size:${fs.toFixed(2)}cqw">${nm}</span>${dots?`<span class="dots">${dots}</span>`:''}${h}<span class="wm" style="color:${s.wm||'#DB6830'}">BARE<br>SIGNALS</span>`;
+}
+
+function filtered(){
+  const q=st.q.trim().toLowerCase().replace(/[\s\-–()]/g,'');
+  let L=D.filter(o=>{
+    if(st.origin!=='all'&&o.origin!==st.origin)return false;
+    if(st.pop&&!(o.rank>0))return false;
+    if(st.cols.length&&!st.cols.some(c=>has(o,c)))return false;
+    if(q){const hay=(o.name+' '+(o.alias||'')+' '+o.originDetail).toLowerCase().replace(/[\s\-–()]/g,'');if(!hay.includes(q))return false}
+    return true});
+  const az=(a,b)=>a.name.localeCompare(b.name);
+  const pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
+  if(st.sort==='az')L.sort(az);
+  else if(st.sort==='col')L.sort((a,b)=>(ORDER[a.primary]-ORDER[b.primary])||pop(a,b));
+  else L.sort(pop);
+  return L;
+}
+const SHORTO={body:'Body',frag:'Fragment',lab:'Lab-made',np:'Not a peptide'};
+function cell(o){
+  return `<div class="cell"><a class="stk" href="#/${o.slug}" aria-label="${esc(o.name)}, main role ${esc(LONG[o.primary])}">${sticker(o)}</a><div class="pr"><i style="background:${HEX[o.primary]}${edge(HEX[o.primary])}"></i><span>${esc(LONG[o.primary])}</span></div><div class="meta"><span>${SHORTO[o.origin]}</span>${o.depth==='logged'?'<span class="lg">Logged</span>':''}</div></div>`;
+}
+function renderList(){
+  const counts={all:D.length};D.forEach(o=>counts[o.origin]=(counts[o.origin]||0)+1);
+  $('#origin').innerHTML=ORIG.map(([k,l])=>`<button data-o="${k}" aria-pressed="${st.origin===k}">${l}<em>${counts[k]||0}</em></button>`).join('');
+  $('#sort').innerHTML=SORTS.map(([k,l])=>`<button data-s="${k}" aria-pressed="${st.sort===k}">${l}</button>`).join('');
+  $('#pop').setAttribute('aria-pressed',st.pop);
+  $('#roles').innerHTML=FAM.map(([f,ks])=>`<div><p class="fl">${f}</p><div class="tags2">${ks.map(k=>{const n=D.filter(o=>has(o,k)).length;return n?`<button class="rt" data-c="${k}" aria-pressed="${st.cols.includes(k)}"><i style="background:${HEX[k]}"></i>${esc(LONG[k])}<em>${n}</em></button>`:''}).join('')}</div></div>`).join('');
+  $('#selnote').innerHTML=st.cols.length?`Showing compounds with ${st.cols.map(c=>`<b>${esc(LONG[c])}</b>`).join(' or ')}<button id="clr">Clear roles</button>`:'Tap one or more roles to filter. Counts include every place a role appears on a sticker.';
+  const L=filtered();
+  $('#count').textContent=`${L.length} of ${D.length} compounds`;
+  let h='';
+  if(!L.length)h='<p class="empty">Nothing matches. Clear a filter or try another name.</p>';
+  else if(st.sort==='col'){let last=null;L.forEach(o=>{if(o.primary!==last){last=o.primary;h+=`<div class="ghead"><i style="background:${HEX[last]}${edge(HEX[last])}"></i>${esc(LONG[last])}</div>`}h+=cell(o)})}
+  else h=L.map(cell).join('');
+  $('#grid').innerHTML=h;
+  store.set('bs-lib-v3',{origin:st.origin,pop:st.pop,sort:st.sort,cols:st.cols});
+}
+
+document.addEventListener('click',e=>{
+  const ob=e.target.closest('#origin button');if(ob){st.origin=ob.dataset.o;renderList();return}
+  const sb=e.target.closest('#sort button');if(sb){st.sort=sb.dataset.s;renderList();return}
+  if(e.target.closest('#pop')){st.pop=!st.pop;renderList();return}
+  const sw=e.target.closest('.rt');if(sw){const c=sw.dataset.c;st.cols=st.cols.includes(c)?st.cols.filter(x=>x!==c):st.cols.concat(c);renderList();return}
+  if(e.target.closest('#clr')){st.cols=[];renderList();return}
+  if(e.target.closest('#key summary'))setTimeout(()=>store.set('bs-lib-key',$('#key').open),0);
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;renderList()});
+
+const SEC=[['found','When it was found'],['first','What it was first meant for'],['tested','What’s been tested'],['worked','What worked'],['didnt','What didn’t'],['reports','What people report'],['status','Status']];
+const DEPTH={logged:['Logged research','lg'],draft:['Draft, not yet swept','dr'],reference:['Reference, not in the catalog','dr']};
+function renderPage(o){
+  const L=filtered();let i=L.findIndex(x=>x.slug===o.slug);const seq=i<0?D:L;if(i<0)i=D.findIndex(x=>x.slug===o.slug);
+  const prev=seq[(i-1+seq.length)%seq.length],next=seq[(i+1)%seq.length];
+  const chip=(c,rep,mark)=>`<a class="chip${rep?' rep':''}" href="#/role/${c.toLowerCase()}" title="See every compound with ${esc(LONG[c])}"><i style="background:${HEX[c]}"></i>${esc(LONG[c])}${mark?`<small>${mark}</small>`:''}</a>`;
+  const B=o.sticker.blocks,one=B.lt===B.wide&&B.mid===B.wide&&B.lb===B.wide,two=B.lt===B.lb&&B.mid===B.wide&&B.lt!==B.wide;
+  const research=[B.wide];if(!one){if(two)research.push(B.lt);else{research.push(B.mid);research.push(B.lt)}}
+  const R1=[...new Set(research)];const corner=(!one&&!two&&B.lt!==B.lb&&!R1.includes(B.lb))?B.lb:null;
+  const dots=(o.sticker.dots||[]).filter(d=>d.c!=='FDA'&&!R1.includes(d.c)&&d.c!==corner);
+  const fda=o.fda?`<span class="chip fda${o.fdaFill?'':' ring'}"><i></i>${o.fdaFill?'An FDA-approved medicine exists (not this vial)':'Approved outside the US only (not this vial)'}</span>`:'';
+  const d=DEPTH[o.depth];
+  const tags=`<span class="tag">${esc(o.originDetail)}</span><span class="tag ${d[1]}">${d[0]}</span>${o.rank>0?'<span class="tag">Popular</span>':''}`;
+  const spec=[];
+  if(o.seq)spec.push(['Length',o.seq.length+' amino acid'+(o.seq.length>1?'s':'')]);
+  if(o.seq)spec.push(['Sequence',`<span class="seqv">${esc(o.seq)}</span>`]);
+  if(o.seqNote)spec.push(['Note',esc(o.seqNote)]);
+  if(o.alias)spec.push(['Also searched as',esc(o.alias)]);
+  spec.push(['Origin',esc(o.originDetail)]);
+  const pools=o.pools?`<div class="sec"><p class="lab">Reports by source · never added together</p><div class="pools">${o.pools.map(p=>`<div><strong>${esc(p[0])}</strong><span>${esc(p[1])}</span><em>${esc(p[2])}</em></div>`).join('')}</div></div>`:'';
+  const secs=SEC.map(([k,l])=>`<div class="sec"><p class="lab">${l}</p><p>${esc(o[k])}</p></div>`).join('');
+  const src=o.sources?`<div class="box"><div class="bh"><p class="lab">Sources</p></div><div class="sec"><ol class="src">${o.sources.map(s=>`<li><a href="${esc(s[1])}" rel="noopener noreferrer" target="_blank">${esc(s[0])}</a></li>`).join('')}</ol><p class="note" style="margin-top:8px">Forum and Reddit accounts are kept in the research log, not listed here.</p></div></div>`:'';
+  const stickNote=o.canva?'':'<p class="note" style="margin-top:8px">No Canva sticker yet; colours drawn from the Aminos stripe.</p>';
+  const draftNote=o.depth==='draft'?'<p class="note">Draft page: written from background knowledge before a research sweep. Numbers, studies and status will be checked against sources on the first sweep.</p>':(o.depth==='logged'?'<p class="note">Built from the research log, reviewed 21 to 22 Oct 2026. Reported data, labelled by source.</p>':'<p class="note">Here for comparison with the compounds that copy or build on it.</p>');
+  $('#page').innerHTML=`
+  <a class="back" href="#/">Library</a>
+  <div class="cp">
+    <div class="full">
+      <div class="hero">
+        <div><span class="stk" aria-hidden="true">${sticker(o)}</span>${stickNote}</div>
+        <div>
+          <p class="lab">Bare Signals Library</p>
+          <h1>${esc(o.name)}</h1>
+          ${o.alias?`<p class="aka">${esc(o.alias)}</p>`:''}
+          <div class="tags">${tags}</div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="bh"><p class="lab">The record</p>${o.short?'<span class="note">Short entry: little data exists</span>':''}</div>
+      ${pools}${secs}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="box"><div class="bh"><p class="lab">Roles on the sticker</p></div>
+        <div class="sec"><p class="lab">Main research area</p><div class="chips">${chip(R1[0])}</div></div>
+        ${R1.length>1?`<div class="sec"><p class="lab">Other research areas</p><div class="chips">${R1.slice(1).map(c=>chip(c)).join('')}</div></div>`:''}
+        ${corner?`<div class="sec"><p class="lab">What people report feeling</p><div class="chips">${chip(corner)}</div></div>`:''}
+        ${dots.length?`<div class="sec"><p class="lab">Extra connections</p><div class="chips">${dots.map(d=>chip(d.c,!d.f,d.f?'human research':'animal or community')).join('')}</div></div>`:''}
+        <div class="sec"><p class="note">Tap a role to see every compound that carries it.</p></div>
+        ${fda?`<div class="sec"><div class="chips">${fda}</div></div>`:''}
+      </div>
+      <div class="box"><div class="bh"><p class="lab">Identity</p></div><div class="sec"><table class="spec"><tbody>${spec.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></div></div>
+      ${src}
+      ${draftNote}
+    </div>
+    <div class="full nav"><a href="#/${prev.slug}">Previous: ${esc(prev.name)}</a><a href="#/${next.slug}">Next: ${esc(next.name)}</a></div>
+  </div>`;
+  document.title=o.name+' · Bare Signals Library';
+}
+
+let listY=0;
+function route(){
+  const rm=location.hash.match(/^#\/role\/(.+)$/);
+  if(rm){const k=keyOf(decodeURIComponent(rm[1]));st.cols=k?[k[0]]:[];st.origin='all';st.pop=false;$('#page').hidden=true;$('#list').hidden=false;document.title=(k?k[1]+' · ':'')+'Library · Bare Signals';renderList();history.replaceState(null,'','#/');const g=$('#count');if(g)g.scrollIntoView();return}
+  const m=location.hash.match(/^#\/(.+)$/);
+  const o=m&&D.find(x=>x.slug===decodeURIComponent(m[1]));
+  if(o){if(!$('#list').hidden)listY=window.scrollY;$('#list').hidden=true;$('#page').hidden=false;renderPage(o);window.scrollTo(0,0)}
+  else{const wasPage=!$('#page').hidden;$('#page').hidden=true;$('#list').hidden=false;document.title='Library · Bare Signals';renderList();if(wasPage)window.scrollTo(0,listY)}
+}
+{const bpc=D.find(x=>x.slug==='bpc-157');if(bpc)$('#keystk').innerHTML=sticker(bpc);const ko=store.get('bs-lib-key',true);$('#key').open=ko!==false}
+addEventListener('hashchange',route);
+route();
+})();
+</script>
+</body>
+</html>
