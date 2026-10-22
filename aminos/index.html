@@ -5,7 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <meta name="description" content="The 21 amino acids that build every peptide: codons, weights, structure, roles, and a gene to peptide translator.">
-<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+.top{display:flex;flex-direction:column;gap:20px;min-width:0}
+@media (min-width:900px){
+.wrap>.top{grid-column:1/-1}
+.top .lede{max-width:70ch}
+.top .walk{gap:6px 18px;padding-left:20px;margin-top:10px}
+.top .wa{height:150px}
+.top .wc b{font-size:30px}
+.top .wc strong{font-size:19px}
+.top .wc span{font-size:14px}
+}
+</style>
 <script src="/nav.js" defer></script>
 </head>
 <body>
@@ -680,10 +691,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 </style>
 
 <div class="wrap">
-  <div class="left">
+  <div class="top">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From gene to peptide<small>V42</small></h1>
+    <h1>From gene to peptide<small>V43</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -700,6 +711,8 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     </div>
     <p class="note">Peptides are short chains. Proteins are long, folded ones. No single length divides them.</p>
   </section>
+  </div>
+  <div class="left">
 
   <section>
     <div class="divider p1"><span>Part one · The letters</span></div>
@@ -791,9 +804,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 42 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 42 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V42:</b> the Bare Signals bar across the top links Home, Library, Aminos, Dosage and the Calculator on every page. <a href="/aminos/v41/">V41 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 43 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 43 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V43:</b> on laptops the title and the moving walk now span the full width of the page, drawn about 45% larger, with bigger step numbers and captions. The amino acid grid and its card sit side by side below it. <a href="/aminos/v42/">V42 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V42:</b> the Bare Signals bar across the top links Home, Library, Aminos, Dosage and the Calculator on every page. <a href="/aminos/v41/">V41 kept here</a>.</p>
     <p style="margin-top:6px"><b>V41:</b> every amino acid has its own link now, like baresignals.co/aminos/#K for lysine, so the Peptide and Compound Library can send you straight to an amino card. Each built peptide gets a Read in the library link to its full library page. <a href="/aminos/v40/">V40 kept here</a>.</p>
     <p style="margin-top:6px"><b>V40:</b> the copper atom on GHK-Cu and AHK-Cu turns sapphire blue, the colour copper gives the vial, with the note why the vial is blue. It is the one colour on the page outside the Bare Signals palette, kept apart from Sleep’s brighter blue.</p>
     <p style="margin-top:6px"><b>V39:</b> How to read a tile starts closed, as a small box. The tile key’s signs are now orange, matching the tiles. In the moving walk the mRNA wave settles flat at both ends so DNA, mRNA and codons join cleanly, and the turn between rows is one soft curve instead of square corners. Show all now also sits right under the search box. Search understands origin words: not a peptide, lab-made, natural, fragment, modified, enzyme-made. The search box no longer zooms the page on iPhone. GHK-Cu and AHK-Cu show their copper atom bound to the chain. Five famous folds renamed Proteins you already know.</p>
@@ -1002,7 +1016,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
   const CODS=[["AUG","M"],["GCU","A"],["AAA","K"],["CCU","P"],["GAU","D"],["GAA","E"]];
   const acol=L=>{const a=A.find(x=>x[0]===L);return a?PAL[a[8][0][0]][1]:"#6777B6"};
   const f1=v=>v.toFixed(1);
-  function measure(){const b=box.getBoundingClientRect();W=box.clientWidth;H=box.clientHeight;Rs=[...box.querySelectorAll(".wa")].map(e=>{const r=e.getBoundingClientRect();return{x:r.left-b.left,y:r.top-b.top,w:r.width,h:r.height}});svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${W} ${H}`)}
+  function measure(){const b=box.getBoundingClientRect();W=box.clientWidth;H=box.clientHeight;const sc=W>=1000?1.45:1;Rs=[...box.querySelectorAll(".wa")].map(e=>{const r=e.getBoundingClientRect();return{x:(r.left-b.left)/sc,y:(r.top-b.top)/sc,w:r.width/sc,h:r.height/sc}});svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${(W/sc).toFixed(1)} ${(H/sc).toFixed(1)}`);W=W/sc;H=H/sc}
   const ln=(x1,y1,x2,y2,c,w=2,ex="")=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${ex}/>`;
   const tx=(x,y,c,str,fs=8,fw=500)=>`<text x="${f1(x)}" y="${f1(y)}" text-anchor="middle" font-size="${fs}" font-weight="${fw}" fill="${c}" font-family="JetBrains Mono,monospace">${str}</text>`;
   function draw(){if(!Rs.length)measure();const INK="#3E4A80",OR="#DB6830";let o="",polX=0,polY=0;const r=Rs,cyOf=k=>r[k].y+r[k].h*.5;
