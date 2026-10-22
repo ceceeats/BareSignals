@@ -2,6 +2,11 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v11 (23 Oct 2026) at /blood/v11/
+- Action colour rule: orange tint = something you do or customize. My plan tab (solid orange when open), Add to my plan, the plan search, add buttons, picked compounds, "+ Add more peptides" / "Done adding", checklist boxes, Copy link, Save as PDF, and "Book a morning draw" (now an orange "To do" note, not a caution box). Red stays danger only; links to the Library and Dosage stay ink.
+- Save as PDF (was Print) builds a designed document instead of printing the web page: white A4 with 14mm margins, header with date, plan link and compound chips, the four summary numbers, the Before your draw checklist with tick boxes in two columns, a ruled Tests to run table (test, for which compounds with danger/watch dots, fasting, aim, cost) whose header repeats on each page, Also moved, Track at home, How often and Red flags per compound, and a not-medical-advice footer. Same document from phone (Share > Print > Save as PDF) and desktop.
+- Testing protocols researched for the 18 compounds that only had Matrix marker effects: 5-Amino-1MQ, SS-31, KPV, Humanin, FOXO4-DRI, Dihexa, LL-37, DSIP, PE-22-28, Tesofensine, Oxytocin, Hexarelin, Sermorelin, IGF-1 LR3, HCG, Pemvidutide, Cagrilintide, AOD-9604. Each has tests before and during, how often, red flags, why, a confidence level and sources. Matrix arrows kept. Notable: SS-31 label (Forzinity 2025) halves the dose under eGFR 30 and reports a harmless eosinophil rise peaking around 3 months; hexarelin IGF-1 did not rise over 16 weeks in humans (flagged "research disagrees"); oxytocin lowers cortisol only under stress; DSIP cortisol and blood pressure arrows are rat data only. "Marker effects only" group removed: 26 Encyclopedia + 64 researched.
+
 ## v10 (23 Oct 2026) at /blood/v10/
 - Symbol key (raises, lowers, danger, watch, shows if it works, cost tiers) now sits at the top of each list as a labelled "Key" box, so it reads as a key and not as a list item. Applies to test explainers, marker sheets and the full compound card.
 - "The one thing to remember" reminders removed from all 53 tests.
