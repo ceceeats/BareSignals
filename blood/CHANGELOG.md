@@ -2,6 +2,12 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v10 (23 Oct 2026) at /blood/v10/
+- Symbol key (raises, lowers, danger, watch, shows if it works, cost tiers) now sits at the top of each list as a labelled "Key" box, so it reads as a key and not as a list item. Applies to test explainers, marker sheets and the full compound card.
+- "The one thing to remember" reminders removed from all 53 tests.
+- Personal and place notes removed from test text (46 fields): Bali, Jakarta, Bangkok and lab names, age-30 lines, the owner's training. The owner's own compound shorthand ("on reta") is now "on a GLP-1 drug"; remarks like "(reta helps)" are removed. Quotes under "Peptides / Supplements that move it" cleaned the same way.
+- VO2 Max: ranges table kept; the long note under it cut to two lines (FRIEND registry, measured with a mask; gym and watch charts run higher).
+
 ## v6 (22 Oct 2026) at /blood/v6/
 - Every compound card now links to its reported dosage ("Reported dosage →", /dosage/#<slug>) next to "Full entry in the Library". Shipped with Dosage v11 (which links back to each compound's blood work) and Library v25. Data, tests and layout unchanged from v5.
 
