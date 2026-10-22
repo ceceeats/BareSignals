@@ -66,9 +66,19 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 @keyframes blink{50%{opacity:0}}
 
 /* intro blocks */
+@media(min-width:900px){
+  .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"h h" "w s" "m s";align-items:start}
+  .ihead{grid-area:h}
+  .blk[data-k=w]{grid-area:w}.blk[data-k=m]{grid-area:m}.blk[data-k=s]{grid-area:s;border-left:1.5px solid var(--line);border-top:0!important}
+  .blk[data-k=m]{border-top:1.5px solid var(--line)}
+  .mixrow{--vw:84px}.vp{width:84px}
+  .mixrow figcaption{font-size:11.5px;max-width:130px}
+  .tipc svg{max-width:210px}
+  .wbox svg{max-height:240px}
+}
 .intro{border:2px solid var(--line);background:var(--chip)}
-.ihead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;border-bottom:1.5px solid var(--line)}
-.eyebrow{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.ihead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 8px;padding:8px 12px;border-bottom:1.5px solid var(--line)}
+.eyebrow{white-space:nowrap;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
 .intro h2{font:700 16px/1.1 var(--display)}
 .blk+.blk{border-top:1.5px solid var(--line)}
 .bh{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 12px}
@@ -79,7 +89,8 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 .bt:hover{background:#fff;border-color:var(--ink)}
 .arr{display:block;transition:transform .3s}
 .blk[data-open="0"] .arr{transform:rotate(180deg)}
-.blk[data-open="0"] .bt{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.blk[data-open="0"] .bt,#allBt.shut{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+#allBt.shut .arr{transform:rotate(180deg)}
 .bf{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s ease}
 .blk[data-open="0"] .bf{grid-template-rows:0fr}
 .bfi{overflow:hidden;min-height:0}
@@ -121,14 +132,16 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .mixrow figure{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
 .mixrow figcaption{font:600 11px/1.3 var(--mono);color:var(--soft);letter-spacing:.04em}
 .mixrow figcaption b{color:var(--ink);font-weight:600}
-.op{font:700 22px var(--display);padding-bottom:62px}
-.mixrow{flex-wrap:nowrap!important}
+.op{font:700 22px var(--display);padding-top:calc(var(--vw)*.55);align-self:flex-start}
+.mixrow{flex-wrap:nowrap!important;align-items:flex-start!important;--vw:60px}
+.mixrow .in b{color:var(--accent);font-weight:700}
 .mixrow figcaption{font-size:10px;max-width:98px}
 .mixrow figcaption i{font-weight:400}
-.vp{width:60px}
+.vp{width:var(--vw,60px)}
 .vp svg{display:block;width:100%;height:auto}
 .mixtxt{font:600 14px/1.3 var(--display)}
-.mixtxt b{color:var(--accent-ink)}
+.mixtxt b{color:var(--ink)}
+.mixtxt .in{color:var(--accent);font-weight:700}
 
 /* syringe tips */
 .tips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -221,7 +234,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .tight{display:flex;flex-wrap:wrap;gap:0;padding:0 0 1.5px 0}
 .tight .q{flex:1 1 auto;margin:0 -1.5px -1.5px 0;text-align:center;min-height:32px}
 .tight .q[aria-pressed="true"]{position:relative;z-index:1}
-.nl{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:4px;text-align:center}
+.nl{font:700 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:4px;text-align:center}
 .otag{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
 .draw{border:1.5px solid var(--ink);background:var(--paper)}
 .dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
@@ -255,7 +268,9 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .ref{margin-top:10px;border:1.5px dashed var(--ink);padding:10px 12px;background:var(--chip)}
 .ref b{font:700 15px var(--display)}
 .ref p{font-size:13px;color:var(--soft);margin-top:4px}
-.ref .tag{display:inline-block;margin-bottom:6px;font-size:10px}
+.refl{display:flex;gap:6px;margin-top:8px}
+.refl .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:4px 12px;font:600 12px var(--mono);letter-spacing:.04em;color:var(--accent-ink);border-color:var(--accent)}
+.ref{border-style:solid}
 
 /* svg syringe */
 .bg{fill:var(--chip)}
@@ -286,6 +301,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .gl-ol{fill:none;stroke:var(--ink);stroke-width:1.6}
 .w1{fill:var(--liquid);opacity:.9}
 .w2{fill:#6F86F0;opacity:.45}
+.grn .w1{fill:#86D1A3;opacity:.95}
+.grn .w2{fill:#3FA56C;opacity:.45}
 .wv1{animation:wv 2.8s linear infinite}
 .sl{animation:slosh 2.6s ease-in-out infinite alternate}
 @keyframes slosh{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}
@@ -405,7 +422,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v7</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v8</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -417,7 +434,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 </dialog>
 
 <section class="intro" id="intro" aria-labelledby="introT">
-  <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2></div>
+  <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2><button class="bt" id="allBt" type="button" aria-expanded="true"><span class="btl">I know all three</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
 
   <div class="blk" data-k="w" data-open="1">
     <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
@@ -439,13 +456,13 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="mixrow">
-        <figure><div class="vp" id="vDry"></div><figcaption>Powder<br><i>the compound</i><br><b>10 mg</b></figcaption></figure>
+        <figure class="in"><div class="vp" id="vDry"></div><figcaption>Powder<br><i>the compound</i><br><b>10 mg</b></figcaption></figure>
         <span class="op">+</span>
-        <figure><div class="vp" id="vLiq"></div><figcaption>Liquid<br><i>the diluent</i><br><b>2 mL</b></figcaption></figure>
+        <figure class="in"><div class="vp" id="vLiq"></div><figcaption>Liquid<br><i>the diluent</i><br><b>2 mL</b></figcaption></figure>
         <span class="op">=</span>
         <figure><div class="vp" id="vMix"></div><figcaption>Solution<br><i>compound in diluent</i><br><b>5,000 mcg/mL</b></figcaption></figure>
       </div>
-      <p class="mixtxt">10 mg of compound in 2 mL of diluent makes a solution of <b>5,000 mcg per mL</b>.</p>
+      <p class="mixtxt"><span class="in">10 mg</span> of compound in <span class="in">2 mL</span> of diluent makes a solution of <b>5,000 mcg per mL</b>.</p>
     </div></div></div>
   </div>
 
@@ -474,7 +491,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
     <div class="name">
       <label class="fl" for="pname"><b>Peptide or compound</b><span>Optional</span></label>
-      <input type="text" id="pname" maxlength="32" autocomplete="off" placeholder="Name of compound">
+      <input type="text" id="pname" maxlength="32" autocomplete="off" placeholder="BPC-157">
     </div>
 
     <div class="sbx">
@@ -519,7 +536,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="blk" data-k="n" data-open="1" style="min-width:0">
         <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Add" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
         <div class="bf"><div class="bfi"><div class="nbody">
-          <label class="nl" for="mixed">Mixed on (today by default)</label>
+          <label class="nl" for="mixed">Mixed on · today by default</label>
           <input type="date" id="mixed">
           <div class="nl">Take</div>
           <div class="qchips tight" id="freqQ" role="group" aria-label="How often"></div>
@@ -527,7 +544,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
           <div class="nl">When</div>
           <div class="qchips tight" id="timeQ" role="group" aria-label="Time of day"></div>
           <label class="nl" for="note">Your notes</label>
-          <input type="text" id="note" maxlength="60" autocomplete="off" placeholder="For example: taken at night, empty stomach">
+          <input type="text" id="note" maxlength="60" autocomplete="off" placeholder="Take with collagen">
         </div></div></div>
       </div>
     </div>
@@ -576,9 +593,9 @@ body:not([data-mode="quick"]) .tmath{display:none}
     </div>
     <div class="copyrow"><button class="btn" id="copyTxt" type="button">Copy as text</button></div>
     <div class="ref">
-      <span class="tag">Coming · draft</span>
-      <div><b>Reported doses</b></div>
-      <p>Doses people report for each peptide will sit here once the Library entries are finished.</p>
+      <b>Reported doses</b>
+      <p id="refTxt"></p>
+      <div class="refl"><a class="btn" id="refDose" href="https://baresignals.co/dosage/" target="_blank" rel="noopener">Reported doses</a><a class="btn" id="refFull" href="https://baresignals.co/library/" target="_blank" rel="noopener" hidden>Full entry</a></div>
     </div>
   </aside>
 
@@ -694,6 +711,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v8: laptop layout with Weight and Mixing on the left and Syringes on the right, one I know all three button, larger vials on laptop, vials on one level, green diluent, a fuller powder, orange vial and liquid numbers in the Mixing sample, rotating example names (BPC-157, TB-500, GLOW) and notes (collagen, vitamin C, ubiquinol), orange Dates and notes labels, Reported doses now links to the Dosage page and the Library entry for the compound you type. v1 to v7 are unchanged.</span>
   <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
   <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
   <span>Bare Signals · baresignals.co · Draw Line · Draft</span>
@@ -935,11 +953,11 @@ function Vial(host,o){
   for(let x=0;x<=180;x+=20)wave+=' T'+x+' 0';
   wave+=' L180 130 L-40 130 Z';
   let dots='',fl='';
-  for(let i=0;i<34;i++)dots+='<circle class="spk" cx="'+(36+(i*37)%50)+'" cy="'+(131+(i*23)%10)+'" r=".9"/>';
+  for(let i=0;i<34;i++)dots+='<circle class="spk" cx="'+(36+(i*37)%50)+'" cy="'+(117+(i*23)%23)+'" r=".9"/>';
   if(o.dots)for(let i=0;i<22;i++)fl+='<circle class="fdot" cx="'+(38+(i*29)%48)+'" cy="'+(14+(i*41)%90)+'" r=".9"/>';
-  const ck=cake?'<path class="cake" d="M33 142 L33 134 Q33 129 38 129 L86 129 Q91 129 91 134 L91 142 Z"/>'+dots:'';
+  const ck=cake?'<path class="cake" d="M33 142 L33 124 Q33 114 43 114 Q62 108 81 114 Q91 114 91 124 L91 142 Z"/>'+dots:'';
   const bub=o.rough?'<circle class="bub b4" cx="56" cy="46" r="1.6"/><circle class="bub b5" cx="90" cy="48" r="1.9"/>':'';
-  host.innerHTML='<svg class="vsvg'+(o.rough?' rough':'')+'" viewBox="0 0 124 170" xmlns="'+NS+'" role="img" aria-label="Vial">'+
+  host.innerHTML='<svg class="vsvg'+(o.rough?' rough':'')+(o.green?' grn':'')+'" viewBox="0 0 124 170" xmlns="'+NS+'" role="img" aria-label="Vial">'+
     '<defs><clipPath id="'+id+'"><rect x="30" y="46" width="64" height="96" rx="7"/></clipPath></defs>'+
     '<rect class="glass" x="30" y="46" width="64" height="96" rx="7"/>'+
     '<g clip-path="url(#'+id+')">'+
@@ -1005,7 +1023,7 @@ function tipSVG(type){
 function ico(kind){
   const body='<rect x="5" y="9" width="16" height="23" rx="2" class="ol"/><rect x="8" y="1" width="10" height="4" class="capo"/><rect x="7" y="5" width="12" height="4" class="stp"/>';
   if(kind==='powder')return '<svg viewBox="0 0 26 34" aria-hidden="true">'+body+'<path class="cake" d="M6 32 L6 28 Q9 24 13 26 Q17 23 20 28 L20 32Z"/></svg>';
-  if(kind==='liquid')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="14" width="14" height="17" class="w1"/>'+body+'</svg>';
+  if(kind==='liquid')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="14" width="14" height="17" fill="#86D1A3"/>'+body+'</svg>';
   if(kind==='mix')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="17" width="14" height="14" class="w1"/>'+body+'<path class="cake" d="M6 32 L6 29 Q9 26 13 27 Q17 25 20 29 L20 32Z"/></svg>';
   if(kind==='dose')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="8" y="12" width="10" height="10" fill="#DB6830" stroke="#B04A16" stroke-width="1.5"/></svg>';
   if(kind==='drop')return '<svg viewBox="0 0 26 34" aria-hidden="true"><path d="M13 4 C13 4 4 17 4 23 A9 9 0 0 0 22 23 C22 17 13 4 13 4Z" fill="#99ACFF" stroke="#3E4A80" stroke-width="1.5"/></svg>';
@@ -1314,8 +1332,11 @@ function setBlk(k,open){
   t.querySelector('.btl').textContent=open?(t.dataset.ot||'I know this'):(t.dataset.ct||'Show again');
 }
 $$('.blk .bt').forEach(function(t){t.onclick=function(){const b=t.closest('.blk');setBlk(b.dataset.k,b.dataset.open!=='1');};});
+function syncAll(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});const b=$('#allBt');b.setAttribute('aria-expanded',!all);b.classList.toggle('shut',all);b.querySelector('.btl').textContent=all?'Show all three':'I know all three';}
+$$('.blk .bt').forEach(function(t){t.addEventListener('click',syncAll);});
+$('#allBt').onclick=function(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});['w','m','s'].forEach(function(k){setBlk(k,all);});syncAll();};
 $('#askB').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,true);});$('#ask').close();};
-$('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
+$('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
 $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
 
 /* copy card as text */
@@ -1354,10 +1375,10 @@ function renderGauge(){
 
 /* mount pictures, then run */
 vd=new Vial($('#vDry'),{sub:'COMPOUND'});
-vl=new Vial($('#vLiq'),{cake:false,rough:true,sub:'DILUENT'});
+vl=new Vial($('#vLiq'),{cake:false,rough:true,green:true,sub:'DILUENT'});
 vmx=new Vial($('#vMix'),{cake:false,dots:true,sub:'SOLUTION'});
 vial1=new Vial($('#vp1'),{sub:'COMPOUND'});
-vial2=new Vial($('#vp2'),{cake:false,rough:true,sub:'DILUENT'});
+vial2=new Vial($('#vp2'),{cake:false,rough:true,green:true,sub:'DILUENT'});
 $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 setMode(startMode);
@@ -1386,6 +1407,23 @@ setMode(startMode);
   $('#mixed').addEventListener('change',function(){if(!this.value)this.value=todayISO();S.mixed=this.value;update();});
   $('#note').addEventListener('input',function(){S.note=this.value;update();});
 })();
+(function(){
+  function rot(el,list,pre){let i=0;if(reduce)return;setInterval(function(){if(document.activeElement===el||el.value)return;i=(i+1)%list.length;el.placeholder=pre+list[i];},2200);}
+  $('#pname').placeholder='BPC-157';
+  rot($('#pname'),['BPC-157','TB-500','GLOW','Ipamorelin','GHK-Cu','Retatrutide'],'');
+  rot($('#note'),['Take with collagen','Take with vitamin C','Take with ubiquinol','Empty stomach','Rotate injection sites'],'');
+})();
+/* reported doses link */
+const LIB=[["Insulin","insulin"],["FOXO4-DRI","foxo4-dri"],["NAD+","nadplus"],["Creatine","creatine"],["Methylene blue","methylene-blue"],["Retatrutide","retatrutide"],["Cagrilintide","cagrilintide"],["Somatropin (HGH)","somatropin-hgh"],["Gonadorelin","gonadorelin"],["Larazotide","larazotide"],["Carnosine","carnosine"],["MK-677","mk-677"],["SLU-PP-332","slu-pp-332"],["5-Amino-1MQ","5-amino-1mq"],["Cerebrolysin","cerebrolysin"],["Bromantane","bromantane"],["GLP-1","glp-1"],["Glucagon","glucagon"],["Exenatide","exenatide"],["Amylin","amylin"],["Ubiquitin","ubiquitin"],["BPC-157","bpc-157"],["TB-500 frag 17–23","tb-500-frag-17-23"],["GHK-Cu","ghk-cu"],["KPV","kpv"],["Thymosin Beta-4","thymosin-beta-4"],["Semaglutide","semaglutide"],["Tirzepatide","tirzepatide"],["MOTS-c","mots-c"],["SS-31","ss-31"],["Ipamorelin","ipamorelin"],["CJC-1295 no DAC","cjc-1295-no-dac"],["Tesamorelin","tesamorelin"],["Sermorelin","sermorelin"],["Kisspeptin-10","kisspeptin-10"],["Selank","selank"],["Semax","semax"],["Pinealon","pinealon"],["Epitalon","epitalon"],["DSIP","dsip"],["Thymosin Alpha-1","thymosin-alpha-1"],["LL-37","ll-37"],["MT-2","mt-2"],["PT-141","pt-141"],["Oxytocin","oxytocin"],["CJC-1295 with DAC","cjc-1295-with-dac"],["IGF-1 LR3","igf-1-lr3"],["PEG-MGF","peg-mgf"],["GHK (no Cu)","ghk-no-cu"],["AHK-Cu","ahk-cu"],["SNAP-8","snap-8"],["Adipotide","adipotide"],["Cardiogen","cardiogen"],["Chonluten","chonluten"],["Bronchogen","bronchogen"],["Ovagen","ovagen"],["Pancragen","pancragen"],["Livagen","livagen"],["Prostamax","prostamax"],["Vesugen","vesugen"],["Vesilute","vesilute"],["Cartalax","cartalax"],["TB-500 frag 1–4","tb-500-frag-1-4"],["NA Selank Amidate","na-selank-amidate"],["NA Semax Amidate","na-semax-amidate"],["Glutathione","glutathione"],["Vilon","vilon"],["Thymogen","thymogen"],["Crystagen","crystagen"],["Cortagen","cortagen"],["Testagen","testagen"],["Thymulin","thymulin"],["ARA-290","ara-290"],["Humanin","humanin"],["AOD-9604","aod-9604"],["HGH frag 176–191","hgh-frag-176-191"],["GHRP-2","ghrp-2"],["GHRP-6","ghrp-6"],["Hexarelin","hexarelin"],["Melanotan 1","melanotan-1"],["VIP","vip"],["Teriparatide","teriparatide"]];
+function normN(t){return String(t).toLowerCase().replace(/[^a-z0-9]/g,'');}
+function libFind(t){const n=normN(t);if(n.length<3)return null;let m=LIB.filter(function(r){return normN(r[0])===n;})[0];if(!m)m=LIB.filter(function(r){return normN(r[0]).indexOf(n)===0;})[0];return m||null;}
+function renderRef(){
+  const m=libFind($('#pname').value),a=$('#refDose'),b=$('#refFull');
+  $('#refTxt').textContent=m?'Doses people report for '+m[0]+', with the Library entry.':'Type a compound name above to jump to its reported doses.';
+  a.href='https://baresignals.co/dosage/'+(m?'#'+m[1]:'');
+  b.hidden=!m;if(m)b.href='https://baresignals.co/library/#/p/'+m[1];
+}
+$('#pname').addEventListener('input',renderRef);renderRef();
 renderLadder();renderMix();wasteReset();
 renderSizes();renderGauge();paintCues();
 update();
