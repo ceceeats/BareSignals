@@ -2,6 +2,14 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v4 (22 Oct 2026) at /blood/v4/
+- Cross-links with the Library (shipped together with Library v19).
+- Every compound card ends with "Full entry in the Library", which opens that compound's full page (/library/#/p/<slug>). 23 of 26 compounds link.
+- EPO, L-Carnitine (inject) and Orforglipron have no Library entry yet, so they show "Not in the Library yet".
+- TB-500 links to the Library's Thymosin Beta-4 entry (its aliases cover TB-500), not the Frag 17-23 or Frag 1-4 entries.
+- Arriving from the Library (/blood/#<slug>) switches to By compound, scrolls to that compound and flashes it.
+- Library v19 adds a Blood work box on each matching full page and a Blood work button on the card. Library v18 kept.
+
 ## v3 (22 Oct 2026) at /blood/v3/
 - Data cleanup. The source data had two overlapping passes stitched together, leaving duplicate tests and messy category labels.
 - Removed 21 duplicate test stubs. Each had a richer rewritten copy later in the file; kept the richer one every time. 108 test entries down to 87. No test content was changed or lost.
