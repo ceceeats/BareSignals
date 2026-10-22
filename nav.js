@@ -1,4 +1,13 @@
-/* Bare Signals site navigation v5: one boxed bar shared by every page. v5: full labels (Blood Work, Supplements) on wide screens, short (Blood, Supps) below 1050px. Include with <script src="/nav.js" defer></script>. v4 adds Supps and sizes phone cells to their labels so six items fit. v1 to v4 kept in /nav/. */
+/* Bare Signals site navigation v6: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v6 adds the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. */
+window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.goatcounter.com. Empty = tracking off. */
+(function(){
+  var H=document.head,add=function(tag,attrs){var e=document.createElement(tag);for(var k in attrs)e.setAttribute(k,attrs[k]);H.appendChild(e);return e};
+  if(!document.querySelector('link[rel="icon"]'))add('link',{rel:'icon',href:'/favicon.svg',type:'image/svg+xml'});
+  if(!document.querySelector('link[rel="apple-touch-icon"]'))add('link',{rel:'apple-touch-icon',href:'/apple-touch-icon.png'});
+  if(!document.querySelector('link[rel="manifest"]'))add('link',{rel:'manifest',href:'/manifest.webmanifest'});
+  if(!document.querySelector('meta[name="theme-color"]'))add('meta',{name:'theme-color',content:'#FFFFE2'});
+  var t=add('script',{src:'/track.js'});t.async=true;
+})();
 (function(){
   if(document.querySelector('.bsn'))return;
   var P=location.pathname;
