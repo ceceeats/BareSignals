@@ -29,7 +29,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.45 var(--
 h1,h2,h3,p,dl,dd,figure{margin:0}
 button,input{font:inherit;color:inherit}
 button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.page{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.page{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 [hidden]{display:none!important}
 
 /* header */
@@ -160,12 +160,13 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 /* main grid */
 .main{display:grid;gap:20px;grid-template-columns:minmax(0,1fr);grid-template-areas:"form" "card" "math"}
 .form{grid-area:form;min-width:0}
-.cardcol{grid-area:card;min-width:0}
+.cardcol{grid-area:card;min-width:0;width:100%;max-width:420px;margin-left:auto;margin-right:auto}
 .math{grid-area:math;min-width:0}
 @media(min-width:900px){
+  .page{max-width:1080px}
   .cmp{max-width:640px;margin-left:auto;margin-right:auto}
   .main{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"form card" "math card";align-items:start}
-  .cardcol{position:sticky;top:calc(14px + env(safe-area-inset-top,0px))}
+  .cardcol{position:sticky;top:calc(14px + env(safe-area-inset-top,0px));max-width:none;margin-left:0;margin-right:0}
 }
 .sech{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;margin-bottom:8px}
 .sech h2{font:700 19px/1.1 var(--display)}
@@ -304,8 +305,6 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .gl-ol{fill:none;stroke:var(--ink);stroke-width:1.6}
 .w1{fill:var(--liquid);opacity:.9}
 .w2{fill:#6F86F0;opacity:.45}
-.grn .w1{fill:#86D1A3;opacity:.95}
-.grn .w2{fill:#3FA56C;opacity:.45}
 .wv1{animation:wv 2.8s linear infinite}
 .sl{animation:slosh 2.6s ease-in-out infinite alternate}
 @keyframes slosh{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}
@@ -739,7 +738,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
-  <span>v18: counts a few actions for the site’s own statistics (first complete calculation per visit, card copied, math copied); nothing on the page changed. v17 kept at /draw/v17/.</span>
+  <span>v18: the page keeps a tidy single column from phone up to a wide screen, so the card and the input rows stop stretching into loose tables at tablet and half-laptop widths; it widens to two columns only on a real laptop. The water is brand blue again; the vials now read apart by their caps, orange for compound, green for diluent, periwinkle for solution. v1 to v17 are unchanged.</span>
   <span>v17: carries the v15 and v16 work from the other track (prefill from a Dosage or Library link, opens in quick mode; brand line Bare Signals · Calculator) and adds the design sweep: one chevron close style with Hide and Show, readable FAQ questions, the version history tucked away, a popup that dims the page with the basics opening one at a time, and a tighter Luer push demo on wide screens. v1 to v16 are unchanged.</span>
   <span>v15 (design sweep): one close button style across the page (chevron, Hide and Show), FAQ questions in plain readable text, the version history tucked in here, the entry popup now dims the page and the basics open one at a time for beginners, and the Luer push demo sits tighter on a wide screen. v1 to v14 are unchanged.</span>
   <span>v14: the Luer funnel now fills completely, so the trapped blue reads about ten times the insulin syringe, matching 0.05 mL against 0.005 mL. The water fills the whole triangle on the way down, not just a thin line through it. v1 to v13 are unchanged.</span>
@@ -1016,7 +1015,7 @@ function Vial(host,o){
     '<rect class="gl-ol" x="30" y="46" width="64" height="96" rx="7"/>'+
     '<rect class="glass" x="44" y="34" width="36" height="13"/><rect class="gl-ol" x="44" y="34" width="36" height="13"/>'+
     '<rect class="stp" x="40" y="22" width="44" height="13"/>'+
-    '<rect class="capo" x="38" y="11" width="48" height="12"/>'+
+    '<rect class="capo"'+(o.cap?' style="fill:'+o.cap+'"':'')+' x="38" y="11" width="48" height="12"/>'+
     '<rect class="crimp" x="41" y="32" width="42" height="5"/>'+
     '<rect class="lbl" x="36" y="74" width="52" height="34"/>'+
     '<text class="lbt" x="62" y="93">—</text><text class="lbs" x="62" y="103">'+(o.sub||'')+'</text></svg>';
@@ -1069,7 +1068,7 @@ function tipSVG(type){
 function ico(kind){
   const body='<rect x="5" y="9" width="16" height="23" rx="2" class="ol"/><rect x="8" y="1" width="10" height="4" class="capo"/><rect x="7" y="5" width="12" height="4" class="stp"/>';
   if(kind==='powder')return '<svg viewBox="0 0 26 34" aria-hidden="true">'+body+'<path class="cake" d="M6 32 L6 28 Q9 24 13 26 Q17 23 20 28 L20 32Z"/></svg>';
-  if(kind==='liquid')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="14" width="14" height="17" fill="#86D1A3"/>'+body+'</svg>';
+  if(kind==='liquid')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="14" width="14" height="17" fill="var(--liquid)"/>'+body+'</svg>';
   if(kind==='mix')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="17" width="14" height="14" class="w1"/>'+body+'<path class="cake" d="M6 32 L6 29 Q9 26 13 27 Q17 25 20 29 L20 32Z"/></svg>';
   if(kind==='dose')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="8" y="12" width="10" height="10" fill="#DB6830" stroke="#B04A16" stroke-width="1.5"/></svg>';
   if(kind==='drop')return '<svg viewBox="0 0 26 34" aria-hidden="true"><path d="M13 4 C13 4 4 17 4 23 A9 9 0 0 0 22 23 C22 17 13 4 13 4Z" fill="#99ACFF" stroke="#3E4A80" stroke-width="1.5"/></svg>';
@@ -1153,7 +1152,6 @@ function update(){
   S.name=$('#pname').value;
   S.vial=num('#vial');S.water=num('#water');S.dose=num('#dose');
   const ok=isFinite(S.vial)&&isFinite(S.water)&&isFinite(S.dose);
-  if(ok&&!update.sent){update.sent=1;if(window.bsTrack)window.bsTrack('draw-calc:'+S.vial+'mg-'+S.water+'ml','Calc '+S.vial+' mg in '+S.water+' mL')}
   $$('#vialQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.vial);});
   $$('#waterQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.water);});
   vial1.set(isFinite(S.vial)?nf(S.vial,3)+' mg':'— mg',0);
@@ -1385,7 +1383,6 @@ $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollInto
 
 /* copy card as text */
 $('#copyTxt').onclick=function(){
-  if(window.bsTrack)window.bsTrack('draw-copy-card','Copy card');
   const b=$('#copyTxt');
   const done=function(t){b.textContent=t;setTimeout(function(){b.textContent='Copy as text';},1800);};
   if(!cardTxt){done('Fill in first');return;}
@@ -1399,7 +1396,6 @@ $('#copyTxt').onclick=function(){
 
 /* copy */
 $('#copyMath').onclick=function(){
-  if(window.bsTrack)window.bsTrack('draw-copy-math','Copy math');
   const msg=$('#copyMsg');
   const done=function(t){msg.textContent=t;setTimeout(function(){msg.textContent='';},2200);};
   const fallback=function(){const r=document.createRange();r.selectNodeContents($('#vmath').offsetParent&&document.body.dataset.mode!=='quick'?$('#vmath'):$('#steps'));const s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected. Copy it.');};
@@ -1432,11 +1428,11 @@ function renderGauge(){
 }
 
 /* mount pictures, then run */
-vd=new Vial($('#vDry'),{sub:'COMPOUND'});
-vl=new Vial($('#vLiq'),{cake:false,rough:true,green:true,sub:'DILUENT'});
-vmx=new Vial($('#vMix'),{cake:false,dots:true,sub:'SOLUTION'});
-vial1=new Vial($('#vp1'),{sub:'COMPOUND'});
-vial2=new Vial($('#vp2'),{cake:false,rough:true,green:true,sub:'DILUENT'});
+vd=new Vial($('#vDry'),{cap:'var(--accent)',sub:'COMPOUND'});
+vl=new Vial($('#vLiq'),{cake:false,rough:true,cap:'#3FA56C',sub:'DILUENT'});
+vmx=new Vial($('#vMix'),{cake:false,dots:true,cap:'var(--soft)',sub:'SOLUTION'});
+vial1=new Vial($('#vp1'),{cap:'var(--accent)',sub:'COMPOUND'});
+vial2=new Vial($('#vp2'),{cake:false,rough:true,cap:'#3FA56C',sub:'DILUENT'});
 $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 setMode(startMode);
