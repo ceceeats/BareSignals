@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Supplements · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Supplements v2: v1 plus the Library's 30 labels. Each card has a main label (colors the card spine) and extra labels (chips). Legend filters by label, view toggle groups by section or by main label. Colors are copied from Library v17 into data.js. v1 kept at /supplements/v1/. Sheet 4 (personal routine) is not used anywhere. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 44px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:68ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 12px;margin:0 0 14px;font-size:13px;line-height:1.4}
+.caution b{font:700 12px var(--display)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.qw{position:relative;flex:1 1 240px}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 72px 8px 10px;border-radius:0}
+#q::placeholder{color:var(--ink-soft)}
+#count{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+/* label legend and filter */
+.lg{border:1.5px solid var(--ink);background:var(--chip);margin-bottom:12px}
+.lg summary{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.lg summary::-webkit-details-marker{display:none}
+.lg summary span{color:var(--ink-soft);text-transform:none;letter-spacing:.02em;font-size:11px}
+.lg[open] summary{border-bottom:1.5px solid var(--rule)}
+.lgb{padding:9px 12px 10px}
+.lgb p{margin:0 0 8px;font-size:12.5px;color:var(--ink-soft)}
+.lc{font:500 11px/1.2 var(--mono);border:1.2px solid var(--ink);padding:4px 7px;cursor:pointer;border-radius:0;display:inline-flex;gap:5px;align-items:baseline}
+.lc em{font-style:normal;opacity:.7}
+.lc[aria-pressed="true"]{box-shadow:2px 2px 0 var(--ink);font-weight:700}
+.act{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 12px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.act[hidden]{display:none}
+/* cards */
+.gcat{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:16px 0 6px;padding-bottom:3px;border-bottom:1.5px solid var(--rule)}
+.gcat span{color:var(--ink-soft)}
+.gcat.lh{display:flex;align-items:center;gap:7px;color:var(--ink)}
+.gcat .sq{width:12px;height:12px;border:1.2px solid var(--ink);flex:none}
+.lmean{margin:-3px 0 7px;font-size:12px;color:var(--ink-soft)}
+.g{position:relative;padding-left:9px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:8px}
+.g::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--c,var(--rule));border-right:1.5px solid var(--ink)}
+.g summary{font:700 15px/1.2 var(--display);padding:9px 12px 9px 10px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.g summary::-webkit-details-marker{display:none}
+.g summary .nm{min-width:0}
+.dots{display:inline-flex;gap:3px;margin-left:7px;vertical-align:1px}
+.dots i{display:inline-block;width:9px;height:9px;border:1px solid rgba(62,74,128,.45)}
+.g summary .rg{font:500 11px var(--mono);color:var(--ink-soft);text-align:right;max-width:46%}
+.g[open] summary{border-bottom:1.5px solid var(--rule)}
+.gb{padding:4px 12px 10px 10px}
+.gb>div{padding:6px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.42}
+.gb>div:last-child{border-bottom:0}
+.gb small{display:block;font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.gb .one{color:var(--accent);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.chip{font:500 11px var(--mono);color:var(--ink);background:var(--paper);border:1.2px solid var(--ink);padding:3px 7px;cursor:pointer;border-radius:0}
+.chip:hover{background:var(--ink);color:var(--paper)}
+.chips .lc{padding:3px 7px}
+.chips .lc.p{font-weight:700}
+.phl p{margin:0 0 4px;font-size:12.5px;line-height:1.38}
+.phl p:last-child{margin-bottom:0}
+.phl b{font-weight:600}
+.phl i{font-style:normal;color:var(--ink-soft)}
+.refs a{display:block;margin:2px 0}
+.tag{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (min-width:900px){
+ #list{column-count:2;column-gap:12px}
+ .g{break-inside:avoid}
+}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab">Bare Signals</p>
+  <h1>Supplements<small>V2</small></h1>
+  <p class="lede">What goes alongside the peptides, and why. One card per supplement: what it does, the dose the protocol uses, and which peptides it supports. Colors are the same 30 labels as the Library. Search a supplement, a peptide, a label or a goal like sleep or collagen.</p>
+  <div class="caution"><b>Reference, not a prescription.</b> This is a first pass from the protocol, and each supplement will be researched in depth. Doses are the ones the protocol uses, shown for context. Not medical advice. Supplements interact with medication and with each other, so check with a clinician before adding anything.</div>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search a supplement or peptide" aria-label="Search" autocomplete="off"><span id="count"></span></div><div class="seg" id="view"></div></div>
+  <details class="lg" id="lg"><summary>Labels <span id="lgs"></span></summary><div class="lgb"><p>Tap a label to show only the supplements that carry it. The first label on a card is its main one, and colors the card.</p><div class="chips" id="lgc"></div></div></details>
+  <div class="act" id="act" hidden></div>
+  <div id="list"></div>
+  <p class="foot">Collected by <b>Bare Signals</b> · from the Honest Menu</p>
+</div>
+<script src="/supplements/v2/data.js"></script>
+<script>
+(function(){
+const S=window.SUPP,CATS=window.SUPP_CATS,PH=window.SUPP_PH,PAL=window.SUPP_PAL;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const norm=x=>String(x).toLowerCase().replace(/[\s\-–()'’.,\/+&]/g,'');
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])),LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]])),MEAN=Object.fromEntries(PAL.map(p=>[p[0],p[3]]));
+const KEYS=PAL.map(p=>p[0]);
+/* same contrast rule the Library uses for text on a label color */
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const fgOn=h=>lum(h||'#FFFFE2')>.42?'#3E4A80':'#FFFFE2';
+/* optional per-supplement research fields: add any of these keys to an entry in data.js and they show up here */
+const EXTRA=[['mech','How it works'],['evidence','Evidence'],['forms','Forms and timing'],['risks','Cautions'],['interactions','Interactions']];
+S.forEach(o=>{
+  o.lab=o.lab||[];
+  const phs=(o.ph||[]).map(c=>PH[c]?PH[c].n+' '+PH[c].pep.join(' '):'').join(' ');
+  const lbs=o.lab.map(k=>k+' '+LONG[k]+' '+MEAN[k]).join(' ');
+  o._h=norm([o.n,(o.aka||[]).join(' '),o.cat,o.does,o.dose,o.dn,o.note,(o.sup||[]).join(' '),phs,lbs,EXTRA.map(x=>o[x[0]]).join(' ')].join(' '));
+});
+const COUNT=Object.fromEntries(KEYS.map(k=>[k,S.filter(o=>o.lab.includes(k)).length]));
+let view='group',q='',lf='';
+const lchip=(k,extra,pressed,attrs)=>`<button type="button" class="lc${extra||''}" data-l="${esc(k)}" style="background:${HEX[k]};color:${fgOn(HEX[k])}"${pressed==null?'':` aria-pressed="${pressed}"`}${attrs||''}>${esc(LONG[k])}</button>`;
+function card(o,open){
+  const dose=[o.dose,o.dn].filter(Boolean);
+  const ph=(o.ph||[]).filter(c=>PH[c]);
+  const main=o.lab[0];
+  return `<details class="g"${open?' open':''} style="--c:${main?HEX[main]:'var(--rule)'}"><summary><span class="nm">${esc(o.n)}<span class="dots" aria-hidden="true">${o.lab.slice(0,4).map(k=>`<i style="background:${HEX[k]}"></i>`).join('')}</span></span>${o.dose?`<span class="rg">${esc(o.dose)}</span>`:''}</summary><div class="gb">`+
+   `<div><small>What it does</small>${nl(o.does)}</div>`+
+   (o.lab.length?`<div><small>Labels</small><span class="chips">${o.lab.map((k,i)=>lchip(k,i?'':' p')).join('')}</span></div>`:'')+
+   (dose.length?`<div><small>Dose in the protocol</small>${dose.map(nl).join('<br>')}</div>`:'')+
+   ((o.sup&&o.sup.length)?`<div><small>Supports</small><span class="chips">${o.sup.map(p=>`<button type="button" class="chip" data-q="${esc(p)}">${esc(p)}</button>`).join('')}</span></div>`:'')+
+   (ph.length?`<div class="phl"><small>Phase-wide in</small>${ph.map(c=>`<p><b>${esc(PH[c].n)}</b> <i>${esc(PH[c].pep.join(', '))}</i></p>`).join('')}</div>`:'')+
+   (o.note?`<div class="one"><small>Watch</small>${nl(o.note)}</div>`:'')+
+   EXTRA.filter(x=>o[x[0]]).map(x=>`<div><small>${x[1]}</small>${nl(o[x[0]])}</div>`).join('')+
+   ((o.refs&&o.refs.length)?`<div class="refs"><small>Sources</small>${o.refs.map(r=>`<a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>`).join('')}</div>`:'')+
+   (o.researched?'':`<div><span class="tag">First pass from the protocol · deep research pending</span></div>`)+
+   `</div></details>`;
+}
+function render(){
+  const qq=norm(q);
+  const L=S.filter(o=>(!qq||o._h.includes(qq))&&(!lf||o.lab.includes(lf)));
+  $('#count').textContent=L.length+' of '+S.length;
+  const open=(!!qq||!!lf)&&L.length<=4;
+  let html='';
+  if(view==='group'){
+    CATS.forEach(c=>{
+      const items=L.filter(o=>o.cat===c);
+      if(!items.length)return;
+      html+=`<p class="gcat" style="break-after:avoid">${esc(c)} <span>· ${items.length}</span></p>`+items.map(o=>card(o,open)).join('');
+    });
+  }else{
+    KEYS.forEach(k=>{
+      const items=L.filter(o=>o.lab[0]===k);
+      if(!items.length)return;
+      html+=`<p class="gcat lh" style="break-after:avoid"><i class="sq" style="background:${HEX[k]}"></i>${esc(LONG[k])} <span>· ${items.length}</span></p><p class="lmean" style="break-after:avoid">${esc(MEAN[k])}</p>`+items.map(o=>card(o,open)).join('');
+    });
+  }
+  $('#list').innerHTML=html||'<p class="lede">Nothing matches.</p>';
+  $('#view').innerHTML=[['group','By group'],['label','By label']].map(([k,l])=>`<button type="button" data-v="${k}" aria-pressed="${view===k}">${l}</button>`).join('');
+  $('#lgc').innerHTML=KEYS.filter(k=>COUNT[k]).map(k=>lchip(k,'',lf===k,'').replace('</button>',` <em>${COUNT[k]}</em></button>`)).join('');
+  $('#lgs').textContent=lf?LONG[lf]:KEYS.filter(k=>COUNT[k]).length+' in use';
+  const act=$('#act');
+  if(lf){act.hidden=false;act.innerHTML=`Showing label ${lchip(lf,'',null,' data-clear="1"').replace('</button>',' &times;</button>')}`}else{act.hidden=true;act.innerHTML=''}
+}
+$('#view').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){view=b.dataset.v;render()}});
+$('#q').addEventListener('input',e=>{q=e.target.value;render()});
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.chip');
+  if(c){q=c.dataset.q;$('#q').value=q;render();$('#q').scrollIntoView({block:'center',behavior:'smooth'});return}
+  const l=e.target.closest('.lc');
+  if(l){
+    const k=l.dataset.l;
+    lf=(l.hasAttribute('data-clear')||lf===k)?'':k;
+    render();
+    $('#q').scrollIntoView({block:'center',behavior:'smooth'});
+  }
+});
+render();
+})();
+</script>
+</body>
+</html>
