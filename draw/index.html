@@ -50,8 +50,9 @@ h1{font:700 34px/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
 .btn.pri:hover{background:#2f3a6b}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .q{min-height:30px;padding:3px 9px;font:500 12px var(--mono)}
-input[type=text],input[type=number]{width:100%;min-height:40px;padding:6px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:600 18px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
-input[type=text]{font:500 16px var(--body);min-height:38px}
+input[type=text],input[type=number]{color:var(--accent-ink);width:100%;min-height:40px;padding:6px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:600 18px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=text]{font:500 16px var(--body);min-height:38px;color:var(--ink)}
+input[type=date]{width:100%;min-height:38px;padding:4px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:500 14px var(--mono);color:var(--ink)}
 input[type=number]{-moz-appearance:textfield;appearance:textfield}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 ::placeholder{color:#8A93BE}
@@ -74,9 +75,11 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 .bh b{font:700 15px var(--display)}
 .bno{font:600 11px var(--mono);color:var(--accent-ink);margin-right:6px}
 .bh em{font:500 11px var(--mono);font-style:normal;color:var(--soft);margin-left:6px}
-.bt{background:none;border:0;display:inline-flex;align-items:center;gap:6px;font:600 11px var(--mono);letter-spacing:.06em;color:var(--soft);cursor:pointer;padding:6px 0;min-height:32px}
-.dotc{width:9px;height:9px;border-radius:50%;background:var(--accent);border:1.5px solid var(--accent);display:block}
-.blk[data-open="0"] .dotc{background:transparent}
+.bt{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:var(--paper);border:1.5px solid var(--soft);color:var(--ink);font:600 11px var(--mono);letter-spacing:.05em;cursor:pointer;padding:4px 8px;min-height:30px}
+.bt:hover{background:#fff;border-color:var(--ink)}
+.arr{display:block;transition:transform .3s}
+.blk[data-open="0"] .arr{transform:rotate(180deg)}
+.blk[data-open="0"] .bt{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .bf{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s ease}
 .blk[data-open="0"] .bf{grid-template-rows:0fr}
 .bfi{overflow:hidden;min-height:0}
@@ -105,9 +108,10 @@ dialog{border:2px solid var(--line);background:var(--paper);color:var(--ink);pad
 dialog::backdrop{background:rgba(62,74,128,.35)}
 dialog h2{font:700 20px/1.1 var(--display)}
 dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
-.askc{display:flex;flex-direction:column;gap:6px;margin:12px 0}
-.askc .btn{text-align:left}
-.askb{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.askc{display:grid;gap:12px;margin:14px 0 0}
+.askc .opt{display:flex;flex-direction:column;gap:4px}
+.askc .btn{min-height:46px;font:600 15px var(--body)}
+.askc small{font:500 11.5px var(--mono);color:var(--soft)}
 .angles svg{display:block;width:100%;height:auto;max-width:420px}
 .angt{font:600 9.5px var(--mono);fill:var(--ink)}
 .angs{font:500 8.5px var(--mono);fill:var(--soft)}
@@ -117,8 +121,11 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .mixrow figure{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
 .mixrow figcaption{font:600 11px/1.3 var(--mono);color:var(--soft);letter-spacing:.04em}
 .mixrow figcaption b{color:var(--ink);font-weight:600}
-.op{font:700 26px var(--display);padding-bottom:30px}
-.vp{width:68px}
+.op{font:700 22px var(--display);padding-bottom:62px}
+.mixrow{flex-wrap:nowrap!important}
+.mixrow figcaption{font-size:10px;max-width:98px}
+.mixrow figcaption i{font-weight:400}
+.vp{width:60px}
 .vp svg{display:block;width:100%;height:auto}
 .mixtxt{font:600 14px/1.3 var(--display)}
 .mixtxt b{color:var(--accent-ink)}
@@ -163,9 +170,10 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .fl{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .fl b{color:var(--ink);font-weight:600;font-size:12px;letter-spacing:.05em}
 .inrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:stretch}
-.ulab{display:flex;align-items:center;padding:0 12px;border:1.5px solid var(--soft);background:var(--paper);font:600 14px var(--mono)}
+.ulab{display:flex;align-items:center;padding:0 10px;border:1.5px solid var(--rule);background:transparent;color:var(--soft);font:500 12px var(--mono)}
 .seg{display:grid;grid-template-columns:1fr 1fr}
-.seg .btn{min-width:48px;min-height:40px}
+.seg .btn{min-width:46px;min-height:40px;background:transparent;border-color:var(--rule);color:var(--soft);font:500 12px var(--mono)}
+.seg .btn[aria-pressed="true"]{background:#EFEDC4;color:var(--ink);border-color:var(--soft)}
 .seg .btn+.btn{border-left:0}
 .qchips{display:flex;flex-wrap:wrap;gap:5px}
 .fact{font-size:12px;color:var(--soft)}
@@ -192,7 +200,22 @@ body[data-mode="quick"] .qhint{display:block}
 body:not([data-mode="quick"]) .tmath{display:none}
 
 /* card */
-.shot{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.shot{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.copyrow{margin-top:26px;display:flex;justify-content:center}
+.rec{padding:8px 12px 0}
+.rec span{display:inline-block;font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);border:1.5px solid var(--accent);padding:2px 6px}
+.drawto{border-top:1.5px solid var(--ink);padding-top:10px}
+.plan{display:grid;gap:3px;margin-top:8px}
+.pln{display:flex;gap:8px;align-items:baseline}
+.pln span{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);flex:none;min-width:38px}
+.pln b{font:500 12px var(--body);overflow-wrap:anywhere}
+.dates{margin-top:10px;display:grid;gap:6px;width:100%}
+.dt span{display:block;font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.dt b{font:500 11.5px var(--mono)}
+.dt small{display:block;font:400 10px var(--mono);color:var(--soft)}
+.nbody{padding:2px 10px 10px;display:flex;flex-direction:column;gap:8px}
+.nl{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:2px}
+.otag{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
 .draw{border:1.5px solid var(--ink);background:var(--paper)}
 .dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
 .dn{padding:10px 12px 0;font:700 20px/1.1 var(--display);overflow-wrap:anywhere}
@@ -202,7 +225,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .syr{width:100%}
 .syr svg{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22px);mask-image:linear-gradient(to bottom,transparent 0,#000 22px)}
 .syrnote{font:500 10.5px var(--mono);color:var(--soft);text-align:center;margin-top:4px}
-.datacol{padding:10px 12px;min-width:0}
+.datacol{padding:10px 12px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
 .lab{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 .big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
 .bn{font:700 50px/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
@@ -240,8 +263,10 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .tk{stroke:var(--ink);stroke-width:.8}
 .tl{font:500 10px var(--mono);fill:var(--ink)}
 .hubf{fill:var(--syl);stroke:var(--syd);stroke-width:1.1}
-.hubl{fill:var(--liquid);transition:fill .5s}
-.hubl.waste{fill:var(--liquid);stroke:var(--ink);stroke-width:.9}
+.hubl{fill:none}
+.hubl.waste{fill:rgba(219,104,48,.1);stroke:var(--accent);stroke-width:1.3}
+.ndl{fill:var(--paper);stroke:var(--ink);stroke-width:.9}
+.col2{fill:none;stroke:var(--ink);stroke-width:1.3}
 .tagr{fill:var(--ink)}
 .tagt{font:700 10.5px var(--mono);fill:var(--paper);text-anchor:middle}
 .mkl{stroke:var(--accent);stroke-width:1.8}
@@ -254,6 +279,15 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .w1{fill:var(--liquid);opacity:.9}
 .w2{fill:#6F86F0;opacity:.45}
 .wv1{animation:wv 2.8s linear infinite}
+.sl{animation:slosh 2.6s ease-in-out infinite alternate}
+@keyframes slosh{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}
+.rough .sl{animation:sloshr .9s ease-in-out infinite;transform-origin:62px 0}
+@keyframes sloshr{0%{transform:translate(-2px,-4px) rotate(-1.6deg)}50%{transform:translate(2px,3px) rotate(1.6deg)}100%{transform:translate(-2px,-4px) rotate(-1.6deg)}}
+.rough .wv1{animation-duration:1.1s}
+.rough .wv2{animation-duration:1.6s}
+.rough .bub{animation-duration:1.7s}
+.b4{animation-delay:.5s}.b5{animation-delay:1.3s}
+.fdot{fill:#fff;opacity:.55}
 .wv2{animation:wv 4s linear infinite reverse}
 @keyframes wv{from{transform:translateX(0)}to{transform:translateX(-40px)}}
 .bub{fill:#fff;opacity:.7;animation:rise 3.2s ease-in infinite}
@@ -297,8 +331,9 @@ body:not([data-mode="quick"]) .tmath{display:none}
 @media(max-width:560px){.step{grid-template-columns:minmax(0,1fr) auto}.step .f{grid-column:1/-1;order:3}}
 
 /* faq */
-.faq{display:flex;flex-direction:column;gap:10px}
-.faq h2{font:700 19px/1.1 var(--display)}
+.faq{display:flex;flex-direction:column;gap:10px;margin-top:40px;padding-top:28px;border-top:1.5px solid var(--line)}
+.faqbig{display:block;font:700 40px/1 var(--display);color:var(--accent);letter-spacing:-.01em}
+.faqsub{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:4px}
 .qa{border-top:1.5px solid var(--line);padding-top:8px}
 .qa summary{cursor:pointer;list-style:none;font:700 15px var(--display)}
 .qa summary::-webkit-details-marker{display:none}
@@ -308,6 +343,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .qb p{font-size:13.5px;max-width:62ch}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
 .cmpc{background:var(--chip);padding:10px;min-width:0}
+.cmpp{grid-column:1/-1;background:var(--chip);display:flex;justify-content:center;padding:14px 10px}
 .cmpc h3{font:700 15px var(--display)}
 .cmpc .st{font:500 11px var(--mono);color:var(--soft);margin-top:2px}
 .mini{margin:8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:340px}
@@ -343,7 +379,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 @media(prefers-reduced-motion:reduce){
   .fold,.hubl,.needle .bar,.wstripe,.wrow{transition:none}
   .drop{animation:none;opacity:0}
-  .wv1,.wv2,.bub,.hubg,.turn,.turnh{animation:none}
+  .wv1,.wv2,.bub,.sl,.col,.hubg,.turn,.turnh{animation:none}
   .turn,.turnh{opacity:1}
   .cuew.cue .cur{animation:none}
 }
@@ -359,32 +395,29 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v5</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v6</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
   <h2 id="askT">What do you already know?</h2>
-  <p>Tap what you understand. We will fold those parts away.</p>
-  <div class="askc" id="askc">
-    <button class="btn" type="button" data-k="w" aria-pressed="false">g, mg and mcg</button>
-    <button class="btn" type="button" data-k="m" aria-pressed="false">Mixing powder and liquid</button>
-    <button class="btn" type="button" data-k="s" aria-pressed="false">Insulin and Luer lock syringes</button>
+  <div class="askc">
+    <div class="opt"><button class="btn pri" id="askB" type="button">I'm a beginner</button><small>Shows 3 short visual steps first.</small></div>
+    <div class="opt"><button class="btn" id="askE" type="button">I'm an expert</button><small>Goes straight to the calculator, text only.</small></div>
   </div>
-  <div class="askb"><button class="btn pri" id="askGo" type="button">Continue</button><button class="linkbtn" id="askAll" type="button">I know all of it</button></div>
 </dialog>
 
 <section class="intro" id="intro" aria-labelledby="introT">
   <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2></div>
 
   <div class="blk" data-k="w" data-open="1">
-    <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="true"><i class="dotc"></i><span class="btl">I know this</span></button></div>
+    <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="wbox">
         <div id="wgrid"></div>
         <div class="wtabs" role="group" aria-label="Weight unit">
-          <button class="btn wt" type="button" data-u="g" aria-pressed="true"><b>g</b><span>gram</span></button>
+          <button class="btn wt" type="button" data-u="mcg" aria-pressed="true"><b>mcg</b><span>microgram</span></button>
           <button class="btn wt" type="button" data-u="mg" aria-pressed="false"><b>mg</b><span>milligram</span></button>
-          <button class="btn wt" type="button" data-u="mcg" aria-pressed="false"><b>mcg</b><span>microgram</span></button>
+          <button class="btn wt" type="button" data-u="g" aria-pressed="false"><b>g</b><span>gram</span></button>
         </div>
         <div class="wread" id="wread"></div>
         <div class="zm" id="wzm" hidden><div class="zmb"><i></i></div><span>1 mg square, zoomed. The dot is 1 mcg.</span></div>
@@ -393,21 +426,21 @@ body:not([data-mode="quick"]) .tmath{display:none}
   </div>
 
   <div class="blk" data-k="m" data-open="1">
-    <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="true"><i class="dotc"></i><span class="btl">I know this</span></button></div>
+    <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="mixrow">
-        <figure><div class="vp" id="vDry"></div><figcaption>Powder<br><b>10 mg</b></figcaption></figure>
+        <figure><div class="vp" id="vDry"></div><figcaption>Powder<br><i>the compound</i><br><b>10 mg</b></figcaption></figure>
         <span class="op">+</span>
-        <figure><div class="vp" id="vLiq"></div><figcaption>Liquid<br><b>2 mL</b></figcaption></figure>
+        <figure><div class="vp" id="vLiq"></div><figcaption>Liquid<br><i>the diluent</i><br><b>2 mL</b></figcaption></figure>
         <span class="op">=</span>
-        <figure><div class="vp" id="vMix"></div><figcaption>Mix<br><b>5,000 mcg/mL</b></figcaption></figure>
+        <figure><div class="vp" id="vMix"></div><figcaption>Solution<br><i>compound in diluent</i><br><b>5,000 mcg/mL</b></figcaption></figure>
       </div>
-      <p class="mixtxt">10 mg in 2 mL is <b>5,000 mcg per mL</b>.</p>
+      <p class="mixtxt">10 mg of compound in 2 mL of diluent makes a solution of <b>5,000 mcg per mL</b>.</p>
     </div></div></div>
   </div>
 
   <div class="blk" data-k="s" data-open="1">
-    <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer lock</em></div><button class="bt" type="button" aria-expanded="true"><i class="dotc"></i><span class="btl">I know this</span></button></div>
+    <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer lock</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="tips">
         <div class="tipc"><div id="tipIns"></div><b>Insulin syringe</b><span>Needle is fixed in · units</span></div>
@@ -448,7 +481,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="sbx">
       <div class="pic"><div class="vpic" id="vp2"></div><span class="cp">Liquid</span></div>
       <div class="sin">
-        <label class="fl" for="water"><b>Liquid</b><span>You add this</span></label>
+        <label class="fl" for="water"><b>Liquid used</b><span>Diluent</span></label>
         <div class="cuew" id="cue-water"><i class="cur" aria-hidden="true"></i>
           <div class="inrow"><input type="number" id="water" inputmode="decimal" step="any" min="0" value="2"><div class="ulab">mL</div></div></div>
         <div class="qchips" id="waterQ" aria-label="Common liquid amounts"></div>
@@ -473,8 +506,25 @@ body:not([data-mode="quick"]) .tmath{display:none}
     </div>
 
     <div class="sbx one">
+      <div class="blk" data-k="n" data-open="1" style="min-width:0">
+        <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Add" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+        <div class="bf"><div class="bfi"><div class="nbody">
+          <label class="nl" for="mixed">Mixed on</label>
+          <input type="date" id="mixed">
+          <div class="nl">Take</div>
+          <div class="qchips" id="freqQ" role="group" aria-label="How often"></div>
+          <div class="qchips" id="dayQ" role="group" aria-label="Days"></div>
+          <div class="nl">When</div>
+          <div class="qchips" id="timeQ" role="group" aria-label="Time of day"></div>
+          <label class="nl" for="note">Your notes</label>
+          <input type="text" id="note" maxlength="60" autocomplete="off" placeholder="For example: taken at night, empty stomach">
+        </div></div></div>
+      </div>
+    </div>
+
+    <div class="sbx one">
       <div class="sin">
-        <div class="fl"><b>Your syringe</b><span>Check the print</span></div>
+        <div class="fl"><b>Your syringe</b><span class="otag">Insulin syringe recommended</span></div>
         <div class="two" role="group" aria-label="Syringe type">
           <button class="btn tb" type="button" data-type="insulin" aria-pressed="true"><b>Insulin</b><span>Units · fixed needle</span></button>
           <button class="btn tb" type="button" data-type="luer" aria-pressed="false"><b>Luer lock</b><span>mL · needle twists on</span></button>
@@ -486,26 +536,34 @@ body:not([data-mode="quick"]) .tmath{display:none}
   </section>
 
   <aside class="cardcol" aria-label="Your draw card">
-    <div class="shot"><span>Screenshot this card</span><button class="linkbtn" id="copyTxt" type="button">Copy as text</button></div>
+    <div class="shot">Screenshot this card</div>
     <div class="draw" id="draw">
       <div class="dh"><span>Bare Signals</span><span>Draw Line · Draft</span></div>
       <div class="dn ph" id="cName">Your peptide</div>
+      <div class="rec"><span>Insulin syringe recommended</span></div>
       <div class="db">
         <div class="syrcol">
           <div class="syr" id="syrMain"></div>
           <div class="syrnote" id="syrNote"></div>
+          <div class="dates" id="dates"></div>
         </div>
         <div class="datacol">
-          <div class="lab">Draw to</div>
-          <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
-          <div class="sec" id="bigS"></div>
-          <div class="kvs" id="kvs"></div>
+          <div>
+            <div class="kvs" id="kvs"></div>
+            <div class="plan" id="plan" hidden></div>
+          </div>
+          <div class="drawto">
+            <div class="lab">Draw to</div>
+            <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
+            <div class="sec" id="bigS"></div>
+          </div>
         </div>
       </div>
       <div class="pills" id="pills"></div>
       <p class="tip" id="tip" hidden></p>
       <div class="df"><span>baresignals.co</span><span>Math only. Check your numbers.</span></div>
     </div>
+    <div class="copyrow"><button class="btn" id="copyTxt" type="button">Copy as text</button></div>
     <div class="ref">
       <span class="tag">Coming · draft</span>
       <div><b>Reported doses</b></div>
@@ -526,7 +584,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 </div>
 
 <section class="faq" id="faq" aria-labelledby="faqT">
-  <h2 id="faqT">Frequently asked questions</h2>
+  <h2 id="faqT"><span class="faqbig">FAQ</span><span class="faqsub">Frequently asked questions</span></h2>
   <details class="qa" open>
     <summary>Why does a Luer lock give fewer doses?</summary>
     <div class="qb">
@@ -537,27 +595,27 @@ body:not([data-mode="quick"]) .tmath{display:none}
           <h3>Insulin syringe</h3>
           <div class="st">Needle fixed in</div>
           <div class="mini" id="syrA"></div>
-          <div class="ro">
-            <div class="kv"><span>Reads</span><b id="rA">—</b></div>
-            <div class="kv"><span>From vial</span><b id="pA">—</b></div>
-            <div class="kv"><span>Delivered</span><b id="dA">—</b></div>
-            <div class="kv"><span>Stuck</span><b id="lA" class="o">—</b></div>
-          </div>
         </div>
         <div class="cmpc">
           <h3>Luer lock</h3>
-          <div class="st">Hub holds liquid</div>
+          <div class="st">Needle twists on</div>
           <div class="mini" id="syrB"></div>
-          <div class="ro">
-            <div class="kv"><span>Reads</span><b id="rB">—</b></div>
-            <div class="kv"><span>From vial</span><b id="pB">—</b></div>
-            <div class="kv"><span>Delivered</span><b id="dB">—</b></div>
-            <div class="kv"><span>Stuck</span><b id="lB" class="o">—</b></div>
-          </div>
+        </div>
+        <div class="cmpp"><button class="btn pri" id="push" type="button">Push the plunger</button></div>
+        <div class="cmpc ro">
+          <div class="kv"><span>Reads</span><b id="rA">—</b></div>
+          <div class="kv"><span>From vial</span><b id="pA">—</b></div>
+          <div class="kv"><span>Delivered</span><b id="dA">—</b></div>
+          <div class="kv"><span>Stuck</span><b id="lA" class="o">—</b></div>
+        </div>
+        <div class="cmpc ro">
+          <div class="kv"><span>Reads</span><b id="rB">—</b></div>
+          <div class="kv"><span>From vial</span><b id="pB">—</b></div>
+          <div class="kv"><span>Delivered</span><b id="dB">—</b></div>
+          <div class="kv"><span>Stuck</span><b id="lB" class="o">—</b></div>
         </div>
       </div>
-      <div class="ctl"><button class="btn pri" id="push" type="button">Push the plunger</button></div>
-      <p class="verdict" id="wVerdict"></p>
+            <p class="verdict" id="wVerdict"></p>
     </div>
   </details>
   <details class="qa">
@@ -567,6 +625,14 @@ body:not([data-mode="quick"]) .tmath{display:none}
   <details class="qa">
     <summary>Why does more liquid mean a bigger draw?</summary>
     <div class="qb"><p>More liquid makes a weaker mix. 10 mg in 2 mL is 5,000 mcg per mL; in 4 mL it is 2,500 mcg per mL. A weaker mix needs a bigger draw for the same dose, which is easier to read on the syringe. The dose itself does not change.</p></div>
+  </details>
+  <details class="qa">
+    <summary>Are there other syringe types than insulin and Luer lock?</summary>
+    <div class="qb">
+      <p>Yes. For injecting, the common ones are:</p>
+      <p><b>Insulin syringe.</b> Needle moulded in, marked in units, 0.3, 0.5 or 1 mL.<br><b>Luer lock.</b> Needle twists on and locks, marked in mL.<br><b>Luer slip.</b> Needle pushes on without a thread, so it can pop off. Marked in mL, same dead space issue as a Luer lock.<br><b>Tuberculin syringe.</b> 1 mL marked in 0.01 mL steps, usually with a Luer slip or Luer lock tip, so it reads like a 1 mL Luer lock.<br><b>Low dead space syringes.</b> The plunger tip reaches into the hub, so much less liquid is stuck. Made in both fixed needle and Luer styles.</p>
+      <p class="note">Oral and catheter tip syringes exist too, but they are not for injecting. Match the printed scale on your own syringe to the math.</p>
+    </div>
   </details>
   <details class="qa">
     <summary>Which angle does the needle go in?</summary>
@@ -590,30 +656,34 @@ body:not([data-mode="quick"]) .tmath{display:none}
 </section>
 
 <details class="gloss" id="glossary">
-  <summary>Glossary <span>· 16 terms</span></summary>
+  <summary>Glossary <span>· 20 terms</span></summary>
   <dl>
-    <div class="gi"><dt>Gram <em>g</em></dt><dd>A unit of weight. About one paperclip.</dd></div>
-    <div class="gi"><dt>Milligram <em>mg</em></dt><dd>One thousandth of a gram. Vial sizes are in mg.</dd></div>
+    <div class="gi"><dt>Nanogram <em>ng</em></dt><dd>One thousandth of a microgram. You see it on lab results, not on vials.</dd></div>
     <div class="gi"><dt>Microgram <em>mcg · µg</em></dt><dd>One thousandth of a milligram. Doses are usually in mcg.</dd></div>
+    <div class="gi"><dt>Milligram <em>mg</em></dt><dd>One thousandth of a gram. Vial sizes are in mg.</dd></div>
+    <div class="gi"><dt>Gram <em>g</em></dt><dd>A unit of weight. About one paperclip.</dd></div>
     <div class="gi"><dt>Milliliter <em>mL</em></dt><dd>A unit of liquid volume. A 1 mL syringe holds 1 mL.</dd></div>
     <div class="gi"><dt>Unit</dt><dd>A mark on an insulin syringe. 100 units is 1 mL. Units measure volume, not strength.</dd></div>
     <div class="gi"><dt>Vial</dt><dd>The small glass bottle with a rubber stopper.</dd></div>
-    <div class="gi"><dt>Powder</dt><dd>The dry peptide in the vial. The label gives its total mg.</dd></div>
-    <div class="gi"><dt>Liquid <em>BAC water</em></dt><dd>Bacteriostatic water: sterile water with 0.9% benzyl alcohol. You add it to the powder.</dd></div>
-    <div class="gi"><dt>Reconstitution</dt><dd>Adding liquid to the powder so it dissolves into a mix.</dd></div>
-    <div class="gi"><dt>Strength</dt><dd>How much peptide sits in each mL of the mix, written as mcg per mL.</dd></div>
-    <div class="gi"><dt>Dose</dt><dd>The amount of peptide you want, in mcg. You choose it.</dd></div>
-    <div class="gi"><dt>Draw</dt><dd>Pulling the mix into the syringe up to a line.</dd></div>
+    <div class="gi"><dt>Compound</dt><dd>The dry powder in the vial. The label gives its total mg.</dd></div>
+    <div class="gi"><dt>Diluent <em>liquid · BAC water</em></dt><dd>The liquid you add. Bacteriostatic water is sterile water with 0.9% benzyl alcohol.</dd></div>
+    <div class="gi"><dt>Solution</dt><dd>The compound dissolved in the diluent. This is what you draw.</dd></div>
+    <div class="gi"><dt>Reconstitution</dt><dd>Adding the diluent to the powder so it dissolves into a solution.</dd></div>
+    <div class="gi"><dt>Strength</dt><dd>How much compound sits in each mL of the solution, written as mcg per mL.</dd></div>
+    <div class="gi"><dt>Dose</dt><dd>The amount of compound you want, in mcg. You choose it.</dd></div>
+    <div class="gi"><dt>Draw</dt><dd>Pulling the solution into the syringe up to a line.</dd></div>
     <div class="gi"><dt>Insulin syringe</dt><dd>A thin syringe marked in units. The needle is fixed in.</dd></div>
     <div class="gi"><dt>Luer lock</dt><dd>A syringe marked in mL. The needle twists on and off.</dd></div>
+    <div class="gi"><dt>Luer slip</dt><dd>Like a Luer lock, but the needle pushes on without a thread.</dd></div>
     <div class="gi"><dt>Dead space</dt><dd>Liquid stuck in the needle hub that never gets pushed out.</dd></div>
     <div class="gi"><dt>Gauge <em>G</em></dt><dd>Needle width. Bigger number, thinner needle.</dd></div>
+    <div class="gi"><dt>Subcutaneous</dt><dd>Under the skin, into the fat layer.</dd></div>
   </dl>
 </details>
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
-  <span>v5: quick question first about what you know, basics as three fold-away blocks with a fixed 10 mg and 2 mL example, moving box of 1,000, softer green frames, big shiny max number on syringes, Luer demo with a 1 mg example and zoom on the stuck liquid, needle angle FAQ, smaller card with Copy as text. v1 to v4 are unchanged.</span>
+  <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
   <span>Bare Signals · baresignals.co · Draw Line · Draft</span>
 </footer>
 
@@ -676,7 +746,7 @@ function Syr(host,c,type,o){
   const L=o.L||330,W=140,yt=84,H=yt+L+96,cx=72,yb=yt+L,w=c.w,x0=cx-w/2,x1=cx+w/2;
   this.yb=yb;this.cx=cx;
   const luer=type==='luer',gid='sg'+(++SGID);
-  this.tipY=luer?yb+81:yb+62;
+  this.tipY=luer?yb+88:yb+62;
   const cd=capD(c),n=Math.round(cd/c.minor);
   let ticks='';
   for(let k=0;k<=n;k++){
@@ -695,16 +765,16 @@ function Syr(host,c,type,o){
   let tip;
   if(luer){
     tip='<path class="nz" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+6)+' '+(yb+9)+'L'+(cx-6)+' '+(yb+9)+'Z"/>'+
-      '<rect class="nz" x="'+(cx-10)+'" y="'+(yb+9)+'" width="20" height="10"/>'+
-      '<line x1="'+(cx-10)+'" x2="'+(cx+10)+'" y1="'+(yb+12.5)+'" y2="'+(yb+12.5)+'" stroke="#3E4A80" stroke-width=".8" opacity=".5"/>'+
-      '<line x1="'+(cx-10)+'" x2="'+(cx+10)+'" y1="'+(yb+16)+'" y2="'+(yb+16)+'" stroke="#3E4A80" stroke-width=".8" opacity=".5"/>'+
-      '<rect class="hubf" x="'+(cx-8)+'" y="'+(yb+19)+'" width="16" height="16"/>'+
-      '<path class="inkf" d="M'+(cx-1.5)+' '+(yb+35)+'L'+(cx+1.5)+' '+(yb+35)+'L'+(cx+.5)+' '+(yb+81)+'L'+(cx-.5)+' '+(yb+81)+'Z"/>'+
-      '<rect class="hubl hub" x="'+(cx-3.5)+'" y="'+(yb+2)+'" width="7" height="14"/>'+
-      '<rect class="hubl hub" x="'+(cx-5.5)+'" y="'+(yb+22)+'" width="11" height="11"/>';
+      '<rect class="nz" x="'+(cx-3.5)+'" y="'+(yb+9)+'" width="7" height="14"/>'+
+      '<rect class="hubf" x="'+(cx-8)+'" y="'+(yb+18)+'" width="16" height="22" fill-opacity=".45"/>'+
+      '<path class="ndl" d="M'+(cx-2.2)+' '+(yb+40)+'L'+(cx+2.2)+' '+(yb+40)+'L'+(cx+.7)+' '+(yb+88)+'L'+(cx-.7)+' '+(yb+88)+'Z"/>'+
+      '<rect class="hubl hub" x="'+(cx-5.5)+'" y="'+(yb+21)+'" width="11" height="16"/>'+
+      '<rect class="col2" x="'+(cx-11)+'" y="'+(yb+9)+'" width="22" height="23"/>'+
+      '<line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
+      '<line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>';
   }else{
     tip='<path class="syl" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+3.5)+' '+(yb+11)+'L'+(cx-3.5)+' '+(yb+11)+'Z"/>'+
-      '<path class="inkf" d="M'+(cx-1.2)+' '+(yb+11)+'L'+(cx+1.2)+' '+(yb+11)+'L'+(cx+.4)+' '+(yb+62)+'L'+(cx-.4)+' '+(yb+62)+'Z"/>'+
+      '<path class="ndl" d="M'+(cx-1.8)+' '+(yb+11)+'L'+(cx+1.8)+' '+(yb+11)+'L'+(cx+.6)+' '+(yb+62)+'L'+(cx-.6)+' '+(yb+62)+'Z"/>'+
       '<rect class="hubl hub" x="'+(cx-1.8)+'" y="'+(yb+1)+'" width="3.6" height="10"/>';
   }
   const fc=luer?'rod':'sy',stc=luer?'inkf':'syd';
@@ -848,21 +918,24 @@ function synIcon(type,w,h){
 let VID=0;
 function Vial(host,o){
   o=o||{};
-  const id='vc'+(++VID),cake=o.cake!==false;
-  let wave='M-40 0 Q-30 -4 -20 0';
+  const id='vc'+(++VID),cake=o.cake!==false,amp=o.rough?11:5;
+  let wave='M-40 0 Q-30 -'+amp+' -20 0';
   for(let x=0;x<=180;x+=20)wave+=' T'+x+' 0';
   wave+=' L180 130 L-40 130 Z';
-  const spk=[[46,136],[58,132],[70,135],[82,137],[52,129],[76,128],[64,138]].map(function(p){return '<circle class="spk" cx="'+p[0]+'" cy="'+p[1]+'" r="1.1"/>';}).join('');
-  const ck=cake?'<path class="cake" d="M33 143 L33 135 Q38 125 48 127 Q54 116 64 121 Q73 117 80 127 Q89 127 91 136 L91 143 Z"/>'+spk:'';
-  host.innerHTML='<svg viewBox="0 0 124 170" xmlns="'+NS+'" role="img" aria-label="Vial">'+
+  let dots='',fl='';
+  for(let i=0;i<34;i++)dots+='<circle class="spk" cx="'+(36+(i*37)%50)+'" cy="'+(131+(i*23)%10)+'" r=".9"/>';
+  if(o.dots)for(let i=0;i<22;i++)fl+='<circle class="fdot" cx="'+(38+(i*29)%48)+'" cy="'+(14+(i*41)%90)+'" r=".9"/>';
+  const ck=cake?'<path class="cake" d="M33 142 L33 134 Q33 129 38 129 L86 129 Q91 129 91 134 L91 142 Z"/>'+dots:'';
+  const bub=o.rough?'<circle class="bub b4" cx="56" cy="46" r="1.6"/><circle class="bub b5" cx="90" cy="48" r="1.9"/>':'';
+  host.innerHTML='<svg class="vsvg'+(o.rough?' rough':'')+'" viewBox="0 0 124 170" xmlns="'+NS+'" role="img" aria-label="Vial">'+
     '<defs><clipPath id="'+id+'"><rect x="30" y="46" width="64" height="96" rx="7"/></clipPath></defs>'+
     '<rect class="glass" x="30" y="46" width="64" height="96" rx="7"/>'+
     '<g clip-path="url(#'+id+')">'+
-      '<g class="lq" transform="translate(0 165)">'+
+      '<g class="lq" transform="translate(0 165)"><g class="sl">'+
         '<g class="wv2"><path class="w2" d="'+wave+'"/></g>'+
         '<g class="wv1"><path class="w1" d="'+wave+'"/></g>'+
-        '<circle class="bub b1" cx="46" cy="44" r="2.2"/><circle class="bub b2" cx="70" cy="50" r="1.7"/><circle class="bub b3" cx="82" cy="42" r="2"/>'+
-      '</g>'+ck+
+        '<circle class="bub b1" cx="46" cy="44" r="2.2"/><circle class="bub b2" cx="70" cy="50" r="1.7"/><circle class="bub b3" cx="82" cy="42" r="2"/>'+bub+fl+
+      '</g></g>'+ck+
     '</g>'+
     '<rect class="gl-ol" x="30" y="46" width="64" height="96" rx="7"/>'+
     '<rect class="glass" x="44" y="34" width="36" height="13"/><rect class="gl-ol" x="44" y="34" width="36" height="13"/>'+
@@ -896,21 +969,21 @@ function tipSVG(type){
   const ticks=ys.map(function(y,i){return '<line class="tk" x1="90" x2="98" y1="'+y+'" y2="'+y+'"/><text class="tl" x="102" y="'+(y+3.5)+'">'+sc[i]+'</text>';}).join('');
   const barrel='<rect class="bg" x="52" y="-10" width="46" height="82"/><rect class="ol" x="52" y="-10" width="46" height="82"/>'+ticks;
   if(luer){
-    return '<svg viewBox="0 0 150 210" role="img" aria-label="Luer lock tip: needle hub twists off">'+barrel+
+    return '<svg viewBox="0 0 150 210" role="img" aria-label="Luer lock tip: needle hub twists out of the lock ring">'+barrel+
       '<path class="nz" d="M52 72L98 72L82 88L68 88Z"/>'+
-      '<rect class="syl" x="70" y="88" width="10" height="26"/>'+
-      '<rect class="nz" x="58" y="84" width="34" height="32" fill-opacity=".35"/>'+
-      '<line class="thr" x1="58" y1="92" x2="92" y2="97"/><line class="thr" x1="58" y1="100" x2="92" y2="105"/><line class="thr" x1="58" y1="108" x2="92" y2="113"/>'+
-      '<g class="hubg"><rect class="hubf" x="63" y="106" width="24" height="26"/>'+
-      '<rect class="hubl" x="70" y="110" width="10" height="18"/>'+
-      '<path class="inkf" d="M73.6 132L76.4 132L75.4 172L74.6 172Z"/></g>'+
+      '<rect class="nz" x="70" y="88" width="10" height="22"/>'+
+      '<g class="hubg"><rect class="hubf" x="62" y="98" width="26" height="28" fill-opacity=".5"/>'+
+      '<path class="ndl" d="M72.8 126L77.2 126L75.8 172L74.2 172Z"/></g>'+
+      '<rect class="col2" x="56" y="84" width="38" height="34"/>'+
+      '<line class="thr" x1="56" y1="92" x2="62" y2="95"/><line class="thr" x1="56" y1="100" x2="62" y2="103"/><line class="thr" x1="56" y1="108" x2="62" y2="111"/>'+
+      '<line class="thr" x1="94" y1="92" x2="88" y2="95"/><line class="thr" x1="94" y1="100" x2="88" y2="103"/><line class="thr" x1="94" y1="108" x2="88" y2="111"/>'+
       '<path class="turn" d="M112 96 A15 15 0 1 1 112 126"/><path class="turnh" d="M107 120 L117 129 L106 132Z"/>'+
       '</svg>';
   }
   return '<svg viewBox="0 0 150 210" role="img" aria-label="Insulin syringe tip: needle fixed in">'+barrel+
     '<path class="syl" d="M52 72L98 72L80 98L70 98Z"/>'+
     '<rect class="syl" x="69" y="96" width="12" height="12"/>'+
-    '<path class="inkf" d="M73.8 108L76.2 108L75.4 172L74.6 172Z"/>'+
+    '<path class="ndl" d="M73.2 108L76.8 108L75.6 172L74.4 172Z"/>'+
     '<path d="M118 70 L124 70 L124 112 L118 112" fill="none" stroke="#B04A16" stroke-width="1.6"/>'+
     '<text class="lockt" x="108" y="132">ONE</text><text class="lockt" x="108" y="143">PIECE</text>'+
     '</svg>';
@@ -933,7 +1006,7 @@ const op=s=>'<span class="op2">'+s+'</span>';
 const eqrow=(label,parts)=>'<div class="eqr"><div class="eql">'+label+'</div><div class="eqf">'+parts.join('')+'</div></div>';
 
 /* ---------- weight: one box of 1,000 (fixed 10 mg example) ---------- */
-let wu='g';
+let wu='mcg';
 function renderLadder(){
   let cols='';
   for(let c=0;c<50;c++){
@@ -1010,7 +1083,8 @@ function update(){
   vial2.set(isFinite(S.water)?nf(S.water,3)+' mL':'— mL',isFinite(S.water)?S.water:0);
   mountMain();
   const c0=cfg(),nm=S.name.trim();
-  const cn=$('#cName');cn.textContent=nm||'Your peptide';cn.classList.toggle('ph',!nm);
+  const cn=$('#cName');cn.textContent=(nm||'Your peptide')+(isFinite(S.vial)?' · '+nf(S.vial,3)+' mg vial':'');cn.classList.toggle('ph',!nm);
+  renderPlan();
   $('#syrNote').textContent=S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock');
 
   if(!ok){
@@ -1033,11 +1107,10 @@ function update(){
 
   const rows=[
     ['Vial',nf(S.vial,3)+' mg',1],
-    ['Liquid',nf(S.water,3)+' mL',1],
-    ['Mix',nf(c.conc,1)+' mcg/mL'],
+    ['Liquid used',nf(S.water,3)+' mL',1],
+    ['Solution',nf(c.conc,1)+' mcg/mL'],
     ['Per unit',nf(c.perUnit,2)+' mcg'],
     ['Dose',nf(c.doseMcg,2)+' mcg',1],
-    ['Syringe',S.size+' mL '+(luer?'Luer lock':'insulin')],
     ['Doses in vial',String(c.ideal)]
   ];
   if(luer&&c.doses<c.ideal)rows.push(['With this hub',String(c.doses)]);
@@ -1087,9 +1160,7 @@ function update(){
   $('#steps').innerHTML=st.map(function(r){return '<div class="step"><span class="l">'+r[0]+'</span><span class="f">'+r[1]+'</span><span class="r">'+r[2]+'</span></div>';}).join('');
   mathTxt=(nm?nm+'\n':'')+st.map(function(r){return r[0]+': '+r[1]+' = '+r[2];}).join('\n');
 
-  cardTxt=['Draw Line · Bare Signals',nm,'Vial '+nf(S.vial,3)+' mg + liquid '+nf(S.water,3)+' mL = '+nf(c.conc,1)+' mcg per mL','Dose '+nf(c.doseMcg,2)+' mcg',
-    'Draw to '+(luer?fmtMl(c.doseMl)+' mL':nf(c.units,1)+' units ('+fmtMl(c.doseMl)+' mL)')+' on a '+S.size+' mL '+(luer?'Luer lock':'insulin')+' syringe',
-    'Doses in vial: '+c.ideal+(luer&&c.doses<c.ideal?' (about '+c.doses+' with this hub)':''),'baresignals.co/draw'].filter(Boolean).join('\n');
+  cardTxt=buildTxt(c,luer,nm);
 }
 
 /* ---------- waste demo (fixed 1 mg example) ---------- */
@@ -1136,6 +1207,45 @@ function runPush(){
 
 /* ---------- wiring ---------- */
 const cueOrder=['vial','water','dose'],cued={vial:true,water:true,dose:true};
+const TIMES=['Morning','Night','Before food','After food','30 min before sleep'];
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const pad2=n=>('0'+n).slice(-2);
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function addDays(iso,n){const d=new Date(iso+'T00:00:00');d.setDate(d.getDate()+n);return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function fmtDate(iso){const d=new Date(iso+'T00:00:00');return isNaN(d)?'':d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+const esc=t=>String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});
+function planBits(){
+  const take=[];
+  if(S.freq)take.push(S.freq);
+  const ds=DAYS.filter(function(d){return S.days.indexOf(d)>-1;});
+  if(ds.length)take.push(ds.join(', '));
+  return {take:take.join(' · '),when:TIMES.filter(function(t){return S.times.indexOf(t)>-1;}).join(' · '),note:(S.note||'').trim()};
+}
+function renderPlan(){
+  const pb=planBits(),rows=[];
+  if(pb.take)rows.push(['Take',pb.take]);
+  if(pb.when)rows.push(['When',pb.when]);
+  if(pb.note)rows.push(['Note',pb.note]);
+  const el=$('#plan');
+  el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
+  el.hidden=!rows.length;
+  $('#dates').innerHTML=S.mixed?'<div class="dt"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="dt"><span>Use by</span><b>'+fmtDate(addDays(S.mixed,28))+'</b><small>28 days after mixing</small></div>':'';
+}
+function buildTxt(c,luer,nm){
+  const pb=planBits(),L=[];
+  L.push('Draw Line · Bare Signals');
+  L.push((nm||'Your peptide')+' · '+nf(S.vial,3)+' mg vial');
+  L.push('Vial '+nf(S.vial,3)+' mg + liquid used '+nf(S.water,3)+' mL = '+nf(c.conc,1)+' mcg per mL');
+  L.push('Dose '+nf(c.doseMcg,2)+' mcg');
+  L.push('Doses in vial: '+c.ideal+(luer&&c.doses<c.ideal?' (about '+c.doses+' with this hub)':''));
+  if(S.mixed)L.push('Mixed '+fmtDate(S.mixed)+' · use by '+fmtDate(addDays(S.mixed,28)));
+  if(pb.take)L.push('Take: '+pb.take);
+  if(pb.when)L.push('When: '+pb.when);
+  if(pb.note)L.push('Note: '+pb.note);
+  L.push('Draw to '+(luer?fmtMl(c.doseMl)+' mL':nf(c.units,1)+' units ('+fmtMl(c.doseMl)+' mL)')+' on a '+S.size+' mL '+(luer?'Luer lock':'insulin')+' syringe');
+  L.push('baresignals.co/draw');
+  return L.join('\n');
+}
 function placeCur(){cueOrder.forEach(function(k){const el=$('#cue-'+k+' .cur');if(el)el.style.left=(11.5+String($('#'+k).value).length*10.8)+'px';});}
 function paintCues(){
   const first=cueOrder.filter(function(k){return cued[k];})[0];
@@ -1175,10 +1285,10 @@ $$('[data-type]').forEach(function(b){b.onclick=function(){
 $('#push').onclick=function(){if(pushed){wasteReset();}else runPush();};
 
 /* guided or quick */
-function setMode(m){
+function setMode(m,keep){
   document.body.dataset.mode=m;
   $$('[data-mode]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===m);});
-  try{localStorage.setItem('bs-draw-mode',m);}catch(e){}
+  if(keep!==false)try{localStorage.setItem('bs-draw-mode',m);}catch(e){}
 }
 $$('[data-mode]').forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);};});
 let startMode='guided';
@@ -1190,16 +1300,11 @@ function setBlk(k,open){
   b.dataset.open=open?'1':'0';
   b.querySelector('.bfi').toggleAttribute('inert',!open);
   const t=b.querySelector('.bt');t.setAttribute('aria-expanded',open);
-  t.querySelector('.btl').textContent=open?'I know this':'Show again';
+  t.querySelector('.btl').textContent=open?(t.dataset.ot||'I know this'):(t.dataset.ct||'Show again');
 }
 $$('.blk .bt').forEach(function(t){t.onclick=function(){const b=t.closest('.blk');setBlk(b.dataset.k,b.dataset.open!=='1');};});
-$$('#askc .btn').forEach(function(b){b.onclick=function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');};});
-function askDone(allKnown){
-  $$('#askc .btn').forEach(function(b){setBlk(b.dataset.k,!(allKnown||b.getAttribute('aria-pressed')==='true'));});
-  $('#ask').close();
-}
-$('#askGo').onclick=function(){askDone(false);};
-$('#askAll').onclick=function(){askDone(true);};
+$('#askB').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,true);});$('#ask').close();};
+$('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
 $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
 
 /* copy card as text */
@@ -1237,11 +1342,11 @@ function renderGauge(){
 }
 
 /* mount pictures, then run */
-vd=new Vial($('#vDry'),{sub:'POWDER'});
-vl=new Vial($('#vLiq'),{cake:false,sub:'LIQUID'});
-vmx=new Vial($('#vMix'),{sub:'MIX'});
-vial1=new Vial($('#vp1'),{sub:'POWDER'});
-vial2=new Vial($('#vp2'),{cake:false,sub:'LIQUID'});
+vd=new Vial($('#vDry'),{sub:'COMPOUND'});
+vl=new Vial($('#vLiq'),{cake:false,rough:true,sub:'DILUENT'});
+vmx=new Vial($('#vMix'),{cake:false,dots:true,sub:'SOLUTION'});
+vial1=new Vial($('#vp1'),{sub:'COMPOUND'});
+vial2=new Vial($('#vp2'),{cake:false,rough:true,sub:'DILUENT'});
 $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 setMode(startMode);
@@ -1255,6 +1360,19 @@ setMode(startMode);
       '<text class="angs" x="3" y="28">skin</text><text class="angs" x="3" y="45">fat</text><text class="angs" x="3" y="108">muscle</text>'+
       '<text class="angt" x="50" y="132" text-anchor="middle">'+q.t+'</text><text class="angs" x="50" y="144" text-anchor="middle">'+q.a+'</text></g>';
   }).join('');
+})();
+(function(){
+  S.mixed=todayISO();S.freq='';S.days=[];S.times=[];S.note='';
+  $('#mixed').value=S.mixed;
+  const mk2=function(box,vals,get,tog){
+    $(box).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'" aria-pressed="false">'+v+'</button>';}).join('');
+    $$(box+' .q').forEach(function(b){b.onclick=function(){tog(b.dataset.v);$$(box+' .q').forEach(function(x){x.setAttribute('aria-pressed',get(x.dataset.v));});update();};});
+  };
+  mk2('#freqQ',['Daily','Weekly'],function(v){return S.freq===v;},function(v){S.freq=S.freq===v?'':v;});
+  mk2('#dayQ',DAYS,function(v){return S.days.indexOf(v)>-1;},function(v){const i=S.days.indexOf(v);if(i>-1)S.days.splice(i,1);else S.days.push(v);});
+  mk2('#timeQ',TIMES,function(v){return S.times.indexOf(v)>-1;},function(v){const i=S.times.indexOf(v);if(i>-1)S.times.splice(i,1);else S.times.push(v);});
+  $('#mixed').addEventListener('input',function(){S.mixed=this.value;update();});
+  $('#note').addEventListener('input',function(){S.note=this.value;update();});
 })();
 renderLadder();renderMix();wasteReset();
 renderSizes();renderGauge();paintCues();
