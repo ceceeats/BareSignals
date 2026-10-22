@@ -3,6 +3,16 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v4 (22 Oct 2026) at /supplements/v4/
+- Library format. Each supplement is a landscape tile (the Library tiles are upright) with its name, a short line on what it is for, and a count of the peptides it goes with (where the Library shows amino acids).
+- Stripes carry every label a supplement works on, not just four. Main label widest on the right, then narrower to the left, same order as the Library band.
+- Tap a tile to open its card: inline under the row on a phone (other tiles dim), sticky panel on the right on desktop. Back, forward, close, Esc and arrow keys work.
+- Card follows the Library card: name, group and main label, short line, "In the protocol" box (dose, peptides it goes with, phases), full color band, "What it's for" with every label and its meaning.
+- "Goes with": peptides now link to their Library card (/library/#/slug), with a swatch in that peptide's Library main color. Dashed boxes are peptides the Library does not have yet (AICAR, Adamax, Collagen Peptides, L-Carnitine injectable, Lipo-C, N-Acetyl Epithalon Amidate, PE-22-28, Thymalin).
+- TB-500 links to Thymosin Beta-4, which is how the Library aliases it.
+- Each supplement has its own link, e.g. /supplements/#/zinc.
+- Search, By group / By label, and the color key filter carry over from v3. Content unchanged from v3.
+
 ## v3 (22 Oct 2026) at /supplements/v3/
 - Same layout language as Blood Work v2: colored left edge on each card (main label), color key at the bottom.
 - Color key rows are tappable and filter the list. The top legend from v2 is gone.

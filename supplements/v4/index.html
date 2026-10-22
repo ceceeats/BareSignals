@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Supplements · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Supplements v4: Library format. Landscape tiles with a striped band that carries every label the supplement works on (main label widest, on the right, like the Library). Tap a tile to open its card: inline under the row on a phone, sticky panel on the right on desktop. Peptides on a card link to their Library card. v1 to v3 kept. Sheet 4 (personal routine) is not used anywhere. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 44px max(16px,env(safe-area-inset-right,0px))}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.olab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:68ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:8px 12px;margin:0 0 14px;font-size:12.5px;line-height:1.4;max-width:900px}
+.caution b{font:700 12px var(--display)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.qw{position:relative;flex:1 1 240px;max-width:640px}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 72px 8px 10px;border-radius:0}
+#q::placeholder{color:var(--ink-soft)}
+#count{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.act{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.lc{font:500 11px/1.2 var(--mono);border:1.2px solid var(--ink);padding:3px 7px;cursor:pointer;border-radius:0}
+
+/* layout: grid, and on desktop a sticky card column */
+#lay{display:block}
+#aside{display:none}
+@media (min-width:900px){
+ #lay{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:18px;align-items:start}
+ #aside{display:block;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;padding:0 4px 4px 0}
+}
+.hint{border:1.5px dashed var(--ink-soft);padding:14px;font-size:13px;color:var(--ink-soft)}
+.hint b{display:block;font:700 15px var(--display);color:var(--ink);margin-bottom:2px}
+
+/* tiles: landscape version of the Library tile */
+.grid{display:grid;gap:10px 8px;grid-template-columns:repeat(2,minmax(0,1fr));padding:2px 3px 6px 0}
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
+.ghead{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:10px 0 0}
+.ghead i{width:13px;height:13px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.ghead em{font:500 10.5px var(--mono);font-style:normal;color:var(--ink-soft)}
+.ghead:first-child{padding-top:2px}
+.tl{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;min-width:0;aspect-ratio:16/10;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);-webkit-tap-highlight-color:transparent}
+.tl .in{padding:6px 7px 5px 8px;display:flex;flex-direction:column;flex:1;min-height:0}
+.tl .hd{display:flex;align-items:flex-start;gap:6px}
+.tl .nm{font:700 15px/1.05 var(--display);letter-spacing:-.005em;flex:1;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl .cn{flex:none;display:flex;flex-direction:column;align-items:flex-end;font:500 7.5px/1 var(--mono);letter-spacing:.04em;color:var(--accent);margin-top:1px}
+.tl .cn b{font:700 11px/1 var(--display)}
+.tl .fnl{font:400 11px/1.25 var(--body);color:var(--ink-soft);margin-top:auto;padding-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl .band{position:relative;height:17px;border-top:1.5px solid var(--ink);flex:none;overflow:hidden}
+.band i{position:absolute;display:block;top:0;bottom:0}
+@media (hover:hover){.tl:hover{background:var(--paper)}}
+.tl[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--accent)}
+.tl[aria-pressed="true"] .fnl,.tl[aria-pressed="true"] .cn,.tl[aria-pressed="true"] .cn b{color:var(--paper)}
+.grid.dim .tl:not([aria-pressed="true"]){opacity:.42}
+@media (min-width:600px){.tl .nm{font-size:15.5px}.tl .fnl{font-size:11.5px}.tl .band{height:20px}}
+
+/* the card */
+#cw{grid-column:1/-1;min-width:0;margin:2px 0 6px}
+.cnav{display:flex;justify-content:flex-end;gap:2px;margin:0 0 4px}
+.cnav button{all:unset;cursor:pointer;width:34px;height:30px;display:grid;place-items:center;font:500 20px/1 var(--body);color:var(--ink)}
+.cnav button:disabled{opacity:.3;cursor:default}
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.chd{padding:12px 14px 10px}
+.chd h2{font:700 27px/1.02 var(--display);margin:0 0 5px;letter-spacing:-.01em}
+.chd .meta{font:500 10.5px/1.45 var(--mono);color:var(--ink-soft);letter-spacing:.02em}
+.chd .meta b{font-weight:500;color:var(--accent)}
+.chd .fl{font:600 15.5px/1.3 var(--body);margin:7px 0 0}
+.sec{padding:10px 14px}
+.sec h3{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 7px}
+.sec h3 span{color:var(--ink-soft);letter-spacing:.08em;margin-left:8px}
+.para{margin:0;font-size:14px;line-height:1.45}
+.drow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink)}
+.drow>div{padding:5px 8px 6px;border-right:1.5px solid var(--ink);min-width:0}
+.drow>div:last-child{border-right:0}
+.drow span{display:block;font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.drow b{display:block;font:700 15px/1.2 var(--display);overflow-wrap:anywhere}
+.dn{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft)}
+.cband{position:relative;height:30px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin-top:4px}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.roles button{all:unset;cursor:pointer;display:grid;grid-template-columns:13px 1fr;gap:0 9px;align-items:baseline;padding:2px 0;font-size:13.5px;line-height:1.35}
+.roles button i{width:13px;height:13px;display:block;transform:translateY(2px);box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.roles button b{font-weight:700}
+.roles button em{font-style:normal;color:var(--ink-soft)}
+.roles button small{font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:6px}
+.roles button[aria-pressed="true"] b{text-decoration:underline;text-underline-offset:3px}
+.one{margin:0;font-size:13.5px;color:var(--accent);font-weight:500}
+.syn{display:flex;flex-wrap:wrap;gap:6px}
+.syn a,.syn button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:1.2px solid var(--ink);padding:3px 8px 3px 4px;font:500 12.5px var(--body);background:var(--chip)}
+.syn i{width:12px;height:12px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.syn button{border-style:dashed}
+.syn a:hover,.syn button:hover{background:var(--paper)}
+.snote{margin:7px 0 0;font-size:12px;color:var(--ink-soft)}
+.phl p{margin:0 0 4px;font-size:13px;line-height:1.38}
+.phl b{font-weight:600}
+.phl i{font-style:normal;color:var(--ink-soft)}
+.refs a{display:block;margin:2px 0;font-size:13px}
+.cft{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:9px 14px;border-top:1.5px solid var(--rule);font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.cft b{color:var(--accent);font-weight:500}
+.sec+.sec{border-top:1px dotted var(--rule)}
+
+/* color key, same as Blood Work, rows filter */
+.key{margin-top:22px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule)}
+.key>p{margin:0;padding:8px 12px;border-bottom:1.5px solid var(--rule)}
+.kg{display:grid;grid-template-columns:1fr}
+.kr{display:grid;grid-template-columns:14px 1fr auto;gap:2px 9px;padding:8px 12px;border:0;border-bottom:1px dotted var(--rule);align-items:start;background:transparent;color:var(--ink);text-align:left;cursor:pointer;width:100%}
+.kr:last-child{border-bottom:0}
+@media (hover:hover){.kr:hover{background:#F2F0CC}}
+.kr[aria-pressed="true"]{background:#F2F0CC;box-shadow:inset 3px 0 0 var(--ink)}
+.kr i{display:block;width:14px;height:14px;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.kr b{font:700 13px/1.2 var(--display)}
+.kr em{font:500 11px var(--mono);font-style:normal;color:var(--ink-soft)}
+.kr span{grid-column:2/4;font:500 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:700px){.kg{grid-template-columns:1fr 1fr}.kr{border-right:1px dotted var(--rule)}}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (prefers-reduced-motion:no-preference){.card{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab">Bare Signals</p>
+  <h1>Supplements<small>V4</small></h1>
+  <p class="lede">What to take alongside each peptide, and why. Stripes are the same 30 labels as the Library, one for every label a supplement works on. Tap one to open it.</p>
+  <div class="caution"><b>Reference, not a prescription.</b> A first pass from the protocol, with deep research per supplement still to come. Doses are the ones the protocol uses. Not medical advice. Supplements interact with medication and with each other, so check with a clinician first.</div>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search a supplement or peptide" aria-label="Search" autocomplete="off"><span id="count"></span></div><div class="seg" id="view"></div></div>
+  <div class="act" id="act" hidden></div>
+  <div id="lay">
+    <div>
+      <div class="grid" id="grid"></div>
+      <div class="key"><p class="lab">Color key · same colors as the Library · tap one to filter</p><div class="kg" id="key"></div></div>
+    </div>
+    <aside id="aside" aria-label="Supplement card"><div class="hint" id="hint"><b>Tap a supplement</b>Its card opens here: what it does, the dose in the protocol, every label it works on, and the peptides it goes with.</div></aside>
+  </div>
+  <section id="cw" aria-label="Supplement card" hidden></section>
+  <p class="foot">Collected by <b>Bare Signals</b> · from the Honest Menu</p>
+</div>
+<script src="/supplements/v4/data.js"></script>
+<script>
+(function(){
+const S=window.SUPP,CATS=window.SUPP_CATS,PH=window.SUPP_PH,PAL=window.SUPP_PAL,LINK=window.SUPP_LINK||{};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const norm=x=>String(x).toLowerCase().replace(/[\s\-–()'’.,\/+&]/g,'');
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])),LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]])),MEAN=Object.fromEntries(PAL.map(p=>[p[0],p[3]]));
+const KEYS=PAL.map(p=>p[0]);
+const RM=matchMedia('(prefers-reduced-motion: reduce)'),WIDE=matchMedia('(min-width:900px)');
+/* optional per-supplement research fields: add any of these keys to an entry in data.js and they show up on the card */
+const EXTRA=[['mech','How it works'],['evidence','Evidence'],['forms','Forms and timing'],['risks','Cautions'],['interactions','Interactions']];
+const idOf=n=>n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+S.forEach(o=>{
+  o.id=idOf(o.n);o.lab=o.lab||[];o.w=o.w||[];
+  const phs=(o.ph||[]).map(c=>PH[c]?PH[c].n:'').join(' ');
+  o._h=norm([o.n,o.s,(o.aka||[]).join(' '),o.cat,o.does,o.dose,o.dn,o.note,o.w.join(' '),phs,o.lab.map(k=>LONG[k]).join(' '),EXTRA.map(x=>o[x[0]]).join(' ')].join(' '));
+});
+const BYID=Object.fromEntries(S.map(o=>[o.id,o]));
+const COUNT=Object.fromEntries(KEYS.map(k=>[k,S.filter(o=>o.lab.includes(k)).length]));
+/* stripes: one per label, the main label widest and on the right, then smaller to the left, like the Library band */
+const RW=[4,2.5,1.6,1.25,1];
+function stripes(o){
+  const L=o.lab.map((k,i)=>[k,RW[Math.min(i,RW.length-1)]]).reverse(),T=L.reduce((a,x)=>a+x[1],0);
+  let l=0;return L.map(([k,w])=>{const pct=w/T*100,h=`<i style="left:${l.toFixed(3)}%;width:${(pct+.05).toFixed(3)}%;background:${HEX[k]}" title="${esc(LONG[k])}"></i>`;l+=pct;return h}).join('');
+}
+let view='group',q='',lf='',cur=null,L=[];
+function tile(o){
+  const n=o.w.length;
+  return `<button type="button" class="tl" data-id="${o.id}" aria-pressed="${cur===o.id}" aria-label="${esc(o.n)}, ${esc(o.s)}"><span class="in"><span class="hd"><span class="nm">${esc(o.n)}</span>${n?`<span class="cn"><b>${n}</b>PEP</span>`:''}</span><span class="fnl">${esc(o.s)}</span></span><span class="band" aria-hidden="true">${stripes(o)}</span></button>`;
+}
+function pepChip(p){
+  const k=LINK[p];
+  return k?`<a href="/library/#/${esc(k[0])}" title="Open ${esc(p)} in the Library"><i style="background:${HEX[k[1]]||'#FFFFF4'}"></i>${esc(p)}</a>`:`<button type="button" data-q="${esc(p)}" title="Not in the Library yet. Search supplements for it"><i style="background:#FFFFF4"></i>${esc(p)}</button>`;
+}
+function cardHTML(o){
+  const i=L.findIndex(x=>x.id===o.id),ph=(o.ph||[]).filter(c=>PH[c]),main=o.lab[0];
+  const own=o.sup||[],phaseOnly=o.w.filter(p=>!own.includes(p));
+  return `<div class="cnav"><button type="button" data-nav="-1" aria-label="Previous" ${i<=0?'disabled':''}>&#8249;</button><button type="button" data-nav="1" aria-label="Next" ${i<0||i>=L.length-1?'disabled':''}>&#8250;</button><button type="button" data-close aria-label="Close">&times;</button></div>`+
+  `<article class="card"><div class="chd"><h2>${esc(o.n)}</h2><div class="meta">${esc(o.cat)}${main?` · <b>${esc(LONG[main])}</b>`:''}</div><p class="fl">${esc(o.s)}</p></div>`+
+  `<section class="sec"><h3>In the protocol</h3><div class="drow"><div><span>Dose</span><b>${esc(o.dose||'Not set')}</b></div><div><span>Goes with</span><b>${o.w.length} peptide${o.w.length===1?'':'s'}</b></div><div><span>Phase-wide</span><b>${ph.length?ph.map(c=>c.replace('P','P ')).join(', '):'No'}</b></div></div>${o.dn?`<p class="dn">${nl(o.dn)}</p>`:''}</section>`+
+  `<div class="cband band" aria-hidden="true">${stripes(o)}</div>`+
+  `<section class="sec"><h3>What it's for<span>Tap a label</span></h3><ul class="roles">${o.lab.map((k,j)=>`<li><button type="button" data-l="${k}" aria-pressed="${lf===k}"><i style="background:${HEX[k]}"></i><span><b>${esc(LONG[k])}</b> <em>· ${esc(MEAN[k])}</em>${j?'':'<small>main</small>'}</span></button></li>`).join('')}</ul></section>`+
+  `<section class="sec"><h3>What it does</h3><p class="para">${nl(o.does)}</p></section>`+
+  (o.note?`<section class="sec"><h3>Watch</h3><p class="one">${nl(o.note)}</p></section>`:'')+
+  (o.w.length?`<section class="sec"><h3>Goes with</h3>${own.length?`<div class="syn">${own.map(pepChip).join('')}</div>`:''}${phaseOnly.length?`${own.length?'<p class="snote">Also runs alongside, as part of the phase-wide stack:</p>':''}<div class="syn"${own.length?' style="margin-top:6px"':''}>${phaseOnly.map(pepChip).join('')}</div>`:''}<p class="snote">Solid boxes open the peptide in the Library. Dashed ones are not in the Library yet.</p></section>`:'')+
+  (ph.length?`<section class="sec phl"><h3>Phase-wide in</h3>${ph.map(c=>`<p><b>${esc(PH[c].n)}</b></p>`).join('')}</section>`:'')+
+  EXTRA.filter(x=>o[x[0]]).map(x=>`<section class="sec"><h3>${x[1]}</h3><p class="para">${nl(o[x[0]])}</p></section>`).join('')+
+  ((o.refs&&o.refs.length)?`<section class="sec refs"><h3>Sources</h3>${o.refs.map(r=>`<a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a>`).join('')}</section>`:'')+
+  `<div class="cft"><span>Data collected by <b>Bare Signals</b></span><span>${o.researched?'Researched':'First pass · research pending'}</span></div></article>`;
+}
+function render(){
+  const qq=norm(q);
+  L=S.filter(o=>(!qq||o._h.includes(qq))&&(!lf||o.lab.includes(lf)));
+  if(view==='label')L=KEYS.flatMap(k=>L.filter(o=>o.lab[0]===k));
+  $('#count').textContent=L.length+' of '+S.length;
+  let h='',last=null;
+  L.forEach(o=>{
+    const g=view==='group'?o.cat:o.lab[0];
+    if(g!==last){last=g;const n=L.filter(x=>(view==='group'?x.cat:x.lab[0])===g).length;
+      h+=`<div class="ghead">${view==='label'?`<i style="background:${HEX[g]}"></i>`:''}<span class="olab">${esc(view==='group'?g:LONG[g])}</span><em>${n}</em></div>`}
+    h+=tile(o);
+  });
+  const cw=$('#cw');document.querySelector('.wrap').appendChild(cw);
+  $('#grid').innerHTML=h||'<p class="lede" style="grid-column:1/-1">Nothing matches.</p>';
+  $('#view').innerHTML=[['group','By group'],['label','By label']].map(([k,l])=>`<button type="button" data-v="${k}" aria-pressed="${view===k}">${l}</button>`).join('');
+  $('#key').innerHTML=KEYS.filter(k=>COUNT[k]).map(k=>`<button type="button" class="kr" data-k="${k}" aria-pressed="${lf===k}"><i style="background:${HEX[k]}"></i><b>${esc(LONG[k])}</b><em>${COUNT[k]}</em><span>${esc(MEAN[k])}</span></button>`).join('');
+  const act=$('#act');
+  if(lf){act.hidden=false;act.innerHTML=`Showing <button type="button" class="lc" data-clear style="background:${HEX[lf]};color:${lum(HEX[lf])>.42?'#3E4A80':'#FFFFE2'}">${esc(LONG[lf])} &times;</button>`}else{act.hidden=true;act.innerHTML=''}
+  if(cur&&BYID[cur]){$('#cw').innerHTML=cardHTML(BYID[cur]);placeCard(false)}
+}
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+function placeCard(scroll){
+  const cw=$('#cw'),grid=$('#grid'),t=grid.querySelector(`.tl[data-id="${cur}"]`);
+  document.querySelectorAll('.tl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.id===cur)));
+  if(!cur){cw.hidden=true;$('#hint').hidden=false;grid.classList.remove('dim');return}
+  cw.hidden=false;
+  if(WIDE.matches){$('#hint').hidden=true;$('#aside').appendChild(cw);grid.classList.remove('dim');$('#aside').scrollTop=0;return}
+  grid.classList.toggle('dim',!!t);
+  if(!t){grid.appendChild(cw);return}
+  /* phone: open the card under the row of the tapped tile */
+  let endTile=t;const top=t.offsetTop;
+  for(let n=t.nextElementSibling;n;n=n.nextElementSibling){if(!n.classList.contains('tl')||n.offsetTop!==top)break;endTile=n}
+  endTile.after(cw);
+  if(scroll)t.scrollIntoView({block:'start',behavior:RM.matches?'auto':'smooth'});
+}
+function openCard(id,scroll){
+  const o=BYID[id];if(!o)return;
+  cur=id;$('#cw').innerHTML=cardHTML(o);placeCard(scroll);
+  history.replaceState(null,'','#/'+id);document.title=o.n+' · Bare Signals Supplements';
+}
+function closeCard(){
+  cur=null;$('#cw').innerHTML='';document.querySelector('.wrap').appendChild($('#cw'));placeCard(false);
+  history.replaceState(null,'','#/');document.title='Supplements · Bare Signals';
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tl');
+  if(t){if(cur===t.dataset.id)closeCard();else openCard(t.dataset.id,true);return}
+  const nv=e.target.closest('[data-nav]');
+  if(nv){const i=L.findIndex(x=>x.id===cur),n=L[i+Number(nv.dataset.nav)];if(n)openCard(n.id,true);return}
+  if(e.target.closest('[data-close]')){const id=cur;closeCard();const t2=document.querySelector(`.tl[data-id="${id}"]`);if(t2&&!WIDE.matches)t2.focus({preventScroll:true});return}
+  const v=e.target.closest('[data-v]');if(v){view=v.dataset.v;render();return}
+  if(e.target.closest('[data-clear]')){lf='';render();return}
+  const k=e.target.closest('[data-k],[data-l]');
+  if(k){const key=k.dataset.k||k.dataset.l;lf=lf===key?'':key;render();if(!k.dataset.l||!WIDE.matches)$('#q').scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});return}
+  const pq=e.target.closest('.syn [data-q]');
+  if(pq){q=pq.dataset.q;$('#q').value=q;closeCard();render();$('#q').scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});return}
+});
+$('#q').addEventListener('input',e=>{q=e.target.value;render()});
+document.addEventListener('keydown',e=>{
+  if(!cur||e.target===$('#q'))return;
+  if(e.key==='Escape')closeCard();
+  else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const i=L.findIndex(x=>x.id===cur),n=L[i+(e.key==='ArrowRight'?1:-1)];if(n)openCard(n.id,true)}
+});
+let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;if(cur)placeCard(false)});
+WIDE.addEventListener('change',()=>{if(cur)placeCard(false)});
+function route(){const m=location.hash.match(/^#\/(.+)$/),id=m&&decodeURIComponent(m[1]);if(id&&BYID[id]){if(id!==cur)openCard(id,true)}else if(cur&&location.hash!=='#/')closeCard()}
+addEventListener('hashchange',route);
+render();route();
+})();
+</script>
+</body>
+</html>
