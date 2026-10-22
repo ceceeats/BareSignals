@@ -116,7 +116,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 .wread b{font:700 15px var(--display)}
 /* dialog */
 dialog{border:2px solid var(--line);background:var(--paper);color:var(--ink);padding:16px;max-width:340px;width:calc(100% - 32px)}
-dialog::backdrop{background:rgba(62,74,128,.35)}
+dialog::backdrop{background:rgba(62,74,128,.6);backdrop-filter:blur(2px)}
 dialog h2{font:700 20px/1.1 var(--display)}
 dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .askc{display:grid;gap:12px;margin:14px 0 0}
@@ -163,6 +163,7 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .cardcol{grid-area:card;min-width:0}
 .math{grid-area:math;min-width:0}
 @media(min-width:900px){
+  .cmp{max-width:640px;margin-left:auto;margin-right:auto}
   .main{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"form card" "math card";align-items:start}
   .cardcol{position:sticky;top:calc(14px + env(safe-area-inset-top,0px))}
 }
@@ -333,8 +334,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .math{border:1.5px solid var(--line);background:var(--chip)}
 .math summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;font:700 17px var(--display)}
 .math summary::-webkit-details-marker{display:none}
-.math summary::after{content:"Hide";font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
-.math:not([open]) summary::after{content:"Show"}
+
 .mbody{border-top:1.5px solid var(--line)}
 .byhand{padding:10px 14px;font:500 12px/1.7 var(--mono);background:var(--paper);border-bottom:1px solid var(--rule)}
 .eqr{padding:8px 12px;border-top:1px solid var(--rule)}
@@ -362,10 +362,10 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .faqbig{display:block;font:700 40px/1 var(--display);color:var(--accent);letter-spacing:-.01em}
 .faqsub{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:4px}
 .qa{border-top:1.5px solid var(--line);padding-top:8px}
-.qa summary{cursor:pointer;list-style:none;font:600 10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;font:600 15px/1.35 var(--display);color:var(--ink);padding:3px 0}
 .qa summary::-webkit-details-marker{display:none}
-.qa summary::after{content:" +";color:var(--accent)}
-.qa[open] summary::after{content:" \2212"}
+
+
 .qb{margin-top:8px;display:flex;flex-direction:column;gap:10px}
 .qb p{font-size:13.5px;max-width:62ch}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
@@ -373,8 +373,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .cmpp{grid-column:1/-1;background:var(--chip);display:flex;justify-content:center;padding:14px 10px}
 .cmpc h3{font:700 15px var(--display)}
 .cmpc .st{font:500 11px var(--mono);color:var(--soft);margin-top:2px}
-.mini{margin:8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:340px}
-.mini svg{display:block;width:auto;max-width:100%}
+.mini{margin:8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:300px}
+.mini svg{display:block;height:300px;width:auto;max-width:100%}
 #syrA svg{height:270px}
 #syrB svg{height:330px}
 .ro{display:grid;margin-top:4px}
@@ -396,6 +396,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .dwrap>div{overflow:hidden;min-height:0}
 .dhint{font:500 10.5px var(--mono);color:var(--accent-ink);text-align:center;padding:2px 0 4px}
 .rteaser{display:grid;gap:0;margin:8px 0 0;border-top:1.5px solid var(--accent)}
+.rteaser.ghost{opacity:.4}
 .rtrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);padding:5px 0}
 .rtrow span{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .rtrow b{font:600 13px var(--mono);color:var(--accent-ink);text-align:right}
@@ -403,10 +404,12 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .needle .bar{width:140px;max-width:45%;background:var(--ink);flex:none;transition:height .3s}
 .needle span{font:500 12.5px var(--mono)}
 .glos{border-top:1.5px solid var(--ink);padding-top:10px}
-.glos summary{cursor:pointer;list-style:none;font:700 18px var(--display);color:var(--accent)}
+.glos summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font:700 18px var(--display);color:var(--accent)}
 .glos summary::-webkit-details-marker{display:none}
 .glos summary span{font:600 12px var(--mono);color:var(--ink)}
-.glos summary::after{content:" +";color:var(--accent)}
+.qa summary::after,.glos summary::after,.math summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .25s;flex:none;margin-left:auto;margin-right:2px}
+.qa[open]>summary::after,.glos[open]>summary::after,.math[open]>summary::after{transform:rotate(-135deg)}
+
 .glos[open] summary::after{content:" \2212"}
 .glos dl{margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule)}
 .gi{padding:10px 11px;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);background:#fff;min-width:0}
@@ -440,7 +443,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v16</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v17</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -452,10 +455,10 @@ body:not([data-mode="quick"]) .tmath{display:none}
 </dialog>
 
 <section class="intro" id="intro" aria-labelledby="introT">
-  <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2><button class="bt" id="allBt" type="button" aria-expanded="true"><span class="btl">I know all three</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+  <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2><button class="bt" id="allBt" type="button" aria-expanded="true"><span class="btl">Hide all</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
 
-  <div class="blk" data-k="w" data-open="1">
-    <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+  <div class="blk" data-k="w" data-open="0">
+    <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="wbox">
         <div id="wgrid"></div>
@@ -470,8 +473,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
     </div></div></div>
   </div>
 
-  <div class="blk" data-k="m" data-open="1">
-    <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+  <div class="blk" data-k="m" data-open="0">
+    <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="mixrow">
         <figure class="in"><div class="vp" id="vDry"></div><figcaption>Powder<br><i>the compound</i><br><b>10 mg</b></figcaption></figure>
@@ -484,8 +487,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
     </div></div></div>
   </div>
 
-  <div class="blk" data-k="s" data-open="1">
-    <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer lock</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+  <div class="blk" data-k="s" data-open="0">
+    <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer lock</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="tips">
         <div class="tipc"><div id="tipIns"></div><b>Insulin syringe</b><span>Needle is fixed in · units</span></div>
@@ -552,7 +555,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
     <div class="sbx one">
       <div class="blk" data-k="n" data-open="1" style="min-width:0">
-        <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Add" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+        <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Show" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
         <div class="bf"><div class="bfi"><div class="nbody">
           <label class="nl" for="mixed">Mixed on · today by default</label>
           <input type="date" id="mixed">
@@ -735,6 +738,9 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <details class="log"><summary>What changed</summary>
+  <span>v17: carries the v15 and v16 work from the other track (prefill from a Dosage or Library link, opens in quick mode; brand line Bare Signals · Calculator) and adds the design sweep: one chevron close style with Hide and Show, readable FAQ questions, the version history tucked away, a popup that dims the page with the basics opening one at a time, and a tighter Luer push demo on wide screens. v1 to v16 are unchanged.</span>
+  <span>v15 (design sweep): one close button style across the page (chevron, Hide and Show), FAQ questions in plain readable text, the version history tucked in here, the entry popup now dims the page and the basics open one at a time for beginners, and the Luer push demo sits tighter on a wide screen. v1 to v14 are unchanged.</span>
   <span>v14: the Luer funnel now fills completely, so the trapped blue reads about ten times the insulin syringe, matching 0.05 mL against 0.005 mL. The water fills the whole triangle on the way down, not just a thin line through it. v1 to v13 are unchanged.</span>
   <span>v13: the water now flows. As the plunger pushes, a blue front travels down into the funnel and along the full length of the needle, instead of the needle changing from white to blue at once. What the plunger cannot push past stays as the trapped residue. v1 to v12 are unchanged.</span>
   <span>v12: the trapped liquid is primed from the start and stays put as the plunger pushes, so it reads as liquid draining, not popping in at the end. Real geometry: on the Luer lock the outer threaded collar and the hub walls are plastic, so only the inner bore, the luer taper and the needle hold water; the insulin syringe keeps water in the needle alone. v1 to v11 are unchanged.</span>
@@ -744,6 +750,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
   <span>v8: laptop layout with Weight and Mixing on the left and Syringes on the right, one I know all three button, larger vials on laptop, vials on one level, green diluent, a fuller powder, orange vial and liquid numbers in the Mixing sample, rotating example names (BPC-157, TB-500, GLOW) and notes (collagen, vitamin C, ubiquinol), orange Dates and notes labels, Reported doses now links to the Dosage page and the Library entry for the compound you type. v1 to v7 are unchanged.</span>
   <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
   <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
+  </details>
   <span>Bare Signals · baresignals.co · Draw Line · Draft</span>
 </footer>
 
@@ -1364,13 +1371,13 @@ function setBlk(k,open){
   b.dataset.open=open?'1':'0';
   b.querySelector('.bfi').toggleAttribute('inert',!open);
   const t=b.querySelector('.bt');t.setAttribute('aria-expanded',open);
-  t.querySelector('.btl').textContent=open?(t.dataset.ot||'I know this'):(t.dataset.ct||'Show again');
+  t.querySelector('.btl').textContent=open?(t.dataset.ot||'Hide'):(t.dataset.ct||'Show');
 }
 $$('.blk .bt').forEach(function(t){t.onclick=function(){const b=t.closest('.blk');setBlk(b.dataset.k,b.dataset.open!=='1');};});
-function syncAll(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});const b=$('#allBt');b.setAttribute('aria-expanded',!all);b.classList.toggle('shut',all);b.querySelector('.btl').textContent=all?'Show all three':'I know all three';}
+function syncAll(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});const b=$('#allBt');b.setAttribute('aria-expanded',!all);b.classList.toggle('shut',all);b.querySelector('.btl').textContent=all?'Show all':'Hide all';}
 $$('.blk .bt').forEach(function(t){t.addEventListener('click',syncAll);});
 $('#allBt').onclick=function(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});['w','m','s'].forEach(function(k){setBlk(k,all);});syncAll();};
-$('#askB').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,true);});$('#ask').close();};
+$('#askB').onclick=function(){setBlk('w',true);setBlk('m',false);setBlk('s',false);syncAll();$('#ask').close();setTimeout(function(){$('#intro').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});},0);};
 $('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
 $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
 
@@ -1477,16 +1484,19 @@ function renderRef(){
     $('#refTxt').textContent='Most logged for '+m[0]+'. A teaser, not a dose to copy.';
     $('#rtDose').textContent=m[2]||'—';$('#rtFreq').textContent=m[3]||'—';$('#rtCycle').textContent=m[4]||'—';
     tz.hidden=false;
+    tz.classList.remove('ghost');
   }else if(m){
     $('#refTxt').textContent='See the reported doses and full entry for '+m[0]+'.';tz.hidden=true;
   }else{
-    $('#refTxt').textContent='Type a compound name above to see its most logged dose here.';tz.hidden=true;
+    $('#refTxt').textContent='Type a compound name above and its most logged dose shows here.';
+    $('#rtDose').textContent='250 to 500 mcg';$('#rtFreq').textContent='1 to 2x daily';$('#rtCycle').textContent='4 to 8 weeks';
+    tz.hidden=false;tz.classList.add('ghost');
   }
   a.href='https://baresignals.co/dosage/'+(m?'#'+m[1]:'');
   b.hidden=!m;if(m)b.href='https://baresignals.co/library/#/p/'+m[1];
 }
 $('#pname').addEventListener('input',renderRef);
-/* v15: prefill from a link, e.g. /draw/?n=BPC-157&dose=250&u=mcg (sent from Dosage and Library) */
+/* prefill from a link, e.g. /draw/?n=BPC-157&dose=250&u=mcg (sent from Dosage and Library) */
 let pre=false;
 try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.get('dose')),qu=q.get('u');
  if(qn){$('#pname').value=qn.slice(0,32);pre=true;}
@@ -1496,6 +1506,7 @@ try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.g
 renderRef();
 renderLadder();renderMix();wasteReset();
 renderSizes();renderGauge();paintCues();
+['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();
 update();
 if(pre){setMode('quick',false);}
 else if(startMode!=='quick'&&typeof $('#ask').showModal==='function'){try{$('#ask').showModal();}catch(e){}}
