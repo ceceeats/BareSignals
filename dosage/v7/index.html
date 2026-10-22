@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Dosage · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Dosage v7: doses cross-checked against aggregators (22 Oct 2026). v1-v6 kept. Dosage v6: doses updated from Cece's Peptide Encyclopedia (via library v18); source renderer tolerates sourceless/encyclopedia entries. v1-v5 kept. Dosage v5: community second-protocols added for label compounds (sema, HGH, reta) via EXTRA; v1 to v4 kept. Dosage v4: soft blue 'Read the full page' link under each name. v1 to v3 kept. Dosage v3: synergies are links to that compound's dosage row, tags carry an arrow, more/less toggle in the row footer. v1 and v2 are kept at /dosage/v1/ and /dosage/v2/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 44px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 12px;font-size:14px;color:var(--ink-soft);max-width:66ch}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.qw{position:relative;flex:1 1 260px}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 84px 8px 10px;border-radius:0}
+#count{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);flex-wrap:wrap}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 10px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.key{margin:0 0 10px;font-size:12px;color:var(--ink-soft)}
+.tg{font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border:1.3px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;white-space:nowrap;border-radius:0}
+.tg[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tg.c{border-color:var(--accent);color:var(--accent)}
+.tg.c[aria-pressed="true"]{background:var(--accent);color:#fff}
+.hd,.row{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.hd{display:none}
+.row{position:relative;border:1.5px solid var(--ink);background:var(--chip);margin-bottom:7px;box-shadow:2px 2px 0 var(--rule)}
+.nm{display:flex;align-items:flex-start;gap:8px;padding:8px 10px 6px;min-width:0}
+.nm .n{min-width:0;flex:1}
+.nm b{display:block;font:700 16px/1.15 var(--display)}
+.nm span.u{display:block;font-size:12.5px;color:var(--ink-soft);line-height:1.3}
+.tags{display:flex;gap:4px;flex:none;align-self:flex-start;flex-wrap:wrap;justify-content:flex-end;max-width:58%}
+.vals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--rule)}
+.vals div{padding:5px 10px 6px;min-width:0;border-right:1.5px solid var(--rule)}
+.vals div:nth-child(3n){border-right:0}
+.vals div:nth-child(n+4){border-top:1.5px solid var(--rule)}
+.vals small{display:block;font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.vals em{display:block;font:700 13.5px/1.2 var(--display);font-style:normal}
+.vals .d em{font-size:15px}
+.none{padding:6px 10px 8px;border-top:1.5px solid var(--rule);font-size:12.5px;color:var(--ink-soft)}
+.more{border-top:1.5px solid var(--rule);padding:8px 10px 9px;font-size:12.5px;line-height:1.4;background:var(--paper)}
+.more h4{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 4px}
+.more ul{list-style:none;margin:0 0 6px;padding:0}
+.more li{padding:3px 0;border-bottom:1px dotted var(--rule)}
+.more li b{font:700 13px var(--display)}
+.more p{margin:0 0 5px;color:var(--ink-soft)}
+.more a{color:var(--ink);font-weight:500}
+.ft{display:flex;flex-direction:column;gap:3px;padding:6px 10px 7px;border-top:1.5px solid var(--rule);font-size:12px;color:var(--ink-soft);line-height:1.35}
+.ft .sy b{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-right:5px}
+.ft .lg{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tg i{font-style:normal;display:inline-block;margin-left:4px;transition:transform .15s}
+.tg[aria-pressed="true"] i{transform:rotate(180deg)}
+.ft .sy a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+.ft .sy button{font:inherit;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.ft .mr{align-self:flex-start;font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:none;border:0;padding:2px 0;cursor:pointer;white-space:nowrap}
+.ft .mr i{font-style:normal;display:inline-block;margin-left:3px}
+.ft .mr[aria-expanded="true"] i{transform:rotate(180deg)}
+.row.hit{animation:hit 1.6s ease-out}
+@keyframes hit{0%,40%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:2px 2px 0 var(--rule)}}
+.rd{display:inline-block;margin-top:2px;font:500 10.5px var(--mono);letter-spacing:.04em;color:#6E92D8;text-decoration:none;border-bottom:1px dotted #6E92D8}
+.rd:hover{color:#4A6FBF;border-bottom-style:solid}
+.stripe{display:flex;height:8px;border-top:1.5px solid var(--ink)}
+.stripe i{display:block;min-width:0}
+.foot{margin-top:16px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (min-width:900px){
+ .hd{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,5fr);font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding:0 0 4px}
+ .hd .hv{display:grid;grid-template-columns:1.3fr 1fr 1.2fr .9fr .9fr;padding:0 10px}
+ .row{grid-template-columns:minmax(0,2.4fr) minmax(0,5fr);margin-bottom:-1.5px;box-shadow:none}
+ .nm{grid-column:1}
+ .vals{grid-column:2;grid-template-columns:1.3fr 1fr 1.2fr .9fr .9fr;border-top:0;border-left:1.5px solid var(--rule)}
+ .vals div,.vals div:nth-child(3n){border-right:1.5px solid var(--rule);border-top:0!important;display:flex;align-items:center}
+ .vals div:last-child{border-right:0}
+ .vals small{display:none}
+ .none{grid-column:2;border-top:0;border-left:1.5px solid var(--rule);display:flex;align-items:center}
+ .more,.ft,.stripe{grid-column:1/-1}
+ .ft{flex-direction:row;justify-content:space-between;align-items:baseline;gap:16px}
+ .ft .lg{order:-1;flex:none}
+ .ft .mr{align-self:baseline}
+ .ft .sy{flex:1}
+}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab">Bare Signals</p>
+  <h1>Dosage<small>V7</small></h1>
+  <p class="lede">The typical dose for every compound in the Library, most common first. Tap Label or Community (the arrow) on a row to see more of that dose, and tap a synergy to jump to its dosage. To turn a dose into units on a syringe, use the Calculator.</p>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search a name or a goal" aria-label="Search" autocomplete="off"><span id="count"></span></div><div class="seg" id="filt"></div><div class="seg" id="sort"></div></div>
+  <p class="key"><b>Label</b> approved label or trial dosing · <b>Community</b> common community and clinic use</p>
+  <div class="hd"><span>Compound</span><span class="hv"><span>Dose</span><span>How often</span><span>Cycle</span><span>Route</span><span>Half-life</span></span></div>
+  <div id="list"></div>
+  <p class="foot">Data collected by <b>Bare Signals</b> · from the Peptide and Compound Library</p>
+</div>
+<script src="/library/v19/data.js"></script>
+<script>
+(function(){
+const D=window.BS_DATA,PAL=window.BS_PALETTE,HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cap=x=>x?x.charAt(0).toUpperCase()+x.slice(1):'';
+const NA=v=>/^(unknown|not measured)$/i.test(String(v||'').trim())?'NA':v;
+const WT=[10,7,5,3.5];
+/* Both doses for one compound go here when they differ: EXTRA[slug]={label:{dose,freq,cycle,route,half,src},community:{...}}.
+   Until then each compound carries the one dose the Library holds: approved label or trial dosing is Label, everything else is Community. */
+const EXTRA={
+ "semaglutide":{community:{conf:"reported",dose:"0.5–1 mg",freq:"once weekly",cycle:"ongoing",route:"Sub-Q",half:"~7 days",use:"Weight loss, low-dose",
+   main:"Low-dose maintenance: 0.5 to 1 mg once weekly. The full escalation still runs 0.25 up to 2.4 mg over 16 to 20 weeks.",
+   course:"Microdose (niche, not studied in trials): 0.125 to 0.25 mg twice weekly.",
+   src:[["Semaglutide community protocols","https://www.peptideprotocolwiki.com/peptides/semaglutide/community"]]}},
+ "somatropin-hgh":{community:{conf:"reported",dose:"1–2 IU/day",freq:"once daily",cycle:"3–6 months",route:"Sub-Q",half:"~2–3 hours",use:"Wellness to performance",
+   main:"Wellness and anti-aging: 1 to 2 IU once daily. Body composition: 2 to 4 IU daily or split.",
+   course:"Performance: 4 to 8 IU split into two daily injections, 4 to 6 months. Start low and titrate.",
+   src:[["HGH 191AA community protocols","https://www.peptideprotocolwiki.com/peptides/hgh-191aa/community"],["HGH (Somatropin)","https://peptide-db.com/peptides/hgh"]]}},
+ "retatrutide":{community:{conf:"reported",dose:"0.5–2 mg start",freq:"once weekly",cycle:"ongoing, titrated",route:"Sub-Q",half:"~6 days",use:"Weight loss, titrated",
+   main:"Community mirrors the trial titration: start 0.5 mg weekly and step up every 4 weeks. Many hold at 4 to 6 mg rather than the 12 mg trial ceiling.",
+   src:[["Retatrutide dosing","https://www.peptideprotocolwiki.com/peptides/retatrutide/dosing"]]}}
+};
+function srcs(o){
+  const d=o.dose,x=EXTRA[o.slug]||{},r={label:x.label||null,community:x.community||null};
+  if(d){const k=d.conf==='verified'?'label':'community';if(!r[k])r[k]=d}
+  return r;
+}
+const SORTS=[['pop','Popular'],['az','A to Z'],['route','By route']];
+const FILT=[['all','All'],['label','Label'],['community','Community']];
+let sort='pop',filt='all',q='';
+const act={},open={},synOpen={};
+const BYN=Object.fromEntries(D.map(o=>[o.name,o.slug]));
+function def(o,s){return act[o.slug]||(filt!=='all'&&s[filt]?filt:(s.label?'label':'community'))}
+function tagsHtml(o,s,a){
+  const both=s.label&&s.community;
+  return ['label','community'].filter(k=>s[k]).map(k=>`<button class="tg${k==='community'?' c':''}" data-t="${o.slug}|${k}" aria-pressed="${!!open[o.slug]&&a===k}" aria-expanded="${!!open[o.slug]&&a===k}">${cap(k)}${both?' dose':''}<i aria-hidden="true">▾</i></button>`).join('');
+}
+function moreHtml(o,d,k){
+  const rows=(d.rows||[]).map(r=>`<li><b>${esc(r[0])}</b> ${esc(r[1])}</li>`).join('');
+  const src=(d.src||[]).map(x=>x[1]?`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])}</a>`:`<span>${esc(x[0])}</span>`).join(' · ');
+  return `<div class="more"><h4>${k==='label'?'Label':'Community'}, most common first</h4>${rows?`<ul>${rows}</ul>`:''}${d.main?`<p>${esc(d.main)}</p>`:''}${d.course?`<p>${esc(d.course)}</p>`:''}${!rows&&!d.main?`<p>${esc(d.dose)}, ${esc(d.freq)}, ${esc(d.cycle)}.</p>`:''}${src?`<p>Source: ${src}</p>`:''}<p><a class="rd" href="/library/#/p/${o.slug}">Read the full page →</a></p></div>`;
+}
+function stripe(o){
+  const R=(o.roles&&o.roles.length?o.roles:[o.primary]).filter(k=>HEX[k]).slice(0,4);
+  return `<div class="stripe" aria-hidden="true">${R.map((k,i)=>`<i style="background:${HEX[k]};flex-grow:${WT[i]}"></i>`).join('')}</div>`;
+}
+function row(o){
+  const s=srcs(o),a=def(o,s),d=s[a];
+  if(!d)return `<div class="row" id="${o.slug}"><div class="nm"><div class="n"><a href="/library/#/p/${o.slug}" style="text-decoration:none"><b>${esc(o.name)}</b><span class="u">${esc(cap(o.fn))}</span></a><a class="rd" href="/library/#/p/${o.slug}">Read the full page →</a></div></div><div class="none">No common dose: used as a reference or only in trials.</div>${stripe(o)}</div>`;
+  const sy=o.syn&&o.syn.length?o.syn:null,SL=sy?(synOpen[o.slug]?sy:sy.slice(0,4)):[];
+  const link=n=>BYN[n]?`<a href="#${BYN[n]}" data-j="${BYN[n]}">${esc(n)}</a>`:esc(n);
+  return `<div class="row" id="${o.slug}"><div class="nm"><div class="n"><a href="/library/#/p/${o.slug}" style="text-decoration:none"><b>${esc(o.name)}</b><span class="u">${esc(d.use||(o.dose&&o.dose.use)||cap(o.fn))}</span></a><a class="rd" href="/library/#/p/${o.slug}">Read the full page →</a></div><div class="tags">${tagsHtml(o,s,a)}</div></div>`+
+  `<div class="vals"><div class="d"><small>Dose</small><em>${esc(d.dose)}</em></div><div><small>How often</small><em>${esc(d.freq)}</em></div><div><small>Cycle</small><em>${esc(d.cycle)}</em></div><div><small>Route</small><em>${esc(d.route)}</em></div><div><small>Half-life</small><em>${esc(NA(d.half))}</em></div></div>`+
+  (open[o.slug]?moreHtml(o,d,a):'')+
+  `<div class="ft"><span class="sy">${sy?`<b>Synergies</b>${SL.map(link).join(', ')}${sy.length>4?` <button type="button" data-sy="${o.slug}">${synOpen[o.slug]?'fewer':'+'+(sy.length-4)+' more'}</button>`:''}`:`<b>Synergies</b>None logged yet`}</span>${d.conf==='logged'?'<span class="lg">Logged research</span>':''}<button type="button" class="mr" data-t="${o.slug}|${a}" aria-expanded="${!!open[o.slug]}">${open[o.slug]?'Less':'More '+a}<i aria-hidden="true">▾</i></button></div>${stripe(o)}</div>`;
+}
+function list(){
+  const n=x=>x.toLowerCase().replace(/[\s\-–()]/g,''),qq=n(q);
+  let L=D.filter(o=>!qq||n(o.name+' '+(o.alias||'')+' '+(o.fn||'')+' '+(o.kw||[]).join(' ')+' '+(o.dose&&o.dose.use||'')).includes(qq));
+  if(filt!=='all')L=L.filter(o=>srcs(o)[filt]);
+  const az=(a,b)=>a.name.localeCompare(b.name),pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
+  const rt=o=>{const s=srcs(o),d=s[def(o,s)];return d?d.route:'~'};
+  if(sort==='az')L.sort(az);else if(sort==='route')L.sort((a,b)=>String(rt(a)).localeCompare(String(rt(b)))||pop(a,b));else L.sort(pop);
+  $('#count').textContent=L.length+' of '+D.length;
+  $('#list').innerHTML=L.map(row).join('')||'<p class="lede">Nothing matches.</p>';
+  $('#sort').innerHTML=SORTS.map(([k,l])=>`<button data-s="${k}" aria-pressed="${sort===k}">${l}</button>`).join('');
+  $('#filt').innerHTML=FILT.map(([k,l])=>`<button data-f="${k}" aria-pressed="${filt===k}">${l}</button>`).join('');
+}
+$('#sort').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(b){sort=b.dataset.s;list()}});
+$('#filt').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){filt=b.dataset.f;for(const k in act)delete act[k];list()}});
+$('#q').addEventListener('input',e=>{q=e.target.value;list()});
+function jump(slug){
+  if(!document.getElementById(slug)){filt='all';q='';$('#q').value='';list()}
+  const el=document.getElementById(slug);if(!el)return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit');
+}
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&!h.startsWith('/'))jump(h)});
+$('#list').addEventListener('click',e=>{
+  const j=e.target.closest('[data-j]');if(j){e.preventDefault();history.replaceState(null,'','#'+j.dataset.j);jump(j.dataset.j);return}
+  const sb=e.target.closest('[data-sy]');if(sb){synOpen[sb.dataset.sy]=!synOpen[sb.dataset.sy];const y=window.scrollY;list();window.scrollTo(0,y);return}
+  const b=e.target.closest('[data-t]');if(!b)return;
+  const [slug,k]=b.dataset.t.split('|');
+  if(act[slug]===k&&open[slug])open[slug]=false;else{act[slug]=k;open[slug]=true}
+  const y=window.scrollY;list();window.scrollTo(0,y);
+});
+list();
+{const h=location.hash.slice(1);if(h&&!h.startsWith('/'))setTimeout(()=>jump(h),150)}
+})();
+</script>
+</body>
+</html>
