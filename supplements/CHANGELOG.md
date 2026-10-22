@@ -3,6 +3,16 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v8 (23 Oct 2026) at /supplements/v8/
+Built on v7 (keeps "Blood tests to check").
+- Sorting matches the Library: Groups, Roles, Evidence, A to Z. "Label" is now "role" everywhere (same 30 roles and colours as the Library).
+- "For you" replaces the long sideways-scrolling "For" row: a button that opens a grouped panel (Sex, Life stage, Pregnancy, Diet, Training, Approval, Evidence); picking one closes the panel and shows the choice on the button; "Show everyone" clears it.
+- Approval badges like the Library: FDA ✓ on 22 cards, Rx ✓ (approved as a medicine outside the US) on 19. Strict rule: FDA ✓ only when an FDA-approved single-ingredient medicine of that substance exists; each card's new "Approved as a medicine?" section says which form and for what (often IV or Rx only, not the supplement form). No FDA ✓ for combination-only, IV-nutrition-only, irrigation-only or different-salt approvals (Vitamin D3 and K2, Methylfolate, Vitamin E, Proline, Taurine, Glycine, Chromium Picolinate). Approval data checked 23 Oct 2026 (DailyMed, Drugs@FDA, FDA monographs, EMA and national regulators).
+- Carnosine moved over from the Library (oral supplement), with a full researched card (Limited evidence). 76 supplements.
+- Oral cards link to their injectable or related Library entries: Vitamin B12, L-Carnitine and Acetyl-L-Carnitine (injectable L-carnitine), NMN (NAD+), Creatine Monohydrate and Carnosine.
+- TB-500 now links to the Library's TB-500 fragment 17-23 entry (v4 to v7 linked full Thymosin Beta-4).
+- Fixed: Glutathione listed twice in some "Goes with" lists.
+
 ## v7 (22 Oct 2026) at /supplements/v7/
 Built on v6 (other session). Each card gains "Blood tests to check": the blood tests whose Bloodwork Encyclopedia notes name this supplement (raises, lowers, used if low or high), as coloured chips with cost tiers, linking to the test explainer on Blood Work v8. Data from /blood/v8/supp.js. 27 supplements have at least one test.
 
