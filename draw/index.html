@@ -738,7 +738,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
-  <span>v18: the page keeps a tidy single column from phone up to a wide screen, so the card and the input rows stop stretching into loose tables at tablet and half-laptop widths; it widens to two columns only on a real laptop. The water is brand blue again; the vials now read apart by their caps, orange for compound, green for diluent, periwinkle for solution. v1 to v17 are unchanged.</span>
+  <span>v18: counts a few actions for the site statistics (first complete calculation per visit, card copied, math copied), nothing on the page changed by that. Plus: the page keeps a tidy single column from phone up to a wide screen, so the card and the input rows stop stretching into loose tables at tablet and half-laptop widths; it widens to two columns only on a real laptop. The water is brand blue again; the vials now read apart by their caps, orange for compound, green for diluent, periwinkle for solution. v1 to v17 are unchanged.</span>
   <span>v17: carries the v15 and v16 work from the other track (prefill from a Dosage or Library link, opens in quick mode; brand line Bare Signals · Calculator) and adds the design sweep: one chevron close style with Hide and Show, readable FAQ questions, the version history tucked away, a popup that dims the page with the basics opening one at a time, and a tighter Luer push demo on wide screens. v1 to v16 are unchanged.</span>
   <span>v15 (design sweep): one close button style across the page (chevron, Hide and Show), FAQ questions in plain readable text, the version history tucked in here, the entry popup now dims the page and the basics open one at a time for beginners, and the Luer push demo sits tighter on a wide screen. v1 to v14 are unchanged.</span>
   <span>v14: the Luer funnel now fills completely, so the trapped blue reads about ten times the insulin syringe, matching 0.05 mL against 0.005 mL. The water fills the whole triangle on the way down, not just a thin line through it. v1 to v13 are unchanged.</span>
@@ -1152,6 +1152,7 @@ function update(){
   S.name=$('#pname').value;
   S.vial=num('#vial');S.water=num('#water');S.dose=num('#dose');
   const ok=isFinite(S.vial)&&isFinite(S.water)&&isFinite(S.dose);
+  if(ok&&!update.sent){update.sent=1;if(window.bsTrack)window.bsTrack('draw-calc:'+S.vial+'mg-'+S.water+'ml','Calc '+S.vial+' mg in '+S.water+' mL')}
   $$('#vialQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.vial);});
   $$('#waterQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.water);});
   vial1.set(isFinite(S.vial)?nf(S.vial,3)+' mg':'— mg',0);
@@ -1383,6 +1384,7 @@ $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollInto
 
 /* copy card as text */
 $('#copyTxt').onclick=function(){
+  if(window.bsTrack)window.bsTrack('draw-copy-card','Copy card');
   const b=$('#copyTxt');
   const done=function(t){b.textContent=t;setTimeout(function(){b.textContent='Copy as text';},1800);};
   if(!cardTxt){done('Fill in first');return;}
@@ -1396,6 +1398,7 @@ $('#copyTxt').onclick=function(){
 
 /* copy */
 $('#copyMath').onclick=function(){
+  if(window.bsTrack)window.bsTrack('draw-copy-math','Copy math');
   const msg=$('#copyMsg');
   const done=function(t){msg.textContent=t;setTimeout(function(){msg.textContent='';},2200);};
   const fallback=function(){const r=document.createRange();r.selectNodeContents($('#vmath').offsetParent&&document.body.dataset.mode!=='quick'?$('#vmath'):$('#steps'));const s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected. Copy it.');};
