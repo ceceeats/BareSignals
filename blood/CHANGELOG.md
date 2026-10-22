@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v6 (22 Oct 2026) at /blood/v6/
+- Every compound card now links to its reported dosage ("Reported dosage →", /dosage/#<slug>) next to "Full entry in the Library". Shipped with Dosage v11 (which links back to each compound's blood work) and Library v25. Data, tests and layout unchanged from v5.
+
 ## v5 (22 Oct 2026) at /blood/v5/
 Shipped with Library v24 (built on the other session's Library v23 layout).
 - Tests inside every compound are now tappable colour chips (fasting glucose, HbA1C, B12, liver, thyroid...). Tap one for a plain-language explainer: fast first, retest, what it is, what you would feel, good vs bad (with a "Before you trust the number" callout), why the number can lie (what pushes it up and down), what to do if high or low, and the one thing to remember.

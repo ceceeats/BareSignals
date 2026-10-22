@@ -440,7 +440,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v14</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v15</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -1485,11 +1485,20 @@ function renderRef(){
   a.href='https://baresignals.co/dosage/'+(m?'#'+m[1]:'');
   b.hidden=!m;if(m)b.href='https://baresignals.co/library/#/p/'+m[1];
 }
-$('#pname').addEventListener('input',renderRef);renderRef();
+$('#pname').addEventListener('input',renderRef);
+/* v15: prefill from a link, e.g. /draw/?n=BPC-157&dose=250&u=mcg (sent from Dosage and Library) */
+let pre=false;
+try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.get('dose')),qu=q.get('u');
+ if(qn){$('#pname').value=qn.slice(0,32);pre=true;}
+ if(qu==='mg'||qu==='mcg'){S.unit=qu;$$('[data-du]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.du===qu);});}
+ if(isFinite(qd)&&qd>0){$('#dose').value=qd;pre=true;}
+}catch(e){}
+renderRef();
 renderLadder();renderMix();wasteReset();
 renderSizes();renderGauge();paintCues();
 update();
-if(startMode!=='quick'&&typeof $('#ask').showModal==='function'){try{$('#ask').showModal();}catch(e){}}
+if(pre){setMode('quick',false);}
+else if(startMode!=='quick'&&typeof $('#ask').showModal==='function'){try{$('#ask').showModal();}catch(e){}}
 })();
 </script>
 
