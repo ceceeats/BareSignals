@@ -5,6 +5,21 @@
 ## v6 (22 Oct 2026) at /blood/v6/
 - Every compound card now links to its reported dosage ("Reported dosage →", /dosage/#<slug>) next to "Full entry in the Library". Shipped with Dosage v11 (which links back to each compound's blood work) and Library v25. Data, tests and layout unchanged from v5.
 
+## v7 (22 Oct 2026) at /blood/v7/
+Shipped with Library v26. Built on v6 (the other session's "Reported dosage" button kept).
+- Phone-first compound cards: bigger text, full colour tags from the Library's 30-colour legend (Semaglutide: Appetite, Glucose, Heart, Reward), a colour band made of those tags.
+- "Test before you start" and "Also check while on it" are now a grid of test chips instead of chips inside sentences. Each chip shows a direction arrow (↑ raises, ↓ lowers), three red dots for danger, one amber dot for watch, ◎ when it shows whether the compound works, a short note from the owner's notes or the Matrix (for example "pancreatitis", "depletes"), and a cost tier.
+- Cost tier on every test: "$$$ rare" (specialty, pricier, few labs: rT3, Lp(a), Cystatin C, C-Peptide, DEXA, VO2 Max, CAC, GI-MAP, genetic and biological age kits and more) and "ask lab" (not every basic lab runs it). Taken from the Encyclopedia's availability column; lab names and locations are not published.
+- "What it does to your markers" is collapsed behind an expand. Each row shows what to aim for and the high or low number in red on the right, picking the side the compound pushes toward (B12 shows the low threshold because semaglutide depletes it).
+- "Same as semaglutide / ipamorelin / GHRP-2 / no-DAC" protocols are written out in full (Tirzepatide, CJC-1295 both, GHRP-6, Orforglipron). Side notes stay with the compound they were written for.
+- The original wording is kept under "Notes in full" on each card.
+- 46 researched compounds added (every Library compound now has blood work): each card shows "Researched Oct 2026" with a confidence level (verified / reported / inferred / speculated), why these tests, and a Sources list. 155 sources in total. Spot-checked against primary sources: TB-500 FDA briefing (Jul 2026), Bydureon BCise label, adipotide primate study, Forteo label (corrected: the 2-year limit is still a soft limit; the 1 and 3 month calcium checks are common practice, not on the label).
+- Supplement chips and supplement rows carry their own colour from the Supplements page's main label.
+- 90 compounds: 26 from the Bloodwork Encyclopedia, 46 researched, 18 with Matrix marker effects only.
+
+## v6 (22 Oct 2026) at /blood/v6/
+Made by the other session: v5 plus a "Reported dosage" button on each compound card linking to the Dosage page.
+
 ## v5 (22 Oct 2026) at /blood/v5/
 Shipped with Library v24 (built on the other session's Library v23 layout).
 - Tests inside every compound are now tappable colour chips (fasting glucose, HbA1C, B12, liver, thyroid...). Tap one for a plain-language explainer: fast first, retest, what it is, what you would feel, good vs bad (with a "Before you trust the number" callout), why the number can lie (what pushes it up and down), what to do if high or low, and the one thing to remember.
