@@ -1,8 +1,8 @@
-/* Bare Signals site navigation v2: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v1 is kept at /nav/v1.js. */
+/* Bare Signals site navigation v3: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v1 and v2 kept at /nav/v1.js and /nav/v2.js. */
 (function(){
   if(document.querySelector('.bsn'))return;
   var P=location.pathname;
-  var L=[['/library/','Library'],['/dosage/','Dosage'],['/aminos/','Aminos'],['/draw/','Calculator']];
+  var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood'],['/aminos/','Aminos'],['/draw/','Calculator']];
   var on=function(h){return P.indexOf(h)===0};
   var css='.bsn{position:relative;z-index:30;background:#FFFFE2;border-bottom:1.5px solid #3E4A80;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}'+
   '.bsn .bsb{display:flex;height:5px}.bsn .bsb i{display:block}'+
