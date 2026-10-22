@@ -291,7 +291,6 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .ndl{fill:var(--paper);stroke:var(--ink);stroke-width:.9}
 .dead{fill:none}
 #syrA .dead,#syrB .dead{fill:var(--liquid)}
-#syrA .ndl,#syrB .ndl{fill:var(--liquid)}
 .col2{fill:none;stroke:var(--ink);stroke-width:1.3}
 .tagr{fill:var(--ink)}
 .tagt{font:700 10.5px var(--mono);fill:var(--paper);text-anchor:middle}
@@ -441,7 +440,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v12</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v13</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -736,6 +735,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v13: the water now flows. As the plunger pushes, a blue front travels down into the funnel and along the full length of the needle, instead of the needle changing from white to blue at once. What the plunger cannot push past stays as the trapped residue. v1 to v12 are unchanged.</span>
   <span>v12: the trapped liquid is primed from the start and stays put as the plunger pushes, so it reads as liquid draining, not popping in at the end. Real geometry: on the Luer lock the outer threaded collar and the hub walls are plastic, so only the inner bore, the luer taper and the needle hold water; the insulin syringe keeps water in the needle alone. v1 to v11 are unchanged.</span>
   <span>v11: the stuck liquid now fills the real dead space in blue, the colour of the water. In the insulin syringe the plunger meets the needle, so only the needle holds residue. In the Luer lock the plunger stops at the funnel, so the funnel, the hub and the needle all stay full, which is why it wastes more. The orange call-out stays. v1 to v10 are unchanged.</span>
   <span>v10: the liquid left stuck in the hub after the push now shows blue, the same colour as the water in the vial, so you see how much is left behind. v1 to v9 are unchanged.</span>
@@ -822,19 +822,25 @@ function Syr(host,c,type,o){
   }
   const rw=Math.max(5,w*0.3);
   let tip;
+  const dgid='dc'+gid,dLen=luer?88:62;
+  const dclip='<clipPath id="'+dgid+'"><rect class="deadclip" x="0" y="'+yb+'" width="200" height="0"/></clipPath>';
   if(luer){
     tip='<path class="nz" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+6)+' '+(yb+9)+'L'+(cx-6)+' '+(yb+9)+'Z"/>'+
       '<rect class="nz" x="'+(cx-3.5)+'" y="'+(yb+9)+'" width="7" height="14"/>'+
       '<rect class="hubf" x="'+(cx-8)+'" y="'+(yb+18)+'" width="16" height="22"/>'+
       '<path class="ndl" d="M'+(cx-2.2)+' '+(yb+40)+'L'+(cx+2.2)+' '+(yb+40)+'L'+(cx+.7)+' '+(yb+88)+'L'+(cx-.7)+' '+(yb+88)+'Z"/>'+
-      '<path class="dead" d="M'+(cx-3)+' '+yb+'L'+(cx+3)+' '+yb+'L'+(cx+2.4)+' '+(yb+18)+'L'+(cx-2.4)+' '+(yb+18)+'Z"/>'+
-      '<rect class="dead hubl hub" x="'+(cx-4)+'" y="'+(yb+18)+'" width="8" height="22"/>'+
       '<rect class="col2" x="'+(cx-11)+'" y="'+(yb+9)+'" width="22" height="23"/>'+
       '<line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
-      '<line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>';
+      '<line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
+      '<g clip-path="url(#'+dgid+')">'+
+        '<path class="dead" d="M'+(cx-3)+' '+yb+'L'+(cx+3)+' '+yb+'L'+(cx+2.4)+' '+(yb+18)+'L'+(cx-2.4)+' '+(yb+18)+'Z"/>'+
+        '<rect class="dead hubl hub" x="'+(cx-4)+'" y="'+(yb+18)+'" width="8" height="22"/>'+
+        '<path class="dead" d="M'+(cx-1.6)+' '+(yb+40)+'L'+(cx+1.6)+' '+(yb+40)+'L'+(cx+.5)+' '+(yb+88)+'L'+(cx-.5)+' '+(yb+88)+'Z"/>'+
+      '</g>';
   }else{
     tip='<path class="syl" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+3.5)+' '+(yb+11)+'L'+(cx-3.5)+' '+(yb+11)+'Z"/>'+
-      '<path class="ndl" d="M'+(cx-1.8)+' '+(yb+11)+'L'+(cx+1.8)+' '+(yb+11)+'L'+(cx+.6)+' '+(yb+62)+'L'+(cx-.6)+' '+(yb+62)+'Z"/>';
+      '<path class="ndl" d="M'+(cx-1.8)+' '+(yb+11)+'L'+(cx+1.8)+' '+(yb+11)+'L'+(cx+.6)+' '+(yb+62)+'L'+(cx-.6)+' '+(yb+62)+'Z"/>'+
+      '<g clip-path="url(#'+dgid+')"><path class="dead" d="M'+(cx-1.2)+' '+(yb+11)+'L'+(cx+1.2)+' '+(yb+11)+'L'+(cx+.4)+' '+(yb+62)+'L'+(cx-.4)+' '+(yb+62)+'Z"/></g>';
   }
   const fc=luer?'rod':'sy',stc=luer?'inkf':'syd';
   const tag=o.tag?
@@ -842,7 +848,7 @@ function Syr(host,c,type,o){
     '<rect class="tagr" x="1" y="'+(yb-9)+'" width="47" height="18"/>'+
     '<text class="tagt" x="24.5" y="'+(yb+3.8)+'">0</text></g>':'';
   const vb=o.vb||[0,W];
-  host.innerHTML='<svg viewBox="'+vb[0]+' 0 '+vb[1]+' '+H+'" xmlns="'+NS+'" role="img" aria-label="Vertical '+(luer?'Luer lock':'insulin')+' syringe, '+c.sub+'"><defs>'+shineDef(gid)+'</defs>'+
+  host.innerHTML='<svg viewBox="'+vb[0]+' 0 '+vb[1]+' '+H+'" xmlns="'+NS+'" role="img" aria-label="Vertical '+(luer?'Luer lock':'insulin')+' syringe, '+c.sub+'"><defs>'+shineDef(gid)+dclip+'</defs>'+
     '<rect class="bg" x="'+x0+'" y="'+yt+'" width="'+w+'" height="'+L+'"/>'+
     '<rect class="liq" x="'+(x0+1)+'" y="'+yb+'" width="'+(w-2)+'" height="0"/>'+
     '<rect class="gloss" x="'+(x0+2.5)+'" y="'+yb+'" width="2" height="0"/>'+
@@ -859,7 +865,7 @@ function Syr(host,c,type,o){
     '<g class="dr"></g></svg>';
   const q=s=>host.querySelector(s);
   this.pl=q('.pl');this.mk=q('.zt');this.lt=q('.lt');this.lt2=q('.lt2');this.lt3=q('.lt3');this.svg=q('svg');this.vb0=[vb[0],0,vb[1],H];this.liq=q('.liq');this.gl=q('.gloss');
-  this.tagT=q('.tagt');this.hubs=host.querySelectorAll('.hub');this.dr=q('.dr');
+  this.tagT=q('.tagt');this.hubs=host.querySelectorAll('.hub');this.dr=q('.dr');this.dclip=q('.deadclip');this.dlen=dLen;
   this.set(0);
 }
 Syr.prototype.set=function(f){
@@ -890,6 +896,7 @@ Syr.prototype.tag=function(txt){
   this.mk.style.display='';this.tagT.textContent=txt;
 };
 Syr.prototype.hubWaste=function(on){for(let i=0;i<this.hubs.length;i++)this.hubs[i].classList.toggle('waste',!!on);};
+Syr.prototype.flow=function(e){if(this.dclip)this.dclip.setAttribute('height',Math.max(0,e*this.dlen).toFixed(1));};
 Syr.prototype.leftover=function(t,t2){if(!this.lt)return;if(t==null){this.lt.style.display='none';return;}this.lt.style.display='';this.lt2.textContent=t;this.lt3.textContent=t2||'';};
 Syr.prototype.zoom=function(on,ms){
   const svg=this.svg,self=this,tok=(this.ztok=(this.ztok||0)+1);
@@ -1234,7 +1241,7 @@ function wasteReset(){
   mountWaste();wTok++;pushed=false;
   const cA=exCalc('insulin'),cB=exCalc('luer');
   $('#push').textContent='Push the plunger';$('#push').disabled=false;
-  wA.leftover(null);wB.leftover(null);wA.hubWaste(false);wB.hubWaste(false);
+  wA.leftover(null);wB.leftover(null);wA.hubWaste(false);wB.hubWaste(false);wA.flow(0);wB.flow(0);
   wA.zoom(false,reduce?0:500);wB.zoom(false,reduce?0:500);
   wA.tween(cA.doseMl,reduce?0:500);wB.tween(cB.doseMl,reduce?0:500);
   $('#rA').textContent=nf(cA.units,0)+' units';$('#rB').textContent=fmtMl(cB.doseMl)+' mL';
@@ -1245,12 +1252,9 @@ function wasteReset(){
 function runPush(){
   const tok=++wTok,cA=exCalc('insulin'),cB=exCalc('luer'),dur=reduce?0:1700;
   $('#push').disabled=true;
-  const step=function(p){
-    const e=1-Math.pow(1-p,3);
-    $('#dA').textContent=nf(cA.doseMcg*e,0)+' mcg';
-    $('#dB').textContent=nf(cB.doseMcg*e,0)+' mcg';
-  };
-  Promise.all([wA.tween(0,dur,step),wB.tween(0,dur)]).then(function(){
+  const stepA=function(p){const e=1-Math.pow(1-p,3);$('#dA').textContent=nf(cA.doseMcg*e,0)+' mcg';wA.flow(e);};
+  const stepB=function(p){const e=1-Math.pow(1-p,3);$('#dB').textContent=nf(cB.doseMcg*e,0)+' mcg';wB.flow(e);};
+  Promise.all([wA.tween(0,dur,stepA),wB.tween(0,dur,stepB)]).then(function(){
     if(tok!==wTok)return;
     wA.drip(3);wB.drip(3);
     $('#dA').textContent=nf(cA.doseMcg,0)+' mcg';$('#dB').textContent=nf(cB.doseMcg,0)+' mcg';
