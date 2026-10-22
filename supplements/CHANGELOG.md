@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v7 (22 Oct 2026) at /supplements/v7/
+Built on v6 (other session). Each card gains "Blood tests to check": the blood tests whose Bloodwork Encyclopedia notes name this supplement (raises, lowers, used if low or high), as coloured chips with cost tiers, linking to the test explainer on Blood Work v8. Data from /blood/v8/supp.js. 27 supplements have at least one test.
+
 ## v6 (22 Oct 2026) at /supplements/v6/
 - Built on v5: keeps the "See their doses side by side" link to Dosage.
 - Deep research pass on every card (NIH ODS, Linus Pauling Institute, NCCIH, MSK, Cochrane, ISSN, IOC, EFSA, FDA, trial papers). Every dose row, new finding and source carries a confidence flag: V verified (source opened), R reported, I inferred.

@@ -5,6 +5,17 @@
 ## v6 (22 Oct 2026) at /blood/v6/
 - Every compound card now links to its reported dosage ("Reported dosage →", /dosage/#<slug>) next to "Full entry in the Library". Shipped with Dosage v11 (which links back to each compound's blood work) and Library v25. Data, tests and layout unchanged from v5.
 
+## v8 (22 Oct 2026) at /blood/v8/
+Shipped with Library v28 (on the other session's v27) and Supplements v7 (on the other session's v6).
+- TB-500 now means frag 17–23, the form sold as TB-500 (the July 2026 FDA briefing confirms TB-500 is the 17–23 fragment and not thymosin beta-4). The Encyclopedia's TB-500 protocol and the frag 17–23 research are one card: "TB-500 (frag 17–23)", with "Also researched Oct 2026" and sources. Library links follow.
+- Full Thymosin Beta-4 got its own researched entry (RegeneRx human trials for IV, gel and eye drops; cancer and new-vessel growth as the main red flag).
+- VO2 Max has a general range again: poor / average / excellent by sex and decade, from the FRIEND registry (Kaminsky 2015, measured VO2 max). Note: Cooper Institute norms run higher, so the same score can read "average" on FRIEND and "poor" on Cooper.
+- Research numbers on marker rows: "Trials: <amount> · <who it was measured in>". 35 rows have a number (for example tirzepatide fasting insulin −43% at 72 weeks, lipase +31–42% on GLP-1s, hs-CRP −40 to −55%, MK-677 IGF-1 +60–73%, tesamorelin IGF-1 +107 ng/mL vs placebo). Rows without a human number say "no trial data".
+- "Research disagrees" flag where trials contradict the Matrix arrow: uric acid on semaglutide and tirzepatide (falls, not rises), GHRP-2 IGF-1 (no rise over 5 days in men), Thymosin Alpha-1 platelets (no drop vs control), EPO iron/ferritin (EPO uses iron up, ferritin usually falls). The Matrix arrows themselves are unchanged pending Cece's decision.
+- EPO change amounts deliberately left out. Every research number carries its population.
+- Supplement links rematched to Supplements v6 (75 supplements): Ferritin, Hemoglobin and MCV now link Iron; MCV and Hemoglobin link Vitamin B12; TSH and Anti-TPO link Iodine. 65 links (was 50).
+- New: /blood/v8/supp.js feeds "Blood tests to check" on Supplements v7 cards.
+
 ## v7 (22 Oct 2026) at /blood/v7/
 Shipped with Library v26. Built on v6 (the other session's "Reported dosage" button kept).
 - Phone-first compound cards: bigger text, full colour tags from the Library's 30-colour legend (Semaglutide: Appetite, Glucose, Heart, Reward), a colour band made of those tags.
