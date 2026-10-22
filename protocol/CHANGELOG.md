@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v3 (23 Oct 2026) at /protocol/v3/
+- Same as v2, but reads Library v30: Khavinson bioregulator doses corrected from 10–20 mg to the label and patent amounts (micrograms), Pinealon and Thymosin Beta-4 corrected. v2 kept.
+
 ## v2 (22 Oct 2026) at /protocol/v2/
 - Walkthrough: four steps split by Aminos-style dividers (Step one to four) with a big centred question per step, so it no longer reads as one continuous page.
 - Step one: role tags are red (palette #FF5050), filled red when picked; suggestions show 5 with "Show N more".
