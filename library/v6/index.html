@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<meta name="description" content="Bare Signals Peptide and Compound Library: every compound researched so far. Tap one to open its card.">
+<title>Library · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Library v6. Aminos-style tiles; the card opens in place like an amino card; the full page opens with a Built banner and the chain. */
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --ink-soft:#6B76A8; --rule:#E3E0BF; --chip:#FFFFF4; --accent:#DB6830; --grid:#6777B6; --red:#FF5050;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1300px;margin:0 auto;padding-block:18px 44px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.olab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+.credit{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.credit b{font-weight:500;color:var(--accent)}
+.note{font-size:12.5px;color:var(--ink-soft);margin:0}
+
+/* ---------- library list ---------- */
+#listv{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.left{display:flex;flex-direction:column;gap:12px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+h1{font:700 22px/1.05 var(--display);margin:2px 0 0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.top a.home{font:500 12px var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.lede{margin:0;font-size:13.5px;color:var(--ink-soft);max-width:60ch}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 10px;border-radius:0}
+.seg{display:inline-flex;border:1.5px solid var(--ink);align-self:flex-start}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:6px 10px;cursor:pointer;min-height:32px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.rbar{border:1.5px solid var(--ink);background:var(--chip)}
+.rhead{display:flex;align-items:center;gap:10px;padding:0 10px;min-height:40px}
+.rtog{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;flex:1;min-width:0;min-height:40px}
+.rtog .lab{color:var(--ink)}
+.sel{display:flex;gap:4px;flex:1;min-width:0;overflow:hidden}
+.sel span{display:inline-flex;align-items:center;gap:5px;font:500 12px var(--body);white-space:nowrap;border:1.5px solid var(--ink);padding:1px 7px 1px 4px;background:var(--paper)}
+.sel i{width:11px;height:11px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.sw{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.sw i{width:8px;height:13px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.18)}
+.txtb{all:unset;cursor:pointer;font:500 11px var(--mono);color:var(--accent);white-space:nowrap;padding:8px 0}
+.txtb:hover{text-decoration:underline}
+.rpanel{border-top:1.5px solid var(--ink);padding:2px 10px 8px}
+.rf{border-bottom:1.5px solid var(--rule);padding:2px 0}
+.rf:last-of-type{border-bottom:0}
+.rfh{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;width:100%;min-height:36px}
+.rfh .n{font:500 11px var(--mono);color:var(--ink-soft);flex:none;margin-left:auto}
+.pop5{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
+.ch5{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:500 13px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:5px 10px 5px 7px;min-height:34px}
+.ch5 i{width:14px;height:14px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.ch5 em{font:italic 400 13px var(--body);color:var(--ink-soft)}
+.ch5[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.ch5[aria-pressed="true"] em{color:var(--paper)}
+.count{font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;margin:0}
+
+/* tiles: elongated like the Aminos tiles, floating, name broken like the stickers, thick stripes at the bottom */
+.grid{display:grid;gap:10px 8px;grid-template-columns:repeat(3,minmax(0,1fr));padding:2px 3px 6px 0}
+.ghead{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:8px 0 0}
+.ghead i{width:13px;height:13px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.empty{grid-column:1/-1;font-size:14px;color:var(--ink-soft)}
+.tl{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;min-height:112px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);min-width:0}
+.tl .in{padding:8px 8px 6px;display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.tl .nm2{font:700 14.5px/1.08 var(--display);letter-spacing:-.005em;overflow-wrap:anywhere}
+.tl .nm2 span{display:block}
+.tl .nm2 .sb{font:italic 400 11.5px/1.2 var(--body);letter-spacing:0;color:var(--ink-soft);margin-top:1px}
+.tl .aa{font:500 10.5px var(--mono);color:var(--ink-soft);display:flex;justify-content:space-between;gap:4px;white-space:nowrap;margin-top:auto;padding-top:4px}
+.tl .aa b{font-weight:500;color:var(--accent)}
+.tl .band{position:relative;height:24px;border-top:1.5px solid var(--ink);flex:none}
+.band i{position:absolute;display:block;top:0;bottom:0}
+.tl:hover{background:var(--paper)}
+.tl[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--accent)}
+.tl[aria-pressed="true"] .aa,.tl[aria-pressed="true"] .nm2 .sb{color:var(--paper)}
+
+/* the chain: beads coloured by each amino acid's main role */
+.chain svg{display:block;width:100%;height:auto}
+.chain .bd{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:no-preference){.chain.play .bd{animation:pop .32s cubic-bezier(.2,.8,.3,1.25) both;animation-delay:calc(var(--i) * var(--step))}}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+
+/* ---------- the card ---------- */
+#cardwrap{grid-column:1/-1;min-width:0}
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.ch{display:flex;gap:12px;align-items:center;padding:12px 46px 12px 12px;position:relative}
+.big{width:58px;height:58px;flex:none;border:1.5px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--paper);line-height:1}
+.big b{font:700 26px/1 var(--display)}
+.big span{font:500 9.5px var(--mono);letter-spacing:.06em;color:var(--ink-soft);margin-top:2px}
+.big.np b{font-size:13px;text-align:center;line-height:1.1}
+.ch h3{font:700 21px/1.05 var(--display);margin:0}
+.ch .sub{font:500 11.5px var(--mono);color:var(--ink-soft);margin:4px 0 0}
+.ch .sub b{font-weight:500;color:var(--accent)}
+.x{all:unset;cursor:pointer;position:absolute;right:6px;top:6px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font:500 20px/1 var(--body);color:var(--ink)}
+.strip{position:relative;height:30px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 0}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;background:var(--paper);border:1.5px solid var(--rule);padding:3px 9px 3px 4px;text-decoration:none;color:var(--ink)}
+.chip i{width:14px;height:14px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.chip.rep{border-style:dashed}
+.chip.rep i{border-radius:50%}
+.tabs{display:flex;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin-top:10px}
+.tabs button{flex:1;font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:8px 0;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pane{display:none;padding:12px}
+.pane.on{display:block}
+.pane .ph{display:none}
+.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+.spec td{border:1.5px solid var(--red);padding:5px 8px;vertical-align:top}
+.spec td:first-child{font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);width:34%}
+.spec .syn a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);cursor:pointer}
+.roles{list-style:none;margin:0;padding:0}
+.roles li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.roles li:last-child{border-bottom:0}
+.roles i{width:12px;height:12px;flex:none;margin-top:4px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.roles i.dot{border-radius:50%}
+.roles em{font:500 10px var(--mono);font-style:normal;color:var(--ink-soft);margin-left:auto;white-space:nowrap;padding-left:8px;text-align:right;line-height:1.35;padding-top:2px}
+.roles em small{display:block;font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.capt{font-size:12px;color:var(--ink-soft);margin:6px 0 0}
+.capt b{color:var(--accent);font-weight:600}
+.go{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border-top:1.5px solid var(--ink)}
+.go a{font:500 13px var(--body);text-decoration:none;background:var(--ink);color:var(--paper);padding:7px 12px;white-space:nowrap}
+.go a:hover{background:var(--accent)}
+.empty-card{border:1.5px dashed var(--ink-soft);padding:18px;font-size:14px;color:var(--ink-soft)}
+
+/* ---------- full page ---------- */
+#pagev{max-width:1100px}
+.back{display:inline-block;font:500 12px var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1.5px solid var(--accent);margin-bottom:14px}
+.built{display:flex;align-items:stretch;border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px}
+.built .pnt{display:flex;flex-direction:column;gap:3px;padding:12px 14px 13px;min-width:0;flex:1}
+.built strong{font:700 28px/1.05 var(--display);letter-spacing:-.01em;overflow-wrap:anywhere}
+.built .pnc{font:500 12px var(--mono);color:var(--ink-soft)}
+.pst{position:relative;flex:0 0 clamp(96px,34%,260px);border-left:1.5px solid var(--ink);min-height:84px}
+.pst i{position:absolute;display:block}
+.leg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0 0 4px;font-size:12.5px}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:12px;height:12px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.leg .r i{border-radius:50%}
+.ori{border-left:3px solid var(--ink);padding:2px 0 2px 12px;margin:14px 0}
+.ori b{display:block;font:700 15px var(--display);margin-bottom:2px}
+.ori p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-soft);max-width:80ch}
+.pchain{margin:6px 0 4px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink);margin:12px 0 18px}
+.stats div{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:8px 10px;min-width:0;background:var(--chip)}
+.stats strong{display:block;font:700 20px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:11.5px;color:var(--ink-soft)}
+.cp{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.gl{display:grid;grid-template-columns:minmax(0,1fr);border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule);margin:0}
+.gi{padding:11px 13px 12px;border-right:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);min-width:0;background:var(--paper)}
+.gi dt{font:700 16px/1.2 var(--display);color:var(--accent);margin:0 0 4px}
+.gi dd{margin:0;font-size:15px;line-height:1.55}
+.gi.wide{grid-column:1/-1}
+.dose b{font:700 17px/1.25 var(--display);display:block}
+.dose small{display:block;font-size:12px;color:var(--ink-soft);margin-top:2px}
+.dtab{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+.dtab td{border-top:1.5px solid var(--rule);padding:5px 0;vertical-align:top}
+.dtab td:first-child{font-weight:600;white-space:nowrap;padding-right:10px}
+.dtab td:last-child{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);text-align:right;padding-left:8px;white-space:nowrap}
+.synl{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+.synl a,.synl span{display:inline-flex;align-items:center;gap:6px;font:500 13px var(--body);border:1.5px solid var(--ink);background:var(--chip);padding:3px 9px 3px 5px;text-decoration:none}
+.synl span{border-style:dashed;border-color:var(--ink-soft)}
+.synl i{width:12px;height:12px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.synl em{font:italic 400 12px var(--body);color:var(--ink-soft)}
+.pools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
+.pools div{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:9px 10px;min-width:0;background:var(--chip)}
+.pools strong{display:block;font:700 22px/1.05 var(--display);font-variant-numeric:tabular-nums}
+.pools span{display:block;font-size:12.5px;margin-top:2px;line-height:1.3}
+.pools em{display:block;font:500 9.5px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+.box{border:1.5px solid var(--ink);background:var(--chip)}
+.box .bh{padding:9px 12px;border-bottom:1.5px solid var(--ink)}
+.box .bb{padding:6px 12px 10px}
+.seqv{font:500 12.5px var(--mono);overflow-wrap:anywhere;word-break:break-all}
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:12px;border-top:1.5px solid var(--ink)}
+.nav a{font:500 12px var(--mono);letter-spacing:.04em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.fn{margin-top:14px;font-size:11.5px;line-height:1.5;color:var(--ink-soft)}
+.fn .lab{font-size:9.5px;margin-bottom:4px}
+.fn ol{margin:0;padding-left:20px;columns:2 260px;column-gap:28px}
+.fn li{break-inside:avoid;margin:0 0 2px}
+.fn a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.pfoot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+.foot{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.key summary{cursor:pointer;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.key ol{margin:8px 0 0;padding-left:18px;font-size:13px;max-width:62ch}
+.kd{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin:0 3px}
+.log{font-size:12px;color:var(--ink-soft);border-top:1.5px solid var(--rule);padding-top:10px;max-width:90ch}
+.log p{margin:0 0 6px}
+
+@media (min-width:600px){ .grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))} h1{font-size:24px} }
+@media (min-width:900px){
+ #listv{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0 36px;align-items:start}
+ #cardwrap{grid-column:2;grid-row:1;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;padding:0 4px 4px 0}
+ .tabs{display:none}
+ .pane{display:block;padding:12px 14px 4px}
+ .pane .ph{display:block;margin:0 0 6px}
+ .big{width:64px;height:64px}
+ .ch h3{font-size:24px}
+ .built strong{font-size:38px}
+ .ori p{font-size:16px}
+ .stats strong{font-size:24px}
+ .cp{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+ .gl{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gi{padding:14px 16px 16px}
+ .gi dt{font-size:19px}
+ .gi dd{font-size:17px;line-height:1.6}
+ .roles li{font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div id="listv">
+  <div class="left">
+    <div class="top">
+      <div><p class="lab">Bare Signals</p><h1>Peptide and Compound Library<small>V6</small></h1></div>
+      <a class="home" href="/aminos/">Aminos</a>
+    </div>
+    <p class="lede">Every compound researched so far. Each colour is a role. Tap one to open its card.</p>
+    <input id="q" type="search" placeholder="Search a name or other name" aria-label="Search compounds" autocomplete="off">
+    <div class="seg" id="sort" role="group" aria-label="Sort"></div>
+    <div class="rbar">
+      <div class="rhead">
+        <button class="rtog" id="rtog" aria-expanded="false" aria-controls="rpanel"><span class="lab">Roles</span><span class="sel" id="rsel"></span></button>
+        <button class="txtb" id="rall"></button>
+      </div>
+      <div class="rpanel" id="rpanel" hidden></div>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="grid" id="grid"></div>
+    <div class="foot">
+      <details class="key"><summary>How to read a sticker</summary>
+        <ol>
+          <li>Big block: the main research area.</li>
+          <li>Middle block and left side: other research areas.</li>
+          <li>Bottom-left corner: what people report feeling.</li>
+          <li>Dots: extra connections. <span class="kd" style="background:var(--ink)"></span>filled is human research, <span class="kd" style="box-shadow:inset 0 0 0 2px var(--ink)"></span>a ring is animal or community only.</li>
+          <li><span class="kd" style="background:#FF0000"></span>Red dot: an FDA-approved medicine exists (not this vial). <span class="kd" style="box-shadow:inset 0 0 0 2px #FF0000"></span>Red ring: approved outside the US only.</li>
+        </ol>
+      </details>
+      <div class="log">
+        <p><b>V6 · 22 Oct 2026.</b> Three tiles across on a phone, elongated like the Aminos tiles, with names broken like the stickers and stripes about 1.7 times thicker. Sticker view removed. The card now follows the lysine card: amino acid count in the box, role chips, then Facts (length, class, weight, reported dose, synergies), Structure (the chain, beads coloured by each amino acid's role, letters on short chains) and Roles written out, like Cross-links collagen. The full page opens like Aminos step 05: a Built banner with the sticker band, the origin story, the chain and a Residues, Weight, Class row. New: synergies, from app-data stacks and the catalog's own blends. <a href="/library/v5/">V5 kept here</a>.</p>
+        <p>V5 floated the tiles and brought back the full page. V4 brought in-place cards. V3 renamed the Encyclopedia to the Library. V2 corrected about 30 facts. V1 was the first build. Four compounds are logged research (BPC-157, TB-500 frag 17–23, GHK-Cu, KPV); the rest are drafts until their research sweep.</p>
+      </div>
+    </div>
+  </div>
+  <section id="cardwrap" aria-label="Compound card" hidden></section>
+ </div>
+ <article id="pagev" hidden></article>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D=window.BS_DATA, PAL=window.BS_PALETTE;
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])), LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]]));
+const ORDER=Object.fromEntries(PAL.map((p,i)=>[p[0],i]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const edge=h=>lum(h)>.8?';box-shadow:inset 0 0 0 1px #E1DE62':'';
+const SORTS=[['pop','Popular'],['az','A to Z'],['role','Role']];
+const FAM=[['Body and metabolism',['Appetite','Glucose','Fat','Energy','Endocrine','Muscle']],['Repair and structure',['Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning']],['Protection and organs',['Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer']],['Brain and mood',['Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward']],['Sex and reproduction',['Desire','Reproductive']]];
+/* amino acids: average free weight and main role, as on the Aminos page */
+const AM={A:[89.09,'Muscle'],R:[174.20,'Heart'],N:[132.12,'Cognition'],D:[133.10,'DNA'],C:[121.16,'Protection'],Q:[146.15,'Gut'],E:[147.13,'Cognition'],G:[75.07,'Skin'],H:[155.16,'Inflammation'],I:[131.17,'Muscle'],L:[131.17,'Muscle'],K:[146.19,'Skin'],M:[149.21,'DNA'],F:[165.19,'Mood'],P:[115.13,'Skin'],S:[105.09,'Cognition'],T:[119.12,'Gut'],W:[204.23,'Mood'],Y:[181.19,'Drive'],V:[117.15,'Muscle'],U:[168.05,'Protection']};
+const H2O=18.015;
+const has=(o,k)=>o.roles.includes(k)||o.reported.includes(k);
+const keyOf=s=>PAL.find(p=>p[0].toLowerCase()===String(s).toLowerCase());
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let st=Object.assign({sort:'pop',cols:[]},store.get('bs-lib-v6',{}));st.q='';
+let rOpen=false,famOpen={},cur=null,listY=0,tab='f';
+const narrow=()=>innerWidth<900;
+const n_=o=>o.seq.length;
+const aa=o=>o.seq?`${n_(o)} aa`:'not a peptide';
+const DEPTH={logged:'logged research',draft:'draft',reference:'reference'};
+const weight=o=>{let w=0,k=0;for(const c of o.seq){if(AM[c]){w+=AM[c][0];k++}}return k?w-(k-1)*H2O:0};
+const fmt=x=>x.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
+function cls(o){const n=o.seq.length;if(!n)return['Not a peptide','not built from a gene'];if(n===2)return['Dipeptide','2 linked, the smallest peptide'];if(n===3)return['Tripeptide','3 linked'];if(n<=20)return['Oligopeptide','4 to 20 linked, a peptide'];if(n<50)return['Polypeptide','20 to 50 linked, a peptide'];return['Protein','50 or more, long enough to fold']}
+
+/* sticker band: Canva layout (corner split) for the Built banner; plain stripes when stretched thin */
+function band(o){
+  const b=o.sticker.blocks,H=c=>HEX[c]||'#FFFFE2';
+  const two=b.lt===b.lb&&b.mid===b.wide&&b.lt!==b.wide, one=b.lt===b.wide&&b.mid===b.wide&&b.lb===b.wide;
+  const s=(l,w,c)=>`<i style="left:${l}%;width:${w}%;background:${H(c)}"></i>`;
+  if(one)return s(0,100,b.wide);
+  if(two)return s(0,26.2,b.lt)+s(26.2,73.8,b.wide);
+  return (b.lt===b.lb?s(0,15.9,b.lt):s(0,7.95,b.lt)+s(7.95,7.95,b.lb))+s(15.9,26.2,b.mid)+s(42.1,57.9,b.wide);
+}
+function blockBand(o){
+  const b=o.sticker.blocks,H=c=>HEX[c]||'#FFFFE2';
+  const two=b.lt===b.lb&&b.mid===b.wide&&b.lt!==b.wide, one=b.lt===b.wide&&b.mid===b.wide&&b.lb===b.wide;
+  const s=(st,c)=>`<i style="${st};background:${H(c)}"></i>`;
+  if(one)return s('inset:0',b.wide);
+  if(two)return s('top:0;bottom:0;left:0;width:26.2%',b.lt)+s('top:0;bottom:0;left:26.2%;right:0',b.wide);
+  return s('top:0;bottom:0;left:42.1%;right:0',b.wide)+s('top:0;bottom:0;left:15.9%;width:26.2%',b.mid)+(b.lt===b.lb?s('top:0;bottom:0;left:0;width:15.9%',b.lt):s('top:0;height:50%;left:0;width:15.9%',b.lt)+s('top:50%;bottom:0;left:0;width:15.9%',b.lb));
+}
+function rolesOf(o){
+  const B=o.sticker.blocks,one=B.lt===B.wide&&B.mid===B.wide&&B.lb===B.wide,two=B.lt===B.lb&&B.mid===B.wide&&B.lt!==B.wide;
+  const R=[B.wide];if(!one){if(two)R.push(B.lt);else{R.push(B.mid);R.push(B.lt)}}
+  const R1=[...new Set(R)],corner=(!one&&!two&&B.lt!==B.lb&&!R1.includes(B.lb))?B.lb:null;
+  const rows=R1.map((c,i)=>[c,i?'research':'main',false]);if(corner)rows.push([corner,'people feel',false]);
+  (o.sticker.dots||[]).forEach(d=>{if(d.c==='FDA'||rows.some(r=>r[0]===d.c))return;rows.push([d.c,d.f?'human research':'animal or community',true])});
+  return rows;
+}
+const chipsOf=o=>rolesOf(o).map(([c,t,dot])=>`<a class="chip${dot?' rep':''}" href="#/role/${c.toLowerCase()}"><i style="background:${HEX[c]}"></i>${esc(LONG[c])}</a>`).join('');
+function rolesList(o){
+  let h=rolesOf(o).map(([c,t,dot])=>`<li><i class="${dot?'dot':''}" style="background:${HEX[c]}"></i><span>${esc(o.desc[c]||LONG[c])}</span><em>${esc(LONG[c])}<small>${t}</small></em></li>`).join('');
+  if(o.fda)h+=`<li><i class="dot" style="${o.fdaFill?'background:#FF0000':'box-shadow:inset 0 0 0 2.5px #FF0000'}"></i><span>${o.fdaFill?'An FDA-approved medicine exists':'Approved outside the US only'}</span><em>Not this vial</em></li>`;
+  return `<ul class="roles">${h}</ul>`;
+}
+
+/* the chain as a snake of beads, N to C */
+function chainSVG(o,opt){
+  const seq=[...o.seq].filter(c=>AM[c]);if(!seq.length)return '';
+  const W=opt.W, letters=seq.length<=opt.maxLetters;
+  const d=letters?opt.d:Math.max(opt.dmin,Math.min(opt.d,Math.floor((W-60)/Math.min(seq.length,40))-3));
+  const gap=Math.round(d*.42), pitch=d+gap, side=26, turn=d*.9;
+  const per=Math.max(3,Math.floor((W-side*2-turn)/pitch)), rows=Math.ceil(seq.length/per);
+  const rowH=d+gap*1.8, H=Math.round(rows*rowH+gap*1.2), x0=side+d/2, y0=gap*.9+d/2;
+  const pts=seq.map((c,i)=>{const r=Math.floor(i/per),k=i%per,x=r%2?x0+(per-1-k)*pitch:x0+k*pitch;return[x,y0+r*rowH]});
+  let path='M'+pts[0][0]+','+pts[0][1];
+  for(let i=1;i<pts.length;i++){const [a,b]=pts[i-1],[x,y]=pts[i];if(y!==b){const dir=Math.floor(i/per)%2?1:-1;const cx=a+(dir>0?turn:-turn);path+=` C${cx+(dir>0?turn*.6:-turn*.6)},${b} ${cx+(dir>0?turn*.6:-turn*.6)},${y} ${x},${y}`}else path+=` L${x},${y}`}
+  const step=Math.min(40,900/seq.length);
+  const beads=seq.map((c,i)=>{const [x,y]=pts[i],col=HEX[AM[c][1]],fg=lum(col)>.42?'#3E4A80':'#FFFFE2';return `<g class="bd" style="--i:${i}"><circle cx="${x}" cy="${y}" r="${d/2}" fill="${col}" stroke="#3E4A80" stroke-width="${letters?1.4:1}"/>${letters?`<text x="${x}" y="${y+d*.17}" text-anchor="middle" font-size="${(d*.48).toFixed(1)}" font-weight="700" fill="${fg}" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${c}</text>`:''}</g>`}).join('');
+  const lastRight=(rows-1)%2===0;const [lx,ly]=pts[pts.length-1];
+  const nc=`<text x="${side-6}" y="${y0+d*.2}" text-anchor="end" font-size="${Math.max(11,d*.55)}" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,sans-serif">N</text><text x="${lastRight?lx+d/2+6:lx-d/2-6}" y="${ly+d*.2}" text-anchor="${lastRight?'start':'end'}" font-size="${Math.max(11,d*.55)}" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,sans-serif">C</text>`;
+  return `<div class="chain" style="--step:${step.toFixed(1)}ms"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${seq.length} amino acids in one chain"><path d="${path}" fill="none" stroke="#3E4A80" stroke-width="1.6"/>${beads}${nc}</svg></div>`;
+}
+const playChain=root=>{const c=root&&root.querySelector('.chain');if(c){c.classList.remove('play');void c.offsetWidth;c.classList.add('play')}};
+
+/* ---------- list ---------- */
+function filtered(){
+  const q=st.q.trim().toLowerCase().replace(/[\s\-–()]/g,'');
+  let L=D.filter(o=>{if(st.cols.length&&!st.cols.some(c=>has(o,c)))return false;if(q){const hay=(o.name+' '+(o.alias||'')).toLowerCase().replace(/[\s\-–()]/g,'');if(!hay.includes(q))return false}return true});
+  const az=(a,b)=>a.name.localeCompare(b.name),pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
+  if(st.sort==='az')L.sort(az);else if(st.sort==='role')L.sort((a,b)=>(ORDER[a.primary]-ORDER[b.primary])||pop(a,b));else L.sort(pop);
+  return L;
+}
+function nameLines(o){
+  if(o.sub){const main=o.sub[0]?[o.sub[0]]:(o.lines||[o.name]);return main.map(l=>`<span>${esc(l)}</span>`).join('')+(o.sub[1]?`<span class="sb">${esc(o.sub[1])}</span>`:'')}
+  return (o.lines||[o.name]).map(l=>`<span>${esc(l)}</span>`).join('');
+}
+const tile=o=>`<button class="tl" data-s="${o.slug}" aria-pressed="${cur===o.slug}" aria-label="${esc(o.name)}, ${aa(o)}, main role ${esc(LONG[o.primary])}"><span class="in"><span class="nm2">${nameLines(o)}</span><span class="aa">${aa(o)}${o.depth==='logged'?'<b>logged</b>':''}</span></span><span class="band" aria-hidden="true">${band(o)}</span></button>`;
+function renderControls(){
+  $('#sort').innerHTML=SORTS.map(([k,l])=>`<button data-sort="${k}" aria-pressed="${st.sort===k}">${l}</button>`).join('');
+  const allOpen=rOpen&&FAM.every((f,i)=>famOpen[i]);
+  $('#rtog').setAttribute('aria-expanded',rOpen);$('#rpanel').hidden=!rOpen;
+  $('#rsel').innerHTML=st.cols.length?st.cols.map(c=>`<span><i style="background:${HEX[c]}"></i>${esc(LONG[c])}</span>`).join(''):`<span class="sw" style="border:0;padding:0;background:none">${PAL.map(p=>`<i style="background:${p[2]}"></i>`).join('')}</span>`;
+  $('#rall').textContent=allOpen?'Collapse all':'Expand all';
+  if(!rOpen)return;
+  $('#rpanel').innerHTML=FAM.map(([f,ks],fi)=>{const on=!!famOpen[fi],n=ks.filter(k=>st.cols.includes(k)).length;
+    return `<div class="rf"><button class="rfh" data-fam="${fi}" aria-expanded="${on}"><span class="olab">${f}</span>${on?'':`<span class="sw">${ks.map(k=>`<i style="background:${HEX[k]}"></i>`).join('')}</span>`}<span class="n">${n?n+' on · ':''}${on?'Collapse':'Expand'}</span></button>${on?`<div class="pop5">${ks.map(k=>{const c=D.filter(o=>has(o,k)).length;return c?`<button class="ch5" data-c="${k}" aria-pressed="${st.cols.includes(k)}"><i style="background:${HEX[k]}"></i>${esc(LONG[k])} <em>${c}</em></button>`:''}).join('')}</div>`:''}</div>`}).join('')+(st.cols.length?`<button class="txtb" id="clr">Clear roles</button>`:'');
+}
+function renderGrid(){
+  const L=filtered();
+  $('#count').textContent=`${L.length} of ${D.length} compounds`+(st.cols.length?` · ${st.cols.map(c=>LONG[c]).join(' or ')}`:'');
+  let h='';
+  if(!L.length)h='<p class="empty">Nothing matches. Clear a role or try another name.</p>';
+  else if(st.sort==='role'){let last=null;L.forEach(o=>{if(o.primary!==last){last=o.primary;h+=`<div class="ghead"><i style="background:${HEX[last]}${edge(HEX[last])}"></i><span class="olab">${esc(LONG[last])}</span></div>`}h+=tile(o)})}
+  else h=L.map(tile).join('');
+  const cw=$('#cardwrap');if($('#grid').contains(cw))$('#listv').appendChild(cw);
+  $('#grid').innerHTML=h;
+  if(cur){if(L.some(o=>o.slug===cur))placeCard();else if(narrow())closeCard()}
+  store.set('bs-lib-v6',{sort:st.sort,cols:st.cols});
+}
+function render(){renderControls();renderGrid()}
+
+/* ---------- the card ---------- */
+function synInline(o){
+  if(!o.syn)return '<span class="note">Not logged yet.</span>';
+  return o.syn.map(([n,src])=>{const t=D.find(x=>x.name===n);return t?`<a data-open="${t.slug}" title="${esc(src)}">${esc(n)}</a>`:`<span title="${esc(src)}">${esc(n)}</span>`}).join(', ');
+}
+function cardHTML(o){
+  const n=o.seq.length,[cn]=cls(o),w=weight(o);
+  const big=n?`<div class="big"><b>${n}</b><span>aa</span></div>`:`<div class="big np"><b>not a<br>peptide</b></div>`;
+  const rows=[['Length',n?`${n} amino acid${n>1?'s':''}`:'Not a peptide']];
+  if(n)rows.push(['Class',`${cn}${n>=50?' · a protein':' · a peptide'}`]);
+  if(n)rows.push(['Weight',`${fmt(w)} g/mol <span class="note">chain only</span>`]);
+  rows.push(['Origin',esc(o.otl)]);
+  if(o.alias)rows.push(['Also called',esc(o.alias)]);
+  rows.push(['Reported dose',o.dose?`${esc(o.dose.main)} <span class="note">reported, not a recommendation</span>`:'<span class="note">Collected in its research sweep</span>']);
+  rows.push(['Synergies',`<span class="syn">${synInline(o)}</span>`]);
+  const T=[['f','Facts'],['s','Structure'],['r','Roles']];
+  const chain=n?chainSVG(o,{W:520,d:30,dmin:9,maxLetters:20})+`<p class="capt"><b>N</b> to <b>C</b>, one bead per amino acid, coloured by its main role.${n>20?' Letters are shown on chains of 20 or fewer.':''}</p>`:'<p class="note">Not a peptide, so there is no chain to show.</p>';
+  return `<article class="card">
+    <div class="ch"><button class="x" id="x" aria-label="Close card">×</button>${big}<div><h3>${esc(o.name)}</h3><p class="sub">${n?cn+' · ':''}${esc(LONG[o.primary])} · <b>${DEPTH[o.depth]}</b></p></div></div>
+    <div class="strip" aria-hidden="true"><span class="band" style="position:absolute;inset:0">${band(o)}</span></div>
+    <div class="chips">${chipsOf(o)}</div>
+    <div class="tabs" role="tablist">${T.map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join('')}</div>
+    <div class="pane${tab==='f'?' on':''}" data-p="f"><p class="lab ph">Facts</p><table class="spec"><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></div>
+    <div class="pane${tab==='s'?' on':''}" data-p="s"><p class="lab ph">Structure</p>${chain}</div>
+    <div class="pane${tab==='r'?' on':''}" data-p="r"><p class="lab ph">Roles</p>${rolesList(o)}</div>
+    <div class="go"><span class="credit">Data collected by <b>Bare Signals</b></span><a href="#/p/${o.slug}">Open full page</a></div>
+  </article>`;
+}
+function placeCard(){
+  const cw=$('#cardwrap');
+  if(!narrow()){if(cw.parentNode!==$('#listv'))$('#listv').appendChild(cw);return}
+  const t=document.querySelector(`.tl[data-s="${cur}"]`);if(!t)return;
+  let last=t,n=t.nextElementSibling;while(n&&n.classList.contains('tl')&&n.offsetTop===t.offsetTop){last=n;n=n.nextElementSibling}
+  last.after(cw);
+}
+function openCard(slug,scroll){
+  const o=D.find(x=>x.slug===slug);if(!o)return;
+  cur=slug;const cw=$('#cardwrap');cw.innerHTML=cardHTML(o);cw.hidden=false;
+  document.querySelectorAll('.tl').forEach(t=>t.setAttribute('aria-pressed',t.dataset.s===slug));
+  placeCard();history.replaceState(null,'','#/'+slug);document.title=o.name+' · Bare Signals Library';
+  if(scroll!==false){if(narrow())cw.scrollIntoView({block:'nearest'});else cw.scrollTop=0}
+  if(!narrow()||tab==='s')playChain(cw);
+}
+function closeCard(){
+  cur=null;const cw=$('#cardwrap');document.querySelectorAll('.tl').forEach(t=>t.setAttribute('aria-pressed','false'));
+  if(narrow()){cw.hidden=true;$('#listv').appendChild(cw)}else{cw.innerHTML='<p class="empty-card">Tap a compound to open its card.</p>';cw.hidden=false}
+  history.replaceState(null,'','#/');document.title='Library · Bare Signals';
+}
+
+/* ---------- the full page ---------- */
+const SEC=[['found','When it was found'],['first','What it was first meant for'],['tested','What’s been tested'],['worked','What worked'],['didnt','What didn’t'],['reports','What people report']];
+function pageHTML(o){
+  const L=filtered();const seq=L.some(x=>x.slug===o.slug)?L:D.slice().sort((a,b)=>((a.rank||999)-(b.rank||999))||a.name.localeCompare(b.name));
+  const i=seq.findIndex(x=>x.slug===o.slug),prev=seq[(i-1+seq.length)%seq.length],next=seq[(i+1)%seq.length];
+  const n=o.seq.length,[cn,cdesc]=cls(o),w=weight(o);
+  const leg=rolesOf(o).map(([c,t,dot])=>`<span class="${dot?'r':''}"><i style="background:${HEX[c]}"></i>${esc(LONG[c])}</span>`).join('');
+  const chain=n?`<div class="pchain">${chainSVG(o,{W:1000,d:38,dmin:12,maxLetters:60})}</div><p class="capt"><b>N</b> is the amino end, <b>C</b> the carboxyl end. One bead per amino acid, coloured by its main role. ${o.seqNote?esc(o.seqNote)+'.':''}</p>`:'';
+  const stats=`<div class="stats"><div><span>Residues</span><strong>${n||'0'}</strong></div><div><span>Weight</span><strong>${n?fmt(w):'n/a'}</strong>${n?'<span>g/mol, chain only</span>':''}</div><div><span>Class</span><strong>${n?(n>=50?'Protein':'Peptide'):'Not a peptide'}</strong><span>${esc(cn)}${n?', '+esc(cdesc):''}</span></div></div>`;
+  const dose=o.dose?`<div class="gi wide"><dt>Most common reported dose</dt><dd><div class="dose"><b>${esc(o.dose.main)}</b><small>Reported by users, not a recommendation. Sources are kept apart, never added together.</small></div><table class="dtab"><tbody>${o.dose.rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table>${o.dose.course?`<p class="note" style="margin-top:6px">${esc(o.dose.course)}</p>`:''}</dd></div>`
+    :`<div class="gi wide"><dt>Most common reported dose</dt><dd><span class="note" style="font-size:inherit">Collected in this compound's research sweep; not logged yet.</span></dd></div>`;
+  const syn=`<div class="gi wide"><dt>Synergies</dt><dd>${o.syn?`<div class="synl">${o.syn.map(([nm,src])=>{const t=D.find(x=>x.name===nm);return t?`<a href="#/p/${t.slug}"><i style="background:${HEX[t.primary]}"></i>${esc(nm)} <em>${esc(src)}</em></a>`:`<span>${esc(nm)} <em>${esc(src)}</em></span>`}).join('')}</div><p class="note">Taken together in reports, tested together, or sold together as a blend. Not proof they work better together.</p>`:'<span class="note" style="font-size:inherit">Not logged yet; comes with the research sweep.</span>'}</dd></div>`;
+  const cells=SEC.map(([k,l])=>`<div class="gi"><dt>${l}</dt><dd>${esc(o[k])}</dd></div>`).join('')+dose+syn+`<div class="gi wide"><dt>Status</dt><dd>${esc(o.status)}</dd></div>`;
+  const pools=o.pools?`<div class="pools">${o.pools.map(p=>`<div><strong>${esc(p[0])}</strong><span>${esc(p[1])}</span><em>${esc(p[2])}</em></div>`).join('')}</div>`:'';
+  const idrows=[];if(n)idrows.push(['Sequence',`<span class="seqv">${esc(o.seq)}</span>`]);if(o.alias)idrows.push(['Also called',esc(o.alias)]);idrows.push(['Origin',esc(o.originDetail)]);
+  const note=o.depth==='draft'?'Draft page: written before a research sweep. Numbers, studies and status are checked against sources on the first sweep.':o.depth==='logged'?'Built from the research log, reviewed 21 to 22 Oct 2026. Reported data, labelled by source.':'Here for comparison with the compounds that copy or build on it.';
+  const fn=o.sources?`<div class="fn"><p class="lab">Sources</p><ol>${o.sources.map(s=>`<li><a href="${esc(s[1])}" rel="noopener noreferrer" target="_blank">${esc(s[0])}</a></li>`).join('')}</ol><p style="margin:4px 0 0">Forum and Reddit accounts are kept in the research log.</p></div>`:'';
+  return `<a class="back" href="#/${o.slug}">Library</a>
+  <div class="built"><div class="pnt"><span class="olab">Bare Signals Library</span><strong>${esc(o.name)}</strong><span class="pnc">${n?n+' amino acids':'Not a peptide'}${n>=50?' · a protein':''} · ${esc(LONG[o.primary])} · ${DEPTH[o.depth]}</span></div><span class="pst" aria-hidden="true">${blockBand(o)}</span></div>
+  <div class="leg">${leg}</div>
+  <div class="ori"><b>${esc(o.otl)}</b><p>${esc(o.story||o.found)}</p></div>
+  ${chain}${stats}
+  <div class="cp">
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">${pools}<dl class="gl">${cells}</dl></div>
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <div class="box"><div class="bh"><p class="olab">Roles in the body</p></div><div class="bb">${rolesList(o)}</div></div>
+      <div class="box"><div class="bh"><p class="olab">Identity</p></div><div class="bb" style="padding-top:10px"><table class="spec"><tbody>${idrows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table>${o.canva?'':'<p class="note" style="margin-top:8px">No Canva sticker yet; colours from the Aminos stripe.</p>'}</div></div>
+      <p class="note">${note}</p>
+    </div>
+  </div>
+  <div class="nav"><a href="#/p/${prev.slug}">Previous: ${esc(prev.name)}</a><a href="#/p/${next.slug}">Next: ${esc(next.name)}</a></div>
+  ${fn}
+  <div class="pfoot"><span class="credit">Data collected by <b>Bare Signals</b> · baresignals.co</span><span class="credit">Reported data, not medical advice</span></div>`;
+}
+
+/* ---------- routing and events ---------- */
+function route(){
+  const h=location.hash;let m=h.match(/^#\/p\/(.+)$/);
+  if(m){const o=D.find(x=>x.slug===decodeURIComponent(m[1]));if(o){if(!$('#listv').hidden)listY=scrollY;$('#listv').hidden=true;$('#pagev').hidden=false;$('#pagev').innerHTML=pageHTML(o);document.title=o.name+' · Bare Signals Library';scrollTo(0,0);playChain($('#pagev'));return}}
+  const wasPage=!$('#pagev').hidden;if(wasPage){$('#pagev').hidden=true;$('#listv').hidden=false}
+  m=h.match(/^#\/role\/(.+)$/);
+  if(m){const k=keyOf(decodeURIComponent(m[1]));st.cols=k?[k[0]]:[];st.q='';$('#q').value='';render();if(cur&&filtered().some(o=>o.slug===cur))history.replaceState(null,'','#/'+cur);else{if(cur)closeCard();history.replaceState(null,'','#/')}$('#count').scrollIntoView({block:'start'});return}
+  m=h.match(/^#\/([^/]+)$/);
+  if(m&&D.find(x=>x.slug===m[1])){render();openCard(m[1],!wasPage);if(wasPage)scrollTo(0,listY);return}
+  render();if(wasPage)scrollTo(0,listY);
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tl');if(t){if(cur===t.dataset.s&&narrow())closeCard();else openCard(t.dataset.s);return}
+  const op=e.target.closest('[data-open]');if(op){openCard(op.dataset.open);return}
+  if(e.target.closest('#x')){closeCard();return}
+  const tb=e.target.closest('.tabs button');if(tb){tab=tb.dataset.tab;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b===tb));document.querySelectorAll('#cardwrap .pane').forEach(p=>p.classList.toggle('on',p.dataset.p===tab));if(tab==='s')playChain($('#cardwrap'));return}
+  const so=e.target.closest('[data-sort]');if(so){st.sort=so.dataset.sort;render();return}
+  if(e.target.closest('#rtog')){rOpen=!rOpen;renderControls();return}
+  if(e.target.closest('#rall')){const allOpen=rOpen&&FAM.every((f,i)=>famOpen[i]);if(allOpen)FAM.forEach((f,i)=>famOpen[i]=false);else{rOpen=true;FAM.forEach((f,i)=>famOpen[i]=true)}renderControls();return}
+  const fh=e.target.closest('.rfh');if(fh){famOpen[fh.dataset.fam]=!famOpen[fh.dataset.fam];renderControls();return}
+  const ch=e.target.closest('.ch5');if(ch){const c=ch.dataset.c;st.cols=st.cols.includes(c)?st.cols.filter(v=>v!==c):st.cols.concat(c);render();return}
+  if(e.target.closest('#clr')){st.cols=[];render();return}
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;renderGrid()});
+let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;if(cur)placeCard();else if(!narrow())closeCard();else $('#cardwrap').hidden=true});
+addEventListener('hashchange',route);
+route();
+if(!cur&&!narrow()&&$('#pagev').hidden)openCard('bpc-157',false);
+})();
+</script>
+</body>
+</html>
