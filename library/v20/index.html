@@ -130,7 +130,7 @@ h1 small{font:500 calc(12px*var(--k)) var(--mono);color:var(--accent);margin-lef
 .pst .dts b{width:16px;height:16px}
 /* an open card dims the rest */
 .grid.dim .tl:not([aria-pressed="true"]){opacity:.42}
-.grid.dim .tl:hover{opacity:1}
+@media (hover:hover){.grid.dim .tl:hover{opacity:1}}
 
 /* tiles: elongated like the Aminos tiles, floating, name broken like the stickers, thick stripes at the bottom */
 .grid{display:grid;gap:10px 8px;grid-template-columns:repeat(3,minmax(0,1fr));padding:2px 3px 6px 0}
@@ -152,7 +152,7 @@ h1 small{font:500 calc(12px*var(--k)) var(--mono);color:var(--accent);margin-lef
 .tl[aria-pressed="true"] .lg{background:var(--paper)}
 .tl .band{position:relative;height:22px;border-top:1.5px solid var(--ink);flex:none}
 .band i{position:absolute;display:block;top:0;bottom:0}
-.tl:hover{background:var(--paper)}
+@media (hover:hover){.tl:hover{background:var(--paper)}}
 .tl[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--accent)}
 .tl[aria-pressed="true"] .aa,.tl[aria-pressed="true"] .nm2 .sb{color:var(--paper)}
 
