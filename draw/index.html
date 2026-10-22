@@ -53,7 +53,7 @@ h1{font:700 34px/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
 input[type=text],input[type=number]{color:var(--accent-ink);width:100%;min-height:40px;padding:6px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:600 18px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
 input[type=text]{font:500 16px var(--body);min-height:38px;color:var(--ink)}
 input[type=date]{width:100%;min-height:34px;padding:4px 10px;text-align:center;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:500 14px var(--mono);color:var(--ink)}
-input[type=number]{-moz-appearance:textfield;appearance:textfield}
+input[type=number]{-moz-appearance:textfield;appearance:textfield;color:var(--accent);font-weight:700}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 ::placeholder{color:#8A93BE}
 input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
@@ -381,6 +381,22 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .lt1,.lt2,.lt3{font:600 9px var(--mono);fill:var(--accent-ink)}
 .maxl{font:700 16px var(--display)}
 .maxu{font:600 8px var(--mono);fill:var(--accent-ink);letter-spacing:.06em}
+.gviz{display:flex;align-items:flex-end;justify-content:center;gap:26px;padding:8px 0 2px;min-height:120px}
+.gviz figure{display:flex;flex-direction:column;align-items:center;gap:4px;margin:0}
+.gviz svg{display:block;height:108px;width:auto;overflow:visible}
+.gviz figcaption{font:600 11px var(--mono);letter-spacing:.06em;color:var(--soft);text-align:center}
+.gviz figcaption b{color:var(--accent-ink);font-weight:700}
+.gviz .gref figcaption{color:var(--soft)}
+@keyframes nudge{0%,100%{transform:translateX(0)}15%{transform:translateX(-5px)}35%{transform:translateX(5px)}55%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.nudge{animation:nudge .55s ease}
+.dwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.dwrap.on{grid-template-rows:1fr}
+.dwrap>div{overflow:hidden;min-height:0}
+.dhint{font:500 10.5px var(--mono);color:var(--accent-ink);text-align:center;padding:2px 0 4px}
+.rteaser{display:grid;gap:0;margin:8px 0 0;border-top:1.5px solid var(--accent)}
+.rtrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);padding:5px 0}
+.rtrow span{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.rtrow b{font:600 13px var(--mono);color:var(--accent-ink);text-align:right}
 .needle{display:flex;align-items:center;gap:14px;margin:4px 0;min-height:44px}
 .needle .bar{width:140px;max-width:45%;background:var(--ink);flex:none;transition:height .3s}
 .needle span{font:500 12.5px var(--mono)}
@@ -422,7 +438,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v8</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v9</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -540,7 +556,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
           <input type="date" id="mixed">
           <div class="nl">Take</div>
           <div class="qchips tight" id="freqQ" role="group" aria-label="How often"></div>
-          <div class="qchips tight" id="dayQ" role="group" aria-label="Days"></div>
+          <div class="dwrap" id="daysWrap"><div><div class="qchips tight" id="dayQ" role="group" aria-label="Days"></div><p class="dhint" id="dayHint">Pick a day</p></div></div>
           <div class="nl">When</div>
           <div class="qchips tight" id="timeQ" role="group" aria-label="Time of day"></div>
           <label class="nl" for="note">Your notes</label>
@@ -595,11 +611,16 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="ref">
       <b>Reported doses</b>
       <p id="refTxt"></p>
-      <div class="refl"><a class="btn" id="refDose" href="https://baresignals.co/dosage/" target="_blank" rel="noopener">Reported doses</a><a class="btn" id="refFull" href="https://baresignals.co/library/" target="_blank" rel="noopener" hidden>Full entry</a></div>
+      <div class="rteaser" id="refTease" hidden>
+        <div class="rtrow"><span>Most common</span><b id="rtDose"></b></div>
+        <div class="rtrow"><span>How often</span><b id="rtFreq"></b></div>
+        <div class="rtrow"><span>Typical cycle</span><b id="rtCycle"></b></div>
+      </div>
+      <div class="refl"><a class="btn" id="refDose" href="https://baresignals.co/dosage/" target="_blank" rel="noopener">Reported doses</a><a class="btn" id="refFull" href="https://baresignals.co/library/" target="_blank" rel="noopener" hidden>Full read</a></div>
     </div>
   </aside>
 
-  <details class="math" id="math" open>
+  <details class="math" id="math">
     <summary>Show the math</summary>
     <div class="mbody">
       <div class="byhand">Strength = mg × 1,000 ÷ mL of liquid<br>Volume = dose in mcg ÷ strength<br>Units = volume in mL × 100</div>
@@ -677,7 +698,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="qb">
       <p>Bigger number, thinner needle. It changes comfort, not your math.</p>
       <div class="qchips" id="gaugeQ" role="group" aria-label="Needle gauge"></div>
-      <div class="needle"><div class="bar" id="gBar" style="height:12px"></div><span id="gTxt"></span></div>
+      <div class="gviz" id="gViz"></div>
+      <p class="note" id="gTxt" style="font-weight:600;color:var(--ink)"></p>
       <p class="note" id="gNote"></p>
     </div>
   </details>
@@ -711,6 +733,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v9: brighter orange numbers in the vial, liquid and dose inputs, a wider Take row with Daily, Every other day, Weekly, 5 on 2 off and When needed, days that open and nudge when you pick Weekly, a reported dose teaser on the card (most common dose, how often, cycle) so you keep your typing, Show the math collapsed by default, the Luer lock needle kept in frame on push so you see where it comes out, and the gauge drawn as an angled needle with 32, 33 and 34 added and a 31G reference. v1 to v8 are unchanged.</span>
   <span>v8: laptop layout with Weight and Mixing on the left and Syringes on the right, one I know all three button, larger vials on laptop, vials on one level, green diluent, a fuller powder, orange vial and liquid numbers in the Mixing sample, rotating example names (BPC-157, TB-500, GLOW) and notes (collagen, vitamin C, ubiquinol), orange Dates and notes labels, Reported doses now links to the Dosage page and the Library entry for the compound you type. v1 to v7 are unchanged.</span>
   <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
   <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
@@ -867,8 +890,8 @@ Syr.prototype.zoom=function(on,ms){
   const cur=svg.getBoundingClientRect();
   if(!this.sz0&&cur.width>0)this.sz0=[cur.width,cur.height];
   const from=svg.getAttribute('viewBox').split(' ').map(Number),fromSz=[cur.width,cur.height];
-  const tw=96,th=118;
-  const to=on?[this.cx-28,this.yb+(this.type==='luer'?27:8)-52,tw,th]:this.vb0;
+  const tw=96,th=this.type==='luer'?140:118;
+  const to=on?[this.cx-28,this.yb+(this.type==='luer'?20:8)-52,tw,th]:this.vb0;
   const zw=Math.min((svg.parentNode.clientWidth||180)-8,170);
   const toSz=on?[zw,zw*th/tw]:(this.sz0||fromSz);
   const apply=function(a,sz){
@@ -1362,14 +1385,26 @@ $('#copyMath').onclick=function(){
 };
 
 /* gauge */
-const G=[['18',1.27,'Wide bore. Moves liquid fast.'],['21',0.82,'Wide. Common on standard needles for drawing up.'],['25',0.51,'Mid range. Common on needles that twist on.'],['27',0.41,'Thin. Needles that twist on and some insulin syringes.'],['29',0.33,'Thin. Common on insulin syringes.'],['30',0.31,'Thinner. Common on insulin syringes.'],['31',0.26,'Thinnest of the usual sizes. Insulin syringes.']];
-let gi=4;
+const G=[['18',1.27,'Wide bore. Moves liquid fast.'],['21',0.82,'Wide. Common on standard needles for drawing up.'],['25',0.51,'Mid range. Common on needles that twist on.'],['27',0.41,'Thin. Needles that twist on and some insulin syringes.'],['29',0.33,'Thin. Common on insulin syringes.'],['30',0.31,'Thinner. Common on insulin syringes.'],['31',0.26,'Thinnest of the usual sizes. Insulin syringes.'],['32',0.235,'Very thin. Fine insulin and pen needles.'],['33',0.21,'Very thin. Fine gauge pens and insulin.'],['34',0.18,'Thinnest in common use. Barely felt, slow to draw.']];
+let gi=6;
+function needleSVG(mm,sel){
+  const w=Math.max(2.2,mm*15),x=35,hw=w/2;
+  const hub=sel?'#B04A16':'#59649A',sh=sel?'#DB6830':'none',stk=sel?'none':'#59649A',op=sel?'':' opacity=".55"';
+  return '<svg viewBox="0 0 70 120" aria-hidden="true"><g transform="rotate(15 35 60)">'
+    +'<rect x="'+(x-11)+'" y="3" width="22" height="5" fill="'+hub+'"'+op+'/>'
+    +'<rect x="'+(x-8)+'" y="8" width="16" height="9" fill="'+hub+'"'+op+'/>'
+    +'<rect x="'+(x-hw)+'" y="17" width="'+w+'" height="80" fill="'+sh+'" stroke="'+stk+'" stroke-width="1"/>'
+    +'<path d="M'+(x-hw)+' 97 L'+(x+hw)+' 97 L'+(x+hw)+' 112 Z" fill="'+(sel?'#B04A16':'none')+'" stroke="'+stk+'" stroke-width="1"/>'
+    +'</g></svg>';
+}
 function renderGauge(){
   $('#gaugeQ').innerHTML=G.map(function(g,i){return '<button type="button" class="btn q" aria-pressed="'+(i===gi)+'" data-i="'+i+'">'+g[0]+'G</button>';}).join('');
   $$('#gaugeQ .q').forEach(function(b){b.onclick=function(){gi=+b.dataset.i;renderGauge();};});
-  const g=G[gi];
-  $('#gBar').style.height=Math.max(2,Math.round(g[1]*36))+'px';
-  $('#gTxt').textContent=g[0]+'G is about '+g[1]+' mm across';
+  const g=G[gi],REF=6;
+  let html='<figure class="sel"><div>'+needleSVG(g[1],true)+'</div><figcaption><b>'+g[0]+'G</b><br>'+g[1]+' mm</figcaption></figure>';
+  if(gi!==REF)html+='<figure class="gref"><div>'+needleSVG(G[REF][1],false)+'</div><figcaption>'+G[REF][0]+'G<br>most common</figcaption></figure>';
+  $('#gViz').innerHTML=html;
+  $('#gTxt').textContent=g[0]+'G is about '+g[1]+' mm across.';
   $('#gNote').textContent=g[2];
 }
 
@@ -1400,8 +1435,15 @@ setMode(startMode);
     $(box).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'" aria-pressed="false">'+v+'</button>';}).join('');
     $$(box+' .q').forEach(function(b){b.onclick=function(){tog(b.dataset.v);$$(box+' .q').forEach(function(x){x.setAttribute('aria-pressed',get(x.dataset.v));});update();};});
   };
-  mk2('#freqQ',['Daily','Weekly'],function(v){return S.freq===v;},function(v){S.freq=S.freq===v?'':v;});
-  mk2('#dayQ',DAYS,function(v){return S.days.indexOf(v)>-1;},function(v){const i=S.days.indexOf(v);if(i>-1)S.days.splice(i,1);else S.days.push(v);});
+  const FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on, 2 off',0],['When needed',0]];
+  function daysNeeded(){const f=FREQ.filter(function(x){return x[0]===S.freq;})[0];return f?!!f[1]:false;}
+  function paintDays(){$$('#dayQ .q').forEach(function(x){x.setAttribute('aria-pressed',S.days.indexOf(x.dataset.v)>-1);});$('#dayHint').style.display=S.days.length?'none':'';}
+  function syncDays(nudge){const w=$('#daysWrap'),need=daysNeeded();w.classList.toggle('on',need);if(!need){S.days=[];paintDays();}if(need&&nudge&&!S.days.length){w.classList.remove('nudge');void w.offsetWidth;w.classList.add('nudge');}}
+  $('#freqQ').innerHTML=FREQ.map(function(f){return '<button type="button" class="btn q" data-v="'+f[0]+'" aria-pressed="false">'+f[0]+'</button>';}).join('');
+  $$('#freqQ .q').forEach(function(b){b.onclick=function(){S.freq=S.freq===b.dataset.v?'':b.dataset.v;$$('#freqQ .q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===S.freq);});syncDays(true);update();};});
+  $('#dayQ').innerHTML=DAYS.map(function(d){return '<button type="button" class="btn q" data-v="'+d+'" aria-pressed="false">'+d+'</button>';}).join('');
+  $$('#dayQ .q').forEach(function(b){b.onclick=function(){const i=S.days.indexOf(b.dataset.v);if(i>-1)S.days.splice(i,1);else S.days.push(b.dataset.v);paintDays();update();};});
+  syncDays(false);
   mk2('#timeQ',TIMES,function(v){return S.times.indexOf(v)>-1;},function(v){const i=S.times.indexOf(v);if(i>-1)S.times.splice(i,1);else S.times.push(v);});
   $('#mixed').addEventListener('input',function(){S.mixed=this.value||todayISO();update();});
   $('#mixed').addEventListener('change',function(){if(!this.value)this.value=todayISO();S.mixed=this.value;update();});
@@ -1413,13 +1455,21 @@ setMode(startMode);
   rot($('#pname'),['BPC-157','TB-500','GLOW','Ipamorelin','GHK-Cu','Retatrutide'],'');
   rot($('#note'),['Take with collagen','Take with vitamin C','Take with ubiquinol','Empty stomach','Rotate injection sites'],'');
 })();
-/* reported doses link */
-const LIB=[["Insulin","insulin"],["FOXO4-DRI","foxo4-dri"],["NAD+","nadplus"],["Creatine","creatine"],["Methylene blue","methylene-blue"],["Retatrutide","retatrutide"],["Cagrilintide","cagrilintide"],["Somatropin (HGH)","somatropin-hgh"],["Gonadorelin","gonadorelin"],["Larazotide","larazotide"],["Carnosine","carnosine"],["MK-677","mk-677"],["SLU-PP-332","slu-pp-332"],["5-Amino-1MQ","5-amino-1mq"],["Cerebrolysin","cerebrolysin"],["Bromantane","bromantane"],["GLP-1","glp-1"],["Glucagon","glucagon"],["Exenatide","exenatide"],["Amylin","amylin"],["Ubiquitin","ubiquitin"],["BPC-157","bpc-157"],["TB-500 frag 17–23","tb-500-frag-17-23"],["GHK-Cu","ghk-cu"],["KPV","kpv"],["Thymosin Beta-4","thymosin-beta-4"],["Semaglutide","semaglutide"],["Tirzepatide","tirzepatide"],["MOTS-c","mots-c"],["SS-31","ss-31"],["Ipamorelin","ipamorelin"],["CJC-1295 no DAC","cjc-1295-no-dac"],["Tesamorelin","tesamorelin"],["Sermorelin","sermorelin"],["Kisspeptin-10","kisspeptin-10"],["Selank","selank"],["Semax","semax"],["Pinealon","pinealon"],["Epitalon","epitalon"],["DSIP","dsip"],["Thymosin Alpha-1","thymosin-alpha-1"],["LL-37","ll-37"],["MT-2","mt-2"],["PT-141","pt-141"],["Oxytocin","oxytocin"],["CJC-1295 with DAC","cjc-1295-with-dac"],["IGF-1 LR3","igf-1-lr3"],["PEG-MGF","peg-mgf"],["GHK (no Cu)","ghk-no-cu"],["AHK-Cu","ahk-cu"],["SNAP-8","snap-8"],["Adipotide","adipotide"],["Cardiogen","cardiogen"],["Chonluten","chonluten"],["Bronchogen","bronchogen"],["Ovagen","ovagen"],["Pancragen","pancragen"],["Livagen","livagen"],["Prostamax","prostamax"],["Vesugen","vesugen"],["Vesilute","vesilute"],["Cartalax","cartalax"],["TB-500 frag 1–4","tb-500-frag-1-4"],["NA Selank Amidate","na-selank-amidate"],["NA Semax Amidate","na-semax-amidate"],["Glutathione","glutathione"],["Vilon","vilon"],["Thymogen","thymogen"],["Crystagen","crystagen"],["Cortagen","cortagen"],["Testagen","testagen"],["Thymulin","thymulin"],["ARA-290","ara-290"],["Humanin","humanin"],["AOD-9604","aod-9604"],["HGH frag 176–191","hgh-frag-176-191"],["GHRP-2","ghrp-2"],["GHRP-6","ghrp-6"],["Hexarelin","hexarelin"],["Melanotan 1","melanotan-1"],["VIP","vip"],["Teriparatide","teriparatide"]];
+/* reported doses link + teaser */
+const LIB=[["Insulin","insulin","0.4–1 U/kg/day","basal plus meals","ongoing"],["FOXO4-DRI","foxo4-dri","250–500 mcg","daily","short pulses"],["NAD+","nadplus","50–100 mg","2–3x weekly","4–8 weeks"],["Creatine","creatine","3–5 g","once daily","ongoing"],["Methylene blue","methylene-blue","5–20 mg","once daily","ongoing or cycled"],["Retatrutide","retatrutide","2–12 mg","once weekly","ongoing, titrated"],["Cagrilintide","cagrilintide","0.25–2.4 mg","once weekly","ongoing, titrated"],["Somatropin (HGH)","somatropin-hgh","0.2–1 mg","once daily","ongoing"],["Gonadorelin","gonadorelin","100–200 mcg","2–3x weekly","ongoing alongside TRT"],["Larazotide","larazotide","0.5 mg","3x daily","ongoing"],["Carnosine","carnosine","500–2000 mg","1–2x daily","ongoing"],["MK-677","mk-677","10–25 mg","once daily","ongoing or 8–16 weeks"],["SLU-PP-332","slu-pp-332","250–1000 mcg","once daily","4–8 weeks"],["5-Amino-1MQ","5-amino-1mq","50–100 mg","once daily","8–12 weeks"],["Cerebrolysin","cerebrolysin","5–30 mL","once daily","10–20 days"],["Bromantane","bromantane","50–100 mg","once daily","2–4 weeks"],["GLP-1","glp-1","","",""],["Glucagon","glucagon","1 mg","once, may repeat","rescue only"],["Exenatide","exenatide","5–10 mcg","twice daily","ongoing"],["Amylin","amylin","15–120 mcg","before major meals","ongoing"],["Ubiquitin","ubiquitin","","",""],["BPC-157","bpc-157","250–500 mcg","1–2× daily","4–8 weeks"],["TB-500 frag 17–23","tb-500-frag-17-23","2–2.5 mg","1–2× weekly","4–12 weeks"],["GHK-Cu","ghk-cu","1–3 mg","Daily or 5 on, 2 off","8–12 weeks, 4 off"],["KPV","kpv","250 mcg–1 mg","1–2× daily","4–8 weeks"],["Thymosin Beta-4","thymosin-beta-4","2–2.5 mg","2x weekly","4–6 weeks, then weekly"],["Semaglutide","semaglutide","0.25–2.4 mg","once weekly","ongoing; HD 7.2 mg"],["Tirzepatide","tirzepatide","2.5–15 mg","once weekly","ongoing, titrated"],["MOTS-c","mots-c","5–10 mg","3x weekly","4–8 weeks"],["SS-31","ss-31","40 mg","once daily","ongoing"],["Ipamorelin","ipamorelin","100–300 mcg","1–3x daily","8–12 weeks"],["CJC-1295 no DAC","cjc-1295-no-dac","100 mcg","1–3x daily","8–12 weeks"],["Tesamorelin","tesamorelin","1.28–2 mg","once daily","ongoing"],["Sermorelin","sermorelin","200–300 mcg","nightly, 5 days/wk","3–6 months"],["Kisspeptin-10","kisspeptin-10","100–200 mcg","daily or as needed","Variable"],["Selank","selank","300–600 mcg","2–3x daily","14–30 days"],["Semax","semax","300–600 mcg","1–2x daily","1–2 wks on, 1 off"],["Pinealon","pinealon","0.5–1 mg","once daily","10–20 days"],["Epitalon","epitalon","5–10 mg","once daily","10–20 days, 2–3x/yr"],["DSIP","dsip","100–300 mcg","nightly","a few weeks"],["Thymosin Alpha-1","thymosin-alpha-1","1.6 mg","2x weekly","6 months (hep B)"],["LL-37","ll-37","100–200 mcg","daily, 5 days/wk","2–4 weeks"],["MT-2","mt-2","0.25–0.5 mg","Daily, then weekly","Load 2–3 wk, maintain"],["PT-141","pt-141","1.75 mg","As needed, ≤8/mo","On demand"],["Oxytocin","oxytocin","10–24 IU","As needed","Acute use"],["CJC-1295 with DAC","cjc-1295-with-dac","2 mg","1× weekly","8–12 weeks"],["IGF-1 LR3","igf-1-lr3","20–50 mcg","Daily","4–6 weeks"],["PEG-MGF","peg-mgf","200–400 mcg","2–3× weekly","4–8 weeks"],["GHK (no Cu)","ghk-no-cu","1–2 mg","Daily","4–8 weeks"],["AHK-Cu","ahk-cu","2–5% serum","1–2× daily","Ongoing"],["SNAP-8","snap-8","3–10% solution","2× daily","28+ days, ongoing"],["Adipotide","adipotide","","",""],["Cardiogen","cardiogen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Chonluten","chonluten","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Bronchogen","bronchogen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Ovagen","ovagen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Pancragen","pancragen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Livagen","livagen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Prostamax","prostamax","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Vesugen","vesugen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Vesilute","vesilute","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Cartalax","cartalax","1–2 mg","Daily","10–20 days, 1–2×/yr"],["TB-500 frag 1–4","tb-500-frag-1-4","","",""],["NA Selank Amidate","na-selank-amidate","200–500 mcg","1–2× daily","14–20 days"],["NA Semax Amidate","na-semax-amidate","200–600 mcg","1–2× daily","10–14 days"],["Glutathione","glutathione","600–1200 mg","1–2× weekly","Ongoing"],["Vilon","vilon","100–200 mcg","1× daily","10–20 days, 1–2×/yr"],["Thymogen","thymogen","100 mcg","1× daily","3–10 days"],["Crystagen","crystagen","10 mg","1× daily","10–20 days"],["Cortagen","cortagen","0.5–2 mg","1× daily","10–20 days"],["Testagen","testagen","1–2 mg","1× daily","10–20 days"],["Thymulin","thymulin","2 mg","1× daily, evening","20 days, 3×/yr"],["ARA-290","ara-290","4 mg","1× daily","28 days"],["Humanin","humanin","1–3 mg","2–3× weekly","8–12 weeks"],["AOD-9604","aod-9604","300 mcg","1× daily","12 weeks"],["HGH frag 176–191","hgh-frag-176-191","250–500 mcg","1–2× daily","8–12 weeks"],["GHRP-2","ghrp-2","100–300 mcg","1–3× daily","8–12 weeks"],["GHRP-6","ghrp-6","100–150 mcg","2–3× daily","8–12 weeks"],["Hexarelin","hexarelin","100–200 mcg","1–3× daily","4–8 weeks"],["Melanotan 1","melanotan-1","16 mg implant","Every 2 months","Ongoing, seasonal"],["VIP","vip","50 mcg/spray","4× daily","Months, monitored"],["Teriparatide","teriparatide","20 mcg","1× daily","Up to 2 years (usual)"]];
 function normN(t){return String(t).toLowerCase().replace(/[^a-z0-9]/g,'');}
 function libFind(t){const n=normN(t);if(n.length<3)return null;let m=LIB.filter(function(r){return normN(r[0])===n;})[0];if(!m)m=LIB.filter(function(r){return normN(r[0]).indexOf(n)===0;})[0];return m||null;}
 function renderRef(){
-  const m=libFind($('#pname').value),a=$('#refDose'),b=$('#refFull');
-  $('#refTxt').textContent=m?'Doses people report for '+m[0]+', with the Library entry.':'Type a compound name above to jump to its reported doses.';
+  const m=libFind($('#pname').value),a=$('#refDose'),b=$('#refFull'),tz=$('#refTease');
+  if(m&&(m[2]||m[3])){
+    $('#refTxt').textContent='Most logged for '+m[0]+'. A teaser, not a dose to copy.';
+    $('#rtDose').textContent=m[2]||'—';$('#rtFreq').textContent=m[3]||'—';$('#rtCycle').textContent=m[4]||'—';
+    tz.hidden=false;
+  }else if(m){
+    $('#refTxt').textContent='See the reported doses and full entry for '+m[0]+'.';tz.hidden=true;
+  }else{
+    $('#refTxt').textContent='Type a compound name above to see its most logged dose here.';tz.hidden=true;
+  }
   a.href='https://baresignals.co/dosage/'+(m?'#'+m[1]:'');
   b.hidden=!m;if(m)b.href='https://baresignals.co/library/#/p/'+m[1];
 }
