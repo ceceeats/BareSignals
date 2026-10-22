@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<meta name="description" content="Bare Signals Peptide and Compound Library: every compound researched so far. Tap one to open its card.">
+<title>Library · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Library v4. Aminos-style tiles that open their card in place. Cream paper, periwinkle ink, Stripe v3 colours. No animation. */
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --ink-soft:#6B76A8; --rule:#E3E0BF; --chip:#FFFFF4; --accent:#DB6830; --grid:#6777B6; --red:#FF5050; --name:#6777B6;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding-block:18px 44px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.left{display:flex;flex-direction:column;gap:12px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 24px/1.05 var(--display);margin:2px 0 0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.top a.home{font:500 12px var(--mono);letter-spacing:.06em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.lede{margin:0;font-size:14px;color:var(--ink-soft);max-width:60ch}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* controls */
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 10px;border-radius:0}
+.bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.bar .lab{margin-right:-6px}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:6px 10px;cursor:pointer;min-height:32px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* roles: one bar, families fold, each family is a swipe row */
+.rbar{border:1.5px solid var(--ink);background:var(--chip)}
+.rtog{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;min-height:38px}
+.rtog .lab{color:var(--ink)}
+.rtog .sel{display:flex;gap:4px;flex:1;min-width:0;overflow:hidden}
+.rtog .sel span{display:inline-flex;align-items:center;gap:5px;font:500 12px var(--body);white-space:nowrap;border:1.5px solid var(--ink);padding:1px 7px 1px 4px;background:var(--paper)}
+.rtog .sel i,.rtog .sw i{width:11px;height:11px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.rtog .sw{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.rtog .sw i{width:9px;height:14px;flex:none}
+.rtog .act{font:500 11px var(--mono);color:var(--accent);flex:none}
+.rpanel{border-top:1.5px solid var(--ink)}
+.rf{border-bottom:1.5px solid var(--rule)}
+.rf:last-child{border-bottom:0}
+.rfh{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;min-height:36px}
+.rfh b{font:500 13px var(--body);flex:none}
+.rfh .sw{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.rfh .sw i{width:8px;height:12px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.18)}
+.rfh .act{font:500 11px var(--mono);color:var(--accent);flex:none}
+.rrow{display:flex;gap:6px;overflow-x:auto;padding:2px 10px 10px;scroll-snap-type:x proximity;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.rt{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:6px;font:500 12.5px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);padding:4px 9px 4px 5px;cursor:pointer;min-height:34px;white-space:nowrap}
+.rt i{width:14px;height:14px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.rt em{font:500 10px var(--mono);font-style:normal;color:var(--ink-soft)}
+.rt[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rt[aria-pressed="true"] em{color:var(--paper)}
+.rclr{all:unset;cursor:pointer;font:500 11px var(--mono);color:var(--accent);text-decoration:underline;padding:6px 10px 10px;display:inline-block}
+.count{font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;margin:0}
+
+/* grid: no walls, tiles carry their own edge */
+.grid{display:grid;gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ghead{grid-column:1/-1;display:flex;align-items:center;gap:8px;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding:8px 0 0}
+.ghead i{width:13px;height:13px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.empty{grid-column:1/-1;font-size:14px;color:var(--ink-soft)}
+/* view: tiles (default) */
+.tl{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip);min-width:0}
+.tl .band{position:relative;height:13px;border-bottom:1.5px solid var(--ink);flex:none}
+.band i{position:absolute;display:block;top:0;bottom:0}
+.tl .in{padding:6px 8px 7px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.tl .nm2{font:700 14px/1.15 var(--display);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.3em}
+.tl .aa{font:500 10.5px var(--mono);color:var(--ink-soft);display:flex;justify-content:space-between;gap:4px;white-space:nowrap}
+.tl .aa b{font-weight:500;color:var(--accent)}
+.tl:hover{background:var(--paper)}
+.tl[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tl[aria-pressed="true"] .aa{color:var(--paper)}
+/* view: stickers */
+.v-st .grid{gap:12px 8px}
+.v-st .tl{border:0;background:transparent;gap:4px}
+.v-st .tl .band,.v-st .tl .nm2{display:none}
+.v-st .tl .in{padding:0}
+.v-st .tl[aria-pressed="true"]{background:transparent;color:var(--ink)}
+.v-st .tl[aria-pressed="true"] .stk{box-shadow:0 0 0 2px var(--ink)}
+.v-st .tl[aria-pressed="true"] .aa{color:var(--ink-soft)}
+.tl .stk{display:none}
+.v-st .tl .stk{display:block}
+/* view: list */
+.v-ls .grid{grid-template-columns:minmax(0,1fr);gap:0;border-top:1.5px solid var(--rule)}
+.v-ls .tl{flex-direction:row;align-items:center;border:0;border-bottom:1.5px solid var(--rule);background:transparent;gap:10px;padding:7px 2px;min-height:40px}
+.v-ls .tl .band{width:52px;height:14px;border:1.5px solid var(--ink);flex:none}
+.v-ls .tl .in{flex-direction:row;align-items:baseline;justify-content:space-between;flex:1;padding:0;gap:10px}
+.v-ls .tl .nm2{min-height:0;-webkit-line-clamp:1;font-size:14.5px}
+.v-ls .tl[aria-pressed="true"]{background:var(--ink)}
+.v-ls .ghead{padding:12px 0 4px}
+
+/* sticker front, Canva geometry (447 px master) */
+.stk{display:block;width:100%;aspect-ratio:1;position:relative;background:var(--paper);container-type:inline-size;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.stk .nm{position:absolute;left:10%;top:9.6%;right:6%;font-family:var(--display);font-weight:700;color:var(--name);line-height:.98;letter-spacing:-.005em;font-optical-sizing:none;font-variation-settings:"opsz" 14}
+.stk .nm span{display:block;white-space:nowrap}
+.stk .nm .sb{font:italic 400 9.2cqw/1.15 var(--body);letter-spacing:0;margin-top:1.5cqw}
+.stk .b{position:absolute;display:block}
+.stk .dots{position:absolute;right:8.95%;top:53%;display:flex;gap:2.35cqw}
+.stk .dots i{display:block;width:6.5cqw;height:6.5cqw;border-radius:50%}
+.stk .wm{position:absolute;right:10%;bottom:9.6%;font:500 8.7cqw/1.02 var(--body);letter-spacing:.04em;margin-right:-.04em;text-align:right;z-index:2}
+
+/* the card, opened in place */
+#cardwrap{grid-column:1/-1;min-width:0}
+.card{border:1.5px solid var(--ink);background:var(--chip)}
+.ch{display:flex;gap:12px;align-items:center;padding:10px 46px 10px 10px;position:relative}
+.ch .stk{width:64px;flex:none}
+.ch h3{font:700 20px/1.05 var(--display);margin:0}
+.ch .sub{font:500 11px var(--mono);color:var(--ink-soft);margin-top:4px}
+.ch .sub b{font-weight:500;color:var(--accent)}
+.x{all:unset;cursor:pointer;position:absolute;right:6px;top:6px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font:500 20px/1 var(--body);color:var(--ink)}
+.cband{position:relative;height:14px;border-top:1.5px solid var(--ink)}
+.tabs{display:flex;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.tabs button{flex:1;font:500 12.5px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 0;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pane{display:none;padding:10px}
+.pane.on{display:block}
+.pane .lab.ph{display:none}
+.roles{list-style:none;margin:0;padding:0}
+.roles li{border-bottom:1.5px solid var(--rule)}
+.roles li:last-child{border-bottom:0}
+.roles a{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:14px;text-decoration:none}
+.roles i{width:13px;height:13px;flex:none;margin-top:3px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.22)}
+.roles i.dot{border-radius:50%}
+.roles em{font:500 10px var(--mono);font-style:normal;letter-spacing:.04em;color:var(--ink-soft);margin-left:auto;white-space:nowrap;padding-left:8px;text-transform:uppercase;padding-top:2px}
+.roles a:hover span{text-decoration:underline}
+.rec{margin:0 0 10px}
+.rec:last-child{margin-bottom:0}
+.rec .lab{margin-bottom:2px;font-size:9.5px}
+.rec p{margin:0;font-size:14px}
+.pools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink);margin-bottom:12px}
+.pools div{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:7px 8px;min-width:0}
+.pools strong{display:block;font:700 19px/1.05 var(--display);font-variant-numeric:tabular-nums}
+.pools span{display:block;font-size:12px;margin-top:2px;line-height:1.3}
+.pools em{display:block;font:500 9px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px}
+.spec{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:10px}
+.spec td{border:1.5px solid var(--red);padding:5px 7px;vertical-align:top}
+.spec td:first-child{font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);width:34%}
+.seqv{font:500 12px var(--mono);overflow-wrap:anywhere;word-break:break-all}
+.src{margin:0 0 8px;padding:0 0 0 18px;font-size:13px}
+.src a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.note{font-size:12px;color:var(--ink-soft);margin:0}
+.empty-card{border:1.5px dashed var(--ink-soft);padding:18px;font-size:14px;color:var(--ink-soft)}
+
+/* footer */
+.foot{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.key summary{cursor:pointer;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.key ol{margin:8px 0 0;padding-left:18px;font-size:13px;max-width:62ch}
+.kd{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin:0 3px}
+.log{font-size:12px;color:var(--ink-soft);border-top:1.5px solid var(--rule);padding-top:10px;max-width:90ch}
+.log p{margin:0 0 6px}
+
+@media (max-width:559px){ .bar{gap:8px;flex-wrap:nowrap} .bar .lab{display:none} .seg button{padding:6px 8px;font-size:12px} h1{font-size:22px} .lede{font-size:13px} }
+@media (min-width:560px){ .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))} .v-st .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))} }
+@media (min-width:900px){
+ .wrap{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0 36px;align-items:start}
+ #cardwrap{grid-column:2;grid-row:1;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}
+ .tabs{display:none}
+ .pane{display:block;padding:10px 12px 4px}
+ .pane .lab.ph{display:block;margin:0 0 8px}
+ .ch .stk{width:84px}
+ .ch h3{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="left">
+    <div class="top">
+      <div><p class="lab">Bare Signals</p><h1>Peptide and Compound Library<small>V4</small></h1></div>
+      <a class="home" href="/aminos/">Aminos</a>
+    </div>
+    <p class="lede">Every compound researched so far. Each colour is a role. Tap one to open its card.</p>
+    <input id="q" type="search" placeholder="Search a name or other name" aria-label="Search compounds" autocomplete="off">
+    <div class="bar">
+      <span class="lab">Sort</span><div class="seg" id="sort" role="group" aria-label="Sort"></div>
+      <span class="lab">View</span><div class="seg" id="view" role="group" aria-label="View"></div>
+    </div>
+    <div class="rbar">
+      <button class="rtog" id="rtog" aria-expanded="false" aria-controls="rpanel"><span class="lab">Roles</span><span class="sel" id="rsel"></span><span class="act" id="ract">Open</span></button>
+      <div class="rpanel" id="rpanel" hidden></div>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="grid" id="grid"></div>
+
+    <div class="foot">
+      <details class="key"><summary>How to read a sticker</summary>
+        <ol>
+          <li>Big block, behind the wordmark: the main research area.</li>
+          <li>Middle block and left side: other research areas.</li>
+          <li>Bottom-left corner: what people report feeling.</li>
+          <li>Dots: extra connections. <span class="kd" style="background:var(--ink)"></span>filled is human research, <span class="kd" style="box-shadow:inset 0 0 0 2px var(--ink)"></span>a ring is animal or community only.</li>
+          <li><span class="kd" style="background:#FF0000"></span>Red dot: an FDA-approved medicine exists (not this vial). <span class="kd" style="box-shadow:inset 0 0 0 2px #FF0000"></span>Red ring: approved outside the US only.</li>
+        </ol>
+      </details>
+      <div class="log">
+        <p><b>V4 · 22 Oct 2026.</b> Tighter and more like Aminos. No walls around the grid. Compounds show as tiles with their role band, name and amino acid count; tapping one opens its card in place (under its row on a phone, beside the list on a laptop) with tabs for Roles, Record and Identity. Roles fold into one bar, each family a swipe row. Origin filter and Popular-only removed; sort by Popular, A to Z or Role. A view switch to compare Tiles, Stickers and List. Sticker key moved here, closed. <a href="/library/v3/">V3 kept here</a>.</p>
+        <p>V3 renamed the Encyclopedia to the Library and added named roles. V2 corrected about 30 facts and matched the stickers to Canva. V1 was the first build. Four compounds are logged research (BPC-157, TB-500 frag 17–23, GHK-Cu, KPV); the rest are drafts until their research sweep.</p>
+      </div>
+    </div>
+  </div>
+  <section id="cardwrap" aria-label="Compound card" hidden></section>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D=window.BS_DATA, PAL=window.BS_PALETTE;
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])), LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]]));
+const ORDER=Object.fromEntries(PAL.map((p,i)=>[p[0],i]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const edge=h=>lum(h)>.8?';box-shadow:inset 0 0 0 1px #E1DE62':'';
+const SORTS=[['pop','Popular'],['az','A to Z'],['role','Role']];
+const VIEWS=[['tl','Tiles'],['st','Stickers'],['ls','List']];
+const FAM=[['Body and metabolism',['Appetite','Glucose','Fat','Energy','Endocrine','Muscle']],['Repair and structure',['Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning']],['Protection and organs',['Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer']],['Brain and mood',['Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward']],['Sex and reproduction',['Desire','Reproductive']]];
+const has=(o,k)=>o.roles.includes(k)||o.reported.includes(k);
+const keyOf=s=>PAL.find(p=>p[0].toLowerCase()===String(s).toLowerCase());
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let st=Object.assign({sort:'pop',view:'tl',cols:[]},store.get('bs-lib-v4',{}));st.q='';
+let rOpen=false, famOpen={}, cur=null, tab='r';
+const narrow=()=>innerWidth<900;
+const aa=o=>o.seq?`${o.seq.length} aa`:'not a peptide';
+
+function sticker(o){
+  const s=o.sticker, b=s.blocks, H=c=>HEX[c]||'#FFFFE2';
+  const two=b.lt===b.lb&&b.mid===b.wide&&b.lt!==b.wide;
+  const one=b.lt===b.wide&&b.mid===b.wide&&b.lb===b.wide;
+  const T='top:64.2%;bottom:0;';
+  let h='';
+  if(one){h+=`<i class="b" style="${T}left:0;right:0;background:${H(b.wide)}"></i>`}
+  else if(two){h+=`<i class="b" style="${T}left:0;width:26.2%;background:${H(b.lt)}"></i><i class="b" style="${T}left:26.2%;right:0;background:${H(b.wide)}"></i>`}
+  else{
+    h+=`<i class="b" style="${T}left:42.1%;right:0;background:${H(b.wide)}"></i>`;
+    h+=`<i class="b" style="${T}left:15.9%;width:26.2%;background:${H(b.mid)}"></i>`;
+    if(b.lt===b.lb)h+=`<i class="b" style="${T}left:0;width:15.9%;background:${H(b.lt)}"></i>`;
+    else h+=`<i class="b" style="top:64.2%;height:17.9%;left:0;width:15.9%;background:${H(b.lt)}"></i><i class="b" style="top:82.1%;bottom:0;left:0;width:15.9%;background:${H(b.lb)}"></i>`;
+  }
+  const dots=(s.dots||[]).map(d=>{const c=d.c==='FDA'?'#FF0000':H(d.c);return d.f?`<i style="background:${c}"></i>`:`<i style="box-shadow:inset 0 0 0 1.35cqw ${c}"></i>`}).join('');
+  const lines=o.sub?o.sub:(o.lines||[o.name]);
+  const main=o.sub?(o.sub[0]?[o.sub[0]]:(o.lines||[o.name])):lines;
+  const longest=Math.max(...main.map(l=>l.length));
+  const fs=o.fsz||Math.min(17.6,17.6*7.6/Math.max(longest,1));
+  let nm=main.map(l=>`<span>${esc(l)}</span>`).join('');
+  if(o.sub&&o.sub[1])nm+=`<span class="sb">${esc(o.sub[1])}</span>`;
+  return `<span class="nm" style="font-size:${fs.toFixed(2)}cqw">${nm}</span>${dots?`<span class="dots">${dots}</span>`:''}${h}<span class="wm" style="color:${s.wm||'#DB6830'}">BARE<br>SIGNALS</span>`;
+}
+/* the sticker's band, flattened into a strip: same left-to-right proportions */
+function band(o){
+  const b=o.sticker.blocks,H=c=>HEX[c]||'#FFFFE2';
+  const two=b.lt===b.lb&&b.mid===b.wide&&b.lt!==b.wide, one=b.lt===b.wide&&b.mid===b.wide&&b.lb===b.wide;
+  if(one)return `<i style="left:0;right:0;background:${H(b.wide)}"></i>`;
+  if(two)return `<i style="left:0;width:26.2%;background:${H(b.lt)}"></i><i style="left:26.2%;right:0;background:${H(b.wide)}"></i>`;
+  let h=`<i style="left:42.1%;right:0;background:${H(b.wide)}"></i><i style="left:15.9%;width:26.2%;background:${H(b.mid)}"></i>`;
+  h+=b.lt===b.lb?`<i style="left:0;width:15.9%;background:${H(b.lt)}"></i>`:`<i style="left:0;width:15.9%;bottom:50%;background:${H(b.lt)}"></i><i style="left:0;width:15.9%;top:50%;background:${H(b.lb)}"></i>`;
+  return h;
+}
+
+function filtered(){
+  const q=st.q.trim().toLowerCase().replace(/[\s\-–()]/g,'');
+  let L=D.filter(o=>{
+    if(st.cols.length&&!st.cols.some(c=>has(o,c)))return false;
+    if(q){const hay=(o.name+' '+(o.alias||'')).toLowerCase().replace(/[\s\-–()]/g,'');if(!hay.includes(q))return false}
+    return true});
+  const az=(a,b)=>a.name.localeCompare(b.name), pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
+  if(st.sort==='az')L.sort(az);else if(st.sort==='role')L.sort((a,b)=>(ORDER[a.primary]-ORDER[b.primary])||pop(a,b));else L.sort(pop);
+  return L;
+}
+function tile(o){
+  return `<button class="tl" data-s="${o.slug}" aria-pressed="${cur===o.slug}" aria-label="${esc(o.name)}, ${aa(o)}, main role ${esc(LONG[o.primary])}"><span class="stk" aria-hidden="true">${st.view==='st'?sticker(o):''}</span><span class="band" aria-hidden="true">${band(o)}</span><span class="in"><span class="nm2">${esc(o.name)}</span><span class="aa">${aa(o)}${o.depth==='logged'?'<b>logged</b>':''}</span></span></button>`;
+}
+function renderControls(){
+  $('#sort').innerHTML=SORTS.map(([k,l])=>`<button data-sort="${k}" aria-pressed="${st.sort===k}">${l}</button>`).join('');
+  $('#view').innerHTML=VIEWS.map(([k,l])=>`<button data-view="${k}" aria-pressed="${st.view===k}">${l}</button>`).join('');
+  document.body.classList.toggle('v-st',st.view==='st');document.body.classList.toggle('v-ls',st.view==='ls');
+  $('#rtog').setAttribute('aria-expanded',rOpen);$('#rpanel').hidden=!rOpen;
+  $('#rsel').innerHTML=st.cols.length?st.cols.map(c=>`<span><i style="background:${HEX[c]}"></i>${esc(LONG[c])}</span>`).join(''):`<span class="sw" style="border:0;padding:0;background:none">${PAL.map(p=>`<i style="background:${p[2]}"></i>`).join('')}</span>`;
+  $('#ract').textContent=rOpen?'Close':(st.cols.length?'Edit':'Open');
+  if(rOpen){
+    $('#rpanel').innerHTML=FAM.map(([f,ks],fi)=>{const on=!!famOpen[fi];const n=ks.filter(k=>st.cols.includes(k)).length;
+      return `<div class="rf"><button class="rfh" data-fam="${fi}" aria-expanded="${on}"><b>${f}</b><span class="sw">${ks.map(k=>`<i style="background:${HEX[k]}"></i>`).join('')}</span><span class="act">${n?n+' on · ':''}${on?'Close':'Open'}</span></button>${on?`<div class="rrow">${ks.map(k=>{const c=D.filter(o=>has(o,k)).length;return c?`<button class="rt" data-c="${k}" aria-pressed="${st.cols.includes(k)}"><i style="background:${HEX[k]}"></i>${esc(LONG[k])}<em>${c}</em></button>`:''}).join('')}</div>`:''}</div>`}).join('')+(st.cols.length?`<button class="rclr" id="clr">Clear roles</button>`:'');
+  }
+}
+function renderGrid(){
+  const L=filtered();
+  $('#count').textContent=`${L.length} of ${D.length} compounds`+(st.cols.length?` · ${st.cols.map(c=>LONG[c]).join(' or ')}`:'');
+  let h='';
+  if(!L.length)h='<p class="empty">Nothing matches. Clear a role or try another name.</p>';
+  else if(st.sort==='role'){let last=null;L.forEach(o=>{if(o.primary!==last){last=o.primary;h+=`<div class="ghead"><i style="background:${HEX[last]}${edge(HEX[last])}"></i>${esc(LONG[last])}</div>`}h+=tile(o)})}
+  else h=L.map(tile).join('');
+  const cw=$('#cardwrap');if(narrow()&&$('#grid').contains(cw))$('#wrap').appendChild(cw);
+  $('#grid').innerHTML=h;
+  if(cur&&narrow()){if(L.some(o=>o.slug===cur))placeCard();else closeCard()}
+  store.set('bs-lib-v4',{sort:st.sort,view:st.view,cols:st.cols});
+}
+function render(){renderControls();renderGrid()}
+
+/* card */
+const SEC=[['found','When it was found'],['first','What it was first meant for'],['tested','What’s been tested'],['worked','What worked'],['didnt','What didn’t'],['reports','What people report'],['status','Status']];
+function rolesList(o){
+  const B=o.sticker.blocks,one=B.lt===B.wide&&B.mid===B.wide&&B.lb===B.wide,two=B.lt===B.lb&&B.mid===B.wide&&B.lt!==B.wide;
+  const R=[B.wide];if(!one){if(two)R.push(B.lt);else{R.push(B.mid);R.push(B.lt)}}
+  const R1=[...new Set(R)];const corner=(!one&&!two&&B.lt!==B.lb&&!R1.includes(B.lb))?B.lb:null;
+  const rows=R1.map((c,i)=>[c,i?'research':'main',false]);
+  if(corner)rows.push([corner,'people feel',false]);
+  (o.sticker.dots||[]).forEach(d=>{if(d.c==='FDA'||rows.some(r=>r[0]===d.c))return;rows.push([d.c,d.f?'human research':'animal or community',true])});
+  let h=rows.map(([c,t,dot])=>`<li><a href="#/role/${c.toLowerCase()}"><i class="${dot?'dot':''}" style="background:${HEX[c]}"></i><span>${esc(LONG[c])}</span><em>${t}</em></a></li>`).join('');
+  if(o.fda)h+=`<li><a href="#/" onclick="return false" style="cursor:default"><i class="dot" style="${o.fdaFill?'background:#FF0000':'box-shadow:inset 0 0 0 2.5px #FF0000'}"></i><span>${o.fdaFill?'An FDA-approved medicine exists':'Approved outside the US only'}</span><em>not this vial</em></a></li>`;
+  return `<ul class="roles">${h}</ul>`;
+}
+function cardHTML(o){
+  const d={logged:'logged research',draft:'draft',reference:'reference'}[o.depth];
+  const spec=[];
+  spec.push(['Length',o.seq?`${o.seq.length} amino acid${o.seq.length>1?'s':''}`:'Not a peptide']);
+  if(o.seq)spec.push(['Sequence',`<span class="seqv">${esc(o.seq)}</span>`]);
+  if(o.seqNote)spec.push(['Note',esc(o.seqNote)]);
+  if(o.alias)spec.push(['Also searched as',esc(o.alias)]);
+  spec.push(['Origin',esc(o.originDetail)]);
+  const pools=o.pools?`<div class="pools">${o.pools.map(p=>`<div><strong>${esc(p[0])}</strong><span>${esc(p[1])}</span><em>${esc(p[2])}</em></div>`).join('')}</div>`:'';
+  const src=o.sources?`<p class="lab" style="margin:4px 0 4px">Sources</p><ol class="src">${o.sources.map(s=>`<li><a href="${esc(s[1])}" rel="noopener noreferrer" target="_blank">${esc(s[0])}</a></li>`).join('')}</ol>`:'';
+  const note=o.depth==='draft'?'Draft: written before a research sweep; numbers, studies and status get checked on the first sweep.':o.depth==='logged'?'Built from the research log, reviewed 21 to 22 Oct 2026. Reported data, labelled by source.':'Here for comparison with the compounds that copy or build on it.';
+  const stick=o.canva?'':' No Canva sticker yet; colours from the Aminos stripe.';
+  const T=[['r','Roles'],['c','Record'],['i','Identity']];
+  return `<div class="card" id="card-${o.slug}">
+    <div class="ch"><span class="stk" aria-hidden="true">${sticker(o)}</span><div><h3>${esc(o.name)}</h3><p class="sub">${aa(o)} · ${esc(o.originDetail)} · <b>${d}</b></p></div><button class="x" id="x" aria-label="Close card">×</button></div>
+    <div class="cband" aria-hidden="true"><span class="band" style="position:absolute;inset:0">${band(o)}</span></div>
+    <div class="tabs" role="tablist">${T.map(([k,l])=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join('')}</div>
+    <div class="pane${tab==='r'?' on':''}" data-p="r"><p class="lab ph">Roles</p>${rolesList(o)}<p class="note" style="margin-top:6px">Tap a role to see every compound that carries it.</p></div>
+    <div class="pane${tab==='c'?' on':''}" data-p="c"><p class="lab ph">Record</p>${pools}${SEC.map(([k,l])=>`<div class="rec"><p class="lab">${l}</p><p>${esc(o[k])}</p></div>`).join('')}</div>
+    <div class="pane${tab==='i'?' on':''}" data-p="i"><p class="lab ph">Identity</p><table class="spec"><tbody>${spec.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table>${src}<p class="note">${note}${stick}</p></div>
+  </div>`;
+}
+/* phone: card drops in under the tapped tile's row; laptop: card sits beside the list */
+function placeCard(){
+  const cw=$('#cardwrap');
+  if(!narrow()){if(cw.parentNode!==$('#wrap'))$('#wrap').appendChild(cw);return}
+  const t=document.querySelector(`.tl[data-s="${cur}"]`);if(!t)return;
+  let last=t,n=t.nextElementSibling;
+  while(n&&n.classList.contains('tl')&&n.offsetTop===t.offsetTop){last=n;n=n.nextElementSibling}
+  last.after(cw);
+}
+function openCard(slug,scroll){
+  const o=D.find(x=>x.slug===slug);if(!o)return;
+  cur=slug;const cw=$('#cardwrap');cw.innerHTML=cardHTML(o);cw.hidden=false;
+  document.querySelectorAll('.tl').forEach(t=>t.setAttribute('aria-pressed',t.dataset.s===slug));
+  placeCard();
+  history.replaceState(null,'','#/'+slug);document.title=o.name+' · Bare Signals Library';
+  if(scroll!==false){if(narrow())cw.scrollIntoView({block:'nearest'});else cw.scrollTop=0}
+}
+function closeCard(){
+  cur=null;const cw=$('#cardwrap');
+  document.querySelectorAll('.tl').forEach(t=>t.setAttribute('aria-pressed','false'));
+  if(narrow()){cw.hidden=true;$('#wrap').appendChild(cw)}else{cw.innerHTML='<p class="empty-card">Tap a compound to open its card.</p>';cw.hidden=false}
+  history.replaceState(null,'','#/');document.title='Library · Bare Signals';
+}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tl');if(t){if(cur===t.dataset.s&&narrow())closeCard();else openCard(t.dataset.s);return}
+  if(e.target.closest('#x')){closeCard();return}
+  const tb=e.target.closest('.tabs button');if(tb){tab=tb.dataset.tab;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b===tb));document.querySelectorAll('#cardwrap .pane').forEach(p=>p.classList.toggle('on',p.dataset.p===tab));return}
+  const so=e.target.closest('[data-sort]');if(so){st.sort=so.dataset.sort;render();return}
+  const vw=e.target.closest('[data-view]');if(vw){st.view=vw.dataset.view;render();return}
+  if(e.target.closest('#rtog')){rOpen=!rOpen;renderControls();return}
+  const fh=e.target.closest('.rfh');if(fh){const i=fh.dataset.fam;famOpen[i]=!famOpen[i];renderControls();return}
+  const rt=e.target.closest('.rt');if(rt){const c=rt.dataset.c,x=$('#rpanel').querySelector(`.rf:has([data-c="${c}"]) .rrow`),sl=x?x.scrollLeft:0;st.cols=st.cols.includes(c)?st.cols.filter(v=>v!==c):st.cols.concat(c);render();const y=$('#rpanel').querySelector(`.rf:has([data-c="${c}"]) .rrow`);if(y)y.scrollLeft=sl;return}
+  if(e.target.closest('#clr')){st.cols=[];render();return}
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;renderGrid()});
+let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;if(cur)placeCard();else if(!narrow())closeCard();else{$('#cardwrap').hidden=true}});
+
+function route(){
+  const rm=location.hash.match(/^#\/role\/(.+)$/);
+  if(rm){const k=keyOf(decodeURIComponent(rm[1]));st.cols=k?[k[0]]:[];st.q='';$('#q').value='';render();if(cur&&!filtered().some(o=>o.slug===cur))closeCard();else if(cur)history.replaceState(null,'','#/'+cur);else history.replaceState(null,'','#/');$('#count').scrollIntoView({block:'start'});return}
+  const m=location.hash.match(/^#\/(.+)$/);
+  if(m&&D.find(x=>x.slug===m[1])){openCard(m[1]);return}
+}
+addEventListener('hashchange',route);
+render();
+if(location.hash.length>2)route();
+if(!cur&&!narrow())openCard('bpc-157',false);
+})();
+</script>
+</body>
+</html>
