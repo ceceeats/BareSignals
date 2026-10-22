@@ -1,4 +1,4 @@
-/* Bare Signals site navigation v6: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v6 adds the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. */
+/* Bare Signals site navigation v7: adds Made (/made/) after Aminos; v6 kept at /nav/v6.js. Previously v6: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v6 adds the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. */
 window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.goatcounter.com. Empty = tracking off. */
 (function(){
   var H=document.head,add=function(tag,attrs){var e=document.createElement(tag);for(var k in attrs)e.setAttribute(k,attrs[k]);H.appendChild(e);return e};
@@ -11,7 +11,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
 (function(){
   if(document.querySelector('.bsn'))return;
   var P=location.pathname;
-  var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood','Blood Work'],['/supplements/','Supps','Supplements'],['/aminos/','Aminos'],['/draw/','Calculator']];
+  var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood','Blood Work'],['/supplements/','Supps','Supplements'],['/aminos/','Aminos'],['/made/','Made'],['/draw/','Calculator']];
   var on=function(h){return P.indexOf(h)===0};
   var css='.bsn{position:relative;z-index:30;background:#FFFFE2;border-bottom:1.5px solid #3E4A80;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}'+
   '.bsn .bsb{display:flex;height:5px}.bsn .bsb i{display:block}'+

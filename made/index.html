@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="How peptides are made, cleaned and tested: cells and beads, purity, what a COA covers and what it does not, endotoxin, heavy metals, pH and reactions.">
+<title>Made · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Made v1 (22 Oct 2026). Built on the Aminos page system: cream paper, ruled square cells, no rounding. Versions log in /made/CHANGELOG.md. */
+:root{
+  --paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;
+  --repair:#E1DE62;--repair-ink:#8A8712;--red:#FF5050;--grid:#6777B6;--lav:#DDD0F6;--green:#AACC96;--orange:#FFA51F;--coral:#F28E79;--sky:#74BCFF;--violet:#B493E8;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+h1{font:700 26px/1.05 var(--display);margin:0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+h2{font:700 20px/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+h3{font:700 16px/1.2 var(--display);margin:0 0 4px}
+p{margin:0 0 10px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.lede{max-width:62ch}
+.note{font-size:12.5px;color:var(--ink-soft)}
+.soft{color:var(--ink-soft)}
+b.o{color:var(--accent);font-weight:600}
+a{color:var(--ink)}
+section{scroll-margin-top:12px}
+
+/* walk: six steps, cell to vial */
+.walk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:14px 0 8px}
+.walk a{display:flex;flex-direction:column;gap:2px;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:8px 9px 10px;text-decoration:none;min-width:0;background:var(--paper)}
+.walk a:hover{background:var(--chip)}
+.walk svg{width:100%;height:58px;display:block;margin-bottom:4px}
+.walk b{font:500 10.5px var(--mono);color:var(--accent);letter-spacing:.08em}
+.walk strong{font:700 15px/1.1 var(--display)}
+.walk span{font-size:12px;line-height:1.3;color:var(--ink-soft)}
+
+/* dividers */
+.divider{display:flex;align-items:center;gap:12px;margin:34px 0 14px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
+.divider span{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink);width:max-content;max-width:100%;margin:6px 0 12px}
+.tabs button{font:600 13px var(--body);color:var(--ink);background:var(--chip);border:0;border-right:1px solid var(--rule);padding:8px 11px;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pane{border:1.5px solid var(--rule);background:var(--chip);padding:14px}
+
+/* step lists */
+.steps{list-style:none;margin:0 0 12px;padding:0;counter-reset:s;border-top:1.5px solid var(--rule)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 8px;padding:9px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);font:500 11px var(--mono);color:var(--accent);padding-top:3px}
+.steps li b{font-weight:600}
+
+/* chips (selectors) */
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 10px}
+.ctrl .lab{margin:0;min-width:84px}
+.seg{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--mono);color:var(--ink);background:var(--paper);border:0;border-right:1px solid var(--rule);padding:6px 8px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* stacking */
+.chainviz{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:2px;margin:8px 0}
+.chainviz i{aspect-ratio:1;display:block;background:var(--green)}
+.chainviz i.d1{background:var(--orange)}
+.chainviz i.d2{background:var(--red)}
+.big{font:700 34px/1 var(--display)}
+.stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);margin:8px 0}
+.stat div{border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:7px 8px}
+.stat b{display:block;font:700 20px/1.1 var(--display)}
+.stat span{font-size:11.5px;color:var(--ink-soft);line-height:1.25;display:block}
+.key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-soft)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{width:11px;height:11px;display:inline-block}
+
+/* bead build animation */
+.bead svg{width:100%;height:auto;display:block}
+@keyframes drop{0%{transform:translateY(-26px);opacity:0}40%{opacity:1}100%{transform:none;opacity:1}}
+.bead .add{animation:drop 1.2s ease-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.bead .add{animation:none}}
+
+/* tiles (impurities) */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:9px 9px 0;display:flex;flex-direction:column;gap:3px;min-height:96px;background:var(--paper)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+@media (hover:hover){.tile:hover{background:var(--chip)}}
+.tile[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tile[aria-pressed="true"] .ms,.tile[aria-pressed="true"] .wh{color:var(--paper)}
+.tile strong{font:700 15px/1.1 var(--display)}
+.tile .ms{font:500 11px var(--mono);color:var(--accent)}
+.tile .wh{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.tile .bar{height:8px;margin:auto -9px 0;border-top:1.5px solid var(--grid)}
+.open{border:1.5px solid var(--ink);background:var(--chip);padding:12px 14px;margin:10px 0 0}
+.open h3{margin-bottom:6px}
+.open p{font-size:14px}
+
+/* chromatogram */
+.chrom{border:1.5px solid var(--rule);background:var(--paper);padding:8px}
+.chrom svg{width:100%;height:auto;display:block}
+
+/* purity */
+.grid1k{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));gap:1px;background:var(--rule);border:1.5px solid var(--grid);margin:8px 0 6px}
+.grid1k i{aspect-ratio:1;display:block;background:var(--paper)}
+.grid1k i.x{background:var(--red)}
+.vialbar{display:flex;height:34px;border:1.5px solid var(--ink);margin:8px 0 6px}
+.vialbar i{display:block;min-width:0;transition:flex-grow .4s}
+.verdict{border-left:4px solid var(--accent);padding:6px 10px;background:var(--chip);font-size:14px;margin:8px 0}
+
+/* COA */
+.coa{border:1.5px solid var(--ink);background:#fff;font-size:13px}
+.coa .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 12px;border-bottom:1.5px solid var(--ink)}
+.coa .hd b{font:700 16px var(--display)}
+.coa .hd span{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.coa table{width:100%;border-collapse:collapse}
+.coa td{border-bottom:1px solid var(--rule);padding:7px 10px;vertical-align:top}
+.coa td:first-child{width:28px;padding-right:0}
+.coa td:nth-child(2){font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);width:38%}
+.coa tr{cursor:pointer}
+@media (hover:hover){.coa tr:hover td{background:var(--chip)}}
+.coa tr.sel td{background:#FFF7C2}
+.num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border:1.5px solid var(--ink);font:500 10.5px var(--mono)}
+.freq{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;margin-left:4px;white-space:nowrap}
+.f1{background:var(--green)}.f2{background:var(--repair)}.f3{background:#FFC9C9}
+.coa tr.ex{cursor:default}.coa tr.ex td{background:#FFF7C2;font:400 13.5px/1.45 var(--body);letter-spacing:0;text-transform:none;color:var(--ink);padding:8px 12px 10px;width:auto}
+.cols{display:grid;grid-template-columns:1fr;gap:10px}
+.box{border:1.5px solid var(--rule);background:var(--chip);padding:10px 12px}
+.box h3{font-size:15px}
+.box ul{margin:4px 0 0;padding-left:18px;font-size:14px}
+.box li{margin:3px 0}
+.box.yes{border-color:var(--green)}.box.no{border-color:var(--red)}
+.checks{list-style:none;padding:0;margin:0}
+.checks li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.checks li::before{content:"";width:12px;height:12px;border:1.5px solid var(--ink);margin-top:4px}
+
+/* sequence */
+.seq{display:flex;flex-wrap:wrap;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.seq button{all:unset;box-sizing:border-box;cursor:pointer;width:calc(100%/15);min-width:0;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);text-align:center;padding:6px 0 4px;background:var(--paper)}
+.seq button b{display:block;font:700 18px/1 var(--display)}
+@media (max-width:560px){.seq button b{font-size:14px}.seq button span{font-size:7.5px}}
+.seq button span{font:500 8.5px var(--mono);color:var(--ink-soft)}
+.seq button.gone{background:repeating-linear-gradient(45deg,var(--paper) 0 4px,#FFC9C9 4px 8px)}
+.seq button.gone b{opacity:.25;text-decoration:line-through}
+.ms-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink);margin:8px 0}
+.ms-read div{padding:7px 8px;border-right:1px solid var(--rule)}
+.ms-read div:last-child{border-right:0}
+.ms-read b{display:block;font:700 18px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.ms-read span{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* pH */
+.ph{position:relative;margin:26px 0 54px}
+.ph .scale{display:flex;height:18px;border:1.5px solid var(--ink)}
+.ph .scale i{flex:1}
+.ph .ticks{position:relative;height:14px;font:500 9.5px var(--mono);color:var(--ink-soft);margin-top:3px}
+.ph .ticks span{position:absolute;transform:translateX(-50%)}.ph .ticks span:first-child{transform:none}.ph .ticks span:last-child{transform:translateX(-100%)}
+.ph .mk{position:absolute;top:-6px;height:30px;border-left:2px solid var(--ink)}
+.ph .mk span{position:absolute;left:4px;font:500 10px/1.15 var(--mono);white-space:nowrap}
+.ph .rng{position:absolute;top:-4px;height:26px;background:rgba(62,74,128,.18);border:1.5px solid var(--ink)}
+
+/* toxins */
+.spec{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 10px}
+.spec th{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:5px 7px;border:1.5px solid var(--red);background:var(--paper)}
+.spec td{border:1.5px solid var(--red);padding:6px 7px;vertical-align:top}
+.spec td.n{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.calc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0}
+.calc label{display:flex;flex-direction:column;gap:3px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.calc input{font:600 16px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:6px 8px;border-radius:0;width:100%}
+
+/* reactions */
+.react{display:grid;grid-template-columns:1fr;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.react div{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:10px 11px}
+.react .when{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.react p{font-size:13.5px;margin:4px 0 0}
+.react .sw{height:6px;margin:-10px -11px 8px}
+.alarm{border:2.5px solid var(--red);background:#FFF1F1;padding:12px 14px;margin:14px 0}
+.alarm h3{color:#C02424;font-size:18px}
+.alarm ol{margin:6px 0 0;padding-left:20px;font-size:14px}
+.alarm li{margin:4px 0}
+
+details.deep{border-top:1.5px solid var(--rule);margin-top:10px}
+details.deep summary{cursor:pointer;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding:8px 0}
+details.deep p{font-size:14px}
+
+.foot{margin-top:40px;border-top:1.5px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--ink-soft)}
+.foot ol{padding-left:20px;margin:6px 0 12px}
+.foot li{margin:3px 0}
+sup a{text-decoration:none;font:500 9.5px var(--mono);color:var(--accent)}
+
+@media (min-width:900px){
+  .wrap{max-width:980px;padding-top:30px}
+  h1{font-size:40px}
+  .lede{font-size:16px}
+  .walk{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .walk svg{height:76px}
+  .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+  .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cols{grid-template-columns:1fr 1fr}
+  .react{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid1k{grid-template-columns:repeat(50,minmax(0,1fr))}
+}
+@media (max-width:380px){.walk span{font-size:11px}.tile strong{font-size:14px}}
+@media print{.tabs{display:none}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="lab">Bare Signals · Made</p>
+  <h1>From cell to vial<small>V1</small></h1>
+  <p class="lede" style="margin-top:8px">Every vial starts as a code and ends as a white cake of powder. In between: a build, a cleanup, a test. Know how a peptide is made and a COA stops being a stamp. It becomes a list of what was checked, and of what was not.</p>
+</header>
+
+<section>
+  <p class="lab" style="margin-top:16px">The whole path, tap a step</p>
+  <nav class="walk" aria-label="Steps">
+    <a href="#build"><svg viewBox="0 0 100 60" aria-hidden="true"><ellipse cx="50" cy="30" rx="34" ry="18" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.5"/><circle cx="40" cy="28" r="7" fill="none" stroke="#3E4A80" stroke-width="1.5"/><path d="M58 24h14M58 30h10M58 36h14" stroke="#3E4A80" stroke-width="1.5"/></svg><b>01</b><strong>Code</strong><span>A gene in a cell, or a sequence typed into a machine.</span></a>
+    <a href="#build"><svg viewBox="0 0 100 60" aria-hidden="true"><circle cx="50" cy="48" r="9" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.5"/><g fill="#AACC96" stroke="#3E4A80" stroke-width="1.5"><rect x="45" y="27" width="10" height="10"/><rect x="45" y="15" width="10" height="10"/><rect x="45" y="3" width="10" height="10" fill="#F28E79"/></g></svg><b>02</b><strong>Build</strong><span>Amino acids linked one at a time.</span></a>
+    <a href="#crude"><svg viewBox="0 0 100 60" aria-hidden="true"><g stroke="#3E4A80" stroke-width="1.5"><rect x="14" y="10" width="10" height="40" fill="#AACC96"/><rect x="30" y="20" width="10" height="30" fill="#FFA51F"/><rect x="46" y="10" width="10" height="40" fill="#AACC96"/><rect x="62" y="30" width="10" height="20" fill="#FF5050"/><rect x="78" y="10" width="10" height="40" fill="#AACC96"/></g></svg><b>03</b><strong>Crude</strong><span>Cut free. The right chain, plus near twins.</span></a>
+    <a href="#purify"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M4 52h20c6 0 6-6 9-6s3 6 7 6c5 0 7-44 10-44s5 44 10 44c4 0 4-8 8-8s4 8 8 8h20" fill="none" stroke="#3E4A80" stroke-width="1.8"/><rect x="40" y="6" width="20" height="46" fill="#E1DE62" opacity=".45"/></svg><b>04</b><strong>Purify</strong><span>The main peak is kept. The rest is cut away.</span></a>
+    <a href="#purify"><svg viewBox="0 0 100 60" aria-hidden="true"><rect x="36" y="6" width="28" height="50" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><rect x="36" y="4" width="28" height="7" fill="#6777B6"/><rect x="40" y="38" width="20" height="14" fill="#fff" stroke="#E3E0BF" stroke-width="1.5"/></svg><b>05</b><strong>Dry</strong><span>Freeze dried into the powder you see.</span></a>
+    <a href="#coa"><svg viewBox="0 0 100 60" aria-hidden="true"><rect x="28" y="4" width="44" height="52" fill="#fff" stroke="#3E4A80" stroke-width="1.5"/><path d="M34 14h32M34 22h24M34 30h28M34 38h20" stroke="#6B76A8" stroke-width="1.5"/><circle cx="62" cy="46" r="6" fill="none" stroke="#FF5050" stroke-width="1.5"/></svg><b>06</b><strong>Test</strong><span>A COA says what was measured, on one batch.</span></a>
+  </nav>
+  <p class="note">The order of this page follows the vial: build, crude, purify, purity, COA, weight, pH, toxins, reactions.</p>
+</section>
+
+<!-- PART ONE -->
+<section id="build">
+  <div class="divider"><span>Part one · The build</span></div>
+  <h2>Two ways to make a chain</h2>
+  <p>A peptide is amino acids linked in a fixed order (the <a href="/aminos/">Aminos</a> page walks the letters). There are two ways to get that chain: let a living cell build it, or stack it by hand, chemically, on a tiny bead.</p>
+  <div class="tabs" role="tablist" data-tabs="b">
+    <button role="tab" aria-selected="true" data-p="b1">Grown in cells</button>
+    <button role="tab" aria-selected="false" data-p="b2">Stacked on beads</button>
+    <button role="tab" aria-selected="false" data-p="b3">Which way, which peptide</button>
+  </div>
+
+  <div class="pane" id="b1">
+    <p class="lab">Recombinant · bacteria or yeast</p>
+    <ol class="steps">
+      <li><span><b>Write the gene.</b> The DNA code for the peptide is put into a small ring of DNA, a plasmid.</span></li>
+      <li><span><b>Give it to a cell.</b> Usually the gut bacterium <i>E. coli</i>, or a yeast (<i>Saccharomyces</i> or <i>Pichia</i>).</span></li>
+      <li><span><b>Let them multiply.</b> Billions of cells grow in a steel tank (a fermenter), fed sugar and air.</span></li>
+      <li><span><b>The ribosome builds it.</b> Same machine as in your body: it reads the code three letters at a time and links the chain from start (N end) to finish (C end).</span></li>
+      <li><span><b>Harvest.</b> Bacteria are broken open to get the peptide out. Yeast can be made to push it out into the broth.</span></li>
+      <li><span><b>Finish it.</b> Some drugs get a chemical add-on after harvest. Semaglutide's chain is grown in yeast, then a fatty side chain is attached so it lasts a week.<sup><a href="#s1">1</a></sup></span></li>
+    </ol>
+    <p class="verdict"><b class="o">What comes along:</b> bits of the cell itself. Host cell proteins, host DNA and, from bacteria, <b>endotoxin</b> (Part eight). All of it has to be washed out.</p>
+    <p class="note">Used for: insulin, HGH (somatropin), the GLP-1 backbones. Long chains, natural letters only.</p>
+  </div>
+
+  <div class="pane" id="b2" hidden>
+    <p class="lab">Solid phase synthesis (SPPS) · the stacking</p>
+    <div class="two">
+      <div>
+        <div class="bead"><svg viewBox="0 0 220 150" aria-hidden="true">
+          <circle cx="110" cy="128" r="18" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.5"/>
+          <text x="110" y="132" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#3E4A80">bead</text>
+          <g stroke="#3E4A80" stroke-width="1.5">
+            <rect x="100" y="90" width="20" height="18" fill="#AACC96"/>
+            <rect x="100" y="70" width="20" height="18" fill="#74BCFF"/>
+            <rect x="100" y="50" width="20" height="18" fill="#B493E8"/>
+            <g class="add"><rect x="100" y="30" width="20" height="18" fill="#F28E79"/><rect x="100" y="24" width="20" height="6" fill="#3E4A80"/></g>
+          </g>
+          <text x="128" y="36" font-family="JetBrains Mono,monospace" font-size="9" fill="#DB6830">next one, capped</text>
+          <text x="128" y="101" font-family="JetBrains Mono,monospace" font-size="9" fill="#6B76A8">C end, first</text>
+          <path d="M84 104V40" stroke="#6B76A8" stroke-width="1.2" marker-end="url(#ar)"/>
+          <defs><marker id="ar" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" fill="#6B76A8"/></marker></defs>
+          <text x="78" y="72" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9" fill="#6B76A8">grows up</text>
+        </svg></div>
+        <p class="note">Robert Bruce Merrifield invented this in 1963 and won the 1984 Nobel Prize for it.<sup><a href="#s2">2</a></sup> It builds backwards compared with your body: C end first, N end last.</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><span><b>Anchor.</b> The last amino acid of the chain is fixed to a plastic resin bead, smaller than a grain of sand.</span></li>
+          <li><span><b>Uncap.</b> Each incoming amino acid wears a cap so it links only once. The cap on the chain's end is removed.</span></li>
+          <li><span><b>Link.</b> The next capped amino acid is added and bonds to the chain.</span></li>
+          <li><span><b>Wash.</b> Everything that did not stick is rinsed off. The chain stays because the bead stays.</span></li>
+          <li><span><b>Repeat.</b> Uncap, link, wash, once per letter. A 15 letter peptide is 15 rounds.</span></li>
+          <li><span><b>Cut free.</b> A strong acid (TFA) snaps the chain off the bead and strips the side-chain guards. What falls out is the <b>crude</b>.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 style="margin-top:6px">Why every round counts</h3>
+    <p>No link is perfect. If each round works 99% of the time, the misses add up with every letter. Pick a peptide and a link rate:</p>
+    <div class="ctrl"><span class="lab">Peptide</span><div class="seg" id="pepSel"></div></div>
+    <div class="ctrl"><span class="lab">Each link works</span><div class="seg" id="effSel"></div></div>
+    <div class="stat">
+      <div><b id="stFull">86%</b><span>full, correct chains</span></div>
+      <div><b id="stOne">13%</b><span>missing exactly one letter</span></div>
+      <div><b id="stMore">1%</b><span>missing two or more</span></div>
+    </div>
+    <div class="chainviz" id="chainViz" aria-label="100 chains"></div>
+    <div class="key"><span><i style="background:var(--green)"></i>Right chain</span><span><i style="background:var(--orange)"></i>One letter missing</span><span><i style="background:var(--red)"></i>Two or more missing</span></div>
+    <p class="note" style="margin-top:8px">100 chains from the same batch. The orange ones weigh almost the same and look almost the same. That is the cleanup problem, and why longer peptides cost more to make clean. Simplified: real runs also lose chains other ways.</p>
+  </div>
+
+  <div class="pane" id="b3" hidden>
+    <table class="spec">
+      <tr><th></th><th>Grown in cells</th><th>Stacked on beads</th></tr>
+      <tr><td><b>Length</b></td><td>Long chains and full proteins</td><td>Short to mid chains, cost and errors climb past about 40 to 50 letters</td></tr>
+      <tr><td><b>Letters</b></td><td>Natural L amino acids only</td><td>Anything: mirror-image D forms, Aib, caps, amide ends, fatty tails</td></tr>
+      <tr><td><b>Leftovers</b></td><td>Cell proteins, DNA, endotoxin</td><td>Near-twin chains, TFA, solvents, leftover guards</td></tr>
+      <tr><td><b>Examples</b></td><td>Insulin, HGH, semaglutide backbone</td><td>BPC-157, TB-500, Ipamorelin, GHK, most research peptides</td></tr>
+    </table>
+    <p>Ipamorelin holds mirror-image (D) amino acids and an unnatural letter, Aib. A ribosome cannot build that, so it can only come off a bead. TB-500 (Ac-LKKTETQ) starts with an acetyl cap, another bead-side touch. Big drugs often mix both routes.</p>
+    <p class="note">Rule of thumb: almost every short research peptide in a vial was stacked on beads. So its leftovers are chemistry leftovers, not cell leftovers, unless the water, tools or hands added some.</p>
+  </div>
+</section>
+
+<!-- PART TWO -->
+<section id="crude">
+  <div class="divider"><span>Part two · The crude</span></div>
+  <h2>What falls off the bead</h2>
+  <p>The crude is the target peptide mixed with its mistakes. Each mistake has a weight signature, which is how labs spot it later. Tap one.</p>
+  <div class="tiles" id="imp"></div>
+  <div class="open" id="impOpen" hidden></div>
+</section>
+
+<!-- PART THREE -->
+<section id="purify">
+  <div class="divider"><span>Part three · Purify and dry</span></div>
+  <h2>Keep the peak, cut the rest</h2>
+  <div class="two">
+    <div>
+      <p>The crude is dissolved and pushed through a steel column packed with greasy silica (HPLC, usually a C18 column). A slow shift from water to solvent pulls each molecule off at its own moment, by how greasy it is. A UV light at about 214 to 220 nm watches the exit and draws a peak each time something passes.</p>
+      <p>The right chain makes the tallest peak. Its near twins sit right beside it. The lab collects the slice in the middle, the <b class="o">cut</b>. A wider cut gives more powder and lower purity. A narrower cut gives less powder and higher purity. Purity is a business choice as much as a science one.</p>
+    </div>
+    <div>
+      <div class="chrom"><svg id="chrom" viewBox="0 0 320 170" aria-label="Chromatogram"></svg></div>
+      <div class="ctrl" style="margin-top:8px"><span class="lab">The cut</span><div class="seg" id="cutSel"><button data-c="w" aria-pressed="false">Wide</button><button data-c="m" aria-pressed="true">Medium</button><button data-c="n" aria-pressed="false">Narrow</button></div></div>
+      <p class="note" id="cutNote"></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:14px">Then it is dried</h3>
+  <ol class="steps">
+    <li><span><b>Swap the salt (sometimes).</b> The HPLC liquid leaves TFA stuck to the peptide as a salt. Many medicines swap it for acetate, a gentler partner.<sup><a href="#s4">4</a></sup> Grey market peptides are often left as TFA salts. A COA may say which.</span></li>
+    <li><span><b>Freeze.</b> The purified liquid is filled into vials and frozen.</span></li>
+    <li><span><b>Pull a vacuum.</b> Ice turns straight to vapour without melting (freeze drying, lyophilization). What stays is the white cake.</span></li>
+    <li><span><b>Seal.</b> Rubber stopper, crimped cap, label. Often a filler like mannitol is added so the cake holds its shape.</span></li>
+  </ol>
+  <p class="verdict"><b class="o">What is left in the vial:</b> the peptide, its salt partner (TFA or acetate), some water the powder pulls from air, any filler, and whatever impurities survived the cut. "10 mg" on a label rarely means 10 mg of pure peptide. Part six does the math.</p>
+</section>
+
+<!-- PART FOUR -->
+<section id="purity">
+  <div class="divider"><span>Part four · Purity, seen</span></div>
+  <h2>What 99.9%, 98% and 95% look like</h2>
+  <p>HPLC purity is the share of the peptide peaks that belongs to the right chain. Below: 1,000 squares, each 0.1%. Red is everything that is not your peptide.</p>
+  <div class="ctrl"><span class="lab">Purity</span><div class="seg" id="purSel"></div></div>
+  <div class="ctrl"><span class="lab">Vial label</span><div class="seg" id="vialSel"></div></div>
+  <div class="two">
+    <div>
+      <div class="grid1k" id="g1k" aria-label="1000 squares"></div>
+      <p class="note" id="g1kNote"></p>
+    </div>
+    <div>
+      <div class="stat">
+        <div><b id="pImp">200 mcg</b><span>not the right chain, per vial</span></div>
+        <div><b id="pX">2×</b><span>the impurity of a 99% vial</span></div>
+        <div><b id="pDraw">1 in 50</b><span>molecules is something else</span></div>
+      </div>
+      <div class="verdict" id="pVerdict"></div>
+    </div>
+  </div>
+  <details class="deep" open><summary>What the purity number cannot see</summary>
+    <p>HPLC purity only compares things that show up as UV peaks: peptides and their near twins. It is blind to:</p>
+    <div class="cols">
+      <div class="box no"><h3>Invisible to purity</h3><ul>
+        <li>Water and salt partners (TFA, acetate)</li>
+        <li>Endotoxin</li>
+        <li>Heavy metals</li>
+        <li>Leftover solvents</li>
+        <li>Bacteria or fungi</li>
+        <li>A wrong molecule that exits at the same moment</li>
+      </ul></div>
+      <div class="box"><h3>So a 99% vial can still</h3><ul>
+        <li>hold only 70% peptide by weight</li>
+        <li>carry endotoxin</li>
+        <li>be the wrong peptide, if nobody ran mass spec</li>
+        <li>be non-sterile</li>
+      </ul></div>
+    </div>
+    <p style="margin-top:10px">Medicines also limit each single impurity, not only the total. A grey market COA almost always gives one total number.</p>
+  </details>
+</section>
+
+<!-- PART FIVE -->
+<section id="coa">
+  <div class="divider"><span>Part five · The COA</span></div>
+  <h2>Certificate of Analysis, line by line</h2>
+  <p>A COA is a lab's report on <b>one batch</b> (the lot). Not on your vial, not on the brand. Tap a line. Colour shows how often each line appears on research peptide COAs.</p>
+  <div class="key" style="margin-bottom:8px"><span><i class="f1"></i>Usually there</span><span><i class="f2"></i>Sometimes</span><span><i class="f3"></i>Rarely</span></div>
+  <div class="two">
+    <div>
+      <div class="coa">
+        <div class="hd"><b>Certificate of Analysis</b><span>Example · not a real lot</span></div>
+        <table id="coaT"></table>
+      </div>
+    </div>
+    <div>
+      <div class="cols" style="grid-template-columns:1fr">
+        <div class="box yes"><h3>A COA covers</h3><ul>
+          <li>That one lot, on the test date</li>
+          <li>Only the tests printed on it</li>
+          <li>The lab's own method and limits</li>
+        </ul></div>
+        <div class="box no"><h3>A COA does not cover</h3><ul>
+          <li>Your vial, unless the lot number matches</li>
+          <li>Shipping heat, storage, time since testing</li>
+          <li>Any test that is not on the page</li>
+          <li>How you mix, store or draw it</li>
+        </ul></div>
+      </div>
+      <h3 style="margin-top:12px">Read it like a skeptic</h3>
+      <ul class="checks">
+        <li><span>Lot number on the COA matches the lot on your vial.</span></li>
+        <li><span>Mass spec found weight matches the theoretical weight for that sequence (Part six).</span></li>
+        <li><span>A chromatogram picture is attached, not just a number.</span></li>
+        <li><span>The picture is not the same one reused across different compounds.</span></li>
+        <li><span>Who tested it: the maker (in-house) or an outside lab you can contact.</span></li>
+        <li><span>Every lot reading exactly 99.9% is a pattern, not a result.</span></li>
+        <li><span>Endotoxin and sterility lines exist if it is meant for injection.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PART SIX -->
+<section id="weight">
+  <div class="divider"><span>Part six · Weight</span></div>
+  <h2>Two weights that matter</h2>
+  <div class="tabs" role="tablist" data-tabs="w">
+    <button role="tab" aria-selected="true" data-p="w1">Molecular weight</button>
+    <button role="tab" aria-selected="false" data-p="w2">Vial weight</button>
+  </div>
+  <div class="pane" id="w1">
+    <p><b>Molecular weight is a fingerprint.</b> Every sequence has one exact weight, the sum of its letters minus the water lost at each link. Mass spec (MS) weighs the molecules in the batch. If the found weight matches the theoretical one, the chain is probably the right one.</p>
+    <p>This is BPC-157, 15 letters. Tap any letter to drop it, the way a missed link would.</p>
+    <div class="seq" id="seq"></div>
+    <div class="ms-read">
+      <div><span>Theoretical</span><b>1419.5</b></div>
+      <div><span>This chain</span><b id="msNow">1419.5</b></div>
+      <div><span>Difference</span><b id="msDiff">0</b></div>
+    </div>
+    <p class="note" id="msNote">Weights in daltons (g/mol). A missing proline drops 97.1, a missing glycine 57.1. MS sees that instantly; HPLC may not.</p>
+  </div>
+  <div class="pane" id="w2" hidden>
+    <p><b>The label weight is usually powder weight.</b> Part of that powder is the salt partner and water. The share that is real peptide is the <b>net peptide content</b>, usually 60 to 90%.<sup><a href="#s4">4</a></sup> Purity and net content are two different numbers and both shrink what you actually hold.</p>
+    <div class="ctrl"><span class="lab">Net content</span><div class="seg" id="netSel"></div></div>
+    <div class="vialbar" id="vBar"></div>
+    <div class="key" style="margin-bottom:8px"><span><i style="background:var(--green)"></i>Right peptide</span><span><i style="background:var(--red)"></i>Peptide impurities</span><span><i style="background:var(--lav)"></i>Salt partner and water</span></div>
+    <div class="verdict" id="vNote"></div>
+    <p class="note">Uses the purity and vial size you picked in Part four. The <a href="/draw/">Calculator</a> works out water and syringe marks from the label weight; this is why the label weight is a ceiling, not a promise. Vial fill also varies from vial to vial.</p>
+  </div>
+</section>
+
+<!-- PART SEVEN -->
+<section id="ph">
+  <div class="divider"><span>Part seven · pH</span></div>
+  <h2>Why acid and base matter</h2>
+  <div class="ph" aria-hidden="true">
+    <div class="scale"><i style="background:#FF5050"></i><i style="background:#FF7A4D"></i><i style="background:#FFA51F"></i><i style="background:#FFC94A"></i><i style="background:#E1DE62"></i><i style="background:#C9DD7A"></i><i style="background:#AACC96"></i><i style="background:#9CD1B4"></i><i style="background:#86C6D6"></i><i style="background:#74BCFF"></i><i style="background:#7FA0F0"></i><i style="background:#8C8BE6"></i><i style="background:#B493E8"></i><i style="background:#9B7FD6"></i></div>
+    <div class="ticks"><span style="left:calc(0/14*100%)">0</span><span style="left:calc(2/14*100%)">2</span><span style="left:calc(4/14*100%)">4</span><span style="left:calc(6/14*100%)">6</span><span style="left:calc(7/14*100%)">7</span><span style="left:calc(8/14*100%)">8</span><span style="left:calc(10/14*100%)">10</span><span style="left:calc(12/14*100%)">12</span><span style="left:calc(14/14*100%)">14</span></div>
+    <div class="rng" style="left:calc(4.5/14*100%);width:calc(2.5/14*100%)"></div>
+    <div class="mk" style="left:calc(5.7/14*100%);top:24px;height:24px;border-color:#3E4A80"><span style="top:12px">BAC water, 4.5 to 7</span></div>
+    <div class="mk" style="left:calc(7.4/14*100%);top:-22px;height:40px;border-color:#DB6830"><span style="top:-2px;color:#DB6830">Blood, 7.35 to 7.45</span></div>
+  </div>
+  <div class="cols">
+    <div class="box"><h3>Dissolving</h3><p style="font-size:14px;margin:0">Every peptide has a pH where its charges cancel (its isoelectric point). Near that pH it dissolves worst and can turn cloudy or clump. That is why some peptides need a slightly acidic water to go clear.</p></div>
+    <div class="box"><h3>Shelf life</h3><p style="font-size:14px;margin:0">Higher pH speeds some breakdown, like asparagine turning into aspartate (deamidation). Wrong pH plus warmth plus time equals a weaker vial with more impurities than its COA shows.</p></div>
+    <div class="box"><h3>Sting</h3><p style="font-size:14px;margin:0">Leftover TFA makes a solution more acidic. More acid, more sting at the injection site. A COA may list pH or the salt form.</p></div>
+    <div class="box"><h3>The water</h3><p style="font-size:14px;margin:0">Bacteriostatic water is sterile water with 0.9% benzyl alcohol, pH about 5.7 (range 4.5 to 7).<sup><a href="#s5">5</a></sup> The alcohol slows bacteria after the vial is opened. It does not sterilise a dirty vial.</p></div>
+  </div>
+  <p class="verdict" style="margin-top:10px"><b class="o">Signal:</b> a mixed vial that stays cloudy, has floating bits, or changes colour is telling you something changed. Clear and colourless is the baseline for most peptides. GHK-Cu is the known exception: copper makes it blue.</p>
+</section>
+
+<!-- PART EIGHT -->
+<section id="toxins">
+  <div class="divider"><span>Part eight · Toxins</span></div>
+  <h2>What purity never measured</h2>
+  <div class="tabs" role="tablist" data-tabs="t">
+    <button role="tab" aria-selected="true" data-p="t1">Endotoxin</button>
+    <button role="tab" aria-selected="false" data-p="t2">Heavy metals</button>
+    <button role="tab" aria-selected="false" data-p="t3">Solvents</button>
+    <button role="tab" aria-selected="false" data-p="t4">Microbes</button>
+  </div>
+
+  <div class="pane" id="t1">
+    <p><b>Endotoxin is a piece of dead bacteria.</b> It is a fat-sugar molecule (lipopolysaccharide, LPS) from the outer wall of gram-negative bacteria like <i>E. coli</i>. Bacteria shed a little while alive and a lot when they die.<sup><a href="#s6">6</a></sup> So a product can be sterile, zero living bacteria, and still be full of endotoxin.</p>
+    <p><b>Why it matters.</b> The immune system reads LPS as an infection. Small amounts in the blood bring fever, chills, shaking, aches and headache within hours. Large amounts can drop blood pressure into shock.</p>
+    <p><b>Why it is hard to remove.</b> It survives heat. Normal autoclaving does not reliably destroy it; it takes dry heat around 250°C for 30 minutes.<sup><a href="#s6">6</a></sup> Sterile filters catch bacteria, not reliably their endotoxin. It has to be kept out from the start: clean water, clean glass, clean hands.</p>
+    <p><b>The limit.</b> Injected medicines are held under 5 endotoxin units (EU) per kg of body weight per hour.<sup><a href="#s3">3</a></sup> Tested with LAL, a reagent made from horseshoe crab blood that clots when endotoxin is present.</p>
+    <h3 style="margin-top:8px">Read an endotoxin line</h3>
+    <div class="calc">
+      <label>Body weight, kg<input id="ekg" type="number" inputmode="decimal" value="60" min="20" max="200"></label>
+      <label>COA endotoxin, EU per mg<input id="eeu" type="number" inputmode="decimal" value="1" min="0" step="0.1"></label>
+    </div>
+    <div class="verdict" id="eOut"></div>
+    <p class="note">For understanding a COA line only. "&lt; 1 EU/mg" means under the test's floor, not zero. No endotoxin line at all means nobody measured it.</p>
+  </div>
+
+  <div class="pane" id="t2" hidden>
+    <p><b>Heavy metals come from the process</b>: metal catalysts, reagents, water, steel equipment. They are not counted in purity and need a separate test (ICP-MS). The risk is mostly slow: metals build up with repeated use, so small amounts over months matter more than one shot.</p>
+    <table class="spec">
+      <tr><th>Metal</th><th>Daily limit, injected</th><th>What too much does</th></tr>
+      <tr><td><b>Cadmium</b></td><td class="n">2 µg</td><td>Kidneys, bone</td></tr>
+      <tr><td><b>Mercury</b></td><td class="n">3 µg</td><td>Nerves, kidneys</td></tr>
+      <tr><td><b>Lead</b></td><td class="n">5 µg</td><td>Nerves, blood, kidneys</td></tr>
+      <tr><td><b>Cobalt</b></td><td class="n">5 µg</td><td>Heart, thyroid</td></tr>
+      <tr><td><b>Palladium</b></td><td class="n">10 µg</td><td>A catalyst residue, sensitises</td></tr>
+      <tr><td><b>Arsenic</b></td><td class="n">15 µg</td><td>Skin, nerves, cancer risk</td></tr>
+      <tr><td><b>Nickel</b></td><td class="n">20 µg</td><td>Allergy, a common sensitiser</td></tr>
+      <tr><td><b>Copper</b></td><td class="n">300 µg</td><td>Liver. GHK-Cu carries copper on purpose</td></tr>
+    </table>
+    <p class="note">Limits are ICH Q3D permitted daily exposures for injected (parenteral) medicines, total from every source per day.<sup><a href="#s7">7</a></sup> Injected limits are tighter than oral ones because nothing is filtered by the gut first. Research peptide COAs rarely include this test.</p>
+  </div>
+
+  <div class="pane" id="t3" hidden>
+    <p><b>Bead chemistry runs on solvents</b>: DMF and NMP to link, DCM to wash, piperidine to uncap, TFA to cut free, ether to crash the crude out, acetonitrile in the HPLC. Freeze drying removes most of it. "Most" is what a residual solvent test (gas chromatography, GC) puts a number on.</p>
+    <p>DMF and NMP are reproductive toxins in high exposure; DCM is a suspected carcinogen. At trace levels in a single vial the concern is low; across months of daily injections it is an unknown when nobody tested.</p>
+    <p class="note">Medicines follow ICH Q3C solvent limits. Research COAs almost never list residual solvents.</p>
+  </div>
+
+  <div class="pane" id="t4" hidden>
+    <p><b>Powder is not automatically sterile.</b> Sterility comes from the process: filtering the solution through a 0.22 µm membrane before filling, in a clean room, then sealing. A sterility test (USP &lt;71&gt;) checks that nothing grows from samples of the lot.</p>
+    <p>Bacteria or fungi in a vial cause local infection: a hot, swollen, painful lump that gets worse over days, sometimes an abscess. Each puncture of the stopper is also a chance to bring something in, which is why bacteriostatic water exists.</p>
+    <p class="note">Filtration removes living bacteria. It does not reliably remove endotoxin or metals. Three different problems, three different tests.</p>
+  </div>
+</section>
+
+<!-- PART NINE -->
+<section id="react">
+  <div class="divider"><span>Part nine · Reactions</span></div>
+  <h2>When the body answers back</h2>
+  <p>Timing tells you a lot. A reaction can come from the peptide itself, an impurity, clumped aggregates, the preservative or contamination. Tolerating last month's vial says nothing about a new lot.</p>
+  <div class="react">
+    <div><div class="sw" style="background:var(--repair)"></div><p class="when">Minutes to hours</p><h3>Injection site</h3><p>Redness, itch, a small bump or sting. Common, local, fades in a day or two.</p></div>
+    <div><div class="sw" style="background:var(--orange)"></div><p class="when">30 min to a few hours</p><h3>Fever-type</h3><p>Chills, shaking, fever, aches, headache, nausea. Classic picture of endotoxin. Needs medical attention if strong, or if blood pressure feels low (dizzy, faint).</p></div>
+    <div><div class="sw" style="background:var(--red)"></div><p class="when">Seconds to 30 min</p><h3>Allergic</h3><p>Hives spreading past the site, swelling of lips, tongue or throat, hoarse voice, wheeze, dizziness, pale clammy skin. This can become anaphylaxis.</p></div>
+    <div><div class="sw" style="background:var(--violet)"></div><p class="when">1 to 3 days</p><h3>Infection</h3><p>The spot gets hotter, bigger and more painful instead of better. Red streaks, pus or fever. Needs a doctor.</p></div>
+  </div>
+  <div class="alarm" role="note">
+    <h3>Anaphylaxis is an emergency</h3>
+    <p style="font-size:14px;margin:0">Throat or tongue swelling, trouble breathing or swallowing, wheeze, sudden dizziness, collapse. Can start within minutes.<sup><a href="#s8">8</a></sup></p>
+    <ol>
+      <li>Use an adrenaline auto-injector straight away if one is prescribed.</li>
+      <li>Call emergency services: 112 (Indonesia, EU), 911 (US), 999 (UK). Say "anaphylaxis".</li>
+      <li>Lie down with legs raised. Sit up if breathing is hard. Do not stand or walk, even if it eases.</li>
+      <li>Second adrenaline dose after 5 minutes if no better.</li>
+    </ol>
+  </div>
+  <p class="note">Educational, not medical advice. If something feels wrong after an injection, get help early. Bring the vial and its lot number.</p>
+</section>
+
+<footer class="foot">
+  <p class="lab">Sources</p>
+  <ol>
+    <li id="s1">Ozempic (semaglutide) prescribing information: produced in yeast by recombinant DNA technology, followed by chemical modification.</li>
+    <li id="s2"><a href="https://www.nobelprize.org/prizes/chemistry/1984/summary/">Nobel Prize in Chemistry 1984, Bruce Merrifield</a>, solid phase synthesis.</li>
+    <li id="s3"><a href="https://www.acciusa.com/pdfs/whitepapers/EndotoxinLimits_SeanJH-PR17-012.pdf">Associates of Cape Cod, Endotoxin Limits</a>: threshold pyrogenic dose 5 EU/kg (0.2 EU/kg intrathecal).</li>
+    <li id="s4"><a href="https://ambiopharm.com/?p=10700">AmbioPharm, peptide content and purity</a>: net peptide content usually 60 to 90%; TFA salts from HPLC, most peptide APIs made as acetate. See also <a href="https://lifetein.com/What-is-net-peptide-content.html">LifeTein, net peptide content</a>.</li>
+    <li id="s5"><a href="https://labeling.pfizer.com/ShowLabeling.aspx?id=4666">Bacteriostatic Water for Injection USP, label</a>: 0.9% benzyl alcohol, pH 5.7 (4.5 to 7.0).</li>
+    <li id="s6"><a href="https://www.wakopyrostar.com/blog/kit-lal/post/common-lab-sources-of-endotoxin-and-strategies-for-its-detection-and-removal/">FUJIFILM Wako, sources of endotoxin</a>: gram-negative outer membrane, heat resistant, 250°C for 30 min, LAL test.</li>
+    <li id="s7"><a href="https://www.labcorp.com/education-events/articles/elemental-impurities-usp-and-ich-q3d-guidelines">Labcorp, ICH Q3D elemental impurities</a>: parenteral PDEs.</li>
+    <li id="s8"><a href="https://www.anaphylaxis.org.uk/what-to-do-in-an-emergency/">Anaphylaxis UK, what to do in an emergency</a>.</li>
+  </ol>
+  <p>Checked 22 Oct 2026 · Made V1 · An ever evolving reference</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.from((r||document).querySelectorAll(s))};
+var track=function(n){try{window.bsTrack&&window.bsTrack('made:'+n)}catch(e){}};
+
+/* tabs */
+$$('[data-tabs]').forEach(function(t){
+  var bs=$$('button',t);
+  bs.forEach(function(b){b.addEventListener('click',function(){
+    bs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');$('#'+x.dataset.p).hidden=x!==b});
+    track('tab-'+b.dataset.p);
+  })});
+});
+function seg(el,items,cur,fn){
+  el.innerHTML=items.map(function(it){return '<button data-v="'+it[0]+'" aria-pressed="'+(String(it[0])===String(cur))+'">'+it[1]+'</button>'}).join('');
+  $$('button',el).forEach(function(b){b.addEventListener('click',function(){$$('button',el).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});fn(b.dataset.v)})});
+}
+
+/* stacking math */
+var PEPS=[['ipa',5,'Ipamorelin · 5'],['tb',7,'TB-500 · 7'],['bpc',15,'BPC-157 · 15'],['ser',29,'Sermorelin · 29'],['reta',39,'Retatrutide · 39']];
+var st={n:15,e:.99};
+function stack(){
+  var n=st.n,e=st.e,full=Math.pow(e,n),one=n*(1-e)*Math.pow(e,n-1),more=Math.max(0,1-full-one);
+  var pc=function(x){return x>=.995?Math.round(x*100)+'%':x<.01&&x>0?'<1%':Math.round(x*100)+'%'};
+  $('#stFull').textContent=pc(full);$('#stOne').textContent=pc(one);$('#stMore').textContent=pc(more);
+  var f=Math.round(full*100),o=Math.round(one*100);if(f+o>100)o=100-f;
+  var h='';for(var i=0;i<100;i++)h+='<i class="'+(i<f?'':i<f+o?'d1':'d2')+'"></i>';
+  $('#chainViz').innerHTML=h;
+}
+seg($('#pepSel'),PEPS.map(function(p){return [p[1],p[2]]}),15,function(v){st.n=+v;stack();track('stack')});
+seg($('#effSel'),[[.995,'99.5%'],[.99,'99%'],[.98,'98%'],[.97,'97%']],.99,function(v){st.e=+v;stack();track('stack')});
+stack();
+
+/* impurities */
+var IMP=[
+ ['Deletion','minus one letter','A link failed and the chain skipped a letter, then kept growing. The most common near twin.','Weight drops by that letter: about 57 for glycine, 97 for proline, 186 for tryptophan. Sits right next to the main peak.','var(--orange)'],
+ ['Truncation','stops short','The chain stopped growing early. Often capped on purpose so stragglers cannot keep adding letters.','Much lighter than the target, usually easy to cut away in HPLC.','var(--repair)'],
+ ['Leftover guard','plus 56 to 252','A side-chain cap was not fully stripped at the end. Common guards: tBu (+56), Boc (+100), Trt (+242), Pbf (+252).','Greasier than the target, exits later. MS shows the exact plus weight.','var(--coral)'],
+ ['Mirror swap','same weight','An amino acid flipped to its mirror image (L to D, racemization) during linking. Same atoms, different shape.','Same mass, so MS cannot see it. Only a careful HPLC method or a special test can.','var(--violet)'],
+ ['Oxidation','plus 16','Methionine or tryptophan picked up an oxygen. Happens in the bag, the vial or the fridge too, not only at the factory.','+16 per oxygen. Grows with air, light and time.','var(--sky)'],
+ ['Deamidation','plus 1','Asparagine or glutamine lost an amine and became acid. Faster at higher pH and warmth.','+1 in weight, shifts charge. A shelf-life impurity: it keeps forming after the COA.','var(--lav)'],
+ ['Aggregates','double or more','Chains stuck together into pairs or clumps. Clumps are one suspect in immune reactions.','Twice the weight or more. Can make a mixed vial cloudy.','var(--red)'],
+ ['Process leftovers','not a peptide','TFA, solvents, scavengers, metals. From cells: host proteins, DNA, endotoxin.','Invisible to HPLC purity. Each needs its own test (Part eight).','var(--green)']
+];
+var impEl=$('#imp'),openEl=$('#impOpen'),cur=-1;
+impEl.innerHTML=IMP.map(function(m,i){return '<button class="tile" aria-pressed="false" data-i="'+i+'"><strong>'+m[0]+'</strong><span class="ms">'+m[1]+'</span><span class="wh">'+m[2].split('. ')[0]+'.</span><span class="bar" style="background:'+m[4]+'"></span></button>'}).join('');
+$$('.tile',impEl).forEach(function(b){b.addEventListener('click',function(){
+  var i=+b.dataset.i;cur=cur===i?-1:i;
+  $$('.tile',impEl).forEach(function(x){x.setAttribute('aria-pressed',+x.dataset.i===cur?'true':'false')});
+  if(cur<0){openEl.hidden=true;return}
+  var m=IMP[cur];openEl.hidden=false;
+  openEl.innerHTML='<h3>'+m[0]+' <span class="ms" style="font:500 11px var(--mono);color:var(--accent)">'+m[1]+'</span></h3><p>'+m[2]+'</p><p class="soft" style="margin:0">'+m[3]+'</p>';
+  track('imp-'+m[0]);
+})});
+
+/* chromatogram */
+var CUT={w:[118,212,'Wide cut: more powder, near twins on both shoulders come along. Lower purity.'],m:[136,192,'Medium cut: the common trade off.'],n:[150,176,'Narrow cut: only the centre of the peak. Higher purity, less powder, higher price.']};
+function chrom(c){
+  var W=320,H=170,base=150;
+  var pk=[[60,10,7],[92,18,6],[124,30,5],[163,120,9],[200,26,5],[236,14,6],[272,8,7]];
+  var y=function(x){var s=0;pk.forEach(function(p){s+=p[1]*Math.exp(-Math.pow(x-p[0],2)/(2*p[2]*p[2]))});return base-s};
+  var d='M10 '+y(10).toFixed(1);for(var x=11;x<=310;x++)d+='L'+x+' '+y(x).toFixed(1);
+  var k=CUT[c],a=k[0],b=k[1];
+  var f='M'+a+' '+base;for(x=a;x<=b;x++)f+='L'+x+' '+y(x).toFixed(1);f+='L'+b+' '+base+'Z';
+  $('#chrom').innerHTML='<rect x="'+a+'" y="14" width="'+(b-a)+'" height="'+(base-14)+'" fill="#E1DE62" opacity=".35"/>'+
+   '<path d="'+f+'" fill="#AACC96" opacity=".7"/>'+
+   '<path d="'+d+'" fill="none" stroke="#3E4A80" stroke-width="1.8"/>'+
+   '<line x1="10" y1="'+base+'" x2="310" y2="'+base+'" stroke="#6B76A8"/>'+
+   '<text x="163" y="12" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#3E4A80">your peptide</text>'+
+   '<text x="92" y="'+(base-26)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#DB6830">twin</text>'+
+   '<text x="200" y="'+(base-34)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#DB6830">twin</text>'+
+   '<text x="10" y="166" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#6B76A8">time →  watery first, greasy last</text>';
+  $('#cutNote').textContent=k[2];
+}
+$$('#cutSel button').forEach(function(b){b.addEventListener('click',function(){$$('#cutSel button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});chrom(b.dataset.c);track('cut')})});
+chrom('m');
+
+/* purity grid + vial */
+var P={p:98,mg:10,net:75};
+var g='';for(var i=0;i<1000;i++)g+='<i></i>';$('#g1k').innerHTML=g;
+var cells=$$('#g1k i');
+var order=cells.map(function(_,i){return i});
+(function(){var s=7;for(var i=order.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=order[i];order[i]=order[j];order[j]=t}})();
+var VERD=[[99.5,'Top tier for research peptides. What remains is mostly near twins, at trace levels.'],[99,'High. One part in a hundred is something else, mostly near twins.'],[98,'The most common claim on research COAs. Twice the impurity of 99%.'],[95,'A lower tier. Impurities are now a real share of every injection.'],[0,'Closer to crude than to clean. Many labs sell this only for non-human lab work.']];
+function fmt(mcg){return mcg>=1000?parseFloat((mcg/1000).toFixed(2))+' mg':Math.round(mcg)+' mcg'}
+function pur(){
+  var imp=1000-Math.round(P.p*10);
+  cells.forEach(function(c){c.className=''});
+  for(var i=0;i<imp;i++)cells[order[i]].className='x';
+  var impMcg=P.mg*1000*(100-P.p)/100;
+  $('#pImp').textContent=fmt(impMcg);
+  var x=(100-P.p)/1;$('#pX').textContent=(x<1?x.toFixed(1):x%1?x.toFixed(1):x)+'×';
+  var r=100/(100-P.p);$('#pDraw').textContent='1 in '+(r>=100?Math.round(r).toLocaleString():Math.round(r));
+  $('#g1kNote').textContent=imp+' of 1,000 squares red at '+P.p+'%.';
+  var v=VERD.find(function(z){return P.p>=z[0]});$('#pVerdict').innerHTML='<b class="o">'+P.p+'%:</b> '+v[1];
+  vial();
+}
+function vial(){
+  var pep=P.net/100,right=pep*P.p/100,imp=pep-right,other=1-pep;
+  $('#vBar').innerHTML='<i style="flex:'+right+';background:var(--green)"></i><i style="flex:'+Math.max(imp,.004)+';background:var(--red)"></i><i style="flex:'+other+';background:var(--lav)"></i>';
+  $('#vNote').innerHTML='A "'+P.mg+' mg" vial at '+P.p+'% purity and '+P.net+'% net content holds about <b class="o">'+parseFloat((P.mg*right).toFixed(2))+' mg</b> of the right peptide, '+fmt(P.mg*1000*imp)+' of peptide impurities, and '+(P.mg*other).toFixed(1)+' mg of salt and water.';
+}
+seg($('#purSel'),[[99.9,'99.9'],[99.5,'99.5'],[99,'99'],[98,'98'],[95,'95'],[90,'90']],98,function(v){P.p=+v;pur();track('purity')});
+seg($('#vialSel'),[[5,'5 mg'],[10,'10 mg'],[20,'20 mg'],[50,'50 mg']],10,function(v){P.mg=+v;pur()});
+seg($('#netSel'),[[60,'60%'],[75,'75%'],[90,'90%']],75,function(v){P.net=+v;vial();track('net')});
+pur();
+
+/* COA */
+var COA=[
+ ['Product','BPC-157 (example)',1,'Name and sequence. Check the sequence is written out (GEPPPGKPADDAGLV for BPC-157), not just the name.'],
+ ['Lot / batch','EX-0000-A',1,'The key to everything. The COA only describes vials with this exact lot printed on them.'],
+ ['Test date','dd mmm yyyy',1,'Results describe the powder on that day. Time, heat and shipping since then are not covered.'],
+ ['Appearance','White lyophilized powder',1,'A visual check. Yellowing or a collapsed, sticky cake can mean moisture or breakdown.'],
+ ['Identity · MS','Theory 1419.5 · Found 1419.6',1,'Mass spec. Found weight should match the theoretical weight within about one unit. This is the line that proves it is the right molecule (Part six).'],
+ ['Purity · HPLC','98.7%',1,'Share of UV peaks that are the right chain. Ask for the chromatogram picture, and note the wavelength (214 to 220 nm is standard).'],
+ ['Net peptide content','not tested',2,'How much of the powder is actually peptide. Usually 60 to 90%. Without it, "10 mg" is powder weight.'],
+ ['Water · KF','≤ 8%',2,'Karl Fischer test for moisture. Water adds weight and speeds breakdown.'],
+ ['Counterion','TFA / acetate',2,'Which salt partner the peptide carries. Tells you why a solution may sting and how much of the weight is not peptide.'],
+ ['Endotoxin · LAL','< 1 EU/mg',3,'The fever-causing bacterial fragment (Part eight). Should be there for anything meant to be injected.'],
+ ['Sterility','Pass / not tested',3,'Whether anything grew from samples of the lot. Separate from endotoxin.'],
+ ['Heavy metals · ICP-MS','not tested',3,'Lead, cadmium, mercury, arsenic and others. Rare on research COAs.'],
+ ['Residual solvents · GC','not tested',3,'DMF, DCM, acetonitrile, ether left from the build. Rare on research COAs.'],
+ ['Lab and signature','Lab name, analyst',1,'Who ran the tests. An outside lab you can contact and verify beats an unsigned in-house sheet.']
+];
+var FR={1:['f1','usually'],2:['f2','sometimes'],3:['f3','rarely']};
+var cT=$('#coaT'),cSel=4;
+cT.innerHTML=COA.map(function(r,i){return '<tr data-i="'+i+'"><td><span class="num">'+(i+1)+'</span></td><td>'+r[0]+'</td><td>'+r[1]+'<span class="freq '+FR[r[2]][0]+'">'+FR[r[2]][1]+'</span></td></tr>'}).join('');
+function coa(i){var old=$('tr.ex',cT);if(old)old.remove();cSel=cSel===i?-1:i;$$('tr[data-i]',cT).forEach(function(t){t.classList.toggle('sel',+t.dataset.i===cSel)});if(cSel<0)return;var r=COA[i],row=$('tr[data-i="'+i+'"]',cT),ex=document.createElement('tr');ex.className='ex';ex.innerHTML='<td colspan="3"><b class="o">'+r[0]+':</b> '+r[3]+'</td>';row.after(ex);}
+$$('tr[data-i]',cT).forEach(function(t){t.addEventListener('click',function(){coa(+t.dataset.i);track('coa-'+COA[+t.dataset.i][0])})});
+cSel=-1;coa(4);
+
+/* BPC-157 mass */
+var RES={G:57.05,E:129.12,P:97.12,K:128.17,A:71.08,D:115.09,L:113.16,V:99.13};
+var SEQ='GEPPPGKPADDAGLV'.split(''),gone={};
+$('#seq').innerHTML=SEQ.map(function(a,i){return '<button data-i="'+i+'" aria-pressed="false"><b>'+a+'</b><span>'+(i+1)+'</span></button>'}).join('');
+function mass(){
+  var m=1419.53;SEQ.forEach(function(a,i){if(gone[i])m-=RES[a]});
+  var d=m-1419.5;
+  $('#msNow').textContent=m.toFixed(1);
+  $('#msDiff').textContent=(Math.abs(d)<.15?'0':d.toFixed(1));
+  $('#msDiff').style.color=Math.abs(d)<.15?'':'#C02424';
+  var n=Object.keys(gone).length;
+  $('#msNote').textContent=n?('MS would read '+m.toFixed(1)+', not 1419.5. '+n+' letter'+(n>1?'s':'')+' missing. A COA showing this "found" weight is a different molecule.'):'Weights in daltons (g/mol). A missing proline drops 97.1, a missing glycine 57.1. MS sees that instantly; HPLC may not.';
+}
+$$('#seq button').forEach(function(b){b.addEventListener('click',function(){var i=b.dataset.i;if(gone[i])delete gone[i];else gone[i]=1;b.classList.toggle('gone',!!gone[i]);b.setAttribute('aria-pressed',gone[i]?'true':'false');mass();track('ms')})});
+mass();
+
+/* endotoxin */
+function endo(){
+  var kg=parseFloat($('#ekg').value),eu=parseFloat($('#eeu').value);
+  if(!(kg>0)){$('#eOut').textContent='Enter a body weight.';return}
+  var lim=5*kg;
+  var s='<b class="o">'+Math.round(lim)+' EU</b> is the medicine limit for '+kg+' kg, per hour.';
+  if(eu>0){var mg=lim/eu;s+=' At '+eu+' EU/mg, it would take <b class="o">'+(mg>=100?Math.round(mg):mg.toFixed(1))+' mg</b> of powder in one hour to reach it.'+(mg<1?' That is less than a single vial, so this line is a real warning.':'')}
+  else s+=' Enter the COA value to compare.';
+  $('#eOut').innerHTML=s;
+}
+['#ekg','#eeu'].forEach(function(id){$(id).addEventListener('input',endo)});
+endo();
+})();
+</script>
+</body>
+</html>
