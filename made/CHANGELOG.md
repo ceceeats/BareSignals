@@ -2,6 +2,9 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v2 (22 Oct 2026) at /made/v2/
+- Header label links back to Aminos ("after Aminos ‹"). Shipped with Aminos V47, which now ends with a Next · Made link. Content unchanged from v1.
+
 ## v1 (22 Oct 2026) at /made/v1/
 First build, in the Aminos page style. Shipped with Nav v7 (Made added after Aminos; v6 kept at /nav/v6.js) and Home v6 (Made box; v5 kept at /home/v5/).
 - Walk: six steps (Code, Build, Crude, Purify, Dry, Test), each jumps to its part.
