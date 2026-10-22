@@ -1,4 +1,4 @@
-/* Bare Signals site navigation v7: adds Made (/made/) after Aminos; v6 kept at /nav/v6.js. Previously v6: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v6 adds the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. */
+/* Bare Signals site navigation v8: adds Protocol (/protocol/) after Calculator; with 8 links the phone bar becomes two rows of four (one row no longer fits under 400px); v7 kept at /nav/v7.js. Previously v7: adds Made (/made/) after Aminos; v6 kept at /nav/v6.js. Previously v6: one boxed bar shared by every page. Include with <script src="/nav.js" defer></script>. v6 adds the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. */
 window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.goatcounter.com. Empty = tracking off. */
 (function(){
   var H=document.head,add=function(tag,attrs){var e=document.createElement(tag);for(var k in attrs)e.setAttribute(k,attrs[k]);H.appendChild(e);return e};
@@ -11,7 +11,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
 (function(){
   if(document.querySelector('.bsn'))return;
   var P=location.pathname;
-  var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood','Blood Work'],['/supplements/','Supps','Supplements'],['/aminos/','Aminos'],['/made/','Made'],['/draw/','Calculator']];
+  var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood','Blood Work'],['/supplements/','Supps','Supplements'],['/aminos/','Aminos'],['/made/','Made'],['/draw/','Calculator'],['/protocol/','Protocol']];
   var on=function(h){return P.indexOf(h)===0};
   var css='.bsn{position:relative;z-index:30;background:#FFFFE2;border-bottom:1.5px solid #3E4A80;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}'+
   '.bsn .bsb{display:flex;height:5px}.bsn .bsb i{display:block}'+
@@ -23,7 +23,8 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   '.bsn .bsl a:hover{background:#F2F0CC}'+
   '.bsn .bsl a[aria-current="page"]{background:#3E4A80;color:#FFFFE2}'+
   '@media (max-width:560px){.bsn .bsi{flex-wrap:wrap;gap:7px;padding-top:7px;padding-bottom:8px}.bsn .bsw{font-size:13px}.bsn .bsl{width:100%;margin-left:0}.bsn .bsl a{flex:1 1 auto;min-width:0;padding:8px 4px;font-size:10px;letter-spacing:.04em}}'+
-  '@media (max-width:380px){.bsn .bsl a{padding:8px 3px;font-size:9px;letter-spacing:.02em}}'+
+  '@media (max-width:560px){.bsn .bsl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}.bsn .bsl a{padding:8px 2px;font-size:10px}.bsn .bsl a:nth-child(4n){border-right:0}.bsn .bsl a:nth-child(n+5){border-top:1.5px solid #3E4A80}.bsn .bsl a:last-child{border-right:0}}'+
+  '@media (max-width:380px){.bsn .bsl a{padding:8px 1px;font-size:9px;letter-spacing:.02em}}'+
   '.bsn .ls{display:none}@media (max-width:1050px){.bsn .lf{display:none}.bsn .ls{display:inline}}'+
   '@media print{.bsn{display:none}}';
   var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);

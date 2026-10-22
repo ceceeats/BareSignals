@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Protocol · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Protocol v1 (22 Oct 2026): pick what you're dealing with, build a stack, see the stack check (duplicates inside blends, same-axis overlaps, shared markers, thin data), a staggered week/month timeline, a week at full stack, merged blood work, and take it away as PDF, text for an AI, or a reopen link. Reads Library v28 data and Blood Work v8 lib. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--red:#D4372C;--amber:#C98A00;--blue:#6777B6;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 56px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 28px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 4px;font-size:14px;color:var(--ink-soft);max-width:68ch}
+.frame{margin:0 0 16px;font:500 10.5px var(--mono);letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:1000px){.grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}.right{position:sticky;top:12px}}
+.box{border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:14px}
+.bh{display:flex;align-items:baseline;gap:10px;padding:9px 12px 8px;border-bottom:1.5px solid var(--ink);background:var(--paper)}
+.bh .no{font:600 11px var(--mono);border:1.5px solid var(--ink);width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none;align-self:center}
+.bh h2{font:700 17px/1.1 var(--display);margin:0;flex:1}
+.bh .side{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.bb{padding:10px 12px 12px}
+.hint{font-size:12.5px;color:var(--ink-soft);margin:0 0 8px}
+/* roles */
+.roles{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+.rl{display:inline-flex;align-items:center;gap:5px;font:500 12px var(--body);padding:4px 7px 4px 5px;border:1.3px solid var(--ink);background:var(--paper);cursor:pointer;border-radius:0}
+.rl i{width:11px;height:11px;border:1px solid rgba(62,74,128,.45);flex:none}
+.rl[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.rl[aria-pressed="true"] i{border-color:var(--paper)}
+.rolesmore{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;padding:4px 2px;cursor:pointer;text-decoration:underline;color:var(--ink-soft)}
+input[type=text],input[type=search],select,textarea{font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:8px 10px;border-radius:0;width:100%}
+textarea{font:400 12px/1.4 var(--mono);min-height:90px;resize:vertical}
+.sug{list-style:none;margin:10px 0 0;padding:0;border-top:1.5px solid var(--rule)}
+.sug li{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dotted var(--rule)}
+.sug .t{flex:1;min-width:0}
+.sug b{font:700 14.5px/1.2 var(--display)}
+.sug .w{display:block;font-size:12.5px;color:var(--ink-soft);line-height:1.3}
+.sug .w a{color:var(--ink-soft)}
+.sw{display:flex;gap:2px;margin-top:3px}.sw i{width:9px;height:9px;border:1px solid rgba(62,74,128,.35)}
+.add{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);background:var(--paper);padding:6px 9px;cursor:pointer;flex:none;border-radius:0}
+.add:hover{background:#F2F0CC}
+.add[disabled]{opacity:.45;cursor:default}
+.add.on{background:var(--ink);color:var(--paper)}
+.empty{font-size:13px;color:var(--ink-soft);padding:8px 0 2px;margin:0}
+/* finder */
+.fw{position:relative}
+.fl{list-style:none;margin:0;padding:0;border:1.5px solid var(--ink);border-top:0;background:var(--chip);max-height:300px;overflow:auto}
+.fl li{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px dotted var(--rule);cursor:pointer}
+.fl li:hover,.fl li.hl{background:#F2F0CC}
+.fl li b{font:700 14px var(--display);flex:1}
+.fl li small{font:500 10px var(--mono);color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;align-items:center}
+.quick span{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.qb{font:500 12px var(--body);border:1.3px dashed var(--ink);background:none;padding:4px 8px;cursor:pointer;border-radius:0}
+.qb:hover{background:#F2F0CC}
+/* stack cards */
+.sk{list-style:none;margin:10px 0 0;padding:0}
+.it{border:1.5px solid var(--ink);background:var(--paper);margin-bottom:8px}
+.it .band{display:flex;height:6px}.it .band i{flex:1}
+.it .top{display:flex;gap:8px;align-items:flex-start;padding:7px 9px 4px}
+.it .ord{font:600 11px var(--mono);border:1.3px solid var(--ink);min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.it .nm{flex:1;min-width:0}
+.it .nm b{font:700 16px/1.15 var(--display);display:block}
+.it .nm .u{font-size:12.5px;color:var(--ink-soft);line-height:1.3;display:block}
+.it .nm .cmp{font:500 10.5px var(--mono);letter-spacing:.04em;color:var(--accent);display:block;margin-top:2px}
+.it .ctl{display:flex;gap:3px;flex:none}
+.ib{width:26px;height:26px;border:1.3px solid var(--ink);background:var(--chip);cursor:pointer;font:600 13px var(--mono);line-height:1;padding:0;border-radius:0}
+.ib:hover{background:#F2F0CC}
+.ib[disabled]{opacity:.3;cursor:default}
+.rep{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--rule)}
+.rep div{padding:4px 9px 5px;border-right:1.5px solid var(--rule);min-width:0}
+.rep div:last-child{border-right:0}
+.rep small,.mine label{display:block;font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.rep em{display:block;font:700 12.5px/1.2 var(--display);font-style:normal;overflow-wrap:anywhere}
+.mine{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) minmax(0,.7fr);gap:6px;padding:7px 9px 8px;border-top:1.5px solid var(--rule);background:var(--chip)}
+.mine input,.mine select{padding:6px 7px;font-size:13.5px}
+.lk{display:flex;flex-wrap:wrap;gap:4px 12px;padding:5px 9px 7px;border-top:1.5px solid var(--rule);font-size:12px}
+.lk a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.lk a:hover{color:var(--ink)}
+@media (max-width:560px){.rep{grid-template-columns:repeat(2,minmax(0,1fr))}.rep div:nth-child(2){border-right:0}.rep div:nth-child(n+3){border-top:1.5px solid var(--rule)}.mine{grid-template-columns:minmax(0,1.25fr) minmax(0,1.25fr) minmax(52px,.5fr);gap:5px}.mine input,.mine select{padding:6px 5px;font-size:13px}}
+.mine input::placeholder{color:#A9B0D0;font-style:italic}
+.clear{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;cursor:pointer;color:var(--ink-soft);text-decoration:underline;padding:0}
+/* flags */
+.flags{list-style:none;margin:0;padding:0}
+.fg{display:flex;gap:9px;padding:8px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.4}
+.fg:last-child{border-bottom:0}
+.fg .k{flex:none;font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border:1.3px solid currentColor;align-self:flex-start;min-width:66px;text-align:center}
+.fg.r .k{color:var(--red)}.fg.a .k{color:var(--amber)}.fg.b .k{color:var(--blue)}.fg.g .k{color:#4E7F35}
+.fg b{font-weight:600}
+/* timeline */
+.tlctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:6px 10px;cursor:pointer;border-radius:0}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tog{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;cursor:pointer}
+.tog input{accent-color:#3E4A80;width:16px;height:16px;margin:0}
+.tlctl select{width:auto;padding:5px 6px;font-size:12.5px}
+.tlw{overflow-x:auto;border:1.5px solid var(--ink);background:var(--paper)}
+.tl{display:grid;min-width:100%}
+.tl .h{font:500 9px var(--mono);letter-spacing:.04em;color:var(--ink-soft);text-align:center;padding:4px 0;border-bottom:1.5px solid var(--ink);border-right:1px solid var(--rule);background:var(--chip)}
+.tl .n{font:600 12px/1.2 var(--display);padding:5px 8px;border-right:1.5px solid var(--ink);border-bottom:1px solid var(--rule);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:sticky;left:0;background:var(--paper);z-index:1}
+.tl .n.hd{background:var(--chip);border-bottom:1.5px solid var(--ink);font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center}
+.tl .c{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-height:26px;position:relative}
+.tl .c.on::after{content:"";position:absolute;left:0;right:0;top:6px;bottom:6px;background:var(--bar,#6777B6);border-top:1.3px solid var(--ink);border-bottom:1.3px solid var(--ink)}
+.tl .c.st::after{left:3px;border-left:1.3px solid var(--ink)}
+.tl .c.en::after{right:3px;border-right:1.3px solid var(--ink)}
+.tl .c.go::after{right:0;border-right:0;background:repeating-linear-gradient(90deg,var(--bar,#6777B6) 0 6px,transparent 6px 9px)}
+.tl .c.bl{display:flex;align-items:center;justify-content:center}
+.tl .c.bl span{font:700 10px var(--mono);border:1.3px solid var(--red);color:var(--red);background:var(--chip);padding:1px 3px;line-height:1.1}
+.tl .n.blr{color:var(--red)}
+.key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink-soft);margin-top:7px}
+.key span{display:inline-flex;gap:5px;align-items:center}
+.key i{display:inline-block;width:16px;height:9px;border:1.3px solid var(--ink);background:var(--blue)}
+.key i.bk{width:auto;height:auto;font:700 9px var(--mono);border-color:var(--red);color:var(--red);background:none;padding:0 2px;font-style:normal}
+/* week */
+.wk7{display:grid;grid-template-columns:minmax(90px,1.6fr) repeat(7,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--paper);margin-top:4px}
+.wk7>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 3px;text-align:center;font-size:12px;min-height:28px;display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap}
+.wk7 .h{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);border-bottom:1.5px solid var(--ink)}
+.wk7 .n{justify-content:flex-start;text-align:left;font:600 12px/1.2 var(--display);padding-left:7px;border-right:1.5px solid var(--ink)}
+.wk7 .dot{width:9px;height:9px;border:1.2px solid var(--ink);background:var(--bar)}
+.wk7 .pn{grid-column:span 7;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+/* blood */
+.bt{list-style:none;margin:0;padding:0}
+.bt li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:8px;align-items:start;padding:6px 0;border-bottom:1px dotted var(--rule)}
+.bt li>i{width:12px;height:12px;border:1px solid rgba(62,74,128,.4);margin-top:3px}
+.bt b{font:600 13.5px/1.25 var(--body)}
+.bt .who{display:block;font-size:12px;color:var(--ink-soft);line-height:1.3}
+.bt .tier{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;margin-top:3px}
+.bt .tier.r{color:var(--accent)}
+.cnt{font:600 10px var(--mono);border:1.2px solid var(--ink);padding:0 4px;margin-left:5px;vertical-align:1px}
+.sub{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:12px 0 4px}
+.sub:first-child{margin-top:0}
+.watch{list-style:none;margin:0;padding:0;font-size:13px}
+.watch li{padding:5px 0;border-bottom:1px dotted var(--rule);line-height:1.4}
+.watch b{font-weight:600}
+.watch .fq{color:var(--ink-soft)}
+.more{font-size:12.5px;margin:9px 0 0}
+.more a{color:var(--ink);font-weight:500}
+/* take it */
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+@media (max-width:420px){.acts{grid-template-columns:minmax(0,1fr)}}
+.act{font:600 12px var(--mono);letter-spacing:.04em;text-transform:uppercase;border:1.5px solid var(--ink);background:var(--paper);padding:10px 8px;cursor:pointer;text-align:center;border-radius:0}
+.act:hover{background:#F2F0CC}
+.act.p{background:var(--ink);color:var(--paper)}
+.act.p:hover{background:#2F3A6A}
+.toast{font:500 11px var(--mono);letter-spacing:.06em;color:#4E7F35;min-height:16px;margin:6px 0 0;text-transform:uppercase}
+details.imp{margin-top:10px;border-top:1.5px solid var(--rule);padding-top:8px}
+details.imp summary{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+details.imp p{font-size:12.5px;color:var(--ink-soft);margin:6px 0}
+pre.txt{white-space:pre-wrap;font:400 11.5px/1.45 var(--mono);background:var(--paper);border:1.5px solid var(--rule);padding:9px 10px;max-height:260px;overflow:auto;margin:10px 0 0}
+.foot{font-size:12px;color:var(--ink-soft);max-width:72ch;margin-top:8px}
+.ph{padding:18px 12px;text-align:center;font-size:13px;color:var(--ink-soft)}
+/* print sheet */
+#sheet{display:none}
+@media print{
+ @page{margin:14mm}
+ body{background:#fff;font-size:11.5px}
+ .wrap>*:not(#sheet){display:none!important}
+ #sheet{display:block}
+ #sheet h1{font-size:22px;margin:0 0 2px}
+ #sheet h3{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:12px 0 4px;border-bottom:1px solid #3E4A80;padding-bottom:2px}
+ #sheet table{width:100%;border-collapse:collapse;font-size:11px}
+ #sheet td,#sheet th{border:1px solid #3E4A80;padding:3px 5px;text-align:left;vertical-align:top}
+ #sheet th{font:600 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+ #sheet ul{margin:0;padding-left:16px}
+ #sheet .ft{margin-top:12px;font-size:9.5px;color:#6B76A8}
+ #sheet .tlw{overflow:visible;border:1px solid #3E4A80}
+ #sheet .tl .n{position:static}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <p class="lab">Bare Signals · Protocol</p>
+ <h1>Protocol <small>v1 · Draft</small></h1>
+ <p class="lede">Pick what you're dealing with and what you're curious about. See how the pieces fit: what overlaps, what to test, what a week and a month look like. Then take it with you as a PDF, as text for your own AI, or as a link.</p>
+ <p class="frame">A formula sheet built from reported use · not medical advice</p>
+
+ <div class="grid">
+  <div class="left">
+   <section class="box" id="s1">
+    <div class="bh"><span class="no">1</span><h2>What you're dealing with</h2><span class="side">optional</span></div>
+    <div class="bb">
+     <p class="hint">Tap what fits, or type it (elbow, sleep, belly fat, brain fog). You'll see what people most often report using for it, from the Library.</p>
+     <div class="roles" id="roles"></div>
+     <input type="search" id="dq" placeholder="Type it in your words" autocomplete="off" aria-label="What you're dealing with">
+     <ul class="sug" id="sug"></ul>
+    </div>
+   </section>
+
+   <section class="box" id="s2">
+    <div class="bh"><span class="no">2</span><h2>Your stack</h2><span class="side" id="skn"></span></div>
+    <div class="bb">
+     <div class="fw">
+      <input type="search" id="fq" placeholder="Add a compound or blend (BPC, KLOW, Tesa…)" autocomplete="off" aria-label="Add a compound or blend" role="combobox" aria-expanded="false" aria-controls="fl">
+      <ul class="fl" id="fl" role="listbox" hidden></ul>
+     </div>
+     <div class="quick" id="quick"></div>
+     <ul class="sk" id="sk"></ul>
+    </div>
+   </section>
+  </div>
+
+  <div class="right">
+   <section class="box" id="s3">
+    <div class="bh"><span class="no">3</span><h2>Stack check</h2><span class="side" id="fgn"></span></div>
+    <div class="bb"><ul class="flags" id="flags"></ul></div>
+   </section>
+
+   <section class="box" id="s4">
+    <div class="bh"><span class="no">4</span><h2>Timeline</h2></div>
+    <div class="bb">
+     <div class="tlctl">
+      <div class="seg" id="vw"><button type="button" data-v="week" aria-pressed="true">Weeks</button><button type="button" data-v="month" aria-pressed="false">Months</button><button type="button" data-v="seven" aria-pressed="false">One week</button></div>
+      <label class="tog"><input type="checkbox" id="stg" checked> One new at a time</label>
+      <select id="gap" aria-label="Weeks between starts"><option value="1">every week</option><option value="2">every 2 weeks</option></select>
+     </div>
+     <div id="tl"></div>
+    </div>
+   </section>
+
+   <section class="box" id="s5">
+    <div class="bh"><span class="no">5</span><h2>Blood work</h2><span class="side" id="btn"></span></div>
+    <div class="bb" id="blood"></div>
+   </section>
+
+   <section class="box" id="s6">
+    <div class="bh"><span class="no">6</span><h2>Take it with you</h2></div>
+    <div class="bb">
+     <div class="acts">
+      <button type="button" class="act p" id="aPdf">Save as PDF</button>
+      <button type="button" class="act" id="aTxt">Copy for my AI</button>
+      <button type="button" class="act" id="aLink">Copy link</button>
+     </div>
+     <p class="toast" id="toast" aria-live="polite"></p>
+     <p class="hint" style="margin:0">Paste the text into ChatGPT or Claude so it remembers your stack. It ends with a reopen code: paste that back here and the whole protocol comes back.</p>
+     <details class="imp" id="imp">
+      <summary>Paste it back</summary>
+      <p>Paste the text, the code, or the link.</p>
+      <textarea id="impT" aria-label="Paste your protocol text, code or link"></textarea>
+      <div style="display:flex;gap:6px;margin-top:6px"><button type="button" class="act p" id="impGo">Open it</button></div>
+     </details>
+     <details class="imp"><summary>Preview the text</summary><pre class="txt" id="txt"></pre></details>
+    </div>
+   </section>
+  </div>
+ </div>
+ <p class="foot">Everything here is reported use from the Library, Dosage and Blood Work pages, put side by side. Your stack stays in this browser; nothing is sent anywhere.</p>
+ <div id="sheet"></div>
+</div>
+
+<script src="/nav.js" defer></script>
+<script src="/library/v28/data.js"></script>
+<script src="/blood/v8/lib.js"></script>
+<script>
+(function(){
+'use strict';
+const D=window.BS_DATA||[],PAL=window.BS_PALETTE||[],BW=window.BW_LIB||{tests:{},comps:{}};
+const P={};PAL.forEach(p=>P[p[0]]=p);
+const BY={};D.forEach(d=>BY[d.slug]=d);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const track=(n,t)=>{try{window.bsTrack&&window.bsTrack('protocol:'+n,t)}catch(e){}};
+const col=k=>(P[k]&&P[k][2])||'#ccc';
+const isRef=d=>d&&(d.depth==='reference'||d.ref);
+
+/* Blends people buy as one vial. Components point at Library entries. TB-500 in these blends is the frag 17-23 sold as TB-500. */
+const BLENDS={
+ 'glow':{name:'GLOW',use:'BPC-157, TB-500 and GHK-Cu in one vial',parts:['bpc-157','tb-500-frag-17-23','ghk-cu'],freq:'D',w:8},
+ 'klow':{name:'KLOW',use:'GLOW plus KPV in one vial',parts:['bpc-157','tb-500-frag-17-23','ghk-cu','kpv'],freq:'D',w:8},
+ 'wolverine':{name:'Wolverine (BPC + TB)',use:'BPC-157 and TB-500 in one vial',parts:['bpc-157','tb-500-frag-17-23'],freq:'D',w:8},
+ 'cjc-ipa':{name:'CJC-1295 no DAC + Ipamorelin',use:'The common GH pair in one vial',parts:['cjc-1295-no-dac','ipamorelin'],freq:'D',w:12}
+};
+/* Same-lever groups: a factual note on why two from one group is a stack of the same signal. */
+const AXES=[
+ {k:'gh',name:'growth hormone axis',ids:['ipamorelin','cjc-1295-no-dac','cjc-1295-with-dac','tesamorelin','sermorelin','ghrp-2','ghrp-6','hexarelin','mk-677','somatropin-hgh','igf-1-lr3'],note:'All of these raise growth hormone or IGF-1, some from the pituitary signal (GHRH: CJC, Sermorelin, Tesamorelin), some from the ghrelin side (Ipamorelin, GHRPs, MK-677). Pairing one of each is the classic stack; it also stacks the same downstream signal, which is why IGF-1 and fasting glucose get watched.'},
+ {k:'inc',name:'appetite hormone family (GLP-1 / amylin)',ids:['semaglutide','tirzepatide','retatrutide','exenatide','glp-1','cagrilintide','amylin'],note:'These pull the same appetite lever. Two GLP-1 drugs at once doubles one signal; cagrilintide with semaglutide is the pairing that has been studied together (CagriSema).'},
+ {k:'mc',name:'melanocortin receptors',ids:['mt-2','pt-141','melanotan-1'],note:'Same receptor family: tanning, appetite and libido effects overlap, and so do nausea and flushing.'},
+ {k:'cu',name:'copper peptides',ids:['ghk-cu','ahk-cu'],note:'Two copper carriers. Copper adds up; zinc and copper are worth a look on long runs.'},
+ {k:'tb',name:'thymosin beta-4 family',ids:['tb-500-frag-17-23','thymosin-beta-4','tb-500-frag-1-4'],note:'Pieces of the same protein. Full thymosin beta-4 already contains the TB-500 stretch.'},
+ {k:'sel',name:'Selank forms',ids:['selank','na-selank-amidate'],note:'The same peptide in two forms.'},
+ {k:'sem',name:'Semax forms',ids:['semax','na-semax-amidate'],note:'The same peptide in two forms.'},
+ {k:'frag',name:'HGH fragment',ids:['aod-9604','hgh-frag-176-191'],note:'AOD-9604 is a modified HGH 176–191: the same fragment twice.'}
+];
+const FREQ=[['D','Daily'],['D2','2× daily'],['D3','3× daily'],['EOD','Every other day'],['5on2','5 on, 2 off'],['3W','3× a week'],['2W','2× a week'],['1W','Weekly'],['PRN','As needed']];
+const FL={};FREQ.forEach(f=>FL[f[0]]=f[1]);
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const PAT={D:[1,1,1,1,1,1,1],D2:[2,2,2,2,2,2,2],D3:[3,3,3,3,3,3,3],EOD:[1,0,1,0,1,0,1],'5on2':[1,1,1,1,1,0,0],'3W':[1,0,1,0,1,0,0],'2W':[1,0,0,1,0,0,0],'1W':[1,0,0,0,0,0,0],PRN:null};
+
+function parseFreq(s){
+ s=String(s||'').toLowerCase();
+ if(!s)return 'D';
+ if(/as needed|prn|once, may|rescue/.test(s)&&!/daily or prn/.test(s))return 'PRN';
+ if(/5 on|5 days\/wk/.test(s))return '5on2';
+ if(/3x daily|3× daily|before major meals/.test(s))return 'D3';
+ if(/2–3× daily|2-3× daily|twice daily|2× daily(?! loading)|2x daily/.test(s)&&!/1–2×/.test(s))return 'D2';
+ if(/every 2-3 days|eod|every other/.test(s)&&!/daily or eod/.test(s))return 'EOD';
+ if(/days 1, 3, 5|2–3× weekly|2-3× weekly|3× weekly|3x weekly/.test(s))return '3W';
+ if(/1–3× weekly/.test(s))return '2W';
+ if(/twice weekly|2× weekly|1–2× weekly|2x weekly/.test(s))return '2W';
+ if(/once weekly|1× weekly|weekly/.test(s)&&!/daily/.test(s))return '1W';
+ return 'D';
+}
+function parseWeeks(s){
+ s=String(s||'').toLowerCase();let m;
+ if(!s||/ongoing|continuous|similar to|same as|as needed|prn|research only|variable/.test(s)&&!/\d/.test(s))return {w:12,go:true};
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*(?:wk|week)/)))return {w:+(m[2]||m[1]),go:/ongoing|continuous/.test(s)};
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*(?:-|\s)?day/)))return {w:Math.max(1,Math.ceil(+(m[2]||m[1])/7)),go:false};
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*month/)))return {w:Math.min(52,+m[1]*4),go:/continuous|ongoing/.test(s)};
+ if(/year/.test(s))return {w:26,go:true};
+ if(/ongoing|continuous|similar|same as/.test(s))return {w:12,go:true};
+ return {w:8,go:false};
+}
+function info(k){
+ if(k.indexOf('blend:')===0){const b=BLENDS[k.slice(6)];if(!b)return null;const ps=b.parts.map(x=>BY[x]).filter(Boolean);
+  const roles=[];ps.forEach(p=>(p.roles||[]).forEach(r=>{if(roles.indexOf(r)<0)roles.push(r)}));
+  return {k,name:b.name,use:b.use,blend:true,parts:b.parts,roles,dose:null,f:b.freq,w:b.w,go:false,comps:ps};}
+ const d=BY[k];if(!d)return null;const ds=d.dose||{};const pw=parseWeeks(ds.cycle);
+ return {k,name:d.name,use:d.use||(d.desc&&d.desc[d.primary])||'',blend:false,parts:[k],roles:d.roles||[],dose:ds,f:parseFreq(ds.freq),w:pw.w,go:pw.go,d};
+}
+
+/* state */
+const KEY='bs-protocol-v1';
+let S={stack:[],roles:[],q:'',stg:true,gap:1,view:'week'};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&Array.isArray(v.stack))S=Object.assign(S,v)}catch(e){}}
+function encode(){const c={v:1,s:S.stack.map(x=>[x.k,x.dose||'',x.f,x.w]),r:S.roles,q:S.q||'',g:S.stg?S.gap:0};
+ try{return btoa(unescape(encodeURIComponent(JSON.stringify(c)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}catch(e){return ''}}
+function decode(code){try{code=code.replace(/-/g,'+').replace(/_/g,'/');while(code.length%4)code+='=';const c=JSON.parse(decodeURIComponent(escape(atob(code))));
+ if(!c||!Array.isArray(c.s))return false;
+ S.stack=c.s.filter(x=>info(x[0])).map(x=>({k:x[0],dose:String(x[1]||'').slice(0,60),f:FL[x[2]]?x[2]:'D',w:Math.max(1,Math.min(52,+x[3]||8))}));
+ S.roles=(c.r||[]).filter(r=>P[r]);S.q=String(c.q||'').slice(0,80);S.stg=!!c.g;S.gap=c.g||1;return true}catch(e){return false}}
+
+function addItem(k,src){
+ if(S.stack.some(x=>x.k===k))return;
+ const i=info(k);if(!i)return;
+ S.stack.push({k,dose:'',f:i.f,w:i.w});track('add',i.name+(src?' · '+src:''));render();
+}
+
+/* 1 · dealing with */
+let showAllRoles=false;
+const ROLE_TOP=['Repair','Pain','Inflammation','Gut','Sleep','Fat','Appetite','Muscle','Skin','Hair','Cognition','Mood','Energy','Endocrine','Immunity','Aging','Desire','Bone'];
+function renderRoles(){
+ const list=showAllRoles?PAL.map(p=>p[0]):ROLE_TOP.concat(S.roles.filter(r=>ROLE_TOP.indexOf(r)<0));
+ $('#roles').innerHTML=list.filter(k=>P[k]).map(k=>`<button type="button" class="rl" data-r="${k}" aria-pressed="${S.roles.indexOf(k)>=0}"><i style="background:${col(k)}"></i>${esc(P[k][1])}</button>`).join('')+`<button type="button" class="rolesmore" id="rmore">${showAllRoles?'Fewer':'All '+PAL.length}</button>`;
+}
+function suggestions(){
+ const q=(S.q||'').toLowerCase().trim();const toks=q.split(/[^a-z0-9+]+/).filter(t=>t.length>2);
+ if(!S.roles.length&&!toks.length)return null;
+ const out=[];
+ D.forEach(d=>{if(isRef(d))return;let sc=0,why=[];
+  S.roles.forEach(r=>{if(d.primary===r){sc+=4;why.push(r)}else if((d.roles||[]).indexOf(r)>=0){sc+=2;why.push(r)}else if((d.reported||[]).indexOf(r)>=0){sc+=1;why.push(r)}});
+  if(toks.length){const kw=String(d.kw||'').toLowerCase(),tx=(d.reports||'')+' '+Object.values(d.desc||{}).join(' ')+' '+(d.worked||'');const txl=tx.toLowerCase();
+   toks.forEach(t=>{const st=t.replace(/s$/,'');if(kw.indexOf(st)>=0)sc+=3;else if(txl.indexOf(st)>=0)sc+=1})}
+  if(sc>0)out.push({d,sc,why,pop:d.rank||99});});
+ out.sort((a,b)=>b.sc-a.sc||a.pop-b.pop);return out.slice(0,8);
+}
+function renderSug(){
+ const r=suggestions(),el=$('#sug');
+ if(r===null){el.innerHTML='';return}
+ if(!r.length){el.innerHTML='<li><p class="empty">Nothing in the Library matches those words yet. Try tapping a role above.</p></li>';return}
+ el.innerHTML=r.map(o=>{const d=o.d,w=o.why[0]||d.primary,line=(d.desc&&d.desc[w])||(d.desc&&d.desc[d.primary])||'';const inS=S.stack.some(x=>x.k===d.slug||(x.k.indexOf('blend:')===0&&BLENDS[x.k.slice(6)].parts.indexOf(d.slug)>=0));
+  return `<li><div class="t"><b>${esc(d.name)}</b><span class="w">${esc(line)} · <a href="/library/#/p/${d.slug}" target="_blank" rel="noopener">Library</a></span><span class="sw">${(d.roles||[]).map(k=>`<i style="background:${col(k)}" title="${esc(P[k]?P[k][1]:k)}"></i>`).join('')}</span></div><button type="button" class="add${inS?' on':''}" data-add="${d.slug}" ${inS?'disabled':''}>${inS?'In stack':'+ Add'}</button></li>`}).join('')+
+  '<li><p class="empty" style="font-size:12px">Ranked by how strongly each compound is tied to what you picked, then by how often people use it. Reported use, not a prescription.</p></li>';
+}
+
+/* 2 · stack */
+function finderItems(q){
+ q=q.toLowerCase().replace(/[\s\-–]/g,'');const all=[];
+ Object.keys(BLENDS).forEach(b=>all.push({k:'blend:'+b,name:BLENDS[b].name,tag:'blend',hay:(BLENDS[b].name+b+BLENDS[b].use).toLowerCase().replace(/[\s\-–]/g,''),pop:0}));
+ D.forEach(d=>all.push({k:d.slug,name:d.name,tag:isRef(d)?'reference':(d.primary?P[d.primary][1]:''),hay:(d.name+d.slug+(d.alias||'')).toLowerCase().replace(/[\s\-–]/g,''),pop:isRef(d)?200:(d.rank||99)}));
+ if(!q)return [];
+ return all.filter(x=>x.hay.indexOf(q)>=0).sort((a,b)=>(a.hay.indexOf(q)===0?0:1)-(b.hay.indexOf(q)===0?0:1)||a.pop-b.pop).slice(0,9);
+}
+let fIdx=-1;
+function renderFinder(){
+ const q=$('#fq').value.trim(),it=finderItems(q),fl=$('#fl');
+ if(!q){fl.hidden=true;$('#fq').setAttribute('aria-expanded','false');return}
+ fl.hidden=false;$('#fq').setAttribute('aria-expanded','true');
+ fl.innerHTML=it.length?it.map((x,i)=>{const inS=S.stack.some(s=>s.k===x.k);return `<li role="option" data-k="${x.k}" class="${i===fIdx?'hl':''}"><b>${esc(x.name)}</b><small>${inS?'in stack':esc(x.tag)}</small></li>`}).join(''):'<li><small>No match. The Library has '+D.length+' compounds.</small></li>';
+}
+function renderQuick(){
+ $('#quick').innerHTML=S.stack.length?`<button type="button" class="clear" id="clr">Clear stack</button>`:
+ `<span>Try</span><button type="button" class="qb" data-ex="1">BPC + TB + KLOW + Tesa + Ipa</button><button type="button" class="qb" data-ex="2">Wolverine</button><button type="button" class="qb" data-ex="3">Sema + Cagri</button>`;
+}
+function stackDesc(i){
+ if(i.blend)return '';
+ const ds=i.dose||{};
+ const cell=(l,v)=>`<div><small>${l}</small><em>${esc(v||'—')}</em></div>`;
+ return `<div class="rep">${cell('Reported dose',ds.dose)}${cell('How often',ds.freq)}${cell('Cycle',ds.cycle)}${cell('Half-life',ds.half)}</div>`;
+}
+function calcHref(i){const ds=i.dose||{},m=String(ds.dose||'').match(/^~?\s*([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(mcg|mg)\b(?!\/)/i);return '/draw/?n='+encodeURIComponent(i.name)+(m?'&dose='+m[1]+'&u='+m[2].toLowerCase():'');}
+function renderStack(){
+ const n=S.stack.length;$('#skn').textContent=n?n+(n===1?' item':' items'):'';
+ if(!n){$('#sk').innerHTML='';return}
+ const starts=startWeeks();
+ $('#sk').innerHTML=S.stack.map((x,ix)=>{const i=info(x.k);if(!i)return '';
+  const band=i.roles.map(k=>`<i style="background:${col(k)}"></i>`).join('');
+  const comp=i.blend?`<span class="cmp">Contains ${i.comps.map(c=>esc(c.name)).join(' · ')}</span>`:'';
+  const opts=FREQ.map(f=>`<option value="${f[0]}"${x.f===f[0]?' selected':''}>${f[1]}</option>`).join('');
+  const links=i.blend?i.comps.map(c=>`<a href="/library/#/p/${c.slug}" target="_blank" rel="noopener">${esc(c.name)} →</a>`).join(''):
+   `<a href="/library/#/p/${i.k}" target="_blank" rel="noopener">Library →</a><a href="/dosage/#${i.k}" target="_blank" rel="noopener">Dosage →</a>${BW.comps[i.k]?`<a href="/blood/#/c/${i.k}" target="_blank" rel="noopener">Blood work →</a>`:''}<a href="${calcHref(i)}" target="_blank" rel="noopener">Calculator →</a>`;
+  return `<li class="it" data-i="${ix}"><div class="band">${band}</div><div class="top"><span class="ord" title="Start order">${ix+1}</span><span class="nm"><b>${esc(i.name)}</b><span class="u">${esc(i.use)}${S.stg?` · starts week ${starts[ix]+1}`:''}</span>${comp}</span><span class="ctl"><button type="button" class="ib" data-mv="-1" aria-label="Move up" ${ix===0?'disabled':''}>↑</button><button type="button" class="ib" data-mv="1" aria-label="Move down" ${ix===n-1?'disabled':''}>↓</button><button type="button" class="ib" data-rm aria-label="Remove ${esc(i.name)}">×</button></span></div>${stackDesc(i)}
+  <div class="mine"><div><label for="d${ix}">Your dose</label><input type="text" id="d${ix}" data-f="dose" value="${esc(x.dose)}" placeholder="${i.blend?'e.g. 10 units':(i.dose&&i.dose.dose?'reported '+esc(i.dose.dose):'your amount')}" maxlength="60"></div><div><label for="f${ix}">How often</label><select id="f${ix}" data-f="f">${opts}</select></div><div class="wk"><label for="w${ix}">Weeks</label><input type="text" inputmode="numeric" id="w${ix}" data-f="w" value="${x.w}" maxlength="2"></div></div>
+  <div class="lk">${links}</div></li>`}).join('');
+}
+
+/* 3 · stack check */
+function expanded(){ /* every Library compound in the stack, with where it came from */
+ const m={};S.stack.forEach(x=>{const i=info(x.k);if(!i)return;i.parts.forEach(p=>{(m[p]=m[p]||[]).push(i.blend?i.name:'on its own')})});return m;
+}
+function checks(){
+ const out=[],ex=expanded(),ids=Object.keys(ex),n=S.stack.length;
+ if(!n)return out;
+ ids.forEach(id=>{if(ex[id].length>1){const d=BY[id];out.push(['r','Double',`<b>${esc(d.name)}</b> is in your stack ${ex[id].length} times: ${ex[id].map(esc).join(', ')}. Same compound, counted again each time it's inside a blend.`])}});
+ AXES.forEach(a=>{const hit=a.ids.filter(id=>ex[id]);if(hit.length>1){out.push(['a','Same lever',`<b>${hit.map(id=>esc(BY[id].name)).join(' + ')}</b> · ${esc(a.name)}. ${esc(a.note)}`])}});
+ /* shared markers */
+ const tc={};ids.forEach(id=>{const c=BW.comps[id];if(!c)return;(c.before||[]).forEach(t=>{(tc[t[0]]=tc[t[0]]||{n:[],dir:{}}).n.push(BY[id].name);if(t[1])tc[t[0]].dir[t[1]]=1})});
+ const sh=Object.keys(tc).filter(t=>tc[t].n.length>1&&BW.tests[t]).sort((a,b)=>tc[b].n.length-tc[a].n.length);
+ if(sh.length)out.push(['b','Shared',`${sh.length} blood test${sh.length>1?'s are':' is'} touched by more than one compound: ${sh.slice(0,6).map(t=>`<b>${esc(BW.tests[t][0])}</b>${Object.keys(tc[t].dir).join('')} (${tc[t].n.length})`).join(', ')}${sh.length>6?', and more':''}. If one of these moves, you'll want to know which compound moved it.`]);
+ ids.forEach(id=>{const d=BY[id],ds=d.dose||{};
+  if(isRef(d))out.push(['a','Reference',`<b>${esc(d.name)}</b> is a medical reference entry in the Library, listed for comparison rather than something people self-run.`]);
+  else if(!ds.dose)out.push(['a','Thin data',`<b>${esc(d.name)}</b> has no reported dose on file yet.`]);
+  else if(/est\.|\/kg|research only|not established/i.test((ds.dose||'')+' '+(ds.cycle||'')+' '+(ds.half||''))&&/est\.|\/kg|research only/i.test((ds.dose||'')+(ds.cycle||'')))out.push(['a','Thin data',`<b>${esc(d.name)}</b>: dosing here comes from animal work or estimates (${esc(ds.dose)}). Human numbers are not established.`]);});
+ const parts=ids.length;
+ if(parts>=3&&!S.stg)out.push(['a','All at once',`${parts} compounds starting the same day. If something changes (good or bad), there's no way to tell which one did it. "One new at a time" in the timeline staggers them.`]);
+ if(S.stg&&n>1)out.push(['g','Staggered',`One new item every ${S.gap>1?S.gap+' weeks':'week'}, so each change has a likely cause. Full stack from week ${startWeeks()[n-1]+1}.`]);
+ if(parts>=5)out.push(['b','Big stack',`${parts} compounds in total. Baseline blood work before day one matters more the bigger the stack.`]);
+ if(!out.length)out.push(['g','Clear','No doubles, no same-lever overlaps, nothing thin on file.']);
+ return out;
+}
+function renderChecks(){
+ const c=checks(),el=$('#flags');
+ $('#fgn').textContent=S.stack.length?c.filter(x=>x[0]==='r'||x[0]==='a').length+' to look at':'';
+ el.innerHTML=S.stack.length?c.map(f=>`<li class="fg ${f[0]}"><span class="k">${f[1]}</span><span>${f[2]}</span></li>`).join(''):'<li class="ph">Add something to your stack and the check runs on its own.</li>';
+}
+
+/* 4 · timeline */
+function startWeeks(){let w=0;return S.stack.map((x,i)=>{const s=S.stg?i*S.gap:0;return s})}
+function checkpoints(total){const cps=[0];const first=Math.min(6,Math.max(3,Math.round(total/2)));if(total>first+1)cps.push(first);
+ for(let w=first+12;w<total-2;w+=12)cps.push(w);if(total>1)cps.push(total);return cps;}
+function tlModel(){
+ const st=startWeeks();const rows=S.stack.map((x,i)=>{const inf=info(x.k);return {name:inf.name,s:st[i],e:st[i]+x.w,go:inf.go,c:col(inf.roles[0])}});
+ const end=Math.max(8,...rows.map(r=>r.e));return {rows,end,cps:checkpoints(Math.max(...rows.map(r=>r.e)))};
+}
+function tlHTML(m,unit){
+ const per=unit==='month'?4:1,cols=Math.min(unit==='month'?13:26,Math.ceil(m.end/per)),cw=unit==='month'?'minmax(46px,1fr)':'minmax(28px,1fr)';
+ let h=`<div class="tlw"><div class="tl" style="grid-template-columns:minmax(110px,150px) repeat(${cols},${cw})"><div class="n hd">${unit==='month'?'Month':'Week'}</div>`;
+ for(let c=0;c<cols;c++)h+=`<div class="h">${c+1}</div>`;
+ m.rows.forEach(r=>{h+=`<div class="n" title="${esc(r.name)}">${esc(r.name)}</div>`;
+  for(let c=0;c<cols;c++){const a=c*per,b=a+per;const on=r.s<b&&r.e>a;const cls=['c'];if(on){cls.push('on');if(r.s>=a&&r.s<b)cls.push('st');if(r.e>a&&r.e<=b&&!r.go)cls.push('en');if(r.go&&c===cols-1)cls.push('go');if(r.go&&r.e<=b)cls.push('go')}
+   h+=`<div class="${cls.join(' ')}" style="--bar:${r.c}"></div>`}});
+ h+=`<div class="n blr">Blood work</div>`;
+ for(let c=0;c<cols;c++){const a=c*per,b=a+per;const hit=m.cps.filter(w=>w>=a&&w<b||(w===m.cps[m.cps.length-1]&&w===b&&c===cols-1&&w>=a));const lab=hit.length?(hit[0]===0?'B':'✓'):'';h+=`<div class="c bl">${lab?`<span>${lab}</span>`:''}</div>`}
+ h+='</div></div>';
+ return h;
+}
+function weekHTML(){
+ const st=startWeeks(),full=S.stg?st[st.length-1]:0;
+ let h=`<p class="hint" style="margin:0 0 6px">A week once everything has started${S.stg&&S.stack.length>1?` (week ${full+1} on)`:''}. Days are a layout to plan around, not a rule.</p><div class="wk7"><div class="h n">&nbsp;</div>`+DAYS.map(d=>`<div class="h">${d}</div>`).join('');
+ S.stack.forEach(x=>{const i=info(x.k),c=col(i.roles[0]),p=PAT[x.f];
+  h+=`<div class="n">${esc(i.name)}</div>`;
+  if(!p)h+=`<div class="pn">As needed</div>`;
+  else h+=p.map(k=>`<div>${Array.from({length:k},()=>`<i class="dot" style="--bar:${c}"></i>`).join('')}</div>`).join('')});
+ const per=DAYS.map((_,di)=>S.stack.reduce((a,x)=>{const p=PAT[x.f];return a+(p?p[di]:0)},0));
+ h+=`<div class="n" style="color:var(--ink-soft)">Shots / doses</div>`+per.map(v=>`<div style="font:600 11px var(--mono)">${v||''}</div>`).join('');
+ return h+'</div>';
+}
+function renderTL(){
+ document.querySelectorAll('#vw button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===S.view));
+ $('#stg').checked=S.stg;$('#gap').value=String(S.gap);$('#gap').disabled=!S.stg;
+ if(!S.stack.length){$('#tl').innerHTML='<p class="ph">Your weeks and months show up here.</p>';return}
+ if(S.view==='seven'){$('#tl').innerHTML=weekHTML();return}
+ const m=tlModel();
+ $('#tl').innerHTML=tlHTML(m,S.view)+`<div class="key"><span><i></i>on</span><span><i class="bk">B</i>baseline blood work, before day one</span><span><i class="bk">✓</i>recheck (${m.cps.slice(1).map(w=>'wk '+w).join(', ')})</span>${m.rows.some(r=>r.go)?'<span>dashed end: ongoing</span>':''}</div>`;
+}
+
+/* 5 · blood */
+function bloodModel(){
+ const ex=expanded(),ids=Object.keys(ex).filter(id=>BW.comps[id]);
+ const tests={},watch=[];
+ ids.forEach(id=>{const c=BW.comps[id];(c.before||[]).forEach(t=>{const o=tests[t[0]]=tests[t[0]]||{who:[],dir:{},note:'',danger:0};o.who.push(BY[id].name);if(t[1])o.dir[t[1]]=1;if(t[2])o.danger=1;if(t[5]&&!o.note)o.note=t[5]});
+  watch.push({name:BY[id].name,freq:c.freq||'',flags:c.flags||'',id})});
+ const list=Object.keys(tests).filter(t=>BW.tests[t]).sort((a,b)=>tests[b].who.length-tests[a].who.length||tests[b].danger-tests[a].danger);
+ return {ids,tests,list,watch};
+}
+function renderBlood(){
+ const el=$('#blood');
+ if(!S.stack.length){el.innerHTML='<p class="ph">One merged list of tests for your whole stack, no repeats.</p>';$('#btn').textContent='';return}
+ const m=bloodModel();$('#btn').textContent=m.list.length+' tests';
+ if(!m.list.length){el.innerHTML='<p class="empty">No blood work entries on file for this stack yet.</p>';return}
+ const tier={ask:['ask lab',''],specialty:['$$$ rare','r']};
+ el.innerHTML=`<p class="sub">Before day one</p><ul class="bt">${m.list.map(t=>{const T=BW.tests[t],o=m.tests[t],tr=tier[T[2]];
+  return `<li><i style="background:${T[1]}"></i><span><b>${esc(T[0])}${Object.keys(o.dir).join('')}</b>${o.who.length>1?`<span class="cnt">${o.who.length}</span>`:''}<span class="who">${esc(o.who.join(' · '))}${o.note?' · '+esc(o.note):''}</span></span><span class="tier ${tr?tr[1]:''}">${tr?tr[0]:''}</span></li>`}).join('')}</ul>
+ <p class="sub">Recheck and watch for</p><ul class="watch">${m.watch.map(w=>`<li><b>${esc(w.name)}</b>${w.freq?` <span class="fq">· recheck ${esc(w.freq.charAt(0).toLowerCase()+w.freq.slice(1))}</span>`:''}${w.flags?`<br>${esc(w.flags)}`:''}</li>`).join('')}</ul>
+ <p class="more"><a href="/blood/#/plan/${m.ids.join(',')}" target="_blank" rel="noopener">Open this stack in Blood Work →</a> ranges, what each test means, where it goes up or down.</p>`;
+}
+
+/* 6 · text, sheet, link */
+function textOut(){
+ const dt=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+ const L=[];L.push('BARE SIGNALS PROTOCOL · made '+dt+' at baresignals.co/protocol');
+ L.push('A formula sheet from reported use. Not medical advice.');
+ const deal=S.roles.map(r=>P[r][1]).concat(S.q?['"'+S.q+'"']:[]);if(deal.length)L.push('Dealing with: '+deal.join(', '));
+ L.push('');L.push('STACK'+(S.stg?' (one new every '+(S.gap>1?S.gap+' weeks':'week')+')':' (all start together)'));
+ const st=startWeeks();
+ S.stack.forEach((x,i)=>{const inf=info(x.k);const ds=inf.dose||{};
+  L.push((i+1)+'. '+inf.name+(inf.blend?' ('+inf.comps.map(c=>c.name).join(' + ')+')':'')+' · weeks '+(st[i]+1)+' to '+(st[i]+x.w)+(inf.go?'+':''));
+  L.push('   My dose: '+(x.dose||'not set')+' · '+FL[x.f]+(ds.dose?' · Reported: '+ds.dose+', '+(ds.freq||'')+', '+(ds.cycle||''):''));});
+ const c=checks();if(c.length){L.push('');L.push('STACK CHECK');c.forEach(f=>L.push('- '+f[1]+': '+f[2].replace(/<[^>]+>/g,'')))}
+ const b=bloodModel();if(b.list.length){L.push('');L.push('BLOOD WORK BEFORE DAY ONE');L.push(b.list.map(t=>BW.tests[t][0]).join(', '));
+  const cps=tlModel().cps.slice(1);if(cps.length)L.push('Recheck around week '+cps.join(', week '));
+  L.push('');L.push('WATCH FOR');b.watch.forEach(w=>w.flags&&L.push('- '+w.name+': '+w.flags))}
+ L.push('');L.push('Reopen code: '+encode());
+ L.push('(Paste the code back at baresignals.co/protocol to reopen this stack.)');
+ return L.join('\n');
+}
+function sheetHTML(){
+ const st=startWeeks(),b=bloodModel(),c=checks(),dt=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+ const deal=S.roles.map(r=>P[r][1]).concat(S.q?['"'+S.q+'"']:[]);
+ return `<p class="lab">Bare Signals · Protocol · ${dt}</p><h1>My protocol</h1><p style="margin:0;color:#6B76A8;font-size:11px">A formula sheet from reported use. Not medical advice.${deal.length?' Dealing with: '+esc(deal.join(', '))+'.':''}</p>
+ <h3>Stack</h3><table><tr><th>#</th><th>Compound</th><th>My dose</th><th>How often</th><th>Weeks</th><th>Reported</th></tr>${S.stack.map((x,i)=>{const inf=info(x.k),ds=inf.dose||{};return `<tr><td>${i+1}</td><td><b>${esc(inf.name)}</b>${inf.blend?'<br>'+esc(inf.comps.map(c=>c.name).join(' + ')):''}</td><td>${esc(x.dose||'')}</td><td>${FL[x.f]}</td><td>${st[i]+1}–${st[i]+x.w}${inf.go?'+':''}</td><td>${esc([ds.dose,ds.freq,ds.cycle].filter(Boolean).join(', '))}</td></tr>`}).join('')}</table>
+ <h3>Timeline</h3>${tlHTML(tlModel(),'week')}
+ <h3>Stack check</h3><ul>${c.map(f=>`<li><b>${f[1]}:</b> ${f[2]}</li>`).join('')}</ul>
+ ${b.list.length?`<h3>Blood work before day one</h3><p style="margin:0">${b.list.map(t=>esc(BW.tests[t][0])).join(' · ')}</p><h3>Watch for</h3><ul>${b.watch.filter(w=>w.flags).map(w=>`<li><b>${esc(w.name)}</b>${w.freq?' (recheck '+esc(w.freq.toLowerCase())+')':''}: ${esc(w.flags)}</li>`).join('')}</ul>`:''}
+ <h3>Log</h3><table><tr><th style="width:16%">Date</th><th>Taken</th><th style="width:12%">Sleep</th><th style="width:12%">Pain 0–10</th><th>Notes</th></tr>${'<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>'.repeat(10)}</table>
+ <p class="ft">Reopen: baresignals.co/protocol/#s=${encode()}</p>`;
+}
+function link(){return location.origin+'/protocol/#s='+encode()}
+function toast(t){$('#toast').textContent=t;clearTimeout(toast.t);toast.t=setTimeout(()=>$('#toast').textContent='',2600)}
+async function copy(t){try{await navigator.clipboard.writeText(t);return true}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}a.remove();return ok}}
+function importText(t){
+ t=String(t||'').trim();if(!t)return false;let m=t.match(/#s=([A-Za-z0-9_\-]+)/)||t.match(/Reopen code:\s*([A-Za-z0-9_\-]+)/i);
+ if(m&&decode(m[1]))return true;
+ if(/^[A-Za-z0-9_\-]{12,}$/.test(t)&&decode(t))return true;
+ /* fallback: find compound and blend names in plain text */
+ const low=t.toLowerCase(),found=[];
+ Object.keys(BLENDS).forEach(b=>{if(new RegExp('\\b'+b.replace('-',"[ -]?")+'\\b').test(low))found.push('blend:'+b)});
+ D.slice().sort((a,b)=>b.name.length-a.name.length).forEach(d=>{const n=d.name.toLowerCase();if(low.indexOf(n)>=0&&!found.some(f=>f===d.slug))found.push(d.slug)});
+ if(!found.length)return false;
+ S.stack=found.map(k=>{const i=info(k);return {k,dose:'',f:i.f,w:i.w}});return true;
+}
+
+function render(){renderRoles();renderSug();renderQuick();renderStack();renderChecks();renderTL();renderBlood();$('#txt').textContent=S.stack.length?textOut():'';save();}
+
+/* events */
+$('#roles').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(b){const r=b.dataset.r,i=S.roles.indexOf(r);i>=0?S.roles.splice(i,1):S.roles.push(r);track('role',r);render();return}
+ if(e.target.id==='rmore'){showAllRoles=!showAllRoles;renderRoles()}});
+let dqT;$('#dq').addEventListener('input',e=>{S.q=e.target.value.slice(0,80);clearTimeout(dqT);dqT=setTimeout(()=>{renderSug();save();if(S.q.length>2)track('search',S.q)},180)});
+$('#sug').addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b)addItem(b.dataset.add,'suggested')});
+$('#fq').addEventListener('input',()=>{fIdx=-1;renderFinder()});
+$('#fq').addEventListener('keydown',e=>{const items=[...document.querySelectorAll('#fl li[data-k]')];
+ if(e.key==='ArrowDown'){fIdx=Math.min(items.length-1,fIdx+1);renderFinder();e.preventDefault()}
+ else if(e.key==='ArrowUp'){fIdx=Math.max(0,fIdx-1);renderFinder();e.preventDefault()}
+ else if(e.key==='Enter'){const it=items[fIdx<0?0:fIdx];if(it){addItem(it.dataset.k);$('#fq').value='';fIdx=-1;renderFinder()}e.preventDefault()}
+ else if(e.key==='Escape'){$('#fq').value='';renderFinder()}});
+$('#fl').addEventListener('mousedown',e=>{const li=e.target.closest('li[data-k]');if(li){e.preventDefault();addItem(li.dataset.k);$('#fq').value='';renderFinder();$('#fq').focus()}});
+$('#fq').addEventListener('blur',()=>setTimeout(()=>{$('#fl').hidden=true},150));
+const EX={1:['bpc-157','tb-500-frag-17-23','blend:klow','tesamorelin','ipamorelin'],2:['blend:wolverine'],3:['semaglutide','cagrilintide']};
+$('#quick').addEventListener('click',e=>{const b=e.target.closest('[data-ex]');if(b){EX[b.dataset.ex].forEach(k=>{const i=info(k);S.stack.push({k,dose:'',f:i.f,w:i.w})});track('example',b.textContent);render();return}
+ if(e.target.id==='clr'){if(confirm('Clear your whole stack?')){S.stack=[];render()}}});
+$('#sk').addEventListener('click',e=>{const li=e.target.closest('.it');if(!li)return;const i=+li.dataset.i;
+ if(e.target.closest('[data-rm]')){track('remove',info(S.stack[i].k).name);S.stack.splice(i,1);render()}
+ const mv=e.target.closest('[data-mv]');if(mv){const j=i+(+mv.dataset.mv);if(j>=0&&j<S.stack.length){const t=S.stack[i];S.stack[i]=S.stack[j];S.stack[j]=t;render()}}});
+$('#sk').addEventListener('change',e=>{const li=e.target.closest('.it'),f=e.target.dataset.f;if(!li||!f)return;const x=S.stack[+li.dataset.i];
+ if(f==='w'){x.w=Math.max(1,Math.min(52,parseInt(e.target.value,10)||x.w))}else if(f==='dose'){x.dose=e.target.value.slice(0,60)}else x.f=e.target.value;render()});
+$('#sk').addEventListener('input',e=>{if(e.target.dataset.f==='dose'){const li=e.target.closest('.it');S.stack[+li.dataset.i].dose=e.target.value.slice(0,60);$('#txt').textContent=textOut();save()}});
+$('#vw').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){S.view=b.dataset.v;renderTL();save()}});
+$('#stg').addEventListener('change',e=>{S.stg=e.target.checked;track('stagger',S.stg?'on':'off');render()});
+$('#gap').addEventListener('change',e=>{S.gap=+e.target.value;render()});
+$('#aPdf').addEventListener('click',()=>{if(!S.stack.length){toast('Add something first');return}$('#sheet').innerHTML=sheetHTML();track('pdf',String(S.stack.length));setTimeout(()=>window.print(),60)});
+$('#aTxt').addEventListener('click',async()=>{if(!S.stack.length){toast('Add something first');return}track('copy-text',String(S.stack.length));toast(await copy(textOut())?'Copied. Paste it into your AI':'Copy blocked. Use Preview the text below')});
+$('#aLink').addEventListener('click',async()=>{if(!S.stack.length){toast('Add something first');return}track('copy-link',String(S.stack.length));toast(await copy(link())?'Link copied':'Copy blocked')});
+$('#impGo').addEventListener('click',()=>{const ok=importText($('#impT').value);track('import',ok?'ok':'fail');if(ok){$('#impT').value='';$('#imp').open=false;$('#dq').value=S.q;render();toast('Opened');document.getElementById('s2').scrollIntoView({behavior:'smooth'})}else toast('Could not read that. Paste the whole text or the code')});
+window.addEventListener('beforeprint',()=>{$('#sheet').innerHTML=sheetHTML()});
+
+/* boot: link > saved */
+load();
+const hm=location.hash.match(/[#&]s=([A-Za-z0-9_\-]+)/);
+if(hm&&decode(hm[1])){track('open-link',String(S.stack.length));history.replaceState(null,'',location.pathname)}
+$('#dq').value=S.q||'';
+render();
+})();
+</script>
+</body>
+</html>
