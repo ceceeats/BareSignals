@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Blood Work · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Blood Work v2: every category tag now carries a colour from the 30 colour Bare Signals palette (same hexes as Library and the Stripe), plus a colour key at the bottom. Data and copy unchanged from v1. v1 kept at /blood/v1/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 44px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:68ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 12px;margin:0 0 14px;font-size:13px;line-height:1.4}
+.caution b{font:700 12px var(--display)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.qw{position:relative;flex:1 1 240px}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 72px 8px 10px;border-radius:0}
+#count{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+/* colour tags */
+.tg{display:inline-flex;align-items:center;gap:5px;font:600 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1.2px solid var(--rule);background:var(--paper);padding:2px 6px 2px 3px}
+.tg i{display:block;width:11px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.band{height:6px}
+/* peptide cards */
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:10px}
+.card>h2{font:700 18px/1.1 var(--display);margin:0;padding:10px 12px 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sec{border-top:1.5px solid var(--rule);padding:8px 12px}
+.sec h3{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px;color:var(--ink-soft)}
+.sec.b h3{color:var(--ink)}.sec.m h3{color:var(--accent)}.sec.f h3{color:var(--flag)}
+.sec p{margin:0;font-size:13.5px;line-height:1.42}
+.sec.freq{display:flex;gap:8px;align-items:baseline}
+.sec.freq h3{margin:0;flex:none}.sec.freq p{font-weight:600}
+.sec.f{background:#FFF4F2}
+.sec.f p{color:var(--flag)}
+/* glossary */
+.gcat{display:flex;align-items:center;gap:7px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:16px 0 6px;padding-bottom:3px;border-bottom:1.5px solid var(--rule)}
+.gcat i{display:block;width:11px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.g{border:1.5px solid var(--ink);border-left-width:7px;background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:8px}
+.g summary{font:700 15px/1.2 var(--display);padding:9px 12px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.g summary::-webkit-details-marker{display:none}
+.g summary .rg{font:500 11px var(--mono);color:var(--ink-soft);font-weight:500;text-align:right;max-width:46%}
+.g[open] summary{border-bottom:1.5px solid var(--rule)}
+.gb{padding:4px 12px 10px}
+.gb div{padding:6px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.42}
+.gb div:last-child{border-bottom:0}
+.gb small{display:block;font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.gb .one{color:var(--accent);font-weight:500}
+/* colour key */
+.key{margin-top:22px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule)}
+.key>p{margin:0;padding:8px 12px;border-bottom:1.5px solid var(--rule)}
+.kg{display:grid;grid-template-columns:1fr}
+.kr{display:grid;grid-template-columns:14px 1fr;gap:2px 9px;padding:8px 12px;border-bottom:1px dotted var(--rule);align-items:start}
+.kr:last-child{border-bottom:0}
+.kr i{display:block;width:14px;height:14px;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.kr b{font:700 13px/1.2 var(--display)}
+.kr span{grid-column:2;font:500 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (min-width:900px){
+ #list.pep{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px;align-items:start}
+ #list.gls{column-count:2;column-gap:12px}
+ .g{break-inside:avoid}
+ .kg{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .kr{border-right:1px dotted var(--rule)}
+}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab">Bare Signals</p>
+  <h1>Blood Work<small>V2</small></h1>
+  <p class="lede">If you are going to run a compound, test first and keep testing. This is what to check before you start, what to watch while you are on it, and the plain-language meaning of each test.</p>
+  <div class="caution"><b>Better cautious than not.</b> These are the markers people track to stay safe, gathered from research and real use. Not medical advice and not a substitute for a doctor. Numbers and ranges are a starting point for your own reading, not a target. Talk to a clinician before and while using anything here.</div>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search a compound or a test" aria-label="Search" autocomplete="off"><span id="count"></span></div><div class="seg" id="view"></div></div>
+  <div id="list"></div>
+  <div class="key"><p class="lab">Colour key · same colours as the Library</p><div class="kg" id="key"></div></div>
+  <p class="foot">Collected by <b>Bare Signals</b> · from the Bloodwork Encyclopedia</p>
+</div>
+<script src="/blood/v2/data.js"></script>
+<script>
+(function(){
+const PEP=window.BW_PEP,TEST=window.BW_TEST;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const norm=x=>x.toLowerCase().replace(/[\s\-–()]/g,'');
+/* the 30 Bare Signals colours, same hexes as Library and Stripe v3 */
+const PAL={Appetite:['Appetite & satiety','#DDD0F6'],Glucose:['Glucose & insulin','#FFCBAA'],Fat:['Fat metabolism','#FFA51F'],Energy:['Cellular energy','#DBFAB3'],Endocrine:['Endocrine & growth','#FFDE59'],Muscle:['Muscle & performance','#F28E79'],Bone:['Bone & cartilage','#C782A5'],Repair:['Tissue repair','#E1DE62'],Inflammation:['Inflammatory signaling','#FF5050'],Immunity:['Immunity','#6777B6'],Skin:['Skin & aesthetics','#FFEEEE'],Hair:['Hair','#924C1C'],Cognition:['Cognition','#C2DCFF'],Drive:['Drive & mental stamina','#B493E8'],Mood:['Mood','#CC007E'],Plasticity:['Neural plasticity','#BAB802'],Neuroprotection:['Neural protection','#CAF5F7'],Sleep:['Sleep & rhythms','#5271FF'],Desire:['Connection & desire','#BE5103'],Reproductive:['Reproductive','#FF99D8'],Protection:['Cellular protection','#99ACFF'],Aging:['Aging & senescence','#CCA300'],Organ:['Organ function','#FCB0B4'],Cancer:['Cancer biology','#79A54D'],Tanning:['Tanning','#B27205'],DNA:['DNA & telomeres','#74BCFF'],Pain:['Pain & sensory','#87CFC5'],Gut:['Digestive & gut','#AACC96'],Reward:['Reward & urges','#EA5E86'],Heart:['Heart & vessels','#9E1B32']};
+/* each Blood Work category to one palette colour */
+const MAP={
+ 'WEIGHT LOSS':'Appetite','ORAL GLP-1':'Appetite','REPAIR':'Repair','SKIN/LONGEVITY':'Skin','LONGEVITY':'Aging',
+ 'GH SECRETAGOGUE':'Endocrine','GH AMPLIFIER':'Endocrine','GH (LONG-ACTING)':'Endocrine','GROWTH HORMONE':'Endocrine','GH (VISCERAL FAT)':'Endocrine','GH (ORAL)':'Endocrine',
+ 'IMMUNE':'Immunity','SEXUAL':'Desire','COGNITIVE':'Cognition','TANNING/LIBIDO':'Tanning','PERFORMANCE':'Muscle','ANTIOXIDANT':'Protection','METABOLIC':'Fat',
+ 'SUGAR & ENERGY':'Glucose','HEART & CHOLESTEROL':'Heart','BLOOD CELLS':'Heart','THYROID':'Endocrine','HORMONES':'Endocrine',
+ 'LIVER':'Organ','KIDNEY':'Organ','INFLAMMATION':'Inflammation','VITAMINS':'Energy','IRON':'Energy','INFECTIOUS':'Immunity',
+ 'CANCER MARKERS':'Cancer','GUT HEALTH':'Gut','DNA & GENETICS':'DNA','DNA & GENETIC':'DNA','WOMEN':'Reproductive','WOMEN-SPECIFIC':'Reproductive',
+ 'BODY SCANS':'Protection','PREVENTIVE':'Protection','FITNESS':'Muscle'
+};
+const tagOf=c=>{const k=MAP[String(c).toUpperCase()];return k?{k:k,name:PAL[k][0],hex:PAL[k][1]}:{k:null,name:'',hex:'#E3E0BF'}};
+let view='pep',q='';
+function pepCard(o){
+  const t=tagOf(o.cat);
+  return `<div class="card"><div class="band" style="background:${t.hex}"></div><h2>${esc(o.name)}<span class="tg"><i style="background:${t.hex}"></i>${esc(o.cat)}</span></h2>`+
+   `<div class="sec b"><h3>Test before you start</h3><p>${nl(o.before)}</p></div>`+
+   `<div class="sec m"><h3>Monitor while on it</h3><p>${nl(o.monitor)}</p></div>`+
+   (o.freq?`<div class="sec freq"><h3>How often</h3><p>${nl(o.freq)}</p></div>`:'')+
+   (o.flags?`<div class="sec f"><h3>Red flags</h3><p>${nl(o.flags)}</p></div>`:'')+
+   `</div>`;
+}
+function glCard(o){
+  const t=tagOf(o.cat);
+  const parts=[['What it is',o.what],['What you would feel',o.feel],['Good vs bad',o.range],['Fast first?',o.fast],['Retest',o.retest]].filter(x=>x[1]);
+  return `<details class="g" style="border-left-color:${t.hex}"><summary>${esc(o.n)}${o.range?`<span class="rg">${esc((o.range.split('\n')[0]||'').slice(0,40))}</span>`:''}</summary><div class="gb">`+
+   parts.map(x=>`<div><small>${x[0]}</small>${nl(x[1])}</div>`).join('')+
+   (o.one?`<div class="one"><small>Remember</small>${nl(o.one)}</div>`:'')+
+   `</div></details>`;
+}
+function key(){
+  const g={};
+  PEP.concat(TEST).forEach(o=>{const t=tagOf(o.cat);if(!t.k)return;(g[t.k]=g[t.k]||new Set()).add(String(o.cat).toUpperCase())});
+  $('#key').innerHTML=Object.keys(PAL).filter(k=>g[k]).map(k=>`<div class="kr"><i style="background:${PAL[k][1]}"></i><b>${esc(PAL[k][0])}</b><span>${[...g[k]].map(esc).join(' · ')}</span></div>`).join('');
+}
+function render(){
+  const qq=norm(q);
+  if(view==='pep'){
+    let L=PEP.filter(o=>!qq||norm(o.name+' '+o.cat+' '+tagOf(o.cat).name+' '+o.before+' '+o.monitor+' '+o.flags).includes(qq));
+    $('#count').textContent=L.length+' of '+PEP.length;
+    $('#list').className='pep';
+    $('#list').innerHTML=L.map(pepCard).join('')||'<p class="lede">Nothing matches.</p>';
+  }else{
+    let L=TEST.filter(o=>!qq||norm(o.n+' '+o.cat+' '+tagOf(o.cat).name+' '+o.what).includes(qq));
+    $('#count').textContent=L.length+' of '+TEST.length;
+    $('#list').className='gls';
+    let html='',cat=null;
+    L.forEach(o=>{if(o.cat!==cat){cat=o.cat;html+=`<p class="gcat" style="break-after:avoid"><i style="background:${tagOf(cat).hex}"></i>${esc(cat)}</p>`}html+=glCard(o)});
+    $('#list').innerHTML=html||'<p class="lede">Nothing matches.</p>';
+  }
+  $('#view').innerHTML=[['pep','By compound'],['test','By test']].map(([k,l])=>`<button data-v="${k}" aria-pressed="${view===k}">${l}</button>`).join('');
+}
+$('#view').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){view=b.dataset.v;render()}});
+$('#q').addEventListener('input',e=>{q=e.target.value;render()});
+key();render();
+})();
+</script>
+</body>
+</html>
