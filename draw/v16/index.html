@@ -1,0 +1,1506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Draw Line · Bare Signals</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: cream sticker paper, square ruled cells. 3 slide intro, then Guided (pictures) or Quick (numbers only) calculator beside a sticky screenshot card. */
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --soft:#59649A; --rule:#E3E0BF; --chip:#FFFFF4;
+  --line:#E1DE62;--accent:#DB6830; --accent-ink:#B04A16; --liquid:#99ACFF;
+  --sy:#F2792E; --syd:#C4561A; --syl:#FFD7B5;
+  --ok:#2F6B46; --okbg:#E6F3DD; --warn:#7A5200; --warnbg:#FFF0C2; --bad:#A8261C; --badbg:#FFE3DE;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.45 var(--body);
+  padding-block:18px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p,dl,dd,figure{margin:0}
+button,input{font:inherit;color:inherit}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.page{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+[hidden]{display:none!important}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px}
+.brand{font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+h1{font:700 34px/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
+.sub{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-top:8px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--accent-ink);color:var(--accent-ink);padding:4px 8px}
+.tag.mute{border-color:var(--ink);color:var(--ink)}
+.linkbtn{background:none;border:0;border-bottom:1.5px solid var(--accent);padding:2px 0;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+
+/* buttons and inputs */
+.btn{min-height:36px;padding:5px 11px;border:1.5px solid var(--soft);background:var(--chip);color:var(--ink);font:500 13px var(--body);cursor:pointer;border-radius:0}
+.btn:hover{background:#fff}
+.btn[aria-pressed="true"],.btn.on{background:var(--ink);color:var(--paper)}
+.btn.pri{background:var(--ink);color:var(--paper);font-weight:600}
+.btn.pri:hover{background:#2f3a6b}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.q{min-height:30px;padding:3px 9px;font:500 12px var(--mono)}
+input[type=text],input[type=number]{color:var(--accent-ink);width:100%;min-height:40px;padding:6px 10px;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:600 18px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=text]{font:500 16px var(--body);min-height:38px;color:var(--ink)}
+input[type=date]{width:100%;min-height:34px;padding:4px 10px;text-align:center;border:1.5px solid var(--soft);background:#fff;border-radius:0;font:500 14px var(--mono);color:var(--ink)}
+input[type=number]{-moz-appearance:textfield;appearance:textfield;color:var(--accent);font-weight:700}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+::placeholder{color:#8A93BE}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
+
+/* soft orange type cue, one field at a time */
+.cuew{position:relative;margin-top:2px}
+.cur{display:none;position:absolute;top:10px;left:12px;width:9px;height:20px;background:var(--accent);pointer-events:none;z-index:2;animation:blink 1.1s steps(1) infinite}
+.cuew.cue .cur{display:block}
+.cuew:focus-within .cur{display:none}
+@keyframes blink{50%{opacity:0}}
+
+/* intro blocks */
+@media(min-width:900px){
+  .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"h h" "w s" "m s";align-items:start}
+  .ihead{grid-area:h}
+  .blk[data-k=w]{grid-area:w}.blk[data-k=m]{grid-area:m}.blk[data-k=s]{grid-area:s;border-left:1.5px solid var(--line);border-top:0!important}
+  .blk[data-k=m]{border-top:1.5px solid var(--line)}
+  .mixrow{--vw:84px}.vp{width:84px}
+  .mixrow figcaption{font-size:11.5px;max-width:130px}
+  .tipc svg{max-width:210px}
+  .wbox svg{max-height:240px}
+}
+.intro{border:2px solid var(--line);background:var(--chip)}
+.ihead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 8px;padding:8px 12px;border-bottom:1.5px solid var(--line)}
+.eyebrow{white-space:nowrap;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.intro h2{font:700 16px/1.1 var(--display)}
+.blk+.blk{border-top:1.5px solid var(--line)}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 12px}
+.bh b{font:700 15px var(--display)}
+.bno{font:600 11px var(--mono);color:var(--accent-ink);margin-right:6px}
+.bh em{font:500 11px var(--mono);font-style:normal;color:var(--soft);margin-left:6px}
+.bt{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:var(--paper);border:1.5px solid var(--soft);color:var(--ink);font:600 11px var(--mono);letter-spacing:.05em;cursor:pointer;padding:4px 8px;min-height:30px}
+.bt:hover{background:#fff;border-color:var(--ink)}
+.arr{display:block;transition:transform .3s}
+.blk[data-open="0"] .arr{transform:rotate(180deg)}
+.blk[data-open="0"] .bt,#allBt.shut{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+#allBt.shut .arr{transform:rotate(180deg)}
+.bf{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s ease}
+.blk[data-open="0"] .bf{grid-template-rows:0fr}
+.bfi{overflow:hidden;min-height:0}
+.bbody{padding:2px 12px 12px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.cap{font:500 12px var(--mono);color:var(--soft);text-align:center}
+/* weight: one box of 1,000 */
+.wbox{display:flex;flex-direction:column;gap:8px;align-items:center;width:100%}
+#wgrid{width:100%;max-width:340px}
+#wgrid svg{display:block;width:100%;height:auto;overflow:visible}
+.col{animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+.wtabs{display:flex;gap:6px;justify-content:center}
+.wt{display:flex;flex-direction:column;align-items:center;padding:3px 12px 4px;min-height:0;min-width:70px}
+.wt b{font:700 17px/1.1 var(--display)}
+.wt span{font:500 10px var(--mono);margin-top:1px}
+.wt[aria-pressed="true"][data-u="g"]{background:#B7C4FF;color:var(--ink)}
+.wt[aria-pressed="true"][data-u="mg"]{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.wt[aria-pressed="true"][data-u="mcg"]{background:var(--ink);color:var(--paper)}
+.zm{display:flex;align-items:center;gap:10px;font:500 12px var(--mono);color:var(--soft)}
+.zmb{position:relative;width:46px;height:46px;border:1.5px solid var(--soft);background:var(--chip);flex:none}
+.zmb i{position:absolute;left:22px;top:22px;width:1.45px;height:1.45px;background:var(--ink);display:block;outline:1px solid var(--accent)}
+.wread{font-size:13.5px;text-align:center;max-width:44ch}
+.wread b{font:700 15px var(--display)}
+/* dialog */
+dialog{border:2px solid var(--line);background:var(--paper);color:var(--ink);padding:16px;max-width:340px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(62,74,128,.35)}
+dialog h2{font:700 20px/1.1 var(--display)}
+dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
+.askc{display:grid;gap:12px;margin:14px 0 0}
+.askc .opt{display:flex;flex-direction:column;gap:4px}
+.askc .btn{min-height:46px;font:600 15px var(--body)}
+.askc small{font:500 11.5px var(--mono);color:var(--soft)}
+.angles svg{display:block;width:100%;height:auto;max-width:420px}
+.angt{font:600 9.5px var(--mono);fill:var(--ink)}
+.angs{font:500 8.5px var(--mono);fill:var(--soft)}
+
+/* mixing */
+.mixrow{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:4px 8px}
+.mixrow figure{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.mixrow figcaption{font:600 11px/1.3 var(--mono);color:var(--soft);letter-spacing:.04em}
+.mixrow figcaption b{color:var(--ink);font-weight:600}
+.op{font:700 22px var(--display);padding-top:calc(var(--vw)*.55);align-self:flex-start}
+.mixrow{flex-wrap:nowrap!important;align-items:flex-start!important;--vw:60px}
+.mixrow .in b{color:var(--accent);font-weight:700}
+.mixrow figcaption{font-size:10px;max-width:98px}
+.mixrow figcaption i{font-weight:400}
+.vp{width:var(--vw,60px)}
+.vp svg{display:block;width:100%;height:auto}
+.mixtxt{font:600 14px/1.3 var(--display)}
+.mixtxt b{color:var(--ink)}
+.mixtxt .in{color:var(--accent);font-weight:700}
+
+/* syringe tips */
+.tips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tipc{border:1.5px solid var(--line);background:var(--paper);padding:8px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.tipc svg{display:block;width:100%;max-width:170px;height:auto}
+.tipc b{font:700 17px var(--display)}
+.tipc span{font:500 11px var(--mono);color:var(--soft)}
+.thr{stroke:var(--ink);stroke-width:1;opacity:.55}
+.hubg{animation:unscrew 4.6s ease-in-out infinite}
+@keyframes unscrew{0%,16%{transform:translateY(0)}50%,76%{transform:translateY(34px)}100%{transform:translateY(0)}}
+.turn{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;animation:fadeio 4.6s ease-in-out infinite}
+.turnh{fill:var(--accent);animation:fadeio 4.6s ease-in-out infinite}
+@keyframes fadeio{0%,10%{opacity:0}25%,60%{opacity:1}80%,100%{opacity:0}}
+.lockt{font:600 9px var(--mono);fill:var(--accent-ink);letter-spacing:.08em}
+
+/* main grid */
+.main{display:grid;gap:20px;grid-template-columns:minmax(0,1fr);grid-template-areas:"form" "card" "math"}
+.form{grid-area:form;min-width:0}
+.cardcol{grid-area:card;min-width:0}
+.math{grid-area:math;min-width:0}
+@media(min-width:900px){
+  .main{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"form card" "math card";align-items:start}
+  .cardcol{position:sticky;top:calc(14px + env(safe-area-inset-top,0px))}
+}
+.sech{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;margin-bottom:8px}
+.sech h2{font:700 19px/1.1 var(--display)}
+.modes{display:grid;grid-template-columns:1fr 1fr}
+.modes .btn{min-height:34px;padding:4px 12px;font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.modes .btn+.btn{border-left:0}
+.name{border:1.5px solid var(--line);background:var(--chip);padding:7px 10px 8px;margin-bottom:8px;display:flex;flex-direction:column;gap:4px}
+.sbx{display:grid;grid-template-columns:76px minmax(0,1fr);border:1.5px solid var(--line);background:var(--chip)}
+.sbx+.sbx{border-top:0}
+.sbx.one{grid-template-columns:minmax(0,1fr)}
+.pic{background:var(--paper);border-right:1.5px solid var(--line);padding:10px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:0}
+.pic .cp{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:center}
+.vpic{width:100%;max-width:54px}
+.vpic svg{display:block;width:100%;height:auto}
+.sin{padding:8px 10px 9px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.fl{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.fl b{color:var(--ink);font-weight:600;font-size:12px;letter-spacing:.05em}
+.inrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:stretch}
+.ulab{display:flex;align-items:center;padding:0 10px;border:1.5px solid var(--rule);background:transparent;color:var(--soft);font:500 12px var(--mono)}
+.seg{display:grid;grid-template-columns:1fr 1fr}
+.seg .btn{min-width:46px;min-height:40px;background:transparent;border-color:var(--rule);color:var(--soft);font:500 12px var(--mono)}
+.seg .btn[aria-pressed="true"]{background:#EFEDC4;color:var(--ink);border-color:var(--soft)}
+.seg .btn+.btn{border-left:0}
+.qchips{display:flex;flex-wrap:wrap;gap:5px}
+.fact{font-size:12px;color:var(--soft)}
+.qhint{display:none;font:500 11.5px var(--mono);color:var(--soft)}
+.dgrid{display:grid;gap:2px;justify-content:center;margin:2px 0}
+.dgrid i{aspect-ratio:1;border:1px solid var(--ink);background:var(--liquid);display:block}
+.dgrid i.one{background:var(--accent);border-color:var(--accent-ink)}
+.dgrid i.lost{background:transparent;border-style:dashed;border-color:var(--bad)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tb{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;padding:5px 9px;min-height:0}
+.tb b{font:700 14px var(--display)}
+.tb span{font:500 10.5px var(--mono)}
+.sizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:6px}
+.sz{display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 4px 6px;min-height:0}
+.btn.sz[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 2px var(--accent)}
+.sz b{font:700 13px var(--display)}
+.sz span{font:500 10px var(--mono);color:var(--soft)}
+.sz svg{display:block;width:100%;max-width:100px;height:auto}
+
+/* quick mode */
+body[data-mode="quick"] .intro,body[data-mode="quick"] .pic,body[data-mode="quick"] #vialQ,body[data-mode="quick"] #waterQ,body[data-mode="quick"] .vmath{display:none}
+body[data-mode="quick"] .sbx{grid-template-columns:minmax(0,1fr)}
+body[data-mode="quick"] .qhint{display:block}
+body:not([data-mode="quick"]) .tmath{display:none}
+
+/* card */
+.shot{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.copyrow{margin-top:26px;display:flex;justify-content:center}
+.ctop{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:0 10px;padding-bottom:10px}
+.ctop .dn{padding:10px 0 0 12px}
+.rec{padding:8px 0 0 12px}
+.rec span{display:inline-block;font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);border:1.5px solid var(--accent);padding:2px 6px}
+.drawto{padding:9px 12px 0 0;text-align:right}
+.drawto .big{justify-content:flex-end;flex-wrap:nowrap}
+.meta{display:grid}
+.plan{display:grid;gap:0}
+.pln{display:flex;gap:8px;align-items:baseline;border-top:1px solid var(--rule);padding:5px 0}
+.pln span{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);flex:none;min-width:38px}
+.pln b{font:500 12px var(--body);overflow-wrap:anywhere}
+.dates{margin-top:10px;display:grid;gap:6px;width:100%}
+.dt span{display:block;font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.dt b{font:500 11.5px var(--mono)}
+.dt small{display:block;font:400 10px var(--mono);color:var(--soft)}
+.nbody{padding:0 10px 10px;display:flex;flex-direction:column;gap:4px;align-items:stretch}
+.tight{display:flex;flex-wrap:wrap;gap:0;padding:0 0 1.5px 0}
+.tight .q{flex:1 1 auto;margin:0 -1.5px -1.5px 0;text-align:center;min-height:32px}
+.tight .q[aria-pressed="true"]{position:relative;z-index:1}
+.nl{font:700 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:4px;text-align:center}
+.otag{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.draw{border:1.5px solid var(--ink);background:var(--paper)}
+.dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
+.dn{padding:10px 12px 0;font:700 20px/1.1 var(--display);overflow-wrap:anywhere}
+.dn.ph{color:var(--soft)}
+.db{display:grid;grid-template-columns:clamp(96px,32%,128px) minmax(0,1fr);border-top:1.5px solid var(--ink)}
+.syrcol{border-right:1.5px solid var(--ink);background:var(--chip);padding:8px 6px 6px;display:flex;flex-direction:column;align-items:center;min-width:0}
+.syr{width:100%}
+.syr svg{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 22px);mask-image:linear-gradient(to bottom,transparent 0,#000 22px)}
+.syrnote{font:500 10.5px var(--mono);color:var(--soft);text-align:center;margin-top:4px}
+.datacol{padding:4px 12px 8px;min-width:0}
+.lab{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
+.bn{font:700 42px/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bu{font:600 13px var(--mono)}
+.sec{font:500 12px var(--mono);color:var(--soft);margin-top:4px}
+.kvs{display:grid}
+.kv{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--rule);padding:5px 0;font-size:12.5px}
+.kv span{color:var(--soft)}
+.kv b{font:500 13px var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.kv b.o{color:var(--accent-ink);font-weight:600}
+.kv small{font:400 11px var(--mono);color:var(--soft)}
+.kv:first-child{border-top:0}
+.pills{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1.5px solid var(--ink)}
+.pill{font:600 11px/1.3 var(--mono);padding:4px 8px;border:1.5px solid}
+.pill.ok{color:var(--ok);background:var(--okbg);border-color:var(--ok)}
+.pill.warn{color:var(--warn);background:var(--warnbg);border-color:var(--warn)}
+.pill.bad{color:var(--bad);background:var(--badbg);border-color:var(--bad)}
+.tip{padding:0 12px 10px;font-size:12.5px;color:var(--soft)}
+.df{display:flex;justify-content:space-between;gap:4px 8px;flex-wrap:wrap;border-top:1.5px solid var(--ink);padding:8px 12px;font:500 10.5px var(--mono);color:var(--soft);letter-spacing:.04em}
+.ref{margin-top:10px;border:1.5px dashed var(--ink);padding:10px 12px;background:var(--chip)}
+.ref b{font:700 15px var(--display)}
+.ref p{font-size:13px;color:var(--soft);margin-top:4px}
+.refl{display:flex;gap:6px;margin-top:8px}
+.refl .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:4px 12px;font:600 12px var(--mono);letter-spacing:.04em;color:var(--accent-ink);border-color:var(--accent)}
+.ref{border-style:solid}
+
+/* svg syringe */
+.bg{fill:var(--chip)}
+.ol{fill:none;stroke:var(--ink);stroke-width:1.3}
+.nz{fill:var(--chip);stroke:var(--ink);stroke-width:1.2}
+.inkf{fill:var(--ink)}
+.sy{fill:var(--sy);stroke:var(--syd);stroke-width:.8}
+.syd{fill:var(--syd)}
+.syl{fill:var(--syl);stroke:var(--syd);stroke-width:1}
+.rod{fill:#EDEBC8;stroke:var(--ink);stroke-width:1}
+.liq{fill:var(--liquid);opacity:.92}
+.gloss{fill:#fff;opacity:.45}
+.tk{stroke:var(--ink);stroke-width:.8}
+.tl{font:500 10px var(--mono);fill:var(--ink)}
+.hubf{fill:var(--syl);stroke:var(--syd);stroke-width:1.1}
+.hubl{fill:none}
+.hubl.waste{fill:none;stroke:var(--accent);stroke-width:1.4}
+.ndl{fill:var(--paper);stroke:var(--ink);stroke-width:.9}
+.dead{fill:none}
+#syrA .dead,#syrB .dead{fill:var(--liquid)}
+.col2{fill:none;stroke:var(--ink);stroke-width:1.3}
+.tagr{fill:var(--ink)}
+.tagt{font:700 10.5px var(--mono);fill:var(--paper);text-anchor:middle}
+.mkl{stroke:var(--accent);stroke-width:1.8}
+.drop{fill:var(--liquid);animation:fall .9s ease-in forwards}
+@keyframes fall{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(24px)}}
+
+/* svg vial */
+.glass{fill:var(--chip);stroke:none}
+.gl-ol{fill:none;stroke:var(--ink);stroke-width:1.6}
+.w1{fill:var(--liquid);opacity:.9}
+.w2{fill:#6F86F0;opacity:.45}
+.grn .w1{fill:#86D1A3;opacity:.95}
+.grn .w2{fill:#3FA56C;opacity:.45}
+.wv1{animation:wv 2.8s linear infinite}
+.sl{animation:slosh 2.6s ease-in-out infinite alternate}
+@keyframes slosh{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}
+.rough .sl{animation:sloshr .9s ease-in-out infinite;transform-origin:62px 0}
+@keyframes sloshr{0%{transform:translate(-2px,-4px) rotate(-1.6deg)}50%{transform:translate(2px,3px) rotate(1.6deg)}100%{transform:translate(-2px,-4px) rotate(-1.6deg)}}
+.rough .wv1{animation-duration:1.1s}
+.rough .wv2{animation-duration:1.6s}
+.rough .bub{animation-duration:1.7s}
+.b4{animation-delay:.5s}.b5{animation-delay:1.3s}
+.fdot{fill:#fff;opacity:.55}
+.wv2{animation:wv 4s linear infinite reverse}
+@keyframes wv{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+.bub{fill:#fff;opacity:.7;animation:rise 3.2s ease-in infinite}
+.b2{animation-delay:1.1s}.b3{animation-delay:2.1s}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-34px);opacity:0}}
+.cake{fill:#fff;stroke:#B8B48A;stroke-width:1.2}
+.spk{fill:#CFCBA3}
+.stp{fill:var(--ink)}
+.capo{fill:var(--sy);stroke:var(--syd);stroke-width:1}
+.crimp{fill:#C9C7A8;stroke:var(--ink);stroke-width:1}
+.lbl{fill:var(--paper);stroke:var(--ink);stroke-width:1.2}
+.lbt{font:700 15px var(--display);fill:var(--ink);text-anchor:middle}
+.lbs{font:600 6.5px var(--mono);fill:var(--soft);text-anchor:middle;letter-spacing:.14em}
+
+/* sticker math */
+.math{border:1.5px solid var(--line);background:var(--chip)}
+.math summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;font:700 17px var(--display)}
+.math summary::-webkit-details-marker{display:none}
+.math summary::after{content:"Hide";font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.math:not([open]) summary::after{content:"Show"}
+.mbody{border-top:1.5px solid var(--line)}
+.byhand{padding:10px 14px;font:500 12px/1.7 var(--mono);background:var(--paper);border-bottom:1px solid var(--rule)}
+.eqr{padding:8px 12px;border-top:1px solid var(--rule)}
+.eqr:first-child{border-top:0}
+.eql{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+.eqf{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.mk{display:inline-flex;align-items:center;gap:4px;padding:1px 0}
+.mk svg{display:block;height:26px;width:auto}
+.mk b{font:600 14px var(--mono);font-variant-numeric:tabular-nums}
+.mk span{font:500 11px/1.2 var(--mono);color:var(--soft)}
+.mk.hot b{color:var(--accent-ink);font-size:15px}
+.mk.hot{border-bottom:2px solid var(--accent)}
+.op2{font:700 18px var(--display);padding:0 2px;color:var(--soft)}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) auto;gap:4px 12px;padding:9px 14px;border-top:1px solid var(--rule);align-items:baseline}
+.step:first-child{border-top:0}
+.step .l{font-size:13px;color:var(--soft)}
+.step .f{font:400 12.5px var(--mono);overflow-wrap:anywhere}
+.step .r{font:600 13px var(--mono);text-align:right;white-space:nowrap}
+.mact{padding:10px 14px;border-top:1px solid var(--rule);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mact span{font:500 12px var(--mono);color:var(--soft)}
+@media(max-width:560px){.step{grid-template-columns:minmax(0,1fr) auto}.step .f{grid-column:1/-1;order:3}}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:10px;margin-top:40px;padding-top:28px;border-top:1.5px solid var(--line)}
+.faqbig{display:block;font:700 40px/1 var(--display);color:var(--accent);letter-spacing:-.01em}
+.faqsub{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+.qa{border-top:1.5px solid var(--line);padding-top:8px}
+.qa summary{cursor:pointer;list-style:none;font:600 10.5px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:" +";color:var(--accent)}
+.qa[open] summary::after{content:" \2212"}
+.qb{margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.qb p{font-size:13.5px;max-width:62ch}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
+.cmpc{background:var(--chip);padding:10px;min-width:0}
+.cmpp{grid-column:1/-1;background:var(--chip);display:flex;justify-content:center;padding:14px 10px}
+.cmpc h3{font:700 15px var(--display)}
+.cmpc .st{font:500 11px var(--mono);color:var(--soft);margin-top:2px}
+.mini{margin:8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:340px}
+.mini svg{display:block;width:auto;max-width:100%}
+#syrA svg{height:270px}
+#syrB svg{height:330px}
+.ro{display:grid;margin-top:4px}
+.verdict{font:600 15px/1.35 var(--display);max-width:70ch;text-wrap:pretty}
+.note{font-size:12.5px;color:var(--soft)}
+.lt1,.lt2,.lt3{font:600 9px var(--mono);fill:var(--accent-ink)}
+.maxl{font:700 16px var(--display)}
+.maxu{font:600 8px var(--mono);fill:var(--accent-ink);letter-spacing:.06em}
+.gviz{display:flex;align-items:flex-end;justify-content:center;gap:26px;padding:8px 0 2px;min-height:120px}
+.gviz figure{display:flex;flex-direction:column;align-items:center;gap:4px;margin:0}
+.gviz svg{display:block;height:108px;width:auto;overflow:visible}
+.gviz figcaption{font:600 11px var(--mono);letter-spacing:.06em;color:var(--soft);text-align:center}
+.gviz figcaption b{color:var(--accent-ink);font-weight:700}
+.gviz .gref figcaption{color:var(--soft)}
+@keyframes nudge{0%,100%{transform:translateX(0)}15%{transform:translateX(-5px)}35%{transform:translateX(5px)}55%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.nudge{animation:nudge .55s ease}
+.dwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.dwrap.on{grid-template-rows:1fr}
+.dwrap>div{overflow:hidden;min-height:0}
+.dhint{font:500 10.5px var(--mono);color:var(--accent-ink);text-align:center;padding:2px 0 4px}
+.rteaser{display:grid;gap:0;margin:8px 0 0;border-top:1.5px solid var(--accent)}
+.rtrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);padding:5px 0}
+.rtrow span{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.rtrow b{font:600 13px var(--mono);color:var(--accent-ink);text-align:right}
+.needle{display:flex;align-items:center;gap:14px;margin:4px 0;min-height:44px}
+.needle .bar{width:140px;max-width:45%;background:var(--ink);flex:none;transition:height .3s}
+.needle span{font:500 12.5px var(--mono)}
+.glos{border-top:1.5px solid var(--ink);padding-top:10px}
+.glos summary{cursor:pointer;list-style:none;font:700 18px var(--display);color:var(--accent)}
+.glos summary::-webkit-details-marker{display:none}
+.glos summary span{font:600 12px var(--mono);color:var(--ink)}
+.glos summary::after{content:" +";color:var(--accent)}
+.glos[open] summary::after{content:" \2212"}
+.glos dl{margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));border-top:1.5px solid var(--rule);border-left:1.5px solid var(--rule)}
+.gi{padding:10px 11px;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);background:#fff;min-width:0}
+.gi dt{font:700 15px var(--display);margin:0 0 3px;color:var(--accent)}
+.gi dt em{font:600 12px var(--mono);font-style:normal;color:var(--ink);margin-left:4px}
+.gi dd{margin:0;font-size:13px;color:var(--ink);line-height:1.4}
+.foot{border-top:1.5px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font:500 11.5px/1.5 var(--mono);color:var(--soft)}
+
+@media(max-width:560px){
+  h1{font-size:32px}
+  .bn{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .fold,.hubl,.needle .bar,.wstripe,.wrow{transition:none}
+  .drop{animation:none;opacity:0}
+  .wv1,.wv2,.bub,.sl,.col,.hubg,.turn,.turnh{animation:none}
+  .turn,.turnh{opacity:1}
+  .cuew.cue .cur{animation:none}
+}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+
+
+<div class="page">
+
+<header class="top">
+  <div>
+    <div class="brand">Bare Signals · Calculator</div>
+    <h1>Draw Line</h1>
+    <div class="sub">Peptide reconstitution calculator</div>
+  </div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v16</span></div>
+</header>
+
+<dialog id="ask" aria-labelledby="askT">
+  <h2 id="askT">What do you already know?</h2>
+  <div class="askc">
+    <div class="opt"><button class="btn pri" id="askB" type="button">I'm a beginner</button><small>Shows 3 short visual steps first.</small></div>
+    <div class="opt"><button class="btn" id="askE" type="button">I'm an expert</button><small>Goes straight to the calculator, text only.</small></div>
+  </div>
+</dialog>
+
+<section class="intro" id="intro" aria-labelledby="introT">
+  <div class="ihead"><div class="eyebrow">Start here</div><h2 id="introT">The basics</h2><button class="bt" id="allBt" type="button" aria-expanded="true"><span class="btl">I know all three</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+
+  <div class="blk" data-k="w" data-open="1">
+    <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    <div class="bf"><div class="bfi"><div class="bbody">
+      <div class="wbox">
+        <div id="wgrid"></div>
+        <div class="wtabs" role="group" aria-label="Weight unit">
+          <button class="btn wt" type="button" data-u="mcg" aria-pressed="true"><b>mcg</b><span>microgram · µg</span></button>
+          <button class="btn wt" type="button" data-u="mg" aria-pressed="false"><b>mg</b><span>milligram</span></button>
+          <button class="btn wt" type="button" data-u="g" aria-pressed="false"><b>g</b><span>gram</span></button>
+        </div>
+        <div class="wread" id="wread"></div>
+        <div class="zm" id="wzm" hidden><div class="zmb"><i></i></div><span>1 mg square, zoomed. The dot is 1 mcg.</span></div>
+      </div>
+    </div></div></div>
+  </div>
+
+  <div class="blk" data-k="m" data-open="1">
+    <div class="bh"><div><span class="bno">2</span><b>Mixing</b><em>powder + liquid</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    <div class="bf"><div class="bfi"><div class="bbody">
+      <div class="mixrow">
+        <figure class="in"><div class="vp" id="vDry"></div><figcaption>Powder<br><i>the compound</i><br><b>10 mg</b></figcaption></figure>
+        <span class="op">+</span>
+        <figure class="in"><div class="vp" id="vLiq"></div><figcaption>Liquid<br><i>the diluent</i><br><b>2 mL</b></figcaption></figure>
+        <span class="op">=</span>
+        <figure><div class="vp" id="vMix"></div><figcaption>Solution<br><i>compound in diluent</i><br><b>5,000 mcg/mL</b></figcaption></figure>
+      </div>
+      <p class="mixtxt"><span class="in">10 mg</span> of compound in <span class="in">2 mL</span> of diluent makes a solution of <b>5,000 mcg per mL</b>.</p>
+    </div></div></div>
+  </div>
+
+  <div class="blk" data-k="s" data-open="1">
+    <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer lock</em></div><button class="bt" type="button" aria-expanded="true"><span class="btl">I know this</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    <div class="bf"><div class="bfi"><div class="bbody">
+      <div class="tips">
+        <div class="tipc"><div id="tipIns"></div><b>Insulin syringe</b><span>Needle is fixed in · units</span></div>
+        <div class="tipc"><div id="tipLuer"></div><b>Luer lock</b><span>Needle twists off · mL</span></div>
+      </div>
+      <p class="cap">10 units on insulin is 0.10 mL on a Luer lock.</p>
+    </div></div></div>
+  </div>
+</section>
+
+<div class="main" id="calc">
+
+  <section class="form" aria-labelledby="formT">
+    <div class="sech">
+      <h2 id="formT">Your vial</h2>
+      <div class="modes" role="group" aria-label="Mode">
+        <button class="btn" type="button" data-mode="guided" aria-pressed="true">Guided</button>
+        <button class="btn" type="button" data-mode="quick" aria-pressed="false">Quick</button>
+      </div>
+    </div>
+
+    <div class="name">
+      <label class="fl" for="pname"><b>Peptide or compound</b><span>Optional</span></label>
+      <input type="text" id="pname" maxlength="32" autocomplete="off" placeholder="BPC-157">
+    </div>
+
+    <div class="sbx">
+      <div class="pic"><div class="vpic" id="vp1"></div><span class="cp">Powder</span></div>
+      <div class="sin">
+        <label class="fl" for="vial"><b>Vial size</b><span>On the label</span></label>
+        <div class="cuew cue" id="cue-vial"><i class="cur" aria-hidden="true"></i>
+          <div class="inrow"><input type="number" id="vial" inputmode="decimal" step="any" min="0" value="10"><div class="ulab">mg</div></div></div>
+        <div class="qchips" id="vialQ" aria-label="Common vial sizes"></div>
+        <p class="qhint">Common: 2 to 50 mg</p>
+      </div>
+    </div>
+
+    <div class="sbx">
+      <div class="pic"><div class="vpic" id="vp2"></div><span class="cp">Liquid</span></div>
+      <div class="sin">
+        <label class="fl" for="water"><b>Liquid used</b><span>Diluent</span></label>
+        <div class="cuew" id="cue-water"><i class="cur" aria-hidden="true"></i>
+          <div class="inrow"><input type="number" id="water" inputmode="decimal" step="any" min="0" value="2"><div class="ulab">mL</div></div></div>
+        <div class="qchips" id="waterQ" aria-label="Common liquid amounts"></div>
+        <p class="qhint">Common: 2 to 3 mL</p>
+      </div>
+    </div>
+
+    <div class="sbx">
+      <div class="pic"><div class="dgrid" id="dgrid" aria-hidden="true"></div><span class="cp" id="dcap">Doses</span></div>
+      <div class="sin">
+        <label class="fl" for="dose"><b>Dose you want</b><span>Your number</span></label>
+        <div class="cuew" id="cue-dose"><i class="cur" aria-hidden="true"></i>
+          <div class="inrow">
+            <input type="number" id="dose" inputmode="decimal" step="any" min="0" value="500">
+            <div class="seg" role="group" aria-label="Dose unit">
+              <button class="btn" type="button" data-du="mcg" aria-pressed="true">mcg</button>
+              <button class="btn" type="button" data-du="mg" aria-pressed="false">mg</button>
+            </div>
+          </div></div>
+        <p class="fact">Arithmetic only. No dose advice.</p>
+      </div>
+    </div>
+
+    <div class="sbx one">
+      <div class="blk" data-k="n" data-open="1" style="min-width:0">
+        <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Add" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+        <div class="bf"><div class="bfi"><div class="nbody">
+          <label class="nl" for="mixed">Mixed on · today by default</label>
+          <input type="date" id="mixed">
+          <div class="nl">Take</div>
+          <div class="qchips tight" id="freqQ" role="group" aria-label="How often"></div>
+          <div class="dwrap" id="daysWrap"><div><div class="qchips tight" id="dayQ" role="group" aria-label="Days"></div><p class="dhint" id="dayHint">Pick a day</p></div></div>
+          <div class="nl">When</div>
+          <div class="qchips tight" id="timeQ" role="group" aria-label="Time of day"></div>
+          <label class="nl" for="note">Your notes</label>
+          <input type="text" id="note" maxlength="60" autocomplete="off" placeholder="Take with collagen">
+        </div></div></div>
+      </div>
+    </div>
+
+    <div class="sbx one">
+      <div class="sin">
+        <div class="fl"><b>Your syringe</b><span class="otag">Insulin syringe recommended</span></div>
+        <div class="two" role="group" aria-label="Syringe type">
+          <button class="btn tb" type="button" data-type="insulin" aria-pressed="true"><b>Insulin</b><span>Units · fixed needle</span></button>
+          <button class="btn tb" type="button" data-type="luer" aria-pressed="false"><b>Luer lock</b><span>mL · needle twists on</span></button>
+        </div>
+        <div class="sizes" id="sizes" role="group" aria-label="Syringe size"></div>
+        <p class="fact" id="sizeFact"></p>
+      </div>
+    </div>
+  </section>
+
+  <aside class="cardcol" aria-label="Your draw card">
+    <div class="shot">Screenshot this card</div>
+    <div class="draw" id="draw">
+      <div class="dh"><span>Bare Signals</span><span>Draw Line · Draft</span></div>
+      <div class="ctop">
+        <div>
+          <div class="dn ph" id="cName">Your peptide</div>
+          <div class="rec"><span>Insulin syringe recommended</span></div>
+        </div>
+        <div class="drawto">
+          <div class="lab">Draw to</div>
+          <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
+          <div class="sec" id="bigS"></div>
+        </div>
+      </div>
+      <div class="db">
+        <div class="syrcol">
+          <div class="syr" id="syrMain"></div>
+        </div>
+        <div class="datacol">
+          <div class="meta kvs" id="meta"></div>
+          <div class="kvs" id="kvs"></div>
+          <div class="plan" id="plan" hidden></div>
+        </div>
+      </div>
+      <div class="pills" id="pills"></div>
+      <p class="tip" id="tip" hidden></p>
+      <div class="df"><span>baresignals.co</span><span>Math only. Check your numbers.</span></div>
+    </div>
+    <div class="copyrow"><button class="btn" id="copyTxt" type="button">Copy as text</button></div>
+    <div class="ref">
+      <b>Reported doses</b>
+      <p id="refTxt"></p>
+      <div class="rteaser" id="refTease" hidden>
+        <div class="rtrow"><span>Most common</span><b id="rtDose"></b></div>
+        <div class="rtrow"><span>How often</span><b id="rtFreq"></b></div>
+        <div class="rtrow"><span>Typical cycle</span><b id="rtCycle"></b></div>
+      </div>
+      <div class="refl"><a class="btn" id="refDose" href="https://baresignals.co/dosage/" target="_blank" rel="noopener">Reported doses</a><a class="btn" id="refFull" href="https://baresignals.co/library/" target="_blank" rel="noopener" hidden>Full read</a></div>
+    </div>
+  </aside>
+
+  <details class="math" id="math">
+    <summary>Show the math</summary>
+    <div class="mbody">
+      <div class="byhand">Strength = mg × 1,000 ÷ mL of liquid<br>Volume = dose in mcg ÷ strength<br>Units = volume in mL × 100</div>
+      <div class="vmath" id="vmath"></div>
+      <div class="tmath" id="steps"></div>
+      <div class="mact"><button class="btn" id="copyMath" type="button">Copy the math</button><span id="copyMsg"></span></div>
+    </div>
+  </details>
+
+</div>
+
+<section class="faq" id="faq" aria-labelledby="faqT">
+  <h2 id="faqT"><span class="faqbig">FAQ</span><span class="faqsub">Frequently asked questions</span></h2>
+  <details class="qa" open>
+    <summary>Why does a Luer lock give fewer doses?</summary>
+    <div class="qb">
+      <p>A Luer lock needle twists on, and its hub holds a little liquid. When you draw, the barrel fills to your line and the hub fills too, so you pull more from the vial than you read. That extra never comes out. An insulin syringe has the needle moulded in, so almost nothing is stuck.</p>
+      <p class="note">Example: 10 mg in 2 mL, a 1,000 mcg (1 mg) dose. Hubs hold roughly 0.02 to 0.08 mL or more; this uses 0.05 mL.</p>
+      <div class="cmp">
+        <div class="cmpc">
+          <h3>Insulin syringe</h3>
+          <div class="st">Needle fixed in</div>
+          <div class="mini" id="syrA"></div>
+        </div>
+        <div class="cmpc">
+          <h3>Luer lock</h3>
+          <div class="st">Needle twists on</div>
+          <div class="mini" id="syrB"></div>
+        </div>
+        <div class="cmpp"><button class="btn pri" id="push" type="button">Push the plunger</button></div>
+        <div class="cmpc ro">
+          <div class="kv"><span>Reads</span><b id="rA">—</b></div>
+          <div class="kv"><span>From vial</span><b id="pA">—</b></div>
+          <div class="kv"><span>Delivered</span><b id="dA">—</b></div>
+          <div class="kv"><span>Stuck</span><b id="lA" class="o">—</b></div>
+        </div>
+        <div class="cmpc ro">
+          <div class="kv"><span>Reads</span><b id="rB">—</b></div>
+          <div class="kv"><span>From vial</span><b id="pB">—</b></div>
+          <div class="kv"><span>Delivered</span><b id="dB">—</b></div>
+          <div class="kv"><span>Stuck</span><b id="lB" class="o">—</b></div>
+        </div>
+      </div>
+            <p class="verdict" id="wVerdict"></p>
+    </div>
+  </details>
+  <details class="qa">
+    <summary>Why is one dose 10 units on one syringe and 0.10 mL on another?</summary>
+    <div class="qb"><p>Insulin syringes are marked in units, where 100 units is 1 mL. Luer locks are marked in mL. So 10 units and 0.10 mL are the same amount of liquid, and the same dose of peptide. Read the scale printed on your own syringe.</p></div>
+  </details>
+  <details class="qa">
+    <summary>Why does more liquid mean a bigger draw?</summary>
+    <div class="qb"><p>More liquid makes a weaker mix. 10 mg in 2 mL is 5,000 mcg per mL; in 4 mL it is 2,500 mcg per mL. A weaker mix needs a bigger draw for the same dose, which is easier to read on the syringe. The dose itself does not change.</p></div>
+  </details>
+  <details class="qa">
+    <summary>Are there other syringe types than insulin and Luer lock?</summary>
+    <div class="qb">
+      <p>Yes. For injecting, the common ones are:</p>
+      <p><b>Insulin syringe.</b> Needle moulded in, marked in units, 0.3, 0.5 or 1 mL.<br><b>Luer lock.</b> Needle twists on and locks, marked in mL.<br><b>Luer slip.</b> Needle pushes on without a thread, so it can pop off. Marked in mL, same dead space issue as a Luer lock.<br><b>Tuberculin syringe.</b> 1 mL marked in 0.01 mL steps, usually with a Luer slip or Luer lock tip, so it reads like a 1 mL Luer lock.<br><b>Low dead space syringes.</b> The plunger tip reaches into the hub, so much less liquid is stuck. Made in both fixed needle and Luer styles.</p>
+      <p class="note">Oral and catheter tip syringes exist too, but they are not for injecting. Match the printed scale on your own syringe to the math.</p>
+    </div>
+  </details>
+  <details class="qa">
+    <summary>Which angle does the needle go in?</summary>
+    <div class="qb">
+      <p>The angle follows the needle length and how much fat you have under the skin. It does not follow the syringe volume (0.3, 0.5 or 1 mL). Insulin syringes come with different needle lengths, printed on the pack.</p>
+      <div class="angles"><svg viewBox="0 0 345 150" role="img" aria-label="Needle depth in skin and fat at 90 degrees and 45 degrees for three needle lengths">
+        <g id="angs"></g>
+      </svg></div>
+      <p class="note">Commonly taught: 4 to 6 mm straight in, 8 mm straight in or at 45° with a pinch, 12.7 mm at 45° with a pinch. General information, not medical advice. Check with whoever prescribed or taught you.</p>
+    </div>
+  </details>
+  <details class="qa">
+    <summary>What is the gauge of your needle?</summary>
+    <div class="qb">
+      <p>Bigger number, thinner needle. It changes comfort, not your math.</p>
+      <div class="qchips" id="gaugeQ" role="group" aria-label="Needle gauge"></div>
+      <div class="gviz" id="gViz"></div>
+      <p class="note" id="gTxt" style="font-weight:600;color:var(--ink)"></p>
+      <p class="note" id="gNote"></p>
+    </div>
+  </details>
+</section>
+
+<details class="glos" id="glossary">
+  <summary>Glossary <span>· 20 terms</span></summary>
+  <dl>
+    <div class="gi"><dt>Nanogram <em>ng</em></dt><dd>One thousandth of a microgram. You see it on lab results, not on vials.</dd></div>
+    <div class="gi"><dt>Microgram <em>mcg · µg</em></dt><dd>One thousandth of a milligram. Said "MY-kro-gram". Also written µg: µ is the Greek letter mu, so it looks like "ug", but it is still read "microgram". Labels favour mcg because µg is easy to misread as mg.</dd></div>
+    <div class="gi"><dt>Milligram <em>mg</em></dt><dd>One thousandth of a gram. Vial sizes are in mg.</dd></div>
+    <div class="gi"><dt>Gram <em>g</em></dt><dd>A unit of weight. About one paperclip.</dd></div>
+    <div class="gi"><dt>Milliliter <em>mL</em></dt><dd>A unit of liquid volume. A 1 mL syringe holds 1 mL.</dd></div>
+    <div class="gi"><dt>Unit</dt><dd>A mark on an insulin syringe. 100 units is 1 mL. Units measure volume, not strength.</dd></div>
+    <div class="gi"><dt>Vial</dt><dd>The small glass bottle with a rubber stopper.</dd></div>
+    <div class="gi"><dt>Compound</dt><dd>The dry powder in the vial. The label gives its total mg.</dd></div>
+    <div class="gi"><dt>Diluent <em>liquid · BAC water</em></dt><dd>The liquid you add. Bacteriostatic water is sterile water with 0.9% benzyl alcohol.</dd></div>
+    <div class="gi"><dt>Solution</dt><dd>The compound dissolved in the diluent. This is what you draw.</dd></div>
+    <div class="gi"><dt>Reconstitution</dt><dd>Adding the diluent to the powder so it dissolves into a solution.</dd></div>
+    <div class="gi"><dt>Strength</dt><dd>How much compound sits in each mL of the solution, written as mcg per mL.</dd></div>
+    <div class="gi"><dt>Dose</dt><dd>The amount of compound you want, in mcg. You choose it.</dd></div>
+    <div class="gi"><dt>Draw</dt><dd>Pulling the solution into the syringe up to a line.</dd></div>
+    <div class="gi"><dt>Insulin syringe</dt><dd>A thin syringe marked in units. The needle is fixed in.</dd></div>
+    <div class="gi"><dt>Luer lock</dt><dd>A syringe marked in mL. The needle twists on and off.</dd></div>
+    <div class="gi"><dt>Luer slip</dt><dd>Like a Luer lock, but the needle pushes on without a thread.</dd></div>
+    <div class="gi"><dt>Dead space</dt><dd>Liquid stuck in the needle hub that never gets pushed out.</dd></div>
+    <div class="gi"><dt>Gauge <em>G</em></dt><dd>Needle width. Bigger number, thinner needle.</dd></div>
+    <div class="gi"><dt>Subcutaneous</dt><dd>Under the skin, into the fat layer.</dd></div>
+  </dl>
+</details>
+
+<footer class="foot">
+  <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
+  <span>v14: the Luer funnel now fills completely, so the trapped blue reads about ten times the insulin syringe, matching 0.05 mL against 0.005 mL. The water fills the whole triangle on the way down, not just a thin line through it. v1 to v13 are unchanged.</span>
+  <span>v13: the water now flows. As the plunger pushes, a blue front travels down into the funnel and along the full length of the needle, instead of the needle changing from white to blue at once. What the plunger cannot push past stays as the trapped residue. v1 to v12 are unchanged.</span>
+  <span>v12: the trapped liquid is primed from the start and stays put as the plunger pushes, so it reads as liquid draining, not popping in at the end. Real geometry: on the Luer lock the outer threaded collar and the hub walls are plastic, so only the inner bore, the luer taper and the needle hold water; the insulin syringe keeps water in the needle alone. v1 to v11 are unchanged.</span>
+  <span>v11: the stuck liquid now fills the real dead space in blue, the colour of the water. In the insulin syringe the plunger meets the needle, so only the needle holds residue. In the Luer lock the plunger stops at the funnel, so the funnel, the hub and the needle all stay full, which is why it wastes more. The orange call-out stays. v1 to v10 are unchanged.</span>
+  <span>v10: the liquid left stuck in the hub after the push now shows blue, the same colour as the water in the vial, so you see how much is left behind. v1 to v9 are unchanged.</span>
+  <span>v9: brighter orange numbers in the vial, liquid and dose inputs, a wider Take row with Daily, Every other day, Weekly, 5 on 2 off and When needed, days that open and nudge when you pick Weekly, a reported dose teaser on the card (most common dose, how often, cycle) so you keep your typing, Show the math collapsed by default, the Luer lock needle kept in frame on push so you see where it comes out, and the gauge drawn as an angled needle with 32, 33 and 34 added and a 31G reference. v1 to v8 are unchanged.</span>
+  <span>v8: laptop layout with Weight and Mixing on the left and Syringes on the right, one I know all three button, larger vials on laptop, vials on one level, green diluent, a fuller powder, orange vial and liquid numbers in the Mixing sample, rotating example names (BPC-157, TB-500, GLOW) and notes (collagen, vitamin C, ubiquinol), orange Dates and notes labels, Reported doses now links to the Dosage page and the Library entry for the compound you type. v1 to v7 are unchanged.</span>
+  <span>v7: FAQ questions in the small orange caps of the subtitle, a brighter glossary with solid colour, how to say µg (mu plus g, read microgram) in the glossary and the Weight block, tighter centred Dates and notes with touching chips, Mixed on always set (today unless changed), card with Draw to in the top right, syringe, Mixed and Use by in the middle column. v1 to v6 are unchanged.</span>
+  <span>v6: beginner or expert popup, clearer I know this buttons, mcg first, rougher liquid and a squared still powder, compound and diluent and solution wording, see-through needles and a Luer hub that sits inside its collar, orange input numbers with grey units, Insulin syringe recommended tag, dates and notes on the card, draw-to at the bottom of the card, Copy as text below the card, Push the plunger between the syringes, big FAQ, syringe types FAQ. v1 to v5 are unchanged.</span>
+  <span>Bare Signals · baresignals.co · Draw Line · Draft</span>
+</footer>
+
+</div>
+
+<script>
+//CORE_START
+const DEAD_INS=0.005;
+function calc(i){
+  const vialMcg=i.vialMg*1000;
+  const conc=vialMcg/i.waterMl;
+  const doseMcg=i.doseUnit==='mg'?i.dose*1000:i.dose;
+  const doseMl=doseMcg/conc;
+  const dead=i.type==='luer'?i.dead:DEAD_INS;
+  return{vialMcg:vialMcg,conc:conc,perUnit:conc/100,doseMcg:doseMcg,doseMl:doseMl,units:doseMl*100,
+    ideal:Math.floor(vialMcg/doseMcg+1e-9),
+    doses:Math.floor(i.waterMl/(doseMl+dead)+1e-9),
+    dead:dead,wasteMcg:dead*conc};
+}
+function readErr(minor,unit,c){
+  const d=unit==='u'?c.units:c.doseMl;
+  return (minor/2)/d;
+}
+//CORE_END
+
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const $$=s=>Array.prototype.slice.call(document.querySelectorAll(s));
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nf=(n,d)=>new Intl.NumberFormat('en-US',{maximumFractionDigits:d==null?2:d}).format(n);
+const fmtMl=v=>v.toFixed(3).replace(/0$/,'');
+const NS='http://www.w3.org/2000/svg';
+
+const SC={
+  insulin:{
+    '0.3':{cap:0.3,w:18,minor:1,mid:5,lab:5,unit:'u',sub:'30 units',line:'Each line is 1 unit (some brands mark half units).'},
+    '0.5':{cap:0.5,w:22,minor:1,mid:5,lab:10,unit:'u',sub:'50 units',line:'Each line is 1 unit.'},
+    '1':{cap:1,w:26,minor:2,mid:10,lab:10,unit:'u',sub:'100 units',line:'Each line is 2 units. Long lines are every 10.'}
+  },
+  luer:{
+    '1':{cap:1,w:30,minor:0.01,mid:0.05,lab:0.1,unit:'mL',sub:'1 mL',line:'Each line is 0.01 mL. Numbers are mL, not units.'},
+    '3':{cap:3,w:42,minor:0.1,mid:0.5,lab:0.5,unit:'mL',sub:'3 mL',line:'Each line is 0.1 mL. Poor for small draws.'}
+  }
+};
+const ORDER={insulin:['0.3','0.5','1'],luer:['1','3']};
+const S={name:'',vial:10,water:2,dose:500,unit:'mcg',type:'insulin',size:'0.5',dead:0.05};
+const cfg=()=>SC[S.type][S.size];
+const capD=c=>c.unit==='u'?c.cap*100:c.cap;
+
+/* ---------- vertical syringe (thin insulin look, orange plastic) ---------- */
+let SGID=0;
+function shineDef(id){
+  const an=reduce?'':'<animate attributeName="x1" values="-1;1" dur="2.8s" repeatCount="indefinite"/><animate attributeName="x2" values="0;2" dur="2.8s" repeatCount="indefinite"/>';
+  return '<linearGradient id="'+id+'" x1="'+(reduce?0:-1)+'" y1="0" x2="'+(reduce?1:0)+'" y2="0"><stop offset="0" stop-color="#C4561A"/><stop offset=".45" stop-color="#E87A3A"/><stop offset=".5" stop-color="#FFE2C4"/><stop offset=".55" stop-color="#E87A3A"/><stop offset="1" stop-color="#C4561A"/>'+an+'</linearGradient>';
+}
+function Syr(host,c,type,o){
+  o=o||{};
+  this.type=type;this.f=0;this.tok=0;this.L=o.L||330;
+  const L=o.L||330,W=140,yt=84,H=yt+L+96,cx=72,yb=yt+L,w=c.w,x0=cx-w/2,x1=cx+w/2;
+  this.yb=yb;this.cx=cx;
+  const luer=type==='luer',gid='sg'+(++SGID);
+  this.tipY=luer?yb+88:yb+62;
+  const cd=capD(c),n=Math.round(cd/c.minor);
+  let ticks='';
+  for(let k=0;k<=n;k++){
+    const v=k*c.minor,y=yb-(v/cd)*L;
+    const isLab=Math.abs(v/c.lab-Math.round(v/c.lab))<1e-6;
+    const isMid=Math.abs(v/c.mid-Math.round(v/c.mid))<1e-6;
+    const len=isLab?10:isMid?7:4;
+    ticks+='<line class="tk" x1="'+(x1-len)+'" x2="'+x1+'" y1="'+y+'" y2="'+y+'"/>';
+    if(isLab&&o.labels){
+      const val=(c.unit==='u'?v:+v.toFixed(2));
+      if(k===n)ticks+='<text class="maxl" style="fill:url(#'+gid+')" x="'+(x1+5)+'" y="'+(y+6)+'">'+val+'</text><text class="maxu" x="'+(x1+5)+'" y="'+(y+16)+'">'+(c.unit==='u'?'units':'mL')+'</text>';
+      else ticks+='<text class="tl" x="'+(x1+4)+'" y="'+(y+3.5)+'">'+val+'</text>';
+    }
+  }
+  const rw=Math.max(5,w*0.3);
+  let tip;
+  const dgid='dc'+gid,dLen=luer?88:62;
+  const dclip='<clipPath id="'+dgid+'"><rect class="deadclip" x="0" y="'+yb+'" width="200" height="0"/></clipPath>';
+  if(luer){
+    tip='<path class="nz" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+6)+' '+(yb+9)+'L'+(cx-6)+' '+(yb+9)+'Z"/>'+
+      '<rect class="nz" x="'+(cx-3.5)+'" y="'+(yb+9)+'" width="7" height="14"/>'+
+      '<rect class="hubf" x="'+(cx-8)+'" y="'+(yb+18)+'" width="16" height="22"/>'+
+      '<path class="ndl" d="M'+(cx-2.2)+' '+(yb+40)+'L'+(cx+2.2)+' '+(yb+40)+'L'+(cx+.7)+' '+(yb+88)+'L'+(cx-.7)+' '+(yb+88)+'Z"/>'+
+      '<rect class="col2" x="'+(cx-11)+'" y="'+(yb+9)+'" width="22" height="23"/>'+
+      '<line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx-11)+'" x2="'+(cx-8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
+      '<line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+14)+'" y2="'+(yb+16)+'"/><line class="thr" x1="'+(cx+11)+'" x2="'+(cx+8)+'" y1="'+(yb+21)+'" y2="'+(yb+23)+'"/>'+
+      '<g clip-path="url(#'+dgid+')">'+
+        '<path class="dead" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+6)+' '+(yb+9)+'L'+(cx-6)+' '+(yb+9)+'Z"/>'+
+        '<rect class="dead" x="'+(cx-3.5)+'" y="'+(yb+9)+'" width="7" height="11"/>'+
+        '<rect class="dead hubl hub" x="'+(cx-4)+'" y="'+(yb+18)+'" width="8" height="22"/>'+
+        '<path class="dead" d="M'+(cx-1.6)+' '+(yb+40)+'L'+(cx+1.6)+' '+(yb+40)+'L'+(cx+.5)+' '+(yb+88)+'L'+(cx-.5)+' '+(yb+88)+'Z"/>'+
+      '</g>';
+  }else{
+    tip='<path class="syl" d="M'+x0+' '+yb+'L'+x1+' '+yb+'L'+(cx+3.5)+' '+(yb+11)+'L'+(cx-3.5)+' '+(yb+11)+'Z"/>'+
+      '<path class="ndl" d="M'+(cx-1.8)+' '+(yb+11)+'L'+(cx+1.8)+' '+(yb+11)+'L'+(cx+.6)+' '+(yb+62)+'L'+(cx-.6)+' '+(yb+62)+'Z"/>'+
+      '<g clip-path="url(#'+dgid+')"><path class="dead" d="M'+(cx-1.2)+' '+(yb+11)+'L'+(cx+1.2)+' '+(yb+11)+'L'+(cx+.4)+' '+(yb+62)+'L'+(cx-.4)+' '+(yb+62)+'Z"/></g>';
+  }
+  const fc=luer?'rod':'sy',stc=luer?'inkf':'syd';
+  const tag=o.tag?
+    '<g class="zt"><line class="mkl" x1="47" x2="'+x1+'" y1="'+yb+'" y2="'+yb+'"/>'+
+    '<rect class="tagr" x="1" y="'+(yb-9)+'" width="47" height="18"/>'+
+    '<text class="tagt" x="24.5" y="'+(yb+3.8)+'">0</text></g>':'';
+  const vb=o.vb||[0,W];
+  host.innerHTML='<svg viewBox="'+vb[0]+' 0 '+vb[1]+' '+H+'" xmlns="'+NS+'" role="img" aria-label="Vertical '+(luer?'Luer lock':'insulin')+' syringe, '+c.sub+'"><defs>'+shineDef(gid)+dclip+'</defs>'+
+    '<rect class="bg" x="'+x0+'" y="'+yt+'" width="'+w+'" height="'+L+'"/>'+
+    '<rect class="liq" x="'+(x0+1)+'" y="'+yb+'" width="'+(w-2)+'" height="0"/>'+
+    '<rect class="gloss" x="'+(x0+2.5)+'" y="'+yb+'" width="2" height="0"/>'+
+    ticks+
+    '<rect class="ol" x="'+x0+'" y="'+yt+'" width="'+w+'" height="'+L+'"/>'+
+    '<rect class="'+fc+'" x="'+(x0-7)+'" y="'+(yt-4)+'" width="'+(w+14)+'" height="5"/>'+
+    tip+
+    '<g class="pl"><rect class="'+fc+'" x="'+(cx-rw/2)+'" y="'+(yb-12-(L+14))+'" width="'+rw+'" height="'+(L+14)+'"/>'+
+    '<rect class="'+fc+'" x="'+(cx-w*0.65)+'" y="'+(yb-12-(L+14)-7)+'" width="'+(w*1.3)+'" height="7"/>'+
+    '<rect class="'+stc+'" x="'+(x0+1)+'" y="'+(yb-12)+'" width="'+(w-2)+'" height="12"/>'+
+    '<line x1="'+(x0+2.5)+'" x2="'+(x1-2.5)+'" y1="'+(yb-6)+'" y2="'+(yb-6)+'" stroke="#FFFFE2" stroke-width=".8" opacity=".55"/></g>'+
+    tag+
+    '<g class="lt" style="display:none"><line class="mkl" x1="'+(cx+9)+'" x2="'+(cx+17)+'" y1="'+(yb+(luer?27:34))+'" y2="'+(yb+(luer?27:34))+'"/><text class="lt1" x="'+(cx+20)+'" y="'+(yb+(luer?25:32))+'">stuck</text><text class="lt2" x="'+(cx+20)+'" y="'+(yb+(luer?35:42))+'"></text><text class="lt3" x="'+(cx+20)+'" y="'+(yb+(luer?45:52))+'"></text></g>'+
+    '<g class="dr"></g></svg>';
+  const q=s=>host.querySelector(s);
+  this.pl=q('.pl');this.mk=q('.zt');this.lt=q('.lt');this.lt2=q('.lt2');this.lt3=q('.lt3');this.svg=q('svg');this.vb0=[vb[0],0,vb[1],H];this.liq=q('.liq');this.gl=q('.gloss');
+  this.tagT=q('.tagt');this.hubs=host.querySelectorAll('.hub');this.dr=q('.dr');this.dclip=q('.deadclip');this.dlen=dLen;
+  this.set(0);
+}
+Syr.prototype.set=function(f){
+  f=Math.max(0,Math.min(1,f));this.f=f;
+  const dy=-f*this.L,t='translate(0 '+dy+')';
+  this.pl.setAttribute('transform',t);
+  if(this.mk)this.mk.setAttribute('transform',t);
+  this.liq.setAttribute('y',this.yb+dy);this.liq.setAttribute('height',-dy);
+  this.gl.setAttribute('y',this.yb+dy+3);this.gl.setAttribute('height',Math.max(0,-dy-6));
+};
+Syr.prototype.tween=function(to,ms,cb){
+  const self=this,from=this.f,tok=++this.tok;
+  return new Promise(function(res){
+    if(reduce||ms<=0){self.set(to);if(cb)cb(1);return res();}
+    const t0=performance.now();
+    (function step(now){
+      if(tok!==self.tok)return res();
+      const p=Math.min(1,(now-t0)/ms),e=1-Math.pow(1-p,3);
+      self.set(from+(to-from)*e);
+      if(cb)cb(p);
+      if(p<1)requestAnimationFrame(step);else res();
+    })(t0);
+  });
+};
+Syr.prototype.tag=function(txt){
+  if(!this.mk)return;
+  if(txt==null){this.mk.style.display='none';return;}
+  this.mk.style.display='';this.tagT.textContent=txt;
+};
+Syr.prototype.hubWaste=function(on){for(let i=0;i<this.hubs.length;i++)this.hubs[i].classList.toggle('waste',!!on);};
+Syr.prototype.flow=function(e){if(this.dclip)this.dclip.setAttribute('height',Math.max(0,e*this.dlen).toFixed(1));};
+Syr.prototype.leftover=function(t,t2){if(!this.lt)return;if(t==null){this.lt.style.display='none';return;}this.lt.style.display='';this.lt2.textContent=t;this.lt3.textContent=t2||'';};
+Syr.prototype.zoom=function(on,ms){
+  const svg=this.svg,self=this,tok=(this.ztok=(this.ztok||0)+1);
+  const cur=svg.getBoundingClientRect();
+  if(!this.sz0&&cur.width>0)this.sz0=[cur.width,cur.height];
+  const from=svg.getAttribute('viewBox').split(' ').map(Number),fromSz=[cur.width,cur.height];
+  const tw=96,th=this.type==='luer'?140:118;
+  const to=on?[this.cx-28,this.yb+(this.type==='luer'?20:8)-52,tw,th]:this.vb0;
+  const zw=Math.min((svg.parentNode.clientWidth||180)-8,170);
+  const toSz=on?[zw,zw*th/tw]:(this.sz0||fromSz);
+  const apply=function(a,sz){
+    svg.setAttribute('viewBox',a.map(function(n){return +n.toFixed(2);}).join(' '));
+    if(sz[0]>0){svg.style.maxWidth='none';svg.style.width=sz[0]+'px';svg.style.height=sz[1]+'px';}
+  };
+  const fin=function(){if(!on){svg.style.width='';svg.style.height='';svg.style.maxWidth='';}};
+  if(reduce||!ms||!(cur.width>0)){apply(to,toSz);fin();return Promise.resolve();}
+  return new Promise(function(res){
+    const t0=performance.now();
+    (function step(now){
+      if(tok!==self.ztok)return res();
+      const p=Math.min(1,(now-t0)/ms),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+      apply(from.map(function(f,i){return f+(to[i]-f)*e;}),fromSz.map(function(f,i){return f+(toSz[i]-f)*e;}));
+      if(p<1)requestAnimationFrame(step);else{fin();res();}
+    })(t0);
+  });
+};
+Syr.prototype.drip=function(n){
+  if(reduce)return;
+  const g=this.dr,made=[];
+  for(let i=0;i<n;i++){
+    const c=document.createElementNS(NS,'circle');
+    c.setAttribute('class','drop');c.setAttribute('cx',this.cx+(i-1)*0.8);c.setAttribute('cy',this.tipY+2);c.setAttribute('r',2.4);
+    c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);
+  }
+  setTimeout(function(){made.forEach(function(c){if(c.parentNode)c.parentNode.removeChild(c);});},1700);
+};
+
+/* ---------- top of a syringe, zoomed, fading out ---------- */
+let CID=0;
+function sizeCrop(type,k){
+  const c=SC[type][k],cd=capD(c),luer=type==='luer',id='sc'+(++CID);
+  const w=Math.round(c.w*1.5),cx=48,x0=cx-w/2,x1=cx+w/2,y0=34,H=104;
+  const sp=236*c.minor/cd,n=Math.min(40,Math.floor((H-y0-8)/sp));
+  let t='';
+  for(let j=0;j<=n;j++){
+    const v=Math.round((cd-j*c.minor)*1000)/1000,y=y0+8+j*sp;
+    const isLab=Math.abs(v/c.lab-Math.round(v/c.lab))<1e-6||j===0;
+    const isMid=Math.abs(v/c.mid-Math.round(v/c.mid))<1e-6;
+    const len=isLab?10:isMid?7:4;
+    t+='<line class="tk" x1="'+(x1-len)+'" x2="'+x1+'" y1="'+y+'" y2="'+y+'"/>';
+    if(isLab){
+      const val=(c.unit==='u'?v:+v.toFixed(2));
+      if(j===0)t+='<text class="maxl" style="fill:url(#'+id+'s)" x="'+(x1+5)+'" y="'+(y+6)+'">'+val+'</text><text class="maxu" x="'+(x1+5)+'" y="'+(y+16)+'">'+(c.unit==='u'?'units':'mL')+'</text>';
+      else t+='<text class="tl" x="'+(x1+4)+'" y="'+(y+3.5)+'">'+val+'</text>';
+    }
+  }
+  const fc=luer?'rod':'sy',rw=Math.max(5,w*0.3);
+  return '<svg viewBox="0 0 120 '+H+'" role="img" aria-label="Top of a '+k+' mL '+(luer?'Luer lock':'insulin')+' syringe">'+
+    '<defs>'+shineDef(id+'s')+'<linearGradient id="'+id+'g" x1="0" y1="0" x2="0" y2="1"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>'+
+    '<mask id="'+id+'m" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="'+H+'"><rect width="120" height="'+H+'" fill="url(#'+id+'g)"/></mask></defs>'+
+    '<g mask="url(#'+id+'m)">'+
+    '<rect class="bg" x="'+x0+'" y="'+y0+'" width="'+w+'" height="'+(H-y0)+'"/>'+t+
+    '<rect class="ol" x="'+x0+'" y="'+y0+'" width="'+w+'" height="'+(H-y0+4)+'"/>'+
+    '<rect class="'+fc+'" x="'+(cx-rw/2)+'" y="8" width="'+rw+'" height="'+(H-8)+'"/>'+
+    '<rect class="'+fc+'" x="'+(x0-6)+'" y="'+(y0-4)+'" width="'+(w+12)+'" height="5"/>'+
+    '<rect class="'+fc+'" x="'+(cx-w*0.55)+'" y="2" width="'+(w*1.1)+'" height="6"/>'+
+    '</g></svg>';
+}
+
+/* ---------- small orange syringe icon ---------- */
+function synIcon(type,w,h){
+  const luer=type==='luer',bw=Math.round(w*0.5),fc=luer?'rod':'sy';
+  h=h||36;
+  return '<svg height="'+h+'" viewBox="0 0 40 70" aria-hidden="true" style="width:auto">'+
+    '<rect class="ol" x="'+(20-bw/2)+'" y="18" width="'+bw+'" height="34"/>'+
+    '<rect class="'+fc+'" x="'+(20-bw/2-4)+'" y="16" width="'+(bw+8)+'" height="3"/>'+
+    '<rect class="'+fc+'" x="18" y="6" width="4" height="30"/>'+
+    '<rect class="'+fc+'" x="'+(20-bw*0.65)+'" y="3" width="'+(bw*1.3)+'" height="4"/>'+
+    '<rect class="'+(luer?'inkf':'syd')+'" x="'+(20-bw/2+1)+'" y="36" width="'+(bw-2)+'" height="6"/>'+
+    '<path class="'+(luer?'nz':'syl')+'" d="M'+(20-bw/2)+' 52L'+(20+bw/2)+' 52L22.5 58L17.5 58Z"/>'+
+    '<rect class="inkf" x="19.4" y="58" width="1.2" height="11"/></svg>';
+}
+
+/* ---------- vial: fixed powder cake, moving liquid ---------- */
+let VID=0;
+function Vial(host,o){
+  o=o||{};
+  const id='vc'+(++VID),cake=o.cake!==false,amp=o.rough?11:5;
+  let wave='M-40 0 Q-30 -'+amp+' -20 0';
+  for(let x=0;x<=180;x+=20)wave+=' T'+x+' 0';
+  wave+=' L180 130 L-40 130 Z';
+  let dots='',fl='';
+  for(let i=0;i<34;i++)dots+='<circle class="spk" cx="'+(36+(i*37)%50)+'" cy="'+(117+(i*23)%23)+'" r=".9"/>';
+  if(o.dots)for(let i=0;i<22;i++)fl+='<circle class="fdot" cx="'+(38+(i*29)%48)+'" cy="'+(14+(i*41)%90)+'" r=".9"/>';
+  const ck=cake?'<path class="cake" d="M33 142 L33 124 Q33 114 43 114 Q62 108 81 114 Q91 114 91 124 L91 142 Z"/>'+dots:'';
+  const bub=o.rough?'<circle class="bub b4" cx="56" cy="46" r="1.6"/><circle class="bub b5" cx="90" cy="48" r="1.9"/>':'';
+  host.innerHTML='<svg class="vsvg'+(o.rough?' rough':'')+(o.green?' grn':'')+'" viewBox="0 0 124 170" xmlns="'+NS+'" role="img" aria-label="Vial">'+
+    '<defs><clipPath id="'+id+'"><rect x="30" y="46" width="64" height="96" rx="7"/></clipPath></defs>'+
+    '<rect class="glass" x="30" y="46" width="64" height="96" rx="7"/>'+
+    '<g clip-path="url(#'+id+')">'+
+      '<g class="lq" transform="translate(0 165)"><g class="sl">'+
+        '<g class="wv2"><path class="w2" d="'+wave+'"/></g>'+
+        '<g class="wv1"><path class="w1" d="'+wave+'"/></g>'+
+        '<circle class="bub b1" cx="46" cy="44" r="2.2"/><circle class="bub b2" cx="70" cy="50" r="1.7"/><circle class="bub b3" cx="82" cy="42" r="2"/>'+bub+fl+
+      '</g></g>'+ck+
+    '</g>'+
+    '<rect class="gl-ol" x="30" y="46" width="64" height="96" rx="7"/>'+
+    '<rect class="glass" x="44" y="34" width="36" height="13"/><rect class="gl-ol" x="44" y="34" width="36" height="13"/>'+
+    '<rect class="stp" x="40" y="22" width="44" height="13"/>'+
+    '<rect class="capo" x="38" y="11" width="48" height="12"/>'+
+    '<rect class="crimp" x="41" y="32" width="42" height="5"/>'+
+    '<rect class="lbl" x="36" y="74" width="52" height="34"/>'+
+    '<text class="lbt" x="62" y="93">—</text><text class="lbs" x="62" y="103">'+(o.sub||'')+'</text></svg>';
+  this.lq=host.querySelector('.lq');this.lb=host.querySelector('.lbt');
+  this.y=165;this.tok=0;
+}
+Vial.prototype.place=function(y){this.y=y;this.lq.setAttribute('transform','translate(0 '+y+')');};
+Vial.prototype.set=function(label,water){
+  this.lb.textContent=label;this.lb.style.fontSize=label.length>6?'12px':'15px';
+  const h=water>0?24+Math.min(water,8)/8*64:0,to=water>0?142-h:165,self=this,from=this.y,tok=++this.tok;
+  if(reduce||Math.abs(to-from)<0.5){this.place(to);return;}
+  const t0=performance.now(),ms=650;
+  (function step(now){
+    if(tok!==self.tok)return;
+    const p=Math.min(1,(now-t0)/ms),e=1-Math.pow(1-p,3);
+    self.place(from+(to-from)*e);
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+};
+
+/* ---------- zoomed syringe tips ---------- */
+function tipSVG(type){
+  const luer=type==='luer';
+  const sc=luer?['0.2','0.1','0']:['20','10','0'];
+  const ys=[14,36,58];
+  const ticks=ys.map(function(y,i){return '<line class="tk" x1="90" x2="98" y1="'+y+'" y2="'+y+'"/><text class="tl" x="102" y="'+(y+3.5)+'">'+sc[i]+'</text>';}).join('');
+  const barrel='<rect class="bg" x="52" y="-10" width="46" height="82"/><rect class="ol" x="52" y="-10" width="46" height="82"/>'+ticks;
+  if(luer){
+    return '<svg viewBox="0 0 150 210" role="img" aria-label="Luer lock tip: needle hub twists out of the lock ring">'+barrel+
+      '<path class="nz" d="M52 72L98 72L82 88L68 88Z"/>'+
+      '<rect class="nz" x="70" y="88" width="10" height="22"/>'+
+      '<g class="hubg"><rect class="hubf" x="62" y="98" width="26" height="28" fill-opacity=".5"/>'+
+      '<path class="ndl" d="M72.8 126L77.2 126L75.8 172L74.2 172Z"/></g>'+
+      '<rect class="col2" x="56" y="84" width="38" height="34"/>'+
+      '<line class="thr" x1="56" y1="92" x2="62" y2="95"/><line class="thr" x1="56" y1="100" x2="62" y2="103"/><line class="thr" x1="56" y1="108" x2="62" y2="111"/>'+
+      '<line class="thr" x1="94" y1="92" x2="88" y2="95"/><line class="thr" x1="94" y1="100" x2="88" y2="103"/><line class="thr" x1="94" y1="108" x2="88" y2="111"/>'+
+      '<path class="turn" d="M112 96 A15 15 0 1 1 112 126"/><path class="turnh" d="M107 120 L117 129 L106 132Z"/>'+
+      '</svg>';
+  }
+  return '<svg viewBox="0 0 150 210" role="img" aria-label="Insulin syringe tip: needle fixed in">'+barrel+
+    '<path class="syl" d="M52 72L98 72L80 98L70 98Z"/>'+
+    '<rect class="syl" x="69" y="96" width="12" height="12"/>'+
+    '<path class="ndl" d="M73.2 108L76.8 108L75.6 172L74.4 172Z"/>'+
+    '<path d="M118 70 L124 70 L124 112 L118 112" fill="none" stroke="#B04A16" stroke-width="1.6"/>'+
+    '<text class="lockt" x="108" y="132">ONE</text><text class="lockt" x="108" y="143">PIECE</text>'+
+    '</svg>';
+}
+
+/* ---------- sticker icons for the math ---------- */
+function ico(kind){
+  const body='<rect x="5" y="9" width="16" height="23" rx="2" class="ol"/><rect x="8" y="1" width="10" height="4" class="capo"/><rect x="7" y="5" width="12" height="4" class="stp"/>';
+  if(kind==='powder')return '<svg viewBox="0 0 26 34" aria-hidden="true">'+body+'<path class="cake" d="M6 32 L6 28 Q9 24 13 26 Q17 23 20 28 L20 32Z"/></svg>';
+  if(kind==='liquid')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="14" width="14" height="17" fill="#86D1A3"/>'+body+'</svg>';
+  if(kind==='mix')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="6" y="17" width="14" height="14" class="w1"/>'+body+'<path class="cake" d="M6 32 L6 29 Q9 26 13 27 Q17 25 20 29 L20 32Z"/></svg>';
+  if(kind==='dose')return '<svg viewBox="0 0 26 34" aria-hidden="true"><rect x="8" y="12" width="10" height="10" fill="#DB6830" stroke="#B04A16" stroke-width="1.5"/></svg>';
+  if(kind==='drop')return '<svg viewBox="0 0 26 34" aria-hidden="true"><path d="M13 4 C13 4 4 17 4 23 A9 9 0 0 0 22 23 C22 17 13 4 13 4Z" fill="#99ACFF" stroke="#3E4A80" stroke-width="1.5"/></svg>';
+  if(kind==='syr')return synIcon('insulin',24,34);
+  if(kind==='luersyr')return synIcon('luer',28,34);
+  return '';
+}
+const mk=(kind,num,unit,cls)=>'<div class="mk'+(cls?' '+cls:'')+'">'+ico(kind)+'<b>'+num+'</b><span>'+unit+'</span></div>';
+const op=s=>'<span class="op2">'+s+'</span>';
+const eqrow=(label,parts)=>'<div class="eqr"><div class="eql">'+label+'</div><div class="eqf">'+parts.join('')+'</div></div>';
+
+/* ---------- weight: one box of 1,000 (fixed 10 mg example) ---------- */
+let wu='mcg';
+function renderLadder(){
+  let cols='';
+  for(let c=0;c<50;c++){
+    let col='';
+    for(let r=0;r<20;r++){
+      const i=r*50+c;
+      let f='rgba(62,74,128,.2)';
+      if(wu==='g')f='#8FA3F5';else if(wu==='mg'&&i<10)f='#DB6830';else if(wu==='mcg'&&i===0)f='#3E4A80';
+      col+='<rect x="'+(c*10+1)+'" y="'+(r*10+1)+'" width="8" height="8" fill="'+f+'"/>';
+    }
+    cols+='<g class="col" style="animation-delay:'+(-(c%25)*0.14).toFixed(2)+'s">'+col+'</g>';
+  }
+  $('#wgrid').innerHTML='<svg viewBox="-2 -5 504 210" role="img" aria-label="1,000 small squares. The whole box is 1 gram and each square is 1 milligram">'+cols+'</svg>';
+  const rd={
+    g:'<b>g</b> The whole box is 1 gram: 1,000 small squares. Each square is 1 mg.',
+    mg:'<b>mg</b> A 10 mg vial is 10 squares. It holds 10,000 mcg.',
+    mcg:'<b>mcg</b> One square is 1 mg. Zoom in and 1 mcg is the dot: 1,000 dots fill that one square. Also written <b>µg</b> (Greek mu plus g). Same thing, still said "microgram".'
+  };
+  $('#wread').innerHTML=rd[wu];
+  $('#wzm').hidden=wu!=='mcg';
+}
+
+/* ---------- mixing pane ---------- */
+let vd,vl,vmx,mixW=2;
+function renderMix(){
+  vd.set('10 mg',0);vl.set('2 mL',2);vmx.set('10 mg',2);
+}
+
+/* ---------- size buttons ---------- */
+function renderSizes(){
+  $('#sizes').innerHTML=ORDER[S.type].map(function(k){
+    const c=SC[S.type][k];
+    return '<button type="button" class="btn sz" data-size="'+k+'" aria-pressed="'+(k===S.size)+'">'+sizeCrop(S.type,k)+'<b>'+k+' mL</b><span>'+(S.type==='insulin'?c.sub:'marked in mL')+'</span></button>';
+  }).join('');
+  $$('#sizes .sz').forEach(function(b){b.onclick=function(){S.size=b.dataset.size;renderSizes();update();};});
+  $('#sizeFact').textContent=cfg().line;
+}
+
+/* ---------- dose grid ---------- */
+function doseGrid(ideal,doses){
+  const el=$('#dgrid');
+  if(!(ideal>=1)){el.innerHTML='';el.style.gridTemplateColumns='';$('#dcap').textContent='Doses';return;}
+  const n=Math.min(ideal,100),big=n<=25,cell=big?7:4,cols=big?5:10;
+  el.style.gridTemplateColumns='repeat('+cols+','+cell+'px)';
+  let h='';
+  for(let i=0;i<n;i++){
+    const cls=i===0?'one':(i<doses?'':'lost');
+    h+='<i'+(cls?' class="'+cls+'"':'')+'></i>';
+  }
+  el.innerHTML=h;
+  $('#dcap').textContent=ideal+(ideal===1?' dose':' doses');
+}
+
+/* ---------- main update ---------- */
+let main=null,mainKey='',vial1=null,vial2=null;
+function mountMain(){
+  const key=S.type+S.size;
+  if(key===mainKey)return;
+  mainKey=key;
+  main=new Syr($('#syrMain'),cfg(),S.type,{labels:true,tag:true});
+}
+const num=id=>{const v=parseFloat($(id).value);return isFinite(v)&&v>0?v:NaN;};
+const pill=(cls,t)=>'<span class="pill '+cls+'">'+t+'</span>';
+let mathTxt='',cardTxt='';
+
+function update(){
+  placeCur();
+  S.name=$('#pname').value;
+  S.vial=num('#vial');S.water=num('#water');S.dose=num('#dose');
+  const ok=isFinite(S.vial)&&isFinite(S.water)&&isFinite(S.dose);
+  $$('#vialQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.vial);});
+  $$('#waterQ .q').forEach(function(b){b.classList.toggle('on',+b.dataset.v===S.water);});
+  vial1.set(isFinite(S.vial)?nf(S.vial,3)+' mg':'— mg',0);
+  vial2.set(isFinite(S.water)?nf(S.water,3)+' mL':'— mL',isFinite(S.water)?S.water:0);
+  mountMain();
+  const c0=cfg(),nm=S.name.trim();
+  const cn=$('#cName');cn.textContent=(nm||'Your peptide')+(isFinite(S.vial)?' · '+nf(S.vial,3)+' mg vial':'');cn.classList.toggle('ph',!nm);
+  renderPlan();
+
+  if(!ok){
+    $('#bigN').textContent='—';$('#bigU').textContent='';$('#bigS').textContent='Fill in vial, liquid and dose';
+    $('#kvs').innerHTML='';$('#pills').innerHTML=pill('warn','Waiting for numbers');$('#tip').hidden=true;
+    main.tag(null);main.tween(0,300);
+    $('#steps').innerHTML='';$('#vmath').innerHTML='';mathTxt='';
+    doseGrid(0,0);cardTxt='';
+    return;
+  }
+
+  const c=calc({vialMg:S.vial,waterMl:S.water,dose:S.dose,doseUnit:S.unit,type:S.type,dead:S.dead});
+  const fits=c.doseMl<=c0.cap+1e-9;
+  const luer=S.type==='luer';
+  doseGrid(c.ideal,luer?c.doses:c.ideal);
+
+  $('#bigN').textContent=luer?fmtMl(c.doseMl):nf(c.units,1);
+  $('#bigU').textContent=luer?'mL':'units';
+  $('#bigS').textContent=luer?('= '+nf(c.units,1)+' units on an insulin syringe'):('= '+fmtMl(c.doseMl)+' mL');
+
+  const rows=[
+    ['Vial',nf(S.vial,3)+' mg',1],
+    ['Liquid used',nf(S.water,3)+' mL',1],
+    ['Solution',nf(c.conc,1)+' mcg/mL'],
+    ['Per unit',nf(c.perUnit,2)+' mcg'],
+    ['Dose',nf(c.doseMcg,2)+' mcg',1],
+    ['Doses in vial',String(c.ideal)]
+  ];
+  if(luer&&c.doses<c.ideal)rows.push(['With this hub',String(c.doses)]);
+  $('#kvs').innerHTML=rows.map(function(r){return '<div class="kv"><span>'+r[0]+'</span><b'+(r[2]?' class="o"':'')+'>'+r[1]+'</b></div>';}).join('');
+
+  const p=[];
+  if(!fits)p.push(pill('bad','Does not fit: needs '+fmtMl(c.doseMl)+' mL, holds '+c0.cap+' mL'));
+  else{
+    const e=readErr(c0.minor,c0.unit,c),pc=Math.round(e*100);
+    if(e>0.12)p.push(pill('bad','Hard to read: half a line is '+pc+'% of the dose'));
+    else if(e>0.05)p.push(pill('warn','Readable: half a line is '+pc+'% of the dose'));
+  }
+  if(c.ideal<1)p.push(pill('bad','Dose is bigger than the vial'));
+  if(luer){p.push(pill('warn','Numbers are mL, not units'));p.push(pill('warn','Hub keeps about '+nf(c.wasteMcg,0)+' mcg per draw'));}
+  else p.push(pill('ok','Units: 100 units is 1 mL'));
+  $('#pills').innerHTML=p.join('');
+
+  const tip=$('#tip');
+  if(luer){
+    tip.textContent='Same dose as an insulin syringe ('+nf(c.units,1)+' units is '+fmtMl(c.doseMl)+' mL). The hub keeps about '+nf(c.wasteMcg,0)+' mcg each draw, so the vial gives '+c.doses+' doses, not '+c.ideal+'.';tip.hidden=false;
+  }else if(fits&&c.units<10){
+    const wt=0.2*c.vialMcg/c.doseMcg;
+    if(wt<=12){tip.textContent='Tip: '+nf(wt,2)+' mL of liquid would make this a 20 unit draw, easier to read. Check your vial can hold it.';tip.hidden=false;}
+    else tip.hidden=true;
+  }else tip.hidden=true;
+
+  main.tag(!fits?'Over':(luer?fmtMl(c.doseMl)+' mL':nf(c.units,1)+' u'));
+  main.tween(Math.min(1,c.doseMl/c0.cap),reduce?0:550);
+
+  const vm=[];
+  vm.push(eqrow('Strength of the mix',[mk('powder',nf(S.vial,3),'mg'),op('×'),mk('','1,000','mcg per mg'),op('÷'),mk('liquid',nf(S.water,3),'mL liquid'),op('='),mk('mix',nf(c.conc,1),'mcg per mL','hot')]));
+  vm.push(eqrow('Volume to draw',[mk('dose',nf(c.doseMcg,2),'mcg dose'),op('÷'),mk('mix',nf(c.conc,1),'mcg per mL'),op('='),mk('drop',fmtMl(c.doseMl),'mL','hot')]));
+  vm.push(eqrow('Units on the syringe',[mk('drop',fmtMl(c.doseMl),'mL'),op('×'),mk('','100','units per mL'),op('='),mk('syr',nf(c.units,1),'units','hot')]));
+  vm.push(eqrow('Doses in the vial',[mk('powder',nf(c.vialMcg,2),'mcg'),op('÷'),mk('dose',nf(c.doseMcg,2),'mcg dose'),op('='),mk('dose',String(c.ideal),'doses','hot')]));
+  if(luer)vm.push(eqrow('Your Luer lock reads mL',[mk('luersyr',fmtMl(c.doseMl),'mL, not units','hot')]));
+  $('#vmath').innerHTML=vm.join('');
+
+  const st=[];
+  st.push(['Vial in mcg',nf(S.vial,3)+' mg × 1,000',nf(c.vialMcg,2)+' mcg']);
+  if(S.unit==='mg')st.push(['Dose in mcg',nf(S.dose,4)+' mg × 1,000',nf(c.doseMcg,2)+' mcg']);
+  st.push(['Strength of the mix',nf(c.vialMcg,2)+' mcg ÷ '+nf(S.water,3)+' mL',nf(c.conc,1)+' mcg per mL']);
+  st.push(['Volume to draw',nf(c.doseMcg,2)+' mcg ÷ '+nf(c.conc,1)+' mcg per mL',fmtMl(c.doseMl)+' mL']);
+  st.push(['Units on an insulin syringe',fmtMl(c.doseMl)+' mL × 100',nf(c.units,1)+' units']);
+  st.push(['Check: each unit holds',nf(c.conc,1)+' mcg per mL ÷ 100',nf(c.perUnit,2)+' mcg']);
+  st.push(['Doses in the vial',nf(c.vialMcg,2)+' mcg ÷ '+nf(c.doseMcg,2)+' mcg',String(c.ideal)]);
+  if(luer)st.push(['On your Luer lock, read','the mL scale, not units',fmtMl(c.doseMl)+' mL']);
+  $('#steps').innerHTML=st.map(function(r){return '<div class="step"><span class="l">'+r[0]+'</span><span class="f">'+r[1]+'</span><span class="r">'+r[2]+'</span></div>';}).join('');
+  mathTxt=(nm?nm+'\n':'')+st.map(function(r){return r[0]+': '+r[1]+' = '+r[2];}).join('\n');
+
+  cardTxt=buildTxt(c,luer,nm);
+}
+
+/* ---------- waste demo (fixed 1 mg example) ---------- */
+let wA=null,wB=null,wTok=0,pushed=false;
+const EX={vialMg:10,waterMl:2,dose:1000,doseUnit:'mcg'};
+const exCalc=function(t){return calc(Object.assign({type:t,dead:0.05},EX));};
+function mountWaste(){
+  if(wA)return;
+  wA=new Syr($('#syrA'),SC.insulin['1'],'insulin',{labels:false,tag:false,vb:[14,116],L:250});
+  wB=new Syr($('#syrB'),SC.luer['1'],'luer',{labels:false,tag:false,vb:[14,116],L:250});
+}
+function wasteReset(){
+  mountWaste();wTok++;pushed=false;
+  const cA=exCalc('insulin'),cB=exCalc('luer');
+  $('#push').textContent='Push the plunger';$('#push').disabled=false;
+  wA.leftover(null);wB.leftover(null);wA.hubWaste(false);wB.hubWaste(false);wA.flow(0);wB.flow(0);
+  wA.zoom(false,reduce?0:500);wB.zoom(false,reduce?0:500);
+  wA.tween(cA.doseMl,reduce?0:500);wB.tween(cB.doseMl,reduce?0:500);
+  $('#rA').textContent=nf(cA.units,0)+' units';$('#rB').textContent=fmtMl(cB.doseMl)+' mL';
+  $('#pA').textContent=nf(cA.doseMcg+cA.wasteMcg,0)+' mcg';$('#pB').textContent=nf(cB.doseMcg+cB.wasteMcg,0)+' mcg';
+  ['dA','lA','dB','lB'].forEach(function(id){$('#'+id).textContent='—';});
+  $('#wVerdict').textContent='Both read '+fmtMl(cB.doseMl)+' mL. Press the plunger and watch what stays behind.';
+}
+function runPush(){
+  const tok=++wTok,cA=exCalc('insulin'),cB=exCalc('luer'),dur=reduce?0:1700;
+  $('#push').disabled=true;
+  const stepA=function(p){const e=1-Math.pow(1-p,3);$('#dA').textContent=nf(cA.doseMcg*e,0)+' mcg';wA.flow(e);};
+  const stepB=function(p){const e=1-Math.pow(1-p,3);$('#dB').textContent=nf(cB.doseMcg*e,0)+' mcg';wB.flow(e);};
+  Promise.all([wA.tween(0,dur,stepA),wB.tween(0,dur,stepB)]).then(function(){
+    if(tok!==wTok)return;
+    wA.drip(3);wB.drip(3);
+    $('#dA').textContent=nf(cA.doseMcg,0)+' mcg';$('#dB').textContent=nf(cB.doseMcg,0)+' mcg';
+    $('#lA').textContent=nf(cA.wasteMcg,0)+' mcg';$('#lB').textContent=nf(cB.wasteMcg,0)+' mcg';
+    wA.hubWaste(true);wB.hubWaste(true);
+    wA.leftover(fmtMl(cA.dead)+' mL',nf(cA.wasteMcg,0)+' mcg');wB.leftover(fmtMl(cB.dead)+' mL',nf(cB.wasteMcg,0)+' mcg');
+    $('#wVerdict').textContent='The Luer lock pulled '+nf(cB.doseMcg+cB.wasteMcg,0)+' mcg, delivered '+nf(cB.doseMcg,0)+' and kept '+nf(cB.wasteMcg,0)+' stuck in the hub. Every draw. The insulin syringe kept '+nf(cA.wasteMcg,0)+'.';
+    setTimeout(function(){if(tok!==wTok)return;wA.zoom(true,1000);wB.zoom(true,1000);},reduce?0:350);
+    pushed=true;$('#push').textContent='Fill again';$('#push').disabled=false;
+  });
+}
+
+/* ---------- wiring ---------- */
+const cueOrder=['vial','water','dose'],cued={vial:true,water:true,dose:true};
+const TIMES=['Morning','Night','Before food','After food','30 min before sleep'];
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const pad2=n=>('0'+n).slice(-2);
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function addDays(iso,n){const d=new Date(iso+'T00:00:00');d.setDate(d.getDate()+n);return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function fmtDate(iso){const d=new Date(iso+'T00:00:00');return isNaN(d)?'':d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+const esc=t=>String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});
+function planBits(){
+  const take=[];
+  if(S.freq)take.push(S.freq);
+  const ds=DAYS.filter(function(d){return S.days.indexOf(d)>-1;});
+  if(ds.length)take.push(ds.join(', '));
+  return {take:take.join(' · '),when:TIMES.filter(function(t){return S.times.indexOf(t)>-1;}).join(' · '),note:(S.note||'').trim()};
+}
+function renderPlan(){
+  const pb=planBits(),rows=[];
+  if(pb.take)rows.push(['Take',pb.take]);
+  if(pb.when)rows.push(['When',pb.when]);
+  if(pb.note)rows.push(['Note',pb.note]);
+  const el=$('#plan');
+  el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
+  el.hidden=!rows.length;
+  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b>'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
+}
+function buildTxt(c,luer,nm){
+  const pb=planBits(),L=[];
+  L.push('Draw Line · Bare Signals');
+  L.push((nm||'Your peptide')+' · '+nf(S.vial,3)+' mg vial');
+  L.push('Vial '+nf(S.vial,3)+' mg + liquid used '+nf(S.water,3)+' mL = '+nf(c.conc,1)+' mcg per mL');
+  L.push('Dose '+nf(c.doseMcg,2)+' mcg');
+  L.push('Doses in vial: '+c.ideal+(luer&&c.doses<c.ideal?' (about '+c.doses+' with this hub)':''));
+  if(S.mixed)L.push('Mixed '+fmtDate(S.mixed)+' · use by '+fmtDate(addDays(S.mixed,28)));
+  if(pb.take)L.push('Take: '+pb.take);
+  if(pb.when)L.push('When: '+pb.when);
+  if(pb.note)L.push('Note: '+pb.note);
+  L.push('Draw to '+(luer?fmtMl(c.doseMl)+' mL':nf(c.units,1)+' units ('+fmtMl(c.doseMl)+' mL)')+' on a '+S.size+' mL '+(luer?'Luer lock':'insulin')+' syringe');
+  L.push('baresignals.co/draw');
+  return L.join('\n');
+}
+function placeCur(){cueOrder.forEach(function(k){const el=$('#cue-'+k+' .cur');if(el)el.style.left=(11.5+String($('#'+k).value).length*10.8)+'px';});}
+function paintCues(){
+  const first=cueOrder.filter(function(k){return cued[k];})[0];
+  cueOrder.forEach(function(k){$('#cue-'+k).classList.toggle('cue',k===first);});
+  placeCur();
+}
+function uncue(sel){cued[sel.slice(1)]=false;paintCues();}
+function chips(id,vals,inp,fmt){
+  $(id).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'">'+fmt(v)+'</button>';}).join('');
+  $$(id+' .q').forEach(function(b){b.onclick=function(){$(inp).value=b.dataset.v;uncue(inp);update();};});
+}
+chips('#vialQ',[2,5,10,15,20,30],'#vial',function(v){return v+' mg';});
+chips('#waterQ',[1,2,3,5],'#water',function(v){return v+' mL';});
+['#vial','#water','#dose'].forEach(function(id){
+  $(id).addEventListener('focus',function(){uncue(id);});
+  $(id).addEventListener('input',function(){uncue(id);update();});
+});
+$('#pname').addEventListener('input',update);
+
+$$('.wt').forEach(function(b){b.onclick=function(){
+  wu=b.dataset.u;$$('.wt').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.u===wu);});renderLadder();
+};});
+
+$$('[data-du]').forEach(function(b){b.onclick=function(){
+  const nu=b.dataset.du;if(nu===S.unit)return;
+  const cur=parseFloat($('#dose').value);
+  if(isFinite(cur)&&cur>0)$('#dose').value=+(nu==='mg'?cur/1000:cur*1000).toFixed(4);
+  S.unit=nu;$$('[data-du]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.du===nu);});uncue('#dose');update();
+};});
+$$('[data-type]').forEach(function(b){b.onclick=function(){
+  const t=b.dataset.type;if(t===S.type)return;
+  S.type=t;if(!SC[t][S.size])S.size='1';
+  $$('[data-type]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.type===t);});
+  renderSizes();update();
+};});
+
+$('#push').onclick=function(){if(pushed){wasteReset();}else runPush();};
+
+/* guided or quick */
+function setMode(m,keep){
+  document.body.dataset.mode=m;
+  $$('[data-mode]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===m);});
+  if(keep!==false)try{localStorage.setItem('bs-draw-mode',m);}catch(e){}
+}
+$$('[data-mode]').forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);};});
+let startMode='guided';
+try{const sm=localStorage.getItem('bs-draw-mode');if(sm==='quick'||sm==='guided')startMode=sm;}catch(e){}
+
+/* intro blocks and quick check */
+function setBlk(k,open){
+  const b=$('.blk[data-k="'+k+'"]');
+  b.dataset.open=open?'1':'0';
+  b.querySelector('.bfi').toggleAttribute('inert',!open);
+  const t=b.querySelector('.bt');t.setAttribute('aria-expanded',open);
+  t.querySelector('.btl').textContent=open?(t.dataset.ot||'I know this'):(t.dataset.ct||'Show again');
+}
+$$('.blk .bt').forEach(function(t){t.onclick=function(){const b=t.closest('.blk');setBlk(b.dataset.k,b.dataset.open!=='1');};});
+function syncAll(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});const b=$('#allBt');b.setAttribute('aria-expanded',!all);b.classList.toggle('shut',all);b.querySelector('.btl').textContent=all?'Show all three':'I know all three';}
+$$('.blk .bt').forEach(function(t){t.addEventListener('click',syncAll);});
+$('#allBt').onclick=function(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});['w','m','s'].forEach(function(k){setBlk(k,all);});syncAll();};
+$('#askB').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,true);});$('#ask').close();};
+$('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
+$('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
+
+/* copy card as text */
+$('#copyTxt').onclick=function(){
+  const b=$('#copyTxt');
+  const done=function(t){b.textContent=t;setTimeout(function(){b.textContent='Copy as text';},1800);};
+  if(!cardTxt){done('Fill in first');return;}
+  const fb=function(){
+    const ta=document.createElement('textarea');ta.value=cardTxt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    let ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);done(ok?'Copied':'Press and hold to copy');
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(cardTxt).then(function(){done('Copied');},fb);}else fb();
+};
+
+/* copy */
+$('#copyMath').onclick=function(){
+  const msg=$('#copyMsg');
+  const done=function(t){msg.textContent=t;setTimeout(function(){msg.textContent='';},2200);};
+  const fallback=function(){const r=document.createRange();r.selectNodeContents($('#vmath').offsetParent&&document.body.dataset.mode!=='quick'?$('#vmath'):$('#steps'));const s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected. Copy it.');};
+  if(!mathTxt){done('Nothing to copy yet');return;}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(mathTxt).then(function(){done('Copied');},fallback);}else fallback();
+};
+
+/* gauge */
+const G=[['18',1.27,'Wide bore. Moves liquid fast.'],['21',0.82,'Wide. Common on standard needles for drawing up.'],['25',0.51,'Mid range. Common on needles that twist on.'],['27',0.41,'Thin. Needles that twist on and some insulin syringes.'],['29',0.33,'Thin. Common on insulin syringes.'],['30',0.31,'Thinner. Common on insulin syringes.'],['31',0.26,'Thinnest of the usual sizes. Insulin syringes.'],['32',0.235,'Very thin. Fine insulin and pen needles.'],['33',0.21,'Very thin. Fine gauge pens and insulin.'],['34',0.18,'Thinnest in common use. Barely felt, slow to draw.']];
+let gi=6;
+function needleSVG(mm,sel){
+  const w=Math.max(2.2,mm*15),x=35,hw=w/2;
+  const hub=sel?'#B04A16':'#59649A',sh=sel?'#DB6830':'none',stk=sel?'none':'#59649A',op=sel?'':' opacity=".55"';
+  return '<svg viewBox="0 0 70 120" aria-hidden="true"><g transform="rotate(15 35 60)">'
+    +'<rect x="'+(x-11)+'" y="3" width="22" height="5" fill="'+hub+'"'+op+'/>'
+    +'<rect x="'+(x-8)+'" y="8" width="16" height="9" fill="'+hub+'"'+op+'/>'
+    +'<rect x="'+(x-hw)+'" y="17" width="'+w+'" height="80" fill="'+sh+'" stroke="'+stk+'" stroke-width="1"/>'
+    +'<path d="M'+(x-hw)+' 97 L'+(x+hw)+' 97 L'+(x+hw)+' 112 Z" fill="'+(sel?'#B04A16':'none')+'" stroke="'+stk+'" stroke-width="1"/>'
+    +'</g></svg>';
+}
+function renderGauge(){
+  $('#gaugeQ').innerHTML=G.map(function(g,i){return '<button type="button" class="btn q" aria-pressed="'+(i===gi)+'" data-i="'+i+'">'+g[0]+'G</button>';}).join('');
+  $$('#gaugeQ .q').forEach(function(b){b.onclick=function(){gi=+b.dataset.i;renderGauge();};});
+  const g=G[gi],REF=6;
+  let html='<figure class="sel"><div>'+needleSVG(g[1],true)+'</div><figcaption><b>'+g[0]+'G</b><br>'+g[1]+' mm</figcaption></figure>';
+  if(gi!==REF)html+='<figure class="gref"><div>'+needleSVG(G[REF][1],false)+'</div><figcaption>'+G[REF][0]+'G<br>most common</figcaption></figure>';
+  $('#gViz').innerHTML=html;
+  $('#gTxt').textContent=g[0]+'G is about '+g[1]+' mm across.';
+  $('#gNote').textContent=g[2];
+}
+
+/* mount pictures, then run */
+vd=new Vial($('#vDry'),{sub:'COMPOUND'});
+vl=new Vial($('#vLiq'),{cake:false,rough:true,green:true,sub:'DILUENT'});
+vmx=new Vial($('#vMix'),{cake:false,dots:true,sub:'SOLUTION'});
+vial1=new Vial($('#vp1'),{sub:'COMPOUND'});
+vial2=new Vial($('#vp2'),{cake:false,rough:true,green:true,sub:'DILUENT'});
+$('#tipIns').innerHTML=tipSVG('insulin');
+$('#tipLuer').innerHTML=tipSVG('luer');
+setMode(startMode);
+(function(){
+  const pan=[{ox:0,t:'4 to 6 mm',a:'90°',d:'<line x1="50" y1="6" x2="50" y2="56" stroke="#3E4A80" stroke-width="2"/>'},
+    {ox:115,t:'8 mm',a:'90° or 45°',d:'<line x1="50" y1="6" x2="50" y2="68" stroke="#3E4A80" stroke-width="2"/><line x1="22" y1="2" x2="56" y2="54" stroke="#3E4A80" stroke-width="1.4" stroke-dasharray="3 2"/>'},
+    {ox:230,t:'12.7 mm',a:'45°',d:'<line x1="22" y1="2" x2="84" y2="74" stroke="#3E4A80" stroke-width="2"/>'}];
+  $('#angs').innerHTML=pan.map(function(q){
+    return '<g transform="translate('+q.ox+' 0)"><rect x="0" y="20" width="100" height="10" fill="#FFD7B5"/><rect x="0" y="30" width="100" height="60" fill="#F3EFB0"/><rect x="0" y="90" width="100" height="26" fill="#F5B7A8"/>'+
+      '<line x1="0" y1="20" x2="100" y2="20" stroke="#3E4A80" stroke-width="1"/>'+q.d+
+      '<text class="angs" x="3" y="28">skin</text><text class="angs" x="3" y="45">fat</text><text class="angs" x="3" y="108">muscle</text>'+
+      '<text class="angt" x="50" y="132" text-anchor="middle">'+q.t+'</text><text class="angs" x="50" y="144" text-anchor="middle">'+q.a+'</text></g>';
+  }).join('');
+})();
+(function(){
+  S.mixed=todayISO();S.freq='';S.days=[];S.times=[];S.note='';
+  $('#mixed').value=S.mixed;
+  const mk2=function(box,vals,get,tog){
+    $(box).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'" aria-pressed="false">'+v+'</button>';}).join('');
+    $$(box+' .q').forEach(function(b){b.onclick=function(){tog(b.dataset.v);$$(box+' .q').forEach(function(x){x.setAttribute('aria-pressed',get(x.dataset.v));});update();};});
+  };
+  const FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on, 2 off',0],['When needed',0]];
+  function daysNeeded(){const f=FREQ.filter(function(x){return x[0]===S.freq;})[0];return f?!!f[1]:false;}
+  function paintDays(){$$('#dayQ .q').forEach(function(x){x.setAttribute('aria-pressed',S.days.indexOf(x.dataset.v)>-1);});$('#dayHint').style.display=S.days.length?'none':'';}
+  function syncDays(nudge){const w=$('#daysWrap'),need=daysNeeded();w.classList.toggle('on',need);if(!need){S.days=[];paintDays();}if(need&&nudge&&!S.days.length){w.classList.remove('nudge');void w.offsetWidth;w.classList.add('nudge');}}
+  $('#freqQ').innerHTML=FREQ.map(function(f){return '<button type="button" class="btn q" data-v="'+f[0]+'" aria-pressed="false">'+f[0]+'</button>';}).join('');
+  $$('#freqQ .q').forEach(function(b){b.onclick=function(){S.freq=S.freq===b.dataset.v?'':b.dataset.v;$$('#freqQ .q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===S.freq);});syncDays(true);update();};});
+  $('#dayQ').innerHTML=DAYS.map(function(d){return '<button type="button" class="btn q" data-v="'+d+'" aria-pressed="false">'+d+'</button>';}).join('');
+  $$('#dayQ .q').forEach(function(b){b.onclick=function(){const i=S.days.indexOf(b.dataset.v);if(i>-1)S.days.splice(i,1);else S.days.push(b.dataset.v);paintDays();update();};});
+  syncDays(false);
+  mk2('#timeQ',TIMES,function(v){return S.times.indexOf(v)>-1;},function(v){const i=S.times.indexOf(v);if(i>-1)S.times.splice(i,1);else S.times.push(v);});
+  $('#mixed').addEventListener('input',function(){S.mixed=this.value||todayISO();update();});
+  $('#mixed').addEventListener('change',function(){if(!this.value)this.value=todayISO();S.mixed=this.value;update();});
+  $('#note').addEventListener('input',function(){S.note=this.value;update();});
+})();
+(function(){
+  function rot(el,list,pre){let i=0;if(reduce)return;setInterval(function(){if(document.activeElement===el||el.value)return;i=(i+1)%list.length;el.placeholder=pre+list[i];},2200);}
+  $('#pname').placeholder='BPC-157';
+  rot($('#pname'),['BPC-157','TB-500','GLOW','Ipamorelin','GHK-Cu','Retatrutide'],'');
+  rot($('#note'),['Take with collagen','Take with vitamin C','Take with ubiquinol','Empty stomach','Rotate injection sites'],'');
+})();
+/* reported doses link + teaser */
+const LIB=[["Insulin","insulin","0.4–1 U/kg/day","basal plus meals","ongoing"],["FOXO4-DRI","foxo4-dri","250–500 mcg","daily","short pulses"],["NAD+","nadplus","50–100 mg","2–3x weekly","4–8 weeks"],["Creatine","creatine","3–5 g","once daily","ongoing"],["Methylene blue","methylene-blue","5–20 mg","once daily","ongoing or cycled"],["Retatrutide","retatrutide","2–12 mg","once weekly","ongoing, titrated"],["Cagrilintide","cagrilintide","0.25–2.4 mg","once weekly","ongoing, titrated"],["Somatropin (HGH)","somatropin-hgh","0.2–1 mg","once daily","ongoing"],["Gonadorelin","gonadorelin","100–200 mcg","2–3x weekly","ongoing alongside TRT"],["Larazotide","larazotide","0.5 mg","3x daily","ongoing"],["Carnosine","carnosine","500–2000 mg","1–2x daily","ongoing"],["MK-677","mk-677","10–25 mg","once daily","ongoing or 8–16 weeks"],["SLU-PP-332","slu-pp-332","250–1000 mcg","once daily","4–8 weeks"],["5-Amino-1MQ","5-amino-1mq","50–100 mg","once daily","8–12 weeks"],["Cerebrolysin","cerebrolysin","5–30 mL","once daily","10–20 days"],["Bromantane","bromantane","50–100 mg","once daily","2–4 weeks"],["GLP-1","glp-1","","",""],["Glucagon","glucagon","1 mg","once, may repeat","rescue only"],["Exenatide","exenatide","5–10 mcg","twice daily","ongoing"],["Amylin","amylin","15–120 mcg","before major meals","ongoing"],["Ubiquitin","ubiquitin","","",""],["BPC-157","bpc-157","250–500 mcg","1–2× daily","4–8 weeks"],["TB-500 frag 17–23","tb-500-frag-17-23","2–2.5 mg","1–2× weekly","4–12 weeks"],["GHK-Cu","ghk-cu","1–3 mg","Daily or 5 on, 2 off","8–12 weeks, 4 off"],["KPV","kpv","250 mcg–1 mg","1–2× daily","4–8 weeks"],["Thymosin Beta-4","thymosin-beta-4","2–2.5 mg","2x weekly","4–6 weeks, then weekly"],["Semaglutide","semaglutide","0.25–2.4 mg","once weekly","ongoing; HD 7.2 mg"],["Tirzepatide","tirzepatide","2.5–15 mg","once weekly","ongoing, titrated"],["MOTS-c","mots-c","5–10 mg","3x weekly","4–8 weeks"],["SS-31","ss-31","40 mg","once daily","ongoing"],["Ipamorelin","ipamorelin","100–300 mcg","1–3x daily","8–12 weeks"],["CJC-1295 no DAC","cjc-1295-no-dac","100 mcg","1–3x daily","8–12 weeks"],["Tesamorelin","tesamorelin","1.28–2 mg","once daily","ongoing"],["Sermorelin","sermorelin","200–300 mcg","nightly, 5 days/wk","3–6 months"],["Kisspeptin-10","kisspeptin-10","100–200 mcg","daily or as needed","Variable"],["Selank","selank","300–600 mcg","2–3x daily","14–30 days"],["Semax","semax","300–600 mcg","1–2x daily","1–2 wks on, 1 off"],["Pinealon","pinealon","0.5–1 mg","once daily","10–20 days"],["Epitalon","epitalon","5–10 mg","once daily","10–20 days, 2–3x/yr"],["DSIP","dsip","100–300 mcg","nightly","a few weeks"],["Thymosin Alpha-1","thymosin-alpha-1","1.6 mg","2x weekly","6 months (hep B)"],["LL-37","ll-37","100–200 mcg","daily, 5 days/wk","2–4 weeks"],["MT-2","mt-2","0.25–0.5 mg","Daily, then weekly","Load 2–3 wk, maintain"],["PT-141","pt-141","1.75 mg","As needed, ≤8/mo","On demand"],["Oxytocin","oxytocin","10–24 IU","As needed","Acute use"],["CJC-1295 with DAC","cjc-1295-with-dac","2 mg","1× weekly","8–12 weeks"],["IGF-1 LR3","igf-1-lr3","20–50 mcg","Daily","4–6 weeks"],["PEG-MGF","peg-mgf","200–400 mcg","2–3× weekly","4–8 weeks"],["GHK (no Cu)","ghk-no-cu","1–2 mg","Daily","4–8 weeks"],["AHK-Cu","ahk-cu","2–5% serum","1–2× daily","Ongoing"],["SNAP-8","snap-8","3–10% solution","2× daily","28+ days, ongoing"],["Adipotide","adipotide","","",""],["Cardiogen","cardiogen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Chonluten","chonluten","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Bronchogen","bronchogen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Ovagen","ovagen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Pancragen","pancragen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Livagen","livagen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Prostamax","prostamax","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Vesugen","vesugen","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Vesilute","vesilute","1–2 mg","Daily","10–20 days, 1–2×/yr"],["Cartalax","cartalax","1–2 mg","Daily","10–20 days, 1–2×/yr"],["TB-500 frag 1–4","tb-500-frag-1-4","","",""],["NA Selank Amidate","na-selank-amidate","200–500 mcg","1–2× daily","14–20 days"],["NA Semax Amidate","na-semax-amidate","200–600 mcg","1–2× daily","10–14 days"],["Glutathione","glutathione","600–1200 mg","1–2× weekly","Ongoing"],["Vilon","vilon","100–200 mcg","1× daily","10–20 days, 1–2×/yr"],["Thymogen","thymogen","100 mcg","1× daily","3–10 days"],["Crystagen","crystagen","10 mg","1× daily","10–20 days"],["Cortagen","cortagen","0.5–2 mg","1× daily","10–20 days"],["Testagen","testagen","1–2 mg","1× daily","10–20 days"],["Thymulin","thymulin","2 mg","1× daily, evening","20 days, 3×/yr"],["ARA-290","ara-290","4 mg","1× daily","28 days"],["Humanin","humanin","1–3 mg","2–3× weekly","8–12 weeks"],["AOD-9604","aod-9604","300 mcg","1× daily","12 weeks"],["HGH frag 176–191","hgh-frag-176-191","250–500 mcg","1–2× daily","8–12 weeks"],["GHRP-2","ghrp-2","100–300 mcg","1–3× daily","8–12 weeks"],["GHRP-6","ghrp-6","100–150 mcg","2–3× daily","8–12 weeks"],["Hexarelin","hexarelin","100–200 mcg","1–3× daily","4–8 weeks"],["Melanotan 1","melanotan-1","16 mg implant","Every 2 months","Ongoing, seasonal"],["VIP","vip","50 mcg/spray","4× daily","Months, monitored"],["Teriparatide","teriparatide","20 mcg","1× daily","Up to 2 years (usual)"]];
+function normN(t){return String(t).toLowerCase().replace(/[^a-z0-9]/g,'');}
+function libFind(t){const n=normN(t);if(n.length<3)return null;let m=LIB.filter(function(r){return normN(r[0])===n;})[0];if(!m)m=LIB.filter(function(r){return normN(r[0]).indexOf(n)===0;})[0];return m||null;}
+function renderRef(){
+  const m=libFind($('#pname').value),a=$('#refDose'),b=$('#refFull'),tz=$('#refTease');
+  if(m&&(m[2]||m[3])){
+    $('#refTxt').textContent='Most logged for '+m[0]+'. A teaser, not a dose to copy.';
+    $('#rtDose').textContent=m[2]||'—';$('#rtFreq').textContent=m[3]||'—';$('#rtCycle').textContent=m[4]||'—';
+    tz.hidden=false;
+  }else if(m){
+    $('#refTxt').textContent='See the reported doses and full entry for '+m[0]+'.';tz.hidden=true;
+  }else{
+    $('#refTxt').textContent='Type a compound name above to see its most logged dose here.';tz.hidden=true;
+  }
+  a.href='https://baresignals.co/dosage/'+(m?'#'+m[1]:'');
+  b.hidden=!m;if(m)b.href='https://baresignals.co/library/#/p/'+m[1];
+}
+$('#pname').addEventListener('input',renderRef);
+/* v15: prefill from a link, e.g. /draw/?n=BPC-157&dose=250&u=mcg (sent from Dosage and Library) */
+let pre=false;
+try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.get('dose')),qu=q.get('u');
+ if(qn){$('#pname').value=qn.slice(0,32);pre=true;}
+ if(qu==='mg'||qu==='mcg'){S.unit=qu;$$('[data-du]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.du===qu);});}
+ if(isFinite(qd)&&qd>0){$('#dose').value=qd;pre=true;}
+}catch(e){}
+renderRef();
+renderLadder();renderMix();wasteReset();
+renderSizes();renderGauge();paintCues();
+update();
+if(pre){setMode('quick',false);}
+else if(startMode!=='quick'&&typeof $('#ask').showModal==='function'){try{$('#ask').showModal();}catch(e){}}
+})();
+</script>
+
+</body>
+</html>

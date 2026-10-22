@@ -3,6 +3,11 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v5 (22 Oct 2026) at /supplements/v5/
+- "Goes with" ends with "See their doses side by side →". It opens the Dosage page filtered to just the peptides that go with this supplement, with a "Show all" button (/dosage/?only=<slugs>&from=<supplement>). Library chips unchanged.
+- Dosage v12 links back: each dosage card shows how many supplements people pair with it, and the expand panel lists them as links to their supplement cards.
+- Content and layout otherwise unchanged from v4.
+
 ## v4 (22 Oct 2026) at /supplements/v4/
 - Library format. Each supplement is a landscape tile (the Library tiles are upright) with its name, a short line on what it is for, and a count of the peptides it goes with (where the Library shows amino acids).
 - Stripes carry every label a supplement works on, not just four. Main label widest on the right, then narrower to the left, same order as the Library band.
