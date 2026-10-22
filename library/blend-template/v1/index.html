@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Blend Template v1 · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Blend Template v1 (23 Oct 2026). Mock-up for approval: one blend card (KLOW), built live from Library v29 data and Blood Work v8. Not linked from the site. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--red:#FF5050;
+--display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 var(--body)}
+a{color:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding:18px 16px 48px}
+.mockbar{border:1.5px dashed var(--accent);padding:8px 10px;font:500 11px/1.4 var(--mono);letter-spacing:.04em;color:var(--accent);margin-bottom:14px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.olab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.card{border:1.5px solid var(--ink);background:var(--chip);max-width:560px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+@media(min-width:1000px){.grid2{grid-template-columns:560px minmax(0,1fr)}.side{position:sticky;top:16px;align-self:start}}
+.hd{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:14px 14px 10px}
+.nm{font:700 30px/1 var(--display);margin:0}
+.sub{font:500 11px var(--mono);color:var(--ink-soft);margin:6px 0 0;letter-spacing:.04em}
+.sub b{color:var(--accent);font-weight:500}
+.use{font:600 16px/1.3 var(--body);margin:8px 0 0}
+.mgbox{border:1.5px solid var(--ink);padding:6px 8px;text-align:center;min-width:76px;align-self:start}
+.mgbox b{display:block;font:700 22px/1 var(--display)}
+.mgbox span{font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.sec{padding:12px 14px;border-top:1.5px solid var(--ink)}
+.ratio{display:flex;height:26px;border:1.5px solid var(--ink)}
+.ratio i{display:block;height:100%;border-right:1.5px solid var(--ink)}
+.ratio i:last-child{border-right:0}
+.comps{display:grid;grid-template-columns:minmax(0,1fr);margin-top:8px;border:1.5px solid var(--ink)}
+.comp{display:grid;grid-template-columns:14px minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:7px 8px;border-bottom:1px solid var(--rule);text-decoration:none}
+.comp:last-child{border-bottom:0}
+.comp i{width:12px;height:12px;border:1px solid var(--ink)}
+.comp b{font-weight:600}
+.comp small{display:block;color:var(--ink-soft);font-size:12px}
+.comp .mg{font:500 13px var(--mono)}
+.comp .pc{font:500 11px var(--mono);color:var(--ink-soft);min-width:34px;text-align:right}
+.comp:hover{background:#FFFDE8}
+.dose{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink)}
+.dose div{padding:6px 8px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.dose div:nth-child(2n){border-right:0}
+.dose div.w{grid-column:1/-1;border-right:0}
+.dose div:last-child{border-bottom:0}
+.dose span{display:block;font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.dose b{font:600 15px var(--body)}
+.draw{margin-top:8px;font-size:13px;color:var(--ink-soft)}
+.draw table{border-collapse:collapse;width:100%;margin-top:4px;font:500 12px var(--mono);color:var(--ink)}
+.draw td{border:1px solid var(--rule);padding:4px 6px}
+.stripe{display:flex;height:22px;border-top:1.5px solid var(--ink)}
+.stripe i{display:block;height:100%}
+.roles{list-style:none;margin:0;padding:0}
+.roles li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:8px;align-items:start;padding:3px 0}
+.roles li i{width:11px;height:11px;margin-top:4px;border:1px solid rgba(62,74,128,.35)}
+.roles li em{font-style:normal;font:500 10px var(--mono);color:var(--accent);letter-spacing:.06em;margin-left:4px}
+.para{margin:0 0 8px;font-size:14.5px;line-height:1.6}
+.why{display:grid;gap:6px;margin-top:4px}
+.why div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px;font-size:13.5px;border-bottom:1px solid var(--rule);padding-bottom:5px}
+.why div b{font-weight:600}
+.chem{border:1.5px solid var(--ink);background:#FFFDF0;padding:10px}
+.chem h3{font:700 16px var(--display);margin:0 0 6px}
+.flags{list-style:none;margin:8px 0 0;padding:0}
+.flags li{padding:4px 0 4px 18px;position:relative;font-size:13.5px}
+.flags li::before{content:"";position:absolute;left:2px;top:10px;width:8px;height:8px;background:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--ink);padding:4px 7px;font-size:12.5px;text-decoration:none;background:var(--paper);display:inline-flex;gap:6px;align-items:center}
+.chip i{width:9px;height:9px;border:1px solid rgba(62,74,128,.4)}
+.chip small{font:500 10px var(--mono);color:var(--ink-soft)}
+.bwh{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 6px}
+.rp{list-style:none;padding:0;margin:0}
+.rp li{padding:3px 0 3px 14px;position:relative;font-size:13.5px}
+.rp li::before{content:"·";position:absolute;left:3px;font-weight:700}
+.vers{width:100%;border-collapse:collapse;font-size:13px}
+.vers th,.vers td{border:1px solid var(--rule);padding:5px 6px;text-align:left;vertical-align:top}
+.vers th{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.src{font-size:12px;color:var(--ink-soft);margin:0;padding-left:18px}
+.src li{margin:2px 0}
+.spec{border:1.5px solid var(--ink);padding:12px;background:var(--chip)}
+.spec h2{font:700 18px var(--display);margin:0 0 8px}
+.spec ol{margin:0;padding-left:20px;font-size:13.5px}
+.spec ol li{margin:4px 0}
+.spec p{font-size:13.5px;margin:8px 0}
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+<div class="wrap">
+<p class="mockbar">MOCK-UP · BLEND TEMPLATE V1 · NOT LINKED FROM THE SITE · BUILT LIVE FROM LIBRARY V29 + BLOOD WORK V8</p>
+<div class="grid2">
+ <div id="card" class="card"></div>
+ <aside class="side spec">
+  <h2>Blend Template v1: what each block does</h2>
+  <ol>
+   <li><b>Header:</b> name, "Blend · N peptides", the one-line use, total mg box (like the AA box on single cards).</li>
+   <li><b>Ratio bar + components:</b> mg share drawn to scale in each component's main role colour. Every row opens that compound's own card.</li>
+   <li><b>Typical dose:</b> blend-level where reports exist; otherwise "No standard dose", plus a per-draw table showing what each component works out to. Calculator gets a blend mode later.</li>
+   <li><b>Stripe + What it's for:</b> all the components' roles merged. Until blend-specific reports exist, widths follow mg share × each component's role order. A role only one component brings is labelled with it.</li>
+   <li><b>Why combined:</b> what each part covers that the others don't.</li>
+   <li><b>Mixing chemistry:</b> the shared "made in the factory" explainer, plus this blend's own watch points.</li>
+   <li><b>Blood work + supplements:</b> merged automatically from each component's entry, deduplicated, tagged with which component asks for it.</li>
+   <li><b>People report, versions, timeline, sources:</b> same as single cards. "Versions" lists the ratios on the market and on her stickers.</li>
+  </ol>
+  <p>Library gets a <b>Blends</b> filter and blend tiles marked "BLEND" instead of an AA count. Single cards gain an "In blends" line linking back here.</p>
+ </aside>
+</div>
+</div>
+<script src="/blood/v8/lib.js"></script>
+<script src="/library/v29/data.js"></script>
+<script>
+(function(){
+const D=window.BS_DATA,PAL=window.BS_PALETTE,BW=window.BW_LIB||{tests:{},comps:{},sup:{}};
+const HEX={},LONG={};PAL.forEach(p=>{HEX[p[0]]=p[2];LONG[p[0]]=p[1]});
+const by=s=>D.find(x=>x.slug===s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* One blend record. Future blends use the same shape. */
+const B={
+ slug:'klow',name:'KLOW',use:'Skin, gut and tissue repair in one vial',
+ parts:[['ghk-cu',50,'GHK-Cu'],['bpc-157',10,'BPC-157'],['thymosin-beta-4',10,'TB-500 (full Tβ4)'],['kpv',10,'KPV']],
+ why:[['GHK-Cu','Collagen and skin remodelling; the bulk of the vial by weight'],['BPC-157','Gut lining, tendon and blood-vessel repair'],['TB-500','Cell migration to injuries; here the full Thymosin Beta-4 chain'],['KPV','Calms inflammatory signalling, especially in the gut and skin']],
+ dose:{dose:'No standard dose',freq:'Daily, community',cycle:'4–8 weeks, community',route:'Sub-Q',vial:'80 mg',note:'No study of the blend exists. Community draws are sized by the vial maths below.'},
+ draw:{ml:3,units:10},
+ chem:['Copper stays bound to GHK at the near-neutral pH these vials sit at; histidine-rich partners can still latch on.','KPV (Lys-Pro-Val) has no His, Met or Asn, so it is the chemically quietest addition.','Keep away from vitamin C or glutathione in the same syringe: copper plus a reducer oxidises peptides.','One lab result showed GHK-Cu about 20% over label; ask for per-component mg, not one purity number.','No independent data on how long the mixed liquid stays intact after reconstitution.'],
+ rp:['Smoother, plumper skin and faster healing are the common reports','Water retention and puffiness, usually blamed on TB-500','Stinging or redness at the injection site from copper','Some report nothing; "before and after" posts are anecdotal'],
+ vers:[['Common retail','GHK-Cu 50 · BPC-157 10 · TB-500 10 · KPV 10','80 mg'],['Her sticker','KLOW 80 mg','80 mg'],['Sibling: GLOW','GHK-Cu 50 · BPC-157 10 · TB-500 10','70 mg']],
+ tl:[['Before','BPC-157 + TB-500 pairs used for recovery; GLOW adds GHK-Cu, KLOW adds KPV'],['Jan 2026','A third-party lab starts testing blends per component, passing doses within ±35%'],['Aug 2026','One lab test of a KLOW vial: GHK-Cu at 120% of label, BPC-157 97%, TB-500 100%, KPV 108%'],['Today','Popular for skin and gut; no study of the blend itself']],
+ src:[['Peptiq: KLOW blend guide (updated 12 Oct 2026)','https://peptiq.io/blog/klow-peptide-blend-guide'],['PeptideMind: KLOW peptide (updated 14 Aug 2026)','https://peptidemind.com/klow-peptide'],['Bossak-Ahmad et al. 2020, Int J Mol Sci: GHK-Cu copper binding vs pH','https://www.mdpi.com/1422-0067/21/17/6190'],['Khossravi & Borchardt 2000, Pharm Res: copper-catalysed peptide oxidation','https://link.springer.com/article/10.1023/A:1007564410491'],['Finnrick: how to test peptide blends (13 Feb 2026)','https://help.finnrick.com/testing-and-reporting/how-to-test-peptide-blends-easily']]
+};
+
+const total=B.parts.reduce((a,p)=>a+p[1],0);
+const parts=B.parts.map(([s,mg,label])=>{const o=by(s);return {s,mg,label,o,share:mg/total,col:o?HEX[o.primary]:'#ccc'}});
+
+/* merged roles: mg share x role order weight */
+const rw={};const src={};
+parts.forEach(p=>{if(!p.o)return;const rs=[...p.o.roles];const ws=rs.map((_,i)=>rs.length-i);const sum=ws.reduce((a,b)=>a+b,0);
+ rs.forEach((r,i)=>{rw[r]=(rw[r]||0)+p.share*ws[i]/sum;(src[r]=src[r]||new Set()).add(p.label)})});
+const roles=Object.entries(rw).sort((a,b)=>b[1]-a[1]);
+const desc=r=>{for(const p of parts){if(p.o&&p.o.desc&&p.o.desc[r]&&p.o.roles[0]===r)return p.o.desc[r]}for(const p of parts){if(p.o&&p.o.desc&&p.o.desc[r])return p.o.desc[r]}return ''};
+
+/* vial maths */
+const mlPerUnit=0.01,drawMl=B.draw.units*mlPerUnit;
+const perDraw=parts.map(p=>[p.label,p.mg/B.draw.ml*drawMl]);
+const fmtmg=v=>v>=1?v.toFixed(2).replace(/\.?0+$/,'')+' mg':Math.round(v*1000)+' mcg';
+
+/* blood + supps merged */
+const tests=new Map();parts.forEach(p=>{const c=BW.comps[p.s];if(!c)return;[...(c.before||[]),...(c.monitor||[])].forEach(x=>{const id=x[0];if(!BW.tests[id])return;if(!tests.has(id))tests.set(id,{id,from:new Set(),dg:0});const t=tests.get(id);t.from.add(p.label);if(x[2])t.dg=1})});
+const sups=new Map();parts.forEach(p=>{const L=(BW.sup&&BW.sup[p.s])||[];L.forEach(x=>{if(!sups.has(x[0]))sups.set(x[0],{n:x[1],c:x[2],from:new Set()});sups.get(x[0]).from.add(p.label)})});
+const short=s=>s.replace(' (full Tβ4)','');
+const pale=h=>{const n=parseInt(h.slice(1),16);return ((n>>16&255)*.299+(n>>8&255)*.587+(n&255)*.114)>225};
+const ps=h=>pale(h)?';box-shadow:inset 0 0 0 1px #E1DE62':'';
+
+const h=`
+<div class="hd"><div><h1 class="nm">${esc(B.name)}</h1><p class="sub">Blend · ${parts.length} peptides · <b>draft</b></p><p class="use">${esc(B.use)}</p></div>
+<div class="mgbox"><b>${total}</b><span>mg per vial</span></div></div>
+
+<div class="sec"><p class="olab">What's inside</p>
+<div class="ratio">${parts.map(p=>`<i style="width:${(p.share*100).toFixed(1)}%;background:${p.col}${ps(p.col)}" title="${esc(p.label)} ${p.mg} mg"></i>`).join('')}</div>
+<div class="comps">${parts.map(p=>`<a class="comp" href="/library/v29/#/${p.s}"><i style="background:${p.col}${ps(p.col)}"></i><span><b>${esc(p.label)}</b><small>${esc(p.o?p.o.fn:'')}</small></span><span class="mg">${p.mg} mg</span><span class="pc">${Math.round(p.share*100)}%</span></a>`).join('')}</div></div>
+
+<div class="sec"><p class="olab">Typical dose</p>
+<div class="dose"><div class="w"><span>Dose</span><b>${esc(B.dose.dose)}</b></div><div><span>How often</span><b>${esc(B.dose.freq)}</b></div><div><span>Cycle</span><b>${esc(B.dose.cycle)}</b></div><div><span>Route</span><b>${esc(B.dose.route)}</b></div><div><span>Vial</span><b>${esc(B.dose.vial)}</b></div></div>
+<div class="draw">${esc(B.dose.note)} Example: ${B.dose.vial} in ${B.draw.ml} mL, drawn to ${B.draw.units} units (${drawMl} mL):
+<table>${perDraw.map(([l,v])=>`<tr><td>${esc(l)}</td><td>${fmtmg(v)}</td></tr>`).join('')}</table></div></div>
+
+<div class="stripe">${roles.map(([r,w])=>`<i style="flex:${w.toFixed(4)};background:${HEX[r]}${ps(HEX[r])}" title="${esc(LONG[r])}"></i>`).join('')}</div>
+<div class="sec"><p class="olab">What it's for</p><ul class="roles">${roles.map(([r])=>{const f=[...src[r]];return `<li><i style="background:${HEX[r]}"></i><span><b>${esc(LONG[r])}</b> · ${esc(desc(r))}${f.length<parts.length?`<em>${f.map(short).map(esc).join(' + ').toUpperCase()}</em>`:''}</span></li>`}).join('')}</ul></div>
+
+<div class="sec"><p class="olab">Why combined</p><div class="why">${B.why.map(([a,b])=>`<div><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div></div>
+
+<div class="sec"><p class="olab">Mixing chemistry</p><div class="chem"><h3>Why blends are made in the factory</h3>
+<p class="para">Every peptide has its own comfort zone: a pH where it stays dissolved and intact. When peptides are blended before freeze-drying, the maker weighs each one, picks one compromise pH and locks the mix in a dry powder where chemistry nearly stops. Mixing finished vials yourself is different: each vial carries its own salt and pH, set for that peptide alone, and the combined liquid lands somewhere unknown. Overfill in one vial shifts your ratio, extra needle passes add contamination risk, and everything then sits together in liquid for weeks. Medicine already shows this: some insulins can share a syringe, others must never touch. A factory blend isn't automatically good either. Ask for a per-component lab result, not a single purity number.</p>
+<p class="bwh">This blend</p><ul class="flags">${B.chem.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+
+<div class="sec"><p class="olab">Blood work · merged from components</p>
+${tests.size?`<div class="chips">${[...tests.values()].map(t=>{const T=BW.tests[t.id];return `<a class="chip" href="/blood/#/t/${t.id}"><i style="background:${T[1]}"></i>${esc(T[0])}<small>${[...t.from].map(short).map(esc).join(', ')}</small></a>`}).join('')}</div>`:'<p class="para">No component has a Blood Work entry yet.</p>'}
+<p class="bwh">Supplements people pair with the parts</p>
+${sups.size?`<div class="chips">${[...sups.entries()].map(([id,x])=>`<a class="chip" href="/supplements/#/${id}"><i style="background:${x.c}"></i>${esc(x.n)}<small>${[...x.from].map(short).map(esc).join(', ')}</small></a>`).join('')}</div>`:'<p class="para">None listed yet.</p>'}</div>
+
+<div class="sec"><p class="olab">People report</p><ul class="rp">${B.rp.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+
+<div class="sec"><p class="olab">Versions</p><table class="vers"><tr><th>Where</th><th>Ratio (mg)</th><th>Total</th></tr>${B.vers.map(v=>`<tr><td>${esc(v[0])}</td><td>${esc(v[1])}</td><td>${esc(v[2])}</td></tr>`).join('')}</table></div>
+
+<div class="sec"><p class="olab">Timeline</p><div class="why">${B.tl.map(([a,b])=>`<div><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div></div>
+
+<div class="sec"><p class="olab">Sources</p><ol class="src">${B.src.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ol></div>`;
+document.getElementById('card').innerHTML=h;
+})();
+</script>
+</body>
+</html>
