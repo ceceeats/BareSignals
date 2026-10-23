@@ -3,6 +3,20 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v16 (23 Oct 2026) at /supplements/v16/
+- Category word (e.g. Foundations) is now as big as the supplement name, on the open card and as the group headings, each with its group colour.
+- Colour group chips next to the search: 12 groups in their own colours (new SUPP_CATC in data.js), tap several to combine; works together with the text search, Try keywords, roles and For you.
+- Card follows the Library card: name and group, badges, the one-line summary, then Typical dose (orange) / How often / Who it's for, then What it does (new plain-language line per supplement, field body; the protocol's own line stays under it as "In the protocol") with the filled role tags always shown.
+- Who shouldn't take it: renders the optional whoNot = [{t, why}] field as a Warning box right after What it does (entries come from a separate research pass; none in the data yet).
+- Full reading in tabs: Benefits / Dose & forms / Research / Interactions / Blood tests / Goes with, with counts; tabs stick at the top while reading.
+- Advice colours: Buy and Check the label in the green box, Skip in the dark red box, How to take and Ways it is taken in the soft purple box, warnings, interactions, dose watch and Check first if you take in red on pink.
+- Blood tests are one line of compact chips (arrow = raises/lowers, ask lab / $$$ tags).
+- Dose numbers to act on are orange (tiles, typical dose, protocol and guideline rows; upper limits and clinical IV rows stay ink).
+- Laptop: four cards per row; when a card opens it takes a bit over half the width and the grid drops to three (two at the largest A). v15 kept.
+
+## v15 (23 Oct 2026) at /supplements/v15/
+- Hooked to Nav v10: laptop has five text sizes (0.88 to 1.45) and starts at the large A (1.15); phone keeps three. The page applies the size number nav sends and reads the laptop setting (bs-text-w) at load. Checked at every laptop step on 1366 and 1280 wide. v14 kept.
+
 ## v14 (23 Oct 2026) at /supplements/v14/
 - Hooked to Nav v9: the text-size strip at the very top (Bare Signals label + A A A) is gone; the three-step control now sits on the site bar's wordmark line, which stays on screen. The page listens to bs-text and scales .wrap as before.
 - Laptop side card sticks just under the site bar and its height fits the screen at every text size. Tile names, the open card title and h1 grow by less at large text (open card title 24px, was 27px). Data unchanged (copied to v14). v13 kept.

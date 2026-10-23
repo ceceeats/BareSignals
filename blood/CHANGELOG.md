@@ -2,6 +2,15 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v20 (23 Oct 2026) at /blood/v20/
+- Cards per row switch next to the search, same look as the Library's view buttons: laptop 5, 3 or 2 across; phone 2 or 1. Works on Compounds, Blood tests and Beyond blood. Remembered on this device (bw-cols-w for laptop, bw-cols-n for phone). If cards would get too thin (big text, or test rows at 5), it drops a column by itself (5 shows as 4 at the largest laptop A; test lists cap at 4). Cards 3+ across (and 2 on phone) get slightly tighter padding; an opened full card spans two columns at 4 or 5 across and the full width at 2 on phone.
+- My plan: orange "Clear plan" button after the picked compounds. Asks inline "Clear plan? Yes / No" (no browser pop-up). Yes empties the plan and the draw checklist ticks, and puts the cursor back in the add box.
+- Search history: the last 8 searches per tab show as small chips under the search box when you tap into it; tap one to search it again. "Clear history" link, an on/off switch (off also deletes what was saved), and the note "Saved only on this device. Nobody else sees it." Stored in this browser only (bw-hist, bw-hist-off); nothing leaves the browser.
+- Phone search placeholder shortened to "Peptide or alias" so it no longer clips. Data, core and lib copied to /blood/v20/ unchanged. v19 kept.
+
+## v19 (23 Oct 2026) at /blood/v19/
+- Hooked to Nav v10: laptop has five text sizes (0.88 to 1.45) and starts at the large A (1.15); phone keeps three. The page applies the size number nav sends and reads the laptop setting (bs-text-w) at load. Checked at every laptop step on 1366 and 1280 wide: no sideways scroll, headings stay calm. v18 kept.
+
 ## v18 (23 Oct 2026) at /blood/v18/
 - Hooked to Nav v9: the three-step text size control moved from the page header into the site bar (which now stays on screen). The page listens to bs-text and zooms main and the sheet as before; card names and sheet titles grow by less at large; the sticky search now sits just under the site bar. Fixed the large-A glitch: the sheet (test and compound detail) was zoomed past the screen height so its title was cut off; its height now undoes the zoom. Removed the duplicate Bare Signals label above the title. Data, core and lib copied to /blood/v18/ unchanged. v17 kept.
 

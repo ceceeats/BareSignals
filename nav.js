@@ -1,4 +1,4 @@
-/* Bare Signals site navigation v9 (23 Oct 2026): the bar now stays on screen (fixed to the top with an in-flow spacer of its roomy height, so nothing below jumps when it compacts) and owns the site-wide three-step text size control (small A / A / large A, right on the wordmark line; s=0.88 m=1 l=1.15, localStorage bs-text; dispatches window 'bs-text' {key,k} and sets html[data-bs-text]). Phone: wordmark + A A A on top, links in two rows of four; once scrolled past 30px it compacts to one line (wordmark, one scrollable row of links with the current page scrolled into view, A A A). Laptop (1000px+): one line always. Sets --bsnav-h (current bar height) and --bsnav-h0 (reserved space) on <html> and scroll-padding-top so page toolbars can stick at top:var(--bsnav-h). v8 kept at /nav/v8.js. Previously v8: adds Protocol (/protocol/) after Calculator; with 8 links the phone bar becomes two rows of four; v7 kept at /nav/v7.js. v7: adds Made (/made/) after Aminos. v6: one boxed bar shared by every page, plus the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. Include with <script src="/nav.js" defer></script>. */
+/* Bare Signals site navigation v10 (23 Oct 2026): laptop gets its own text scale. Wide (1000px+) shows five A buttons s/m/l/xl/xxl = 0.88/1/1.15/1.3/1.45 (glyphs 10/11.5/13/14.5/16px), default l, stored in localStorage bs-text-w; phone keeps three s/m/l = 0.88/1/1.15, default m, bs-text, so the two never mix. Dispatches window 'bs-text' {key,k,wide} on load, on click, when the viewport crosses 1000px, and again on DOMContentLoaded and load; sets html[data-bs-text] and html[data-bs-wide]; BS_TEXT.get() gives {key,k,wide}, BS_TEXT.K the active map. Pages apply detail.k. Laptop link padding tightened so the five buttons fit on the one line from 1000px. v9 kept at /nav/v9.js. Previously v9 (23 Oct 2026): the bar now stays on screen (fixed to the top with an in-flow spacer of its roomy height, so nothing below jumps when it compacts) and owns the site-wide three-step text size control (small A / A / large A, right on the wordmark line; s=0.88 m=1 l=1.15, localStorage bs-text; dispatches window 'bs-text' {key,k} and sets html[data-bs-text]). Phone: wordmark + A A A on top, links in two rows of four; once scrolled past 30px it compacts to one line (wordmark, one scrollable row of links with the current page scrolled into view, A A A). Laptop (1000px+): one line always. Sets --bsnav-h (current bar height) and --bsnav-h0 (reserved space) on <html> and scroll-padding-top so page toolbars can stick at top:var(--bsnav-h). v8 kept at /nav/v8.js. Previously v8: adds Protocol (/protocol/) after Calculator; with 8 links the phone bar becomes two rows of four; v7 kept at /nav/v7.js. v7: adds Made (/made/) after Aminos. v6: one boxed bar shared by every page, plus the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. Include with <script src="/nav.js" defer></script>. */
 window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.goatcounter.com. Empty = tracking off. */
 (function(){
   var H=document.head,add=function(tag,attrs){var e=document.createElement(tag);for(var k in attrs)e.setAttribute(k,attrs[k]);H.appendChild(e);return e};
@@ -13,7 +13,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   var P=location.pathname,D=document,R=D.documentElement;
   var L=[['/library/','Library'],['/dosage/','Dosage'],['/blood/','Blood','Blood Work'],['/supplements/','Supps','Supplements'],['/aminos/','Aminos'],['/made/','Made'],['/draw/','Calculator'],['/protocol/','Protocol']];
   var on=function(h){return P.indexOf(h)===0};
-  var K={s:.88,m:1,l:1.15};
+  var KN={s:.88,m:1,l:1.15},KW={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};
   var M='"JetBrains Mono",ui-monospace,Menlo,monospace';
   var css=
   ':root{--bsnav-h:0px;--bsnav-h0:0px}html{scroll-padding-top:calc(var(--bsnav-h) + 8px)}'+
@@ -32,7 +32,11 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   '.bsn .bst{display:flex;flex:none;border:1.5px solid #3E4A80;background:#FFFFF4}'+
   '.bsn .bst button{appearance:none;-webkit-appearance:none;margin:0;border:0;border-right:1.5px solid #3E4A80;background:none;color:#3E4A80;font:700 12px/1 "Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;width:27px;height:27px;padding:0;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:0}'+
   '.bsn .bst button:last-child{border-right:0}'+
-  '.bsn .bst button[data-bsz="s"]{font-size:10px}.bsn .bst button[data-bsz="l"]{font-size:15px}'+
+  '.bsn .bst button[data-bsz="s"]{font-size:10px}.bsn .bst button[data-bsz="m"]{font-size:11.5px}.bsn .bst button[data-bsz="l"]{font-size:13px}.bsn .bst button[data-bsz="xl"]{font-size:14.5px}.bsn .bst button[data-bsz="xxl"]{font-size:16px}'+
+  '.bsn .bst button{width:25px}'+
+  /* laptop: tighter links so wordmark + links + five A fit one line from 1000px */
+  '@media (min-width:1000px){.bsn .bsi{gap:10px}.bsn .bsl a{padding:8px 9px;letter-spacing:.06em}}'+
+  '@media (min-width:1000px) and (max-width:1120px){.bsn .bsl a{padding:8px 7px;letter-spacing:.04em}.bsn .bsw{font-size:14px}}'+
   '.bsn .bst button:hover{background:#F2F0CC}'+
   '.bsn .bst button[aria-pressed="true"]{background:#3E4A80;color:#FFFFE2}'+
   '.bsn .bst button:focus-visible,.bsn .bsl a:focus-visible{outline:2px solid #DB6830;outline-offset:-3px}'+
@@ -41,6 +45,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   '@media (max-width:999.98px){'+
     '.bsn .bsi{display:grid;grid-template-columns:1fr auto;grid-template-areas:"w t" "l l";gap:7px 10px;padding-top:7px;padding-bottom:8px}'+
     '.bsn .bsw{grid-area:w;font-size:14px}.bsn .bst{grid-area:t}.bsn .bsl{grid-area:l;margin-left:0}'+
+    '.bsn .bst button{width:27px}.bsn .bst button[data-bsz="m"]{font-size:12px}.bsn .bst button[data-bsz="l"]{font-size:15px}.bsn .bst button[data-bsz="xl"],.bsn .bst button[data-bsz="xxl"]{display:none}.bsn .bst button[data-bsz="l"]{border-right:0}'+
     '.bsn .bsl a{flex:1 1 auto;padding:8px 6px;font-size:10px;letter-spacing:.05em}'+
     '.bsn.c .bsb{height:3px}'+
     '.bsn.c .bsi{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"w l t";gap:8px;padding-top:5px;padding-bottom:5px}'+
@@ -56,22 +61,32 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   var st=D.createElement('style');st.textContent=css;D.head.appendChild(st);
   var n=D.createElement('nav');n.className='bsn';n.setAttribute('aria-label','Bare Signals');
   var bar='<span class="bsb" aria-hidden="true"><i style="flex:3;background:#E1DE62"></i><i style="flex:1;background:#FF5050"></i><i style="flex:2;background:#6777B6"></i><i style="flex:1;background:#DDD0F6"></i><i style="flex:1;background:#AACC96"></i><i style="flex:1;background:#FFA51F"></i></span>';
-  var tsz='<span class="bst" role="group" aria-label="Text size"><button type="button" data-bsz="s" aria-label="Smaller text" title="Smaller text">A</button><button type="button" data-bsz="m" aria-label="Standard text" title="Standard text">A</button><button type="button" data-bsz="l" aria-label="Bigger text" title="Bigger text">A</button></span>';
+  var tsz='<span class="bst" role="group" aria-label="Text size"><button type="button" data-bsz="s" aria-label="Smaller text" title="Smaller text">A</button><button type="button" data-bsz="m" aria-label="Standard text" title="Standard text">A</button><button type="button" data-bsz="l" aria-label="Bigger text" title="Bigger text">A</button><button type="button" data-bsz="xl" aria-label="Large text" title="Large text">A</button><button type="button" data-bsz="xxl" aria-label="Largest text" title="Largest text">A</button></span>';
   n.innerHTML=bar+'<div class="bsi"><a class="bsw" href="/">BARE SIGNALS</a><div class="bsl">'+L.map(function(x){return '<a href="'+x[0]+'"'+(on(x[0])?' aria-current="page"':'')+'>'+(x[2]?'<span class="lf">'+x[2]+'</span><span class="ls">'+x[1]+'</span>':x[1])+'</a>'}).join('')+'</div>'+tsz+'</div>';
   var sp=D.createElement('div');sp.className='bsn-sp';sp.setAttribute('aria-hidden','true');
   D.body.insertBefore(sp,D.body.firstChild);D.body.insertBefore(n,sp);
   var row=n.querySelector('.bsl');
 
-  /* text size */
-  var cur='m';try{cur=localStorage.getItem('bs-text')||'m'}catch(e){}if(!K[cur])cur='m';
-  function setT(v,save){if(!K[v])v='m';cur=v;R.dataset.bsText=v;
-    [].forEach.call(n.querySelectorAll('.bst button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.bsz===v))});
-    if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}
-    window.dispatchEvent(new CustomEvent('bs-text',{detail:{key:v,k:K[v]}}));}
-  window.BS_TEXT={get:function(){return {key:cur,k:K[cur]}},set:function(v){setT(v,true)},K:K};
+  /* text size: phone s/m/l (bs-text, default m), laptop s..xxl (bs-text-w, default l) */
+  var wideQ=matchMedia('(min-width:1000px)'),wide=wideQ.matches;
+  var rd=function(key,map,def){var v=def;try{v=localStorage.getItem(key)||def}catch(e){}return map[v]?v:def};
+  var curN=rd('bs-text',KN,'m'),curW=rd('bs-text-w',KW,'l');
+  function st_(){return wide?{key:curW,k:KW[curW],wide:true}:{key:curN,k:KN[curN],wide:false}}
+  function fire(){var d=st_();R.dataset.bsText=d.key;R.dataset.bsWide=wide?'1':'0';
+    [].forEach.call(n.querySelectorAll('.bst button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.bsz===d.key))});
+    window.dispatchEvent(new CustomEvent('bs-text',{detail:d}));}
+  function setT(v,save){if(wide){if(!KW[v])v='l';curW=v;if(save){try{localStorage.setItem('bs-text-w',v)}catch(e){}}}
+    else{if(!KN[v])v='m';curN=v;if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}}fire();}
+  window.BS_TEXT={get:st_,set:function(v){setT(v,true)},get K(){return wide?KW:KN},KN:KN,KW:KW};
   n.querySelector('.bst').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setT(b.dataset.bsz,true)});
-  addEventListener('storage',function(e){if(e.key==='bs-text'&&e.newValue&&e.newValue!==cur)setT(e.newValue,false)});
-  setT(cur,false);
+  addEventListener('storage',function(e){if(!e.newValue)return;
+    if(e.key==='bs-text'&&KN[e.newValue]&&e.newValue!==curN){curN=e.newValue;if(!wide)fire()}
+    if(e.key==='bs-text-w'&&KW[e.newValue]&&e.newValue!==curW){curW=e.newValue;if(wide)fire()}});
+  var onWide=function(){var w=wideQ.matches;if(w!==wide){wide=w;fire()}};
+  if(wideQ.addEventListener)wideQ.addEventListener('change',onWide);else if(wideQ.addListener)wideQ.addListener(onWide);
+  fire();
+  if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',fire);
+  if(D.readyState!=='complete')addEventListener('load',fire);
 
   /* height bookkeeping: spacer keeps the roomy height so content never jumps; --bsnav-h follows the live bar */
   var narrow=matchMedia('(max-width:999.98px)'),last=-1,h0=-1;
