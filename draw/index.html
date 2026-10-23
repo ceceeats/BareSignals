@@ -89,7 +89,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
   .blk[data-k=m]{border-top:1.5px solid var(--line)}
   .mixrow{--vw:84px}.vp{width:84px}
   .mixrow figcaption{font-size:11.5px;max-width:130px}
-  .tipc svg{max-width:210px}
+  .tipc svg{max-width:120px}
   .wbox svg{max-height:240px}
 }
 .intro{border:2px solid var(--line);background:var(--chip)}
@@ -114,19 +114,22 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 .cap{font:500 12px var(--mono);color:var(--soft);text-align:center}
 /* weight: one box of 1,000 */
 .wbox{display:flex;flex-direction:column;gap:8px;align-items:center;width:100%}
-#wgrid{width:100%;max-width:340px}
+#wgrid{width:100%;max-width:240px}
 #wgrid svg{display:block;width:100%;height:auto;overflow:visible}
 .col{animation:bob 3.4s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
 .wtabs{display:flex;gap:6px;justify-content:flex-start;align-items:center;width:100%;max-width:340px}
 .wtl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-right:2px}
-.wconv{font:700 16px/1.3 var(--display);color:var(--ink);text-align:center}
+.wconv{font:700 15px/1.3 var(--display);color:var(--ink);text-align:center}
 .wconv b{color:var(--accent-ink)}
 .wcalc{width:100%;max-width:340px;border-top:1.5px solid var(--rule);padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .wcl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .wcrow{display:flex;gap:8px;align-items:stretch}
-.wcrow input{flex:1;min-width:0}
+.wcrow input{flex:1;min-width:0;min-height:32px;font-size:15px;padding:4px 8px}
 #wcU{grid-template-columns:1fr 1fr 1fr;flex:none}
+#wcU .btn{min-height:32px;padding:2px 6px}
+.wcalc{gap:5px;padding-top:6px}
+.wcl{margin-bottom:-1px}
 .wcout{font:600 14px var(--mono);color:var(--ink)}
 .wcout b{color:var(--accent-ink)}
 .wboxlbl{font:600 9px var(--mono);fill:var(--soft)}
@@ -167,11 +170,14 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .mixtxt .in{color:var(--accent);font-weight:700}
 
 /* syringe tips */
-.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.tipc{border:1.5px solid var(--line);background:var(--paper);padding:8px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
-.tipc svg{display:block;width:100%;max-width:170px;height:auto}
-.tipc b{font:700 17px var(--display)}
-.tipc span{font:500 11px var(--mono);color:var(--soft)}
+.tips{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.tipc{border:1.5px solid var(--line);background:var(--paper);padding:6px 4px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.tipc svg{display:block;width:100%;max-width:92px;height:auto}
+.tipc b{font:700 13px var(--display)}
+.tipc span{font:500 9.5px/1.2 var(--mono);color:var(--soft)}
+.tipc .res{margin-top:3px;font:600 9px var(--mono);padding:2px 4px;border:1px solid}
+.tipc .res.ok{color:var(--accent-ink);border-color:var(--accent)}
+.tipc .res.warn{color:var(--bad);border-color:var(--bad);background:var(--badbg)}
 .thr{stroke:var(--ink);stroke-width:1;opacity:.55}
 .hubg{animation:unscrew 4.6s ease-in-out infinite}
 @keyframes unscrew{0%,16%{transform:translateY(0)}50%,76%{transform:translateY(34px)}100%{transform:translateY(0)}}
@@ -309,7 +315,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .gloss{fill:#fff;opacity:.45}
 .tk{stroke:var(--ink);stroke-width:.8}
 .tl{font:500 10px var(--mono);fill:var(--ink)}
-.pendose{font:700 13px var(--display);fill:var(--accent-ink)}
+.pendose{font:700 10px var(--mono);fill:var(--accent-ink)}
 .hubf{fill:var(--syl);stroke:var(--syd);stroke-width:1.1}
 .hubl{fill:none}
 .hubl.waste{fill:none;stroke:var(--accent);stroke-width:1.4}
@@ -390,16 +396,19 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 .qb{margin-top:8px;display:flex;flex-direction:column;gap:10px}
 .qb p{font-size:13.5px;max-width:62ch}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
-.cmpc{background:var(--chip);padding:10px;min-width:0}
+.cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--line);border:2px solid var(--line)}
+.cmpc{background:var(--chip);padding:7px 5px;min-width:0}
 .cmpp{grid-column:1/-1;background:var(--chip);display:flex;justify-content:center;padding:14px 10px}
-.cmpc h3{font:700 15px var(--display)}
-.cmpc .st{font:500 11px var(--mono);color:var(--soft);margin-top:2px}
-.mini{margin:8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:300px}
-.mini svg{display:block;height:300px;width:auto;max-width:100%}
+.cmpc h3{font:700 13px var(--display)}
+.cmpc .st{font:500 9px/1.2 var(--mono);color:var(--soft);margin-top:1px;min-height:22px}
+.mini{margin:6px 0;display:flex;align-items:flex-end;justify-content:center;min-height:190px}
+.mini svg{display:block;height:190px;width:auto;max-width:100%}
 #syrA svg{height:270px}
 #syrB svg{height:330px}
 .ro{display:grid;margin-top:4px}
+.ro .kv{font-size:10px;padding:3px 0;gap:4px}
+.ro .kv b{font-size:10.5px}
+.ro .kv span{font-size:9px}
 .verdict{font:600 15px/1.35 var(--display);max-width:70ch;text-wrap:pretty}
 .note{font-size:12.5px;color:var(--soft)}
 .lt1,.lt2,.lt3{font:600 9px var(--mono);fill:var(--accent-ink)}
@@ -465,7 +474,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v20</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v21</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -528,12 +537,11 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer · pen</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="tips">
-        <div class="tipc"><div id="tipIns"></div><b>Insulin syringe</b><span>Needle is fixed in · units</span></div>
-        <div class="tipc"><div id="tipLuer"></div><b>Luer lock</b><span>Needle twists off · mL</span></div>
-        <div class="tipc"><div id="tipPen"></div><b>Pen</b><span>Dial the dose · short needle</span></div>
+        <div class="tipc"><div id="tipPen"></div><b>Pen</b><span>Twist to your dose</span><span class="res ok">Waste: almost none</span></div>
+        <div class="tipc"><div id="tipIns"></div><b>Insulin</b><span>Fixed needle · units</span><span class="res ok">Waste: ~0.005 mL</span></div>
+        <div class="tipc"><div id="tipLuer"></div><b>Luer lock</b><span>Needle twists on · mL</span><span class="res warn">Residue: ~0.05 mL · see FAQ</span></div>
       </div>
-      <p class="cap">10 units on insulin is 0.10 mL on a Luer lock.</p>
-      <p class="cap">A pen is prefilled. You dial the dose, screw on a short pen needle, prime, then press. No drawing up and almost no waste, so this calculator is for vials, not pens.</p>
+      <p class="cap">A pen is prefilled: twist the dial to your dose, screw on a short pen needle, prime, then press. No drawing up and almost no waste. This calculator is for vials, not pens.</p>
     </div></div></div>
   </div>
 </section>
@@ -686,8 +694,13 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <p class="note">Example: 10 mg in 2 mL, a 1,000 mcg (1 mg) dose. Hubs hold roughly 0.02 to 0.08 mL or more; this uses 0.05 mL.</p>
       <div class="cmp">
         <div class="cmpc">
-          <h3>Insulin syringe</h3>
-          <div class="st">Needle fixed in</div>
+          <h3>Pen</h3>
+          <div class="st">Dialed · short needle</div>
+          <div class="mini" id="syrP"></div>
+        </div>
+        <div class="cmpc">
+          <h3>Insulin</h3>
+          <div class="st">Fixed needle</div>
           <div class="mini" id="syrA"></div>
         </div>
         <div class="cmpc">
@@ -696,6 +709,12 @@ body:not([data-mode="quick"]) .tmath{display:none}
           <div class="mini" id="syrB"></div>
         </div>
         <div class="cmpp"><button class="btn pri" id="push" type="button">Push the plunger</button></div>
+        <div class="cmpc ro">
+          <div class="kv"><span>Dose</span><b id="rP">—</b></div>
+          <div class="kv"><span>Source</span><b id="pP">—</b></div>
+          <div class="kv"><span>Delivered</span><b id="dP">—</b></div>
+          <div class="kv"><span>Stuck</span><b id="lP" class="o">—</b></div>
+        </div>
         <div class="cmpc ro">
           <div class="kv"><span>Reads</span><b id="rA">—</b></div>
           <div class="kv"><span>From vial</span><b id="pA">—</b></div>
@@ -781,6 +800,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v21: smaller weight boxes with mg and mcg now clearly different (mcg shows the dot), a more compact converter, the syringe types reordered to pen, insulin, Luer and shrunk to three across with the waste of each and a residue warning on the Luer, the pen window fixed, the card always shows Take, When and Note with NA when blank, and the residue demo now runs pen, insulin and Luer side by side, smaller, no zoom. v1 to v20 are unchanged.</span>
   <span>v20: the Weight box leads with 1 g = 1,000 mg = 1,000,000 mcg and a small converter, the boxes are all orange with a 1,000 boxes label, and the unit buttons are smaller on the left. Orange is now the one colour for any selected button. A pen is added to the syringe types: you dial the dose, screw on a short pen needle and press, no drawing up. When adds Evening and 1 hour before sleep. v1 to v19 are unchanged.</span>
   <span>v19: the beginner or expert popup now closes when you click outside it, press Escape or tap the ×, and that gives the beginner view. Beginners see Weight, Mixing and Syringes open straight away, on laptop and phone. Everything you type or choose shows in orange: the compound name, the Take and When choices, the mixed date, your notes, and your answers on the card. The compound name field blinks until you fill it, and the card shows the name first with the vial size on the line under it. v1 to v18 are unchanged.</span>
   <span>v18: counts a few actions for the site statistics (first complete calculation per visit, card copied, math copied), nothing on the page changed by that. Plus: the page keeps a tidy single column from phone up to a wide screen, so the card and the input rows stop stretching into loose tables at tablet and half-laptop widths; it widens to two columns only on a real laptop. The water is brand blue again; the vials now read apart by their caps, orange for compound, green for diluent, periwinkle for solution. v1 to v17 are unchanged.</span>
@@ -1109,7 +1129,7 @@ function tipSVG(type){
       '<rect class="sy" x="57" y="6" width="36" height="15" rx="3"/>'+
       '<line class="tk" x1="64" y1="8" x2="64" y2="19"/><line class="tk" x1="70" y1="8" x2="70" y2="19"/><line class="tk" x1="75" y1="8" x2="75" y2="19"/><line class="tk" x1="80" y1="8" x2="80" y2="19"/><line class="tk" x1="86" y1="8" x2="86" y2="19"/>'+
       '<rect class="bg" x="63" y="30" width="24" height="20"/><rect class="ol" x="63" y="30" width="24" height="20"/>'+
-      '<text class="pendose" id="penDose" x="75" y="45" text-anchor="middle">0.5</text>'+
+      '<text class="pendose" id="penDose" x="75" y="44" text-anchor="middle">0.25</text>'+
       '<path class="nz" d="M64 146 L86 146 L80 158 L70 158Z"/>'+
       '<rect class="hubf" x="70" y="156" width="10" height="9"/>'+
       '<path class="ndl" d="M73.3 165 L76.7 165 L75.7 184 L74.3 184Z"/>'+
@@ -1150,12 +1170,13 @@ function renderLadder(){
     for(let r=0;r<20;r++){
       const i=r*50+c;
       let f='rgba(62,74,128,.2)';
-      if(wu==='g'||i===0)f='#DB6830';
+      if(wu==='g'||(i===0&&wu==='mg'))f='#DB6830';
       col+='<rect x="'+(c*10+1)+'" y="'+(r*10+1)+'" width="8" height="8" fill="'+f+'"/>';
     }
     cols+='<g class="col" style="animation-delay:'+(-(c%25)*0.14).toFixed(2)+'s">'+col+'</g>';
   }
-  $('#wgrid').innerHTML='<svg viewBox="-2 -5 504 232" role="img" aria-label="1,000 small boxes. The whole grid is 1 gram and each box is 1 milligram">'+cols+'<text class="wboxlbl" x="500" y="222" text-anchor="end">1,000 boxes · 1 box = 1 mg</text></svg>';
+  const mcgMark=wu==='mcg'?'<rect x="1" y="1" width="8" height="8" fill="none" stroke="#DB6830" stroke-width="1.2"/><rect x="4.1" y="4.1" width="1.8" height="1.8" fill="#B04A16"/>':'';
+  $('#wgrid').innerHTML='<svg viewBox="-2 -5 504 232" role="img" aria-label="1,000 small boxes. The whole grid is 1 gram and each box is 1 milligram">'+cols+mcgMark+'<text class="wboxlbl" x="500" y="222" text-anchor="end">1,000 boxes · 1 box = 1 mg</text></svg>';
   const rd={
     g:'<b>1 g</b> fills the whole grid: 1,000 boxes.',
     mg:'<b>1 mg</b> is one box.',
@@ -1301,41 +1322,93 @@ function update(){
   cardTxt=buildTxt(c,luer,nm);
 }
 
+/* ---------- pen mini for the waste demo ---------- */
+let VIDpm=0;
+function penMini(host){
+  const id='pm'+(++VIDpm),liqTop=84,liqBot=316,needTop=320,needTip=378;
+  host.innerHTML='<svg viewBox="0 0 116 430" role="img" aria-label="Injection pen, dial the dose and press">'+
+    '<defs><clipPath id="'+id+'"><rect class="pmnc" x="0" y="'+needTop+'" width="120" height="0"/></clipPath></defs>'+
+    '<g class="pmk"><rect class="sy" x="38" y="10" width="40" height="24" rx="4"/>'+
+    '<line class="tk" x1="46" y1="13" x2="46" y2="31"/><line class="tk" x1="52" y1="13" x2="52" y2="31"/><line class="tk" x1="58" y1="13" x2="58" y2="31"/><line class="tk" x1="64" y1="13" x2="64" y2="31"/><line class="tk" x1="70" y1="13" x2="70" y2="31"/></g>'+
+    '<rect class="bg" x="40" y="70" width="36" height="250" rx="6"/>'+
+    '<rect class="pmliq" x="42" y="'+liqTop+'" width="32" height="'+(liqBot-liqTop)+'" fill="var(--liquid)"/>'+
+    '<rect class="pmstop" x="42" y="'+(liqTop-7)+'" width="32" height="8" fill="#EDEBC8" stroke="var(--ink)" stroke-width="1"/>'+
+    '<rect class="ol" x="40" y="70" width="36" height="250" rx="6"/>'+
+    '<rect class="bg" x="43" y="42" width="30" height="20"/><rect class="ol" x="43" y="42" width="30" height="20"/>'+
+    '<text class="pendose" x="58" y="56" text-anchor="middle">1 mg</text>'+
+    '<path class="nz" d="M46 320 L70 320 L63 334 L53 334Z"/>'+
+    '<rect class="hubf" x="52" y="332" width="12" height="9"/>'+
+    '<path class="ndl" d="M55.2 341 L60.8 341 L59.4 378 L56.6 378Z"/>'+
+    '<g clip-path="url(#'+id+')"><path class="pmdead" d="M55.4 341 L60.6 341 L59.3 378 L56.7 378Z" fill="var(--liquid)"/></g>'+
+    '<g class="pmdrip"></g></svg>';
+  const q=function(sel){return host.querySelector(sel);};
+  this.liq=q('.pmliq');this.stop=q('.pmstop');this.k=q('.pmk');this.nc=q('.pmnc');this.dr=q('.pmdrip');
+  this.liqTop=liqTop;this.liqBot=liqBot;this.needLen=needTip-needTop+4;this.tok=0;
+}
+penMini.prototype.set=function(frac,e){
+  const span=this.liqBot-this.liqTop,h=Math.max(0,frac*span),top=this.liqBot-h;
+  this.liq.setAttribute('y',top);this.liq.setAttribute('height',h);this.stop.setAttribute('y',top-7);
+  this.k.setAttribute('transform','translate(0 '+((1-frac)*60).toFixed(1)+')');
+  this.nc.setAttribute('height',(Math.max(0,e)*this.needLen).toFixed(1));
+};
+penMini.prototype.reset=function(){this.tok++;this.set(1,0);this.dr.innerHTML='';};
+penMini.prototype.press=function(dur,cb){
+  const self=this,tok=++this.tok,f1=0.5;
+  return new Promise(function(res){
+    if(reduce||dur<=0){self.set(f1,1);if(cb)cb(1);return res();}
+    const t0=performance.now();
+    (function step(now){
+      if(tok!==self.tok)return res();
+      const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+      self.set(1+(f1-1)*e,e);if(cb)cb(e);
+      if(p<1)requestAnimationFrame(step);else res();
+    })(t0);
+  });
+};
+penMini.prototype.drip=function(n){
+  if(reduce)return;const g=this.dr,made=[];
+  for(let i=0;i<n;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','drop');c.setAttribute('cx',58+(i-1)*0.8);c.setAttribute('cy',381);c.setAttribute('r',2.4);c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);}
+  setTimeout(function(){made.forEach(function(c){if(c.parentNode)c.parentNode.removeChild(c);});},1700);
+};
+
 /* ---------- waste demo (fixed 1 mg example) ---------- */
-let wA=null,wB=null,wTok=0,pushed=false;
+let wA=null,wB=null,wP=null,wTok=0,pushed=false;
+const PEN_WASTE=10;
 const EX={vialMg:10,waterMl:2,dose:1000,doseUnit:'mcg'};
 const exCalc=function(t){return calc(Object.assign({type:t,dead:0.05},EX));};
 function mountWaste(){
   if(wA)return;
   wA=new Syr($('#syrA'),SC.insulin['1'],'insulin',{labels:false,tag:false,vb:[14,116],L:250});
   wB=new Syr($('#syrB'),SC.luer['1'],'luer',{labels:false,tag:false,vb:[14,116],L:250});
+  wP=new penMini($('#syrP'));
 }
 function wasteReset(){
   mountWaste();wTok++;pushed=false;
   const cA=exCalc('insulin'),cB=exCalc('luer');
   $('#push').textContent='Push the plunger';$('#push').disabled=false;
   wA.leftover(null);wB.leftover(null);wA.hubWaste(false);wB.hubWaste(false);wA.flow(0);wB.flow(0);
-  wA.zoom(false,reduce?0:500);wB.zoom(false,reduce?0:500);
-  wA.tween(cA.doseMl,reduce?0:500);wB.tween(cB.doseMl,reduce?0:500);
+  wA.tween(cA.doseMl,reduce?0:500);wB.tween(cB.doseMl,reduce?0:500);wP.reset();
+  $('#rP').textContent='1 mg';$('#pP').textContent='prefilled';
   $('#rA').textContent=nf(cA.units,0)+' units';$('#rB').textContent=fmtMl(cB.doseMl)+' mL';
   $('#pA').textContent=nf(cA.doseMcg+cA.wasteMcg,0)+' mcg';$('#pB').textContent=nf(cB.doseMcg+cB.wasteMcg,0)+' mcg';
-  ['dA','lA','dB','lB'].forEach(function(id){$('#'+id).textContent='—';});
-  $('#wVerdict').textContent='Both read '+fmtMl(cB.doseMl)+' mL. Press the plunger and watch what stays behind.';
+  ['dA','lA','dB','lB','dP','lP'].forEach(function(id){$('#'+id).textContent='—';});
+  $('#wVerdict').textContent='A pen holds back almost nothing, an insulin syringe a little, a Luer lock a lot. Press and watch what stays behind.';
 }
 function runPush(){
   const tok=++wTok,cA=exCalc('insulin'),cB=exCalc('luer'),dur=reduce?0:1700;
   $('#push').disabled=true;
   const stepA=function(p){const e=1-Math.pow(1-p,3);$('#dA').textContent=nf(cA.doseMcg*e,0)+' mcg';wA.flow(e);};
   const stepB=function(p){const e=1-Math.pow(1-p,3);$('#dB').textContent=nf(cB.doseMcg*e,0)+' mcg';wB.flow(e);};
-  Promise.all([wA.tween(0,dur,stepA),wB.tween(0,dur,stepB)]).then(function(){
+  const stepP=function(e){$('#dP').textContent=nf(cA.doseMcg*e,0)+' mcg';};
+  Promise.all([wA.tween(0,dur,stepA),wB.tween(0,dur,stepB),wP.press(dur,stepP)]).then(function(){
     if(tok!==wTok)return;
-    wA.drip(3);wB.drip(3);
+    wA.drip(3);wB.drip(3);wP.drip(2);
     $('#dA').textContent=nf(cA.doseMcg,0)+' mcg';$('#dB').textContent=nf(cB.doseMcg,0)+' mcg';
+    $('#dP').textContent=nf(cA.doseMcg,0)+' mcg';$('#lP').textContent=PEN_WASTE+' mcg';
     $('#lA').textContent=nf(cA.wasteMcg,0)+' mcg';$('#lB').textContent=nf(cB.wasteMcg,0)+' mcg';
     wA.hubWaste(true);wB.hubWaste(true);
     wA.leftover(fmtMl(cA.dead)+' mL',nf(cA.wasteMcg,0)+' mcg');wB.leftover(fmtMl(cB.dead)+' mL',nf(cB.wasteMcg,0)+' mcg');
-    $('#wVerdict').textContent='The Luer lock pulled '+nf(cB.doseMcg+cB.wasteMcg,0)+' mcg, delivered '+nf(cB.doseMcg,0)+' and kept '+nf(cB.wasteMcg,0)+' stuck in the hub. Every draw. The insulin syringe kept '+nf(cA.wasteMcg,0)+'.';
-    setTimeout(function(){if(tok!==wTok)return;wA.zoom(true,1000);wB.zoom(true,1000);},reduce?0:350);
+    $('#wVerdict').textContent='Same 1 mg dose. The pen kept about '+PEN_WASTE+' mcg, the insulin syringe '+nf(cA.wasteMcg,0)+', the Luer lock '+nf(cB.wasteMcg,0)+' in the hub, every draw.';
     pushed=true;$('#push').textContent='Fill again';$('#push').disabled=false;
   });
 }
@@ -1357,13 +1430,10 @@ function planBits(){
   return {take:take.join(' · '),when:TIMES.filter(function(t){return S.times.indexOf(t)>-1;}).join(' · '),note:(S.note||'').trim()};
 }
 function renderPlan(){
-  const pb=planBits(),rows=[];
-  if(pb.take)rows.push(['Take',pb.take]);
-  if(pb.when)rows.push(['When',pb.when]);
-  if(pb.note)rows.push(['Note',pb.note]);
+  const pb=planBits(),rows=[['Take',pb.take||'NA'],['When',pb.when||'NA'],['Note',pb.note||'NA']];
   const el=$('#plan');
   el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
-  el.hidden=!rows.length;
+  el.hidden=false;
   $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b class="u">'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b class="u">'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
 }
 function buildTxt(c,luer,nm){
@@ -1507,7 +1577,7 @@ vial2=new Vial($('#vp2'),{cake:false,rough:true,cap:'#3FA56C',sub:'DILUENT'});
 $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 $('#tipPen').innerHTML=tipSVG('pen');
-(function(){if(reduce)return;const d=['0.25','0.5','1.0','1.7','2.4'];let i=1;setInterval(function(){const t=document.getElementById('penDose');if(!t)return;i=(i+1)%d.length;t.textContent=d[i];},1400);})();
+(function(){if(reduce)return;const d=['0.25','0.5','1.0','1.7','2.4'];let i=0;setInterval(function(){const t=document.getElementById('penDose');if(!t)return;i=(i+1)%d.length;t.textContent=d[i];},1400);})();
 setMode(startMode);
 (function(){
   const pan=[{ox:0,t:'4 to 6 mm',a:'90°',d:'<line x1="50" y1="6" x2="50" y2="56" stroke="#3E4A80" stroke-width="2"/>'},
