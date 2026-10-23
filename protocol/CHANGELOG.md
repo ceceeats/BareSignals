@@ -2,6 +2,14 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v17 (24 Oct 2026) at /protocol/v17/
+- Smart defaults: a peptide added from step one is ready straight away, not a blank card. Start dose = the low end of the Library's typical dose, start date = today (no staggering by default), recommended frequency, time and food where the Library has them, the usual route, and the mix from the Bare Signals sticker sheet: vial size per compound (93 matched), water 2 ml BAC by default, 3 ml for 30 mg vials and up and for Tesamorelin (gels if too little), 5 ml for NAD+ 1000 mg, SS-31 50 mg in 2 ml; nasal = half a vial in a 5 ml bottle (1 part BAC to 4 saline). Switching route resets the mix to that route's default.
+- "Use recommended for all" (tap, then confirm) resets every card to those defaults, keeping dates and stock.
+- Dose chips add the Library's other usage tiers (e.g. NAD+ IV loading, SS-31 label dose), the first marked "start".
+- Fewer words: "Not researched yet" lines are gone (only real recommendations show), Supply row dropped from cards (still in At a glance), step two lede shortened.
+- Search takes several names at once ("NAD + TB-500 + SS-31"), matching the start of names and aliases, up to 3 per name, so each can be tapped in or out. The add card searches Library entries only, so blends no longer appear twice.
+- Built on the other session's v16 (one content width), kept.
+
 ## v16 (24 Oct 2026) at /protocol/v16/
 - One content width with the site bar: on laptop the page is the shared 1240px box with 24px sides, zoom compensated, so the title starts under the BARE SIGNALS wordmark and the right edge ends under the A buttons at every text size; phone 16px sides. Text size fallback reads the laptop scale, phone large A. Built on v15, kept.
 
