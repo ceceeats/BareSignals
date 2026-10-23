@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Protocol · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Protocol v11 (23 Oct 2026): 3 months and Year views start at the earliest compound's first day, so anything started before the protocol start (history) shows; 3 months widens up to 26 weeks to fit the whole run. v10 kept. Protocol v10 (23 Oct 2026): Start over (two-tap), Who is this for (Myself / Someone else + name, printed as "Name's protocol"), privacy line (nothing saved by Bare Signals; the link is the save). Each compound: dose, one frequency with the recommended one marked (adds 5 on 5 off), time of day, food, length, its own first day, route and mix (vial mg + ml gives syringe units or sprays, doses per vial, vial-end dates), note. Step three: At a glance table, dated Calendar (Week with dose/time/food per day, 3 months, month Calendar, Year) with vial-end markers and blood dates, Blood work as a compact grid beside Recheck and watch for with real test dates, Overlap check (was Stack check) with an explainer, Edit stack button. Print: full protocol (at a glance, 3 months, first month calendar, what each one is: how it works, reports, what hasn't held up, watch for, supplements, reported dose; blood work with dates; how to take it; overlap check; 14-day log). Opt-in anonymous stack share via the cookie-free counter. A link now replaces the whole page state. Reads Library v45 and Blood Work v18. v9 kept. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--red:#FF5050;--redt:#C9302B;--redbg:#FFEDE6;--amber:#C98A00;--blue:#6777B6;--green:#4E7F35;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.5}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+.wrap{--hk:1;max-width:900px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 56px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 calc(22px*var(--hk))/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 4px;font-size:13.5px;color:var(--ink-soft);max-width:60ch}
+.frame{margin:0;font:500 10.5px var(--mono);letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase}
+/* steps */
+.divider{display:flex;align-items:center;gap:14px;margin:34px 0 6px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
+.divider span{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.divider.lock span{color:var(--ink-soft)}
+.divider.lock::before,.divider.lock::after{border-top-style:dashed;border-color:var(--ink-soft)}
+.sh{font:700 calc(17px*var(--hk))/1.15 var(--display);margin:6px 0 2px;text-align:center}
+.sd{font-size:13px;color:var(--ink-soft);margin:0 auto 14px;text-align:center;max-width:52ch}
+.box{border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:14px}
+.bh{display:flex;align-items:baseline;gap:10px;padding:9px 12px 8px;border-bottom:1.5px solid var(--ink);background:var(--paper)}
+.bh h2{font:700 calc(15px*var(--hk))/1.1 var(--display);margin:0;flex:1}
+.bh .side{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.bb{padding:10px 12px 12px}
+.hint{font-size:12.5px;color:var(--ink-soft);margin:0 0 8px}
+input[type=text],input[type=search],input[type=date],select,textarea{font:500 15px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:9px 10px;border-radius:0;width:100%}
+textarea{font:400 12px/1.4 var(--mono);min-height:90px;resize:vertical}
+/* step 1: red tags */
+.roles{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
+.rl{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--body);padding:6px 10px 6px 7px;border:1.5px solid var(--red);background:var(--redbg);color:var(--redt);cursor:pointer;border-radius:0}
+.rl i{width:11px;height:11px;border:1px solid rgba(62,74,128,.4);flex:none}
+.rl:hover{background:#FFE0D6}
+.rl[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.rl[aria-pressed="true"] i{border-color:#fff}
+.rolesmore{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:1.5px dashed var(--red);color:var(--redt);padding:6px 10px;cursor:pointer;border-radius:0}
+.dq{max-width:520px;margin:0 auto}
+.sug{list-style:none;margin:12px 0 0;padding:0}
+.sug li{display:flex;gap:10px;align-items:center;padding:8px 2px;border-bottom:1px dotted var(--rule)}
+.sug li:first-child{border-top:1.5px solid var(--rule)}
+.sug .t{flex:1;min-width:0}
+.sug b{font:700 calc(15px*var(--hk))/1.2 var(--display)}
+.sug .w{display:block;font-size:13px;color:var(--ink-soft);line-height:1.3}
+.sug .w a{color:var(--ink-soft)}
+.sw{display:flex;gap:2px;margin-top:3px}.sw i{width:9px;height:9px;border:1px solid rgba(62,74,128,.35)}
+.add{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);background:var(--paper);padding:7px 10px;cursor:pointer;flex:none;border-radius:0}
+.add:hover{background:#F2F0CC}
+.add[disabled]{opacity:.45;cursor:default}
+.sm{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;cursor:pointer;color:var(--ink-soft);text-decoration:underline;padding:8px 0 0}
+.skip{text-align:center;margin:12px 0 0}
+/* step 2: finder */
+.fw{position:relative}
+.fl{list-style:none;margin:0;padding:0;border:1.5px solid var(--ink);border-top:0;background:var(--chip);max-height:300px;overflow:auto;position:absolute;left:0;right:0;z-index:5;box-shadow:2px 3px 0 var(--rule)}
+.fl li{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px dotted var(--rule);cursor:pointer}
+.fl li:hover,.fl li.hl{background:#F2F0CC}
+.fl li b{font:700 14.5px var(--display);flex:1}
+.fl li small{font:500 10px var(--mono);color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;align-items:center}
+.quick span{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.qb{font:500 12.5px var(--body);border:1.3px dashed var(--ink);background:none;padding:5px 9px;cursor:pointer;border-radius:0}
+.qb:hover{background:#F2F0CC}
+/* step 2: rows */
+.sk{list-style:none;margin:12px 0 0;padding:0}
+.row{border:1.5px solid var(--ink);background:var(--paper);margin-bottom:7px;display:grid;grid-template-columns:7px minmax(0,1fr)}
+.row .band{display:flex;flex-direction:column}.row .band i{flex:1}
+.row .main{min-width:0}
+.rh{display:flex;align-items:center;gap:8px;padding:9px 10px;cursor:pointer;min-height:52px}
+.rh .ord{font:600 11px var(--mono);border:1.3px solid var(--ink);min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.rh .nm{flex:1;min-width:0}
+.rh .nm b{font:700 calc(15px*var(--hk))/1.15 var(--display);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rh .sum{display:block;font-size:13px;color:var(--ink-soft);line-height:1.3;margin-top:1px}
+.rh .sum.need{color:var(--accent);font-weight:600;display:flex;align-items:center;gap:7px}
+.cur{display:inline-block;width:8px;height:15px;background:var(--accent);animation:blink 1.1s steps(1) infinite;flex:none}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cur{animation:none}}
+.rh .ed{font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.3px solid var(--ink);background:var(--chip);padding:6px 8px;flex:none;cursor:pointer;border-radius:0}
+.rh .ed.go{background:var(--accent);border-color:var(--accent);color:#fff}
+.row.open .rh{border-bottom:1.5px solid var(--ink);background:var(--chip)}
+.row.done .rh .nm b::after{content:" ✓";color:var(--green);font-size:13px}
+.edit{padding:10px 10px 12px}
+.cmp{font:500 11px var(--mono);letter-spacing:.03em;color:var(--accent);margin:0 0 8px}
+.q{margin:0 0 12px}
+.q>label,.q>.ql{display:flex;align-items:baseline;gap:8px;font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 5px}
+.q .rep{font:400 12px var(--body);letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.q.need>.ql::before{content:"";width:7px;height:12px;background:var(--accent);animation:blink 1.1s steps(1) infinite;align-self:center}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.cp{font:500 13.5px var(--body);border:1.5px solid var(--ink);background:var(--chip);padding:7px 10px;cursor:pointer;border-radius:0;line-height:1.1}
+.cp:hover{background:#F2F0CC}
+.cp[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cp.oth{border-style:dashed}
+.oin{display:flex;gap:6px;margin-top:6px;max-width:320px}
+.oin[hidden],.fl[hidden]{display:none}
+.oin input{padding:7px 9px;font-size:14px}
+.oin select{width:auto;padding:7px 6px;font-size:14px}
+.sub2{font-size:12.5px;color:var(--ink-soft);margin:5px 0 0}
+.edf{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border-top:1.5px solid var(--rule);padding-top:10px;margin-top:4px}
+.lk{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px}
+.lk a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.lk a:hover{color:var(--ink)}
+.edb{display:flex;gap:6px}
+.btn{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);background:var(--paper);padding:10px 14px;cursor:pointer;border-radius:0}
+.btn:hover{background:#F2F0CC}
+.btn.p{background:var(--ink);color:var(--paper)}
+.btn.p:hover{background:#2F3A6A}
+.btn.o{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn[disabled]{opacity:.4;cursor:default}
+.btn.rm{border-color:var(--ink-soft);color:var(--ink-soft)}
+/* step 2 footer */
+.when{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-top:12px;padding-top:12px;border-top:1.5px solid var(--rule)}
+.when .q{margin:0;flex:1 1 200px}
+.when input[type=date]{max-width:220px;padding:7px 9px;font-size:14px}
+.savebar{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.save{font:700 14px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:14px 22px;cursor:pointer;width:100%;max-width:420px;border-radius:0;display:flex;align-items:center;justify-content:center;gap:10px}
+.save[disabled]{background:var(--chip);color:var(--ink-soft);border-color:var(--ink-soft);border-style:dashed;cursor:default}
+.save.ready{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:3px 3px 0 var(--ink)}
+.save.ready .cur{background:#fff}
+.save.done{background:var(--paper);color:var(--green);border-color:var(--green)}
+.savebar small{font-size:12.5px;color:var(--ink-soft)}
+.clear{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;cursor:pointer;color:var(--ink-soft);text-decoration:underline;padding:0}
+/* step 3 */
+.locked{border:1.5px dashed var(--ink-soft);padding:26px 16px;text-align:center;color:var(--ink-soft);font-size:14px;background:transparent}
+.stale{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border:1.5px solid var(--accent);background:#FFF1E2;padding:9px 12px;margin-bottom:12px;font-size:13.5px;color:var(--ink)}
+.stale b{display:flex;align-items:center;gap:8px}
+.res.dim .box{opacity:.55}
+.flags{list-style:none;margin:0;padding:0}
+.fg{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;padding:8px 0;border-bottom:1px dotted var(--rule);font-size:14px;line-height:1.35}
+.fg:last-child{border-bottom:0}
+.fg .k{font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border:1.3px solid currentColor;align-self:start;min-width:70px;text-align:center}
+.fg.r .k{color:var(--redt)}.fg.a .k{color:var(--amber)}.fg.b .k{color:var(--blue)}.fg.g .k{color:var(--green)}
+.fg b{font-weight:600}
+.fg details summary{cursor:pointer;list-style:none}
+.fg details summary::-webkit-details-marker{display:none}
+.fg details summary::after{content:" why ›";font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.fg details[open] summary::after{content:" ‹"}
+.fg details p{margin:5px 0 0;font-size:13px;color:var(--ink-soft)}
+.tlctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12.5px var(--body);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:7px 11px;cursor:pointer;border-radius:0}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tog{display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer}
+.tog input{accent-color:#3E4A80;width:16px;height:16px;margin:0}
+.tlctl select{width:auto;padding:5px 6px;font-size:13px}
+.tlw{overflow-x:auto;border:1.5px solid var(--ink);background:var(--paper)}
+.tl{display:grid;min-width:100%}
+.tl .h{font:500 9px/1.15 var(--mono);letter-spacing:.02em;color:var(--ink-soft);text-align:center;padding:4px 0;border-bottom:1.5px solid var(--ink);border-right:1px solid var(--rule);background:var(--chip)}
+.tl .h em{display:block;font-style:normal;font-size:8px;color:var(--accent)}
+.tl .n{font:600 12px/1.2 var(--display);padding:5px 8px;border-right:1.5px solid var(--ink);border-bottom:1px solid var(--rule);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:sticky;left:0;background:var(--paper);z-index:1}
+.tl .n small{display:block;font:500 8.5px var(--mono);color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase}
+.tl .n.hd{background:var(--chip);border-bottom:1.5px solid var(--ink);font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center}
+.tl .n.lane{font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip)}
+.tl .lanebar{background:var(--chip);border-bottom:1px solid var(--rule)}
+.tl .c{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-height:30px;position:relative}
+.tl .c.on::after{content:"";position:absolute;left:0;right:0;top:8px;bottom:8px;background:var(--bar,#6777B6);border-top:1.3px solid var(--ink);border-bottom:1.3px solid var(--ink)}
+.tl .c.st::after{left:3px;border-left:1.3px solid var(--ink)}
+.tl .c.en::after{right:3px;border-right:1.3px solid var(--ink)}
+.tl .c.go::after{right:0;border-right:0;background:repeating-linear-gradient(90deg,var(--bar,#6777B6) 0 6px,transparent 6px 9px)}
+.tl .c.pre::before{content:"◀";position:absolute;left:1px;top:50%;transform:translateY(-50%);font-size:8px;z-index:2;color:var(--ink)}
+.tl .c.prn::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:0;border-top:2px dotted var(--bar,#6777B6);filter:saturate(1.4) brightness(.8)}
+.tl .c.prn.dt::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--bar);border:1.2px solid var(--ink);z-index:1}
+.tl .c.bl{display:flex;align-items:center;justify-content:center}
+.tl .c.bl span{font:700 10px var(--mono);border:1.3px solid var(--redt);color:var(--redt);background:var(--chip);padding:1px 3px;line-height:1.1}
+.tl .n.blr{color:var(--redt)}
+.key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-soft);margin-top:7px}
+.key span{display:inline-flex;gap:5px;align-items:center}
+.key i{display:inline-block;width:16px;height:9px;border:1.3px solid var(--ink);background:var(--blue);font-style:normal}
+.key i.bk{width:auto;height:auto;font:700 9px var(--mono);border-color:var(--redt);color:var(--redt);background:none;padding:0 2px}
+.key i.pk{border:0;border-top:2px dotted var(--blue);height:0;background:none}
+.wk7{display:grid;grid-template-columns:minmax(96px,1.6fr) repeat(7,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--paper)}
+.wk7>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 3px;text-align:center;font-size:12px;min-height:30px;display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap}
+.wk7 .h{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);border-bottom:1.5px solid var(--ink)}
+.wk7 .n{justify-content:flex-start;text-align:left;font:600 12px/1.2 var(--display);padding-left:7px;border-right:1.5px solid var(--ink)}
+.wk7 .dot{width:9px;height:9px;border:1.2px solid var(--ink);background:var(--bar)}
+.wk7 .pn{grid-column:span 7;font:500 11px var(--mono);letter-spacing:.04em;color:var(--ink-soft);justify-content:flex-start;padding-left:10px;border-top:0;background:repeating-linear-gradient(90deg,transparent 0 10px,rgba(103,119,182,.07) 10px 20px)}
+.wk7 .lane{grid-column:1/-1;justify-content:flex-start;font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);padding-left:8px;min-height:22px}
+.bt{list-style:none;margin:0;padding:0}
+.bt li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:8px;align-items:start;padding:6px 0;border-bottom:1px dotted var(--rule)}
+.bt li>i{width:12px;height:12px;border:1px solid rgba(62,74,128,.4);margin-top:3px}
+.bt b{font:600 14px/1.25 var(--body)}
+.bt .who{display:block;font-size:12.5px;color:var(--ink-soft);line-height:1.3}
+.bt .tier{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;margin-top:3px}
+.bt .tier.r{color:var(--accent)}
+.cnt{font:600 10px var(--mono);border:1.2px solid var(--ink);padding:0 4px;margin-left:5px;vertical-align:1px}
+.subh{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 4px}
+.subh:first-child{margin-top:0}
+.watch{list-style:none;margin:0;padding:0;font-size:13.5px}
+.watch li{padding:6px 0;border-bottom:1px dotted var(--rule);line-height:1.4}
+.watch b{font-weight:600}
+.watch .fq{color:var(--ink-soft)}
+.more{font-size:13px;margin:9px 0 0}
+.more a{color:var(--ink);font-weight:500}
+/* step 4 */
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+@media (max-width:480px){.acts{grid-template-columns:minmax(0,1fr)}}
+.toast{font:500 11px var(--mono);letter-spacing:.06em;color:var(--green);min-height:16px;margin:6px 0 0;text-transform:uppercase}
+details.imp{margin-top:10px;border-top:1.5px solid var(--rule);padding-top:8px}
+details.imp summary{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+details.imp p{font-size:13px;color:var(--ink-soft);margin:6px 0}
+pre.txt{white-space:pre-wrap;font:400 11.5px/1.45 var(--mono);background:var(--paper);border:1.5px solid var(--rule);padding:9px 10px;max-height:300px;overflow:auto;margin:10px 0 0}
+.foot{font-size:12.5px;color:var(--ink-soft);max-width:72ch;margin:22px auto 0;text-align:center}
+.ph{padding:14px 4px;text-align:center;font-size:13.5px;color:var(--ink-soft)}
+.r3{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:'ck' 'tl' 'bw'}.r3 .ck{grid-area:ck}.r3 .tlb{grid-area:tl}.r3 .bw{grid-area:bw}
+@media (min-width:980px){.wrap.wide{max-width:1180px}.r3{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:'tl tl' 'ck bw';gap:0 14px;align-items:start}}
+#sheet{display:none}
+@media print{
+ @page{margin:14mm}
+ body{background:#fff;font-size:11.5px}
+ .wrap{zoom:1!important}
+ .wrap>*:not(#sheet){display:none!important}
+ #sheet{display:block}
+ #sheet h1{font-size:22px;margin:0 0 2px}
+ #sheet h3{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:12px 0 4px;border-bottom:1px solid #3E4A80;padding-bottom:2px}
+ #sheet table{width:100%;border-collapse:collapse;font-size:11px}
+ #sheet td,#sheet th{border:1px solid #3E4A80;padding:3px 5px;text-align:left;vertical-align:top}
+ #sheet th{font:600 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+ #sheet ul{margin:0;padding-left:16px}
+ #sheet .ft{margin-top:12px;font-size:9.5px;color:#6B76A8}
+ #sheet .tlw{overflow:visible;border:1px solid #3E4A80}
+ #sheet .tl .n{position:static}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+/* v10 additions */
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:10px 0 0}
+.over{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink-soft);color:var(--ink-soft);background:none;padding:7px 10px;cursor:pointer;border-radius:0}
+.over.arm{border-color:var(--redt);color:#fff;background:var(--redt)}
+.who{border:1.5px solid var(--ink);background:var(--chip);padding:12px;margin-top:14px;box-shadow:2px 2px 0 var(--rule)}
+.who .row2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.who input[type=text]{max-width:260px;padding:7px 9px;font-size:14px}
+.who .priv{font-size:12.5px;color:var(--ink-soft);margin:9px 0 0;line-height:1.4}
+.who .priv b{color:var(--ink)}
+.rec{font:600 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-left:4px}
+.cp[aria-pressed="true"] .rec{color:#CFE8BE}
+.mix{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.mix input{width:84px!important;padding:6px 8px!important;font-size:14px!important}
+.calc{font:600 12px var(--mono);color:var(--accent);margin-top:6px}
+.note2 input{max-width:100%}
+/* step 3 layout */
+.r4{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media (min-width:860px){.r4 .pair{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;align-items:start}}
+.reshead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.reshead h3{font:700 calc(18px*var(--hk))/1.1 var(--display);margin:0}
+.reshead small{display:block;font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+/* at a glance */
+.gl{width:100%;border-collapse:collapse;font-size:13px}
+.gl th{font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:5px 6px;border-bottom:1.5px solid var(--ink);white-space:nowrap}
+.gl td{padding:7px 6px;border-bottom:1px dotted var(--rule);vertical-align:top}
+.gl td b{font:700 14px/1.2 var(--display)}
+.gl td i.sq{display:inline-block;width:10px;height:10px;border:1px solid var(--ink);margin-right:6px;vertical-align:0}
+.gl .u{font:600 12px var(--mono);color:var(--accent)}
+.glw{overflow-x:auto}
+/* calendar nav */
+.cnav{display:flex;align-items:center;gap:6px;margin-left:auto}
+.cnav button{font:600 13px var(--mono);border:1.5px solid var(--ink);background:var(--paper);width:32px;height:32px;cursor:pointer;border-radius:0}
+.cnav span{font:600 12px var(--mono);letter-spacing:.04em;min-width:120px;text-align:center}
+/* week view, dated */
+.wkd{display:grid;border:1.5px solid var(--ink);background:var(--paper);overflow-x:auto}
+.wkd>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 4px;font-size:11.5px;min-height:44px}
+.wkd .h{font:500 9px/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);border-bottom:1.5px solid var(--ink);text-align:center;min-height:0}
+.wkd .h b{display:block;font:700 13px var(--display);color:var(--ink);text-transform:none;letter-spacing:0}
+.wkd .h.td{background:var(--ink);color:var(--paper)}.wkd .h.td b{color:var(--paper)}
+.wkd .n{font:600 12px/1.2 var(--display);border-right:1.5px solid var(--ink);position:sticky;left:0;background:var(--paper);z-index:1}
+.wkd .n small{display:block;font:500 9.5px/1.3 var(--body);color:var(--ink-soft)}
+.dz{display:block;border:1.2px solid var(--ink);background:var(--bar);padding:2px 3px;line-height:1.15;margin-bottom:2px}
+.dz b{display:block;font:700 11px var(--mono)}
+.dz small{display:block;font:500 9px var(--mono);letter-spacing:.02em}
+.dz.lt{color:#fff}
+.vm{display:block;font:600 8.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.bwm{display:inline-block;font:700 9px var(--mono);border:1.3px solid var(--redt);color:var(--redt);background:var(--chip);padding:1px 3px;text-transform:uppercase}
+/* month calendar */
+.mc{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--paper)}
+.mc>div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-height:78px;padding:3px;font-size:10px;min-width:0}
+.mc .h{min-height:0;font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);border-bottom:1.5px solid var(--ink);text-align:center;padding:4px 0}
+.mc .d{font:700 11px var(--mono);display:block;margin-bottom:2px}
+.mc .x{background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(62,74,128,.04) 6px 12px)}
+.mc .x .d{color:var(--ink-soft);font-weight:400}
+.mc .td .d{background:var(--ink);color:var(--paper);display:inline-block;padding:0 4px}
+.mi{display:flex;gap:3px;align-items:flex-start;line-height:1.2;margin-bottom:1px;overflow:hidden}
+.mi i{width:8px;height:8px;border:1px solid var(--ink);background:var(--bar);flex:none;margin-top:2px}
+.mi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:600px){.mc>div{min-height:58px;padding:2px}.mi span{display:none}.mi{display:inline-flex;margin-right:1px}.mi i{width:9px;height:9px}}
+/* quarter and year */
+.tl .c .cn{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:700 10px var(--mono);z-index:2;color:var(--ink)}
+.tl .c .cn.lt{color:#fff}
+.tl .c .ve{position:absolute;right:-1px;bottom:1px;font:700 8px var(--mono);color:var(--accent);z-index:3;line-height:1}
+.tl .c.nowc{box-shadow:inset 0 0 0 1.5px var(--accent)}
+/* blood compact */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px}
+.bc{display:grid;grid-template-columns:10px minmax(0,1fr);gap:6px;border:1px solid var(--rule);background:var(--paper);padding:5px 6px;font-size:12.5px;line-height:1.25}
+.bc i{width:10px;height:10px;border:1px solid rgba(62,74,128,.4);margin-top:2px}
+.bc b{font-weight:600}
+.bc small{display:block;font:500 9.5px var(--mono);color:var(--ink-soft);letter-spacing:.02em}
+.bc.many{border-color:var(--ink)}
+.dates{list-style:none;margin:0 0 6px;padding:0}
+.dates li{display:flex;gap:8px;padding:5px 0;border-bottom:1px dotted var(--rule);font-size:13px}
+.dates li b{font:600 12px var(--mono);min-width:92px;color:var(--redt)}
+.share{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:10px;color:var(--ink-soft);line-height:1.35}
+.share input{margin-top:2px;accent-color:#3E4A80;width:16px;height:16px;flex:none}
+/* print sheet */
+@media print{
+ #sheet .cmpx{break-inside:avoid;border:1px solid #3E4A80;padding:6px 8px;margin:6px 0}
+ #sheet .cmpx h4{margin:0 0 3px;font-size:13px}
+ #sheet .cmpx p{margin:2px 0;font-size:10.5px}
+ #sheet .mc>div{min-height:54px}
+ #sheet .mi span{display:inline}
+ #sheet .pb{break-before:page}
+ #sheet .wkd .n,#sheet .tl .n{position:static}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+ <h1>Protocol <small>v11 · Draft</small></h1>
+ <p class="lede">Build a stack, see it on a real calendar, print it. For yourself or for someone you're helping.</p>
+ <p class="frame">A formula sheet built from reported use · not medical advice</p>
+ <div class="topbar"><span></span><button type="button" class="over" id="over">Start over</button></div>
+
+ <div class="who" id="whobox"></div>
+
+ <!-- STEP 1 -->
+ <div class="divider" id="st1"><span>Step one</span></div>
+ <h2 class="sh">What are you dealing with?</h2>
+ <p class="sd">Tap what fits. You'll see what people most often report using for it. Optional, skip it if you already know the stack.</p>
+ <div class="roles" id="roles"></div>
+ <div class="dq"><input type="search" id="dq" placeholder="Or type it: afternoon crash, elbow, sleep, brain fog" autocomplete="off" aria-label="What you're dealing with"></div>
+ <ul class="sug" id="sug"></ul>
+ <div id="sugmore"></div>
+
+ <!-- STEP 2 -->
+ <div class="divider" id="st2"><span>Step two</span></div>
+ <h2 class="sh">What's the stack?</h2>
+ <p class="sd">Add each compound, set one dose, one frequency and when it's taken. Pick one and stick to it: the recommended one is marked.</p>
+ <div class="fw">
+  <input type="search" id="fq" placeholder="Add a compound or blend (BPC, KLOW, SS-31…)" autocomplete="off" aria-label="Add a compound or blend" role="combobox" aria-expanded="false" aria-controls="fl">
+  <ul class="fl" id="fl" role="listbox" hidden></ul>
+ </div>
+ <div class="quick" id="quick"></div>
+ <ul class="sk" id="sk"></ul>
+ <div id="when"></div>
+ <div class="savebar" id="savebar"></div>
+
+ <!-- STEP 3 -->
+ <div class="divider" id="st3"><span>Step three</span></div>
+ <h2 class="sh" id="h3t">The protocol</h2>
+ <p class="sd">What's taken on which day, when each vial runs out, and what to test.</p>
+ <div id="res"></div>
+
+ <!-- STEP 4 -->
+ <div class="divider" id="st4"><span>Step four</span></div>
+ <h2 class="sh">Take it with you</h2>
+ <p class="sd">The link is the save. Bookmark it or send it, and it opens this exact protocol again. The PDF is the full printed version.</p>
+ <div class="box"><div class="bb">
+  <div class="acts">
+   <button type="button" class="btn p" id="aPdf">Print full protocol</button>
+   <button type="button" class="btn" id="aLink">Copy link</button>
+   <button type="button" class="btn" id="aTxt">Copy for my AI</button>
+  </div>
+  <label class="share"><input type="checkbox" id="shr"><span>Share this stack anonymously to help Bare Signals research. Only compounds, doses and frequency are counted. Never the name, never the dates.</span></label>
+  <p class="toast" id="toast" aria-live="polite"></p>
+  <details class="imp" id="imp">
+   <summary>Paste it back</summary>
+   <p>Paste the text, the reopen code, the link, or just the names ("BPC-157, KLOW, Tesamorelin").</p>
+   <textarea id="impT" aria-label="Paste your protocol text, code or link"></textarea>
+   <div style="margin-top:6px"><button type="button" class="btn p" id="impGo">Open it</button></div>
+  </details>
+  <details class="imp"><summary>Preview the text</summary><pre class="txt" id="txt"></pre></details>
+ </div></div>
+ <p class="foot">Everything here is reported use from the Library, Dosage, Blood Work and Supplements pages, put side by side. Nothing you enter is saved by Bare Signals: the protocol lives in this browser and in its link.</p>
+ <div id="sheet"></div>
+</div>
+
+<script src="/nav.js" defer></script>
+<script src="/library/v45/data.js"></script>
+<script src="/blood/v18/lib.js"></script>
+<script>
+(function(){var K={s:.88,m:1,l:1.15};function ap(k){k=+k||1;var m=document.querySelector('#wrap');if(!m)return;m.style.zoom=k===1?'':k;m.style.setProperty('--k',k);m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4));}
+var t='m';try{t=localStorage.getItem('bs-text')||'m'}catch(e){}ap(K[t]||1);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
+(function(){
+'use strict';
+const D=window.BS_DATA||[],PAL=window.BS_PALETTE||[],BW=window.BW_LIB||{tests:{},comps:{},sup:{}};
+const P={};PAL.forEach(p=>P[p[0]]=p);
+const BY={};D.forEach(d=>BY[d.slug]=d);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const track=(n,t)=>{try{window.bsTrack&&window.bsTrack('protocol:'+n,t)}catch(e){}};
+const col=k=>(P[k]&&P[k][2])||'#ccc';
+const isRef=d=>d&&(d.depth==='reference'||d.ref);
+const dark=h=>{h=String(h||'').replace('#','');if(h.length<6)return false;const r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);return (r*299+g*587+b*114)/1000<140};
+
+const BLENDS={
+ 'glow':{name:'GLOW',use:'BPC-157, TB-500 and GHK-Cu in one vial',parts:['bpc-157','tb-500-frag-17-23','ghk-cu'],freq:'D',w:8},
+ 'klow':{name:'KLOW',use:'GLOW plus KPV in one vial',parts:['bpc-157','tb-500-frag-17-23','ghk-cu','kpv'],freq:'D',w:8},
+ 'wolverine':{name:'Wolverine (BPC + TB)',use:'BPC-157 and TB-500 in one vial',parts:['bpc-157','tb-500-frag-17-23'],freq:'D',w:8},
+ 'cjc-ipa':{name:'CJC-1295 no DAC + Ipamorelin',use:'The common GH pair in one vial',parts:['cjc-1295-no-dac','ipamorelin'],freq:'D',w:12}
+};
+const AXES=[
+ {name:'both raise growth hormone',ids:['ipamorelin','cjc-1295-no-dac','cjc-1295-with-dac','tesamorelin','sermorelin','ghrp-2','ghrp-6','hexarelin','mk-677','somatropin-hgh','igf-1-lr3'],note:'Some push the pituitary signal (GHRH: CJC, Sermorelin, Tesamorelin), some the ghrelin side (Ipamorelin, GHRPs, MK-677). One of each is the classic pair, and it stacks the same downstream signal, which is why IGF-1 and fasting glucose get watched.'},
+ {name:'same appetite lever (GLP-1 / amylin)',ids:['semaglutide','tirzepatide','retatrutide','exenatide','glp-1','cagrilintide','amylin'],note:'Two GLP-1 drugs at once doubles one signal. Cagrilintide with semaglutide is the pairing that has been studied together (CagriSema).'},
+ {name:'same receptor family (melanocortin)',ids:['mt-2','pt-141','melanotan-1'],note:'Tanning, appetite and libido effects overlap, and so do nausea and flushing.'},
+ {name:'two copper peptides',ids:['ghk-cu','ahk-cu'],note:'Copper adds up. Zinc and copper are worth a look on long runs.'},
+ {name:'pieces of the same protein (thymosin beta-4)',ids:['tb-500-frag-17-23','thymosin-beta-4','tb-500-frag-1-4'],note:'Full thymosin beta-4 already contains the TB-500 stretch.'},
+ {name:'same peptide, two forms',ids:['selank','na-selank-amidate'],note:'NA Selank Amidate is a longer-lasting Selank.'},
+ {name:'same peptide, two forms',ids:['semax','na-semax-amidate'],note:'NA Semax Amidate is a longer-lasting Semax.'},
+ {name:'the same HGH fragment',ids:['aod-9604','hgh-frag-176-191'],note:'AOD-9604 is a modified HGH 176–191.'},
+ {name:'both feed the mitochondria',ids:['ss-31','nadplus','mots-c','slu-pp-332','5-amino-1mq','bam-15'],note:'Different routes into the same energy machinery. Fine together, but a change in energy then has two possible causes.'}
+];
+const FREQ=[['D','Daily'],['D2','2× daily'],['EOD','Every other day'],['5on2','5 on, 2 off'],['5on5','5 on, 5 off'],['3W','3× a week'],['2W','2× a week'],['1W','Weekly'],['PRN','As needed'],['D3','3× daily']];
+const FL={};FREQ.forEach(f=>FL[f[0]]=f[1]);
+const TIMES=[['AM','Morning'],['MID','Midday'],['PM','Afternoon'],['EVE','Evening'],['BED','Bedtime']];
+const TL={};TIMES.forEach(t=>TL[t[0]]=t[1]);
+const FOODS=[['fast','Fasted'],['before','Before food'],['with','With food'],['after','After food'],['any','Any time']];
+const FDL={};FOODS.forEach(t=>FDL[t[0]]=t[1]);
+const ROUTES=[['inj','Injection'],['nasal','Nasal spray'],['oral','Oral']];
+const RL={};ROUTES.forEach(t=>RL[t[0]]=t[1]);
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+/* dates (local, no time zones) */
+const pad=n=>(n<10?'0':'')+n;
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const D0=s=>{const a=String(s).split('-').map(Number);return new Date(a[0],a[1]-1,a[2])};
+const addD=(s,n)=>{const d=D0(s);d.setDate(d.getDate()+n);return iso(d)};
+const diff=(a,b)=>Math.round((D0(b)-D0(a))/864e5);
+const TODAY=iso(new Date());
+const okDate=s=>/^\d{4}-\d\d-\d\d$/.test(s||'');
+function fmt(s,o){if(!okDate(s))return '';return D0(s).toLocaleDateString('en-GB',o||{day:'numeric',month:'short'})}
+const fmtL=s=>fmt(s,{day:'numeric',month:'short',year:'numeric'});
+const monday=s=>{const d=D0(s);const w=(d.getDay()+6)%7;return addD(s,-w)};
+
+function parseFreq(s){
+ s=String(s||'').toLowerCase();
+ if(!s)return 'D';
+ if(/as needed|prn|once, may|rescue/.test(s)&&!/daily or prn/.test(s))return 'PRN';
+ if(/5 on|5 days\/wk/.test(s))return '5on2';
+ if(/3x daily|3× daily|before major meals/.test(s))return 'D3';
+ if(/2–3× daily|2-3× daily|twice daily|2× daily(?! loading)|2x daily/.test(s)&&!/1–2×/.test(s))return 'D2';
+ if(/every 2-3 days|eod|every other/.test(s)&&!/daily or eod/.test(s))return 'EOD';
+ if(/days 1, 3, 5|2–3× weekly|2-3× weekly|3× weekly|3x weekly/.test(s))return '3W';
+ if(/1–3× weekly|twice weekly|2× weekly|1–2× weekly|2x weekly/.test(s))return '2W';
+ if(/once weekly|1× weekly|weekly/.test(s)&&!/daily/.test(s))return '1W';
+ return 'D';
+}
+function parseWeeks(s){
+ s=String(s||'').toLowerCase();let m;
+ const go=/ongoing|continuous|similar to|same as|prn|no cycling|up to 2 years/.test(s);
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*(?:wk|week)/)))return {opts:[+m[1]].concat(m[2]?[+m[2]]:[]),w:+(m[2]||m[1]),go};
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*(?:-|\s)?day/))){const a=Math.max(1,Math.ceil(+m[1]/7)),b=m[2]?Math.max(1,Math.ceil(+m[2]/7)):0;return {opts:[a].concat(b&&b!==a?[b]:[]),w:b||a,go:false}}
+ if((m=s.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*month/))){const a=Math.min(52,+m[1]*4),b=m[2]?Math.min(52,+m[2]*4):0;return {opts:[a].concat(b?[b]:[]),w:a,go}}
+ return {opts:[4,8,12],w:go?12:8,go};
+}
+function doseChips(ds){
+ const s=String(ds||'').replace(/^~\s*/,'');const m=s.match(/^([\d.]+)\s*(?:[–-]\s*([\d.]+))?\s*(mcg|mg|IU|mL|g|U)\b(?!\s*\/)/i);
+ if(!m)return [];const u=m[3];const out=[m[1]+' '+u];if(m[2])out.push(m[2]+' '+u);return out;
+}
+function routeOf(ds){const r=String((ds&&ds.route)||'').toLowerCase();if(/nasal/.test(r)&&!/sub-?q|inj|im\b/.test(r))return 'nasal';if(/^oral|sublingual/.test(r))return 'oral';return 'inj'}
+function info(k){
+ if(k.indexOf('blend:')===0){const b=BLENDS[k.slice(6)];if(!b)return null;const ps=b.parts.map(x=>BY[x]).filter(Boolean);
+  const roles=[];ps.forEach(p=>(p.roles||[]).forEach(r=>{if(roles.indexOf(r)<0)roles.push(r)}));
+  return {k,name:b.name,use:b.use,blend:true,parts:b.parts,roles,dose:{},f:b.freq,w:b.w,wopts:[4,8,12],go:false,comps:ps,chips:[],route:'inj'};}
+ const d=BY[k];if(!d)return null;const ds=d.dose||{};const pw=parseWeeks(ds.cycle);
+ return {k,name:d.name,use:(d.desc&&d.desc[d.primary])||'',blend:false,parts:[k],roles:d.roles||[],dose:ds,f:parseFreq(ds.freq),w:pw.w,wopts:pw.opts,go:pw.go,d,chips:doseChips(ds.dose),route:routeOf(ds)};
+}
+function newItem(k){const i=info(k);return {k,dose:'',f:i.f,w:i.w,go:i.go,start:'',time:'',food:'',route:i.route,vmg:'',vml:'',note:'',set:false}}
+
+/* dose maths */
+function doseMg(x){const m=String(x.dose||'').match(/([\d.]+)\s*(mcg|mg|g)\b/i);if(!m)return 0;const v=+m[1];return m[2].toLowerCase()==='mcg'?v/1000:m[2].toLowerCase()==='g'?v*1000:v}
+const r1=v=>Math.round(v*10)/10;
+function strength(x){const a=+x.vmg,b=+x.vml;return a>0&&b>0?a/b:0}
+function drawText(x){const mg=doseMg(x),st=strength(x);if(!mg||!st)return '';
+ if(x.route==='nasal'){const sp=mg/(st*.1);return r1(sp)+(r1(sp)===1?' spray':' sprays')}
+ if(x.route==='oral')return '';
+ return r1(mg/st*100)+' units'}
+function perVial(x){const mg=doseMg(x),v=+x.vmg;return mg>0&&v>0?Math.floor(v/mg+1e-9):0}
+function mixText(x){if(!(+x.vmg>0&&+x.vml>0))return '';return x.vmg+' mg in '+x.vml+' ml · '+r1(strength(x)*100)/100+' mg/ml'}
+
+/* state */
+const KEY='bs-protocol-v3';
+function blank(){return {who:'me',name:'',stack:[],roles:[],q:'',stg:true,gap:1,start:'',view:'q',wk:'',mo:'',saved:false,ever:false,open:-1,shr:false}}
+let S=blank();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&Array.isArray(v.stack)){S=Object.assign(blank(),v);S.stack=S.stack.filter(x=>info(x.k))}}catch(e){}}
+function encode(){const c={v:3,o:S.who==='other'?1:0,n:S.name||'',s:S.stack.map(x=>[x.k,x.dose||'',x.f,x.w,x.go?1:0,x.start||'',x.time||'',x.food||'',x.route||'',x.vmg||'',x.vml||'',x.note||'',x.set?1:0]),r:S.roles,q:S.q||'',g:S.stg?S.gap:0,d:S.start||''};
+ try{return btoa(unescape(encodeURIComponent(JSON.stringify(c)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}catch(e){return ''}}
+function decode(code){try{code=code.replace(/-/g,'+').replace(/_/g,'/');while(code.length%4)code+='=';const c=JSON.parse(decodeURIComponent(escape(atob(code))));
+ if(!c||!Array.isArray(c.s))return false;
+ const keep={view:S.view};S=Object.assign(blank(),keep);
+ S.stack=c.s.filter(x=>info(x[0])).map(x=>{const it=newItem(x[0]);it.dose=String(x[1]||'').slice(0,60);it.f=FL[x[2]]?x[2]:it.f;it.w=Math.max(1,Math.min(52,+x[3]||it.w));it.go=!!x[4];
+  if(c.v>=3){it.start=okDate(x[5])?x[5]:'';it.time=TL[x[6]]?x[6]:'';it.food=FDL[x[7]]?x[7]:'';it.route=RL[x[8]]?x[8]:it.route;it.vmg=String(x[9]||'').slice(0,8);it.vml=String(x[10]||'').slice(0,8);it.note=String(x[11]||'').slice(0,80);it.set=!!x[12]&&!!it.dose}
+  else if(c.v>=2){it.start=x[5]&&okDate(x[6])?x[6]:'';it.set=!!x[8]&&!!it.dose}
+  else{it.set=!!it.dose}
+  return it});
+ S.who=c.o?'other':'me';S.name=String(c.n||'').slice(0,40);
+ S.roles=(c.r||[]).filter(r=>P[r]);S.q=String(c.q||'').slice(0,80);S.stg=!!c.g;S.gap=c.g||1;S.start=okDate(c.d)?c.d:'';
+ S.saved=S.stack.length>0&&S.stack.every(x=>x.set);S.ever=S.saved;return true}catch(e){return false}}
+
+function dirty(){S.saved=false}
+function addItem(k,src){
+ if(S.stack.some(x=>x.k===k))return;
+ if(!info(k))return;
+ S.stack.push(newItem(k));S.open=S.stack.length-1;dirty();track('add',info(k).name+(src?' · '+src:''));render();
+ setTimeout(()=>{const r=document.querySelector('#sk .row.open');if(r)r.scrollIntoView({behavior:'smooth',block:'nearest'})},40);
+}
+const owner=()=>S.who==='other'&&S.name?S.name.trim():'';
+const title=()=>owner()?owner()+(/s$/i.test(owner())?"'":"'s")+' protocol':'My protocol';
+
+/* WHO */
+function renderWho(){
+ $('#whobox').innerHTML=`<div class="q" style="margin:0"><div class="ql">Who is this protocol for?</div>
+ <div class="row2"><div class="chips">${chipBtn('who','me','Myself',S.who==='me')}${chipBtn('who','other','Someone else',S.who==='other')}</div>
+ ${S.who==='other'?`<input type="text" id="wname" value="${esc(S.name)}" placeholder="Their name or initials" maxlength="40" aria-label="Their name">`:''}</div></div>
+ <p class="priv"><b>Nothing is saved by Bare Signals.</b> The protocol stays in this browser and in its link. Bookmark or send the link and it opens exactly this again.${S.who==='other'?' The name only lives in the link and on the printout.':''}</p>`;
+}
+
+/* STEP 1 */
+let showAllRoles=false,sugAll=false;
+const ROLE_TOP=['Repair','Pain','Inflammation','Gut','Sleep','Fat','Appetite','Muscle','Skin','Hair','Cognition','Mood','Energy','Endocrine','Immunity','Aging','Desire','Bone'];
+function renderRoles(){
+ const list=showAllRoles?PAL.map(p=>p[0]):ROLE_TOP.concat(S.roles.filter(r=>ROLE_TOP.indexOf(r)<0));
+ $('#roles').innerHTML=list.filter(k=>P[k]).map(k=>`<button type="button" class="rl" data-r="${k}" aria-pressed="${S.roles.indexOf(k)>=0}"><i style="background:${col(k)}"></i>${esc(P[k][1])}</button>`).join('')+`<button type="button" class="rolesmore" id="rmore">${showAllRoles?'Fewer':'All '+PAL.length}</button>`;
+}
+function suggestions(){
+ const q=(S.q||'').toLowerCase().trim();const toks=q.split(/[^a-z0-9+]+/).filter(t=>t.length>2);
+ if(!S.roles.length&&!toks.length)return null;
+ const out=[];
+ D.forEach(d=>{if(isRef(d))return;let sc=0,why=[];
+  S.roles.forEach(r=>{if(d.primary===r){sc+=4;why.push(r)}else if((d.roles||[]).indexOf(r)>=0){sc+=2;why.push(r)}else if((d.reported||[]).indexOf(r)>=0){sc+=1;why.push(r)}});
+  if(toks.length){const kw=String(d.kw||'').toLowerCase(),txl=((d.reports||'')+' '+Object.values(d.desc||{}).join(' ')+' '+(d.worked||'')).toLowerCase();
+   toks.forEach(t=>{const st=t.replace(/s$/,'');if(kw.indexOf(st)>=0)sc+=3;else if(txl.indexOf(st)>=0)sc+=1})}
+  if(sc>0)out.push({d,sc,why,pop:d.rank||99});});
+ out.sort((a,b)=>b.sc-a.sc||a.pop-b.pop);return out.slice(0,12);
+}
+function inStack(slug){return S.stack.some(x=>x.k===slug||(x.k.indexOf('blend:')===0&&BLENDS[x.k.slice(6)].parts.indexOf(slug)>=0))}
+function renderSug(){
+ const r=suggestions(),el=$('#sug');
+ if(r===null){el.innerHTML='';$('#sugmore').innerHTML='';return}
+ if(!r.length){el.innerHTML='<li><p class="ph" style="margin:0;width:100%">Nothing in the Library matches those words yet. Try a tag above.</p></li>';$('#sugmore').innerHTML='';return}
+ const show=sugAll?r:r.slice(0,5);
+ el.innerHTML=show.map(o=>{const d=o.d,w=o.why[0]||d.primary,line=(d.desc&&d.desc[w])||(d.desc&&d.desc[d.primary])||'';const inS=inStack(d.slug);
+  return `<li><div class="t"><b>${esc(d.name)}</b><span class="w">${esc(line)} · <a href="/library/#/p/${d.slug}" target="_blank" rel="noopener">Library</a></span><span class="sw">${(d.roles||[]).map(k=>`<i style="background:${col(k)}" title="${esc(P[k]?P[k][1]:k)}"></i>`).join('')}</span></div><button type="button" class="add" data-add="${d.slug}" ${inS?'disabled':''}>${inS?'In stack':'+ Add'}</button></li>`}).join('');
+ $('#sugmore').innerHTML=`<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px">${r.length>5?`<button type="button" class="sm" id="sgm">${sugAll?'Show 5':'Show '+(r.length-5)+' more'}</button>`:'<span></span>'}<span class="sm" style="text-decoration:none;cursor:default">Reported use, not a prescription</span></div>`;
+}
+
+/* STEP 2 */
+function finderItems(q){
+ q=q.toLowerCase().replace(/[\s\-–]/g,'');if(!q)return [];const all=[];
+ Object.keys(BLENDS).forEach(b=>all.push({k:'blend:'+b,name:BLENDS[b].name,tag:'blend',hay:(BLENDS[b].name+b+BLENDS[b].use).toLowerCase().replace(/[\s\-–]/g,''),pop:0}));
+ D.forEach(d=>all.push({k:d.slug,name:d.name,tag:isRef(d)?'reference':(d.primary&&P[d.primary]?P[d.primary][1]:''),hay:(d.name+d.slug+(d.alias||'')).toLowerCase().replace(/[\s\-–]/g,''),pop:isRef(d)?200:(d.rank||99)}));
+ return all.filter(x=>x.hay.indexOf(q)>=0).sort((a,b)=>(a.hay.indexOf(q)===0?0:1)-(b.hay.indexOf(q)===0?0:1)||a.pop-b.pop).slice(0,9);
+}
+let fIdx=-1;
+function renderFinder(){
+ const q=$('#fq').value.trim(),it=finderItems(q),fl=$('#fl');
+ if(!q){fl.hidden=true;$('#fq').setAttribute('aria-expanded','false');return}
+ fl.hidden=false;$('#fq').setAttribute('aria-expanded','true');
+ fl.innerHTML=it.length?it.map((x,i)=>{const inS=S.stack.some(s=>s.k===x.k);return `<li role="option" data-k="${x.k}" class="${i===fIdx?'hl':''}"><b>${esc(x.name)}</b><small>${inS?'in stack':esc(x.tag)}</small></li>`}).join(''):'<li><small>No match. The Library has '+D.length+' compounds.</small></li>';
+}
+function renderQuick(){
+ $('#quick').innerHTML=S.stack.length?'':`<span>Try</span><button type="button" class="qb" data-ex="1">BPC + TB + KLOW + Tesa + Ipa</button><button type="button" class="qb" data-ex="2">Wolverine</button><button type="button" class="qb" data-ex="3">Sema + Cagri</button><button type="button" class="qb" data-ex="5">SS-31 + NAD+ + Selank</button>`;
+}
+function calcHref(i){const ds=i.dose||{},m=String(ds.dose||'').match(/^~?\s*([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(mcg|mg)\b(?!\/)/i);return '/draw/?n='+encodeURIComponent(i.name)+(m?'&dose='+m[1]+'&u='+m[2].toLowerCase():'');}
+function summary(x,ix){
+ const parts=[x.dose];const dt=drawText(x);if(dt)parts.push(dt);parts.push(FL[x.f]);
+ if(x.time)parts.push(TL[x.time]);if(x.food&&x.food!=='any')parts.push(FDL[x.food].toLowerCase());
+ if(x.f!=='PRN')parts.push((x.go?'ongoing':x.w+(x.w===1?' wk':' wks'))+' from '+fmt(itemStart(ix)));
+ return parts.filter(Boolean).join(' · ');
+}
+function chipBtn(attr,val,label,on,extra){return `<button type="button" class="cp" data-${attr}="${esc(val)}" aria-pressed="${on}">${esc(label)}${extra||''}</button>`}
+function editorHTML(x,ix){
+ const i=info(x.k),ds=i.dose||{};
+ const chips=i.chips;const isChip=chips.indexOf(x.dose)>=0;const other=x.dose&&!isChip;
+ const unitM=(chips[0]||'').match(/\s(\S+)$/);const unit=unitM?unitM[1]:(i.blend?'units':'mg');
+ const doseQ=`<div class="q${x.dose?'':' need'}"><div class="ql">Dose ${ds.dose?`<span class="rep">reported ${esc(ds.dose)}</span>`:i.blend?'<span class="rep">per injection, as you draw it</span>':''}</div>
+  <div class="chips">${chips.map(c=>chipBtn('dose',c,c,x.dose===c)).join('')}<button type="button" class="cp oth" data-dose-other aria-pressed="${!!other}">${chips.length?'Other':'Type it'}</button></div>
+  <div class="oin" ${other||!chips.length||S.otherOpen===ix?'':'hidden'} id="oin${ix}"><input type="text" inputmode="decimal" id="do${ix}" value="${other?esc(x.dose):''}" placeholder="${i.blend?'e.g. 10 units':'e.g. 300 '+esc(unit)}" maxlength="40" aria-label="Dose"></div></div>`;
+ const rec=i.f;
+ const fq=`<div class="q"><div class="ql">How often ${ds.freq?`<span class="rep">reported ${esc(ds.freq)}</span>`:''}</div><div class="chips">${FREQ.filter(f=>f[0]!=='D3'||x.f==='D3'||rec==='D3').map(f=>chipBtn('f',f[0],f[1],x.f===f[0],f[0]===rec?'<span class="rec">rec.</span>':'')).join('')}</div></div>`;
+ const tq=`<div class="q"><div class="ql">When in the day</div><div class="chips">${TIMES.map(t=>chipBtn('time',t[0],t[1],x.time===t[0])).join('')}</div></div>`;
+ const foq=`<div class="q"><div class="ql">Food <span class="rep">not researched yet for most compounds, so pick what's actually done and keep it the same</span></div><div class="chips">${FOODS.map(t=>chipBtn('food',t[0],t[1],x.food===t[0])).join('')}</div></div>`;
+ const wq=x.f==='PRN'?'':`<div class="q"><div class="ql">How long ${ds.cycle?`<span class="rep">reported ${esc(ds.cycle)}</span>`:''}</div><div class="chips">${i.wopts.filter((v,j,a)=>a.indexOf(v)===j).map(w=>chipBtn('w',w,w+(w===1?' week':' weeks'),!x.go&&x.w===w)).join('')}${chipBtn('go',1,'Ongoing',x.go)}<button type="button" class="cp oth" data-w-other aria-pressed="${!x.go&&i.wopts.indexOf(x.w)<0}">Other</button></div>
+  <div class="oin" ${!x.go&&i.wopts.indexOf(x.w)<0||S.wOther===ix?'':'hidden'}><input type="text" inputmode="numeric" id="wo${ix}" value="${!x.go&&i.wopts.indexOf(x.w)<0?x.w:''}" placeholder="weeks" maxlength="2" aria-label="Weeks" style="max-width:110px"></div></div>`;
+ const sq=x.f==='PRN'?'':`<div class="q"><div class="ql">First day <span class="rep">leave empty to follow the protocol start${S.stg?' (one new at a time)':''}</span></div><div class="oin" style="margin:0"><input type="date" id="sd${ix}" value="${esc(x.start)}" aria-label="First day"></div></div>`;
+ const dt=drawText(x),pv=perVial(x);
+ const mq=x.route==='oral'?'':`<div class="q"><div class="ql">How it's mixed <span class="rep">optional, gives ${x.route==='nasal'?'sprays':'syringe units'} and when each vial runs out</span></div>
+  <div class="chips" style="margin-bottom:6px">${ROUTES.map(r=>chipBtn('route',r[0],r[1],x.route===r[0])).join('')}</div>
+  <div class="mix"><input type="text" inputmode="decimal" id="vm${ix}" value="${esc(x.vmg)}" placeholder="mg" aria-label="Peptide in the ${x.route==='nasal'?'bottle':'vial'}, mg"> mg in <input type="text" inputmode="decimal" id="vl${ix}" value="${esc(x.vml)}" placeholder="ml" aria-label="Total liquid, ml"> ml ${x.route==='nasal'?'total liquid (BAC + saline)':'BAC water'}</div>
+  ${dt?`<div class="calc">= ${esc(dt)} per dose${pv?' · '+pv+' doses per '+(x.route==='nasal'?'bottle':'vial'):''}${x.route==='nasal'?' · at 0.1 ml per spray':''}</div>`:''}</div>`;
+ const nq=`<div class="q note2"><div class="ql">Note <span class="rep">optional, shows on the printout</span></div><input type="text" id="nt${ix}" value="${esc(x.note)}" maxlength="80" placeholder="e.g. half the vial kept in BAC for the restock"></div>`;
+ const links=i.blend?i.comps.map(c=>`<a href="/library/#/p/${c.slug}" target="_blank" rel="noopener">${esc(c.name)} →</a>`).join(''):
+  `<a href="/library/#/p/${i.k}" target="_blank" rel="noopener">Library →</a><a href="/dosage/#${i.k}" target="_blank" rel="noopener">Dosage →</a>${BW.comps[i.k]?`<a href="/blood/#/c/${i.k}" target="_blank" rel="noopener">Blood work →</a>`:''}<a href="${calcHref(i)}" target="_blank" rel="noopener">Calculator →</a>`;
+ return `<div class="edit">${i.blend?`<p class="cmp">Contains ${i.comps.map(c=>esc(c.name)).join(' · ')}</p>`:''}${doseQ}${fq}${tq}${foq}${wq}${sq}${mq}${nq}
+  <div class="edf"><div class="lk">${links}</div><div class="edb"><button type="button" class="btn rm" data-rm>Remove</button><button type="button" class="btn ${x.dose?'o':''}" data-done ${x.dose?'':'disabled'}>${x.dose?'Done':'Set a dose first'}</button></div></div></div>`;
+}
+function renderStack(){
+ const n=S.stack.length;
+ if(!n){$('#sk').innerHTML='';$('#when').innerHTML='';$('#savebar').innerHTML='';return}
+ $('#sk').innerHTML=S.stack.map((x,ix)=>{const i=info(x.k),open=S.open===ix;
+  const band=i.roles.map(k=>`<i style="background:${col(k)}"></i>`).join('');
+  const sum=x.set?`<span class="sum">${esc(summary(x,ix))}</span>`:`<span class="sum need"><i class="cur"></i>${x.dose?'Tap Done to confirm':'Set the dose'}</span>`;
+  return `<li class="row${open?' open':''}${x.set?' done':''}" data-i="${ix}"><div class="band">${band}</div><div class="main"><div class="rh" data-tog><span class="ord" title="Start order">${ix+1}</span><span class="nm"><b>${esc(i.name)}</b>${sum}</span>${open?'':`<button type="button" class="ed${x.set?'':' go'}" data-tog>${x.set?'Edit':'Set'}</button>`}</div>${open?editorHTML(x,ix):''}</div></li>`}).join('');
+ const fresh=S.stack.filter(x=>!x.start&&x.f!=='PRN').length;
+ $('#when').innerHTML=`<div class="when"><div class="q"><div class="ql">Protocol start <span class="rep">day one, puts every dose on a date</span></div><input type="date" id="sdate" value="${esc(S.start||TODAY)}" aria-label="Protocol start"></div>${fresh>1?`<label class="tog" style="padding-bottom:9px"><input type="checkbox" id="stg" ${S.stg?'checked':''}> Start new ones one at a time</label>`:''}</div>`;
+ const unset=S.stack.filter(x=>!x.set).length;
+ const cls=unset?'':(S.saved?'done':'ready');
+ $('#savebar').innerHTML=`<button type="button" class="save ${cls}" id="saveBtn" ${unset?'disabled':''}>${unset?`Set ${unset} more to save`:S.saved?'Saved ✓ · See the protocol ↓':`<i class="cur"></i>Save stack →`}</button><small>${unset?'Anything with an orange blinker still needs a dose.':S.saved?'Tap any row to edit. Changes show up after you save again.':'Save to build the protocol.'}</small>`;
+}
+
+/* schedule model */
+const base=()=>okDate(S.start)?S.start:TODAY;
+function starts(){let k=0;return S.stack.map(x=>{if(x.start||x.f==='PRN')return 0;const s=S.stg?k*S.gap:0;k++;return s})}
+function itemStart(ix){const x=S.stack[ix];if(!x)return base();if(x.start)return x.start;return addD(base(),starts()[ix]*7)}
+function itemEnd(ix){const x=S.stack[ix];return x.go?null:addD(itemStart(ix),x.w*7)}
+function perDay(f,d){switch(f){case 'D':return 1;case 'D2':return 2;case 'D3':return 3;case 'EOD':return d%2===0?1:0;case '5on2':return d%7<5?1:0;case '5on5':return d%10<5?1:0;case '3W':return [0,2,4].indexOf(d%7)>=0?1:0;case '2W':return (d%7===0||d%7===3)?1:0;case '1W':return d%7===0?1:0;default:return 0}}
+let CACHE=null;
+function model(){
+ if(CACHE)return CACHE;
+ const b=base();let horizon=addD(b,371);
+ const items=S.stack.map((x,ix)=>{const i=info(x.k),s=itemStart(ix),e=itemEnd(ix),pv=perVial(x),days={};let total=0,vial=1,inV=0;
+  if(x.f!=='PRN'){let day=s;const stop=e||horizon;let g=0;
+   while(day<stop&&g<400){const n=perDay(x.f,diff(s,day));if(n){const rec={n,v:vial};if(pv){if(inV===0&&vial>1)rec.vs=1;inV+=n;if(inV>=pv){rec.ve=vial;vial++;inV=0}}days[day]=rec;total+=n}day=addD(day,1);g++}}
+  return {x,i,ix,s,e,days,total,pv,vials:pv?Math.ceil(total/pv):0,c:col(i.roles[0])}});
+ const fin=items.filter(o=>o.e).map(o=>diff(b,o.e));const maxW=Math.max(8,...fin.map(v=>Math.ceil(v/7)),0);
+ const cps=[0];const first=Math.min(6,Math.max(3,Math.round(maxW/2)));if(maxW>first+1)cps.push(first);for(let w=first+12;w<maxW-2;w+=12)cps.push(w);if(maxW>1)cps.push(maxW);
+ const blood={};blood[addD(b,-3)]='Baseline';cps.slice(1).forEach(w=>{blood[addD(b,w*7)]='Recheck'});
+ const vb=items.reduce((a,o)=>o.x.f!=='PRN'&&o.s<a?o.s:a,b);
+ CACHE={b,vb,items,blood,cps,maxW};return CACHE;
+}
+function cellDose(o,day,small){const r=o.days[day];if(!r)return '';const x=o.x,dt=drawText(x),lt=dark(o.c)?' lt':'';
+ const sub=[r.n>1?r.n+'×':'',dt.replace(' units','u').replace(' sprays',' sp').replace(' spray',' sp'),x.time?x.time.toLowerCase():'',x.food&&x.food!=='any'?FDL[x.food].toLowerCase():''].filter(Boolean).join(' · ');
+ return `<span class="dz${lt}" style="--bar:${o.c}"><b>${esc(x.dose)}</b>${small?'':`<small>${esc(sub)}</small>`}</span>${r.ve?`<span class="vm">vial ${r.ve} ends</span>`:''}${r.vs?`<span class="vm">vial ${r.v} starts</span>`:''}`}
+
+/* views */
+function weekView(m){
+ const ws=S.wk&&okDate(S.wk)?S.wk:monday(m.b<=TODAY&&TODAY<addD(m.b,7*m.maxW)?TODAY:m.b);S.wk=ws;
+ const days=[0,1,2,3,4,5,6].map(i=>addD(ws,i));
+ let h=`<div class="tlctl" style="margin:0 0 6px"><div class="cnav"><button type="button" data-nav="-7" aria-label="Previous week">‹</button><span>${fmt(days[0])} to ${fmt(days[6])}</span><button type="button" data-nav="7" aria-label="Next week">›</button></div></div>`;
+ h+=`<div class="wkd" style="grid-template-columns:minmax(118px,1.5fr) repeat(7,minmax(74px,1fr))"><div class="h">&nbsp;</div>`+days.map((d,i)=>`<div class="h${d===TODAY?' td':''}">${DAYS[i]}<b>${D0(d).getDate()}</b></div>`).join('');
+ m.items.forEach(o=>{const x=o.x;h+=`<div class="n">${esc(o.i.name)}<small>${esc([x.dose,drawText(x),x.time?TL[x.time]:'',x.food&&x.food!=='any'?FDL[x.food]:''].filter(Boolean).join(' · '))}</small></div>`;
+  h+=days.map(d=>`<div>${x.f==='PRN'?'<small style="color:var(--ink-soft)">as needed</small>':cellDose(o,d)}</div>`).join('')});
+ const bl=days.map(d=>m.blood[d]?`<span class="bwm">${m.blood[d]==='Baseline'?'Blood · baseline':'Blood · recheck'}</span>`:'');
+ if(bl.some(Boolean))h+=`<div class="n" style="color:var(--redt)">Blood work</div>`+bl.map(v=>`<div>${v}</div>`).join('');
+ return h+'</div>';
+}
+function monthView(m){
+ const mo=S.mo&&/^\d{4}-\d\d$/.test(S.mo)?S.mo:(m.b<=TODAY&&TODAY<addD(m.b,7*m.maxW)?TODAY:m.b).slice(0,7);S.mo=mo;
+ const first=mo+'-01',start=monday(first),dm=D0(first);dm.setMonth(dm.getMonth()+1);const nextM=iso(dm);
+ const label=D0(first).toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+ let h=`<div class="tlctl" style="margin:0 0 6px"><div class="cnav"><button type="button" data-mnav="-1" aria-label="Previous month">‹</button><span>${label}</span><button type="button" data-mnav="1" aria-label="Next month">›</button></div></div><div class="mc">`+DAYS.map(d=>`<div class="h">${d}</div>`).join('');
+ let day=start;
+ for(let k=0;k<42;k++){if(k===35&&day>=nextM)break;const inM=day.slice(0,7)===mo;
+  h+=`<div class="${inM?'':'x'}${day===TODAY?' td':''}"><span class="d">${D0(day).getDate()}</span>`+m.items.map(o=>{const r=o.days[day];if(!r)return '';return `<div class="mi" style="--bar:${o.c}" title="${esc(o.i.name+' '+o.x.dose)}"><i></i><span>${esc(o.i.name)} ${esc(o.x.dose)}${r.n>1?' ×'+r.n:''}${o.x.time?' · '+o.x.time.toLowerCase():''}</span></div>${r.ve?`<span class="vm">${esc(o.i.name.split(' ')[0])} vial ${r.ve} ends</span>`:''}`}).join('')+(m.blood[day]?`<span class="bwm">${m.blood[day]==='Baseline'?'Blood base':'Blood'}</span>`:'')+'</div>';
+  day=addD(day,1)}
+ return h+'</div>';
+}
+function spanView(m,unit){
+ const per=unit==='y'?28:7,cols=unit==='y'?13:Math.max(13,Math.min(26,Math.ceil((diff(m.vb,m.b)+7*m.maxW)/7)+1)),B0=m.vb;
+ let h=`<div class="tlw"><div class="tl" style="grid-template-columns:minmax(120px,160px) repeat(${cols},minmax(${unit==='y'?'44px':'40px'},1fr))"><div class="n hd">${unit==='y'?'4 weeks':'Week'}</div>`;
+ for(let c=0;c<cols;c++){const d=addD(B0,c*per);h+=`<div class="h">${unit==='y'?'M'+(c+1):'W'+(c+1)}<em>${fmt(d)}</em></div>`}
+ m.items.forEach(o=>{const x=o.x;h+=`<div class="n" title="${esc(o.i.name)}">${esc(o.i.name)}<small>${esc([x.dose,FL[x.f]].join(' · '))}</small></div>`;
+  for(let c=0;c<cols;c++){const a=addD(B0,c*per),b=addD(B0,(c+1)*per);let n=0,ve=[];
+   Object.keys(o.days).forEach(d=>{if(d>=a&&d<b){n+=o.days[d].n;if(o.days[d].ve)ve.push(o.days[d].ve)}});
+   const cls=['c'];if(x.f==='PRN')cls.push('prn');else if(n){cls.push('on');if(o.s>=a&&o.s<b)cls.push('st');if(o.e&&o.e>a&&o.e<=b)cls.push('en');if(!o.e&&c===cols-1)cls.push('go')}
+   if(TODAY>=a&&TODAY<b)cls.push('nowc');
+   h+=`<div class="${cls.join(' ')}" style="--bar:${o.c}">${n?`<span class="cn${dark(o.c)?' lt':''}">${n}</span>`:''}${ve.length?`<span class="ve" title="vial ${ve.join(', ')} ends">▲${ve.length>1?ve.length:''}</span>`:''}</div>`}});
+ h+=`<div class="n blr">Blood work</div>`;
+ for(let c=0;c<cols;c++){const a=addD(B0,c*per-3),b=addD(B0,(c+1)*per-3);const hit=Object.keys(m.blood).filter(d=>d>=a&&d<b);h+=`<div class="c bl">${hit.length?`<span>${m.blood[hit[0]]==='Baseline'?'B':'✓'}</span>`:''}</div>`}
+ return h+'</div></div>';
+}
+
+/* checks and blood */
+function expanded(){const m={};S.stack.forEach(x=>{const i=info(x.k);if(!i)return;i.parts.forEach(p=>{(m[p]=m[p]||[]).push(i.blend?i.name:'on its own')})});return m}
+function checks(){
+ const out=[],ex=expanded(),ids=Object.keys(ex),n=S.stack.length;
+ if(!n)return out;
+ ids.forEach(id=>{if(ex[id].length>1){const d=BY[id];out.push(['r','Double',`<b>${esc(d.name)}</b> ×${ex[id].length}: ${ex[id].map(esc).join(' and ')}`,'The same compound, taken again each time it sits inside a blend. Drop the single one or the blend, or lower one dose.'])}});
+ AXES.forEach(a=>{const hit=a.ids.filter(id=>ex[id]);if(hit.length>1)out.push(['a','Same lever',`<b>${hit.map(id=>esc(BY[id].name)).join(' + ')}</b> · ${esc(a.name)}`,a.note])});
+ const tc={};ids.forEach(id=>{const c=BW.comps[id];if(!c)return;(c.before||[]).forEach(t=>{(tc[t[0]]=tc[t[0]]||[]).push(BY[id].name)})});
+ const sh=Object.keys(tc).filter(t=>tc[t].length>1&&BW.tests[t]);
+ if(sh.length)out.push(['b','Shared tests',`<b>${sh.length} tests</b> are moved by 2+ compounds`,'If one of these moves, a baseline before day one is how you tell which compound moved it.']);
+ ids.forEach(id=>{const d=BY[id],ds=d.dose||{};
+  if(isRef(d))out.push(['a','Reference',`<b>${esc(d.name)}</b> is a medical reference entry`,'Listed in the Library for comparison, not something people self-run.']);
+  else if(!ds.dose)out.push(['a','Thin data',`<b>${esc(d.name)}</b>: no reported dose on file`,'The Library has no reported human dose for it yet.']);
+  else if(/est\.|\/kg|research only/i.test((ds.dose||'')+' '+(ds.cycle||'')))out.push(['a','Thin data',`<b>${esc(d.name)}</b>: animal or estimated dosing`,'Reported as '+ds.dose+'. Human numbers are not established.'])});
+ const m=model();const st=m.items.filter(o=>o.x.f!=='PRN').map(o=>o.s);const same=st.length>=3&&st.every(s=>s===st[0]);
+ if(same)out.push(['a','All at once',`<b>${st.length} compounds</b> start the same day`,'If something changes, good or bad, there is no way to tell which one did it. Turn on "Start new ones one at a time" or give each its own first day.']);
+ if(!out.some(f=>f[0]==='r'||f[0]==='a'))out.unshift(['g','Clear','No doubles, no same-lever overlaps, nothing thin on file','']);
+ return out;
+}
+function bloodModel(){
+ const ex=expanded(),ids=Object.keys(ex).filter(id=>BW.comps[id]);const tests={},watch=[];
+ ids.forEach(id=>{const c=BW.comps[id];(c.before||[]).forEach(t=>{const o=tests[t[0]]=tests[t[0]]||{who:[],dir:{},note:'',danger:0};o.who.push(BY[id].name);if(t[1])o.dir[t[1]]=1;if(t[2])o.danger=1;if(t[5]&&!o.note)o.note=t[5]});watch.push({name:BY[id].name,freq:c.freq||'',flags:c.flags||'',id})});
+ const list=Object.keys(tests).filter(t=>BW.tests[t]).sort((a,b)=>tests[b].who.length-tests[a].who.length||tests[b].danger-tests[a].danger||BW.tests[a][0].localeCompare(BW.tests[b][0]));
+ return {ids,tests,list,watch};
+}
+function glanceHTML(m){
+ return `<div class="glw"><table class="gl"><tr><th>Compound</th><th>Dose</th><th>Draw</th><th>How often</th><th>When</th><th>Dates</th><th>Supply</th></tr>${m.items.map(o=>{const x=o.x;
+  return `<tr><td><i class="sq" style="background:${o.c}"></i><b>${esc(o.i.name)}</b>${x.note?`<br><small style="color:var(--ink-soft)">${esc(x.note)}</small>`:''}</td><td>${esc(x.dose)}</td><td class="u">${esc(drawText(x)||'')}${mixText(x)?`<br><small style="color:var(--ink-soft);font-weight:400">${esc(mixText(x))}</small>`:''}</td><td>${esc(FL[x.f])}</td><td>${esc([x.time?TL[x.time]:'',x.food&&x.food!=='any'?FDL[x.food]:''].filter(Boolean).join(', ')||'·')}</td><td>${x.f==='PRN'?'as needed':esc(fmt(o.s)+' → '+(o.e?fmt(addD(o.e,-1)):'ongoing'))}</td><td>${o.pv?`${o.total} doses · ${o.vials} ${o.x.route==='nasal'?'bottle':'vial'}${o.vials===1?'':'s'}`:(o.total&&o.e?o.total+' doses':'')}</td></tr>`}).join('')}</table></div>`;
+}
+function bloodHTML(b){
+ if(!b.list.length)return '<p class="ph">No blood work entries on file for this stack yet.</p>';
+ return `<div class="bgrid">${b.list.map(t=>{const T=BW.tests[t],o=b.tests[t];return `<div class="bc${o.who.length>1?' many':''}"><i style="background:${T[1]}"></i><span><b>${esc(T[0])}${Object.keys(o.dir).join('')}</b><small>${esc(o.who.join(' · '))}</small></span></div>`}).join('')}</div>
+  <p class="more"><a href="/blood/#/plan/${b.ids.join(',')}" target="_blank" rel="noopener">Open this stack in Blood Work →</a></p>`;
+}
+function watchHTML(b,m){
+ const ds=Object.keys(m.blood).sort();
+ return `<p class="subh">Test dates</p><ul class="dates">${ds.map(d=>`<li><b>${fmt(d,{weekday:'short',day:'numeric',month:'short'})}</b><span>${m.blood[d]==='Baseline'?'Baseline, before day one':'Recheck'}</span></li>`).join('')}</ul>
+ <p class="subh">Watch for</p><ul class="watch">${b.watch.filter(w=>w.freq||w.flags).map(w=>`<li><b>${esc(w.name)}</b>${w.freq?` <span class="fq">· recheck ${esc(w.freq.charAt(0).toLowerCase()+w.freq.slice(1))}</span>`:''}${w.flags?`<br>${esc(w.flags)}`:''}</li>`).join('')||'<li>Nothing specific on file.</li>'}</ul>`;
+}
+
+/* STEP 3 */
+function renderRes(){
+ const el=$('#res'),n=S.stack.length,unset=S.stack.filter(x=>!x.set).length;
+ const locked=!n||(!S.saved&&!S.ever);
+ document.getElementById('st3').classList.toggle('lock',locked);document.getElementById('st4').classList.toggle('lock',locked);
+ $('#wrap').classList.toggle('wide',!locked);
+ $('#h3t').textContent=owner()?title():'The protocol';
+ if(locked){el.innerHTML=`<div class="locked">${n?(unset?`Set the ${unset} dose${unset>1?'s':''} with an orange blinker, then <b>Save stack</b>.`:'Tap <b>Save stack</b> above to build the protocol.'):'Add the stack in step two first.'}</div>`;return}
+ const m=model(),c=checks(),b=bloodModel();
+ const stale=S.saved?'':`<div class="stale"><b><i class="cur"></i>The stack changed</b><button type="button" class="btn o" id="reSave" ${unset?'disabled':''}>${unset?'Set doses first':'Save to update'}</button></div>`;
+ const V=[['w','Week'],['q','3 months'],['m','Calendar'],['y','Year']];
+ const view=S.view==='w'?weekView(m):S.view==='m'?monthView(m):spanView(m,S.view==='y'?'y':'q');
+ const key=S.view==='q'||S.view==='y'?`<div class="key"><span><i></i>number = doses in that ${S.view==='y'?'4 weeks':'week'}</span><span style="color:var(--accent)">▲ a vial runs out</span><span><i class="bk">B</i>baseline blood</span><span><i class="bk">✓</i>recheck</span><span>orange outline · now</span></div>`:'';
+ el.innerHTML=stale+`<div class="r4 res${S.saved?'':' dim'}">
+ <div class="reshead"><div><h3>${esc(title())}</h3><small>Starts ${fmtL(m.b)}${m.vb<m.b?' · earliest compound '+fmtL(m.vb):''} · ${S.stack.length} compound${S.stack.length>1?'s':''}</small></div><button type="button" class="btn" id="editS">Edit stack ↑</button></div>
+ <section class="box"><div class="bh"><h2>At a glance</h2></div><div class="bb">${glanceHTML(m)}</div></section>
+ <section class="box tlb"><div class="bh"><h2>Calendar</h2></div><div class="bb"><div class="tlctl"><div class="seg" id="vw">${V.map(v=>`<button type="button" data-v="${v[0]}" aria-pressed="${S.view===v[0]}">${v[1]}</button>`).join('')}</div>${S.stg&&S.stack.filter(x=>!x.start&&x.f!=='PRN').length>1?`<select id="gap" aria-label="Weeks between starts"><option value="1"${S.gap===1?' selected':''}>new one every week</option><option value="2"${S.gap===2?' selected':''}>every 2 weeks</option></select>`:''}</div>${view}${key}</div></section>
+ <div class="pair">
+  <section class="box"><div class="bh"><h2>Blood work</h2><span class="side">${b.list.length} tests · before day one</span></div><div class="bb">${bloodHTML(b)}</div></section>
+  <section class="box"><div class="bh"><h2>Recheck and watch for</h2></div><div class="bb">${watchHTML(b,m)}</div></section>
+ </div>
+ <section class="box ck"><div class="bh"><h2>Overlap check</h2><span class="side">${c.filter(x=>x[0]==='r'||x[0]==='a').length} to look at</span></div><div class="bb"><p class="hint">Flags doubles, two compounds pulling the same lever, tests shared by several compounds, and anything with thin dose data.</p><ul class="flags">${c.map(f=>`<li class="fg ${f[0]}"><span class="k">${f[1]}</span>${f[3]?`<details><summary>${f[2]}</summary><p>${esc(f[3])}</p></details>`:`<span>${f[2]}</span>`}</li>`).join('')}</ul></div></section>
+ </div>`;
+}
+
+/* STEP 4 · text and print */
+const GUIDE={inj:['Wash hands. Wipe the vial top and the skin with alcohol and let it dry.','Under the skin: belly at least 5 cm from the navel, front of the thigh, or back of the upper arm.','Pinch, needle in at 45 to 90 degrees, push slowly. New needle every time; rotate sites.','Separate syringes for separate compounds unless it is a factory blend.'],
+ nasal:['Prime a new bottle until it sprays a full mist. Blow the nose first.','Head slightly forward, one spray per nostril, breathe in gently. No nose blowing for about 10 minutes.','Diluted sprays carry less preservative: keep cold, throw out if cloudy or smelly.'],
+ oral:['Take at the same time each day, the same way with or without food.'],
+ store:['Fridge, 2 to 8 °C, away from light. Never freeze a mixed vial.','Mixed vials: about 28 days is the common rule of thumb.']};
+function firstSentences(s,n){const p=String(s||'').match(/[^.!?]+[.!?]+/g)||[];return p.slice(0,n).join(' ').trim()||String(s||'')}
+function textOut(){
+ const m=model();
+ const L=[title().toUpperCase()+' · Bare Signals · made '+fmtL(TODAY),'A formula sheet from reported use. Not medical advice.','Start: '+fmtL(m.b)];
+ const deal=S.roles.map(r=>P[r][1]).concat(S.q?['"'+S.q+'"']:[]);if(deal.length)L.push('Dealing with: '+deal.join(', '));
+ L.push('','STACK');
+ m.items.forEach((o,i)=>{const x=o.x;
+  L.push((i+1)+'. '+o.i.name+(o.i.blend?' ('+o.i.comps.map(c=>c.name).join(' + ')+')':''));
+  L.push('   '+[x.dose,drawText(x),FL[x.f],x.time?TL[x.time]:'',x.food&&x.food!=='any'?FDL[x.food]:''].filter(Boolean).join(' · '));
+  if(x.f!=='PRN')L.push('   '+fmtL(o.s)+' to '+(o.e?fmtL(addD(o.e,-1)):'ongoing')+(o.pv?' · '+o.total+' doses, '+o.vials+(x.route==='nasal'?' bottles':' vials'):''));
+  if(mixText(x))L.push('   Mixed: '+mixText(x));if(x.note)L.push('   Note: '+x.note)});
+ const b=bloodModel();if(b.list.length){L.push('','BLOOD WORK',b.list.map(t=>BW.tests[t][0]).join(', '));Object.keys(m.blood).sort().forEach(d=>L.push('- '+fmtL(d)+': '+m.blood[d]));
+  L.push('','WATCH FOR');b.watch.forEach(w=>w.flags&&L.push('- '+w.name+': '+w.flags))}
+ const c=checks();if(c.length){L.push('','OVERLAP CHECK');c.forEach(f=>L.push('- '+f[1]+': '+f[2].replace(/<[^>]+>/g,'')))}
+ L.push('','Reopen: '+link());
+ return L.join('\n');
+}
+function sheetHTML(){
+ const m=model(),b=bloodModel(),c=checks();
+ const routes={};m.items.forEach(o=>routes[o.x.route||'inj']=1);
+ const deal=S.roles.map(r=>P[r][1]).concat(S.q?['"'+S.q+'"']:[]);
+ const per=m.items.map(o=>{if(o.i.blend)return `<div class="cmpx"><h4>${esc(o.i.name)}</h4><p>${esc(o.i.use)}. Contains ${esc(o.i.comps.map(c=>c.name).join(', '))}.</p></div>`;
+  const d=o.i.d,bw=BW.comps[o.x.k]||{},sup=(BW.sup&&BW.sup[o.x.k])||bw.sup||[];
+  return `<div class="cmpx"><h4>${esc(d.name)}${d.alias?` <small style="font-weight:400">(${esc(String(d.alias).split(',').slice(0,2).join(','))})</small>`:''}</h4>
+  <p><b>How it works:</b> ${esc(firstSentences(d.deep||d.found,2))}</p>
+  ${d.rp&&d.rp.length?`<p><b>What people report:</b> ${esc(d.rp.join('; '))}.</p>`:d.reports?`<p><b>What people report:</b> ${esc(d.reports)}</p>`:''}
+  ${d.dn&&d.dn.length?`<p><b>What hasn't held up:</b> ${esc(d.dn.join('; '))}.</p>`:''}
+  ${bw.flags?`<p><b>Watch for:</b> ${esc(bw.flags)}</p>`:''}
+  ${sup.length?`<p><b>Supplements people pair with it:</b> ${esc(sup.map(s=>s[1]).join(', '))}</p>`:''}
+  <p><b>Reported dose:</b> ${esc([d.dose&&d.dose.dose,d.dose&&d.dose.freq,d.dose&&d.dose.cycle].filter(Boolean).join(', '))}</p></div>`}).join('');
+ const g=[];if(routes.inj)g.push(['Injecting',GUIDE.inj]);if(routes.nasal)g.push(['Nasal spray',GUIDE.nasal]);if(routes.oral)g.push(['Oral',GUIDE.oral]);g.push(['Storage',GUIDE.store]);
+ const sv=S.view,sm=S.mo;
+ S.view='q';const q=spanView(m,'q');S.mo=m.b.slice(0,7);const mo=monthView(m).replace(/<div class="tlctl"[\s\S]*?<\/div><\/div>/,'');S.view=sv;S.mo=sm;
+ const mname=D0(m.b).toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+ return `<p class="lab">Bare Signals · Protocol · made ${fmtL(TODAY)}</p><h1>${esc(title())}</h1><p style="margin:0;color:#6B76A8;font-size:11px">Starts ${fmtL(m.b)}. A formula sheet from reported use, not medical advice.${deal.length?' Dealing with: '+esc(deal.join(', '))+'.':''}</p>
+ <h3>At a glance</h3>${glanceHTML(m)}
+ <h3>Next 3 months</h3>${q}
+ <h3>${esc(mname)}</h3>${mo}
+ <h3 class="pb">What each one is</h3>${per}
+ <h3>Blood work</h3><p style="margin:0 0 4px">${b.list.map(t=>esc(BW.tests[t][0])).join(' · ')||'No entries on file.'}</p>
+ <p style="margin:0">${Object.keys(m.blood).sort().map(d=>'<b>'+fmtL(d)+'</b> '+m.blood[d]).join(' · ')}</p>
+ ${b.watch.some(w=>w.flags)?`<h3>Watch for</h3><ul>${b.watch.filter(w=>w.flags).map(w=>`<li><b>${esc(w.name)}</b>${w.freq?' (recheck '+esc(w.freq.toLowerCase())+')':''}: ${esc(w.flags)}</li>`).join('')}</ul>`:''}
+ <h3>How to take it</h3>${g.map(x=>`<p style="margin:4px 0 2px"><b>${x[0]}</b></p><ul>${x[1].map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`).join('')}
+ <h3>Overlap check</h3><ul>${c.map(f=>`<li><b>${f[1]}:</b> ${f[2]}${f[3]?' · '+esc(f[3]):''}</li>`).join('')}</ul>
+ <h3 class="pb">Daily log</h3><table><tr><th style="width:13%">Date</th><th>Taken (time, site)</th><th style="width:11%">Energy 1–10</th><th style="width:11%">Sleep</th><th>Notes</th></tr>${'<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>'.repeat(14)}</table>
+ <p class="ft">Reopen: ${esc(link())}</p>`;
+}
+function link(){return location.origin+'/protocol/#s='+encode()}
+function toast(t){$('#toast').textContent=t;clearTimeout(toast.t);toast.t=setTimeout(()=>$('#toast').textContent='',2800)}
+async function copy(t){try{await navigator.clipboard.writeText(t);return true}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}a.remove();return ok}}
+function importText(t){
+ t=String(t||'').trim();if(!t)return false;const mm=t.match(/#s=([A-Za-z0-9_\-]+)/)||t.match(/Reopen code:\s*([A-Za-z0-9_\-]+)/i);
+ if(mm&&decode(mm[1]))return true;
+ if(/^[A-Za-z0-9_\-]{12,}$/.test(t)&&decode(t))return true;
+ const low=t.toLowerCase(),found=[];
+ Object.keys(BLENDS).forEach(b=>{if(new RegExp('\\b'+b.replace('-','[ -]?')+'\\b').test(low))found.push('blend:'+b)});
+ D.slice().sort((a,b)=>b.name.length-a.name.length).forEach(d=>{const n=d.name.toLowerCase();if(low.indexOf(n)>=0&&found.indexOf(d.slug)<0)found.push(d.slug)});
+ if(!found.length)return false;
+ S.stack=found.map(newItem);S.open=0;S.saved=false;S.ever=false;return true;
+}
+function ready(){return S.stack.length&&S.stack.every(x=>x.set)}
+function shareStack(){if(!S.shr)return;track('stack',S.stack.map(x=>info(x.k).name+' '+x.dose+' '+x.f).join(' | ').slice(0,118))}
+function gate(){if(!S.stack.length){toast('Add the stack first');return false}if(!ready()){toast('Set every dose first');document.getElementById('st2').scrollIntoView({behavior:'smooth'});return false}if(!S.saved){S.saved=true;S.ever=true;render()}return true}
+
+function render(){CACHE=null;renderWho();renderRoles();renderSug();renderQuick();renderStack();renderRes();$('#txt').textContent=ready()?textOut():'';$('#shr').checked=!!S.shr;save()}
+
+/* events */
+let armT=0;
+document.addEventListener('click',e=>{
+ const t=e.target;
+ if(t.id==='over'){if(!t.classList.contains('arm')){t.classList.add('arm');t.textContent='Tap again to clear everything';clearTimeout(armT);armT=setTimeout(()=>{t.classList.remove('arm');t.textContent='Start over'},3000);return}
+  clearTimeout(armT);t.classList.remove('arm');t.textContent='Start over';S=blank();try{localStorage.removeItem(KEY)}catch(x){}$('#dq').value='';track('start-over','');render();window.scrollTo({top:0,behavior:'smooth'});toast('Cleared');return}
+ const wb=t.closest('[data-who]');if(wb){S.who=wb.dataset.who;render();if(S.who==='other'){const i=$('#wname');if(i)i.focus()}return}
+ const r=t.closest('[data-r]');if(r){const k=r.dataset.r,i=S.roles.indexOf(k);i>=0?S.roles.splice(i,1):S.roles.push(k);track('role',k);renderRoles();renderSug();save();return}
+ if(t.id==='rmore'){showAllRoles=!showAllRoles;renderRoles();return}
+ if(t.id==='sgm'){sugAll=!sugAll;renderSug();return}
+ const ad=t.closest('[data-add]');if(ad){addItem(ad.dataset.add,'suggested');renderSug();return}
+ const ex=t.closest('[data-ex]');if(ex){EX[ex.dataset.ex].forEach(k=>{if(!S.stack.some(x=>x.k===k))S.stack.push(newItem(k))});S.open=0;dirty();track('example',ex.textContent);render();return}
+ if(t.id==='saveBtn'||t.id==='reSave'){if(!ready())return;S.saved=true;S.ever=true;S.open=-1;track('save',String(S.stack.length));shareStack();render();setTimeout(()=>document.getElementById('st3').scrollIntoView({behavior:'smooth'}),50);return}
+ if(t.id==='editS'){S.open=-1;renderStack();document.getElementById('st2').scrollIntoView({behavior:'smooth'});return}
+ const vb=t.closest('#vw [data-v]');if(vb){S.view=vb.dataset.v;renderRes();save();return}
+ const nv=t.closest('[data-nav]');if(nv){S.wk=addD(S.wk,+nv.dataset.nav);renderRes();return}
+ const mn=t.closest('[data-mnav]');if(mn){const d=D0(S.mo+'-01');d.setMonth(d.getMonth()+(+mn.dataset.mnav));S.mo=iso(d).slice(0,7);renderRes();return}
+ const row=t.closest('#sk .row');if(!row)return;const ix=+row.dataset.i,x=S.stack[ix];
+ if(t.closest('[data-rm]')){track('remove',info(x.k).name);S.stack.splice(ix,1);S.open=-1;dirty();render();return}
+ if(t.closest('[data-done]')){if(!x.dose)return;x.set=true;const nx=S.stack.findIndex(y=>!y.set);S.open=nx;dirty();render();return}
+ if(t.closest('[data-tog]')&&!t.closest('.edit')){S.open=S.open===ix?-1:ix;S.otherOpen=-1;S.wOther=-1;renderStack();return}
+ const cp=t.closest('.cp');if(!cp)return;
+ if(cp.dataset.dose!==undefined){x.dose=cp.dataset.dose;S.otherOpen=-1}
+ else if(cp.hasAttribute('data-dose-other')){S.otherOpen=ix;renderStack();const inp=document.getElementById('do'+ix);if(inp){document.getElementById('oin'+ix).hidden=false;inp.focus()}return}
+ else if(cp.dataset.f){x.f=cp.dataset.f}
+ else if(cp.dataset.time){x.time=x.time===cp.dataset.time?'':cp.dataset.time}
+ else if(cp.dataset.food){x.food=x.food===cp.dataset.food?'':cp.dataset.food}
+ else if(cp.dataset.route){x.route=cp.dataset.route}
+ else if(cp.dataset.w){x.w=+cp.dataset.w;x.go=false;S.wOther=-1}
+ else if(cp.dataset.go){x.go=true}
+ else if(cp.hasAttribute('data-w-other')){S.wOther=ix;x.go=false;renderStack();const inp=document.getElementById('wo'+ix);if(inp)inp.focus();return}
+ dirty();render();
+});
+const EX={1:['bpc-157','tb-500-frag-17-23','blend:klow','tesamorelin','ipamorelin'],2:['blend:wolverine'],3:['semaglutide','cagrilintide'],5:['ss-31','nadplus','selank']};
+document.addEventListener('input',e=>{const t=e.target;
+ if(t.id==='dq'){S.q=t.value.slice(0,80);clearTimeout(window._dq);window._dq=setTimeout(()=>{renderSug();save();if(S.q.length>2)track('search',S.q)},180);return}
+ if(t.id==='fq'){fIdx=-1;renderFinder();return}
+ if(t.id==='wname'){S.name=t.value.slice(0,40);$('#h3t').textContent=owner()?title():'The protocol';save();return}
+ const m=t.id.match(/^do(\d+)$/);if(m){const x=S.stack[+m[1]];x.dose=t.value.slice(0,40).trim();if(!x.dose)x.set=false;dirty();
+  const row=t.closest('.row');const db=row.querySelector('[data-done]');db.disabled=!x.dose;db.textContent=x.dose?'Done':'Set a dose first';db.classList.toggle('o',!!x.dose);row.querySelector('.q').classList.toggle('need',!x.dose);
+  row.querySelectorAll('[data-dose]').forEach(b=>b.setAttribute('aria-pressed','false'));save();return}
+ const w=t.id.match(/^wo(\d+)$/);if(w){const v=parseInt(t.value,10);if(v>0){S.stack[+w[1]].w=Math.min(52,v);S.stack[+w[1]].go=false;dirty();save()}return}
+ const mx=t.id.match(/^(vm|vl|nt)(\d+)$/);if(mx){const x=S.stack[+mx[2]];const k={vm:'vmg',vl:'vml',nt:'note'}[mx[1]];x[k]=t.value.slice(0,mx[1]==='nt'?80:8).trim();dirty();save();return}
+});
+document.addEventListener('change',e=>{const t=e.target;
+ if(t.id==='sdate'){S.start=t.value||'';S.wk='';S.mo='';dirty();render();return}
+ if(t.id==='stg'){S.stg=t.checked;dirty();track('stagger',S.stg?'on':'off');render();return}
+ if(t.id==='gap'){S.gap=+t.value;render();return}
+ if(t.id==='shr'){S.shr=t.checked;save();if(S.shr&&S.saved)shareStack();return}
+ if(t.id==='wname'){render();return}
+ const s=t.id.match(/^sd(\d+)$/);if(s){S.stack[+s[1]].start=t.value||'';dirty();render();return}
+ const m=t.id.match(/^(do|wo|vm|vl|nt)(\d+)$/);if(m){render()}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){const m=(e.target.id||'').match(/^do(\d+)$/);if(m){const x=S.stack[+m[1]];if(x.dose){x.set=true;S.open=S.stack.findIndex(y=>!y.set);dirty();render()}e.preventDefault()}}});
+$('#fq').addEventListener('keydown',e=>{const items=[...document.querySelectorAll('#fl li[data-k]')];
+ if(e.key==='ArrowDown'){fIdx=Math.min(items.length-1,fIdx+1);renderFinder();e.preventDefault()}
+ else if(e.key==='ArrowUp'){fIdx=Math.max(0,fIdx-1);renderFinder();e.preventDefault()}
+ else if(e.key==='Enter'){const it=items[fIdx<0?0:fIdx];if(it){addItem(it.dataset.k);$('#fq').value='';fIdx=-1;renderFinder()}e.preventDefault()}
+ else if(e.key==='Escape'){$('#fq').value='';renderFinder()}});
+$('#fl').addEventListener('mousedown',e=>{const li=e.target.closest('li[data-k]');if(li){e.preventDefault();addItem(li.dataset.k);$('#fq').value='';renderFinder()}});
+$('#fq').addEventListener('blur',()=>setTimeout(()=>{$('#fl').hidden=true},150));
+$('#aPdf').addEventListener('click',()=>{if(!gate())return;CACHE=null;$('#sheet').innerHTML=sheetHTML();track('pdf',String(S.stack.length));shareStack();setTimeout(()=>window.print(),60)});
+$('#aTxt').addEventListener('click',async()=>{if(!gate())return;track('copy-text',String(S.stack.length));toast(await copy(textOut())?'Copied. Paste it into your AI':'Copy blocked. Use Preview the text below')});
+$('#aLink').addEventListener('click',async()=>{if(!gate())return;track('copy-link',String(S.stack.length));toast(await copy(link())?'Link copied':'Copy blocked')});
+$('#impGo').addEventListener('click',()=>{const ok=importText($('#impT').value);track('import',ok?'ok':'fail');if(ok){$('#impT').value='';$('#imp').open=false;$('#dq').value=S.q;render();toast(S.saved?'Opened':'Opened. Set the doses');document.getElementById(S.saved?'st3':'st2').scrollIntoView({behavior:'smooth'})}else toast('Could not read that. Paste the whole text, the code, or names')});
+window.addEventListener('beforeprint',()=>{CACHE=null;$('#sheet').innerHTML=sheetHTML()});
+window.BS_PROTO={model:()=>{CACHE=null;return model()},encode,decode,state:()=>S,sheetHTML,textOut};
+
+/* boot: a link replaces everything; otherwise the last protocol in this browser */
+load();
+const hm=location.hash.match(/[#&]s=([A-Za-z0-9_\-]+)/);
+if(hm&&decode(hm[1])){track('open-link',String(S.stack.length));history.replaceState(null,'',location.pathname);setTimeout(()=>{toast('Opened '+(owner()?title():'the protocol'));if(S.saved)document.getElementById('st3').scrollIntoView()},200)}
+$('#dq').value=S.q||'';
+render();
+})();
+</script>
+</body>
+</html>

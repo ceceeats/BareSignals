@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v11 (23 Oct 2026) at /protocol/v11/
+- 3 months and Year views start at the earliest compound's first day, so a compound started before the protocol start (e.g. KPV from 1 Oct when the protocol starts 20 Oct) shows its history. 3 months widens up to 26 weeks to fit the whole run. Header notes the earliest compound date. v10 kept.
+
 ## v10 (23 Oct 2026) at /protocol/v10/
 - Start over button (tap twice) clears the whole page. Opening a link now replaces everything, so old stacks from earlier clicks no longer mix in.
 - Who is this for: Myself or Someone else plus a name; the protocol and printout title become "Name's protocol". Privacy line: nothing is saved by Bare Signals, the link is the save.
