@@ -5,6 +5,9 @@
 ## v5 (23 Oct 2026)
 The page’s own A A A buttons are gone; text size follows the site bar (nav v10): phone three steps, laptop five, laptop starts at 1.15. v4 kept at /made/v4/.
 
+## v6 (24 Oct 2026) at /made/v6/
+- Title changed from "From recipe to vial" to "How peptides are made" (page and browser tab). Content unchanged from v5.
+
 ## v5 (24 Oct 2026) at /made/v5/
 From Cece's v4 review; v4 kept.
 - Snap animation shows the inner N and C being used up into a peptide bond, water out, free ends labelled. New "Bricks, bonds, ends" box: brick = amino acid (residue), every link is a peptide bond, one free N and C end, rings and bridges (MT-2, oxytocin), why chains are written N left to C right and why bead pictures look flipped.
