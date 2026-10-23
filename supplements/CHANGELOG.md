@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v17 (23 Oct 2026) at /supplements/v17/
+- Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. Built on v16, which stays at /supplements/v16/.
+
 ## v16 (23 Oct 2026) at /supplements/v16/
 - Category word (e.g. Foundations) is now as big as the supplement name, on the open card and as the group headings, each with its group colour.
 - Colour group chips next to the search: 12 groups in their own colours (new SUPP_CATC in data.js), tap several to combine; works together with the text search, Try keywords, roles and For you.

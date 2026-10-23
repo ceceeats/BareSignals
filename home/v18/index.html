@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Bare Signals · Home v18</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Home v18 (23 Oct 2026): hooked to nav v10: laptop has five text steps (0.88 to 1.45, default the large A 1.15, saved as bs-text-w), phone keeps three; Home applies the number nav sends (detail.k) to the screens and reads the laptop setting at load. v17 kept at /home/v17/. Home v17 (23 Oct 2026): hooked to nav v9: the text size control (small A / A / large A) moved from the page header to the site bar's wordmark line (the bar stays on screen); Home listens to bs-text and scales the screens as before; the big BARE SIGNALS title is now for screen readers only since the bar already carries the wordmark, the tagline leads; page height reads the bar's reserved space (--bsnav-h0); the gallery highlight in the bar still follows the slide and, when the phone bar is compact, scrolls into view; text size clicks no longer stop the gallery. v16 kept at /home/v16/. Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:inherit;text-decoration:none}
+.mono{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-left,0px)) 10px;display:flex;flex-direction:column;height:calc(100svh - var(--bsnav-h0,126px));min-height:560px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+.hd h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 5px;letter-spacing:.04em}
+.hd .tag{margin:0;font-size:15px;line-height:1.3;font-style:italic}
+.hd .ev{color:var(--accent);white-space:nowrap}
+.hd .ev b{font:700 15px "Bricolage Grotesque",system-ui,sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;display:inline-block}
+.hd .ev b.tick{animation:tick .16s ease-out}
+.hd .ev i{font-style:normal;display:inline-block;animation:up 1.6s ease-in-out infinite}
+@keyframes tick{from{transform:translateY(-35%);opacity:.35}to{transform:none;opacity:1}}
+@keyframes up{0%,100%{transform:translateY(1px);opacity:.5}50%{transform:translateY(-2px);opacity:1}}
+
+/* gallery */
+.gal{position:relative;flex:1;min-height:0;margin-top:12px;overflow:hidden;touch-action:pan-y}
+.sl{position:absolute;top:0;bottom:7px;left:50%;width:min(420px,calc(100vw - 32px));margin-left:calc(min(420px,calc(100vw - 32px)) / -2);transition:transform .55s cubic-bezier(.3,.8,.3,1),opacity .55s;will-change:transform}
+.sl .scr{height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media (min-width:1000px){.sl{width:560px!important;margin-left:-280px!important}.cap,.prog,.foot{max-width:560px!important}}
+.sl .scr .body{flex:1;min-height:0;overflow:hidden;position:relative}
+.sl .scr .body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:linear-gradient(rgba(255,255,244,0),var(--chip));pointer-events:none}
+.sl:not(.on){opacity:.42;pointer-events:none}
+.sl:not(.on) .scr{filter:saturate(.6)}
+.cap{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;max-width:420px;width:100%;margin:12px auto 0}
+.cap b{font:700 22px/1.05 "Bricolage Grotesque",system-ui,sans-serif}
+.cap p{margin:0;grid-column:1;color:var(--soft);font-size:14px;line-height:1.3}
+.cap a{grid-row:1/3;grid-column:2;font:700 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:12px 12px;border:1.5px solid #DB6830;background:#DB6830;color:#fff;white-space:nowrap}
+.cap a:hover{background:#B9531F;border-color:#B9531F}
+.prog{display:flex;gap:4px;max-width:420px;width:100%;margin:10px auto 0}
+.prog button{flex:1;height:5px;border:0;padding:0;background:var(--rule);cursor:pointer;position:relative;overflow:hidden}
+.prog button i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.prog button.done i{transform:scaleX(1)}
+.prog button.run i{animation:fill var(--dur,5s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.foot{max-width:420px;width:100%;margin:8px auto 0;display:flex;justify-content:space-between;color:var(--soft)}
+.foot button{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;cursor:pointer;padding:4px 0}
+.bsn .bsl a.hl:not([aria-current]){background:#F9D9C2!important;color:#3E4A80!important;box-shadow:inset 0 -3px 0 #DB6830;transition:background .3s}
+
+/* slide pieces */
+.rtg{display:inline-block;font:500 9.5px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;vertical-align:middle;text-decoration:none}
+.scr{border:1.5px solid var(--ink);background:var(--chip);box-shadow:5px 5px 0 var(--rule);padding:10px;position:relative;overflow:hidden}
+.scr .bar{display:flex;justify-content:space-between;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:-2px 0 8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--paper);min-height:96px;text-decoration:none;color:var(--ink)}
+.tile .in{padding:6px 6px 4px;flex:1;display:flex;flex-direction:column}
+.tile b{font:700 15px/1.02 "Bricolage Grotesque",system-ui,sans-serif;display:flex;justify-content:space-between;gap:4px}
+.tile b small{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--accent);text-align:right}
+.tile .in>span{margin-top:auto;padding-top:6px;font-size:10.5px;line-height:1.25;color:var(--soft)}
+.tile .sb{display:flex;height:10px;flex:none;border-top:1.5px solid var(--ink)}
+.tile .sb u{display:block}
+.tile:hover{background:#FFFDE8}
+.fade .tiles{opacity:.3;filter:saturate(.5);pointer-events:none}
+.mcard{position:relative;margin:-62px 8px 0;border:1.5px solid var(--ink);background:var(--chip);box-shadow:4px 4px 0 var(--rule);padding:10px}
+.mcard h4{font:700 24px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0}
+.mcard .sub{font:500 9.5px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);margin:4px 0 8px;letter-spacing:.04em}
+.cells{display:grid;grid-template-columns:1.4fr 1fr;border:1.5px solid var(--ink);margin-bottom:8px}
+.cells div{padding:4px 6px;border-right:1.5px solid var(--ink)}
+.cells div:last-child{border-right:0}
+.cells small,.dg small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:500}
+.cells b{font-size:13.5px}
+.rl{list-style:none;margin:0;padding:0}
+.rl li{display:flex;flex-wrap:wrap;gap:3px 7px;align-items:center;padding:2px 0;font-size:12.5px;line-height:1.3}
+.macts{display:flex;gap:6px;margin-top:9px}
+.macts a,.macts button{flex:1;text-align:center;font:500 10.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:8px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;text-decoration:none}
+.macts button{background:#F9D9C2}
+.fp .ban{display:grid;grid-template-columns:1fr 22px;gap:10px;border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:4px}
+.fp .ban b{font:700 26px/1 "Bricolage Grotesque",system-ui,sans-serif;display:block}
+.fp .ban em{font-style:normal;font-size:13px;display:block;margin:4px 0 6px}
+.fp .ban .vb{display:flex;flex-direction:column;border:1.5px solid var(--ink)}
+.fp .ban .vb u{display:block}
+.fp h5{font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:9px 0 5px}
+.fp ol{list-style:none;margin:0 0 0 4px;padding:0;border-left:1.5px solid var(--ink)}
+.fp ol li{padding:0 0 6px 11px;position:relative;font-size:12.5px;line-height:1.3}
+.fp ol li::before{content:"";position:absolute;left:-5px;top:3px;width:8px;height:8px;background:var(--accent)}
+.fp ol li b{display:block;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}
+.fp .ns{font-size:12.5px;line-height:1.42;margin:0}
+.fp .wd2{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);margin-top:9px;font-size:12px;line-height:1.3}
+.fp .wd2 div{padding:6px}
+.fp .wd2 div+div{border-left:1.5px solid var(--ink)}
+.fp .wd2 small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.dcol{display:grid;gap:8px}
+.dcard{border:1.5px solid var(--ink);background:var(--paper)}
+.dcard .dh{padding:8px 8px 6px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dcard .dh b{font:700 18px/1 "Bricolage Grotesque",system-ui,sans-serif}
+.dcard .dh span{font-size:11.5px;color:var(--soft);text-align:right}
+.dcard .hero{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 8px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.dcard .hero b{font:700 19px/1.05 "Bricolage Grotesque",system-ui,sans-serif;text-align:right}
+.dg{display:grid;grid-template-columns:1fr 1fr}
+.dg div{padding:5px 8px;font-size:12.5px;font-weight:600}
+.dg div:nth-child(odd){border-right:1.5px solid var(--ink)}
+.dg div:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+.dcard .sb{display:flex;height:7px;border-top:1.5px solid var(--ink)}
+.dcard .sb u{display:block}
+.calc .row{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);margin-bottom:10px;background:var(--paper)}
+.calc .row div{padding:5px 7px;border-right:1.5px solid var(--ink)}
+.calc .row div:last-child{border-right:0}
+.calc .row small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.calc .row b{font-size:15px}
+.calc svg{display:block;width:100%;height:auto}
+.calc .math{font:500 11px/1.55 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);margin:8px 0 0}
+.calc .math b{color:var(--accent);font-weight:500}
+.mcard.solo{margin:0;box-shadow:none}
+.fprow{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 2px}
+.cardstripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:0 0 8px}
+.cardstripe u{display:block}
+.wd3{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);margin-top:8px;font-size:12px;line-height:1.3}
+.wd3 div{padding:6px}.wd3 div+div{border-left:1.5px solid var(--ink)}
+.wd3 small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.bw h4,.sp h4,.pr h4,.am h4,.md h4{font:700 22px/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 2px}
+.hw{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.hw li{display:grid;grid-template-columns:18px 1fr;gap:7px;font-size:12.5px;line-height:1.3}
+.hw li>b{display:grid;place-items:center;width:18px;height:18px;border:1.5px solid var(--ink);font:500 10px "JetBrains Mono",monospace}
+.hw small,.mkl small,.sl2 small,.tiers small{display:block;font:500 9px "JetBrains Mono",monospace;color:var(--soft);letter-spacing:.03em;margin-top:1px}
+.nst{margin:0;font-size:12.5px;line-height:1.42}
+.tiers ol{list-style:none;margin:0 8px 8px;padding:0;display:grid;gap:3px}
+.tiers li{display:grid;grid-template-columns:16px 1fr;gap:6px;font-size:12px;line-height:1.3}
+.tiers .tn{display:grid;place-items:center;width:16px;height:16px;background:var(--ink);color:#FFFFE2;font:500 9px "JetBrains Mono",monospace}
+.mkl{border:1.5px solid var(--ink)}
+.mkl>div{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:6px;align-items:center;padding:5px 7px;font-size:12px;line-height:1.25}
+.mkl>div+div{border-top:1px solid var(--rule)}
+.mkl .sy{font-size:12px;text-align:center}
+.mkl .nm{text-align:right;font:500 9.5px/1.4 "JetBrains Mono",monospace;white-space:nowrap}
+.mkl .nm i{font-style:normal;color:var(--soft);margin:0 3px 0 6px;text-transform:uppercase;font-size:8px;letter-spacing:.08em}
+.mkl .nm i.bd{color:#C0392B}
+.sl2 li{display:block!important;padding:6px 2px!important}
+.st1{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.st1 b{font-weight:600;font-size:13.5px}
+.st1 .dz{margin-left:auto;font:500 10px "JetBrains Mono",monospace;color:var(--soft)}
+.sl2 small{font:400 12px/1.35 Hanken Grotesk,system-ui,sans-serif!important;letter-spacing:0!important;margin-top:3px}
+.rtg{display:inline-block;font:500 9px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.lets{display:flex;flex-wrap:wrap;gap:6px}
+.lets span{display:inline-flex;align-items:center;gap:3px;font:500 11px "JetBrains Mono",monospace;color:var(--soft)}
+.lets span b{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--ink);border-radius:50%;font:600 11px "JetBrains Mono",monospace}
+.tchips .cnt{border:0!important;background:none!important;padding:0 6px 0 0!important;font:500 10px "JetBrains Mono",monospace;color:var(--soft)}
+.labl{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);font-size:11px;line-height:1.25;color:var(--soft)}
+.labl div{padding:6px 7px}
+.labl div+div{border-left:1.5px solid var(--ink)}
+.labl b{display:block;font:700 20px/1 Bricolage Grotesque,system-ui,sans-serif;color:var(--ink);margin-bottom:2px}
+.coa{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);font-size:12px;line-height:1.3}
+.coa div{padding:6px 7px;border-bottom:1px solid var(--rule)}
+.coa div:nth-child(odd){border-right:1.5px solid var(--ink)}
+.coa b{display:block;font:500 8.5px "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#4F7A2B;margin-bottom:1px}
+.ctab{width:100%;border-collapse:collapse;font:500 11.5px "JetBrains Mono",monospace;background:var(--paper)}
+.ctab th{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:left;padding:4px 6px;border:1px solid var(--rule)}
+.ctab td{padding:5px 6px;border:1px solid var(--rule)}
+.ctab tr.on td{background:#F9D9C2;font-weight:600}
+.inv.ok li::before{content:"✓ ";color:#4F7A2B}
+.lbl{display:block;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:10px 0 5px}
+.tchips{display:flex;flex-wrap:wrap;gap:5px}
+.tchips span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);background:var(--paper);padding:5px 7px;font-size:12.5px}
+.tchips span u{display:block;width:9px;height:9px;border:1px solid var(--ink)}
+.kv{display:grid;grid-template-columns:auto 1fr;border:1.5px solid var(--ink);font-size:12.5px;line-height:1.35}
+.kv b{font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);padding:7px 8px;border-right:1.5px solid var(--ink)}
+.kv span{padding:6px 8px}
+.kv b:not(:nth-last-child(2)),.kv span:not(:last-child){border-bottom:1.5px solid var(--ink)}
+.slist{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.slist li{display:flex;align-items:center;gap:9px;padding:7px 2px;border-bottom:1.5px solid var(--rule);font-size:14px}
+.slist li u{display:block;width:12px;height:12px;border:1.5px solid var(--ink);flex:none}
+.am .string{margin:6px -6px 0}
+.am .string svg{display:block;max-width:100%;height:auto;overflow:visible}
+.am .bb{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 1.2s ease-out}
+.am .bd{animation:pop .5s ease-out both;animation-delay:calc(var(--i)*30ms)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0}to{opacity:1}}
+.am .note{font-size:13.5px;line-height:1.42;margin:8px 0 0}
+.am .deep{display:inline-block;margin-top:9px;font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);font-size:12.5px;line-height:1.3}
+.two div{padding:7px 8px}.two div+div{border-left:1.5px solid var(--ink)}
+.two b{display:block;font:700 15px/1.1 "Bricolage Grotesque",system-ui,sans-serif;margin-bottom:3px}
+.pur{display:grid;gap:5px}
+.pur div{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center;font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace}
+.pur i{display:block;height:13px;border:1.5px solid var(--ink);background:linear-gradient(90deg,#AACC96 var(--p),#FF5050 var(--p))}
+.inv{margin:6px 0 0;padding:0;list-style:none;font-size:12.5px;line-height:1.45}
+.inv li::before{content:"✕ ";color:#C0392B}
+.wk{display:grid;grid-template-columns:96px repeat(8,1fr);gap:2px;align-items:center;font-size:12px}
+.wk .h{font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);text-align:center}
+.wk .n{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:4px}
+.wk i{display:block;height:16px;border:1px solid var(--ink)}
+.acts2{display:flex;gap:6px;margin-top:10px}
+.acts2 span{flex:1;text-align:center;font:500 9.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:8px 4px;border:1.5px solid var(--ink);background:var(--act);color:#8A3A10}
+
+/* v16: Type Rule v1 across every screen */
+.rtg{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace!important;letter-spacing:.06em;padding:3px 5px!important;border:1px solid var(--ink)!important}
+.lbl,.fp h5{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:9px 0 5px}
+.bw h4,.sp h4,.pr h4,.am h4,.md h4{font:700 16px/1.1 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 3px}
+.tchips{gap:4px}
+.tchips span{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink);gap:4px}
+.tchips span u{width:7px;height:7px}
+.tchips .cnt{font:500 9px "JetBrains Mono",monospace!important;text-transform:none}
+.rl li,.hw li,.nst,.fp ol li,.fp .ns,.inv,.am .note{font-size:12px;line-height:1.35}
+.hw small,.mkl small,.tiers small{font-size:9px}
+.mkl>div{font-size:11.5px;padding:4px 7px}
+.mkl .nm{font-size:9px}
+.kv{font-size:11.5px;line-height:1.3}.kv span{padding:5px 7px}.kv b{padding:6px 7px}
+.labl{font-size:10.5px}.labl b{font:600 12.5px/1.2 "Hanken Grotesk",system-ui,sans-serif}
+.coa{font-size:11.5px}.coa div{padding:5px 7px}
+.slist li{font-size:12px;padding:5px 2px}
+.st1 b{font-size:12px}.st1 .dz{font-size:9px}
+.sl2 small{font-size:11.5px!important}
+.lets{gap:5px}.lets span{font-size:9px}.lets span b{width:18px;height:18px;font-size:9.5px}
+.two{font-size:11.5px}.two b{font-size:13.5px}
+.pur div{font-size:9px}
+.calc .row b{font:600 12.5px "Hanken Grotesk",system-ui,sans-serif}
+.calc .math{font-size:10px}
+.ctab{font-size:10.5px}
+.wk{font-size:11px}
+.acts2 span{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;padding:6px 4px;background:#FFEFE3;color:#DB6830;border-color:#DB6830}
+.am .deep{font-size:8.5px}
+.cap p{font-size:13.5px}
+/* v16: Dosage, compact cards two per row */
+.dcol{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.dcol .dcard .dh{display:block;padding:5px 6px 4px}
+.dcol .dcard .dh b{display:block;font:700 13.5px/1.05 "Bricolage Grotesque",system-ui,sans-serif;overflow-wrap:anywhere}
+.dcol .dcard .dh span{display:block;text-align:left;font:500 8px/1.2 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.dcol .dcard .hero{display:block;padding:4px 6px}
+.dcol .dcard .hero small,.dcol .dg small{display:block;font:500 7.5px/1.2 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.dcol .dcard .hero b{display:block;text-align:left;font:600 12.5px/1.2 "Hanken Grotesk",system-ui,sans-serif}
+.dcol .dg div{padding:3px 6px;font-size:10.5px;font-weight:500;line-height:1.25;min-width:0;overflow-wrap:anywhere}
+.dcol .dcard .sb{height:5px}
+.dcol .tiers{grid-column:1/-1;border:1.5px solid var(--ink);background:var(--paper)}
+.dcol .tiers .lbl{margin:6px 7px 4px}
+.dcol .tiers ol{margin:0 7px 6px;gap:2px}
+.dcol .tiers li{font-size:11.5px}
+/* v16: Library screen, a moving mini Library */
+.body.lbx{display:flex;flex-direction:column}
+.lbx .q{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--paper);padding:6px 8px;font:500 11.5px/1.2 "Hanken Grotesk",system-ui,sans-serif;color:var(--soft);flex:none}
+.lbx .q em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s}
+.lbx .q em.sw{opacity:0}
+.lbx .q span{font:500 9px "JetBrains Mono",monospace;color:var(--accent);flex:none}
+.lbx .seg{display:flex;border:1.5px solid var(--ink);margin-top:6px;overflow:hidden;white-space:nowrap;flex:none;align-self:flex-start;max-width:100%}
+.lbx .seg span{font:500 11px/1 "Hanken Grotesk",system-ui,sans-serif;padding:5px 7px;border-right:1.5px solid var(--ink);flex:none}
+.lbx .seg span:last-child{border-right:0}
+.lbx .seg span.on{background:var(--ink);color:var(--paper)}
+.lbx .rb{display:flex;align-items:center;gap:7px;border:1.5px solid var(--ink);background:var(--paper);padding:5px 7px;margin-top:6px;flex:none}
+.lbx .rb b{font:500 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+.lbx .rb .sws{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.lbx .rb .sws i{display:block;width:7px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.18)}
+.lbx .rb em{font:500 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--soft)}
+.lbx .vp{position:relative;flex:1;min-height:0;overflow:hidden;margin-top:8px}
+.lbx .gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px 6px;padding:0 4px 0 0;will-change:transform}
+.lbx .tl{position:relative;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);min-width:0;min-height:96px;overflow:hidden}
+.lbx .in{padding:6px 6px 5px 7px;display:flex;flex-direction:column;flex:1;min-width:0;position:relative}
+.lbx .nm{font:700 13.5px/1.05 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.01em;overflow-wrap:normal}
+.lbx .aa{float:right;margin:0 -1px 1px 3px;font:500 8px/1.05 "JetBrains Mono",monospace;color:var(--accent);text-align:right}
+.lbx .aa b{display:block;font-size:10px;font-weight:600}
+.lbx .cls{font:500 7.5px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.lbx .fda{display:inline-block;font:600 7px "JetBrains Mono",monospace;background:#E00000;color:#fff;padding:1px 3px;margin-top:3px;letter-spacing:.04em;align-self:flex-start}
+.lbx .ds{margin-top:auto;padding-top:5px}
+.lbx .ds .d{font:600 9.5px/1.2 "Hanken Grotesk",system-ui,sans-serif;display:block}
+.lbx .ds .f{font:500 7.5px/1.3 "JetBrains Mono",monospace;color:var(--soft);display:block;margin-top:1px}
+.lbx .tags{display:flex;flex-wrap:wrap;gap:2px;margin-top:4px}
+.lbx .t{font:500 5.6px/1 "JetBrains Mono",monospace;letter-spacing:.03em;text-transform:uppercase;padding:2px 2px 1.5px;border:.8px solid var(--ink);white-space:nowrap}
+.lbx .band{display:flex;height:9px;border-top:1.5px solid var(--ink);flex:none}
+.lbx .band u{display:block}
+/* v16: text size control (bs-text), scales the screens only */
+.hd h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0;padding:0}
+.hd .tag{font-style:italic}
+.sl .scr .body>*{zoom:var(--tz,1)}
+@media (min-width:900px){
+  main{padding-top:20px}
+  .hd h1{font-size:26px}.hd .tag{font-size:17px}
+  .sl{width:440px;margin-left:-220px}
+  .gal{flex:0 1 600px}
+  .cap,.prog,.foot{max-width:440px}
+}
+@media (max-height:700px){.hd .tag{font-size:13.5px}.cap b{font-size:19px}.cap p{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.sl{transition:none}.prog button.run i{animation:none}.hd .ev i,.am .bb,.am .bd{animation:none}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body><main>
+<header class="hd">
+  <div><h1>BARE SIGNALS</h1><p class="tag">I bare my notes for those who can benefit from it.</p></div>
+  <div class="hdr"><span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span></div>
+</header>
+<div class="gal" id="gal" aria-roledescription="carousel" aria-label="Every page, one at a time"></div>
+<div class="cap" id="cap"></div>
+<div class="prog" id="prog"></div>
+<div class="foot mono"><button type="button" id="prev" aria-label="Previous page">← Back</button><button type="button" id="pause">Pause</button><button type="button" id="next" aria-label="Next page">Next →</button></div>
+</main>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T=function(n,t){try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var first=function(s){s=String(s||'').trim();var m=s.match(/^[\s\S]*?[.!?](?=\s|$)/);return m?m[0]:s};
+
+/* top bar links always navigate: stop the gallery and go, before anything else can get in the way */
+var HOME={stop:function(){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.bsn a[href]');if(!a)return;
+  if(e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
+  e.preventDefault();e.stopImmediatePropagation();try{HOME.stop()}catch(x){}location.assign(a.href)},true);
+document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('.bsn a'))try{HOME.stop()}catch(x){}},true);
+/* text size: set from the site bar (nav v10 dispatches bs-text {key,k,wide}); scales the screens only */
+/* v18: nav v10 sends {key,k,wide}; apply k. Fallback read: laptop bs-text-w (default l), phone bs-text (default m) */
+(function(){var w=matchMedia('(min-width:1000px)').matches,K={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45},cur;try{cur=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}
+  var set=function(k){document.documentElement.style.setProperty('--tz',+k||1)};
+  set((window.BS_TEXT&&BS_TEXT.get().k)||K[cur]||(w?1.15:1));addEventListener('bs-text',function(e){set(e.detail&&e.detail.k)});})();
+
+/* load whichever Library version is live */
+function liveV(dir,fb,cb){fetch('/'+dir+'/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);cb(m?m[1]:fb)}).catch(function(){cb(fb)})}
+function loadData(cb){
+  var go=function(v){var s=document.createElement('script');s.src='/library/'+v+'/data.js';s.onload=cb;s.onerror=function(){if(v!=='v32')go('v32')};document.head.appendChild(s)};
+  fetch('/library/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);go(m?m[1]:'v32')}).catch(function(){go('v32')});
+}
+
+loadData(function(){
+  var D=window.BS_DATA||[],P=window.BS_PALETTE||[];
+  var PAL={};P.forEach(function(p){PAL[p[0]]={label:p[1],c:p[2]}});
+  var lum=function(h){h=h.replace('#','');var r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);return (0.299*r+0.587*g+0.114*b)/255};
+  var txt=function(h){return lum(h)<0.55?'#FFFFF4':'#3E4A80'};
+  var col=function(k){return (PAL[k]||{c:'#E3E0BF'}).c};
+  var lib=function(o){return '/library/#/'+encodeURIComponent(o.slug)};
+  var AAR={A:'Muscle',R:'Heart',N:'Cognition',D:'DNA',C:'Protection',Q:'Gut',E:'Cognition',G:'Skin',H:'Inflammation',I:'Muscle',L:'Muscle',K:'Skin',M:'DNA',F:'Mood',P:'Skin',S:'Cognition',T:'Gut',W:'Mood',Y:'Drive',V:'Muscle',U:'Protection'};
+  var L2=function(h){var n=parseInt(h.slice(1),16),f=function(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+  var FX=function(l){return l==='G'?1.45:l==='P'?.3:1};
+  var PICK=[
+   ['bpc-157','Three prolines in a row (PPP) near the start. Proline-rich stretches are hard for gut enzymes to cut, one proposed reason BPC-157 holds up in stomach acid.'],
+   ['ghk-cu','Just three links, holding one copper ion between them. The body cuts GHK out of collagen when tissue breaks down, and blood levels fall with age.'],
+   ['retatrutide','The PPPS tail at the end is borrowed from exenatide, a peptide first found in Gila monster venom. Three links are swapped for lab-made versions (shown here as A and L) so enzymes can’t cut it.'],
+   ['semax','MEHF is a piece of ACTH, a stress hormone (its links 4 to 7). The PGP tail was added so enzymes chew it up more slowly.'],
+   ['selank','TKPR is tuftsin, a natural immune peptide. It wears the same PGP tail as Semax: one design trick, two very different effects.'],
+   ['mots-c','Written in mitochondrial DNA, not in the cell’s nucleus. One of the very few peptides mitochondria make from their own genes.'],
+   ['ll-37','Named after its first two letters (L, L) and its length, 37. The K and R scattered through it carry a positive charge that helps it punch holes in bacteria.'],
+   ['oxytocin','Nine links, but the two C’s bridge to each other and close the first six into a ring, so it rocks as one stiff piece.'],
+   ['dsip','Three glycines (G), the most flexible amino acid there is. Watch them swing wider than the rest.'],
+   ['tb-500-frag-17-23','Seven links cut from thymosin beta-4, a 43-link protein: the stretch that grabs actin. Vials sold as TB-500 often hold the full protein instead.'],
+   ['glutathione','Three links, but E joins through its side chain (a gamma bond) instead of the backbone. Most enzymes that cut peptides can’t break it.'],
+   ['carnosine','The shortest string here: β-alanine and histidine. Packed into muscle and brain, where it soaks up acid during hard effort.'],
+   ['creatine','Your kidneys and liver build it from three amino acids: arginine and glycine first, then a methyl group from methionine.','RGM'],
+   ['nadplus','Cells can build it from tryptophan, step by step, or from forms of vitamin B3. Tissue levels fall with age.','W']
+  ];
+  var box=null,LV=null,vis=true,f1=function(v){return v.toFixed(1)};
+  function draw(it){
+    var o=it.o,np=!!it.np,ch=(it.np||o.seq).split(''),n=ch.length,W=box.clientWidth||340,mob=W<520,small=n<=6,bigM=n<=10;
+    var big=W<520?34:40,minD=W<520?19:22,tt=Math.min(1,Math.max(0,(n-10)/30));
+    var d=Math.round(big-(big-minD)*Math.pow(tt,.6)),step=np?d*2:d+Math.round(d*(small?.35:.3)),fs=Math.max(10.5,Math.round(d*.44));
+    var amp=np?0:d*(small?.3:bigM?.24:.3),rowH=Math.round(d+Math.max(12,d*.5)+2*amp),padMin=d/2+26;
+    var fit=Math.max(3,Math.floor((W-2*padMin)/step)+1),per=n<=fit?n:Math.ceil(n/Math.ceil(n/fit)),pad=n<=fit?(W-(n-1)*step)/2:(W-(per-1)*step)/2;
+    if(np)pad=Math.max(padMin,(W-(n-1)*step-90)/2);
+    var rows=Math.ceil(n/per),top=d/2+6+amp,H=top+(rows-1)*rowH+d/2+8+amp;
+    var pts=ch.map(function(a,i){var r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH+(small?amp*(i%2?1:-1):amp*Math.sin(i*.85))*FX(a),r]});
+    var tail=small?d/2+8:Math.max(10,Math.round(d*.4));
+    function path(P2){var p='M'+f1(P2[0][0]-tail)+','+f1(P2[0][1])+' L'+f1(P2[0][0])+','+f1(P2[0][1]);
+      for(var i=1;i<P2.length;i++){var x0=P2[i-1][0],y0=P2[i-1][1],x1=P2[i][0],y1=P2[i][1];
+        if(P2[i][2]===P2[i-1][2]){var hx=(x1-x0)/2;p+=' C'+f1(x0+hx)+','+f1(y0)+' '+f1(x1-hx)+','+f1(y1)+' '+f1(x1)+','+f1(y1)}
+        else{var k=(y1-y0)*2/3,sx=P2[i-1][2]%2===0?1:-1;p+=' C'+f1(x0+sx*k)+','+f1(y0)+' '+f1(x1+sx*k)+','+f1(y1)+' '+f1(x1)+','+f1(y1)}}
+      var E=P2[P2.length-1],lr=E[2]%2===0;return p+' L'+f1(E[0]+(lr?tail:-tail))+','+f1(E[1])}
+    var Lp=pts[n-1],lastRight=Lp[2]%2===0;
+    var beads=ch.map(function(a,i){var c=col(AAR[a]||'Repair'),fg=L2(c)>.42?'#3E4A80':'#FFFFE2';
+      return '<g class="bd" style="--i:'+i+'"><circle cx="'+f1(pts[i][0])+'" cy="'+f1(pts[i][1])+'" r="'+d/2+'" fill="'+c+'" stroke="#3E4A80" stroke-width="1.5"/><text x="'+f1(pts[i][0])+'" y="'+f1(pts[i][1]+fs*.36)+'" text-anchor="middle" fill="'+fg+'" font-size="'+fs+'" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">'+a+'</text></g>'}).join('');
+    var lab='font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif"',ends;
+    if(np){var ex=Lp[0]+d/2+16;ends='<path class="bb np" d="M'+f1(pts[0][0])+','+f1(pts[0][1])+' L'+f1(ex)+','+f1(Lp[1])+'" fill="none" stroke="#3E4A80" stroke-width="2"/><text x="'+f1(ex+6)+'" y="'+f1(Lp[1]+6)+'" '+lab+'>→ '+esc(o.name)+'</text>';beads=ends+beads;ends=''}
+    else{var nx=pts[0][0]-tail-5,cx2=Lp[0]+(lastRight?tail+5:-tail-5);beads='<path class="bb" d="'+path(pts)+'" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>'+beads;ends='<text x="'+f1(nx)+'" y="'+f1(pts[0][1]+6)+'" text-anchor="end" '+lab+'>N</text><text x="'+f1(cx2)+'" y="'+f1(Lp[1]+6)+'" text-anchor="'+(lastRight?'start':'end')+'" '+lab+'>C</text>'}
+    box.innerHTML='<svg viewBox="0 0 '+W+' '+f1(H)+'" width="'+W+'" height="'+f1(H)+'" role="img" aria-label="'+esc(o.name)+(np?', built from '+n+' amino acids':': '+n+' amino acids in one chain')+'"><g class="lvg">'+beads+ends+'</g></svg>';
+    box.classList.remove('out');
+    var nts=o.seqNote||'';
+    LV=np?null:{pts:pts,path:path,d:d,fs:fs,fl:ch.map(function(a){return a==='G'?1.6:a==='P'?.25:1}),rigid:/-Cu$/.test(o.name)||(/ring|cyclic|bridge|disulfide/i.test(nts)&&!/curled ring|pyroglutamate/i.test(nts)),cx:W/2,cy:H/2,t0:performance.now()+(RM?0:900+n*30)};
+  }
+  function two(t){t=String(t||'').trim();var m=t.match(/^[\s\S]*?[.!?](?=\s|$)(\s+[\s\S]*?[.!?](?=\s|$))?/);return m?m[0]:t}
+  function story(o){var a=first(o.story),b=first(o.found);var c=[a,b].filter(function(x){return x&&x.length<=240}).sort(function(x,y){return y.length-x.length});var r=c[0]||a||b;
+    if(r.length<90){var src=(r===a?o.story:o.found)||'',t2=two(src);if(t2.length<=260)r=t2}return r}
+  function frame(now){requestAnimationFrame(frame);if(!LV||!vis||RM||now<LV.t0)return;var svg=box.querySelector('svg');if(!svg)return;
+    var t=(now-LV.t0)/1000,ease=Math.min(1,t/1.2),g=svg.querySelector('.lvg');
+    if(LV.rigid){g.setAttribute('transform','rotate('+f1(Math.sin(t*1.1)*2.2*ease)+' '+f1(LV.cx)+' '+f1(LV.cy)+')');return}
+    var A=LV.d*.11*ease,P2=LV.pts.map(function(q,i){return[q[0],q[1]+A*LV.fl[i]*Math.sin(t*1.7+i*.75),q[2]]});
+    svg.querySelectorAll('.bd').forEach(function(b,i){b.firstChild.setAttribute('cy',f1(P2[i][1]));b.lastChild.setAttribute('y',f1(P2[i][1]+LV.fs*.36))});
+    svg.querySelector('.bb').setAttribute('d',LV.path(P2));
+  }
+  var BY=function(s){return D.filter(function(o){return o.slug===s})[0]};
+  var TAG=function(k){var c=col(k);return '<span class="rtg" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</span>'};
+  var aa=function(o){return o.seq&&o.seq.length?o.seq.length+'<br>AA':''};
+  var band=function(o,h){var rs=o.roles||[];return rs.map(function(k,i){return '<u style="flex:'+(i===0?3:i===1?2:1)+';background:'+col(k)+'"></u>'}).join('')};
+  var tile=function(o){return '<a class="tile" href="'+lib(o)+'"><span class="in"><b>'+esc(o.name)+'<small>'+aa(o)+'</small></b><span>'+esc(o.fn||'')+'</span></span><span class="sb">'+band(o)+'</span></a>'};
+  var SIX=['bpc-157','ghk-cu','semaglutide','retatrutide','semax','nad'].map(function(s){return BY(s)||D.filter(function(o){return o.slug.indexOf(s)===0})[0]}).filter(Boolean);
+  var FILL=['tb-500-frag-17-23','kpv','tirzepatide','selank','mots-c','epitalon'].map(BY).filter(Boolean);
+  var unit=function(str){var m=String(str||'').replace(/,/g,'').match(/([\d.]+)\s*(?:[–-]\s*[\d.]+\s*)?(mcg|mg)\b/i);return m?{v:parseFloat(m[1]),u:m[2].toLowerCase()}:null};
+  var fmt=function(x){return (Math.round(x*100)/100).toString()};
+
+  function screens(o){
+    var d=o.dose||{},rs=(o.roles||[]).slice(0,3);
+    /* 2. card over faded tiles */
+    var card='<div class="scr fade"><div class="bar"><span>Library · card</span><span>tap a tile</span></div><div class="tiles">'+FILL.map(tile).join('')+'</div>'+
+      '<div class="mcard"><h4>'+esc(o.name)+'</h4><p class="sub">'+esc(o.originDetail||'')+'</p>'+
+      (d.dose?'<div class="cells"><div><small>Dose</small><b>'+esc(d.dose)+'</b></div><div><small>How often</small><b>'+esc(d.freq||'')+'</b></div></div>':'')+
+      '<ul class="rl">'+rs.map(function(k){return '<li>'+TAG(k)+'<span>'+esc((o.desc||{})[k]||'')+'</span></li>'}).join('')+'</ul>'+
+      '<div class="macts"><a href="/library/#/p/'+encodeURIComponent(o.slug)+'" data-full="'+esc(o.slug)+'">Full page →</a><button type="button" class="again">↻ Another</button></div></div></div>';
+    /* 3. full read */
+    var tl=(o.tl||[]).slice(0,3);
+    var full='<div class="scr fp"><div class="bar"><span>Full read</span><span>'+esc(o.name)+'</span></div>'+
+      '<div class="ban"><div><b>'+esc(o.name)+'</b><em>'+esc(d.use||o.fn||'')+'</em>'+(o.primary?TAG(o.primary):'')+'</div><span class="vb">'+band(o)+'</span></div>'+
+      (tl.length?'<h5>Timeline</h5><ol>'+tl.map(function(x){return '<li><b>'+esc(x[0])+'</b>'+esc(x[1])+'</li>'}).join('')+'</ol>':'')+
+      (o.nameNote&&o.nameNote.t?'<h5>Name story</h5><p class="ns">'+esc(o.nameNote.t)+'</p>':'<h5>How it started</h5><p class="ns">'+esc(story(o))+'</p>')+
+      '<div class="wd2"><div><small style="color:#4F7A2B">Worked</small>'+esc(first(o.worked||o.helps))+'</div><div><small style="color:#C0392B">Didn’t</small>'+esc(first(o.didnt))+'</div></div></div>';
+    return {card:card,full:full};
+  }
+  function dose(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span>'+esc(d.use||o.fn||'')+'</span></div><div class="hero"><small class="mono" style="color:var(--soft)">Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
+  function calc(o){
+    var u=unit(o.dose&&o.dose.dose),vial=10,ml=2;
+    if(!u){o=BY('bpc-157')||o;u={v:250,u:'mcg'}}
+    var mg=u.u==='mcg'?u.v/1000:u.v,conc=vial/ml,units=mg/conc*100;
+    if(units>100||units<2){o=BY('bpc-157')||o;u={v:250,u:'mcg'};mg=.25;units=mg/conc*100}
+    var w=320,x0=20,x1=290,fx=x0+(x1-x0)*Math.min(units,100)/100,ticks='';
+    for(var t=0;t<=100;t+=10){var x=x0+(x1-x0)*t/100;ticks+='<line x1="'+x+'" y1="18" x2="'+x+'" y2="'+(t%50?26:30)+'" stroke="#3E4A80" stroke-width="1.2"/>'+(t%50?'':'<text x="'+x+'" y="42" font-size="9" text-anchor="middle" fill="#6B76A8" font-family="JetBrains Mono,monospace">'+t+'</text>')}
+    var svg='<svg viewBox="0 0 '+w+' 50" role="img" aria-label="Syringe filled to '+fmt(units)+' units"><rect x="'+x0+'" y="6" width="'+(fx-x0)+'" height="12" fill="#DB6830" opacity=".75"/><rect x="'+x0+'" y="6" width="'+(x1-x0)+'" height="12" fill="none" stroke="#3E4A80" stroke-width="1.5"/><line x1="'+x1+'" y1="12" x2="314" y2="12" stroke="#3E4A80" stroke-width="2"/><line x1="'+x0+'" y1="2" x2="'+x0+'" y2="22" stroke="#3E4A80" stroke-width="2"/>'+ticks+'</svg>';
+    var href='/draw/?n='+encodeURIComponent(o.name)+'&dose='+u.v+'&u='+u.u;
+    return {o:o,href:href,html:'<div class="scr calc"><div class="bar"><span>Calculator</span><span>'+esc(o.name)+'</span></div><div class="row"><div><small>Vial</small><b>'+vial+' mg</b></div><div><small>BAC water</small><b>'+ml+' mL</b></div><div><small>Dose</small><b>'+fmt(u.v)+' '+u.u+'</b></div></div>'+svg+
+      '<p class="math">'+vial+' mg ÷ '+ml+' mL = '+fmt(conc)+' mg/mL<br>'+fmt(mg)+' mg ÷ '+fmt(conc)+' mg/mL = '+fmt(mg/conc)+' mL = <b>'+fmt(units)+' units</b> on a U-100 syringe</p>'+
+      '<span class="lbl">Same vial, other doses</span><table class="ctab"><tr><th>Dose</th><th>Draw</th><th>Units</th><th>Doses per vial</th></tr>'+[.5,1,2,4].map(function(k){var m2=mg*k;return m2/conc*100<=100?'<tr'+(k===1?' class="on"':'')+'><td>'+(m2<1?fmt(m2*1000)+' mcg':fmt(m2)+' mg')+'</td><td>'+fmt(m2/conc)+' mL</td><td>'+fmt(m2/conc*100)+'</td><td>'+Math.floor(vial/m2)+'</td></tr>':''}).join('')+'</table>'+
+      '<span class="lbl">Keep it right</span><ul class="inv ok"><li>Add the water slowly down the side of the vial</li><li>Swirl, never shake</li><li>Fridge after mixing</li></ul></div>'};
+  }
+  var BW={tests:{},comps:{},sup:{}};
+  liveV('supplements','v11',function(v){var s=document.createElement('script');s.src='/supplements/'+v+'/data.js';document.head.appendChild(s)});
+  liveV('blood','v14',function(v){var s=document.createElement('script');s.src='/blood/'+v+'/lib.js';s.onload=function(){BW=window.BW_LIB||BW;var n=0;(function w(){if(window.SUPP||n++>25)start();else setTimeout(w,80)})()};s.onerror=start;document.head.appendChild(s)});
+
+  /* the loop: one compound threaded through every page */
+  var FEAT=['bpc-157','ghk-cu','semaglutide','tb-500-frag-17-23','mots-c','retatrutide','kpv','ipamorelin','tirzepatide'].map(BY).filter(Boolean);
+  var NOTE={};PICK.forEach(function(p){NOTE[p[0]]=p[1]});
+  var PAGES=[
+    ['/library/','Library','Every compound: its story, roles, what worked and what didn’t.','Open the Library'],
+    ['/dosage/','Dosage','Common reported doses, side by side.','Open Dosage'],
+    ['/blood/','Blood Work','What to test before and while on.','Open Blood Work'],
+    ['/supplements/','Supplements','What people pair with each peptide.','Open Supplements'],
+    ['/aminos/','Aminos','The deeper chemistry: every chain, letter by letter.','Open Aminos'],
+    ['/made/','Made','How peptides are made, cleaned and tested.','Open Made'],
+    ['/draw/','Calculator','Vial, water and syringe, with the maths shown.','Work it out'],
+    ['/protocol/','Protocol','Build a stack, see what overlaps and what to test.','Build a protocol']
+  ];
+  var fi=0,cur=0,timer=null,paused=RM,DUR=5200,o=null,started=false;
+  var durOf=function(k){return k===0?9000:DUR};
+  HOME.stop=function(){clearTimeout(timer);paused=true};
+
+  function bar(a,b){return '<div class="bar"><span>'+a+'</span><span>'+b+'</span></div>'}
+  /* Library: a moving mini Library, Option A stickers with dose */
+  var LIBW=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'],lwi=0;
+  var SH={Repair:'Tissue repair',Protection:'Cell protection',Neuroprotection:'Neuro'};
+  var shortT=function(t){return String(t||'').replace(/\s*\([^)]*\)/g,'').replace(/weeks?/g,'wk').replace(/months?/g,'mo').replace(/maintenance/g,'maint.').trim()};
+  var cyc=function(t){t=shortT(t);if(/→/.test(t))t=t.split('→').pop().replace(/maint\.\s*/,'');return t.split(/,|;/)[0].replace(/\s*on$/,'').trim()};
+  var L2c=function(h){return L2(h)>.42?'#3E4A80':'#FFFFE2'};
+  function sticker(o){var d=o.dose||{},rs=o.roles||[];
+    return '<div class="tl"><div class="in"><span class="nm"><span class="aa">'+(o.blend?'<b>'+o.blend.parts.length+'</b>in':o.seq&&o.seq.length?'<b>'+o.seq.length+'</b>AA':'')+'</span>'+esc(o.name)+'</span>'+(o.blend?'<span class="cls">blend</span>':'')+(o.fda?'<span class="fda">FDA ✓</span>':'')+
+      '<span class="ds"><span class="d">'+esc(shortT(d.dose)||'No common dose')+'</span><span class="f">'+esc(shortT(d.freq))+(d.cycle?' · '+esc(cyc(d.cycle)):'')+'</span></span>'+
+      '<div class="tags">'+rs.map(function(k){var c=col(k);return '<span class="t" style="background:'+c+';color:'+L2c(c)+'">'+esc(SH[k]||k)+'</span>'}).join('')+'</div></div>'+
+      '<div class="band">'+band(o)+'</div></div>'}
+  var LTOP=['thymosin-beta-4','bpc-157','tb-500-frag-17-23','ghk-cu','kpv','retatrutide','klow','semaglutide','bpc-157-tb-500'].map(BY).filter(Boolean);
+  var LALL=(function(){var rest=D.filter(function(x){return LTOP.indexOf(x)<0}).sort(function(a,b){return ((a.rank||999)-(b.rank||999))||a.name.localeCompare(b.name)});var L=LTOP.concat(rest).slice(0,30);return L.slice(0,L.length-L.length%3)})();
+  var FAMK=['Appetite','Glucose','Fat','Energy','Endocrine','Muscle','Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning','Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer','Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward','Desire','Reproductive'].filter(function(k){return PAL[k]});
+  function sLibrary(){var g=LALL.map(sticker).join('');
+    return '<div class="scr">'+bar('Library',D.length+' compounds')+'<div class="body lbx">'+
+      '<div class="q"><em id="lbq">Try “'+LIBW[lwi%LIBW.length]+'” or any name</em><span>'+D.length+'</span></div>'+
+      '<div class="seg">'+['Roles','Popular','Blends','Evidence','Origin','A to Z','Size'].map(function(l){return '<span'+(l==='Popular'?' class="on"':'')+'>'+l+'</span>'}).join('')+'</div>'+
+      '<div class="rb"><b>Roles</b><span class="sws">'+FAMK.map(function(k){return '<i style="background:'+col(k)+'"></i>'}).join('')+'</span><em>Show</em></div>'+
+      '<div class="vp"><div class="gr" id="lbgr">'+g+g+'</div></div></div></div>'}
+  if(!RM)setInterval(function(){var e=document.getElementById('lbq');if(!e)return;e.classList.add('sw');setTimeout(function(){lwi++;e.textContent='Try “'+LIBW[lwi%LIBW.length]+'” or any name';e.classList.remove('sw')},250)},2600);
+  var LS={t0:0,on:false};
+  function lscroll(now){requestAnimationFrame(lscroll);var g=document.getElementById('lbgr');if(!g||!LS.on||RM||!vis)return;
+    var half=g.scrollHeight/2+3.5,y=Math.max(0,(now-LS.t0)/1000)*24;g.style.transform='translateY('+(-(y%half)).toFixed(1)+'px)'}
+  function syns(o){return (o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(Boolean)}
+  function dcard(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span>'+esc(d.conf==='logged'?'Logged research':(d.conf||''))+'</span></div><div class="hero"><small>Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
+  function partner(o){var s=(o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(function(x){return x&&x.dose&&x.dose.dose&&x!==o});return s[0]||null}
+  function tiers(o){var t=(o.dose||{}).tiers;if(!t||!t.length)return '';return '<div class="tiers"><span class="lbl">Top doses people take · '+esc(o.name)+'</span><ol>'+t.slice(0,3).map(function(x,i){return '<li><b class="tn">'+(i+1)+'</b><span><b>'+esc(x.dose||'')+'</b> '+esc(x.freq||'')+'<small>'+esc(x.label||'')+'</small></span></li>'}).join('')+'</ol></div>'}
+  function sDosage(o){var ps=syns(o).filter(function(x){return x.dose&&x.dose.dose&&x!==o}).slice(0,3),cs=[o].concat(ps).map(dcard);return '<div class="scr">'+bar('Dosage','side by side')+'<div class="body"><div class="dcol">'+cs.slice(0,2).join('')+tiers(o)+cs.slice(2).join('')+'</div></div></div>'}
+  function sBlood(o){var c=(BW.comps||{})[o.slug];if(!c)return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><p>Blood work entry coming.</p></div></div>';
+    var tests=(c.before||[]).map(function(t){var x=(BW.tests||{})[t[0]];return x?'<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>':''}).join('');
+    return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><span class="lbl">Test before starting</span><div class="tchips">'+tests+'</div>'+
+      ((c.monitor||[]).length?'<span class="lbl">Also check while on it</span><div class="tchips">'+c.monitor.map(function(t){var x=(BW.tests||{})[t[0]];return x?'<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>':''}).join('')+'</div>':'')+
+      ((c.mk||[]).length?'<span class="lbl">Markers it moves</span><div class="mkl">'+c.mk.filter(function(m){return m[4]||m[5]}).slice(0,6).map(function(m){return '<div><b class="sy">'+esc(m[0])+'</b><span><b>'+esc(m[1])+'</b><small>'+esc(m[2]||'')+'</small></span><span class="nm">'+(m[4]?'<i>aim</i>'+esc(m[4]):'')+(m[5]?'<i class="bd">'+esc(m[6]||'high')+'</i>'+esc(m[5]):'')+'</span></div>'}).join('')+'</div>':'')+
+      labLine(c)+
+      '<span class="lbl">While on</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span>'+(c.flags?'<b>Red flags</b><span>'+esc(c.flags)+'</span>':'')+'</div></div></div>'}
+  function sSupps(o){var s=(BW.sup||{})[o.slug]||[];var SP=window.SUPP||[];var find=function(n){return SP.filter(function(x){return x.n===n})[0]};
+    return '<div class="scr sp">'+bar('Supplements',s.length+' pairings')+'<div class="body"><h4>Goes with '+esc(o.name)+'</h4><span class="lbl">What people pair with it</span><ul class="slist sl2">'+s.slice(0,6).map(function(x){var f=find(x[1]),k=f&&f.lab&&f.lab[0];
+      return '<li><div class="st1">'+(k?TAG(k):'<u style="background:'+x[2]+'"></u>')+'<b>'+esc(x[1])+'</b>'+(f&&f.tileDose?'<span class="dz">'+esc(f.tileDose)+'</span>':'')+'</div>'+(f&&f.s?'<small>'+esc(first(f.s))+'</small>':'')+'</li>'}).join('')+'</ul></div></div>'}
+  function sAminos(o){return '<div class="scr am">'+bar('Aminos',(o.seq||'').length+' amino acids')+'<div class="body"><h4>'+esc(o.name)+'</h4><div class="string" id="hstring"></div><p class="note">'+esc(NOTE[o.slug]||('Each bead is one amino acid, coloured by its main role. '+o.seq.length+' of them, in this exact order, make '+o.name+'.'))+'</p>'+letters(o)+'<span class="deep">Read the full chemistry on Aminos →</span></div></div>'}
+  function letters(o){var q=(o.seq||'').toUpperCase(),c={};q.split('').forEach(function(l){if(/[A-Z]/.test(l))c[l]=(c[l]||0)+1});var ks=Object.keys(c).sort(function(a,b){return c[b]-c[a]});if(!ks.length)return '';
+    return '<span class="lbl">Built from '+ks.length+' different letters</span><div class="lets">'+ks.map(function(l){var h=col(AAR[l]);return '<span><b style="background:'+h+';color:'+txt(h)+'">'+l+'</b>×'+c[l]+'</span>'}).join('')+'</div>'+
+      '<span class="lbl">Roles of its letters</span><div class="tchips">'+Object.entries(ks.reduce(function(a,l){var r=AAR[l];a[r]=(a[r]||0)+c[l];return a},{})).sort(function(a,b){return b[1]-a[1]}).slice(0,4).map(function(e){return TAG(e[0])+'<span class="cnt">'+e[1]+'</span>'}).join('')+'</div>'}
+  function sMade(){return '<div class="scr md">'+bar('Made','how a vial is made')+'<div class="body"><h4>Two ways to make a chain</h4>'+
+      '<div class="two" style="margin-top:6px"><div><b>Grown in cells</b>Write the gene, give it to bacteria or yeast, let them build it.</div><div><b>Stacked on beads</b>Add one amino acid at a time, chemically, on a tiny bead.</div></div>'+
+      '<span class="lbl">What 99.9%, 98% and 95% look like</span><div class="pur"><div>99.9%<i style="--p:99.9%"></i></div><div>98%<i style="--p:98%"></i></div><div>95%<i style="--p:95%"></i></div></div>'+
+      '<span class="lbl">Invisible to purity</span><ul class="inv"><li>Endotoxin</li><li>Heavy metals</li><li>Leftover solvents</li><li>A wrong molecule that exits at the same moment</li></ul>'+
+      '<span class="lbl">What a lab result should list</span><div class="coa"><div><b>Identity</b>Mass spec matches the molecule</div><div><b>Purity</b>HPLC, 98% or above</div><div><b>Content</b>Real mg in the vial, not just %</div><div><b>Endotoxin</b>Bacterial toxin, per mg</div><div><b>Sterility</b>Nothing growing</div><div><b>Date and batch</b>Matches your vial</div></div></div></div>'}
+  function labLine(c){var ids=(c.before||[]).concat(c.monitor||[]).map(function(t){return t[0]}),n={common:0,ask:0,specialty:0};ids.forEach(function(id){var x=(BW.tests||{})[id];if(x)n[x[2]||'common']=(n[x[2]||'common']||0)+1});if(!ids.length)return '';
+    return '<span class="lbl">At the lab</span><div class="labl"><div><b>'+n.common+'</b>routine at any lab</div><div><b>'+n.ask+'</b>ask for by name</div><div><b>'+n.specialty+'</b>specialty, pricier</div></div>'}
+  function stackTests(rows){var seen={},out=[];rows.forEach(function(x){var c=(BW.comps||{})[x.slug];(c&&c.before||[]).forEach(function(t){if(!seen[t[0]]&&(BW.tests||{})[t[0]]){seen[t[0]]=1;out.push(t[0])}})});if(!out.length)return '';
+    return '<div class="tchips" style="margin-top:6px">'+out.slice(0,9).map(function(id){var x=BW.tests[id];return '<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>'}).join('')+(out.length>9?'<span>+'+(out.length-9)+' more</span>':'')+'</div>'}
+  function stackSupps(rows){var seen={},out=[];rows.forEach(function(x){((BW.sup||{})[x.slug]||[]).forEach(function(s){if(!seen[s[0]]){seen[s[0]]=1;out.push(s)}})});if(!out.length)return '';
+    return '<span class="lbl">Supplements for the stack</span><div class="tchips">'+out.slice(0,6).map(function(s){return '<span><u style="background:'+s[2]+'"></u>'+esc(s[1])+'</span>'}).join('')+'</div>'}
+  function weeks(c){var m=String(c||'').match(/(\d+)\s*(?:–|-|to)?\s*(\d+)?\s*w/i);return m?Math.min(8,+(m[2]||m[1])):8}
+  function sProtocol(o){var p=partner(o),rows=[o,p].filter(Boolean),c=(BW.comps||{})[o.slug];
+    var hd='<span></span>'+[1,2,3,4,5,6,7,8].map(function(w){return '<span class="h">W'+w+'</span>'}).join('');
+    var rw=rows.map(function(x){var n=weeks(x.dose&&x.dose.cycle),cc=col(x.primary);return '<span class="n">'+esc(x.name)+'</span>'+[1,2,3,4,5,6,7,8].map(function(w){return '<i style="background:'+(w<=n?cc:'transparent')+'"></i>'}).join('')}).join('');
+    return '<div class="scr pr">'+bar('Protocol','your stack')+'<div class="body"><h4>'+rows.map(function(x){return esc(x.name)}).join(' + ')+'</h4><span class="lbl">Your weeks</span><div class="wk">'+hd+rw+'</div>'+
+      '<span class="lbl">The doses</span><div class="kv">'+rows.map(function(x){return '<b>'+esc(x.name)+'</b><span>'+esc((x.dose||{}).dose||'')+' · '+esc((x.dose||{}).freq||'')+'</span>'}).join('')+'</div>'+
+      (c?'<span class="lbl">What to test</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span></div>':'')+
+      stackTests(rows)+stackSupps(rows)+
+      '<div class="acts2"><span>Save as PDF</span><span>Copy for my AI</span></div></div></div>'}
+
+  function build(){
+    o=FEAT[fi%FEAT.length];
+    var c=calc(o);
+    var html=[sLibrary(),sDosage(o),sBlood(o),sSupps(o),sAminos(o),sMade(),c.html.replace(/<div class="bar">.*?<\/div>/,function(m){return m+'<div class="body">'}).replace(/<\/div>$/,'</div></div>'),sProtocol(o)];
+    var hrefs=['/library/','/dosage/?only='+encodeURIComponent(o.slug),'/blood/','/supplements/','/aminos/','/made/',c.href,'/protocol/'];
+    $('#gal').innerHTML=html.map(function(h,i){return '<a class="sl" data-i="'+i+'" href="'+hrefs[i]+'" aria-label="'+PAGES[i][1]+'">'+h+'</a>'}).join('');
+    PAGES.forEach(function(p,i){p[4]=hrefs[i]});
+    box=document.getElementById('hstring');
+  }
+  function place(){var w=$('#gal').querySelector('.sl'),sw=w?w.offsetWidth+18:400;
+    [].forEach.call($('#gal').children,function(s,i){var k=i-cur;if(k>4)k-=8;if(k<-4)k+=8;s.style.transform='translateX('+(k*sw)+'px) scale('+(k?0.9:1)+')';s.style.zIndex=10-Math.abs(k);s.classList.toggle('on',k===0);s.style.visibility=Math.abs(k)>2?'hidden':'visible'})}
+  function navHL(){var a=document.querySelectorAll('.bsn .bsl a');[].forEach.call(a,function(x){x.classList.toggle('hl',x.getAttribute('href')===PAGES[cur][0])});try{window.BS_NAV&&window.BS_NAV.el.classList.contains('c')&&window.BS_NAV.showCurrent()}catch(e){}}
+  function go(i,user){
+    var wrap=i>=8;cur=(i+8)%8;
+    if(wrap&&!user){fi++;build()}
+    place();navHL();
+    var p=PAGES[cur];$('#cap').innerHTML='<b>'+p[1]+'</b><p>'+p[2]+'</p><a href="'+(p[4]||p[0])+'" data-open="'+p[1]+'">'+p[3]+' →</a>';
+    $('#prog').innerHTML=PAGES.map(function(q,k){return '<button type="button" data-k="'+k+'" aria-label="'+q[1]+'" class="'+(k<cur?'done':k===cur&&!paused?'run':k===cur?'done':'')+'" style="--dur:'+durOf(k)+'ms"><i></i></button>'}).join('');
+    if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null});else LV=null;
+    if(cur===0){if(!LS.on){LS.on=true;LS.t0=performance.now()+1300}}else{LS.on=false;var lg=document.getElementById('lbgr');if(lg)lg.style.transform=''}
+    clearTimeout(timer);if(!paused)timer=setTimeout(function(){go(cur+1)},durOf(cur));
+  }
+  function start(){if(started)return;started=true;
+    build();go(0);requestAnimationFrame(frame);requestAnimationFrame(lscroll);
+    var tries=0;(function wait(){if(document.querySelector('.bsn')){navHL()}else if(tries++<40)setTimeout(wait,50)})();
+    addEventListener('bs-text',function(){if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
+    addEventListener('resize',function(){place();if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
+  }
+  function user(i){paused=true;$('#pause').textContent='Play';go(i,true);T('home-gallery:'+PAGES[(i+8)%8][1],'Gallery '+PAGES[(i+8)%8][1])}
+  $('#next').addEventListener('click',function(){user(cur+1)});
+  $('#prev').addEventListener('click',function(){user(cur-1)});
+  $('#pause').addEventListener('click',function(){paused=!paused;this.textContent=paused?'Play':'Pause';go(cur,true)});
+  $('#prog').addEventListener('click',function(e){var b=e.target.closest('button');if(b)user(+b.dataset.k)});
+  $('#cap').addEventListener('click',function(e){var a=e.target.closest('a');if(a)T('home-open:'+a.dataset.open,'Open '+a.dataset.open)});
+  /* swipe; tapping a side card brings it forward */
+  (function(){var g=$('#gal'),sx=null,sy=0,moved=false;
+    g.addEventListener('touchstart',function(e){if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;moved=false},{passive:true});
+    g.addEventListener('touchend',function(e){if(sx==null)return;var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;sx=null;if(Math.abs(dx)>45&&Math.abs(dx)>1.5*Math.abs(dy)){moved=true;user(cur+(dx<0?1:-1))}},{passive:true});
+    g.addEventListener('click',function(e){var s=e.target.closest('.sl');if(!s)return;if(moved){e.preventDefault();moved=false;return}var i=+s.dataset.i;if(i!==cur){e.preventDefault();user(i)}else T('home-card-open:'+PAGES[i][1],'Card '+PAGES[i][1])});
+    document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')user(cur+1);else if(e.key==='ArrowLeft')user(cur-1)});
+  })();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting})}).observe($('#gal'));
+  document.addEventListener('visibilitychange',function(){if(document.hidden)clearTimeout(timer);else if(!paused&&started)go(cur,true)});
+
+  /* the count, ticking up */
+  (function(){var b=$('#ncount'),n=D.length,v=Math.max(0,n-Math.max(6,Math.round(n*.1)));if(RM){b.textContent=n;return}b.textContent=v;
+    (function step(k){if(v>=n)return;setTimeout(function(){v++;b.textContent=v;b.classList.remove('tick');void b.offsetWidth;b.classList.add('tick');step(k+1)},120+k*k*12)})(0)})();
+});
+})();
+</script>
+</body></html>

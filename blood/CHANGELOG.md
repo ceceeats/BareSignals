@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v21 (23 Oct 2026) at /blood/v21/
+- Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. Built on v20, which stays at /blood/v20/.
+
 ## v20 (23 Oct 2026) at /blood/v20/
 - Cards per row switch next to the search, same look as the Library's view buttons: laptop 5, 3 or 2 across; phone 2 or 1. Works on Compounds, Blood tests and Beyond blood. Remembered on this device (bw-cols-w for laptop, bw-cols-n for phone). If cards would get too thin (big text, or test rows at 5), it drops a column by itself (5 shows as 4 at the largest laptop A; test lists cap at 4). Cards 3+ across (and 2 on phone) get slightly tighter padding; an opened full card spans two columns at 4 or 5 across and the full width at 2 on phone.
 - My plan: orange "Clear plan" button after the picked compounds. Asks inline "Clear plan? Yes / No" (no browser pop-up). Yes empties the plan and the draw checklist ticks, and puts the cursor back in the add box.
