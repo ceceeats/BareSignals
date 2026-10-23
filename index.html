@@ -7,7 +7,7 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v11: string U-turns drawn as a smooth curve instead of an exact half-circle arc, which could flip sides between frames and made the turn snap while rippling. v10 kept at /home/v10/. Home v10: name block made small and quiet (definition rewritten: genes, supplements, peptides), and the chain becomes Signal strings, a showcase of 14 hand-picked strings (popular peptides, odd shapes, supplements, two non-peptides built from amino acids) with a what-to-look-at note, how it started and roles under each, picker chips and auto-advance. v9 kept at /home/v9/. Home v9: the top chain is now the Aminos string: round beads on one line, snaking left to right and back from N to C, each bead in its amino acid's colour from the Aminos page, drawn in then rippling (glycine swings widest, proline barely moves, copper peptides rock as one piece). v8 kept at /home/v8/. Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
+/* Home v12 (23 Oct 2026): random card shows only the first two other names; signal string panel gets a clear Read more button under the name (the small Open link was hard to see); People take it for roles shown as colour tags like the Library. v11 kept at /home/v11/. Home v11: string U-turns drawn as a smooth curve instead of an exact half-circle arc, which could flip sides between frames and made the turn snap while rippling. v10 kept at /home/v10/. Home v10: name block made small and quiet (definition rewritten: genes, supplements, peptides), and the chain becomes Signal strings, a showcase of 14 hand-picked strings (popular peptides, odd shapes, supplements, two non-peptides built from amino acids) with a what-to-look-at note, how it started and roles under each, picker chips and auto-advance. v9 kept at /home/v9/. Home v9: the top chain is now the Aminos string: round beads on one line, snaking left to right and back from N to C, each bead in its amino acid's colour from the Aminos page, drawn in then rippling (glycine swings widest, proline barely moves, copper peptides rock as one piece). v8 kept at /home/v8/. Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
@@ -54,15 +54,18 @@ h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-sp
 .smeta{display:block;color:var(--soft);margin-top:4px}
 .smeta.np{color:var(--accent)}
 .look{margin:8px 0 0;font-size:14.5px;line-height:1.42}
+.rmore{display:inline-block;margin:10px 0 2px;padding:9px 16px;background:var(--ink);color:var(--paper,#FFFFE2)!important;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--rule);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.rmore:hover{background:var(--accent);border-color:var(--accent)}
+.sfor .rtg{font:500 10px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace!important;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;justify-self:start}
 .sfor{margin-top:10px;border-top:1.5px solid var(--rule)}
 .sfor>.mono{display:block;color:var(--accent);margin:8px 0 2px}
-.sfor a{display:grid;grid-template-columns:12px auto 1fr;gap:8px;align-items:baseline;padding:4px 0;font-size:14px;line-height:1.3}
+.sfor a{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:baseline;padding:4px 0;font-size:14px;line-height:1.3}
 .sfor a u{display:block;width:12px;height:12px;border:1.5px solid var(--ink);align-self:center}
 .sfor a b{font-weight:500;white-space:nowrap}
 .sfor a span{color:var(--soft)}
 .sfor a:hover b{text-decoration:underline;text-underline-offset:3px}
 .look .mono{display:block;color:var(--accent);margin-bottom:3px}
-@media (max-width:420px){.sfor a{grid-template-columns:12px 1fr;row-gap:1px;padding:3px 0}.sfor a span{grid-column:2;font-size:13px}}
+@media (max-width:420px){.sfor a{grid-template-columns:1fr;row-gap:3px;padding:4px 0}.sfor a span{grid-column:1;font-size:13px}}
 .stags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
 .stags a{font:500 9.5px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:5px 6px;border:1.5px solid var(--ink)}
 .snav{display:grid;grid-template-columns:auto 1fr auto;border-top:1.5px solid var(--ink)}
@@ -307,8 +310,8 @@ loadData(function(){
     picks.querySelectorAll('button').forEach(function(b,k){b.setAttribute('aria-pressed',k===si)});
     var pb=picks.children[si];if(pb&&user!=='auto')pb.scrollIntoView({block:'nearest',inline:'center',behavior:RM?'auto':'smooth'});
     var kind=it.np?'<span class="mono smeta np">Not a peptide · built from '+n+' amino acid'+(n>1?'s':'')+'</span>':'<span class="mono smeta">'+n+' amino acids · '+esc(o.originDetail||'')+'</span>';
-    info.innerHTML='<a class="sname" href="'+lib(o)+'" data-open="'+esc(o.slug)+'"><b>'+esc(o.name)+'</b><span class="mono open">Open ↗</span></a>'+kind+
-      '<div class="sfor"><span class="mono">People take it for</span>'+(o.roles||[]).slice(0,3).map(function(k){var c=col(k),dd=(o.desc||{})[k];return '<a href="/library/#/role/'+encodeURIComponent(k)+'"><u style="background:'+c+'"></u><b>'+esc((PAL[k]||{}).label||k)+'</b>'+(dd?'<span>'+esc(dd)+'</span>':'')+'</a>'}).join('')+'</div>'+
+    info.innerHTML='<a class="sname" href="'+lib(o)+'" data-open="'+esc(o.slug)+'"><b>'+esc(o.name)+'</b></a>'+kind+'<a class="rmore mono" href="'+lib(o)+'" data-open="'+esc(o.slug)+'">Read more →</a>'+
+      '<div class="sfor"><span class="mono">People take it for</span>'+(o.roles||[]).slice(0,3).map(function(k){var c=col(k),dd=(o.desc||{})[k];return '<a href="/library/#/role/'+encodeURIComponent(k)+'"><b class="rtg" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</b>'+(dd?'<span>'+esc(dd)+'</span>':'')+'</a>'}).join('')+'</div>'+
       '<p class="look"><span class="mono">Look at the string</span>'+esc(it.note)+'</p>';
     stage.href=lib(o);stage.dataset.open=o.slug;stage.setAttribute('aria-label','Open '+o.name+' in the Library');
     $('#spos').textContent=(si+1)+' of '+S.length+' strings';
@@ -373,7 +376,7 @@ loadData(function(){
     $('#rn').textContent=R.length+' deep entries';
     $('#card').innerHTML=
       '<div class="stripe">'+roles.map(function(k,i){return '<u style="flex:'+(i===0?3:1)+';background:'+col(k)+'"></u>'}).join('')+'</div>'+
-      '<div class="hd"><div><b>'+esc(o.name)+'</b><small class="mono">'+esc(o.originDetail||'')+(o.alias?' · '+esc(o.alias):'')+'</small></div>'+(o.fda?'<span class="fda mono">FDA ✓</span>':'')+'</div>'+
+      '<div class="hd"><div><b>'+esc(o.name)+'</b><small class="mono">'+esc(o.originDetail||'')+(o.alias?' · '+esc(o.alias.split(/,\s*/).slice(0,2).join(', ')):'')+'</small></div>'+(o.fda?'<span class="fda mono">FDA ✓</span>':'')+'</div>'+
       '<div class="tags">'+roles.slice(0,5).map(function(k){var c=col(k);return '<a href="/library/#/role/'+encodeURIComponent(k)+'" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</a>'}).join('')+'</div>'+
       '<p><span class="mono">How it started</span>'+esc(story(o))+'</p>'+
       '<div class="wd"><div><span class="mono">Worked</span>'+esc(first(o.worked||o.helps))+'</div><div><span class="mono">Didn’t</span>'+esc(first(o.didnt))+'</div></div>'+
