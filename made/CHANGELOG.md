@@ -2,6 +2,18 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v4 (23 Oct 2026) at /made/v4/
+Rebuilt from Cece's v3 review; v3 kept at /made/v3/. Heavier on visuals, metaphors (Lego bricks, recipe card, Pac-Man enzymes, brewery, gloves, stapler, race, instant coffee), less text.
+- Walk icons redrawn. Recipe as a recipe card (ingredients with shapes and counts, numbered method chain, chef's note) for KPV, Selank, Ipamorelin, BPC-157; Lego snap animation (plug into socket, water drops out).
+- End caps drawn as atoms (plain front vs acetyl, plain back vs amide); exopeptidase Pac-Man demo, plain Selank eaten vs NA Selank Amidate blocked. Look-alikes keep four pairs; MT-2 and PT-141 drawn as a real ring on wide screens.
+- Mini Library cards (AA count, use line, role tags, stripe, link to the full page) wherever a peptide is introduced: recipe, look-alikes, SS-31, bead build, crude (Semax), purity (BPC-157). Reads /library/v45/data.js.
+- Bricks: four animated routes (bacteria tank, chemistry flask with L and D gloves, aspartase enzyme, feathers and hair broken by acid); 20-brick grid now toggles (tap again to go back) and filters by route from the key; caps stepper (plain, Fmoc, Boc guard, snap on, base bath, acid bath) with one cap colour system (navy Fmoc, violet guard, teal end caps); SS-31 dose bars.
+- Build: "which peptide, which way" board first, no tabs (beads, E. coli, yeast, hamster cells, bodies, not a chain, with length bars); stacked on beads with play, pause, step back and forward, slow or faster, and a round slider; liquid colours per reagent, drain and drip; guards shown on the chain; compact counters and table. "Why every round counts" replaced by a microscope lens on the crude showing each impurity type. Separate E. coli, yeast and hamster cell animations.
+- Crude: compared rows with floating chains and red pointer labels, weights in plain words, mirror swap drawn with the top piece flipped plus a left/right hand explainer.
+- Purify: race metaphor, shorter text. Dry: seven 3 mL vials, each animated (liquid moves, frost, vapour, stopper press, crimp), tap for detail.
+- Purity: slider and lens of 100 molecules with impurity types and counts per 1,000; 3 mL vial; size ladder with icons on a true log scale.
+- pH: BAC water vs saline table. Interactive controls use the site action orange.
+
 ## v3 (23 Oct 2026) at /made/v3/
 Rebuilt around Cece's questions; v2 kept at /made/v2/. Title now "From recipe to vial", 8-step walk (Recipe, Letters, Build, Crude, Purify, Dry, Purity, Test), text size control (shared bs-text), all chains drawn with the Aminos amino acid shapes.
 - Part one, The recipe (new): Selank recipe chain; NA (N-acetyl) and Amidate (C-amide) explained (+42, −1, exopeptidases, Rink amide bead); look-alike pairs with differences marked: Selank vs NA Selank Amidate, Semax vs NA Semax Amidate, MT-2 vs PT-141 (amide vs acid, 1 Da apart), Semaglutide vs Liraglutide (Aib, fatty tail).
