@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v4 (23 Oct 2026) at /protocol/v4/
+- Same as v3, reads Library v32: Pinealon back to the common 1–2 mg Sub-Q community dose. v3 kept.
+
 ## v3 (23 Oct 2026) at /protocol/v3/
 - Same as v2, but reads Library v30: Khavinson bioregulator doses corrected from 10–20 mg to the label and patent amounts (micrograms), Pinealon and Thymosin Beta-4 corrected. v2 kept.
 
