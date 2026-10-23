@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Dosage · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Dosage v21 (23 Oct 2026): open card reorganised into a clear reading order (what it is, then dose / how often / cycle / route / half-life in aligned cells, then the top doses side by side on laptop, then notes, other doses, synergies and supplements), Full page / Blood work / Calculator always at the bottom right, synergies and supplements as colour-filled tags (role or supplement colour), the "Outside these" warning kept but compact, hooked to nav v10 (applies detail.k, laptop default 1.15 up to 1.45; the grid drops columns as text grows). Reads Library v46 and Blood Work v19. v20 kept.
+   Dosage v20 (23 Oct 2026): hooked to nav v9: the text size control (small A / A / large A) moved into the site bar, the page listens to bs-text and zooms main (card names grow by less, so large text stays calm); duplicate Bare Signals label removed. v19 kept.
+   Dosage v19 (23 Oct 2026): compact cards at about half the size, two per row on phone and four to five on laptop, showing name, dose, how often, cycle, route and a thin role stripe; everything else opens on tap (the open card spans the full row). Type Rule v1 (no hero dose numbers, T-num doses, 8.5px tags) and the three-step text size control (bs-text). Reads Library v43 and Blood Work v16. v1-v18 kept.
+   Dosage v18 (23 Oct 2026): reads Library v41 (Batch 3) and Blood Work v15. Dosage v17: Library v40 and Blood Work v14 cross-links. Dosage v16: Library v36. Dosage v15: top three doses people take, How doses are found. Dosage v14: Library v32. Dosage v13: alt dose lines. Dosage v12: supplement pairings and ?only= view. Dosage v11: cross-links (full page, Blood Work, Calculator). Dosage v10: design sweep. Dosage v9: laptop grid. Dosage v7: doses cross-checked. Dosage v6: doses from Cece's Peptide Encyclopedia. Dosage v5: community second protocols. Dosage v4: full page link. Dosage v3: synergy links. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--tint:#F9D9C2;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.5}
+a{color:inherit}
+.wrap{max-width:1300px;margin:0 auto;padding:14px max(16px,env(safe-area-inset-left,0px)) 40px}
+/* T-tag */
+.tag,.lab,.seg button,#count,.kv dt,.xp h4,.mr,.foot{font:500 8.5px/1.1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.lab{color:var(--ink-soft);margin:0}
+h1{font:700 22px/1.1 var(--display);margin:0}
+h1 small{font:500 8.5px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.08em;vertical-align:4px}
+.lede{margin:4px 0 10px;font-size:12px;line-height:1.35;color:var(--ink-soft);max-width:70ch}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.qw{position:relative;flex:1 1 240px}
+#q{width:100%;font:500 13.5px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:7px 78px 7px 9px;border-radius:0}
+#count{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--ink-soft);pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);background:var(--chip)}
+.seg button{color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:8px 8px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.key{margin:0 0 10px;font-size:10.5px;line-height:1.4;color:var(--ink-soft)}
+.key b{color:var(--ink);font-weight:600}
+.tag{display:inline-block;padding:3px 5px;border:1px solid var(--ink);color:var(--ink);background:transparent;white-space:nowrap;border-radius:0}
+button.tag{cursor:pointer}
+.tag.c{border-color:var(--accent);color:var(--accent)}
+.tag.on{background:var(--ink);color:var(--paper)}
+.tag.c.on{background:var(--accent);color:#fff}
+/* cards */
+#list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;grid-auto-flow:row dense;align-items:stretch}
+#list>.lede{grid-column:1/-1}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);cursor:pointer;scroll-margin:70px}
+.card:hover{box-shadow:2px 2px 0 var(--tint)}
+.stripe{display:flex;height:4px;border-bottom:1.5px solid var(--ink);flex:none}
+.stripe i{display:block;min-width:0}
+.cb{display:flex;flex-direction:column;flex:1;padding:7px 8px 6px;min-width:0}
+.cn{font:700 calc(15px*var(--hk,1))/1.15 var(--display);margin:0;overflow-wrap:anywhere}
+.tags{display:flex;flex-wrap:wrap;gap:3px;margin:5px 0 6px}
+.kv>div{display:contents}
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 6px;margin:0;align-items:baseline}
+.kv dt{color:var(--accent);white-space:nowrap}
+.kv dd{margin:0;font-size:11.5px;line-height:1.3;min-width:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.kv dd.n{font:600 12.5px/1.3 var(--body)}
+.mr{align-self:flex-end;margin-top:auto;padding:6px 0 0;color:var(--ink-soft);background:none;border:0;cursor:pointer}
+.mr i{font-style:normal;display:inline-block;margin-left:3px;transition:transform .15s}
+.card.open .mr i{transform:rotate(180deg)}
+.card.hit{animation:hit 1.6s ease-out}
+@keyframes hit{0%,40%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:2px 2px 0 var(--rule)}}
+/* open card */
+.card.open{grid-column:1/-1;cursor:default}
+.card.open .cb{cursor:pointer}
+.card.open .kv dd{display:block;-webkit-line-clamp:unset;overflow:visible}
+/* v21 open card: what it is, then aligned cells, then tiers, then notes; links bottom right */
+.card.open .cb{padding:8px 9px 9px}
+.card.open .mr{position:absolute;top:10px;right:9px;margin:0;padding:0}
+.card.open .cn{padding-right:44px}
+.card.open .tags{margin:4px 0 0}
+.tag.lg{border-color:var(--ink-soft);color:var(--ink-soft)}
+.cu{margin:5px 0 0;font-size:12px;line-height:1.35}
+.card.open .kv{align-items:stretch;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:8px 0 0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.card.open .kv>div{display:block;min-width:0;padding:5px 7px 6px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper)}
+.card.open .kv>div:first-child{background:var(--chip)}
+.card.open .kv dt{margin:0 0 2px}
+.card.open .kv dd{font-size:11.5px}
+.card.open .kv dd.n{font-size:12.5px}
+.card.open .kv>div.x:nth-child(odd){grid-column:1/-1}
+.xg{display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
+.xg section,.xt{margin:0!important}
+.xt{margin-bottom:9px!important}
+.xf{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 12px;margin-top:10px;padding-top:7px;border-top:1px dotted var(--rule)}
+.xf .chk{margin:0!important;flex:1 1 160px}
+.cts{display:flex;flex-wrap:wrap;gap:3px;margin:0!important}
+.ct{display:inline-block;font:500 8.5px/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink);color:var(--ink);background:var(--chip);text-decoration:none;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.syn a.ct,a.ct{text-decoration:none;font-weight:500}
+a.ct:hover{box-shadow:1.5px 1.5px 0 var(--ink)}
+.xp{display:flex;flex-direction:column;border-top:1.5px solid var(--rule);background:var(--paper);padding:8px 9px 9px;font-size:12px;line-height:1.35;cursor:auto}
+.xp section{break-inside:avoid;margin:0 0 9px}
+.xp section:last-child{margin-bottom:0}
+.xp h4{color:var(--accent);margin:0 0 4px;display:flex;align-items:center;gap:5px}
+.xp p{margin:0 0 4px}
+.xp .use{color:var(--ink)}
+.xp .soft{color:var(--ink-soft)}
+.alt{display:flex;flex-direction:column;gap:2px}
+.alt span{font-weight:600;font-size:12px}
+.alt b{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:5px}
+.tiers{list-style:none;margin:0;padding:0}
+.tiers li{display:flex;gap:7px;padding:4px 0;border-bottom:1px dotted var(--rule)}
+.tiers li:last-child{border-bottom:0}
+.tn{flex:none;width:16px;height:16px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;font:500 8.5px var(--mono);margin-top:1px}
+.tiers li:first-child .tn{background:var(--ink);color:var(--paper)}
+.tt{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;margin:0!important}
+.tt b{font:600 12.5px/1.3 var(--body)}
+.tl{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tv{font:500 8px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);padding:1px 3px}
+.tf{font-size:11.5px;margin:0!important}
+.tw{font-size:10.5px;color:var(--ink-soft);margin:0!important}
+.tnote{border-left:2px solid var(--accent);background:var(--tint);padding:3px 7px;margin:6px 0 0!important;font-size:10.5px;line-height:1.35}
+.tnote b{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:3px}
+.chk{font:500 9px var(--mono);letter-spacing:.04em;color:var(--ink-soft);margin:5px 0 0!important}
+.xp ul.nt{list-style:none;margin:0 0 4px;padding:0}
+.xp ul.nt li{padding:2px 0;border-bottom:1px dotted var(--rule)}
+.xp ul.nt li b{font-weight:600}
+.syn a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+.pr{display:flex;flex-wrap:wrap;gap:4px}
+.pr a{font-size:11.5px;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:2px 6px;background:var(--chip)}
+.pr a:hover{border-color:var(--accent);color:var(--accent)}
+.xp .lk{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;margin:0 0 0 auto}
+.lk a{font:500 8.5px/1.1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--accent);background:var(--tint);border:1px solid var(--accent);padding:5px 7px}
+.lk a::after{content:" \2192"}
+.lk a:hover{background:var(--accent);color:#fff}
+.q{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid var(--accent);background:none;color:var(--accent);font:600 8.5px/1 var(--body);padding:0;cursor:pointer;text-transform:none;letter-spacing:0}
+.q:hover{background:var(--accent);color:#fff}
+.qk{font:inherit;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+.only[hidden]{display:none}
+.only{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;border:1.5px solid var(--ink);background:var(--chip);padding:7px 10px;margin:0 0 10px;font-size:12px}
+.only b{font-weight:600}
+.only button{font:500 8.5px/1.1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--paper);background:var(--ink);border:0;padding:6px 8px;cursor:pointer}
+.foot{margin-top:14px;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+#how{max-width:540px;width:calc(100% - 32px);border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);padding:16px 18px 14px;box-shadow:4px 4px 0 var(--rule);font-size:12.5px;line-height:1.45}
+#how::backdrop{background:rgba(62,74,128,.35)}
+#how h2{font:700 17px var(--display);margin:0 0 8px}
+#how h3{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:12px 0 5px}
+#how p{margin:0 0 7px}
+#how .hs{margin:0 0 6px;padding-left:18px}
+#how .hs li{margin:0 0 4px}
+#how .nb{font-size:10.5px;color:var(--ink-soft);border-top:1.5px solid var(--rule);padding-top:7px;margin-top:9px}
+#how .x{position:absolute;right:10px;top:6px;font:400 22px/1 var(--body);background:none;border:0;color:var(--ink);cursor:pointer}
+@media (min-width:600px){#list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:600px){
+ .card.open .kv{grid-template-columns:repeat(auto-fit,minmax(118px,1fr))}
+ .card.open .kv>div.x:nth-child(odd){grid-column:auto}
+ .xg{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px}
+}
+@media (min-width:900px){
+ #list{grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:10px}
+ .card.open .cb{padding:10px 14px 0}
+ .card.open .mr{top:12px;right:14px}
+ .card.open .cn{font-size:calc(17px*var(--hk,1))}
+ .card.open .tags{margin-top:5px}
+ .cu{max-width:80ch}
+ .card.open .kv{margin-top:9px}
+ .card.open .kv>div{padding:6px 9px 7px}
+ .card.open .xp{border-top:0;padding:12px 14px 12px}
+ .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+ .tiers li{padding:7px 9px;border-bottom:1px solid var(--ink)!important;border-right:1px solid var(--ink);background:var(--chip)}
+ .tiers li:first-child{background:#fff}
+ .xg{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px 24px;align-content:start;padding-top:2px}
+ .xg .xn{grid-row:1/span 3;max-width:85ch}
+ .xg>section:not(.xn){grid-column:2}
+ .xg>section:only-child,.xg:not(:has(.xn))>section{grid-column:auto}
+}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+ <div class="top">
+  <div><h1>Dosage<small>V21</small></h1></div>
+ </div>
+ <main id="main">
+  <p class="lede">The typical dose for every compound in the Library, most common first. Tap a card for the top doses people take, synergies, supplements, blood work and the Calculator.</p>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search a name or a goal" aria-label="Search" autocomplete="off"><span id="count"></span></div><div class="seg" id="filt"></div><div class="seg" id="sort"></div></div>
+  <p class="key"><b>Label</b> approved label, trial or patent dosing · <b>Community</b> common community and clinic use · <b>Load</b> a higher start, then a lower maintenance (maint.) dose · <button type="button" class="qk" data-how>How doses are found <span class="q">?</span></button></p>
+  <div id="only" class="only" hidden></div>
+  <div id="list"></div>
+  <p class="foot">Data collected by <b>Bare Signals</b> · from the Peptide and Compound Library</p>
+ </main>
+ <dialog id="how" aria-labelledby="howt"><form method="dialog"><button class="x" aria-label="Close">×</button></form>
+  <h2 id="howt">How doses are found</h2>
+  <p>Every dose here is collected and compared across sources, not made up. Each compound is checked against as many of these five kinds of source as can be reached, and its card says which ones were:</p>
+  <ol class="hs"><li><b>Labels, trials and patents.</b> Approved drug labels (US, EU, Russia, Japan), published human trials, and the original patents. When one exists, it is the <b>Label</b> dose.</li>
+  <li><b>Dosing guides.</b> Peptide dosing wikis and guides, read side by side to see where they agree.</li>
+  <li><b>Clinics.</b> Telehealth, anti-aging and compounding-pharmacy protocols.</li>
+  <li><b>Practitioners.</b> Doctors, coaches and researchers who publish protocols on Substack, blogs and podcasts.</li>
+  <li><b>Forums.</b> What people say they run on Reddit and Longecity.</li></ol>
+  <h3>How it is ranked</h3>
+  <p>The dose on each card is the one most sources agree on. Tap the card for the top three doses people take, most common first: usually the common dose, a higher one, and the top of what people really report, such as injury loading. Each card says which kinds of source were checked, and flags claims that did not hold up.</p>
+  <h3>Check a dose yourself</h3>
+  <ul class="hs"><li><b>mcg or mg.</b> 1 mg is 1000 mcg. A slip between the two is the most common error online.</li>
+  <li><b>Vial size is not a dose.</b> A 10 mg vial is often 20 to 40 doses.</li>
+  <li><b>Per kg or flat.</b> Animal studies dose per kilogram. 10 mcg/kg is about 0.7 mg for a 70 kg person, not 10 mg.</li>
+  <li><b>Route.</b> Oral, nasal, injected and IV doses are not interchangeable.</li>
+  <li><b>Count the sources.</b> A number that appears on one site only, with no study or user reports, is not a dose. Look for two guides plus a trial or real user reports.</li>
+  <li><b>Higher is not always better.</b> For some compounds the higher trial dose worked worse.</li></ul>
+  <p class="nb">Not medical advice. Doses differ by person, and many of these compounds are not approved for human use. Talk to a clinician.</p>
+ </dialog>
+</div>
+<script src="/library/v47/data.js"></script>
+<script src="/blood/v20/lib.js"></script>
+<script>
+/* text size: nav v10 sends bs-text {key,k,wide}; apply k (zoom on main), card names grow by 40% of the step */
+(function(){
+  const m=document.getElementById('main');
+  const ap=k=>{k=+k||1;m.style.zoom=k===1?'':k;m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4))};
+  let k0=window.BS_TEXT&&BS_TEXT.get&&BS_TEXT.get().k;
+  if(!k0){const w=innerWidth>=1000,KN={s:.88,m:1,l:1.15},KW={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let t=null;try{t=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}k0=(w?KW:KN)[t]||(w?1.15:1)}
+  ap(k0);
+  addEventListener('bs-text',e=>ap(e.detail&&e.detail.k));
+})();
+(function(){
+const D=window.BS_DATA.filter(o=>o.dose),PAL=window.BS_PALETTE,HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cap=x=>x?x.charAt(0).toUpperCase()+x.slice(1):'';
+const NA=v=>/^(unknown|not measured)$/i.test(String(v||'').trim())?'NA':v;
+const WT=[10,7,5,3.5];
+/* Both doses for one compound go here when they differ: EXTRA[slug]={label:{...},community:{...}}. */
+const EXTRA={
+ "semaglutide":{community:{conf:"reported",dose:"0.5–1 mg",freq:"once weekly",cycle:"ongoing",route:"Sub-Q",half:"~7 days",use:"Weight loss, low-dose",
+   main:"Low-dose maintenance: 0.5 to 1 mg once weekly. The full escalation still runs 0.25 up to 2.4 mg over 16 to 20 weeks.",
+   course:"Microdose (niche, not studied in trials): 0.125 to 0.25 mg twice weekly.",
+   src:[["Semaglutide community protocols","https://www.peptideprotocolwiki.com/peptides/semaglutide/community"]]}},
+ "somatropin-hgh":{community:{conf:"reported",dose:"1–2 IU/day",freq:"once daily",cycle:"3–6 months",route:"Sub-Q",half:"~2–3 hours",use:"Wellness to performance",
+   main:"Wellness and anti-aging: 1 to 2 IU once daily. Body composition: 2 to 4 IU daily or split.",
+   course:"Performance: 4 to 8 IU split into two daily injections, 4 to 6 months. Start low and titrate.",
+   src:[["HGH 191AA community protocols","https://www.peptideprotocolwiki.com/peptides/hgh-191aa/community"],["HGH (Somatropin)","https://peptide-db.com/peptides/hgh"]]}},
+ "retatrutide":{community:{conf:"reported",dose:"0.5–2 mg start",freq:"once weekly",cycle:"ongoing, titrated",route:"Sub-Q",half:"~6 days",use:"Weight loss, titrated",
+   main:"Community mirrors the trial titration: start 0.5 mg weekly and step up every 4 weeks. Many hold at 4 to 6 mg rather than the 12 mg trial ceiling.",
+   src:[["Retatrutide dosing","https://www.peptideprotocolwiki.com/peptides/retatrutide/dosing"]]}}
+};
+function srcs(o){
+  const d=o.dose,x=EXTRA[o.slug]||{},r={label:x.label||null,community:x.community||null};
+  if(d){const k=d.conf==='verified'?'label':'community';if(!r[k])r[k]=d}
+  return r;
+}
+const SORTS=[['pop','Popular'],['az','A to Z'],['route','Route']];
+const FILT=[['all','All'],['label','Label'],['community','Community']];
+let sort='pop',filt='all',q='';
+const act={},open={};
+const BYN=Object.fromEntries(D.map(o=>[o.name,o.slug]));
+function def(o,s){return act[o.slug]||(filt!=='all'&&s[filt]?filt:(s.label?'label':'community'))}
+function tagsHtml(o,s,a){
+  const K=['label','community'].filter(k=>s[k]),both=K.length>1;
+  return K.map(k=>both?`<button type="button" class="tag${k==='community'?' c':''}${a===k?' on':''}" data-t="${o.slug}|${k}" aria-pressed="${a===k}" title="Show the ${k} dose">${cap(k)}</button>`:`<span class="tag${k==='community'?' c':''}">${cap(k)}</span>`).join('');
+}
+function short(v){return String(v==null?'':v).replace(/\bloading\b/gi,'load').replace(/^Load/,'load').replace(/,\s*maintenance/i,' → maint.').replace(/(\d)\s*-\s*(\d)/g,'$1–$2').replace(/\bweeks?\b/gi,'wk').replace(/\bmonths?\b/gi,'mo').replace(/maintenance/gi,'maint.').replace(/,?\s*then maint\.? as needed?/i,' + maint.').replace(/,?\s*then maint\.?\s*as$/i,' + maint.').replace(/^similar to sema$/i,'ongoing').replace(/,?\s*similar to sema/i,'').replace(/ protocol/i,'')}
+function calcHref(o){const d=o.dose||{},m=String(d.dose||'').match(/^~?\s*([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(mcg|mg)\b(?!\/)/i);return '/draw/?n='+encodeURIComponent(o.name)+(m?'&dose='+m[1]+'&u='+m[2].toLowerCase():'');}
+const BLOOD=new Set(Object.keys((window.BW_LIB||{}).comps||{}));
+const SUP=(window.BW_LIB||{}).sup||{};
+const QS=new URLSearchParams(location.search),FROM=QS.get('from');let ONLY=QS.get('only')?new Set(QS.get('only').split(',').map(x=>x.trim()).filter(Boolean)):null;
+function stripe(o){
+  const R=(o.roles&&o.roles.length?o.roles:[o.primary]).filter(k=>HEX[k]).slice(0,4);
+  return `<div class="stripe" aria-hidden="true">${R.map((k,i)=>`<i style="background:${HEX[k]};flex-grow:${WT[i]}"></i>`).join('')}</div>`;
+}
+function alts(s,a,d){
+  let L=(d.alt||[]).slice();const k=a==='label'?'community':'label',x=s[k];
+  if(!L.length&&x&&x!==d)L.push([cap(k),x.dose+(x.route&&x.route!==d.route?' '+x.route:'')]);
+  return L.length?`<section><h4>Other doses</h4><p class="alt">${L.map(r=>`<span><b>${esc(r[0])}</b>${esc(r[1])}</span>`).join('')}</p></section>`:'';
+}
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const fgOn=h=>lum(h||'#FFFFE2')>.42?'#3E4A80':'#FFFFE2';
+const ctag=(h,txt,href,attr)=>`<a class="ct" href="${href}"${attr||''}${h?` style="background:${h};color:${fgOn(h)}"`:''}>${esc(txt)}</a>`;
+const SUPN={};Object.values(SUP).forEach(L=>L.forEach(x=>{SUPN[String(x[1]).toLowerCase()]=x}));
+const BYO=Object.fromEntries(D.map(o=>[o.name,o]));
+function xpHtml(o,s,a,d){
+  const T=(o.dose&&o.dose.tiers)||[],dd=o.dose||{};
+  const qb='<button type="button" class="q" data-how aria-label="How doses are found">?</button>';
+  const tiers=T.length?`<section class="xt"><h4>Top ${T.length} doses people take${qb}</h4><ol class="tiers">${T.map((t,i)=>`<li><span class="tn">${i+1}</span><div><p class="tt"><b>${esc(t.dose)}</b><span class="tl">${esc(t.label)}</span>${t.tag==='verified'?'<span class="tv">Label / trial</span>':''}</p><p class="tf">${[t.freq,t.dur,t.route].filter(Boolean).map(esc).join(' · ')}</p>${t.who?`<p class="tw">${esc(t.who)}</p>`:''}</div></li>`).join('')}</ol>${dd.tiernote?`<p class="tnote"><b>Outside these</b> ${esc(dd.tiernote)}</p>`:''}</section>`:'';
+  const rows=(d.rows||[]).map(r=>`<li><b>${esc(r[0])}</b> ${esc(r[1])}</li>`).join('');
+  const notes=(rows||d.main||d.course)?`<section class="xn"><h4>${a==='label'?'Label notes':'Notes'}${T.length?'':qb}</h4>${rows?`<ul class="nt">${rows}</ul>`:''}${d.main?`<p>${esc(d.main)}</p>`:''}${d.course?`<p>${esc(d.course)}</p>`:''}</section>`:'';
+  const sy=o.syn&&o.syn.length?o.syn:null;
+  const sl=n=>{const c=BYO[n];if(c){const h=HEX[c.primary]||HEX[(c.roles||[])[0]];return ctag(h,n,'#'+c.slug,` data-j="${c.slug}"`)}const x=SUPN[n.toLowerCase()];return x?ctag(x[2],n,'/supplements/#/'+x[0]):`<span class="ct">${esc(n)}</span>`};
+  const syn=`<section class="syn"><h4>Synergies</h4>${sy?`<p class="cts">${sy.map(sl).join('')}</p>`:'<p class="soft">None logged yet</p>'}</section>`;
+  const p=SUP[o.slug],sup=p&&p.length?`<section><h4>Supplements people pair with it</h4><p class="cts">${p.map(x=>ctag(x[2],x[1],'/supplements/#/'+x[0])).join('')}</p></section>`:'';
+  const lk=`<p class="lk"><a href="/library/#/p/${o.slug}">Full page</a>${BLOOD.has(o.slug)?`<a href="/blood/#/c/${o.slug}">Blood work</a>`:''}${o.dose?`<a href="${calcHref(o)}">Calculator</a>`:''}</p>`;
+  const chk=(dd.checked||[]).length?`<p class="chk">Checked: ${dd.checked.map(esc).join(' · ')}</p>`:'<span></span>';
+  return `<div class="xp">${tiers}<div class="xg">${notes}${alts(s,a,d)}${syn}${sup}</div><div class="xf">${chk}${lk}</div></div>`;
+}
+function card(o){
+  const s=srcs(o),a=def(o,s),d=s[a]||o.dose,op=!!open[o.slug];
+  const kv=(l,v,c,x)=>`<div${x?' class="x"':''}><dt>${l}</dt><dd${c?' class="n"':''} title="${esc(v)}">${esc(c||op?v:short(v))}</dd></div>`;
+  const use=op?(d.use||(o.dose||{}).use||cap(o.fn)):'';
+  const half=op?NA(d.half)||'NA':'';
+  return `<article class="card${op?' open':''}" id="${o.slug}">${stripe(o)}<div class="cb" data-x="${o.slug}"><h3 class="cn">${esc(o.name)}</h3><div class="tags">${tagsHtml(o,s,a)}${op&&d.conf==='logged'?'<span class="tag lg">Logged research</span>':''}</div>${use?`<p class="cu">${esc(use)}</p>`:''}<dl class="kv">${kv('Dose',d.dose,1)}${kv(op?'How often':'Often',d.freq)}${kv('Cycle',d.cycle)}${kv('Route',d.route)}${op?kv('Half-life',half,0,1):''}</dl><button type="button" class="mr" data-x="${o.slug}" aria-expanded="${op}">${op?'Less':'More'}<i aria-hidden="true">▾</i></button></div>${op?xpHtml(o,s,a,d):''}</article>`;
+}
+function list(){
+  const n=x=>x.toLowerCase().replace(/[\s\-–()]/g,''),qq=n(q);
+  let L=D.filter(o=>!qq||n(o.name+' '+(o.alias||'')+' '+(o.fn||'')+' '+(o.kw||[]).join(' ')+' '+(o.dose&&o.dose.use||'')).includes(qq));
+  if(filt!=='all')L=L.filter(o=>srcs(o)[filt]);
+  if(ONLY)L=L.filter(o=>ONLY.has(o.slug));
+  const ob=$('#only');if(ONLY){ob.hidden=false;ob.innerHTML=`<span>Showing the ${L.length} compound${L.length===1?'':'s'} that ${FROM?`go with <b>${esc(FROM)}</b>`:'you picked'}</span><button type="button" id="showall">Show all ${D.length}</button>`}else ob.hidden=true;
+  const az=(a,b)=>a.name.localeCompare(b.name),pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
+  const rt=o=>{const s=srcs(o),d=s[def(o,s)];return d?d.route:'~'};
+  if(sort==='az')L.sort(az);else if(sort==='route')L.sort((a,b)=>String(rt(a)).localeCompare(String(rt(b)))||pop(a,b));else L.sort(pop);
+  $('#count').textContent=L.length+' of '+D.length;
+  $('#list').innerHTML=L.map(card).join('')||'<p class="lede">Nothing matches.</p>';
+  $('#sort').innerHTML=SORTS.map(([k,l])=>`<button data-s="${k}" aria-pressed="${sort===k}">${l}</button>`).join('');
+  $('#filt').innerHTML=FILT.map(([k,l])=>`<button data-f="${k}" aria-pressed="${filt===k}">${l}</button>`).join('');
+}
+$('#sort').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(b){sort=b.dataset.s;list()}});
+$('#filt').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){filt=b.dataset.f;for(const k in act)delete act[k];list()}});
+$('#q').addEventListener('input',e=>{q=e.target.value;list()});
+function jump(slug){
+  if(!document.getElementById(slug)){filt='all';q='';$('#q').value='';if(ONLY&&!ONLY.has(slug)){ONLY=null;history.replaceState(null,'',location.pathname+location.hash)}list()}
+  const el=document.getElementById(slug);if(!el)return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit');
+}
+function rerender(slug){
+  const y=window.scrollY;list();window.scrollTo(0,y);
+  const el=document.getElementById(slug);if(el&&open[slug])el.scrollIntoView({block:'nearest'});
+}
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&!h.startsWith('/'))jump(h)});
+$('#only').addEventListener('click',e=>{if(e.target.id==='showall'){ONLY=null;history.replaceState(null,'',location.pathname+location.hash);list()}});
+document.addEventListener('click',e=>{if(e.target.closest('[data-how]')){e.preventDefault();e.stopPropagation();const h=document.getElementById('how');h.showModal?h.showModal():h.setAttribute('open','')}},true);
+document.getElementById('how').addEventListener('click',e=>{if(e.target.id==='how')e.target.close()});
+$('#list').addEventListener('click',e=>{
+  const j=e.target.closest('[data-j]');if(j){e.preventDefault();history.replaceState(null,'','#'+j.dataset.j);jump(j.dataset.j);return}
+  const b=e.target.closest('[data-t]');
+  if(b){const [slug,k]=b.dataset.t.split('|');act[slug]=k;rerender(slug);return}
+  if(e.target.closest('a')||e.target.closest('.xp'))return;
+  const c=e.target.closest('.card');if(!c)return;
+  if(window.getSelection&&String(window.getSelection()).length)return;
+  const slug=c.id;open[slug]=!open[slug];rerender(slug);
+});
+list();
+{const h=location.hash.slice(1);if(h&&!h.startsWith('/'))setTimeout(()=>jump(h),150)}
+})();
+</script>
+</body>
+</html>

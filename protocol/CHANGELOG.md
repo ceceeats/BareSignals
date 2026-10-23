@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v12 (23 Oct 2026) at /protocol/v12/
+- Reads Library v47: 10 new compounds (brenipatide, petrelintide, ecnoglutide, trofinetide, tadalafil, modafinil, Noopept, phenylpiracetam, 9-Me-BC, cGP), human trial status, rewritten PNC-27. Built on v11, kept at /protocol/v11/.
+
 ## v11 (23 Oct 2026) at /protocol/v11/
 - 3 months and Year views start at the earliest compound's first day, so a compound started before the protocol start (e.g. KPV from 1 Oct when the protocol starts 20 Oct) shows its history. 3 months widens up to 26 weeks to fit the whole run. Header notes the earliest compound date. v10 kept.
 
