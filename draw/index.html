@@ -253,6 +253,37 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 body[data-mode="quick"] .intro,body[data-mode="quick"] .pic,body[data-mode="quick"] #vialQ,body[data-mode="quick"] #waterQ,body[data-mode="quick"] .vmath{display:none}
 body[data-mode="quick"] .sbx{grid-template-columns:minmax(0,1fr)}
 body[data-mode="quick"] .qhint{display:block}
+#xpanel{display:none}
+body[data-mode="quick"] #xpanel{display:flex;flex-direction:column;gap:10px}
+body[data-mode="quick"] .form,body[data-mode="quick"] .cardcol,body[data-mode="quick"] .math,body[data-mode="quick"] #faq,body[data-mode="quick"] #glossary{display:none}
+.xpanel{border:2px solid var(--ink);background:var(--chip);padding:14px}
+.xhead{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.xhead h2{font:700 calc(20px*var(--hk,1)) var(--display)}
+.xhead .btn{min-height:30px;padding:3px 10px;font:600 11px var(--mono)}
+.xl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:3px}
+.xgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.xchips{display:flex;gap:4px}
+.xchips .q{flex:1;min-height:40px;padding:4px 4px;font:600 13px var(--mono)}
+.xdose{display:flex;gap:8px}
+.xdose input{flex:1;min-width:0}
+.xdose .seg{flex:0 0 auto;grid-template-columns:1fr 1fr}
+.xout{border-top:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);padding:8px 0;display:grid;gap:3px}
+.xout .xr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px}
+.xout .xr span{color:var(--soft)}
+.xout .xr b{font:600 13px var(--mono);color:var(--ink)}
+.xout .xr b.o{color:var(--accent-ink)}
+.xout .xbig b{color:var(--accent);font:700 calc(18px*var(--hk,1)) var(--display)}
+.xaddrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.qty{display:flex;align-items:stretch;border:1.5px solid var(--soft)}
+.qty .btn{border:0;min-width:34px;min-height:34px;padding:0}
+.qty b{min-width:32px;display:flex;align-items:center;justify-content:center;font:600 14px var(--mono)}
+.xaddrow .pri{margin-left:auto}
+.xorder{border:1.5px solid var(--ink);background:#fff;padding:10px 12px}
+.xorder h3{font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.xoi{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--rule);padding:5px 0;font-size:13px}
+.xorder .tot{display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);padding-top:6px;margin-top:4px;font:700 13px var(--mono)}
+.xorder .oact{margin-top:8px}
+.xnote{font-size:11.5px;color:var(--soft)}
 body:not([data-mode="quick"]) .tmath{display:none}
 
 /* card */
@@ -492,7 +523,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v25</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v26</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -563,6 +594,20 @@ body:not([data-mode="quick"]) .tmath{display:none}
 </section>
 
 <div class="main" id="calc">
+
+  <section class="xpanel" id="xpanel" aria-label="Quick cart">
+    <div class="xhead"><h2>Quick cart</h2><button class="btn" type="button" id="xFull">Full calculator &rarr;</button></div>
+    <div><span class="xl">Compound</span><input id="xName" type="text" maxlength="32" autocomplete="off" placeholder="BPC-157"></div>
+    <div class="xgrid">
+      <div><span class="xl">Vial</span><div class="xchips" id="xVial" role="group" aria-label="Vial size"></div></div>
+      <div><span class="xl">BAC water</span><div class="xchips" id="xWater" role="group" aria-label="BAC water"></div></div>
+    </div>
+    <div><span class="xl">Dose</span><div class="xdose"><input id="xDose" type="number" inputmode="decimal" step="any" min="0" value="500"><div class="seg" id="xUnit" role="group" aria-label="Dose unit"><button class="btn" type="button" data-xu="mcg" aria-pressed="true">mcg</button><button class="btn" type="button" data-xu="mg" aria-pressed="false">mg</button></div></div></div>
+    <div class="xout" id="xOut"></div>
+    <div class="xaddrow"><span class="xl">Vials</span><div class="qty"><button class="btn" id="xMinus" type="button" aria-label="Fewer">&minus;</button><b id="xQty">1</b><button class="btn" id="xPlus" type="button" aria-label="More">+</button></div><button class="btn pri" id="xAdd" type="button">Add to order</button><button class="btn" id="xCopyCard" type="button">Copy card</button></div>
+    <div class="xorder" id="xOrder" hidden></div>
+    <p class="xnote">Draft order. Copy it and send it to place it. Math only, not a dose recommendation.</p>
+  </section>
 
   <section class="form" aria-labelledby="formT">
     <div class="sech">
@@ -819,6 +864,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v26: a stripped expert mode. Quick now hides the full calculator, the syringe and the FAQ and shows one small panel: type the compound, pick a vial (5, 10 or 20 mg) and BAC water (2, 3 or 5 mL), set the dose, and it shows the draw, strength, doses and use-by, plus an order you can build (add vials, copy the card or the order). v1 to v25 are unchanged.</span>
   <span>v25: the page now sits in the same width as the Bare Signals bar on laptop: the title starts under the wordmark and the card ends under the A buttons, at every text size. v1 to v24 are unchanged.</span>
   <span>v24: in the residue demo the pen now counts down, the dose window ticks from the dialed 20 u to 0 as you press, the way a real pen does. v1 to v23 are unchanged.</span>
   <span>v23: the weight section is small now, a 1 g box zooming 1,000x to a 1 mg box, then 1,000x to a 1 mcg dot, with the converter kept and the giant grid gone. The pen is redrawn properly, a thin cartridge inside a wider body, a dial window in units that dials 0 to 60, and a short beveled needle; insulin and pen needle tips are beveled, not symmetric triangles. On the card, Mixed and Use by sit at the top and Draw to moved to the bottom right. The recommendation now switches to Luer lock when a dose is over 1 mL. Bigger mixing vials on laptop. v1 to v22 are unchanged.</span>
@@ -890,7 +936,7 @@ const SC={
   }
 };
 const ORDER={insulin:['0.3','0.5','1'],luer:['1','3']};
-const S={name:'',vial:10,water:2,dose:500,unit:'mcg',type:'insulin',size:'0.5',dead:0.05};
+const S={name:'',vial:10,water:2,dose:500,unit:'mcg',type:'insulin',size:'0.5',dead:0.05,mixed:'',freq:'',days:[],times:[],note:''};
 const cfg=()=>SC[S.type][S.size];
 const capD=c=>c.unit==='u'?c.cap*100:c.cap;
 
@@ -1612,6 +1658,58 @@ $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 $('#tipPen').innerHTML=tipSVG('pen');
 (function(){if(reduce)return;const d=['10 u','20 u','30 u','40 u','60 u'];let i=1;setInterval(function(){const t=document.getElementById('penDose');if(!t)return;i=(i+1)%d.length;t.textContent=d[i];},1200);})();
+(function(){
+  var VIALS=[5,10,20],WATERS=[2,3,5],xu='mcg',qty=1,order=[];
+  try{order=JSON.parse(localStorage.getItem('bs-order')||'[]')||[];}catch(e){}
+  function fb(t,cb){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);cb&&cb();}
+  function copyText(t,btn,msg){var o=btn.textContent,done=function(){btn.textContent=msg;setTimeout(function(){btn.textContent=o;},1400);};try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){fb(t,done);});}else fb(t,done);}catch(e){fb(t,done);}}
+  function mkchips(host,vals,unit,cur,set){
+    $(host).innerHTML=vals.map(function(v){return '<button class="btn q" type="button" data-v="'+v+'" aria-pressed="'+(cur()===v)+'">'+v+' '+unit+'</button>';}).join('');
+    $$(host+' .q').forEach(function(b){b.onclick=function(){set(+b.dataset.v);paintChips();xSync();};});
+  }
+  function paintChips(){$$('#xVial .q').forEach(function(x){x.setAttribute('aria-pressed',+x.dataset.v===S.vial);});$$('#xWater .q').forEach(function(x){x.setAttribute('aria-pressed',+x.dataset.v===S.water);});}
+  function xSync(){
+    $('#pname').value=$('#xName').value;
+    $('#vial').value=S.vial;$('#water').value=S.water;$('#dose').value=$('#xDose').value;S.unit=xu;
+    update();xRender();
+  }
+  function xRender(){
+    var vial=S.vial,water=S.water,dose=parseFloat($('#xDose').value);
+    if(!(isFinite(vial)&&vial>0&&isFinite(water)&&water>0&&isFinite(dose)&&dose>0)){$('#xOut').innerHTML='<div class="xr"><span>Pick a vial, water and dose</span></div>';return;}
+    var c=calc({vialMg:vial,waterMl:water,dose:dose,doseUnit:xu,type:'insulin',dead:0.005}),big=c.doseMl>1;
+    $('#xOut').innerHTML=
+      '<div class="xr xbig"><span>Draw to</span><b>'+nf(c.units,1)+' units</b></div>'+
+      '<div class="xr"><span>that is</span><b>'+fmtMl(c.doseMl)+' mL</b></div>'+
+      '<div class="xr"><span>Strength</span><b>'+nf(c.conc,0)+' mcg/mL</b></div>'+
+      '<div class="xr"><span>Dose</span><b class="o">'+nf(c.doseMcg,0)+' mcg</b></div>'+
+      '<div class="xr"><span>Doses in vial</span><b>'+c.ideal+'</b></div>'+
+      '<div class="xr"><span>Use by</span><b>'+fmtDate(addDays(S.mixed||todayISO(),28))+'</b></div>'+
+      '<div class="xr"><span>Syringe</span><b'+(big?' class="o"':'')+'>'+(big?'Luer lock, over 1 mL':'Insulin, 1 mL')+'</b></div>';
+  }
+  function saveOrder(){try{localStorage.setItem('bs-order',JSON.stringify(order));}catch(e){}}
+  function renderOrder(){
+    var el=$('#xOrder');
+    if(!order.length){el.hidden=true;el.innerHTML='';return;}
+    var tot=order.reduce(function(s,o){return s+o.qty;},0);
+    el.hidden=false;
+    el.innerHTML='<h3>Order</h3>'+order.map(function(o,i){return '<div class="xoi"><span>'+esc(o.name)+' &middot; <b>'+o.vial+' mg</b></span><span>&times;'+o.qty+' &nbsp;<button class="linkbtn" type="button" data-rm="'+i+'">remove</button></span></div>';}).join('')+'<div class="tot"><span>Total vials</span><span>'+tot+'</span></div><div class="oact"><button class="btn pri" id="xCopyOrder" type="button">Copy order</button></div>';
+    $$('#xOrder [data-rm]').forEach(function(b){b.onclick=function(){order.splice(+b.dataset.rm,1);saveOrder();renderOrder();};});
+    $('#xCopyOrder').onclick=function(){var t='Bare Signals order\n'+order.map(function(o){return '- '+o.name+' '+o.vial+' mg vial x'+o.qty;}).join('\n')+'\nTotal: '+tot+' vials\nbaresignals.co';copyText(t,$('#xCopyOrder'),'Copied');};
+  }
+  $('#xName').value=$('#pname').value;$('#xDose').value=S.dose;
+  mkchips('#xVial',VIALS,'mg',function(){return S.vial;},function(v){S.vial=v;});
+  mkchips('#xWater',WATERS,'mL',function(){return S.water;},function(v){S.water=v;});
+  $('#xName').addEventListener('input',xSync);
+  $('#xDose').addEventListener('input',xSync);
+  $$('#xUnit .btn').forEach(function(b){b.onclick=function(){xu=b.dataset.xu;$$('#xUnit .btn').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.xu===xu);});xSync();};});
+  $('#xFull').onclick=function(){setMode('guided');};
+  $('#xMinus').onclick=function(){qty=Math.max(1,qty-1);$('#xQty').textContent=qty;};
+  $('#xPlus').onclick=function(){qty+=1;$('#xQty').textContent=qty;};
+  $('#xAdd').onclick=function(){var nm=($('#xName').value||'Compound').trim();var ex=order.filter(function(o){return o.name===nm&&o.vial===S.vial;})[0];if(ex)ex.qty+=qty;else order.push({name:nm,vial:S.vial,qty:qty});saveOrder();renderOrder();var b=$('#xAdd');b.textContent='Added';setTimeout(function(){b.textContent='Add to order';},1200);};
+  $('#xCopyCard').onclick=function(){copyText(cardTxt||'','#xCopyCard'&&$('#xCopyCard'),'Copied');};
+  $$('[data-mode="quick"]').forEach(function(b){b.addEventListener('click',function(){setTimeout(function(){$('#xName').value=$('#pname').value;$('#xDose').value=S.dose;paintChips();xSync();},0);});});
+  paintChips();xSync();renderOrder();
+})();
 setMode(startMode);
 (function(){
   const pan=[{ox:0,t:'4 to 6 mm',a:'90°',d:'<line x1="50" y1="6" x2="50" y2="56" stroke="#3E4A80" stroke-width="2"/>'},
