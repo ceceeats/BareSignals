@@ -87,7 +87,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
   .ihead{grid-area:h}
   .blk[data-k=w]{grid-area:w}.blk[data-k=m]{grid-area:m}.blk[data-k=s]{grid-area:s;border-left:1.5px solid var(--line);border-top:0!important}
   .blk[data-k=m]{border-top:1.5px solid var(--line)}
-  .mixrow{--vw:84px}.vp{width:84px}
+  .mixrow{--vw:112px}.vp{width:112px}
   .mixrow figcaption{font-size:11.5px;max-width:130px}
   .tipc svg{max-width:120px}
   .wbox svg{max-height:240px}
@@ -121,6 +121,17 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 .wtabs{display:flex;gap:6px;justify-content:flex-start;align-items:center;width:100%;max-width:340px}
 .wtl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-right:2px}
 .wconv{font:700 15px/1.3 var(--display);color:var(--ink);text-align:center}
+.wscale{display:flex;align-items:center;justify-content:center;gap:5px}
+.wscale figure{display:flex;flex-direction:column;align-items:center;gap:3px;margin:0;flex:0 0 auto}
+.wscale figcaption{font:600 10px var(--mono);color:var(--soft);text-align:center;line-height:1.15}
+.wscale figcaption b{display:block;color:var(--accent-ink);font:700 13px var(--display)}
+.wscale figcaption i{font-style:normal;font-size:8px}
+.sqg,.sqm,.sqc{width:46px;height:46px;border:2px solid var(--accent);display:block;box-sizing:border-box}
+.sqg{background:var(--accent)}
+.sqm{background:#fff}
+.sqc{background:#fff;display:flex;align-items:center;justify-content:center}
+.sqc i{width:5px;height:5px;background:var(--accent-ink);border-radius:50%}
+.zx{font:700 8px/1.1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);text-align:center;flex:0 0 auto}
 .wconv b{color:var(--accent-ink)}
 .wcalc{width:100%;max-width:340px;border-top:1.5px solid var(--rule);padding-top:8px;display:flex;flex-direction:column;gap:6px}
 .wcl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
@@ -247,10 +258,16 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .shot{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
 .copyrow{margin-top:26px;display:flex;justify-content:center}
 .ctop{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:0 10px;padding-bottom:10px}
+.cdates{padding:10px 12px 0 0;text-align:right;display:grid;gap:3px;align-content:start}
+.cdates .cd span{display:block;font:600 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.cdates .cd b{font:600 12px var(--mono);color:var(--ink)}
+.cdates .cd b.o{color:var(--accent-ink)}
+.cdates .cd small{display:block;font:500 9px var(--mono);color:var(--soft);margin-top:1px}
+.cbot{border-top:1.5px solid var(--ink);display:flex;justify-content:flex-end;padding:8px 12px 10px}
 .ctop .dn{padding:10px 0 0 12px}
 .rec{padding:8px 0 0 12px}
 .rec span{display:inline-block;font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);border:1.5px solid var(--accent);padding:2px 6px}
-.drawto{padding:9px 12px 0 0;text-align:right}
+.drawto{text-align:right}
 .drawto .big{justify-content:flex-end;flex-wrap:nowrap}
 .meta{display:grid}
 .plan{display:grid;gap:0}
@@ -474,7 +491,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v22</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v23</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -494,15 +511,13 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="wbox">
         <div class="wconv"><b>1 g</b> = <b>1,000 mg</b> = <b>1,000,000 mcg</b></div>
-        <div id="wgrid"></div>
-        <div class="wtabs" role="group" aria-label="Show on the boxes">
-          <span class="wtl">Show</span>
-          <button class="btn wt" type="button" data-u="mcg" aria-pressed="true">mcg</button>
-          <button class="btn wt" type="button" data-u="mg" aria-pressed="false">mg</button>
-          <button class="btn wt" type="button" data-u="g" aria-pressed="false">g</button>
+        <div class="wscale" aria-label="Each step is a thousandth of the one before">
+          <figure><span class="sqg"></span><figcaption><b>1 g</b><i>the whole powder</i></figcaption></figure>
+          <span class="zx">zoom<br>1,000×</span>
+          <figure><span class="sqm"></span><figcaption><b>1 mg</b><i>one box</i></figcaption></figure>
+          <span class="zx">zoom<br>1,000×</span>
+          <figure><span class="sqc"><i></i></span><figcaption><b>1 mcg</b><i>one dot · µg</i></figcaption></figure>
         </div>
-        <div class="wread" id="wread"></div>
-        <div class="zm" id="wzm" hidden><div class="zmb"><i></i></div><span>1 mg box, zoomed. The dot is 1 mcg.</span></div>
         <div class="wcalc">
           <span class="wcl">Quick convert</span>
           <div class="wcrow">
@@ -537,7 +552,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="bh"><div><span class="bno">3</span><b>Syringes</b><em>insulin · Luer · pen</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="tips">
-        <div class="tipc"><div id="tipPen"></div><b>Pen</b><span>Twist to your dose</span><span class="res ok">Waste: almost none</span></div>
+        <div class="tipc"><div id="tipPen"></div><b>Pen</b><span>Twist to your dose · dials 0 to 60 u</span><span class="res ok">Waste: almost none</span></div>
         <div class="tipc"><div id="tipIns"></div><b>Insulin</b><span>Fixed needle · units</span><span class="res ok">Waste: ~0.005 mL</span></div>
         <div class="tipc"><div id="tipLuer"></div><b>Luer lock</b><span>Needle twists on · mL</span><span class="res warn">Residue: ~0.05 mL · see FAQ</span></div>
       </div>
@@ -619,7 +634,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
     <div class="sbx one">
       <div class="sin">
-        <div class="fl"><b>Your syringe</b><span class="otag">Insulin syringe recommended</span></div>
+        <div class="fl"><b>Your syringe</b><span class="otag" id="recForm">Insulin syringe recommended</span></div>
         <div class="two" role="group" aria-label="Syringe type">
           <button class="btn tb" type="button" data-type="insulin" aria-pressed="true"><b>Insulin</b><span>Units · fixed needle</span></button>
           <button class="btn tb" type="button" data-type="luer" aria-pressed="false"><b>Luer lock</b><span>mL · needle twists on</span></button>
@@ -638,13 +653,9 @@ body:not([data-mode="quick"]) .tmath{display:none}
         <div>
           <div class="dn ph" id="cName">Your peptide</div>
           <div class="dv" id="cVial"></div>
-          <div class="rec"><span>Insulin syringe recommended</span></div>
+          <div class="rec"><span id="recCard">Insulin syringe recommended</span></div>
         </div>
-        <div class="drawto">
-          <div class="lab">Draw to</div>
-          <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
-          <div class="sec" id="bigS"></div>
-        </div>
+        <div class="cdates" id="cDates"></div>
       </div>
       <div class="db">
         <div class="syrcol">
@@ -653,7 +664,14 @@ body:not([data-mode="quick"]) .tmath{display:none}
         <div class="datacol">
           <div class="meta kvs" id="meta"></div>
           <div class="kvs" id="kvs"></div>
-          <div class="plan" id="plan" hidden></div>
+          <div class="plan" id="plan"></div>
+        </div>
+      </div>
+      <div class="cbot">
+        <div class="drawto">
+          <div class="lab">Draw to</div>
+          <div class="big"><span class="bn" id="bigN">—</span><span class="bu" id="bigU"></span></div>
+          <div class="sec" id="bigS"></div>
         </div>
       </div>
       <div class="pills" id="pills"></div>
@@ -800,6 +818,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v23: the weight section is small now, a 1 g box zooming 1,000x to a 1 mg box, then 1,000x to a 1 mcg dot, with the converter kept and the giant grid gone. The pen is redrawn properly, a thin cartridge inside a wider body, a dial window in units that dials 0 to 60, and a short beveled needle; insulin and pen needle tips are beveled, not symmetric triangles. On the card, Mixed and Use by sit at the top and Draw to moved to the bottom right. The recommendation now switches to Luer lock when a dose is over 1 mL. Bigger mixing vials on laptop. v1 to v22 are unchanged.</span>
   <span>v22: the text size buttons (small A, A, large A) now sit on the Bare Signals bar at the top, which stays on screen, and the page follows them; titles and the big draw number grow less at the large size so nothing balloons; the card on laptop sticks just under the bar; the zoomed syringe tips keep their size at every text size. v1 to v21 are unchanged.</span>
   <span>v21: smaller weight boxes with mg and mcg now clearly different (mcg shows the dot), a more compact converter, the syringe types reordered to pen, insulin, Luer and shrunk to three across with the waste of each and a residue warning on the Luer, the pen window fixed, the card always shows Take, When and Note with NA when blank, and the residue demo now runs pen, insulin and Luer side by side, smaller, no zoom. v1 to v20 are unchanged.</span>
   <span>v20: the Weight box leads with 1 g = 1,000 mg = 1,000,000 mcg and a small converter, the boxes are all orange with a 1,000 boxes label, and the unit buttons are smaller on the left. Orange is now the one colour for any selected button. A pen is added to the syringe types: you dial the dose, screw on a short pen needle and press, no drawing up. When adds Evening and 1 hour before sleep. v1 to v19 are unchanged.</span>
@@ -1127,25 +1146,26 @@ function tipSVG(type){
       '</svg>';
   }
   if(type==='pen'){
-    return '<svg viewBox="0 0 150 210" role="img" aria-label="Injection pen: dial the dose, short pen needle screws on">'+
-      '<rect class="bg" x="60" y="18" width="30" height="128" rx="5"/>'+
-      '<rect x="64" y="76" width="22" height="56" fill="var(--liquid)" opacity=".85"/>'+
-      '<rect class="ol" x="64" y="76" width="22" height="56"/>'+
-      '<rect class="ol" x="60" y="18" width="30" height="128" rx="5"/>'+
-      '<rect class="sy" x="57" y="6" width="36" height="15" rx="3"/>'+
-      '<line class="tk" x1="64" y1="8" x2="64" y2="19"/><line class="tk" x1="70" y1="8" x2="70" y2="19"/><line class="tk" x1="75" y1="8" x2="75" y2="19"/><line class="tk" x1="80" y1="8" x2="80" y2="19"/><line class="tk" x1="86" y1="8" x2="86" y2="19"/>'+
-      '<rect class="bg" x="63" y="30" width="24" height="20"/><rect class="ol" x="63" y="30" width="24" height="20"/>'+
-      '<text class="pendose" id="penDose" x="75" y="44" text-anchor="middle">0.25</text>'+
-      '<path class="nz" d="M64 146 L86 146 L80 158 L70 158Z"/>'+
-      '<rect class="hubf" x="70" y="156" width="10" height="9"/>'+
-      '<path class="ndl" d="M73.3 165 L76.7 165 L75.7 184 L74.3 184Z"/>'+
-      '<path class="turn" d="M101 12 A12 12 0 1 1 101 36"/><path class="turnh" d="M96 30 L106 39 L95 42Z"/>'+
+    return '<svg viewBox="0 0 150 210" role="img" aria-label="Injection pen: dial the dose in units, short pen needle">'+
+      '<rect class="bg" x="55" y="16" width="40" height="150" rx="7"/>'+
+      '<rect class="bg" x="68" y="58" width="14" height="96"/>'+
+      '<rect x="69" y="100" width="12" height="52" fill="var(--liquid)" opacity=".9"/>'+
+      '<rect class="ol" x="68" y="58" width="14" height="96"/>'+
+      '<rect class="ol" x="55" y="16" width="40" height="150" rx="7"/>'+
+      '<rect class="sy" x="53" y="4" width="44" height="14" rx="3"/>'+
+      '<line class="tk" x1="61" y1="6" x2="61" y2="16"/><line class="tk" x1="68" y1="6" x2="68" y2="16"/><line class="tk" x1="75" y1="6" x2="75" y2="16"/><line class="tk" x1="82" y1="6" x2="82" y2="16"/><line class="tk" x1="89" y1="6" x2="89" y2="16"/>'+
+      '<rect class="bg" x="61" y="25" width="28" height="18"/><rect class="ol" x="61" y="25" width="28" height="18"/>'+
+      '<text class="pendose" id="penDose" x="75" y="38" text-anchor="middle">20 u</text>'+
+      '<path class="nz" d="M67 166 L83 166 L78 176 L72 176Z"/>'+
+      '<rect class="hubf" x="71" y="174" width="8" height="7"/>'+
+      '<path class="ndl" d="M73.6 181 L76.4 181 L76.4 195 L74 199 Z"/>'+
+      '<path class="turn" d="M102 10 A11 11 0 1 1 102 32"/><path class="turnh" d="M97 26 L107 35 L96 38Z"/>'+
       '</svg>';
   }
   return '<svg viewBox="0 0 150 210" role="img" aria-label="Insulin syringe tip: needle fixed in">'+barrel+
     '<path class="syl" d="M52 72L98 72L80 98L70 98Z"/>'+
     '<rect class="syl" x="69" y="96" width="12" height="12"/>'+
-    '<path class="ndl" d="M73.2 108L76.8 108L75.6 172L74.4 172Z"/>'+
+    '<path class="ndl" d="M73.2 108 L76.8 108 L76.8 170 L74 176 Z"/>'+
     '<path d="M118 70 L124 70 L124 112 L118 112" fill="none" stroke="#B04A16" stroke-width="1.6"/>'+
     '<text class="lockt" x="108" y="132">ONE</text><text class="lockt" x="108" y="143">PIECE</text>'+
     '</svg>';
@@ -1254,6 +1274,7 @@ function update(){
 
   if(!ok){
     $('#bigN').textContent='—';$('#bigU').textContent='';$('#bigS').textContent='Fill in vial, liquid and dose';
+    $('#recCard').textContent='Insulin syringe recommended';{var rf0=document.getElementById('recForm');if(rf0)rf0.textContent='Insulin syringe recommended';}
     $('#kvs').innerHTML='';$('#pills').innerHTML=pill('warn','Waiting for numbers');$('#tip').hidden=true;
     main.tag(null);main.tween(0,300);
     $('#steps').innerHTML='';$('#vmath').innerHTML='';mathTxt='';
@@ -1265,6 +1286,7 @@ function update(){
   const fits=c.doseMl<=c0.cap+1e-9;
   const luer=S.type==='luer';
   doseGrid(c.ideal,luer?c.doses:c.ideal);
+  (function(){var big=c.doseMl>1,msg=big?'Luer lock recommended · over 1 mL':'Insulin syringe recommended';$('#recCard').textContent=msg;var rf=document.getElementById('recForm');if(rf)rf.textContent=msg;})();
 
   $('#bigN').textContent=luer?fmtMl(c.doseMl):nf(c.units,1);
   $('#bigU').textContent=luer?'mL':'units';
@@ -1331,21 +1353,23 @@ function update(){
 /* ---------- pen mini for the waste demo ---------- */
 let VIDpm=0;
 function penMini(host){
-  const id='pm'+(++VIDpm),liqTop=84,liqBot=316,needTop=320,needTip=378;
+  const id='pm'+(++VIDpm),liqTop=150,liqBot=310,needTop=316,needTip=368;
   host.innerHTML='<svg viewBox="0 0 116 430" role="img" aria-label="Injection pen, dial the dose and press">'+
     '<defs><clipPath id="'+id+'"><rect class="pmnc" x="0" y="'+needTop+'" width="120" height="0"/></clipPath></defs>'+
-    '<g class="pmk"><rect class="sy" x="38" y="10" width="40" height="24" rx="4"/>'+
-    '<line class="tk" x1="46" y1="13" x2="46" y2="31"/><line class="tk" x1="52" y1="13" x2="52" y2="31"/><line class="tk" x1="58" y1="13" x2="58" y2="31"/><line class="tk" x1="64" y1="13" x2="64" y2="31"/><line class="tk" x1="70" y1="13" x2="70" y2="31"/></g>'+
-    '<rect class="bg" x="40" y="70" width="36" height="250" rx="6"/>'+
-    '<rect class="pmliq" x="42" y="'+liqTop+'" width="32" height="'+(liqBot-liqTop)+'" fill="var(--liquid)"/>'+
-    '<rect class="pmstop" x="42" y="'+(liqTop-7)+'" width="32" height="8" fill="#EDEBC8" stroke="var(--ink)" stroke-width="1"/>'+
-    '<rect class="ol" x="40" y="70" width="36" height="250" rx="6"/>'+
+    '<g class="pmk"><rect class="sy" x="34" y="10" width="48" height="24" rx="5"/>'+
+    '<line class="tk" x1="44" y1="13" x2="44" y2="31"/><line class="tk" x1="52" y1="13" x2="52" y2="31"/><line class="tk" x1="58" y1="13" x2="58" y2="31"/><line class="tk" x1="64" y1="13" x2="64" y2="31"/><line class="tk" x1="72" y1="13" x2="72" y2="31"/></g>'+
+    '<rect class="bg" x="36" y="68" width="44" height="248" rx="8"/>'+
+    '<rect class="bg" x="50" y="104" width="16" height="208"/>'+
+    '<rect class="pmliq" x="51" y="'+liqTop+'" width="14" height="'+(liqBot-liqTop)+'" fill="var(--liquid)"/>'+
+    '<rect class="pmstop" x="51" y="'+(liqTop-6)+'" width="14" height="7" fill="#EDEBC8" stroke="var(--ink)" stroke-width="1"/>'+
+    '<rect class="ol" x="50" y="104" width="16" height="208"/>'+
+    '<rect class="ol" x="36" y="68" width="44" height="248" rx="8"/>'+
     '<rect class="bg" x="43" y="42" width="30" height="20"/><rect class="ol" x="43" y="42" width="30" height="20"/>'+
-    '<text class="pendose" x="58" y="56" text-anchor="middle">1 mg</text>'+
-    '<path class="nz" d="M46 320 L70 320 L63 334 L53 334Z"/>'+
-    '<rect class="hubf" x="52" y="332" width="12" height="9"/>'+
-    '<path class="ndl" d="M55.2 341 L60.8 341 L59.4 378 L56.6 378Z"/>'+
-    '<g clip-path="url(#'+id+')"><path class="pmdead" d="M55.4 341 L60.6 341 L59.3 378 L56.7 378Z" fill="var(--liquid)"/></g>'+
+    '<text class="pendose" x="58" y="56" text-anchor="middle">20 u</text>'+
+    '<path class="nz" d="M50 316 L66 316 L61 328 L55 328Z"/>'+
+    '<rect class="hubf" x="54" y="326" width="8" height="8"/>'+
+    '<path class="ndl" d="M56.4 334 L59.6 334 L59.6 362 L57 368 Z"/>'+
+    '<g clip-path="url(#'+id+')"><path class="pmdead" d="M56.6 334 L59.4 334 L59.4 362 L57.2 367 Z" fill="var(--liquid)"/></g>'+
     '<g class="pmdrip"></g></svg>';
   const q=function(sel){return host.querySelector(sel);};
   this.liq=q('.pmliq');this.stop=q('.pmstop');this.k=q('.pmk');this.nc=q('.pmnc');this.dr=q('.pmdrip');
@@ -1373,7 +1397,7 @@ penMini.prototype.press=function(dur,cb){
 };
 penMini.prototype.drip=function(n){
   if(reduce)return;const g=this.dr,made=[];
-  for(let i=0;i<n;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','drop');c.setAttribute('cx',58+(i-1)*0.8);c.setAttribute('cy',381);c.setAttribute('r',2.4);c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);}
+  for(let i=0;i<n;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','drop');c.setAttribute('cx',58+(i-1)*0.8);c.setAttribute('cy',370);c.setAttribute('r',2.4);c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);}
   setTimeout(function(){made.forEach(function(c){if(c.parentNode)c.parentNode.removeChild(c);});},1700);
 };
 
@@ -1440,7 +1464,8 @@ function renderPlan(){
   const el=$('#plan');
   el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
   el.hidden=false;
-  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b class="u">'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b class="u">'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
+  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b class="u">'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div>';
+  $('#cDates').innerHTML='<div class="cd"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="cd"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+'</b><small>28 days</small></div>';
 }
 function buildTxt(c,luer,nm){
   const pb=planBits(),L=[];
@@ -1476,8 +1501,7 @@ chips('#waterQ',[1,2,3,5],'#water',function(v){return v+' mL';});
 });
 $('#pname').addEventListener('input',update);
 
-$$('.wt').forEach(function(b){b.onclick=function(){
-  wu=b.dataset.u;$$('.wt').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.u===wu);});renderLadder();
+[].forEach(function(b){b.onclick=function(){
 };});
 
 $$('[data-du]').forEach(function(b){b.onclick=function(){
@@ -1583,7 +1607,7 @@ vial2=new Vial($('#vp2'),{cake:false,rough:true,cap:'#3FA56C',sub:'DILUENT'});
 $('#tipIns').innerHTML=tipSVG('insulin');
 $('#tipLuer').innerHTML=tipSVG('luer');
 $('#tipPen').innerHTML=tipSVG('pen');
-(function(){if(reduce)return;const d=['0.25','0.5','1.0','1.7','2.4'];let i=0;setInterval(function(){const t=document.getElementById('penDose');if(!t)return;i=(i+1)%d.length;t.textContent=d[i];},1400);})();
+(function(){if(reduce)return;const d=['10 u','20 u','30 u','40 u','60 u'];let i=1;setInterval(function(){const t=document.getElementById('penDose');if(!t)return;i=(i+1)%d.length;t.textContent=d[i];},1200);})();
 setMode(startMode);
 (function(){
   const pan=[{ox:0,t:'4 to 6 mm',a:'90°',d:'<line x1="50" y1="6" x2="50" y2="56" stroke="#3E4A80" stroke-width="2"/>'},
@@ -1653,7 +1677,7 @@ try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.g
  if(isFinite(qd)&&qd>0){$('#dose').value=qd;pre=true;}
 }catch(e){}
 renderRef();
-renderLadder();renderMix();wasteReset();
+renderMix();wasteReset();
 (function(){
   const F={g:1e6,mg:1e3,mcg:1};let wcu='g';
   function nfc(n){return n>=1?n.toLocaleString('en-US',{maximumFractionDigits:3}):String(+n.toPrecision(3));}
