@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v13 (23 Oct 2026) at /blood/v13/
+- Role names shown as filled colour tags (role name inside its colour block, as on Home and Library v38): compound tags, Everything it touches, Blood markers it moves, colour key. v12 kept.
+
 ## v12 (23 Oct 2026) at /blood/v12/
 - Phone fix: the "reported" tag on label rows no longer runs into the card border; label names can wrap on narrow phones. v11 kept.
 

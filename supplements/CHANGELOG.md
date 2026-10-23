@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v10 (23 Oct 2026) at /supplements/v10/
+- Role names shown as filled colour tags (as on Home and Library v38): card main role, What it's for, role group headings, roles key, active filter. v9 kept.
+
 ## v9 (23 Oct 2026) at /supplements/v9/
 - Phone fix: "Who it's for" tags wrap inside the card on narrow phones. v8 kept.
 
