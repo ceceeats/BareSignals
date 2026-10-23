@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Bare Signals · Home v8</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:680px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 34px}
+a{color:inherit;text-decoration:none}
+.mono{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+h2{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:30px 0 9px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+h2 em{font-style:normal;color:var(--accent)}
+
+/* hero: the chain */
+.chainbox{display:block;margin:4px 0 14px}
+.chain{display:flex;flex-wrap:wrap;gap:3px;min-height:34px}
+.chain i{font:500 13px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;font-style:normal;width:28px;height:30px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);transform:translateY(-8px);opacity:0;transition:transform .28s cubic-bezier(.3,1.6,.6,1),opacity .2s,background .35s,color .35s}
+.chain i.in{transform:none;opacity:1}
+.chain i.lit{background:var(--c);color:var(--t)}
+.chain i.ping{outline:2px solid var(--accent);outline-offset:1px}
+.chaincap{display:flex;justify-content:space-between;gap:10px;margin-top:7px;color:var(--soft)}
+.chaincap b{color:var(--ink);font-weight:500}
+.chaincap span:last-child{color:var(--accent)}
+h1{font:700 44px/.95 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 12px;letter-spacing:.015em}
+.mean{display:grid;grid-template-columns:auto 1fr;gap:5px 11px;margin:0 0 14px;font-size:14px;line-height:1.32;color:var(--soft)}
+.mean b{font:500 10px/1.6 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.mean span i{font-style:italic;color:var(--ink)}
+.lede{font-size:16.5px;line-height:1.42;margin:0;color:var(--ink)}
+
+/* search */
+.find{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);margin-top:22px}
+.find label{display:block;padding:10px 12px 0;color:var(--accent)}
+.find input{width:100%;border:0;background:transparent;font:700 22px/1.2 "Bricolage Grotesque",system-ui,sans-serif;color:var(--ink);padding:4px 12px 11px;outline:none}
+.find input::placeholder{color:#A9AFD0}
+#res a{display:grid;grid-template-columns:6px 1fr auto;gap:10px;align-items:center;padding:9px 12px 9px 0;border-top:1.5px solid var(--rule)}
+#res a:hover{background:#F7F5D6}
+#res a .st{align-self:stretch;display:flex;flex-direction:column}
+#res a .st u{flex:1;display:block}
+#res a b{display:block;font:700 17px/1.15 "Bricolage Grotesque",system-ui,sans-serif}
+#res a small{display:block;color:var(--soft);font-size:13px;line-height:1.3;margin-top:2px}
+#res a em{font-style:normal;color:var(--accent)}
+#res .none{border-top:1.5px solid var(--rule);padding:10px 12px;color:var(--soft);font-size:14px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}
+.quick button{font:500 10px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:7px 8px;cursor:pointer}
+.quick button:hover{background:var(--act)}
+
+/* the random card */
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.card .stripe{display:flex;height:9px;border-bottom:1.5px solid var(--ink)}
+.card .stripe u{display:block}
+.card .hd{padding:11px 12px 0;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card .hd b{font:700 30px/1 "Bricolage Grotesque",system-ui,sans-serif;display:block}
+.card .hd small{display:block;color:var(--soft);margin-top:5px}
+.card .fda{border:1.5px solid var(--ink);padding:4px 6px;white-space:nowrap;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;padding:10px 12px 0}
+.tags a{font:500 10px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:6px 7px;border:1.5px solid var(--ink)}
+.card p{margin:0;padding:11px 12px 0;font-size:15px;line-height:1.42}
+.card p .mono{display:block;color:var(--accent);margin-bottom:3px}
+.wd{display:grid;grid-template-columns:1fr 1fr;margin:12px 0 0;border-top:1.5px solid var(--ink)}
+.wd div{padding:10px 12px 11px;font-size:13.5px;line-height:1.38}
+.wd div+div{border-left:1.5px solid var(--ink)}
+.wd .mono{display:block;margin-bottom:4px;color:var(--soft)}
+.wd div:first-child .mono{color:#4D7A2C}.wd div+div .mono{color:#C0392B}
+.acts{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--ink)}
+.acts a,.acts button{font:500 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:13px 10px;text-align:center;border:0;cursor:pointer;color:var(--ink);background:var(--chip)}
+.acts button{border-left:1.5px solid var(--ink);background:var(--act);color:#8A3A10}
+.acts a:hover{background:#F7F5D6}.acts button:hover{background:#FFD3B4}
+
+/* counters */
+.count{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);background:var(--chip)}
+.count a{padding:10px 8px 9px;border-right:1.5px solid var(--ink)}
+.count a:last-child{border-right:0}
+.count b{display:block;font:700 28px/1 "Bricolage Grotesque",system-ui,sans-serif}
+.count span{display:block;margin-top:4px;color:var(--soft);font:500 9.5px/1.25 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+.count a:hover{background:#F7F5D6}
+
+/* role wall */
+.wall{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1.5px solid var(--ink);border-top:1.5px solid var(--ink)}
+.wall a{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:7px 9px 7px 7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--chip);font-size:13.5px;line-height:1.15}
+.wall a u{display:block;width:22px;height:22px;border:1.5px solid var(--ink)}
+.wall a small{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft)}
+.wall a:hover{background:#F7F5D6}
+
+/* pages */
+.pages{display:grid;grid-template-columns:1fr;gap:10px}
+.go{display:block;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 14px 10px}
+.go:hover{box-shadow:3px 3px 0 var(--accent)}
+.go b{display:flex;justify-content:space-between;align-items:baseline;font:700 21px/1.1 "Bricolage Grotesque",system-ui,sans-serif}
+.go b small{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.go span{display:block;color:var(--soft);font-size:14px;margin-top:3px}
+.end{margin:22px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);color:var(--soft)}
+
+@media (min-width:760px){
+  main{padding-top:38px}
+  h1{font-size:64px}
+  .mean{font-size:15px}
+  .lede{font-size:18px;max-width:600px}
+  .chain i{width:32px;height:34px;font-size:14px}
+  .wall{grid-template-columns:repeat(3,1fr)}
+  .pages{grid-template-columns:1fr 1fr}
+}
+@media (max-width:380px){.chain i{width:24px;height:27px;font-size:12px}.count b{font-size:23px}.wall a{font-size:12.5px}}
+@media (prefers-reduced-motion:reduce){.chain i{transition:none}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body><main>
+
+<a class="chainbox" id="chainbox" href="/library/">
+  <div class="chain" id="chain" aria-hidden="true"></div>
+  <div class="chaincap mono"><span id="cap">Building a signal…</span><span>Tap ↗</span></div>
+</a>
+
+<h1>BARE SIGNALS</h1>
+<div class="mean">
+<b>bare</b><span><i>adj.</i> as it is. Raw, simple, naked.</span>
+<b>signals</b><span><i>n.</i> the messengers that tell the body what to do. Peptides are signals. Genes are signals.</span>
+</div>
+<p class="lede">Bare amino acids, strung in the right order, become signals. This is a library of them: where each one came from, what it was meant to do, what people report, and what didn't work.</p>
+
+<div class="find">
+  <label for="q" class="mono">What are you dealing with?</label>
+  <input id="q" type="search" autocomplete="off" placeholder="Try “brain fog”">
+  <div class="quick" id="quick"></div>
+  <div id="res"></div>
+</div>
+
+<h2><span>A signal, at random</span><em id="rn"></em></h2>
+<div class="card" id="card"><p style="padding:14px 12px">Loading the library…</p></div>
+
+<h2><span>The library so far</span><em>growing weekly</em></h2>
+<div class="count" id="count"></div>
+
+<h2><span>30 roles, one colour each</span><em>tap a role</em></h2>
+<div class="wall" id="wall"></div>
+
+<h2><span>Inside</span></h2>
+<div class="pages">
+<a class="go" href="/library/"><b>Library<small>Draft</small></b><span>Every compound: story, roles, what worked and what didn't</span></a>
+<a class="go" href="/aminos/"><b>Aminos</b><span>The 20 letters every signal is written in</span></a>
+<a class="go" href="/made/"><b>Made<small>Draft</small></b><span>How peptides are made, cleaned and tested</span></a>
+<a class="go" href="/dosage/"><b>Dosage<small>Draft</small></b><span>Common reported doses, side by side</span></a>
+<a class="go" href="/blood/"><b>Blood Work<small>Draft</small></b><span>What to test before and while on</span></a>
+<a class="go" href="/supplements/"><b>Supplements<small>Draft</small></b><span>What goes with each peptide, by label</span></a>
+<a class="go" href="/draw/"><b>Calculator<small>Draft</small></b><span>Vial, water and syringe, worked out</span></a>
+<a class="go" href="/protocol/"><b>Protocol<small>Draft</small></b><span>Build a stack, see what overlaps and what to test</span></a>
+</div>
+
+<p class="end mono">An ever evolving reference · updated continuously</p>
+</main>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T=function(n,t){try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var first=function(s){s=String(s||'').trim();var m=s.match(/^[\s\S]*?[.!?](?=\s|$)/);return m?m[0]:s};
+
+/* load whichever Library version is live */
+function loadData(cb){
+  var go=function(v){var s=document.createElement('script');s.src='/library/'+v+'/data.js';s.onload=cb;s.onerror=function(){if(v!=='v32')go('v32')};document.head.appendChild(s)};
+  fetch('/library/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);go(m?m[1]:'v32')}).catch(function(){go('v32')});
+}
+
+loadData(function(){
+  var D=window.BS_DATA||[],P=window.BS_PALETTE||[];
+  var PAL={};P.forEach(function(p){PAL[p[0]]={label:p[1],c:p[2]}});
+  var lum=function(h){h=h.replace('#','');var r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);return (0.299*r+0.587*g+0.114*b)/255};
+  var txt=function(h){return lum(h)<0.55?'#FFFFF4':'#3E4A80'};
+  var col=function(k){return (PAL[k]||{c:'#E3E0BF'}).c};
+  var lib=function(o){return '/library/#/'+encodeURIComponent(o.slug)};
+
+  /* 1. the chain: a real sequence that builds, carries a signal, then swaps */
+  var C=D.filter(function(o){return o.seq&&/^[A-Z]{3,20}$/.test(o.seq)&&o.roles&&o.roles.length});
+  var ch=$('#chain'),cap=$('#cap'),box=$('#chainbox'),ci=Math.floor(Math.random()*C.length),timers=[];
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function later(f,ms){timers.push(setTimeout(f,ms))}
+  function build(o){
+    clear();
+    box.href=lib(o);
+    cap.innerHTML='<b>'+esc(o.name)+'</b> · '+o.seq.length+' amino acids';
+    ch.innerHTML=o.seq.split('').map(function(a,i){var c=col(o.roles[i%o.roles.length]);return '<i style="--c:'+c+';--t:'+txt(c)+'">'+a+'</i>'}).join('');
+    var cells=[].slice.call(ch.children);
+    if(RM){cells.forEach(function(c){c.classList.add('in','lit')});return}
+    cells.forEach(function(c,i){later(function(){c.classList.add('in')},60*i)});
+    var t0=60*cells.length+250;
+    cells.forEach(function(c,i){later(function(){c.classList.add('lit','ping');later(function(){c.classList.remove('ping')},160)},t0+70*i)});
+    later(function(){cells.forEach(function(c,i){later(function(){c.classList.remove('in')},25*i)})},t0+70*cells.length+3600);
+    later(function(){ci=(ci+1)%C.length;build(C[ci])},t0+70*cells.length+3600+25*cells.length+300);
+  }
+  if(C.length)build(C[ci]);
+  box.addEventListener('click',function(){T('home-chain:'+C[ci].slug,'Chain '+C[ci].name)});
+
+  /* 2. search by name, alias, keyword or role */
+  var q=$('#q'),res=$('#res');
+  var W=['brain fog','joint pain','can’t sleep','belly fat','glow','gut','libido','tired','healing','focus'];
+  var wi=0;if(!RM)setInterval(function(){if(!q.value&&document.activeElement!==q){wi=(wi+1)%W.length;q.placeholder='Try “'+W[wi]+'”'}},2600);
+  $('#quick').innerHTML=W.slice(0,6).map(function(w){return '<button type="button" data-w="'+esc(w)+'">'+esc(w)+'</button>'}).join('');
+  $('#quick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.dataset.w;run();T('home-quick:'+b.dataset.w,'Quick '+b.dataset.w)});
+  function score(o,s){
+    var n=o.name.toLowerCase(),sc=0;
+    if(n===s)sc+=10;else if(n.indexOf(s)===0)sc+=6;else if(n.indexOf(s)>-1)sc+=4;
+    if((o.alias||'').toLowerCase().indexOf(s)>-1)sc+=3;
+    (o.kw||[]).forEach(function(k){k=k.toLowerCase();if(k===s)sc+=4;else if(k.indexOf(s)>-1||s.indexOf(k)>-1&&k.length>3)sc+=2});
+    (o.roles||[]).forEach(function(r,i){var L=((PAL[r]||{}).label||r).toLowerCase();if(L.indexOf(s)>-1||r.toLowerCase()===s)sc+=i===0?3:1.5});
+    if(o.desc)for(var k in o.desc){if(String(o.desc[k]).toLowerCase().indexOf(s)>-1){sc+=1;break}}
+    return sc?sc+(o.rank||0)/100:0;
+  }
+  function why(o,s){
+    if(o.desc){for(var k in o.desc){if(String(o.desc[k]).toLowerCase().indexOf(s)>-1)return o.desc[k]}if(o.desc[o.primary])return o.desc[o.primary]}
+    return (PAL[o.primary]||{}).label||'';
+  }
+  var missT;
+  function run(){
+    var s=q.value.trim().toLowerCase().replace(/[’']/g,'');
+    if(s.length<2){res.innerHTML='';return}
+    var r=D.map(function(o){return [score(o,s),o]}).filter(function(x){return x[0]>0}).sort(function(a,b){return b[0]-a[0]}).slice(0,6);
+    if(!r.length){res.innerHTML='<div class="none">Nothing for that yet. The library grows every week. <a href="/library/" style="color:#DB6830">Browse all '+D.length+' →</a></div>';clearTimeout(missT);missT=setTimeout(function(){T('home-miss:'+s,'No result '+s)},1200);return}
+    res.innerHTML=r.map(function(x){var o=x[1];return '<a href="'+lib(o)+'" data-s="'+esc(o.slug)+'"><span class="st">'+(o.roles||[]).slice(0,4).map(function(k){return '<u style="background:'+col(k)+'"></u>'}).join('')+'</span><span><b>'+esc(o.name)+'</b><small>'+esc(why(o,s))+'</small></span><em class="mono">Open</em></a>'}).join('');
+  }
+  q.addEventListener('input',run);
+  res.addEventListener('click',function(e){var a=e.target.closest('a[data-s]');if(a)T('home-search-open:'+a.dataset.s,'Search open '+a.dataset.s)});
+
+  /* 3. a random compound card */
+  var R=D.filter(function(o){return (o.found||o.story)&&(o.worked||o.helps)&&o.didnt});
+  var seen=[];
+  function pick(){
+    var pool=R.filter(function(o){return seen.indexOf(o.slug)<0});if(!pool.length){seen=[];pool=R}
+    var o=pool[Math.floor(Math.random()*pool.length)];seen.push(o.slug);return o;
+  }
+  function card(o){
+    var roles=(o.roles||[]);
+    $('#rn').textContent=(R.indexOf(o)+1)+' of '+R.length;
+    $('#card').innerHTML=
+      '<div class="stripe">'+roles.map(function(k,i){return '<u style="flex:'+(i===0?3:1)+';background:'+col(k)+'"></u>'}).join('')+'</div>'+
+      '<div class="hd"><div><b>'+esc(o.name)+'</b><small class="mono">'+esc(o.originDetail||'')+(o.alias?' · '+esc(o.alias):'')+'</small></div>'+(o.fda?'<span class="fda mono">FDA ✓</span>':'')+'</div>'+
+      '<div class="tags">'+roles.slice(0,5).map(function(k){var c=col(k);return '<a href="/library/#/role/'+encodeURIComponent(k)+'" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</a>'}).join('')+'</div>'+
+      '<p><span class="mono">How it started</span>'+esc([first(o.story),first(o.found)].sort(function(a,b){return (b.length>220?0:b.length)-(a.length>220?0:a.length)})[0])+'</p>'+
+      '<div class="wd"><div><span class="mono">Worked</span>'+esc(first(o.worked||o.helps))+'</div><div><span class="mono">Didn’t</span>'+esc(first(o.didnt))+'</div></div>'+
+      '<div class="acts"><a href="/library/#/p/'+encodeURIComponent(o.slug)+'" data-full="'+esc(o.slug)+'">Full page →</a><button type="button" id="again">↻ Another</button></div>';
+  }
+  if(R.length)card(pick());
+  $('#card').addEventListener('click',function(e){
+    if(e.target.closest('#again')){var o=pick();card(o);T('home-another','Another signal');return}
+    var f=e.target.closest('[data-full]');if(f)T('home-card-open:'+f.dataset.full,'Card open '+f.dataset.full);
+  });
+
+  /* 4. counters */
+  var nat=D.filter(function(o){return o.origin==='body'||o.origin==='frag'}).length;
+  var labd=D.filter(function(o){return o.origin==='lab'}).length;
+  var fda=D.filter(function(o){return o.fda}).length;
+  $('#count').innerHTML=[[D.length,'compounds','/library/'],[nat,'from nature','/library/'],[labd,'lab-designed','/library/'],[fda,'FDA approved','/library/']].map(function(x){return '<a href="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></a>'}).join('');
+
+  /* 5. the role wall, most-used first */
+  var cnt={};D.forEach(function(o){(o.roles||[]).forEach(function(r){cnt[r]=(cnt[r]||0)+1})});
+  $('#wall').innerHTML=P.slice().sort(function(a,b){return (cnt[b[0]]||0)-(cnt[a[0]]||0)}).map(function(p){return '<a href="/library/#/role/'+encodeURIComponent(p[0])+'" data-r="'+esc(p[0])+'"><u style="background:'+p[2]+'"></u><span>'+esc(p[1])+'</span><small>'+(cnt[p[0]]||0)+'</small></a>'}).join('');
+  $('#wall').addEventListener('click',function(e){var a=e.target.closest('a[data-r]');if(a)T('home-role:'+a.dataset.r,'Role '+a.dataset.r)});
+});
+})();
+</script>
+</body></html>
