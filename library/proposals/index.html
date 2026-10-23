@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Library Layout Proposals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: Bare Signals' own system. One reading column of proposals; each proposal shows a mock built from the real BPC-157 entry. Single theme by design: the site is cream paper. */
+:root{
+  --paper:#FFFFE2; --chip:#FFFFF4; --ink:#3E4A80; --deep:#1F2550; --soft:#6B76A8; --rule:#E3E0BF;
+  --act:#DB6830; --actbg:#FFE3CF; --purple:#7A4FD0; --pink:#FDECEE; --good:#4F7A2B; --bad:#C0392B;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font:700 34px/1.05 var(--display);margin:0 0 8px;text-wrap:balance}
+h2{font:700 26px/1.1 var(--display);margin:0;text-wrap:balance}
+h3{font:700 18px/1.2 var(--display);margin:0 0 6px}
+p{margin:0}
+.lede{max-width:68ch;color:var(--soft);font-size:16px}
+.lab{font:500 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.lab.o{color:var(--act)}
+.sec{margin-top:44px;padding-top:16px;border-top:1.5px solid var(--ink)}
+.sec>header{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px}
+.sec>header .rec{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--deep);color:var(--paper);padding:4px 7px}
+.why{max-width:70ch;margin:0 0 16px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+.box{border:1.5px solid var(--ink);background:var(--chip);min-width:0}
+.box>.bh{display:flex;justify-content:space-between;gap:8px;padding:8px 12px;border-bottom:1.5px solid var(--ink)}
+.box>.bb{padding:12px}
+.note{font-size:13.5px;color:var(--soft)}
+ul.plain{margin:0;padding:0;list-style:none}
+.tag{display:inline-block;font:500 9.5px/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink)}
+.bdg{font:500 9.5px/1 var(--mono);letter-spacing:.06em;padding:3px 5px;background:var(--deep);color:var(--paper);vertical-align:3px}
+
+/* inventory table */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);border-bottom:1.5px solid var(--ink)}
+td b{font-weight:600}
+.ok{color:var(--good);font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+
+/* mock card */
+.card{border:1.5px solid var(--ink);background:var(--chip);max-width:520px}
+.card .stripe{display:flex;height:10px;border-bottom:1.5px solid var(--ink)}
+.card .stripe i{display:block}
+.card .hd{padding:12px 14px 10px}
+.card .hd b{font:700 28px/1 var(--display)}
+.card .hd .use{font-weight:600;margin-top:6px}
+.card .hd .sub{font:500 10px var(--mono);color:var(--soft);letter-spacing:.04em;margin-top:4px}
+.dose{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.dose .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 14px 4px}
+.dose .top b{font:700 24px/1 var(--display)}
+.dose .cells{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);margin-top:8px}
+.dose .cells div{padding:6px 10px;border-right:1.5px solid var(--ink);font-size:13px;font-weight:600}
+.dose .cells div:last-child{border-right:0}
+.dose .cells small{display:block;font:500 8.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:500}
+.more{display:inline-block;color:var(--purple);font-weight:600;font-size:14px;padding:6px 14px 10px;cursor:pointer;background:none;border:0;font-family:var(--body);text-align:left}
+.more:hover{text-decoration:underline;text-underline-offset:3px}
+.more:focus-visible,.seg button:focus-visible,.tabs button:focus-visible{outline:2px solid var(--act);outline-offset:2px}
+.roles{padding:10px 14px 12px}
+.roles li{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:7px 0;border-bottom:1px dashed var(--rule)}
+.roles li:last-child{border-bottom:0}
+.roles .what{font-weight:600}
+.roles .how{grid-column:2;font-size:13px;color:var(--soft)}
+.roles .how em{font-style:normal;font:500 9.5px var(--mono);color:var(--soft);letter-spacing:.03em}
+.card .ft{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--ink)}
+.card .ft a{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:11px;color:var(--ink);text-decoration:none}
+.card .ft a+a{border-left:1.5px solid var(--ink);background:var(--actbg);color:#8A3A10}
+.chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 12px}
+.chips span{border:1.5px solid var(--ink);padding:3px 7px;font-size:12.5px;background:var(--paper)}
+
+/* community panel */
+.panel{border:1.5px solid var(--purple);background:#FBF8FF;margin:0 14px 12px}
+.panel .ph{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-bottom:1.5px solid var(--purple)}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border:0;background:var(--chip);color:var(--ink);cursor:pointer}
+.seg button+button{border-left:1.5px solid var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tier{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:9px 10px;border-bottom:1px dashed #DCCDF5}
+.tier .n{font:700 13px var(--display);border:1.5px solid var(--ink);text-align:center;height:22px;line-height:19px}
+.tier b{font:700 16px var(--display);color:var(--act)}
+.tier small{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-left:6px}
+.tier p{font-size:13px}
+.tier .src{font-size:11.5px;color:var(--soft)}
+.panel .rows{padding:9px 10px;font-size:13px;border-bottom:1px dashed #DCCDF5}
+.panel .rows div{display:grid;grid-template-columns:130px 1fr;gap:8px;padding:2px 0}
+.watch{margin:9px 10px 10px;padding:8px 10px;background:var(--pink);border-left:3px solid var(--bad);font-size:13px}
+
+/* full page outline */
+.outline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.outline{grid-template-columns:1fr}}
+.ol{border:1.5px solid var(--ink);background:var(--chip);padding:10px 12px;min-width:0}
+.ol.wide{grid-column:1/-1}
+.ol .n{font:700 22px/1 var(--display);color:var(--act);margin-right:8px}
+.ol h3{display:flex;align-items:baseline;margin:0 0 4px}
+.ol p{font-size:13.5px}
+.ol .from{font:500 9.5px var(--mono);letter-spacing:.04em;color:var(--soft);margin-top:6px}
+.ol.pink{background:var(--pink)}
+.sticky{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.sticky span{font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 8px;background:var(--chip)}
+.sticky span.on{background:var(--ink);color:var(--paper)}
+
+/* tabs mock */
+.tabs{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink);width:max-content;max-width:100%;margin-bottom:10px}
+.tabs button{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;border:0;background:var(--chip);color:var(--ink);cursor:pointer}
+.tabs button+button{border-left:1.5px solid var(--ink)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabbody{border:1.5px solid var(--ink);background:var(--chip);padding:12px;min-height:120px}
+
+.cmp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.cmp{grid-template-columns:1fr}}
+.cmp .box .bb p+p{margin-top:6px}
+.pro{color:var(--good)}.con{color:var(--bad)}
+.q{border:1.5px dashed var(--act);background:var(--chip);padding:12px 14px;margin-top:12px}
+.q ol{margin:6px 0 0;padding-left:18px}
+.q li+li{margin-top:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab o">Bare Signals · Library</p>
+  <h1>Library Layout Proposals</h1>
+  <p class="lede">Three ways to restructure the card and the full page so Dosage can be dissolved without losing anything. Every mock below uses the real BPC-157 entry from Library v47. Nothing is live yet.</p>
+
+  <!-- 1. inventory -->
+  <section class="sec" aria-labelledby="inv">
+    <header><h2 id="inv">Before Dosage goes: nothing is lost</h2></header>
+    <p class="why">Almost everything the Dosage page shows already lives in the Library's own data. Only one small block (community second doses for three compounds) is stored inside the Dosage page itself. It moves into the Library data first.</p>
+    <div class="tbl box"><table>
+      <thead><tr><th>On the Dosage page today</th><th>Stored in</th><th>Moves to</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><b>Typical dose</b>, how often, cycle, route, half-life</td><td>Library data</td><td>Card and full page: Typical dose box</td><td class="ok">Safe</td></tr>
+        <tr><td><b>Top 3 doses people take</b> (Common, Higher / injury, Aggressive) with who and sources</td><td>Library data</td><td>Behind "See doses from the community"</td><td class="ok">Safe</td></tr>
+        <tr><td><b>Dose by source</b> (e.g. "0.2 to 0.4 mg, 138 of 246 logged entries")</td><td>Library data</td><td>Same panel, under the top 3</td><td class="ok">Safe</td></tr>
+        <tr><td><b>Dose watch notes</b> (e.g. the 10 mg note: no reports of 10 mg injected; those figures come from one IV safety infusion, vial sizes and rat mg/kg doses)</td><td>Library data</td><td>Same panel, as a pink watch line</td><td class="ok">Safe</td></tr>
+        <tr><td><b>Label vs community</b> toggle</td><td>Dosage page code</td><td>Toggle inside the panel</td><td class="ok">Rebuilt</td></tr>
+        <tr><td><b>Community second doses</b> for Semaglutide, HGH and Retatrutide (low-dose maintenance, microdose, wellness to performance)</td><td>Dosage page only</td><td>Copied into Library data before anything is removed</td><td class="ok">Move first</td></tr>
+        <tr><td><b>Side by side</b> view of every compound's dose</td><td>Dosage page code</td><td>Library gets a "Dose" view; /dosage/ redirects there</td><td class="ok">Rebuilt</td></tr>
+        <tr><td>Links to Blood Work, Supplements, Calculator</td><td>Dosage page code</td><td>Typical dose box footer</td><td class="ok">Rebuilt</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 2. the card -->
+  <section class="sec" aria-labelledby="card">
+    <header><h2 id="card">The card: one easy read</h2><span class="rec">Same in every proposal</span></header>
+    <p class="why">Order follows what people ask first: what is it, how much, what does it do. Typical dose sits second. "How it works" folds into each role as a "by …" line, so every effect carries its reason. The pink warnings, name story, blood work and blends leave the card; they live in the full page. Tap the purple line to open the community doses.</p>
+    <div class="grid2">
+      <div class="card" aria-label="Proposed BPC-157 card">
+        <div class="stripe"><i style="flex:3;background:#E1DE62"></i><i style="flex:2;background:#AACC96"></i><i style="flex:1;background:#FF5050"></i><i style="flex:1;background:#87CFC5"></i></div>
+        <div class="hd">
+          <b>BPC-157</b> <span class="bdg">H.trial</span>
+          <p class="use">Tendon and gut repair, injury recovery</p>
+          <p class="sub">15 amino acids · Cut from a protein · Logged research</p>
+        </div>
+        <div class="dose">
+          <div class="top"><span class="lab">Typical dose</span><b>250–500 mcg</b></div>
+          <div class="cells"><div><small>How often</small>1–2× daily</div><div><small>Cycle</small>4–8 wk</div><div><small>Route</small>Sub-Q</div><div><small>Half-life</small>~15 min</div></div>
+        </div>
+        <button class="more" type="button" id="moreBtn" aria-expanded="false" aria-controls="panel">See doses from the community →</button>
+        <div class="panel" id="panel" hidden>
+          <div class="ph"><span class="lab" style="color:var(--purple)">Top 3 doses people take</span>
+            <span class="seg" role="group" aria-label="Source"><button type="button" aria-pressed="false" id="segL">Label</button><button type="button" aria-pressed="true" id="segC">Community</button></span></div>
+          <div id="pC">
+            <div class="tier"><span class="n">1</span><div><b>250–500 mcg</b><small>Common</small><p>1–2× daily · 4–8 wk · Sub-Q · general repair, tendon and joint</p><p class="src">PeptideProtocolWiki · Outliyr · Dr. Rogers Centers · 2 more</p></div></div>
+            <div class="tier"><span class="n">2</span><div><b>500 mcg 2× daily (≈1 mg/day)</b><small>Higher / injury</small><p>~12 h apart · 4–6 wk · Sub-Q near injury · active injury</p><p class="src">PeptideProtocolWiki · Dr. Rogers Centers · Swolverine</p></div></div>
+            <div class="tier"><span class="n">3</span><div><b>1 mg 2× daily (2 mg/day)</b><small>Aggressive</small><p>Short courses · Sub-Q, or oral 1 mg 2× daily · stubborn injury, oral gut use</p><p class="src">Outliyr · PeptidesExplorer</p></div></div>
+            <div class="rows"><span class="lab">Dose by source</span><div><b>0.2 to 0.4 mg</b><span>most logged per injection, 138 of 246 entries</span></div><div><b>250 and 500 mcg</b><span>tie as the most common fixed dose, 11 accounts</span></div></div>
+            <p class="watch"><b>Dose watch.</b> No reports of 10 mg injected. The reported top is about 2 mg a day. 10 mg figures come from single IV infusions in a small safety study, vial sizes, and rat doses in mg/kg read as flat doses.</p>
+          </div>
+          <div id="pL" hidden><p style="padding:12px 10px;font-size:13.5px">No approved label dose exists for BPC-157. The only human dose on record is a 2025 IV safety pilot: 10 mg then 20 mg, two people. Compounds with a label (Semaglutide, Tesamorelin) show it here, side by side with community use.</p></div>
+        </div>
+        <ul class="plain roles">
+          <li><span class="tag" style="background:#E1DE62">Tissue repair</span><span class="what">Faster tendon and ligament healing in rats</span><span class="how">by growing new blood vessels into injured tissue and making tendon cells more responsive to growth hormone <em>VEGFR2 · GH receptor</em></span></li>
+          <li><span class="tag" style="background:#AACC96">Digestive &amp; gut</span><span class="what">Protects the stomach and gut lining</span><span class="how">by shielding the gut lining from NSAID damage, in rats</span></li>
+          <li><span class="tag" style="background:#FF5050;color:#1F2550">Inflammatory</span><span class="what">Calms injury inflammation</span><span class="how">by lowering TNF-α and IL-6 in injury models</span></li>
+          <li><span class="tag" style="background:#87CFC5">Pain &amp; sensory</span><span class="what">Less joint and tendon pain reported</span><span class="how">people report it; no human trial yet</span></li>
+        </ul>
+        <div class="chips"><span>TB-500 frag 17–23</span><span>GHK-Cu</span><span>KPV</span><span>NAD+</span></div>
+        <div class="ft"><a href="#">Full page →</a><a href="#">Calculator →</a></div>
+      </div>
+      <div>
+        <div class="box"><div class="bh"><span class="lab">What leaves the card</span></div><div class="bb">
+          <ul class="plain" style="display:grid;gap:7px;font-size:14px">
+            <li><b>Who shouldn't take it</b> (pink block) → full page, Safety section, near the end</li>
+            <li><b>Name story</b> → full page, Story section</li>
+            <li><b>Blood work, In blends</b> → full page, one link each on the card footer if you want them</li>
+            <li><b>How it works as its own column</b> → folded into each role as "by …"</li>
+          </ul></div></div>
+        <div class="box" style="margin-top:14px"><div class="bh"><span class="lab">Merge or keep separate?</span></div><div class="bb" style="font-size:14px">
+          <p><b>My recommendation: merge.</b> BPC-157's six mechanisms map onto its roles one to one in your data (each mechanism already carries a role), so every effect gets its reason with no repetition. A separate How it works column reads like a second list of the same claims.</p>
+          <p style="margin-top:8px" class="note">Keep it separate only for compounds with one strong mechanism behind many effects (Semaglutide, MOTS-c). The card can switch automatically: merge when mechanisms match roles, show a one-line "How it works" otherwise.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Proposal A -->
+  <section class="sec" aria-labelledby="pa">
+    <header><h2 id="pa">A. One full page, six boxes in reading order</h2><span class="rec">Recommended</span></header>
+    <p class="why">The full page becomes the full read. "Read more: the deep read" stops being a second page; each box opens its own longer text in place. On a laptop, boxes pair up in two columns and a small section bar stays at the top, so nothing floats loose. On a phone, the same boxes stack. Amino acids leave the main flow: one line links to the chain on Aminos.</p>
+    <div class="sticky" aria-hidden="true"><span class="on">Overview</span><span>Dosing</span><span>What people report</span><span>Science</span><span>Safety</span><span>Story</span></div>
+    <div class="outline">
+      <div class="ol wide"><h3><span class="n">1</span>Overview</h3><p>Name, use line, H.trial, role stripe, then the merged "What it's for, and how" list. The chain sits small at the right with "See the chain on Aminos →".</p><p class="from">from: card header · What it's for · How it works · deep read paragraph (as Read more)</p></div>
+      <div class="ol"><h3><span class="n">2</span>Dosing</h3><p>Its own box. Typical dose cells, then Label | Community toggle, top 3 doses, dose by source, the dose watch note, sources. Footer: Calculator · Blood work · Mixing water.</p><p class="from">from: all of today's Dosage page</p></div>
+      <div class="ol"><h3><span class="n">3</span>What people report</h3><p>The numbers first (98% favorable in 128 logs; 1,245 Reddit reports), then Worked | Didn't | People report side by side.</p><p class="from">from: pools · Worked · Didn't · People report</p></div>
+      <div class="ol"><h3><span class="n">4</span>Science</h3><p>What's been tested (rat, cell, human tags), results, the mechanism detail with receptor names, then the long deep read behind Read more.</p><p class="from">from: What's been tested · Results · deep read</p></div>
+      <div class="ol pink"><h3><span class="n">5</span>Safety and status</h3><p>Who shouldn't take it, blood work to run, legal status, WADA, the human trial line with its registry ID.</p><p class="from">from: Who shouldn't · Blood work · Status</p></div>
+      <div class="ol wide"><h3><span class="n">6</span>Story and sources</h3><p>When it was found, what it was first meant for, timeline, name story, synergies, blends, identity table, then every numbered source.</p><p class="from">from: Where it comes from · Timeline · Name story · Synergies · In blends · Identity</p></div>
+    </div>
+  </section>
+
+  <!-- 4. Proposal B -->
+  <section class="sec" aria-labelledby="pb">
+    <header><h2 id="pb">B. Full page with tabs</h2></header>
+    <p class="why">Same six groups, but only one shows at a time. The page fits on one laptop screen, with no long scroll. Good for returning readers who want one thing; weaker for a first read, because people don't see what's inside the other tabs.</p>
+    <div class="tabs" role="group" aria-label="Tabs preview">
+      <button type="button" aria-pressed="true" data-t="0">Overview</button><button type="button" aria-pressed="false" data-t="1">Dosing</button><button type="button" aria-pressed="false" data-t="2">Reports</button><button type="button" aria-pressed="false" data-t="3">Science</button><button type="button" aria-pressed="false" data-t="4">Safety</button><button type="button" aria-pressed="false" data-t="5">Story</button>
+    </div>
+    <div class="tabbody" id="tabbody"></div>
+  </section>
+
+  <!-- 5. Proposal C -->
+  <section class="sec" aria-labelledby="pc">
+    <header><h2 id="pc">C. No separate full page: the card grows</h2></header>
+    <p class="why">The card above is the top. Below it, the same six sections sit closed, as one-line rows with a short preview ("Dosing: 3 community doses, 1 watch note"). Tap a row and it opens in place. One place to read everything, nothing duplicated, and the list stays where you left it.</p>
+    <div class="box" style="max-width:520px">
+      <div class="bb" style="display:grid;gap:0;padding:0">
+        <div style="padding:10px 12px;border-bottom:1px solid var(--rule)"><b>Dosing</b> <span class="note">· 3 community doses · 1 watch note</span></div>
+        <div style="padding:10px 12px;border-bottom:1px solid var(--rule)"><b>What people report</b> <span class="note">· 98% favorable · 1,245 Reddit reports</span></div>
+        <div style="padding:10px 12px;border-bottom:1px solid var(--rule)"><b>Science</b> <span class="note">· 6 mechanisms · mostly rat data</span></div>
+        <div style="padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--pink)"><b>Safety and status</b> <span class="note">· 4 groups who shouldn't · H.trial</span></div>
+        <div style="padding:10px 12px"><b>Story and sources</b> <span class="note">· Zagreb, early 1990s · 20+ sources</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. compare -->
+  <section class="sec" aria-labelledby="cmp">
+    <header><h2 id="cmp">Side by side</h2></header>
+    <div class="cmp">
+      <div class="box"><div class="bh"><span class="lab">A · Six boxes</span></div><div class="bb"><p class="pro">+ Everything visible, clear order, easy to screenshot a box.</p><p class="pro">+ Closest to what exists, lowest risk.</p><p class="con">− Still a long page on phones (about half today's length).</p></div></div>
+      <div class="box"><div class="bh"><span class="lab">B · Tabs</span></div><div class="bb"><p class="pro">+ Fits one screen, very tidy.</p><p class="con">− Hides content; people miss tabs.</p><p class="con">− Harder to share one link to a section.</p></div></div>
+      <div class="box"><div class="bh"><span class="lab">C · Card grows</span></div><div class="bb"><p class="pro">+ One place, no duplication between card and full page.</p><p class="pro">+ Fewest clicks.</p><p class="con">− Biggest rebuild; the laptop side panel gets long.</p></div></div>
+    </div>
+    <div class="q">
+      <p><b>Three things to confirm before I build</b></p>
+      <ol>
+        <li>Pick A, B or C (I'd go with A, then try C later once the boxes exist, since C reuses them).</li>
+        <li>"The first 2A can be removed on laptop": I read this as the two smallest text-size buttons in the top bar (laptop shows five A's; phone keeps three). Is that right?</li>
+        <li>Dissolving Dosage: remove it from the nav and redirect /dosage/ to the Library's new "Dose" view, so old links still work?</li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('moreBtn'),panel=document.getElementById('panel');
+  btn.addEventListener('click',function(){var open=panel.hidden;panel.hidden=!open;btn.setAttribute('aria-expanded',open);btn.textContent=open?'Hide community doses ↑':'See doses from the community →'});
+  var L=document.getElementById('segL'),C=document.getElementById('segC'),pL=document.getElementById('pL'),pC=document.getElementById('pC');
+  function seg(c){C.setAttribute('aria-pressed',c);L.setAttribute('aria-pressed',!c);pC.hidden=!c;pL.hidden=c}
+  L.addEventListener('click',function(){seg(false)});C.addEventListener('click',function(){seg(true)});
+  var T=[
+    '<b>Overview.</b> Name, use line, stripe, and What it’s for with each role’s “by …” line. Chain thumbnail links to Aminos.',
+    '<b>Dosing.</b> 250–500 mcg, 1–2× daily, 4–8 weeks. Label | Community toggle with the top 3 doses, dose by source (138 of 246 logs at 0.2 to 0.4 mg) and the 10 mg watch note.',
+    '<b>What people report.</b> 98% favorable across 128 user logs; 1,245 Reddit reports, recovery 326, pain 256. Worked, didn’t and people report in three columns.',
+    '<b>Science.</b> Tendon, muscle and gut work in rats; 11 of 12 knee patients improved in a small series. Mechanisms with receptor names, then the long read.',
+    '<b>Safety.</b> Active or recent cancer, tested athletes, proliferative retinopathy, injection allergies. Blood work: ALT, AST, GGT, hemoglobin, platelets. First US placebo controlled trial registered (rotator cuff, Phase 1).',
+    '<b>Story.</b> Found in human stomach juice in Zagreb, early 1990s. BPC means Body Protection Compound; the 157 is never explained.'
+  ];
+  var tb=document.getElementById('tabbody'),bs=document.querySelectorAll('.tabs button');
+  function show(i){bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t==i)});tb.innerHTML='<p style="font-size:14px">'+T[i]+'</p>'}
+  bs.forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.t)})});show(0);
+})();
+</script>
+</body>
+</html>
