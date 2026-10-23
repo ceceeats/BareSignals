@@ -491,7 +491,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v23</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v24</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -818,6 +818,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v24: in the residue demo the pen now counts down, the dose window ticks from the dialed 20 u to 0 as you press, the way a real pen does. v1 to v23 are unchanged.</span>
   <span>v23: the weight section is small now, a 1 g box zooming 1,000x to a 1 mg box, then 1,000x to a 1 mcg dot, with the converter kept and the giant grid gone. The pen is redrawn properly, a thin cartridge inside a wider body, a dial window in units that dials 0 to 60, and a short beveled needle; insulin and pen needle tips are beveled, not symmetric triangles. On the card, Mixed and Use by sit at the top and Draw to moved to the bottom right. The recommendation now switches to Luer lock when a dose is over 1 mL. Bigger mixing vials on laptop. v1 to v22 are unchanged.</span>
   <span>v22: the text size buttons (small A, A, large A) now sit on the Bare Signals bar at the top, which stays on screen, and the page follows them; titles and the big draw number grow less at the large size so nothing balloons; the card on laptop sticks just under the bar; the zoomed syringe tips keep their size at every text size. v1 to v21 are unchanged.</span>
   <span>v21: smaller weight boxes with mg and mcg now clearly different (mcg shows the dot), a more compact converter, the syringe types reordered to pen, insulin, Luer and shrunk to three across with the waste of each and a residue warning on the Luer, the pen window fixed, the card always shows Take, When and Note with NA when blank, and the residue demo now runs pen, insulin and Luer side by side, smaller, no zoom. v1 to v20 are unchanged.</span>
@@ -1365,14 +1366,14 @@ function penMini(host){
     '<rect class="ol" x="50" y="104" width="16" height="208"/>'+
     '<rect class="ol" x="36" y="68" width="44" height="248" rx="8"/>'+
     '<rect class="bg" x="43" y="42" width="30" height="20"/><rect class="ol" x="43" y="42" width="30" height="20"/>'+
-    '<text class="pendose" x="58" y="56" text-anchor="middle">20 u</text>'+
+    '<text class="pendose" id="pmDose" x="58" y="56" text-anchor="middle">20 u</text>'+
     '<path class="nz" d="M50 316 L66 316 L61 328 L55 328Z"/>'+
     '<rect class="hubf" x="54" y="326" width="8" height="8"/>'+
     '<path class="ndl" d="M56.4 334 L59.6 334 L59.6 362 L57 368 Z"/>'+
     '<g clip-path="url(#'+id+')"><path class="pmdead" d="M56.6 334 L59.4 334 L59.4 362 L57.2 367 Z" fill="var(--liquid)"/></g>'+
     '<g class="pmdrip"></g></svg>';
   const q=function(sel){return host.querySelector(sel);};
-  this.liq=q('.pmliq');this.stop=q('.pmstop');this.k=q('.pmk');this.nc=q('.pmnc');this.dr=q('.pmdrip');
+  this.liq=q('.pmliq');this.stop=q('.pmstop');this.k=q('.pmk');this.nc=q('.pmnc');this.dr=q('.pmdrip');this.dose=q('.pendose');
   this.liqTop=liqTop;this.liqBot=liqBot;this.needLen=needTip-needTop+4;this.tok=0;
 }
 penMini.prototype.set=function(frac,e){
@@ -1380,6 +1381,7 @@ penMini.prototype.set=function(frac,e){
   this.liq.setAttribute('y',top);this.liq.setAttribute('height',h);this.stop.setAttribute('y',top-7);
   this.k.setAttribute('transform','translate(0 '+((1-frac)*60).toFixed(1)+')');
   this.nc.setAttribute('height',(Math.max(0,e)*this.needLen).toFixed(1));
+  if(this.dose)this.dose.textContent=Math.round(20*(1-Math.min(1,Math.max(0,e))))+' u';
 };
 penMini.prototype.reset=function(){this.tok++;this.set(1,0);this.dr.innerHTML='';};
 penMini.prototype.press=function(dur,cb){
