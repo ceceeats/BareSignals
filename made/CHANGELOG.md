@@ -2,7 +2,10 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
-## v5 (23 Oct 2026)
+## v6 (24 Oct 2026)
+One content width with the site bar: on laptop the page is the shared 1240px box with 24px sides, zoom compensated, so the title starts under the BARE SIGNALS wordmark and the right edge ends under the A buttons at every text size; phone 16px sides, full width. Phone fix: the pH boxes and the BAC water vs saline table no longer push past the screen at the large A (they were 97px too wide). Version label reads V6 (v5 still said V4). v5 kept at /made/v5/.
+
+## v5 (23 Oct 2026) at /made/v5/
 The page’s own A A A buttons are gone; text size follows the site bar (nav v10): phone three steps, laptop five, laptop starts at 1.15. v4 kept at /made/v4/.
 
 ## v6 (24 Oct 2026) at /made/v6/

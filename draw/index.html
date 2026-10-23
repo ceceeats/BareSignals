@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Draw Line v25 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the sticky card's right edge with the A buttons); text size fallback reads the laptop scale; v24 kept at /draw/v24/. -->
 <!-- Draw Line v22 (23 Oct 2026): hooked to nav v9 (text size A A A on the site bar; the page listens to bs-text and zooms .page, headings and big numbers grow by less; the laptop card sticks below the site bar; zoomed syringe tips size correctly at every text size); brand line no longer repeats Bare Signals. /draw/ is the live file, copies in /draw/vN/. Draw Line v19 (23 Oct 2026): popup closes on outside click, Escape or ×; beginners see all three basics open; your own entries and choices in orange; blinking cue on the compound name; vial size sits under the name on the card. -->
 <html lang="en">
 <head>
@@ -26,11 +27,12 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.45 var(--body);
   padding-block:18px 56px;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
 h1,h2,h3,p,dl,dd,figure{margin:0}
 button,input{font:inherit;color:inherit}
 button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.page{--z:1;--hk:1;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.page{--z:1;--hk:1;max-width:calc(var(--bs-w,1240px) / var(--z));margin:0 auto;padding-inline:calc(var(--bs-pad,16px) / var(--z));box-sizing:border-box;display:flex;flex-direction:column;gap:16px}
+@media (min-width:1000px){.page{padding-inline:calc(var(--bs-pad,24px) / var(--z))}}
 [hidden]{display:none!important}
 
 /* header */
@@ -203,7 +205,6 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
 .cardcol{grid-area:card;min-width:0;width:100%;max-width:420px;margin-left:auto;margin-right:auto}
 .math{grid-area:math;min-width:0}
 @media(min-width:900px){
-  .page{max-width:1080px}
   .cmp{max-width:640px;margin-left:auto;margin-right:auto}
   .main{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"form card" "math card";align-items:start}
   .cardcol{position:sticky;top:calc((var(--bsnav-h,0px) + 14px) / var(--z));max-width:none;margin-left:0;margin-right:0}
@@ -491,7 +492,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v24</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v25</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -818,6 +819,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v25: the page now sits in the same width as the Bare Signals bar on laptop: the title starts under the wordmark and the card ends under the A buttons, at every text size. v1 to v24 are unchanged.</span>
   <span>v24: in the residue demo the pen now counts down, the dose window ticks from the dialed 20 u to 0 as you press, the way a real pen does. v1 to v23 are unchanged.</span>
   <span>v23: the weight section is small now, a 1 g box zooming 1,000x to a 1 mg box, then 1,000x to a 1 mcg dot, with the converter kept and the giant grid gone. The pen is redrawn properly, a thin cartridge inside a wider body, a dial window in units that dials 0 to 60, and a short beveled needle; insulin and pen needle tips are beveled, not symmetric triangles. On the card, Mixed and Use by sit at the top and Draw to moved to the bottom right. The recommendation now switches to Luer lock when a dose is over 1 mL. Bigger mixing vials on laptop. v1 to v22 are unchanged.</span>
   <span>v22: the text size buttons (small A, A, large A) now sit on the Bare Signals bar at the top, which stays on screen, and the page follows them; titles and the big draw number grow less at the large size so nothing balloons; the card on laptop sticks just under the bar; the zoomed syringe tips keep their size at every text size. v1 to v21 are unchanged.</span>
@@ -845,7 +847,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <script>
 /* v22: text size from the site bar (nav v9, bs-text): zoom .page; --z undoes the zoom in sticky offsets, --hk keeps titles and big numbers calmer */
 (function(){var K={s:.88,m:1,l:1.15};function ap(k){k=+k||1;var m=document.querySelector('.page');if(!m)return;m.style.zoom=k===1?'':k;m.style.setProperty('--z',k);m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4))}
-var t='m';try{t=localStorage.getItem('bs-text')||'m'}catch(e){}ap(K[t]||1);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
+var k0=1.15;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):(K[localStorage.getItem('bs-text')]||1.15))}catch(e){}ap(k0);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
 </script>
 <script>
 //CORE_START

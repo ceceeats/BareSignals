@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v18 (24 Oct 2026) at /supplements/v18/
+- One content width with the site bar (nav v11): on laptop the page sits in the shared 1240px box with 24px side padding, so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons, at every text size. Phone keeps 16px sides. Scroll-fade masks use ink instead of #000. Built on v17, which stays at /supplements/v17/.
+
 ## v17 (23 Oct 2026) at /supplements/v17/
 - Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. Built on v16, which stays at /supplements/v16/.
 

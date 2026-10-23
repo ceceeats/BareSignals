@@ -1,4 +1,4 @@
-/* Bare Signals site navigation v10 (23 Oct 2026): laptop gets its own text scale. Wide (1000px+) shows five A buttons s/m/l/xl/xxl = 0.88/1/1.15/1.3/1.45 (glyphs 10/11.5/13/14.5/16px), default l, stored in localStorage bs-text-w; phone keeps three s/m/l = 0.88/1/1.15, default m, bs-text, so the two never mix. Dispatches window 'bs-text' {key,k,wide} on load, on click, when the viewport crosses 1000px, and again on DOMContentLoaded and load; sets html[data-bs-text] and html[data-bs-wide]; BS_TEXT.get() gives {key,k,wide}, BS_TEXT.K the active map. Pages apply detail.k. Laptop link padding tightened so the five buttons fit on the one line from 1000px. v9 kept at /nav/v9.js. Previously v9 (23 Oct 2026): the bar now stays on screen (fixed to the top with an in-flow spacer of its roomy height, so nothing below jumps when it compacts) and owns the site-wide three-step text size control (small A / A / large A, right on the wordmark line; s=0.88 m=1 l=1.15, localStorage bs-text; dispatches window 'bs-text' {key,k} and sets html[data-bs-text]). Phone: wordmark + A A A on top, links in two rows of four; once scrolled past 30px it compacts to one line (wordmark, one scrollable row of links with the current page scrolled into view, A A A). Laptop (1000px+): one line always. Sets --bsnav-h (current bar height) and --bsnav-h0 (reserved space) on <html> and scroll-padding-top so page toolbars can stick at top:var(--bsnav-h). v8 kept at /nav/v8.js. Previously v8: adds Protocol (/protocol/) after Calculator; with 8 links the phone bar becomes two rows of four; v7 kept at /nav/v7.js. v7: adds Made (/made/) after Aminos. v6: one boxed bar shared by every page, plus the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. Include with <script src="/nav.js" defer></script>. */
+/* Bare Signals site navigation v11 (24 Oct 2026): one content width for the whole site. On laptop (1000px+) the inner row (.bsi) is the shared 1240px box with 24px side padding, so the wordmark lines up with every page's left content edge and the A buttons with its right edge; phone keeps 16px. Sets --bs-w (1240px), --bs-pad (24px, 16px under 1000px) and --bs-k (current text size number, updated on every bs-text event) on <html>. Phone default text is now l (1.15) when never chosen (bs-text); laptop unchanged (five steps, default l, bs-text-w). Still one line on laptop with five A buttons from 1000px. v10 kept at /nav/v10.js. Previously v10 (23 Oct 2026): laptop gets its own text scale. Wide (1000px+) shows five A buttons s/m/l/xl/xxl = 0.88/1/1.15/1.3/1.45 (glyphs 10/11.5/13/14.5/16px), default l, stored in localStorage bs-text-w; phone keeps three s/m/l = 0.88/1/1.15, default m, bs-text, so the two never mix. Dispatches window 'bs-text' {key,k,wide} on load, on click, when the viewport crosses 1000px, and again on DOMContentLoaded and load; sets html[data-bs-text] and html[data-bs-wide]; BS_TEXT.get() gives {key,k,wide}, BS_TEXT.K the active map. Pages apply detail.k. Laptop link padding tightened so the five buttons fit on the one line from 1000px. v9 kept at /nav/v9.js. Previously v9 (23 Oct 2026): the bar now stays on screen (fixed to the top with an in-flow spacer of its roomy height, so nothing below jumps when it compacts) and owns the site-wide three-step text size control (small A / A / large A, right on the wordmark line; s=0.88 m=1 l=1.15, localStorage bs-text; dispatches window 'bs-text' {key,k} and sets html[data-bs-text]). Phone: wordmark + A A A on top, links in two rows of four; once scrolled past 30px it compacts to one line (wordmark, one scrollable row of links with the current page scrolled into view, A A A). Laptop (1000px+): one line always. Sets --bsnav-h (current bar height) and --bsnav-h0 (reserved space) on <html> and scroll-padding-top so page toolbars can stick at top:var(--bsnav-h). v8 kept at /nav/v8.js. Previously v8: adds Protocol (/protocol/) after Calculator; with 8 links the phone bar becomes two rows of four; v7 kept at /nav/v7.js. v7: adds Made (/made/) after Aminos. v6: one boxed bar shared by every page, plus the site-wide extras every page gets without touching it: the tracking helper (/track.js, GoatCounter site code set in BS_GC below), favicon and home-screen icon, web app manifest and the cream theme colour. v5 (full labels on wide screens) kept at /nav/v5.js; v1 to v4 in /nav/. Include with <script src="/nav.js" defer></script>. */
 window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.goatcounter.com. Empty = tracking off. */
 (function(){
   var H=document.head,add=function(tag,attrs){var e=document.createElement(tag);for(var k in attrs)e.setAttribute(k,attrs[k]);H.appendChild(e);return e};
@@ -16,7 +16,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   var KN={s:.88,m:1,l:1.15},KW={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};
   var M='"JetBrains Mono",ui-monospace,Menlo,monospace';
   var css=
-  ':root{--bsnav-h:0px;--bsnav-h0:0px}html{scroll-padding-top:calc(var(--bsnav-h) + 8px)}'+
+  ':root{--bsnav-h:0px;--bsnav-h0:0px;--bs-w:1240px;--bs-pad:24px;--bs-k:1}@media (max-width:999.98px){:root{--bs-pad:16px}}html{scroll-padding-top:calc(var(--bsnav-h) + 8px)}'+
   '.bsn{position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFE2;border-bottom:1.5px solid #3E4A80;font-family:'+M+';-webkit-text-size-adjust:100%;text-size-adjust:100%}'+
   '.bsn-sp{display:block;height:var(--bsnav-h0)}'+
   '.bsn *{box-sizing:border-box}'+
@@ -35,7 +35,7 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   '.bsn .bst button[data-bsz="s"]{font-size:10px}.bsn .bst button[data-bsz="m"]{font-size:11.5px}.bsn .bst button[data-bsz="l"]{font-size:13px}.bsn .bst button[data-bsz="xl"]{font-size:14.5px}.bsn .bst button[data-bsz="xxl"]{font-size:16px}'+
   '.bsn .bst button{width:25px}'+
   /* laptop: tighter links so wordmark + links + five A fit one line from 1000px */
-  '@media (min-width:1000px){.bsn .bsi{gap:10px}.bsn .bsl a{padding:8px 9px;letter-spacing:.06em}}'+
+  '@media (min-width:1000px){.bsn .bsi{gap:10px;max-width:var(--bs-w,1240px);padding-left:var(--bs-pad,24px);padding-right:var(--bs-pad,24px)}.bsn .bsl a{padding:8px 9px;letter-spacing:.06em}}'+
   '@media (min-width:1000px) and (max-width:1120px){.bsn .bsl a{padding:8px 7px;letter-spacing:.04em}.bsn .bsw{font-size:14px}}'+
   '.bsn .bst button:hover{background:#F2F0CC}'+
   '.bsn .bst button[aria-pressed="true"]{background:#3E4A80;color:#FFFFE2}'+
@@ -67,16 +67,16 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
   D.body.insertBefore(sp,D.body.firstChild);D.body.insertBefore(n,sp);
   var row=n.querySelector('.bsl');
 
-  /* text size: phone s/m/l (bs-text, default m), laptop s..xxl (bs-text-w, default l) */
+  /* text size: phone s/m/l (bs-text, default l), laptop s..xxl (bs-text-w, default l) */
   var wideQ=matchMedia('(min-width:1000px)'),wide=wideQ.matches;
   var rd=function(key,map,def){var v=def;try{v=localStorage.getItem(key)||def}catch(e){}return map[v]?v:def};
-  var curN=rd('bs-text',KN,'m'),curW=rd('bs-text-w',KW,'l');
+  var curN=rd('bs-text',KN,'l'),curW=rd('bs-text-w',KW,'l');
   function st_(){return wide?{key:curW,k:KW[curW],wide:true}:{key:curN,k:KN[curN],wide:false}}
-  function fire(){var d=st_();R.dataset.bsText=d.key;R.dataset.bsWide=wide?'1':'0';
+  function fire(){var d=st_();R.dataset.bsText=d.key;R.style.setProperty('--bs-k',String(d.k));R.dataset.bsWide=wide?'1':'0';
     [].forEach.call(n.querySelectorAll('.bst button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.bsz===d.key))});
     window.dispatchEvent(new CustomEvent('bs-text',{detail:d}));}
   function setT(v,save){if(wide){if(!KW[v])v='l';curW=v;if(save){try{localStorage.setItem('bs-text-w',v)}catch(e){}}}
-    else{if(!KN[v])v='m';curN=v;if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}}fire();}
+    else{if(!KN[v])v='l';curN=v;if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}}fire();}
   window.BS_TEXT={get:st_,set:function(v){setT(v,true)},get K(){return wide?KW:KN},KN:KN,KW:KW};
   n.querySelector('.bst').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setT(b.dataset.bsz,true)});
   addEventListener('storage',function(e){if(!e.newValue)return;

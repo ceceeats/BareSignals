@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v22 (24 Oct 2026) at /blood/v22/
+- One content width with the site bar (nav v11): on laptop the page sits in the shared 1240px box with 24px side padding, so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons, at every text size; the sticky search band no longer pokes 4px past the edges. Phone keeps 16px sides. Built on v21, which stays at /blood/v21/.
+
 ## v21 (23 Oct 2026) at /blood/v21/
 - Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. Built on v20, which stays at /blood/v20/.
 
