@@ -2,6 +2,18 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v13 (23 Oct 2026) at /protocol/v13/
+- Step one asks "What are you trying to improve?" (was "What are you dealing with?"). Suggestions show "In stack ✕" to remove, not just add.
+- Step two is a grid of Library-style cards (up to 6 across on a laptop, 2 on a phone): full role stripe (roles plus reported uses), sticker mini-square in the vial sticker's colours, use line, dose with the recommended range beside it, draw (units or sprays), how often, ☀ morning or ☾ evening, food, dates, cycle, supply. The last card is "+ Add a peptide or blend" with search inside it. Edit opens a two-column editor under the card. Orange = a change not saved yet; dashed orange = dose still missing.
+- Every setting shows "Recommended" from the Library, or "Not researched yet" (time of day, food, finishing the cycle) where the Library has no data. New "Finish the full cycle" option marks the last day on the calendar and counts doses (e.g. 12/56) in the week view.
+- Calendar is the main view: Month (default) and Week, with morning doses on top under ☀, any-time in the middle, evening at the bottom under ☾, each with the peptide's sticker colours; vial and bottle run-out dates and blood test days marked. Overview replaces 3 months and Year: bars only, no numbers.
+- Blood work: "When is the baseline blood test?" date (booked or suggested), different wording if the stack has already started. Recheck and watch for adds "Leaves the body (estimate)": five half-lives from the Library half-life, flagged when the half-life is animal data.
+- Overlap check: SS-31 + NAD+ moved from "Same lever" to "Same organelle" (blue, good to know): SS-31 binds cardiolipin and steadies the inner membrane, NAD+ is a coenzyme, different jobs. "Shared tests" now lists each test and which peptides list it. New blue notes: Often paired (BPC-157 + KPV), Many at once.
+- Notes: dated notes inside the protocol, kept in the link and printed.
+- Saving: the address bar always holds the latest saved version (bookmark or add to home screen), links are compressed (about 60% shorter, #p=), protocols are listed under "Saved here" on this device, Send it uses the phone's share sheet. Copy for my AI gives a PLAN block an AI can edit; Paste it back reads it. Old #s= links still open.
+- Print: at a glance, four weekly calendars (this week on), the whole run, what each one is (plus leaves-the-body estimate), blood work, how to take it, overlap check, notes, 14-day log.
+- Reads Library v47 and Blood Work v21. Built on v12, kept.
+
 ## v12 (23 Oct 2026) at /protocol/v12/
 - Reads Library v47: 10 new compounds (brenipatide, petrelintide, ecnoglutide, trofinetide, tadalafil, modafinil, Noopept, phenylpiracetam, 9-Me-BC, cGP), human trial status, rewritten PNC-27. Built on v11, kept at /protocol/v11/.
 
