@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v14 (24 Oct 2026) at /protocol/v14/
+- Vials (or bottles) on hand per peptide, counting the one in use (1 to 6). Doses past that stock show faded and struck through on the Month and Week calendars, with "needs a restock" on the first day it runs short and "last one on hand" on the vial that ends it. Overview shows those weeks as a dashed, faded bar. Cards and At a glance show vials needed, on hand, and "restock by" date with how many more. Kept in the link and in the AI plan text ("on hand 2"). Built on v13, kept.
+
 ## v13 (23 Oct 2026) at /protocol/v13/
 - Step one asks "What are you trying to improve?" (was "What are you dealing with?"). Suggestions show "In stack ✕" to remove, not just add.
 - Step two is a grid of Library-style cards (up to 6 across on a laptop, 2 on a phone): full role stripe (roles plus reported uses), sticker mini-square in the vial sticker's colours, use line, dose with the recommended range beside it, draw (units or sprays), how often, ☀ morning or ☾ evening, food, dates, cycle, supply. The last card is "+ Add a peptide or blend" with search inside it. Edit opens a two-column editor under the card. Orange = a change not saved yet; dashed orange = dose still missing.
