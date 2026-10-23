@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v16 (24 Oct 2026) at /protocol/v16/
+- One content width with the site bar: on laptop the page is the shared 1240px box with 24px sides, zoom compensated, so the title starts under the BARE SIGNALS wordmark and the right edge ends under the A buttons at every text size; phone 16px sides. Text size fallback reads the laptop scale, phone large A. Built on v15, kept.
+
 ## v15 (24 Oct 2026) at /protocol/v15/
 - Step one now works like the Library: a search box with a match count, the Library's role families (Body and metabolism, Repair and structure, Protection and organs, Brain and mood, Sex and reproduction) that open into filled role tags in their own colours (no more red tags), and compact Library-style tiles, most popular first (12 on a laptop, 6 on a phone, Show all). Each tile: name, sticker colours, use line, reported dose, frequency and cycle, two role tags, full stripe. Tap a tile to add it; tap again to remove (in-stack tiles turn dark, like the Library's selected tile). Adding from a tile no longer jumps the page.
 - Opening a protocol link in a tab that already has the page now loads it (hash change).

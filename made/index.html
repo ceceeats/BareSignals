@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Made v7 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons); phone pH boxes no longer overflow at large text; the four brick routes go two across at the two largest laptop A, tags wrap; phone fallback text size l. built on v6 (title How peptides are made), v6 kept at /made/v6/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -21,7 +22,12 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
 [hidden]{display:none!important}
-.wrap{max-width:560px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:calc(var(--bs-w,1240px) / var(--pz,1));margin:0 auto;box-sizing:border-box;padding:20px max(calc(var(--bs-pad,16px) / var(--pz,1)),env(safe-area-inset-right,0px)) 48px max(calc(var(--bs-pad,16px) / var(--pz,1)),env(safe-area-inset-left,0px))}
+@media (min-width:1000px){.wrap{padding-left:calc(var(--bs-pad,24px) / var(--pz,1));padding-right:calc(var(--bs-pad,24px) / var(--pz,1))}}
+.cols>*{min-width:0}
+.card .hd .tag{white-space:normal;min-width:0;text-align:right}
+@media (min-width:1000px){html[data-bs-text="xl"] .g4,html[data-bs-text="xxl"] .g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:600px){.spec td.n,.spec.bw td.n{white-space:normal}.spec.bw{table-layout:fixed;font-size:12.5px}.spec.bw th:first-child{width:30%}.spec.bw td:first-child{font-size:11.5px}.spec.bw td,.spec.bw th{padding:5px 5px;overflow-wrap:break-word}}
 h1{font:700 26px/1.05 var(--display);margin:0;text-wrap:balance}
 h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
 h2{font:700 20px/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
@@ -133,7 +139,7 @@ section{scroll-margin-top:12px}
 .freq{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;margin-left:4px;white-space:nowrap}
 .f1{background:var(--green)}.f2{background:var(--repair)}.f3{background:#FFC9C9}
 .coa tr.ex{cursor:default}.coa tr.ex td{background:#FFF7C2;font:400 13.5px/1.45 var(--body);letter-spacing:0;text-transform:none;color:var(--ink);padding:8px 12px 10px;width:auto}
-.cols{display:grid;grid-template-columns:1fr;gap:10px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
 .box{border:1.5px solid var(--rule);background:var(--chip);padding:10px 12px}
 .box h3{font-size:15px}
 .box ul{margin:4px 0 0;padding-left:18px;font-size:14px}
@@ -197,7 +203,7 @@ details.deep p{font-size:14px}
 sup a{text-decoration:none;font:500 9.5px var(--mono);color:var(--accent)}
 
 @media (min-width:900px){
-  .wrap{max-width:980px;padding-top:30px}
+  .wrap{padding-top:30px}
   h1{font-size:40px}
   .lede{font-size:16px}
   .walk{grid-template-columns:repeat(6,minmax(0,1fr))}
@@ -577,7 +583,7 @@ a.chip small{opacity:.8}
 
 <header>
   <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p></div>
-  <h1>How peptides are made<small>V6</small></h1>
+  <h1>How peptides are made<small>V7</small></h1>
   <p class="lede" style="margin-top:8px">A peptide is a recipe built from tiny bricks. This page follows one from the recipe card to the sealed vial, and shows what can go wrong at every step.</p>
 </header>
 
@@ -955,7 +961,7 @@ a.chip small{opacity:.8}
     <div class="box"><h3>Shelf life</h3><p style="font-size:14px;margin:0">Higher pH speeds some breakdown, like asparagine turning into aspartate (deamidation). Wrong pH plus warmth plus time equals a weaker vial with more impurities than its COA shows.</p></div>
     <div class="box"><h3>Sting</h3><p style="font-size:14px;margin:0">Leftover TFA makes a solution more acidic. More acid, more sting at the injection site. A COA may list pH or the salt form.</p></div>
     <div class="box" style="grid-column:1/-1"><h3>The water: BAC water vs saline</h3>
-      <table class="spec" style="margin:6px 0 4px"><tr><th></th><th>BAC water</th><th>Saline</th></tr>
+      <table class="spec bw" style="margin:6px 0 4px"><tr><th></th><th>BAC water</th><th>Saline</th></tr>
       <tr><td><b>Inside</b></td><td>Sterile water + 0.9% benzyl alcohol</td><td>Sterile water + 0.9% salt (sodium chloride)</td></tr>
       <tr><td><b>Preservative</b></td><td>Yes: the alcohol slows bacteria after opening</td><td>None, unless labelled bacteriostatic saline</td></tr>
       <tr><td><b>Use</b></td><td>Multi-dose; commonly kept up to 28 days after the first puncture</td><td>Single use: open, draw, discard</td></tr>
@@ -1745,8 +1751,8 @@ var rzT=0;addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(
 </script>
 <script>
 /* text size: three steps shared across Bare Signals (localStorage bs-text: s|m|l). Zoom on the page content, never the nav. */
-(function(){var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):({s:.88,m:1,l:1.15}[localStorage.getItem('bs-text')]||1))}catch(e){}
-function apply(k){k=+k||1;var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k}
+(function(){var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):({s:.88,m:1,l:1.15}[localStorage.getItem('bs-text')]||1.15))}catch(e){}
+function apply(k){k=+k||1;document.documentElement.style.setProperty('--pz',k);var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k}
 apply(k0);addEventListener('bs-text',function(e){if(e&&e.detail&&e.detail.k)apply(e.detail.k)});})();
 </script>
 </body>
