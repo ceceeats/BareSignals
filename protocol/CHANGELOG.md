@@ -2,6 +2,15 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v10 (23 Oct 2026) at /protocol/v10/
+- Start over button (tap twice) clears the whole page. Opening a link now replaces everything, so old stacks from earlier clicks no longer mix in.
+- Who is this for: Myself or Someone else plus a name; the protocol and printout title become "Name's protocol". Privacy line: nothing is saved by Bare Signals, the link is the save.
+- Each compound: dose, one frequency with the recommended one marked "rec." (adds 5 on, 5 off), time of day, food (flagged as not yet researched), length, its own first day (else protocol start, staggered), route (injection, nasal, oral) and mix (mg in ml gives syringe units or sprays per dose, doses per vial or bottle), note.
+- Step three: At a glance table (dose, draw, how often, when, dates, supply), Edit stack button, Calendar with four dated views: Week (each day shows dose, units or sprays, time, food), 3 months (doses per week, ▲ where a vial runs out), Calendar (month grid with vial-end and blood dates), Year. Blood work as a compact grid beside Recheck and watch for, which now lists real test dates (baseline 3 days before day one, rechecks). Stack check renamed Overlap check, with a one-line explainer; new lever: SS-31, NAD+, MOTS-c and other mitochondria compounds.
+- Print full protocol: at a glance, next 3 months, first month calendar, what each one is (how it works, what people report, what hasn't held up, watch for, supplements people pair, reported dose), blood work with dates, how to take it (injection, nasal, storage), overlap check, 14-day log, reopen link.
+- Opt-in anonymous stack share: only compound, dose and frequency go to the cookie-free counter, never name or dates. Off by default.
+- Link format v3 (name, per-compound dates, time, food, route, mix, note). v1 and v2 links still open. Reads Library v45 and Blood Work v18. v9 kept.
+
 ## v9 (23 Oct 2026) at /protocol/v9/
 - Hooked to Nav v9: the text size control (small A / A / large A) lives in the site bar; the page listens to bs-text, zooms its wrapper, headings grow by less at large. Removed the duplicate "Bare Signals · Protocol" label, fixed the version label (said v2), Type Rule sizes (h1 22px, 13.5px body). v8 kept.
 
