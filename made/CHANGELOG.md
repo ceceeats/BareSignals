@@ -5,6 +5,24 @@
 ## v5 (23 Oct 2026)
 The page’s own A A A buttons are gone; text size follows the site bar (nav v10): phone three steps, laptop five, laptop starts at 1.15. v4 kept at /made/v4/.
 
+## v5 (24 Oct 2026) at /made/v5/
+From Cece's v4 review; v4 kept.
+- Snap animation shows the inner N and C being used up into a peptide bond, water out, free ends labelled. New "Bricks, bonds, ends" box: brick = amino acid (residue), every link is a peptide bond, one free N and C end, rings and bridges (MT-2, oxytocin), why chains are written N left to C right and why bead pictures look flipped.
+- Pac-Man demo smaller to fit phones, labelled "an enzyme in the body", caps labelled Ac = acetyl cap, NH2 = amidate cap, eaten fast vs lasts longer.
+- Semaglutide vs liraglutide: fact table (13 h vs 1 week, daily vs weekly, STEP 8 −6.4% vs −15.8%).
+- Mini cards rebuilt in the Library tile style (name, AA count, use, dose, filled role tags, stripe), read from Library v48 data.
+- Brick routes: feather drawing removed; chemistry and enzyme animations redrawn as three labelled stages; each card has a one-line flow (e.g. fumaric acid + ammonia → aspartase → aspartic acid (D)); keratin source named (human hair, duck or chicken feathers). Amino acids written with their letter, e.g. tyrosine (Y).
+- Caps stepper: step text in the top-right of the drawing, numbered steps 1 to 6 along the bottom, controls centred.
+- SS-31: brick cost table ($, $$, $$$ from catalogue prices) and a plain answer on whether Dmt drives the price.
+- Board tags wear each peptide's main Library colour and link to it; "Semaglutide (research vials)" explained; Khavinson bioregulators named.
+- Bead build: example picker as coloured tags; the zoomed bead chain sits above the tube; bead wiggles; new bricks drop in with a + and a water drop; front cap flies off on uncap; numbered steps; controls centred; larger chain on phone and laptop.
+- Crude lens uses the Calculator vial (10 mg, CRUDE), starts at 97% per snap, mistakes wiggle; purity lens uses the same vial (10 mg, PURIFIED) and both sections say before vs after cleanup.
+- E. coli: label for the gene humans add to the DNA ring; Bimagrumab and MariTide explained.
+- Crude rows: ✕ on the missing letter, letters named, direction note.
+- Drying: "Why freeze dry and seal" table.
+- Fixed horizontal overflow at the largest text size.
+- Sources 19 to 22 added.
+
 ## v4 (23 Oct 2026) at /made/v4/
 Rebuilt from Cece's v3 review; v3 kept at /made/v3/. Heavier on visuals, metaphors (Lego bricks, recipe card, Pac-Man enzymes, brewery, gloves, stapler, race, instant coffee), less text.
 - Walk icons redrawn. Recipe as a recipe card (ingredients with shapes and counts, numbered method chain, chef's note) for KPV, Selank, Ipamorelin, BPC-157; Lego snap animation (plug into socket, water drops out).
