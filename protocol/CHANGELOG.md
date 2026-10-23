@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v5 (23 Oct 2026) at /protocol/v5/
+- Same as v4, reads Library v34 (adds community dose tiers; doses unchanged). v4 kept.
+
 ## v4 (23 Oct 2026) at /protocol/v4/
 - Same as v3, reads Library v32: Pinealon back to the common 1–2 mg Sub-Q community dose. v3 kept.
 
