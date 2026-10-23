@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v11 (23 Oct 2026) at /supplements/v11/
+- Goes with lists gain the 12 Batch 1 compounds and 18 blends (171 pairings), each linked to its Library card. v10 kept.
+
 ## v10 (23 Oct 2026) at /supplements/v10/
 - Role names shown as filled colour tags (as on Home and Library v38): card main role, What it's for, role group headings, roles key, active filter. v9 kept.
 

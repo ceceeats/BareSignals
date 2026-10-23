@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v7 (23 Oct 2026) at /protocol/v7/
+- Reads Library v40 (117 entries: 17 Batch 1 compounds, 18 blends) and Blood Work v14 cross-links (blends' tests merged from components). v6 kept.
+
 ## v6 (23 Oct 2026) at /protocol/v6/
 - Reads Library v36 (99 compounds: Batch 1 from the sticker list, name stories). No layout change. v5 kept.
 

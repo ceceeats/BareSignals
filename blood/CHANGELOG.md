@@ -2,6 +2,12 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v14 (23 Oct 2026) at /blood/v14/
+- 12 Batch 1 compounds added (Survodutide, Mazdutide, Eloralintide, BAM-15, HMG, Abaloparatide, Vitamin B12, Thymalin; P21, Adamax, PTD-DBM, PNC-27 as a general safety baseline only).
+- 18 blends added as their own group: their components' tests combined, each listed once, supplements merged.
+- Everything it touches: tags no longer overlap their text.
+- /blood/v14/lib.js regenerated for the Library (it had been reading /blood/v8/lib.js, so cards missed everything since v8). v13 kept.
+
 ## v13 (23 Oct 2026) at /blood/v13/
 - Role names shown as filled colour tags (role name inside its colour block, as on Home and Library v38): compound tags, Everything it touches, Blood markers it moves, colour key. v12 kept.
 
