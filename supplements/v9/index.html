@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Supplements · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Supplements v9 (23 Oct 2026): phone fix, "Who it's for" tags wrap inside the card on narrow phones instead of running past the border. v8 kept. Supplements v8: built on v7. Sort like the Library (Groups, Roles, Evidence, A to Z); "label" is now "role" everywhere. "For you" is a button that opens a grouped panel (Sex, Life stage, Pregnancy, Diet, Training, Approval, Evidence) instead of a long scroll row. FDA tick and Rx tick badges (strict rule, see data.js) with an Approval section on each card. Carnosine moved here from the Library; oral cards link to injectable Library entries (B12, L-carnitine, NAD+). TB-500 links to fragment 17-23. v7: blood tests on cards. v1 to v7 kept. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;--ok:#3E7A3A;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1300px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-right,0px)) 44px max(16px,env(safe-area-inset-left,0px))}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.olab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:70ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:8px 12px;margin:0 0 14px;font-size:12.5px;line-height:1.4;max-width:900px}
+.caution b{font:700 12px var(--display)}
+
+/* search: animated placeholder, keyword row, For row */
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.qw{position:relative;flex:1 1 260px;max-width:640px}
+#q{width:100%;font:500 15px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:9px 64px 9px 10px;border-radius:0;-webkit-appearance:none;appearance:none}
+#q::placeholder{color:transparent}
+.ph{position:absolute;left:11px;right:66px;top:50%;transform:translateY(-50%);font:500 15px var(--body);color:var(--ink-soft);pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph b{font-weight:600;color:var(--ink)}
+.ph i{display:inline-block;width:1.5px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#count{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:500 10px var(--mono);letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:8px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.rowx{display:flex;align-items:center;gap:6px;margin:0 0 7px;min-width:0}
+.fyw{margin:0 0 9px;border:1.5px solid var(--ink);background:var(--chip)}
+.fyb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;width:100%;padding:8px 10px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.fyb em{font-style:normal;letter-spacing:.04em;color:var(--accent);text-transform:none;font:500 12px var(--body)}
+.fyb i{margin-left:auto;font:500 16px/1 var(--body);font-style:normal}
+.fyb[aria-expanded="true"]{border-bottom:1.5px solid var(--rule)}
+.fyp{padding:8px 10px 10px;display:grid;gap:8px}
+.fyg{display:grid;grid-template-columns:78px 1fr;gap:6px;align-items:start}
+.fyg>span{font:500 9px/2.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.fyg>div{display:flex;flex-wrap:wrap;gap:5px}
+.fyc{font:500 12px/1 var(--body);color:var(--ink);background:var(--paper);border:1.2px solid var(--ink);padding:6px 8px;cursor:pointer;border-radius:0}
+.fyc em{font-style:normal;opacity:.6;margin-left:4px}
+.fyc[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.fyx{justify-self:start;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);text-decoration:underline;cursor:pointer;padding:0}
+@media (max-width:420px){.fyg{grid-template-columns:1fr}.fyg>span{line-height:1.2}}
+.bdg{font:700 8.5px/1 var(--mono);letter-spacing:.06em;padding:3px 5px;background:#E00000;color:#fff;border:1px solid #E00000;white-space:nowrap}
+.bdg.ab{background:transparent;color:#E00000}
+.tl[aria-pressed="true"] .bdg{background:transparent;border-color:var(--paper);color:var(--paper)}
+.apr p{margin:0 0 5px;font-size:13.5px;line-height:1.42}
+.apr small{display:block;font:500 9.5px var(--mono);color:var(--ink-soft);letter-spacing:.04em}
+.rowx>span{flex:none;font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);width:30px}
+.scr{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:1px 2px 3px 1px;flex:1;min-width:0;mask-image:linear-gradient(90deg,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.scr::-webkit-scrollbar{display:none}
+.kw{flex:none;font:500 12px/1 var(--body);color:var(--ink);background:var(--chip);border:1.2px solid var(--ink);padding:6px 9px;cursor:pointer;white-space:nowrap;border-radius:0}
+.kw.f{font:500 10.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 8px}
+.kw[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.kw em{font-style:normal;opacity:.6;margin-left:4px}
+@media (hover:hover){.kw:hover{background:var(--paper)}.kw[aria-pressed="true"]:hover{background:var(--ink)}}
+.act{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 10px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.lc{font:500 11px/1.2 var(--mono);border:1.2px solid var(--ink);padding:3px 7px;cursor:pointer;border-radius:0;background:var(--chip);color:var(--ink)}
+
+/* layout */
+#lay{display:block}
+#aside{display:none}
+@media (min-width:900px){
+ #lay{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:18px;align-items:start}
+ #aside{display:block;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;padding:0 4px 4px 0}
+}
+.hint{border:1.5px dashed var(--ink-soft);padding:14px;font-size:13px;color:var(--ink-soft)}
+.hint b{display:block;font:700 15px var(--display);color:var(--ink);margin-bottom:2px}
+
+/* tiles: landscape */
+.grid{display:grid;gap:10px 10px;grid-template-columns:minmax(0,1fr);padding:2px 3px 6px 0}
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}}
+.ghead{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:10px 0 0}
+.ghead i{width:13px;height:13px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.ghead em{font:500 10.5px var(--mono);font-style:normal;color:var(--ink-soft)}
+.ghead:first-child{padding-top:2px}
+.tl{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;min-width:0;min-height:138px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);-webkit-tap-highlight-color:transparent}
+.tl .in{padding:8px 10px 7px;display:flex;flex-direction:column;gap:3px;flex:1;min-height:0}
+.tl .hd{display:flex;align-items:flex-start;gap:8px}
+.tl .nm{font:700 17px/1.08 var(--display);letter-spacing:-.005em;flex:1;min-width:0}
+.tl .nm small{font:500 8.5px var(--mono);letter-spacing:.08em;color:var(--accent);margin-left:6px;vertical-align:2px}
+.tl .cn{flex:none;display:flex;flex-direction:column;align-items:flex-end;font:500 7.5px/1 var(--mono);letter-spacing:.04em;color:var(--accent);margin-top:1px}
+.tl .cn b{font:700 12px/1 var(--display)}
+.tl .fnl{font:400 12.5px/1.32 var(--body);color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl .dz{margin-top:auto;padding-top:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font:500 11px/1.25 var(--mono);color:var(--ink)}
+.tl .dz b{font:700 13.5px/1.1 var(--display)}
+.tl .dz .fq{color:var(--ink-soft)}
+.tl .tg{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.ev,.pt{font:500 8.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink);white-space:nowrap}
+.ev.Strong{background:var(--ink);color:var(--paper)}
+.ev.Moderate{background:transparent}
+.ev.Limited,.ev.Emerging,.ev.Traditional{border-style:dashed;color:var(--ink-soft);border-color:var(--ink-soft)}
+.pt{border-color:var(--rule);background:var(--paper);color:var(--ink)}
+.pt.av{border-color:var(--flag);color:var(--flag)}
+.tl .band{position:relative;height:18px;border-top:1.5px solid var(--ink);flex:none;overflow:hidden}
+.band i{position:absolute;display:block;top:0;bottom:0}
+@media (hover:hover){.tl:hover{background:var(--paper)}}
+.tl[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--accent)}
+.tl[aria-pressed="true"] .fnl,.tl[aria-pressed="true"] .cn,.tl[aria-pressed="true"] .cn b,.tl[aria-pressed="true"] .dz,.tl[aria-pressed="true"] .dz .fq,.tl[aria-pressed="true"] .nm small{color:var(--paper)}
+.tl[aria-pressed="true"] .ev,.tl[aria-pressed="true"] .pt{border-color:var(--paper);color:var(--paper);background:transparent}
+.grid.dim .tl:not([aria-pressed="true"]){opacity:.42}
+
+/* card */
+#cw{grid-column:1/-1;min-width:0;margin:2px 0 6px}
+.cnav{display:flex;justify-content:flex-end;gap:2px;margin:0 0 4px}
+.cnav button{all:unset;cursor:pointer;width:36px;height:32px;display:grid;place-items:center;font:500 21px/1 var(--body);color:var(--ink)}
+.cnav button:disabled{opacity:.3;cursor:default}
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.chd{padding:12px 14px 10px}
+.chd h2{font:700 27px/1.02 var(--display);margin:0 0 5px;letter-spacing:-.01em}
+.chd .meta{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font:500 10.5px/1.45 var(--mono);color:var(--ink-soft)}
+.chd .meta b{font-weight:500;color:var(--accent)}
+.chd .fl{font:600 15px/1.35 var(--body);margin:8px 0 0}
+.sec{padding:10px 14px}
+.sec+.sec{border-top:1px dotted var(--rule)}
+.sec h3{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 7px}
+.sec h3 span{color:var(--ink-soft);letter-spacing:.06em;margin-left:8px;text-transform:none}
+.para{margin:0;font-size:14px;line-height:1.5}
+.evw{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft)}
+.glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1.5px solid var(--ink)}
+.glance>div{padding:6px 9px 7px;min-width:0}
+.glance>div+div{border-left:1.5px solid var(--ink)}
+.glance span{display:block;font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.glance b{display:block;font:700 17px/1.2 var(--display);overflow-wrap:anywhere}
+.dt{width:100%;border-collapse:collapse;font-size:13px;line-height:1.35}
+.dt td{padding:6px 0;border-bottom:1px dotted var(--rule);vertical-align:top}
+.dt tr:last-child td{border-bottom:0}
+.dt td:first-child{width:38%;padding-right:10px;font:500 10px/1.35 var(--mono);letter-spacing:.03em;color:var(--ink-soft);text-transform:uppercase}
+.dt b{font-weight:600}
+.dt .q{display:block;color:var(--ink-soft);font-size:12px;margin-top:1px}
+.rt{font:500 8.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink-soft);color:var(--ink-soft);padding:2px 4px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.rt.cl{border-color:var(--flag);color:var(--flag)}
+sup.c{font:500 8.5px var(--mono);color:var(--ink-soft);margin-left:3px;vertical-align:4px}
+sup.c a{text-decoration:none;color:var(--accent)}
+.dt tr.pr td{background:#F6F3D4}
+.dt tr.pr td:first-child{color:var(--ink);padding-left:6px}
+.pfl{display:block;color:var(--flag);font-size:12px;margin-top:3px;font-weight:500}
+.cband{position:relative;height:30px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.roles button{all:unset;cursor:pointer;display:grid;grid-template-columns:13px 1fr;gap:0 9px;align-items:baseline;padding:2px 0;font-size:13.5px;line-height:1.35}
+.roles button i{width:13px;height:13px;display:block;transform:translateY(2px);box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.roles button b{font-weight:700}
+.roles button em{font-style:normal;color:var(--ink-soft)}
+.roles button small{font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:6px}
+.res2{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:520px){.res2{grid-template-columns:1fr 1fr}}
+.res2 h4{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 5px;display:flex;gap:6px;align-items:center}
+.res2 h4 i{font-style:normal;width:16px;height:16px;display:grid;place-items:center;font:700 11px/1 var(--body);border:1.2px solid currentColor}
+.res2 .g h4{color:var(--ok)}.res2 .x h4{color:var(--flag)}
+.res2 ul,.lst{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.res2 li{font-size:13px;line-height:1.38}
+.res2 li b{font-weight:700}
+.res2 li span{color:var(--ink-soft)}
+.lst li{font-size:13px;line-height:1.4;padding-left:14px;position:relative}
+.lst li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;background:var(--ink)}
+.lst.w li::before{background:var(--flag)}
+.lst.n li::before{background:var(--accent)}
+.lst li b{font:500 10px var(--mono);color:var(--accent);margin-right:5px}
+.one{margin:0;font-size:13.5px;color:var(--accent);font-weight:500}
+.who{display:grid;gap:6px}
+.who>div{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.who>div>span{flex:none;width:62px;font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.who .pt{font-size:9.5px;padding:4px 6px;white-space:normal;line-height:1.25;max-width:100%;overflow-wrap:anywhere}
+.who>div{min-width:0}
+.pt.sf{border-color:var(--ok);color:var(--ok)}
+.pt.nd{border-style:dashed;color:var(--ink-soft);border-color:var(--ink-soft)}
+.syn{display:flex;flex-wrap:wrap;gap:6px}
+.syn a,.syn button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:1.2px solid var(--ink);padding:3px 8px 3px 4px;font:500 12.5px var(--body);background:var(--chip)}
+.syn i{width:12px;height:12px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.syn button{border-style:dashed}
+.snote{margin:7px 0 0;font-size:12px;color:var(--ink-soft)}
+.dlink{margin:8px 0 2px}
+.dlink a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+.phl p{margin:0 0 3px;font-size:13px}
+.refs ol{margin:0;padding-left:20px;display:grid;gap:4px;font-size:12.5px;line-height:1.35}
+.refs li{scroll-margin-top:60px}
+.refs li.hl{background:#F6F3D4}
+.refs li em{font:500 9px var(--mono);color:var(--ink-soft);margin-left:4px;font-style:normal}
+.cft{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 14px;border-top:1.5px solid var(--rule);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.cft b{color:var(--accent);font-weight:500}
+
+/* key */
+.key{margin-top:22px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule)}
+.key>p{margin:0;padding:8px 12px;border-bottom:1.5px solid var(--rule)}
+.kg{display:grid;grid-template-columns:1fr}
+.kr{display:grid;grid-template-columns:14px 1fr auto;gap:2px 9px;padding:8px 12px;border:0;border-bottom:1px dotted var(--rule);align-items:start;background:transparent;color:var(--ink);text-align:left;cursor:pointer;width:100%}
+.kr:last-child{border-bottom:0}
+@media (hover:hover){.kr:hover{background:#F2F0CC}}
+.kr[aria-pressed="true"]{background:#F2F0CC;box-shadow:inset 3px 0 0 var(--ink)}
+.kr i{display:block;width:14px;height:14px;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.kr b{font:700 13px/1.2 var(--display)}
+.kr em{font:500 11px var(--mono);font-style:normal;color:var(--ink-soft)}
+.kr span{grid-column:2/4;font:500 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:700px){.kg{grid-template-columns:1fr 1fr}.kr{border-right:1px dotted var(--rule)}}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (prefers-reduced-motion:no-preference){.card{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
+@media (prefers-reduced-motion:reduce){.ph i{animation:none}}
+/* v7 blood tests */
+.bts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.btk{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 5px 0 0 var(--c);padding:7px 8px 7px 12px}
+.btk:hover{border-color:var(--ink)}
+.btk b{font:600 14px/1.2 var(--body)}
+.btk span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.btk .tb{font:700 8.5px/1.3 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;padding:0 4px;border:1.2px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
+.btk .tb.sp{color:#C02626;border-color:#C02626}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="lab">Bare Signals</p>
+  <h1>Supplements<small>V9</small></h1>
+  <p class="lede">What to take alongside each peptide, how much, and what the science says. Stripes are the same 30 roles as the Library. Tap one to open its card.</p>
+  <div class="caution"><b>Reference, not a prescription.</b> Doses are what guidelines, trials and the protocol use, each with its source. Not medical advice. Supplements interact with medication and with each other, so check with a clinician first.</div>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search" aria-label="Search supplements, peptides, goals or who it is for" autocomplete="off" enterkeyhint="search"><span class="ph" id="ph" aria-hidden="true"></span><span id="count"></span></div><div class="seg" id="view"></div></div>
+  <div class="rowx"><span>Try</span><div class="scr" id="kws"></div></div>
+  <div class="fyw"><button type="button" class="fyb" id="fyb" aria-expanded="false" aria-controls="fyp"><span>For you</span><em id="fys">Everyone</em><i aria-hidden="true">+</i></button><div class="fyp" id="fyp" hidden></div></div>
+  <div class="act" id="act" hidden></div>
+  <div id="lay">
+    <div>
+      <div class="grid" id="grid"></div>
+      <div class="key"><p class="lab">Roles · same colors as the Library · tap one to filter</p><div class="kg" id="key"></div></div>
+    </div>
+    <aside id="aside" aria-label="Supplement card"><div class="hint" id="hint"><b>Tap a supplement</b>Its card opens here: the short version, every dose with its source, what form to buy, warnings, and who it is for.</div></aside>
+  </div>
+  <section id="cw" aria-label="Supplement card" hidden></section>
+  <p class="foot">Collected by <b>Bare Signals</b> · protocol from the Honest Menu · research pass 22 Oct 2026</p>
+</div>
+<script src="/blood/v8/supp.js"></script>
+<script src="/supplements/v9/data.js"></script>
+<script>
+(function(){
+const S=window.SUPP,CATS=window.SUPP_CATS,PH=window.SUPP_PH,PAL=window.SUPP_PAL,LINK=window.SUPP_LINK||{};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const norm=x=>String(x).toLowerCase().replace(/[\s\-–()'’.,\/+&:]/g,'');
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])),LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]])),MEAN=Object.fromEntries(PAL.map(p=>[p[0],p[3]]));
+const KEYS=PAL.map(p=>p[0]);
+const RM=matchMedia('(prefers-reduced-motion: reduce)'),WIDE=matchMedia('(min-width:900px)');
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const CF={V:'verified',R:'reported',I:'inferred',S:'speculated'};
+/* optional research fields kept from v4 */
+const EXTRA=[['mech','How it works'],['forms_note','Forms and timing']];
+const idOf=n=>n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const tg=o=>o.tags||{sex:'Both',life:[],diet:[],activity:[],meds:[]};
+/* who-it-is-for filters */
+const has=(o,k,v)=>(tg(o)[k]||[]).includes(v);
+const FOR=[
+ ['Sex',[['Women',o=>tg(o).sex==='Women'],['Men',o=>tg(o).sex==='Men']]],
+ ['Life stage',[['Childbearing age',o=>has(o,'life','Childbearing age')],['Breastfeeding',o=>has(o,'life','Breastfeeding')],['Menopause',o=>has(o,'life','Menopause')],['50+',o=>has(o,'life','50+')],['65+',o=>has(o,'life','65+')]]],
+ ['Pregnancy',[['Pregnancy safe',o=>has(o,'life','Pregnancy: Safe')],['Avoid in pregnancy',o=>has(o,'life','Pregnancy: Avoid')]]],
+ ['Diet',[['Vegan',o=>has(o,'diet','Vegan')]]],
+ ['Training',[['Strength training',o=>has(o,'activity','Strength training')],['Endurance',o=>has(o,'activity','Endurance')]]],
+ ['Approval',[['FDA approved',o=>o.appr&&o.appr.badge==='fda'],['Approved outside the US',o=>o.appr&&o.appr.badge==='rx']]],
+ ['Evidence',[['Strong evidence',o=>o.evidence&&o.evidence.tier==='Strong']]]
+];
+const FORF=Object.fromEntries(FOR.flatMap(g=>g[1]));
+const KW=['sleep','energy','focus','stress','collagen','skin','joints','gut','liver','heart','blood sugar','muscle','immune','pregnancy','vegan','kidney','BPC-157','GHK-Cu','Semax','GLP-1','new'];
+S.forEach(o=>{
+  o.id=idOf(o.n);o.lab=o.lab||[];o.w=o.w||[];
+  const t=tg(o),phs=(o.ph||[]).map(c=>PH[c]?PH[c].n:'').join(' ');
+  o._h=norm([o.n,o.s,(o.aka||[]).join(' '),o.cat,o.does,o.dose,o.dn,o.note,o.w.join(' '),phs,o.lab.map(k=>LONG[k]).join(' '),o.benefits,o.tileDose,
+    (o.forms?[...o.forms.best,...o.forms.avoid].map(f=>f.f).join(' '):''),(o.warn||[]).join(' '),(o.interactions||[]).join(' '),
+    t.sex==='Both'?'':t.sex,(t.life||[]).join(' '),(t.diet||[]).join(' '),(t.activity||[]).join(' '),(t.meds||[]).join(' '),o.added?'new':'',o.appr?[o.appr.us,o.appr.outside,o.appr.badge==='fda'?'fda approved medicine':o.appr.badge==='rx'?'approved medicine outside us rx':''].join(' '):''].join(' '));
+});
+const BYID=Object.fromEntries(S.map(o=>[o.id,o]));
+const COUNT=Object.fromEntries(KEYS.map(k=>[k,S.filter(o=>o.lab.includes(k)).length]));
+const RW=[4,2.5,1.6,1.25,1];
+function stripes(o){
+  const L=o.lab.map((k,i)=>[k,RW[Math.min(i,RW.length-1)]]).reverse(),T=L.reduce((a,x)=>a+x[1],0);
+  let l=0;return L.map(([k,w])=>{const pct=w/T*100,h=`<i style="left:${l.toFixed(3)}%;width:${(pct+.05).toFixed(3)}%;background:${HEX[k]}" title="${esc(LONG[k])}"></i>`;l+=pct;return h}).join('');
+}
+let view='group',q='',lf='',ff='',cur=null,L=[];
+const fyOpen=v=>{$('#fyp').hidden=!v;$('#fyb').setAttribute('aria-expanded',String(v));$('#fyb i').textContent=v?'\u2212':'+'};
+/* the short who-it-is-for tags on a tile */
+const apb=o=>{const b=o.appr&&o.appr.badge;return b==='fda'?'<span class="bdg" title="An FDA-approved medicine of this substance exists">FDA \u2713</span>':b==='rx'?'<span class="bdg ab" title="Approved as a medicine outside the US">Rx \u2713</span>':''};
+function tileTags(o){
+  const t=tg(o),out=[];
+  if(t.sex&&t.sex!=='Both')out.push(['',t.sex]);
+  const short={'Strength training':'Training','Childbearing age':'Pre-pregnancy'};
+  [...(t.life||[]).filter(x=>!x.startsWith('Pregnancy')&&x!=='Under 18: avoid'),...(t.diet||[]),...(t.activity||[])].slice(0,3).forEach(x=>out.push(['',short[x]||x]));
+  if((t.life||[]).includes('Pregnancy: Avoid'))out.push(['av','Not in pregnancy']);
+  return out.map(([c,x])=>`<span class="pt ${c}">${esc(x)}</span>`).join('');
+}
+function tile(o){
+  const n=o.w.length,ev=o.evidence&&o.evidence.tier;
+  return `<button type="button" class="tl" data-id="${o.id}" aria-pressed="${cur===o.id}" aria-label="${esc(o.n)}. ${esc(o.tileDose||'')}. ${esc(o.s)}"><span class="in">`+
+   `<span class="hd"><span class="nm">${esc(o.n)}${o.added?'<small>NEW</small>':''}</span>${n?`<span class="cn"><b>${n}</b>PEP</span>`:''}</span>`+
+   `<span class="fnl">${esc(o.s)}</span>`+
+   (o.tileDose?`<span class="dz"><b>${esc(o.tileDose)}</b>${o.tileFreq?`<span class="fq">${esc(o.tileFreq)}</span>`:''}</span>`:'')+
+   `<span class="tg">${apb(o)}${ev?`<span class="ev ${ev}">${ev}</span>`:''}${tileTags(o)}</span>`+
+   `</span><span class="band" aria-hidden="true">${stripes(o)}</span></button>`;
+}
+function pepChip(p){
+  const k=LINK[p];
+  return k?`<a href="/library/#/${esc(k[0])}" title="Open ${esc(p)} in the Library"><i style="background:${HEX[k[1]]||'#FFFFF4'}"></i>${esc(p)}</a>`:`<button type="button" data-q="${esc(p)}" title="Not in the Library yet"><i style="background:#FFFFF4"></i>${esc(p)}</button>`;
+}
+const cite=(o,r)=>r.src!=null&&o.refs&&o.refs[r.src]?`<sup class="c" title="${CF[r.c]||''}"><a href="#" data-ref="${r.src}">${r.src+1}</a>${r.c?' '+r.c:''}</sup>`:(r.c?`<sup class="c" title="${CF[r.c]||''}">${r.c}</sup>`:'');
+function doseTable(o){
+  let h='';
+  if(o.dose||o.dn)h+=`<tr class="pr"><td>Bare Signals protocol</td><td><b>${esc(o.dose||'See note')}</b>${o.dn?`<span class="q">${esc(o.dn)}</span>`:''}${o.pflag?`<span class="pfl">${esc(o.pflag)}</span>`:''}</td></tr>`;
+  (o.doses||[]).forEach(r=>{
+    const clin=/clinical/i.test(r.k)||/^(IV|IM)/i.test(r.route||'');
+    h+=`<tr><td>${esc(r.k)}</td><td><b>${esc(r.amt)}</b>${r.route&&r.route!=='Oral'?`<span class="rt${clin?' cl':''}">${esc(r.route)}</span>`:''}${cite(o,r)}${r.freq?`<span class="q">${esc(r.freq)}</span>`:''}</td></tr>`;
+  });
+  return h?`<table class="dt">${h}</table>`:'';
+}
+function whoHTML(o){
+  const t=tg(o),rows=[];
+  rows.push(['Sex',`<span class="pt">${esc(t.sex||'Both')}</span>`]);
+  const life=(t.life||[]).map(x=>{const c=x==='Pregnancy: Safe'?'sf':x==='Pregnancy: Avoid'||x==='Under 18: avoid'?'av':x.startsWith('Pregnancy: Not')?'nd':'';return `<span class="pt ${c}">${esc(x)}</span>`}).join(' ');
+  if(life)rows.push(['Life',life]);
+  if((t.diet||[]).length)rows.push(['Diet',t.diet.map(x=>`<span class="pt">${esc(x)}</span>`).join(' ')]);
+  if((t.activity||[]).length)rows.push(['Training',t.activity.map(x=>`<span class="pt">${esc(x)}</span>`).join(' ')]);
+  if((t.meds||[]).length)rows.push(['Check if on',t.meds.map(x=>`<span class="pt av">${esc(x)}</span>`).join(' ')]);
+  return `<div class="who">${rows.map(([k,v])=>`<div><span>${k}</span>${v}</div>`).join('')}</div>`;
+}
+function cardHTML(o){
+  const i=L.findIndex(x=>x.id===o.id),ph=(o.ph||[]).filter(c=>PH[c]),main=o.lab[0],ev=o.evidence||{};
+  const own=o.sup||[],phaseOnly=o.w.filter(p=>!own.includes(p));
+  const F=o.forms||{best:[],avoid:[]};
+  return `<div class="cnav"><button type="button" data-nav="-1" aria-label="Previous" ${i<=0?'disabled':''}>&#8249;</button><button type="button" data-nav="1" aria-label="Next" ${i<0||i>=L.length-1?'disabled':''}>&#8250;</button><button type="button" data-close aria-label="Close">&times;</button></div>`+
+  `<article class="card"><div class="chd"><h2>${esc(o.n)}</h2><div class="meta"><span>${esc(o.cat)}${main?` · <b>${esc(LONG[main])}</b>`:''}</span>${apb(o)}${ev.tier?`<span class="ev ${ev.tier}">${esc(ev.tier)} evidence</span>`:''}${o.added?`<span class="ev">New in ${esc(o.added)}</span>`:''}</div><p class="fl">${esc(o.s)}</p></div>`+
+  (o.tileDose?`<section class="sec"><div class="glance"><div><span>Typical dose</span><b>${esc(o.tileDose)}</b></div><div><span>How often</span><b>${esc(o.tileFreq||'Daily')}</b></div></div></section>`:'')+
+  (o.benefits?`<section class="sec"><h3>The short version</h3><p class="para">${nl(o.benefits)}</p>${ev.why?`<p class="evw"><b>${esc(ev.tier)}:</b> ${esc(ev.why)}</p>`:''}</section>`:'')+
+  `<section class="sec"><h3>Doses<span>small number = source, V verified, R reported, I inferred</span></h3>${doseTable(o)}</section>`+
+  `<div class="cband band" aria-hidden="true">${stripes(o)}</div>`+
+  `<section class="sec"><h3>What it's for<span>tap a role</span></h3><ul class="roles">${o.lab.map((k,j)=>`<li><button type="button" data-l="${k}"><i style="background:${HEX[k]}"></i><span><b>${esc(LONG[k])}</b> <em>· ${esc(MEAN[k])}</em>${j?'':'<small>main</small>'}</span></button></li>`).join('')}</ul></section>`+
+  ((F.best.length||F.avoid.length)?`<section class="sec"><h3>What form to buy</h3><div class="res2"><div class="g"><h4><i>&#10003;</i>Buy</h4><ul>${F.best.map(f=>`<li><b>${esc(f.f)}</b> <span>${esc(f.why)}</span></li>`).join('')}</ul></div>${F.avoid.length?`<div class="x"><h4><i>&#10005;</i>Skip</h4><ul>${F.avoid.map(f=>`<li><b>${esc(f.f)}</b> <span>${esc(f.why)}</span></li>`).join('')}</ul></div>`:''}</div></section>`:'')+
+  (o.appr?`<section class="sec apr"><h3>Approved as a medicine?</h3><p>${esc(o.appr.us)}</p>${o.appr.outside?`<p>Outside the US: ${esc(o.appr.outside)}</p>`:''}${o.appr.note?`<p><small>${esc(o.appr.note)}</small></p>`:''}${o.appr.src?`<p><small><a href="${esc(o.appr.src)}" target="_blank" rel="noopener">Source</a> · ${CF[o.appr.c]||''}</small></p>`:''}</section>`:'')+
+  ((o.buy||[]).length?`<section class="sec"><h3>Check the label</h3><ul class="lst">${o.buy.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'')+
+  ((o.warn||[]).length||o.note?`<section class="sec"><h3>Warnings</h3>${o.note?`<p class="one" style="margin-bottom:7px">${nl(o.note)}</p>`:''}<ul class="lst w">${(o.warn||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'')+
+  ((o.interactions||[]).length?`<section class="sec"><h3>Interactions</h3><ul class="lst w">${o.interactions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'')+
+  (((window.BW_SUPP||{})[o.id]||[]).length?`<section class="sec"><h3>Blood tests to check<span>from the Blood Work notes</span></h3><div class="bts">${window.BW_SUPP[o.id].map(x=>`<a class="btk" href="/blood/#/t/${x[0]}" style="--c:${x[2]}"><b>${esc(x[1])}</b><span>${/raises/.test(x[3])?'↑ ':/lowers/.test(x[3])?'↓ ':''}${esc(x[3])}${x[4]==='specialty'?' <i class="tb sp">$$$ rare</i>':x[4]==='ask'?' <i class="tb">ask lab</i>':''}</span></a>`).join('')}</div><p class="snote" style="margin-top:6px">Tap a test to see what it means, the numbers to aim for and what can throw them off.</p></section>`:'')+
+  ((o.routes||[]).length>1?`<section class="sec"><h3>Ways it is taken</h3><ul class="lst">${o.routes.map(r=>`<li><b>${esc(r.r)}</b>${esc(r.note)}</li>`).join('')}</ul></section>`:'')+
+  ((o.new||[]).length?`<section class="sec"><h3>New findings</h3><ul class="lst n">${o.new.map(r=>`<li><b>${esc(r.d)}</b>${esc(r.t)}${cite(o,r)}</li>`).join('')}</ul></section>`:'')+
+  `<section class="sec"><h3>Who it's for</h3>${whoHTML(o)}</section>`+
+  (o.w.length?`<section class="sec"><h3>Goes with</h3>${own.length?`<div class="syn">${own.map(pepChip).join('')}</div>`:''}${phaseOnly.length?`${own.length?'<p class="snote">Also runs alongside, as part of the phase-wide stack:</p>':''}<div class="syn"${own.length?' style="margin-top:6px"':''}>${phaseOnly.map(pepChip).join('')}</div>`:''}${(()=>{const sl=o.w.map(p=>LINK[p]&&LINK[p][0]).filter(Boolean);return sl.length?`<p class="dlink"><a href="/dosage/?only=${[...new Set(sl)].join(',')}&from=${encodeURIComponent(o.n)}">See their doses side by side →</a></p>`:''})()}<p class="snote">Solid boxes open the peptide in the Library. Dashed ones are not in the Library yet.</p></section>`:'')+
+  ((o.lib||[]).length?`<section class="sec"><h3>In the Library</h3><div class="syn">${o.lib.map(x=>`<a href="/library/#/${esc(x.slug)}" title="${esc(x.why)}"><i style="background:${HEX[x.p]||'#FFFFF4'}"></i>${esc(x.n)}</a>`).join('')}</div><p class="snote">${o.lib.map(x=>esc(x.why)).join('. ')}.</p></section>`:'')+
+  (ph.length?`<section class="sec phl"><h3>Phase-wide in</h3>${ph.map(c=>`<p>${esc(PH[c].n)}</p>`).join('')}</section>`:'')+
+  ((o.refs||[]).length?`<section class="sec refs"><h3>Sources</h3><ol>${o.refs.map((r,j)=>`<li id="r-${j}"><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a><em>${CF[r.c]||''}</em></li>`).join('')}</ol></section>`:'')+
+  `<div class="cft"><span>Data collected by <b>Bare Signals</b></span><span>Research pass 22 Oct 2026 · approval check 23 Oct 2026</span></div></article>`;
+}
+function render(){
+  const qq=norm(q),fp=ff?FORF[ff]:null;
+  L=S.filter(o=>(!qq||o._h.includes(qq))&&(!lf||o.lab.includes(lf))&&(!fp||fp(o)));
+  const EVO=['Strong','Moderate','Limited','Emerging','Traditional'];
+  const GK=o=>view==='group'?o.cat:view==='role'?o.lab[0]:view==='ev'?((o.evidence||{}).tier||'Not rated'):o.n[0].toUpperCase();
+  if(view==='role')L=KEYS.flatMap(k=>L.filter(o=>o.lab[0]===k));
+  else if(view==='ev')L=[...EVO,'Not rated'].flatMap(t=>L.filter(o=>((o.evidence||{}).tier||'Not rated')===t));
+  else if(view==='az')L=[...L].sort((a,b)=>a.n.localeCompare(b.n));
+  $('#count').textContent=L.length+'/'+S.length;
+  let h='',last=null;
+  L.forEach(o=>{
+    const g=GK(o);
+    if(g!==last){last=g;const n=L.filter(x=>GK(x)===g).length;
+      h+=`<div class="ghead">${view==='role'?`<i style="background:${HEX[g]}"></i>`:''}<span class="olab">${esc(view==='role'?LONG[g]:view==='ev'?g+' evidence':g)}</span><em>${n}</em></div>`}
+    h+=tile(o);
+  });
+  const cw=$('#cw');document.querySelector('.wrap').appendChild(cw);
+  $('#grid').innerHTML=h||'<p class="lede" style="grid-column:1/-1">Nothing matches. Try one of the keywords above.</p>';
+  $('#view').innerHTML=[['group','Groups'],['role','Roles'],['ev','Evidence'],['az','A to Z']].map(([k,l])=>`<button type="button" data-v="${k}" aria-pressed="${view===k}">${l}</button>`).join('');
+  $('#key').innerHTML=KEYS.filter(k=>COUNT[k]).map(k=>`<button type="button" class="kr" data-k="${k}" aria-pressed="${lf===k}"><i style="background:${HEX[k]}"></i><b>${esc(LONG[k])}</b><em>${COUNT[k]}</em><span>${esc(MEAN[k])}</span></button>`).join('');
+  $('#fyp').innerHTML=FOR.map(([g,items])=>{const c=items.map(([k,f])=>{const n=S.filter(f).length;return n?`<button type="button" class="fyc" data-for="${esc(k)}" aria-pressed="${ff===k}">${esc(k)}<em>${n}</em></button>`:''}).join('');return c?`<div class="fyg"><span>${esc(g)}</span><div>${c}</div></div>`:''}).join('')+(ff?'<button type="button" class="fyx" data-clear="f">Show everyone</button>':'');
+  $('#fys').textContent=ff||'Everyone';
+  $('#kws').innerHTML=KW.map(k=>`<button type="button" class="kw" data-kw="${esc(k)}" aria-pressed="${norm(q)===norm(k)}">${esc(k)}</button>`).join('');
+  const act=$('#act'),bits=[];
+  if(lf)bits.push(`<button type="button" class="lc" data-clear="l" style="background:${HEX[lf]};color:${lum(HEX[lf])>.42?'#3E4A80':'#FFFFE2'}">${esc(LONG[lf])} &times;</button>`);
+  if(ff)bits.push(`<button type="button" class="lc" data-clear="f">For: ${esc(ff)} &times;</button>`);
+  if(bits.length){act.hidden=false;act.innerHTML='Showing '+bits.join(' ')}else{act.hidden=true;act.innerHTML=''}
+  phShow();
+  if(cur&&BYID[cur]){$('#cw').innerHTML=cardHTML(BYID[cur]);placeCard(false)}
+}
+/* typing placeholder that cycles example searches */
+let phI=0,phC=0,phDel=false,phT=null;
+const PHW=['sleep','collagen','BPC-157','pregnancy','liver','vegan','focus','blood sugar','creatine','50+'];
+function phShow(){$('#ph').hidden=!!q||document.activeElement===$('#q')}
+function phTick(){
+  const w=PHW[phI%PHW.length];
+  if(RM.matches){$('#ph').innerHTML='Search, e.g. <b>sleep</b>';return}
+  if(!phDel){phC++;if(phC>w.length){phDel=true;phT=setTimeout(phTick,1300);return}}
+  else{phC--;if(phC<0){phDel=false;phC=0;phI++;phT=setTimeout(phTick,250);return}}
+  $('#ph').innerHTML=`Search <b>${esc(w.slice(0,phC))}</b><i></i>`;
+  phT=setTimeout(phTick,phDel?40:85);
+}
+function placeCard(scroll){
+  const cw=$('#cw'),grid=$('#grid'),t=grid.querySelector(`.tl[data-id="${cur}"]`);
+  document.querySelectorAll('.tl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.id===cur)));
+  if(!cur){cw.hidden=true;$('#hint').hidden=false;grid.classList.remove('dim');return}
+  cw.hidden=false;
+  if(WIDE.matches){$('#hint').hidden=true;$('#aside').appendChild(cw);grid.classList.remove('dim');$('#aside').scrollTop=0;return}
+  grid.classList.toggle('dim',!!t);
+  if(!t){grid.appendChild(cw);return}
+  let endTile=t;const top=t.offsetTop;
+  for(let n=t.nextElementSibling;n;n=n.nextElementSibling){if(!n.classList.contains('tl')||n.offsetTop!==top)break;endTile=n}
+  endTile.after(cw);
+  if(scroll)t.scrollIntoView({block:'start',behavior:RM.matches?'auto':'smooth'});
+}
+function openCard(id,scroll){
+  const o=BYID[id];if(!o)return;
+  cur=id;$('#cw').innerHTML=cardHTML(o);placeCard(scroll);
+  history.replaceState(null,'','#/'+id);document.title=o.n+' · Bare Signals Supplements';
+}
+function closeCard(){
+  cur=null;$('#cw').innerHTML='';document.querySelector('.wrap').appendChild($('#cw'));placeCard(false);
+  history.replaceState(null,'','#/');document.title='Supplements · Bare Signals';
+}
+const toSearch=()=>$('#q').scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tl');
+  if(t){if(cur===t.dataset.id)closeCard();else openCard(t.dataset.id,true);return}
+  const nv=e.target.closest('[data-nav]');
+  if(nv){const i=L.findIndex(x=>x.id===cur),n=L[i+Number(nv.dataset.nav)];if(n)openCard(n.id,true);return}
+  if(e.target.closest('[data-close]')){closeCard();return}
+  const rf=e.target.closest('[data-ref]');
+  if(rf){e.preventDefault();const li=$('#cw #r-'+rf.dataset.ref);if(li){li.scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});li.classList.add('hl');setTimeout(()=>li.classList.remove('hl'),1600)}return}
+  const v=e.target.closest('[data-v]');if(v){view=v.dataset.v;render();return}
+  const cl=e.target.closest('[data-clear]');if(cl){if(cl.dataset.clear==='l')lf='';else ff='';render();return}
+  const kw=e.target.closest('[data-kw]');if(kw){q=norm(q)===norm(kw.dataset.kw)?'':kw.dataset.kw;$('#q').value=q;closeCard();render();return}
+  const fr=e.target.closest('[data-for]');if(fr){ff=ff===fr.dataset.for?'':fr.dataset.for;closeCard();fyOpen(false);render();return}
+  if(e.target.closest('#fyb')){fyOpen($('#fyp').hidden);return}
+  const k=e.target.closest('[data-k],[data-l]');
+  if(k){const key=k.dataset.k||k.dataset.l;lf=lf===key?'':key;render();if(!k.dataset.l||!WIDE.matches)toSearch();return}
+  const pq=e.target.closest('.syn [data-q]');
+  if(pq){q=pq.dataset.q;$('#q').value=q;closeCard();render();toSearch();return}
+});
+$('#q').addEventListener('input',e=>{q=e.target.value;render()});
+$('#q').addEventListener('focus',phShow);$('#q').addEventListener('blur',phShow);
+document.addEventListener('keydown',e=>{
+  if(!cur||e.target===$('#q'))return;
+  if(e.key==='Escape')closeCard();
+  else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const i=L.findIndex(x=>x.id===cur),n=L[i+(e.key==='ArrowRight'?1:-1)];if(n)openCard(n.id,true)}
+});
+let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;if(cur)placeCard(false)});
+WIDE.addEventListener('change',()=>{if(cur)placeCard(false)});
+function route(){const m=location.hash.match(/^#\/(.+)$/),id=m&&decodeURIComponent(m[1]);if(id&&BYID[id]){if(id!==cur)openCard(id,true)}else if(cur&&location.hash!=='#/')closeCard()}
+addEventListener('hashchange',route);
+render();route();phTick();
+})();
+</script>
+</body>
+</html>

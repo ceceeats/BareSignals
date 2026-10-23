@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v12 (23 Oct 2026) at /blood/v12/
+- Phone fix: the "reported" tag on label rows no longer runs into the card border; label names can wrap on narrow phones. v11 kept.
+
 ## v11 (23 Oct 2026) at /blood/v11/
 - Action colour rule: orange tint = something you do or customize. My plan tab (solid orange when open), Add to my plan, the plan search, add buttons, picked compounds, "+ Add more peptides" / "Done adding", checklist boxes, Copy link, Save as PDF, and "Book a morning draw" (now an orange "To do" note, not a caution box). Red stays danger only; links to the Library and Dosage stay ink.
 - Save as PDF (was Print) builds a designed document instead of printing the web page: white A4 with 14mm margins, header with date, plan link and compound chips, the four summary numbers, the Before your draw checklist with tick boxes in two columns, a ruled Tests to run table (test, for which compounds with danger/watch dots, fasting, aim, cost) whose header repeats on each page, Also moved, Track at home, How often and Red flags per compound, and a not-medical-advice footer. Same document from phone (Share > Print > Save as PDF) and desktop.

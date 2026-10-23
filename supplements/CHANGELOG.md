@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v9 (23 Oct 2026) at /supplements/v9/
+- Phone fix: "Who it's for" tags wrap inside the card on narrow phones. v8 kept.
+
 ## v8 (23 Oct 2026) at /supplements/v8/
 Built on v7 (keeps "Blood tests to check").
 - Sorting matches the Library: Groups, Roles, Evidence, A to Z. "Label" is now "role" everywhere (same 30 roles and colours as the Library).
