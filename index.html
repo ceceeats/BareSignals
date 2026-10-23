@@ -7,7 +7,7 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
+/* Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
@@ -28,6 +28,7 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 .gal{position:relative;flex:1;min-height:0;margin-top:12px;overflow:hidden;touch-action:pan-y}
 .sl{position:absolute;top:0;bottom:7px;left:50%;width:min(420px,calc(100vw - 32px));margin-left:calc(min(420px,calc(100vw - 32px)) / -2);transition:transform .55s cubic-bezier(.3,.8,.3,1),opacity .55s;will-change:transform}
 .sl .scr{height:100%;display:flex;flex-direction:column;overflow:hidden}
+@media (min-width:1000px){.sl{width:560px!important;margin-left:-280px!important}.cap,.prog,.foot{max-width:560px!important}}
 .sl .scr .body{flex:1;min-height:0;overflow:hidden;position:relative}
 .sl .scr .body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:linear-gradient(rgba(255,255,244,0),var(--chip));pointer-events:none}
 .sl:not(.on){opacity:.42;pointer-events:none}
@@ -118,6 +119,44 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 .wd3 div{padding:6px}.wd3 div+div{border-left:1.5px solid var(--ink)}
 .wd3 small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
 .bw h4,.sp h4,.pr h4,.am h4,.md h4{font:700 22px/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 2px}
+.hw{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.hw li{display:grid;grid-template-columns:18px 1fr;gap:7px;font-size:12.5px;line-height:1.3}
+.hw li>b{display:grid;place-items:center;width:18px;height:18px;border:1.5px solid var(--ink);font:500 10px "JetBrains Mono",monospace}
+.hw small,.mkl small,.sl2 small,.tiers small{display:block;font:500 9px "JetBrains Mono",monospace;color:var(--soft);letter-spacing:.03em;margin-top:1px}
+.nst{margin:0;font-size:12.5px;line-height:1.42}
+.tiers ol{list-style:none;margin:0 8px 8px;padding:0;display:grid;gap:3px}
+.tiers li{display:grid;grid-template-columns:16px 1fr;gap:6px;font-size:12px;line-height:1.3}
+.tiers .tn{display:grid;place-items:center;width:16px;height:16px;background:var(--ink);color:#FFFFE2;font:500 9px "JetBrains Mono",monospace}
+.mkl{border:1.5px solid var(--ink)}
+.mkl>div{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:6px;align-items:center;padding:5px 7px;font-size:12px;line-height:1.25}
+.mkl>div+div{border-top:1px solid var(--rule)}
+.mkl .sy{font-size:12px;text-align:center}
+.mkl .nm{text-align:right;font:500 9.5px/1.4 "JetBrains Mono",monospace;white-space:nowrap}
+.mkl .nm i{font-style:normal;color:var(--soft);margin:0 3px 0 6px;text-transform:uppercase;font-size:8px;letter-spacing:.08em}
+.mkl .nm i.bd{color:#C0392B}
+.sl2 li{display:block!important;padding:6px 2px!important}
+.st1{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.st1 b{font-weight:600;font-size:13.5px}
+.st1 .dz{margin-left:auto;font:500 10px "JetBrains Mono",monospace;color:var(--soft)}
+.sl2 small{font:400 12px/1.35 Hanken Grotesk,system-ui,sans-serif!important;letter-spacing:0!important;margin-top:3px}
+.rtg{display:inline-block;font:500 9px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.lets{display:flex;flex-wrap:wrap;gap:6px}
+.lets span{display:inline-flex;align-items:center;gap:3px;font:500 11px "JetBrains Mono",monospace;color:var(--soft)}
+.lets span b{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--ink);border-radius:50%;font:600 11px "JetBrains Mono",monospace}
+.tchips .cnt{border:0!important;background:none!important;padding:0 6px 0 0!important;font:500 10px "JetBrains Mono",monospace;color:var(--soft)}
+.labl{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);font-size:11px;line-height:1.25;color:var(--soft)}
+.labl div{padding:6px 7px}
+.labl div+div{border-left:1.5px solid var(--ink)}
+.labl b{display:block;font:700 20px/1 Bricolage Grotesque,system-ui,sans-serif;color:var(--ink);margin-bottom:2px}
+.coa{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);font-size:12px;line-height:1.3}
+.coa div{padding:6px 7px;border-bottom:1px solid var(--rule)}
+.coa div:nth-child(odd){border-right:1.5px solid var(--ink)}
+.coa b{display:block;font:500 8.5px "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#4F7A2B;margin-bottom:1px}
+.ctab{width:100%;border-collapse:collapse;font:500 11.5px "JetBrains Mono",monospace;background:var(--paper)}
+.ctab th{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);text-align:left;padding:4px 6px;border:1px solid var(--rule)}
+.ctab td{padding:5px 6px;border:1px solid var(--rule)}
+.ctab tr.on td{background:#F9D9C2;font-weight:600}
+.inv.ok li::before{content:"✓ ";color:#4F7A2B}
 .lbl{display:block;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:10px 0 5px}
 .tchips{display:flex;flex-wrap:wrap;gap:5px}
 .tchips span{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);background:var(--paper);padding:5px 7px;font-size:12.5px}
@@ -289,10 +328,13 @@ loadData(function(){
     var svg='<svg viewBox="0 0 '+w+' 50" role="img" aria-label="Syringe filled to '+fmt(units)+' units"><rect x="'+x0+'" y="6" width="'+(fx-x0)+'" height="12" fill="#DB6830" opacity=".75"/><rect x="'+x0+'" y="6" width="'+(x1-x0)+'" height="12" fill="none" stroke="#3E4A80" stroke-width="1.5"/><line x1="'+x1+'" y1="12" x2="314" y2="12" stroke="#3E4A80" stroke-width="2"/><line x1="'+x0+'" y1="2" x2="'+x0+'" y2="22" stroke="#3E4A80" stroke-width="2"/>'+ticks+'</svg>';
     var href='/draw/?n='+encodeURIComponent(o.name)+'&dose='+u.v+'&u='+u.u;
     return {o:o,href:href,html:'<div class="scr calc"><div class="bar"><span>Calculator</span><span>'+esc(o.name)+'</span></div><div class="row"><div><small>Vial</small><b>'+vial+' mg</b></div><div><small>BAC water</small><b>'+ml+' mL</b></div><div><small>Dose</small><b>'+fmt(u.v)+' '+u.u+'</b></div></div>'+svg+
-      '<p class="math">'+vial+' mg ÷ '+ml+' mL = '+fmt(conc)+' mg/mL<br>'+fmt(mg)+' mg ÷ '+fmt(conc)+' mg/mL = '+fmt(mg/conc)+' mL = <b>'+fmt(units)+' units</b> on a U-100 syringe</p></div>'};
+      '<p class="math">'+vial+' mg ÷ '+ml+' mL = '+fmt(conc)+' mg/mL<br>'+fmt(mg)+' mg ÷ '+fmt(conc)+' mg/mL = '+fmt(mg/conc)+' mL = <b>'+fmt(units)+' units</b> on a U-100 syringe</p>'+
+      '<span class="lbl">Same vial, other doses</span><table class="ctab"><tr><th>Dose</th><th>Draw</th><th>Units</th><th>Doses per vial</th></tr>'+[.5,1,2,4].map(function(k){var m2=mg*k;return m2/conc*100<=100?'<tr'+(k===1?' class="on"':'')+'><td>'+(m2<1?fmt(m2*1000)+' mcg':fmt(m2)+' mg')+'</td><td>'+fmt(m2/conc)+' mL</td><td>'+fmt(m2/conc*100)+'</td><td>'+Math.floor(vial/m2)+'</td></tr>':''}).join('')+'</table>'+
+      '<span class="lbl">Keep it right</span><ul class="inv ok"><li>Add the water slowly down the side of the vial</li><li>Swirl, never shake</li><li>Fridge after mixing</li></ul></div>'};
   }
   var BW={tests:{},comps:{},sup:{}};
-  liveV('blood','v14',function(v){var s=document.createElement('script');s.src='/blood/'+v+'/lib.js';s.onload=function(){BW=window.BW_LIB||BW;start()};s.onerror=start;document.head.appendChild(s)});
+  liveV('supplements','v11',function(v){var s=document.createElement('script');s.src='/supplements/'+v+'/data.js';document.head.appendChild(s)});
+  liveV('blood','v14',function(v){var s=document.createElement('script');s.src='/blood/'+v+'/lib.js';s.onload=function(){BW=window.BW_LIB||BW;var n=0;(function w(){if(window.SUPP||n++>25)start();else setTimeout(w,80)})()};s.onerror=start;document.head.appendChild(s)});
 
   /* the loop: one compound threaded through every page */
   var FEAT=['bpc-157','ghk-cu','semaglutide','tb-500-frag-17-23','mots-c','retatrutide','kpv','ipamorelin','tirzepatide'].map(BY).filter(Boolean);
@@ -316,20 +358,40 @@ loadData(function(){
       (d.dose?'<div class="cells"><div><small>Dose</small><b>'+esc(d.dose)+'</b></div><div><small>How often</small><b>'+esc(d.freq||'')+'</b></div></div>':'')+
       '<ul class="rl">'+rs.map(function(k){return '<li>'+TAG(k)+'<span>'+esc((o.desc||{})[k]||'')+'</span></li>'}).join('')+'</ul>'+
       '<div class="wd3"><div><small style="color:#4F7A2B">Worked</small>'+esc(first(o.worked||o.helps))+'</div><div><small style="color:#C0392B">Didn’t</small>'+esc(first(o.didnt))+'</div></div>'+
+      ((o.mech||[]).length?'<span class="lbl">How it works</span><ol class="hw">'+o.mech.slice(0,3).map(function(m,i){var c=col(m[2]);return '<li><b style="background:'+c+';color:'+txt(c)+'">'+(i+1)+'</b><span>'+esc(m[0])+'<small>'+esc(m[1])+'</small></span></li>'}).join('')+'</ol>':'')+
+      (syns(o).length?'<span class="lbl">Synergies</span><div class="tchips">'+syns(o).slice(0,5).map(function(x){return '<span><u style="background:'+col(x.primary)+'"></u>'+esc(x.name)+'</span>'}).join('')+'</div>':'')+
+      (o.nameNote&&o.nameNote.t?'<span class="lbl">Name story</span><p class="nst">'+esc(o.nameNote.t)+'</p>':'')+
       '</div></div>'}
+  function syns(o){return (o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(Boolean)}
   function dcard(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span class="mono" style="font-size:8.5px">'+esc(d.conf==='logged'?'Logged research':(d.conf||''))+'</span></div><div class="hero"><small class="mono" style="color:var(--soft)">Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
   function partner(o){var s=(o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(function(x){return x&&x.dose&&x.dose.dose&&x!==o});return s[0]||null}
-  function sDosage(o){var p=partner(o);return '<div class="scr">'+bar('Dosage','side by side')+'<div class="body"><div class="dcol">'+dcard(o)+(p?dcard(p):'')+'</div></div></div>'}
+  function tiers(o){var t=(o.dose||{}).tiers;if(!t||!t.length)return '';return '<div class="tiers"><span class="lbl" style="margin:8px 8px 4px">Top doses people take</span><ol>'+t.slice(0,3).map(function(x,i){return '<li><b class="tn">'+(i+1)+'</b><span><b>'+esc(x.dose||'')+'</b> '+esc(x.freq||'')+'<small>'+esc(x.label||'')+'</small></span></li>'}).join('')+'</ol></div>'}
+  function sDosage(o){var ps=syns(o).filter(function(x){return x.dose&&x.dose.dose&&x!==o}).slice(0,2);return '<div class="scr">'+bar('Dosage','side by side')+'<div class="body"><div class="dcol">'+dcard(o).replace('<span class="sb">',tiers(o)+'<span class="sb">')+ps.map(dcard).join('')+'</div></div></div>'}
   function sBlood(o){var c=(BW.comps||{})[o.slug];if(!c)return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><p>Blood work entry coming.</p></div></div>';
     var tests=(c.before||[]).map(function(t){var x=(BW.tests||{})[t[0]];return x?'<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>':''}).join('');
     return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><span class="lbl">Test before starting</span><div class="tchips">'+tests+'</div>'+
-      '<span class="lbl">While on</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span>'+(c.flags?'<b>Watch for</b><span>'+esc(c.flags)+'</span>':'')+'</div></div></div>'}
-  function sSupps(o){var s=(BW.sup||{})[o.slug]||[];return '<div class="scr sp">'+bar('Supplements',s.length+' pairings')+'<div class="body"><h4>Goes with '+esc(o.name)+'</h4><span class="lbl">What people pair with it</span><ul class="slist">'+s.slice(0,7).map(function(x){return '<li><u style="background:'+x[2]+'"></u>'+esc(x[1])+'</li>'}).join('')+'</ul></div></div>'}
-  function sAminos(o){return '<div class="scr am">'+bar('Aminos',(o.seq||'').length+' amino acids')+'<div class="body"><h4>'+esc(o.name)+'</h4><div class="string" id="hstring"></div><p class="note">'+esc(NOTE[o.slug]||('Each bead is one amino acid, coloured by its main role. '+o.seq.length+' of them, in this exact order, make '+o.name+'.'))+'</p><span class="deep">Read the full chemistry on Aminos →</span></div></div>'}
+      ((c.monitor||[]).length?'<span class="lbl">Also check while on it</span><div class="tchips">'+c.monitor.map(function(t){var x=(BW.tests||{})[t[0]];return x?'<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>':''}).join('')+'</div>':'')+
+      ((c.mk||[]).length?'<span class="lbl">Markers it moves</span><div class="mkl">'+c.mk.filter(function(m){return m[4]||m[5]}).slice(0,6).map(function(m){return '<div><b class="sy">'+esc(m[0])+'</b><span><b>'+esc(m[1])+'</b><small>'+esc(m[2]||'')+'</small></span><span class="nm">'+(m[4]?'<i>aim</i>'+esc(m[4]):'')+(m[5]?'<i class="bd">'+esc(m[6]||'high')+'</i>'+esc(m[5]):'')+'</span></div>'}).join('')+'</div>':'')+
+      labLine(c)+
+      '<span class="lbl">While on</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span>'+(c.flags?'<b>Red flags</b><span>'+esc(c.flags)+'</span>':'')+'</div></div></div>'}
+  function sSupps(o){var s=(BW.sup||{})[o.slug]||[];var SP=window.SUPP||[];var find=function(n){return SP.filter(function(x){return x.n===n})[0]};
+    return '<div class="scr sp">'+bar('Supplements',s.length+' pairings')+'<div class="body"><h4>Goes with '+esc(o.name)+'</h4><span class="lbl">What people pair with it</span><ul class="slist sl2">'+s.slice(0,6).map(function(x){var f=find(x[1]),k=f&&f.lab&&f.lab[0];
+      return '<li><div class="st1">'+(k?TAG(k):'<u style="background:'+x[2]+'"></u>')+'<b>'+esc(x[1])+'</b>'+(f&&f.tileDose?'<span class="dz">'+esc(f.tileDose)+'</span>':'')+'</div>'+(f&&f.s?'<small>'+esc(first(f.s))+'</small>':'')+'</li>'}).join('')+'</ul></div></div>'}
+  function sAminos(o){return '<div class="scr am">'+bar('Aminos',(o.seq||'').length+' amino acids')+'<div class="body"><h4>'+esc(o.name)+'</h4><div class="string" id="hstring"></div><p class="note">'+esc(NOTE[o.slug]||('Each bead is one amino acid, coloured by its main role. '+o.seq.length+' of them, in this exact order, make '+o.name+'.'))+'</p>'+letters(o)+'<span class="deep">Read the full chemistry on Aminos →</span></div></div>'}
+  function letters(o){var q=(o.seq||'').toUpperCase(),c={};q.split('').forEach(function(l){if(/[A-Z]/.test(l))c[l]=(c[l]||0)+1});var ks=Object.keys(c).sort(function(a,b){return c[b]-c[a]});if(!ks.length)return '';
+    return '<span class="lbl">Built from '+ks.length+' different letters</span><div class="lets">'+ks.map(function(l){var h=col(AAR[l]);return '<span><b style="background:'+h+';color:'+txt(h)+'">'+l+'</b>×'+c[l]+'</span>'}).join('')+'</div>'+
+      '<span class="lbl">Roles of its letters</span><div class="tchips">'+Object.entries(ks.reduce(function(a,l){var r=AAR[l];a[r]=(a[r]||0)+c[l];return a},{})).sort(function(a,b){return b[1]-a[1]}).slice(0,4).map(function(e){return TAG(e[0])+'<span class="cnt">'+e[1]+'</span>'}).join('')+'</div>'}
   function sMade(){return '<div class="scr md">'+bar('Made','how a vial is made')+'<div class="body"><h4>Two ways to make a chain</h4>'+
       '<div class="two" style="margin-top:6px"><div><b>Grown in cells</b>Write the gene, give it to bacteria or yeast, let them build it.</div><div><b>Stacked on beads</b>Add one amino acid at a time, chemically, on a tiny bead.</div></div>'+
       '<span class="lbl">What 99.9%, 98% and 95% look like</span><div class="pur"><div>99.9%<i style="--p:99.9%"></i></div><div>98%<i style="--p:98%"></i></div><div>95%<i style="--p:95%"></i></div></div>'+
-      '<span class="lbl">Invisible to purity</span><ul class="inv"><li>Endotoxin</li><li>Heavy metals</li><li>Leftover solvents</li><li>A wrong molecule that exits at the same moment</li></ul></div></div>'}
+      '<span class="lbl">Invisible to purity</span><ul class="inv"><li>Endotoxin</li><li>Heavy metals</li><li>Leftover solvents</li><li>A wrong molecule that exits at the same moment</li></ul>'+
+      '<span class="lbl">What a lab result should list</span><div class="coa"><div><b>Identity</b>Mass spec matches the molecule</div><div><b>Purity</b>HPLC, 98% or above</div><div><b>Content</b>Real mg in the vial, not just %</div><div><b>Endotoxin</b>Bacterial toxin, per mg</div><div><b>Sterility</b>Nothing growing</div><div><b>Date and batch</b>Matches your vial</div></div></div></div>'}
+  function labLine(c){var ids=(c.before||[]).concat(c.monitor||[]).map(function(t){return t[0]}),n={common:0,ask:0,specialty:0};ids.forEach(function(id){var x=(BW.tests||{})[id];if(x)n[x[2]||'common']=(n[x[2]||'common']||0)+1});if(!ids.length)return '';
+    return '<span class="lbl">At the lab</span><div class="labl"><div><b>'+n.common+'</b>routine at any lab</div><div><b>'+n.ask+'</b>ask for by name</div><div><b>'+n.specialty+'</b>specialty, pricier</div></div>'}
+  function stackTests(rows){var seen={},out=[];rows.forEach(function(x){var c=(BW.comps||{})[x.slug];(c&&c.before||[]).forEach(function(t){if(!seen[t[0]]&&(BW.tests||{})[t[0]]){seen[t[0]]=1;out.push(t[0])}})});if(!out.length)return '';
+    return '<div class="tchips" style="margin-top:6px">'+out.slice(0,9).map(function(id){var x=BW.tests[id];return '<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>'}).join('')+(out.length>9?'<span>+'+(out.length-9)+' more</span>':'')+'</div>'}
+  function stackSupps(rows){var seen={},out=[];rows.forEach(function(x){((BW.sup||{})[x.slug]||[]).forEach(function(s){if(!seen[s[0]]){seen[s[0]]=1;out.push(s)}})});if(!out.length)return '';
+    return '<span class="lbl">Supplements for the stack</span><div class="tchips">'+out.slice(0,6).map(function(s){return '<span><u style="background:'+s[2]+'"></u>'+esc(s[1])+'</span>'}).join('')+'</div>'}
   function weeks(c){var m=String(c||'').match(/(\d+)\s*(?:–|-|to)?\s*(\d+)?\s*w/i);return m?Math.min(8,+(m[2]||m[1])):8}
   function sProtocol(o){var p=partner(o),rows=[o,p].filter(Boolean),c=(BW.comps||{})[o.slug];
     var hd='<span></span>'+[1,2,3,4,5,6,7,8].map(function(w){return '<span class="h">W'+w+'</span>'}).join('');
@@ -337,6 +399,7 @@ loadData(function(){
     return '<div class="scr pr">'+bar('Protocol','your stack')+'<div class="body"><h4>'+rows.map(function(x){return esc(x.name)}).join(' + ')+'</h4><span class="lbl">Your weeks</span><div class="wk">'+hd+rw+'</div>'+
       '<span class="lbl">The doses</span><div class="kv">'+rows.map(function(x){return '<b>'+esc(x.name)+'</b><span>'+esc((x.dose||{}).dose||'')+' · '+esc((x.dose||{}).freq||'')+'</span>'}).join('')+'</div>'+
       (c?'<span class="lbl">What to test</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span></div>':'')+
+      stackTests(rows)+stackSupps(rows)+
       '<div class="acts2"><span>Save as PDF</span><span>Copy for my AI</span></div></div></div>'}
 
   function build(){
