@@ -2,6 +2,18 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v3 (23 Oct 2026) at /made/v3/
+Rebuilt around Cece's questions; v2 kept at /made/v2/. Title now "From recipe to vial", 8-step walk (Recipe, Letters, Build, Crude, Purify, Dry, Purity, Test), text size control (shared bs-text), all chains drawn with the Aminos amino acid shapes.
+- Part one, The recipe (new): Selank recipe chain; NA (N-acetyl) and Amidate (C-amide) explained (+42, −1, exopeptidases, Rink amide bead); look-alike pairs with differences marked: Selank vs NA Selank Amidate, Semax vs NA Semax Amidate, MT-2 vs PT-141 (amide vs acid, 1 Da apart), Semaglutide vs Liraglutide (Aib, fatty tail).
+- Part two, The letters (new): correction box (cells make their own letters; beads use bought, capped letters); animated sugar to fermenter to ion exchange to crystals to capped letter; 20 letters tappable with main production route (fermentation, chemistry for G and M, enzyme for A and D, keratin for C); Fmoc removed by base, guards by acid; special letters cost more; SS-31 box (Dmt, D-Arg, mg-a-day dosing, elamipretide approval Sept 2025).
+- Part three, The build: drawn E. coli with spinning plasmid, mRNA and moving ribosome building a chain; bead build animation (vessel fills and drains, chain grows from the bead with Fmoc cap, counters for round, liquid changes, machine time, full chains) for KPV, Epitalon, Ipamorelin, Selank, BPC-157, Semaglutide, Tesamorelin; rounds comparison table; 13,000 kg per kg PMI; 100-chain calculator now follows the picked peptide; route lists of catalog compounds (grown in cells, extracts, beads, not a chain).
+- Part four, The crude: chains on Semax showing deletion, insertion (new), truncation (front letters missing), leftover guard, mirror swap, oxidation; deamidation and aggregates; rough frequency ranking; facts with numbers (10 of 13 deletions in a 15-mer, 44% met claimed purity, oxidation in leuprolide and eledoisin, His/Cys/Asp/Ser racemization); hardest step = the link.
+- Part five, Purify: chromatogram cycles wide, medium, narrow on its own with the explanation written inside the graph; "the peptide" instead of "your peptide"; near twins explained.
+- Part six, Dose, dry, seal (new animation): 7-step flask and vial loop (salt swap, measure and dilute to dose, fill, freeze, vacuum with vapour rising, stoppers pressed in the chamber, crimp); solid and liquid trip list; partial vacuum note.
+- Part seven, Purity seen: slider 90 to 99.9 with a vial and a 1,000-molecule zoom lens; invisible-to-the-eye warning; impurity mcg, 1 in N, molecule count for 10 mg BPC-157; size ladder. Vial label picker removed (10 mg fixed).
+- Parts eight to twelve (COA, weight, pH, toxins, reactions) carried over from v2, renumbered; "your vial" wording made neutral.
+- Sources 9 to 18 added, checked 23 Oct 2026.
+
 ## v2 (22 Oct 2026) at /made/v2/
 - Header label links back to Aminos ("after Aminos ‹"). Shipped with Aminos V47, which now ends with a Next · Made link. Content unchanged from v1.
 
