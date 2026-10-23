@@ -2,6 +2,15 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v16 (23 Oct 2026) at /blood/v16/
+- Add to my plan fix: on phones the button stayed solid orange after you removed a compound (sticky hover), so it looked like it was still in the plan. Hover colours now only apply on mouse devices; tap highlight removed.
+- After each tap a short note shows "<compound> added · N in plan" with an "Open My plan" button.
+- Checked every single compound, every pair (8,256) and 400 random stacks of 3 to 6 in My plan: no errors, no duplicate tests or checklist lines, no layout overflow. Fixes from that run:
+  - Picks with no lab tests (PT-141, Ubiquitin, Lemon Bottle) showed four zeros and a full draw checklist. They now say "No blood draw needed" and keep Track at home, How often and Red flags. Same in the PDF.
+  - The test list now comes before the draw checklist, and the checklist folds when it has more than 10 steps.
+  - The checklist no longer lists medicine notes that don't apply (insulin, thyroid pills, furosemide, the pill); the general "tell the lab what you take" rule covers them. Average checklist for a 3 to 6 compound stack: 17 lines (was 21).
+  - Lemon Bottle said "Merged from its components:" with nothing after it; it now says it has no component data.
+
 ## v15 (23 Oct 2026) at /blood/v15/
 - 9 Batch 3 compounds added (Amycretin, MariTide, UBT-251, Liraglutide, Efocipegtrutide, VK2735, ATX-304, CBL-514, Bimagrumab); Pemvidutide and Tesofensine, already researched here, now link to their new Library cards. /blood/v15/lib.js regenerated. v14 kept.
 
