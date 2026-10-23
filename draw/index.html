@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Draw Line v19 (23 Oct 2026): popup closes on outside click, Escape or ×; beginners see all three basics open; your own entries and choices in orange; blinking cue on the compound name; vial size sits under the name on the card. -->
+<!-- Draw Line v22 (23 Oct 2026): hooked to nav v9 (text size A A A on the site bar; the page listens to bs-text and zooms .page, headings and big numbers grow by less; the laptop card sticks below the site bar; zoomed syringe tips size correctly at every text size); brand line no longer repeats Bare Signals. /draw/ is the live file, copies in /draw/vN/. Draw Line v19 (23 Oct 2026): popup closes on outside click, Escape or ×; beginners see all three basics open; your own entries and choices in orange; blinking cue on the compound name; vial size sits under the name on the card. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="googlebot" content="noindex,nofollow">
 <title>Draw Line · Bare Signals</title>
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -30,13 +30,13 @@ body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.45 var(--
 h1,h2,h3,p,dl,dd,figure{margin:0}
 button,input{font:inherit;color:inherit}
 button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.page{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.page{--z:1;--hk:1;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 [hidden]{display:none!important}
 
 /* header */
 .top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px}
 .brand{font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
-h1{font:700 34px/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
+h1{font:700 calc(26px*var(--hk))/.95 var(--display);letter-spacing:-.01em;margin-top:4px}
 .sub{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-top:8px}
 .tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .tag{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--accent-ink);color:var(--accent-ink);padding:4px 8px}
@@ -195,7 +195,7 @@ dialog p{font-size:13.5px;color:var(--soft);margin-top:6px}
   .page{max-width:1080px}
   .cmp{max-width:640px;margin-left:auto;margin-right:auto}
   .main{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"form card" "math card";align-items:start}
-  .cardcol{position:sticky;top:calc(14px + env(safe-area-inset-top,0px));max-width:none;margin-left:0;margin-right:0}
+  .cardcol{position:sticky;top:calc((var(--bsnav-h,0px) + 14px) / var(--z));max-width:none;margin-left:0;margin-right:0}
 }
 .sech{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;margin-bottom:8px}
 .sech h2{font:700 19px/1.1 var(--display)}
@@ -269,7 +269,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .otag{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
 .draw{border:1.5px solid var(--ink);background:var(--paper)}
 .dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
-.dn{padding:10px 12px 0;font:700 20px/1.1 var(--display);overflow-wrap:anywhere}
+.dn{padding:10px 12px 0;font:700 calc(20px*var(--hk))/1.1 var(--display);overflow-wrap:anywhere}
 .db{display:grid;grid-template-columns:clamp(96px,32%,128px) minmax(0,1fr);border-top:1.5px solid var(--ink)}
 .syrcol{border-right:1.5px solid var(--ink);background:var(--chip);padding:8px 6px 6px;display:flex;flex-direction:column;align-items:center;min-width:0}
 .syr{width:100%}
@@ -278,7 +278,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .datacol{padding:4px 12px 8px;min-width:0}
 .lab{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 .big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
-.bn{font:700 42px/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bn{font:700 calc(42px*var(--hk))/.95 var(--display);color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .bu{font:600 13px var(--mono)}
 .sec{font:500 12px var(--mono);color:var(--soft);margin-top:4px}
 .kvs{display:grid}
@@ -387,7 +387,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 /* faq */
 .faq{display:flex;flex-direction:column;gap:10px;margin-top:40px;padding-top:28px;border-top:1.5px solid var(--line)}
-.faqbig{display:block;font:700 40px/1 var(--display);color:var(--accent);letter-spacing:-.01em}
+.faqbig{display:block;font:700 calc(32px*var(--hk))/1 var(--display);color:var(--accent);letter-spacing:-.01em}
 .faqsub{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-top:4px}
 .qa{border-top:1.5px solid var(--line);padding-top:8px}
 .qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;font:600 15px/1.35 var(--display);color:var(--ink);padding:3px 0}
@@ -451,7 +451,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 @media(max-width:560px){
   h1{font-size:32px}
-  .bn{font-size:38px}
+  .bn{font-size:calc(38px*var(--hk))}
 }
 @media(prefers-reduced-motion:reduce){
   .fold,.hubl,.needle .bar,.wstripe,.wrow{transition:none}
@@ -470,11 +470,11 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 <header class="top">
   <div>
-    <div class="brand">Bare Signals · Calculator</div>
+    <div class="brand">Calculator</div>
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v21</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v22</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -800,6 +800,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v22: the text size buttons (small A, A, large A) now sit on the Bare Signals bar at the top, which stays on screen, and the page follows them; titles and the big draw number grow less at the large size so nothing balloons; the card on laptop sticks just under the bar; the zoomed syringe tips keep their size at every text size. v1 to v21 are unchanged.</span>
   <span>v21: smaller weight boxes with mg and mcg now clearly different (mcg shows the dot), a more compact converter, the syringe types reordered to pen, insulin, Luer and shrunk to three across with the waste of each and a residue warning on the Luer, the pen window fixed, the card always shows Take, When and Note with NA when blank, and the residue demo now runs pen, insulin and Luer side by side, smaller, no zoom. v1 to v20 are unchanged.</span>
   <span>v20: the Weight box leads with 1 g = 1,000 mg = 1,000,000 mcg and a small converter, the boxes are all orange with a 1,000 boxes label, and the unit buttons are smaller on the left. Orange is now the one colour for any selected button. A pen is added to the syringe types: you dial the dose, screw on a short pen needle and press, no drawing up. When adds Evening and 1 hour before sleep. v1 to v19 are unchanged.</span>
   <span>v19: the beginner or expert popup now closes when you click outside it, press Escape or tap the ×, and that gives the beginner view. Beginners see Weight, Mixing and Syringes open straight away, on laptop and phone. Everything you type or choose shows in orange: the compound name, the Take and When choices, the mixed date, your notes, and your answers on the card. The compound name field blinks until you fill it, and the card shows the name first with the vial size on the line under it. v1 to v18 are unchanged.</span>
@@ -821,6 +822,11 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
 </div>
 
+<script>
+/* v22: text size from the site bar (nav v9, bs-text): zoom .page; --z undoes the zoom in sticky offsets, --hk keeps titles and big numbers calmer */
+(function(){var K={s:.88,m:1,l:1.15};function ap(k){k=+k||1;var m=document.querySelector('.page');if(!m)return;m.style.zoom=k===1?'':k;m.style.setProperty('--z',k);m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4))}
+var t='m';try{t=localStorage.getItem('bs-text')||'m'}catch(e){}ap(K[t]||1);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
+</script>
 <script>
 //CORE_START
 const DEAD_INS=0.005;
@@ -974,7 +980,7 @@ Syr.prototype.flow=function(e){if(this.dclip)this.dclip.setAttribute('height',Ma
 Syr.prototype.leftover=function(t,t2){if(!this.lt)return;if(t==null){this.lt.style.display='none';return;}this.lt.style.display='';this.lt2.textContent=t;this.lt3.textContent=t2||'';};
 Syr.prototype.zoom=function(on,ms){
   const svg=this.svg,self=this,tok=(this.ztok=(this.ztok||0)+1);
-  const cur=svg.getBoundingClientRect();
+  const cr=svg.getBoundingClientRect(),cur={width:svg.clientWidth||cr.width,height:svg.clientHeight||cr.height};
   if(!this.sz0&&cur.width>0)this.sz0=[cur.width,cur.height];
   const from=svg.getAttribute('viewBox').split(' ').map(Number),fromSz=[cur.width,cur.height];
   const tw=96,th=this.type==='luer'?140:118;

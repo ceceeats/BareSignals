@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v9 (23 Oct 2026) at /protocol/v9/
+- Hooked to Nav v9: the text size control (small A / A / large A) lives in the site bar; the page listens to bs-text, zooms its wrapper, headings grow by less at large. Removed the duplicate "Bare Signals · Protocol" label, fixed the version label (said v2), Type Rule sizes (h1 22px, 13.5px body). v8 kept.
+
 ## v8 (23 Oct 2026) at /protocol/v8/
 - Reads Library v41 (Batch 3: 11 metabolic pipeline and fat/muscle compounds) and Blood Work v15. v7 kept.
 

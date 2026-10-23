@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Aminos V54 (23 Oct 2026): Type Rule v1, one text scale (tags 8.5px mono, footnotes small, body 13.5px, names 15px, section titles 18px, h1 22px), plus the three-step text size control (shared bs-text key). Shapes and animations unchanged. V53 kept at /aminos/v53/. Previously V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
+<!-- Aminos V55 (23 Oct 2026): BPC-157 is the featured example; origin sits small under the chain; each tile carries its shape at the top beside the name (marks move to the codon row) with balanced padding; the shape key sits above the table; the amino card is compact (tabs) and can be minimised, its letter box replaced by the shape; text size now comes from /nav.js v9 (bs-text event), large text keeps 3 to 4 tiles a row on phone. V54 kept at /aminos/v54/. Previously V54 (23 Oct 2026): Type Rule v1, one text scale (tags 8.5px mono, footnotes small, body 13.5px, names 15px, section titles 18px, h1 22px), plus the three-step text size control (shared bs-text key). Shapes and animations unchanged. V53 kept at /aminos/v53/. Previously V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -848,13 +848,123 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
 .found:not(.open) li b{font-size:9px!important}
 .ftxt .fsz{font:500 8.5px/1.1 var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase;margin:4px 0 8px!important}
 .code,#dna{font-size:12.5px!important}
+
+/* ===== V55 ===== */
+/* tiles: shape at the top beside the name, marks beside the codon squares, even padding */
+.tiles{grid-template-columns:repeat(auto-fill,minmax(84px,1fr))!important}
+@media (min-width:900px){.tiles{grid-template-columns:repeat(auto-fill,minmax(98px,1fr))!important}}
+.tiles .tile{padding:7px 7px 0!important;gap:0!important;min-height:0!important}
+.tiles .tile .hd{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:3px;padding-right:0!important;position:relative}
+.tiles .tile .nmA{display:block;font:700 11px/1.12 var(--display)!important;letter-spacing:-.01em!important;min-height:2.24em!important;padding-top:1px}
+.tiles .tile .nmA.lng{font-size:10.5px!important}
+.tiles .tile .tsh{display:block;width:28px;height:28px;margin:-2px -2px 0 0}
+.tiles .tile .tsh svg{display:block;width:100%;height:100%}
+.tiles .tile .t3{margin:4px 0 0!important;text-align:left}
+.tiles .tile .row2{display:flex!important;flex-wrap:wrap;justify-content:space-between!important;align-items:center!important;gap:3px 4px;height:auto!important;margin:7px 0 7px!important}
+.tiles .tile .mk{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:3px!important;padding:0!important;margin-left:auto}
+.tiles .tile .mk .sg{flex-direction:row!important;align-items:center!important;gap:2px!important}
+.tiles .tile .mk .ess{width:7px!important;height:7px!important;margin:0!important}
+.tiles .tile .mk .sg b{min-width:10px!important;height:10px!important;line-height:8px!important;font-size:7.5px!important;padding:0 1px!important}
+.tiles .tile .mini{margin:auto -7px 0!important;height:9px}
+.tile .gsh,.tile .gh{display:none!important}
+@media (min-width:900px){
+.tiles .tile{padding:9px 9px 0!important}
+.tiles .tile .nmA,.tiles .tile .nmA.lng{font-size:13px!important}
+.tiles .tile .tsh{width:36px;height:36px;margin:-3px -3px 0 0}
+.tiles .tile .row2{margin:9px 0 9px!important}
+.tiles .tile .mk .ess{width:8px!important;height:8px!important}
+.tiles .tile .mk .sg b{min-width:12px!important;height:12px!important;line-height:10px!important;font-size:8.5px!important}
+.tiles .tile .mini{margin:auto -9px 0!important;height:11px}
+}
+/* how to read a tile: same layout */
+.hxt .hsh{top:4px!important;right:4px!important;bottom:auto!important}
+.hxt .hsh svg{width:40px;height:40px}
+.hxt strong{padding-right:40px}
+.hxt .c4{right:-9px!important;top:10px!important;bottom:auto!important}
+/* shape key: small, above the table */
+.shkey{margin:0 0 10px!important;border-top:0!important;padding-top:0!important}
+.shkey .shk{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px 10px!important;margin-top:5px!important}
+.shkey .shk .shi{gap:0!important;margin-bottom:1px!important}
+.shkey .shk .shi svg{width:20px!important;height:20px!important}
+.shkey .shk b{font:700 12px/1.15 var(--display)!important}
+.shkey .shk em{font-size:10px!important;line-height:1.3!important}
+.shkey .shn{margin:6px 0 0!important}
+@media (max-width:899px){.shkey .shk .shi svg{width:17px!important;height:17px!important}}
+@media (min-width:900px){.shkey .shk{grid-template-columns:repeat(6,minmax(0,1fr))!important}.shkey .shk .shi svg{width:22px!important;height:22px!important}}
+/* amino card: compact, tabs everywhere, can be minimised */
+#cardwrap .card{display:block!important}
+#cardwrap .ch{display:flex!important;align-items:center!important;gap:10px!important;padding:8px 10px!important;position:relative}
+#cardwrap .cshp{display:block;width:46px;height:46px;flex:none;margin:-4px 0 -4px -4px}
+#cardwrap .cshp svg{display:block;width:100%;height:100%}
+#cardwrap .cht{min-width:0;flex:1}
+#cardwrap .ch h3{font:700 15px/1.15 var(--display)!important}
+#cardwrap .cbt{display:flex;gap:5px;align-items:center;flex:none;align-self:flex-start}
+#cardwrap .cmin{all:unset;cursor:pointer;font:500 8.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 5px;border:1px solid var(--ink);color:var(--ink);background:var(--paper);white-space:nowrap}
+#cardwrap .cmin:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#cardwrap .x{position:static!important;width:24px!important;height:24px!important;font-size:15px!important;line-height:1!important}
+#cardwrap .strip{height:9px!important;border-bottom:1.5px solid var(--ink)!important}
+#cardwrap.cmn .cbody{display:none}
+#cardwrap.cmn .strip{border-bottom:0!important}
+#cardwrap .chips{display:none!important}
+#cardwrap .tabs{display:flex!important;border-top:0!important;border-bottom:1.5px solid var(--ink)}
+#cardwrap .tabs button{padding:6px 0!important;font-size:11.5px!important}
+#cardwrap .pane{display:none!important;padding:10px!important}
+#cardwrap .pane.on{display:block!important}
+#cardwrap .pane .lab{display:none!important}
+#cardwrap .fgrid,#cardwrap .fgrid tbody{display:block;width:100%}
+#cardwrap .fgrid tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--red);border-left:1.5px solid var(--red)}
+#cardwrap .fgrid tr{display:flex;flex-direction:column;gap:3px;border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:5px 7px;min-width:0}
+#cardwrap .fgrid tr:nth-child(3){grid-column:span 2}
+#cardwrap .fgrid td{border:0!important;padding:0!important;width:auto!important}
+#cardwrap .fgrid td:last-child{font-size:12px!important}
+#cardwrap .cod{font-size:11px!important;margin:0 5px 0 0!important}
+#cardwrap .struct{display:grid!important;grid-template-columns:120px minmax(0,1fr);align-items:center;gap:4px 12px!important;padding:8px!important}
+#cardwrap .struct svg{grid-row:1/3;width:120px!important;max-width:none!important;max-height:190px;margin:0!important}
+#cardwrap .struct .rr{align-self:end;margin:0}
+#cardwrap .struct .rn{align-self:start;margin:0}
+#cardwrap .roles li{padding:4px 0!important;font-size:12px!important;gap:7px!important;line-height:1.3!important}
+#cardwrap .roles em{display:block!important;font-size:8px!important}
+#cardwrap .szs{border-top:0!important}
+#cardwrap .szsh{margin:0 0 6px!important;gap:10px!important}
+#cardwrap .szsh svg{width:46px;height:46px}
+#cardwrap .szh{margin:0 0 4px!important}
+#cardwrap .szl{margin:12px 0 4px!important}
+#cardwrap .szt{font-size:11.5px!important;line-height:1.4!important}
+#cardwrap .cardfoot{display:block!important;font-size:9.5px!important;padding:0 10px 8px!important;margin:0;color:var(--ink-soft)}
+@media (min-width:900px){
+#cardwrap .fgrid tbody{grid-template-columns:repeat(4,minmax(0,1fr))}
+#cardwrap .ch{padding:10px 12px!important}
+#cardwrap .cshp{width:54px;height:54px}
+#cardwrap .struct{grid-template-columns:170px minmax(0,1fr)}
+#cardwrap .struct svg{width:170px!important;max-height:240px}
+}
+/* sticky toolbars sit below the site bar (values inside the zoomed page are divided back by the zoom) */
+@media (min-width:900px){.trans>.pick{top:calc(var(--bsnav-h,0px) / var(--amz,1) + 14px)!important;max-height:calc((100vh - var(--bsnav-h,0px)) / var(--amz,1) - 28px)!important}}
+
+#cardwrap .tabs button{flex:1;font:500 11.5px var(--body)!important;color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);cursor:pointer;text-align:center}
+#cardwrap .tabs button:last-child{border-right:0}
+#cardwrap .tabs button.on{background:var(--ink);color:var(--paper)}
+#cardwrap .tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.tiles .tile .row2{margin:auto 0 7px!important;padding-top:6px}
+.tiles .tile .mini{margin:0 -7px!important}
+@media (min-width:900px){.tiles .tile .row2{margin:auto 0 9px!important}.tiles .tile .mini{margin:0 -9px!important}.tiles .tile .tsh{width:32px;height:32px}.tiles .tile .nmA,.tiles .tile .nmA.lng{font-size:12.5px!important}}
+#tiles .kk{grid-template-columns:auto auto auto!important;justify-content:space-between;gap:0 8px!important;padding:6px 8px 6px 10px!important}
+#tiles .kk span{font-size:10.5px!important;gap:5px!important}
+/* origin: small, right under the chain */
+#origin.osm{margin:6px 0 10px}
+#origin.osm .otag{border-left-width:2px;padding:2px 0 2px 8px;gap:2px 8px}
+#origin.osm .otag span{font-size:11px!important;line-height:1.35}
+#origin.osm .omap{gap:2px;margin:6px 0 3px;max-width:440px}
+#origin.osm .omap i{max-width:8px}
+#origin.osm .omap i.gh{font-size:5px}
+#origin.osm .ocap{font-size:9.5px!important;line-height:1.35}
 </style>
 
 <div class="wrap">
   <div class="top">
   <header>
-    <div class="hrow"><p class="lab">Bare Signals · Aminos</p><span class="tsz" role="group" aria-label="Text size"><button type="button" data-tsz="s" aria-label="Smaller text">A</button><button type="button" data-tsz="m" aria-label="Standard text">A</button><button type="button" data-tsz="l" aria-label="Larger text">A</button></span></div>
-    <h1>From Gene to Peptide<small>V54</small></h1>
+    <div class="hrow"><p class="lab">Aminos</p></div>
+    <h1>From Gene to Peptide<small>V55</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -886,11 +996,12 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
           <li><b>Alanine</b> is the full name. Say it <i>AL-uh-neen</i>. Every card below shows how to say its name.</li>
           <li><b>Ala</b> is the three-letter code, the short name scientists write. <b>89</b> is its weight: 89 g/mol. Glycine is the lightest at 75, tryptophan the heaviest at 204.</li>
           <li>The <b>squares</b> count the codons that spell it. Alanine has four; methionine and tryptophan have only one.</li>
-          <li>The <b>shape</b> holds the one-letter code, <b>A</b>, the letter used to write every sequence on this page. The shape shows its family: round for oily, hexagon for rings, soft square for water-loving, a down triangle for negative, a diamond for positive, a half-disc for proline. Its size is the real size of its side chain. Alanine is small and round.</li>
-          <li>The <b>stripe</b> shows what it is known for in the body, in Bare Signals colours. Small marks in the top corner show essential or not, charge, rings and sulfur; the key is under the grid.</li>
+          <li>The <b>shape</b>, top right beside the name, holds the one-letter code, <b>A</b>, the letter used to write every sequence on this page. The shape shows its family: round for oily, hexagon for rings, soft square for water-loving, a down triangle for negative, a diamond for positive, a half-disc for proline. Its size is the real size of its side chain. Alanine is small and round.</li>
+          <li>The <b>stripe</b> shows what it is known for in the body, in Bare Signals colours. Small marks beside the codon squares show essential or not, charge, rings and sulfur; the key is under the grid.</li>
         </ol>
       </div>
     </details>
+    <div class="shkey" id="shkey"></div>
     <div class="tiles" id="tiles"></div>
     <div class="key">
       <span><i class="ess"></i>Essential, must eat</span>
@@ -905,7 +1016,6 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
       <span><span class="sg" style="color:var(--accent)"><b>▸</b></span>Start signal</span>
       <span><span class="sg" style="color:var(--accent)"><b>B</b></span>Branched-chain (BCAA)</span>
     </div>
-    <div class="shkey" id="shkey"></div>
     <div class="found">
       <p class="lab">When each letter was found</p>
       <button type="button" class="fmore" onclick="this.closest('.found').classList.toggle('open');this.textContent=this.closest('.found').classList.contains('open')?'Hide the name stories ↑':'Where the names come from ↓'">Where the names come from ↓</button>
@@ -972,9 +1082,10 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 54 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 54 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V54:</b> one text scale for the whole page. Tags and labels are small mono caps, footnotes small, every paragraph one size, every name one size, every section title one size; the big step numbers and the 46px titles are gone. A three-step text size control (small A, A, large A) sits top right and is remembered across Bare Signals pages. <a href="/aminos/v53/">V53 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 55 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 55 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V55:</b> BPC-157 is now the first example. Where a peptide comes from (cut from a protein, made whole, lab made) sits small right under its chain. Each tile carries its shape at the top beside the name, and the essential, charge and ring marks move beside the codon squares. The shape key sits above the table. The amino card is compact, with Facts, Roles, Structure and Size tabs, its shape in place of the letter box, and a Minimise button. Text size now lives in the site bar; large text keeps three tiles a row on phone. <a href="/aminos/v54/">V54 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V54:</b> one text scale for the whole page. Tags and labels are small mono caps, footnotes small, every paragraph one size, every name one size, every section title one size; the big step numbers and the 46px titles are gone. A three-step text size control (small A, A, large A) sits top right and is remembered across Bare Signals pages. <a href="/aminos/v53/">V53 kept here</a>.</p>
     <p style="margin-top:6px"><b>V53:</b> the last two chains take the shapes. The opening walk now builds its chain from the same shapes as the tiles, the falling amino acid is its shape, and the fold step coils those shapes. The alpha helix under Then it folds is now a real helix-forming chain, GLP-1, drawn shape by shape, still turning every 3.6 amino acids. <a href="/aminos/v52/">V52 kept here</a>.</p>
     <p style="margin-top:6px"><b>V52:</b> every amino acid gets its own shape. Shape is the family: round for oily, hexagon for rings, soft square for water-loving, a down-pointing triangle for negative, a diamond for positive and a half-disc for proline. Size is the real side-chain volume, from tiny glycine to tryptophan. Small marks show special atoms: forks for branches, a yellow dot for sulfur, a white dot for OH, an orange dot for selenium. The shapes are the centre of each tile, every built chain, the amino acid step of the opening walk and each amino card, which now explains its shape. A shape key sits under the grid, and How to read a tile explains the shape. <a href="/aminos/v51/">V51 kept here</a>.</p>
     <p style="margin-top:6px"><b>V51:</b> fix: the turns where a chain doubles back are now drawn as one smooth curve. They were exact half circles, which could flip from one side to the other between frames while the chain rippled, so the turn looked like it was snapping. <a href="/aminos/v50/">V50 kept here</a>.</p>
@@ -1095,7 +1206,7 @@ function shape(L,cx,cy,sc=1){const r=size(L)*sc,c=col(L),fg=lum(c)>.42?INK:"#FFF
 return {shape,FAM,DESC,size}})();const shapeSVG=SHP_.shape,SHFAM=SHP_.FAM,SHDESC=SHP_.DESC;
 const noTxt=s=>s.replace(/<text[^>]*>[^<]*<\/text>$/,"");
 function shapeIcon(L,box=60,sc=1.05){return `<svg viewBox="0 0 ${box} ${box}" width="${box}" height="${box}" aria-hidden="true">${shapeSVG(L,box/2,box/2+2,sc)}</svg>`}
-function sizeSec(a){const v=VOL[a[0]]||VOL.C,mn=60.1,mx=227.8,pc=((v-mn)/(mx-mn))*100,word=v<100?"Small":v<150?"Medium":v<185?"Large":"Very large",ticks=Object.entries(VOL).map(([L,x])=>`<i style="left:${(((x-mn)/(mx-mn))*100).toFixed(1)}%" title="${L}"></i>`).join("");const fam=(SHFAM.find(f=>f[2].includes(a[0]))||["",""])[0];return `<div class="sec pane szs"><p class="lab">Size and shape</p><div class="szsh">${shapeIcon(a[0],70,1.35)}<div><b>${fam}</b><span>Drawn as ${SHDESC[a[0]]||""}.</span></div></div><div class="szh"><b>${word}</b><span>side chain about ${Math.round(v)} Å³${a[0]==="U"?", like cysteine":""}</span></div><div class="szbar">${ticks}<em style="left:${pc.toFixed(1)}%">${a[0]}</em></div><div class="szl"><span>G · smallest</span><span>W · largest</span></div><p class="szt">${SHP[a[0]]||""}</p></div>`}
+function sizeSec(a){const v=VOL[a[0]]||VOL.C,mn=60.1,mx=227.8,pc=((v-mn)/(mx-mn))*100,word=v<100?"Small":v<150?"Medium":v<185?"Large":"Very large",ticks=Object.entries(VOL).map(([L,x])=>`<i style="left:${(((x-mn)/(mx-mn))*100).toFixed(1)}%" title="${L}"></i>`).join("");const fam=(SHFAM.find(f=>f[2].includes(a[0]))||["",""])[0];return `<div class="sec pane szs" data-t="z"><p class="lab">Size and shape</p><div class="szsh">${shapeIcon(a[0],70,1.35)}<div><b>${fam}</b><span>Drawn as ${SHDESC[a[0]]||""}.</span></div></div><div class="szh"><b>${word}</b><span>side chain about ${Math.round(v)} Å³${a[0]==="U"?", like cysteine":""}</span></div><div class="szbar">${ticks}<em style="left:${pc.toFixed(1)}%">${a[0]}</em></div><div class="szl"><span>G · smallest</span><span>W · largest</span></div><p class="szt">${SHP[a[0]]||""}</p></div>`}
 const dotC=L=>{const a=(typeof A!=="undefined"&&A.find)?A.find(x=>x[0]===L):null;return a?PAL[a[8][0][0]][1]:"#3E4A80"};const odot=(L)=>L?`<i class="on" title="${L}" style="background:${dotC(L)}"></i>`:`<i class="on"></i>`;
 const PRON={"A": "AL-uh-neen", "R": "AR-jih-neen", "N": "uh-SPAR-uh-jeen", "D": "uh-SPAR-tik acid", "C": "SIS-teh-een", "Q": "GLOO-tuh-meen", "E": "gloo-TAM-ik acid", "G": "GLY-seen", "H": "HIS-tih-deen", "I": "eye-so-LOO-seen", "L": "LOO-seen", "K": "LY-seen", "M": "meh-THY-oh-neen", "F": "fen-ul-AL-uh-neen", "P": "PRO-leen", "S": "SEER-een", "T": "THREE-oh-neen", "W": "TRIP-toh-fan", "Y": "TY-roh-seen", "V": "VAY-leen", "U": "seh-LEE-noh-SIS-teh-een"};
 const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
@@ -1104,16 +1215,18 @@ const essCls=e=>e==="E"?"":e==="C"?" c":" n";
 const stripe=(a,cls)=>`<div class="${cls}">${a[8].map((r,i)=>`<i style="${sw(r[0],false)};flex-grow:${WT[i]||3}"></i>`).join("")}</div>`;
 
 const KEYS=`<div class="kk" aria-label="Key"><div><span><i class="ess"></i>Essential</span><span><i class="ess c"></i>Conditional</span><span><i class="ess z"></i>Nonessential</span></div><div><span><span class="pips"><i></i><i></i><i></i></span>Codons</span><span><span class="sg"><b>+</b></span>Charge</span><span><span class="sg"><b>⬡</b></span>Ring</span></div><div><span><span class="sg"><b>S</b></span>Sulfur</span><span><span class="sg"><b>▸</b></span>Start</span><span><span class="sg"><b>B</b></span>BCAA</span></div></div>`;
-let openI=null,tab="f";
+let openI=null,tab="f",cardMin=false;try{cardMin=localStorage.getItem("am-cardmin")==="1"}catch(e){}
 const narrow=()=>innerWidth<900;
 function setTab(t){tab=t;document.querySelectorAll("#cardwrap .tabs button").forEach(b=>{b.classList.toggle("on",b.dataset.t===t);b.setAttribute("aria-selected",b.dataset.t===t)});document.querySelectorAll("#cardwrap .pane").forEach(p=>p.classList.toggle("on",p.dataset.t===t))}
-function openSheet(i){const cw=$("#cardwrap");const row=Math.floor(i/5);const after=row===4?document.querySelector(".kk"):document.getElementById("tile-"+Math.min(row*5+4,20));after.after(cw);cw.classList.add("inl");cw.hidden=false;openI=i;if(!matchMedia("(prefers-reduced-motion: reduce)").matches)cw.scrollIntoView({block:"nearest",behavior:"smooth"})}
+function tileCols(){const t=$("#tiles");return t?Math.max(1,getComputedStyle(t).gridTemplateColumns.split(" ").filter(Boolean).length):5}
+function fitKey(){const k=document.querySelector("#tiles .kk");if(!k)return;const c=tileCols(),r=A.length%c;k.style.gridColumn="span "+(r?c-r:c)}
+function openSheet(i){const cw=$("#cardwrap");fitKey();const c=tileCols(),row=Math.floor(i/c),last=Math.min(row*c+c-1,A.length-1);const kk=document.querySelector("#tiles .kk");const after=(last===A.length-1&&kk&&A.length%c)?kk:document.getElementById("tile-"+last);after.after(cw);cw.classList.add("inl");cw.hidden=false;openI=i;if(!matchMedia("(prefers-reduced-motion: reduce)").matches)cw.scrollIntoView({block:"nearest",behavior:"smooth"})}
 function closeSheet(){if(!narrow())return;const cw=$("#cardwrap");cw.hidden=true;openI=null;document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed","false"))}
 function home(){const cw=$("#cardwrap");if(narrow()){if(openI===null)cw.hidden=true}else{document.querySelector(".left").after(cw);cw.classList.remove("inl");cw.hidden=false}}
-const SHY={R:"Argi&shy;nine",Y:"Tyro&shy;sine",F:"Phenyl&shy;alanine",U:"Seleno&shy;cys&shy;teine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Gluta&shy;mic acid",D:"Aspar&shy;tic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
+const SHY={R:"Argi&shy;nine",Y:"Tyro&shy;sine",F:"Phenyl&shy;alanine",U:"Seleno&shy;cysteine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Gluta&shy;mic acid",D:"Aspar&shy;tic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
 const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S ▸",U:"Se",I:"B",L:"B",V:"B"};
 const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
-$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA${a[2].length>13?" lng":""}">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gsh" aria-hidden="true">${shapeIcon(a[0],60,1.1)}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
+$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA${a[2].length>13?" lng":""}">${SHY[a[0]]||a[2]}</span><span class="tsh" aria-hidden="true">${shapeIcon(a[0],60,1.1)}</span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span>${stripe(a,"mini")}</button>`).join("")+KEYS;
 
 const SC={A:["CH₃"],R:["CH₂","CH₂","CH₂","NH","C(=NH)NH₂"],N:["CH₂","C(=O)NH₂"],D:["CH₂","COOH"],C:["CH₂","SH"],Q:["CH₂","CH₂","C(=O)NH₂"],E:["CH₂","CH₂","COOH"],G:["H"],H:["CH₂",{ring:"imid"}],I:[{t:"CH",b:"CH₃"},"CH₂","CH₃"],L:["CH₂",{t:"CH",b:"CH₃"},"CH₃"],K:["CH₂","CH₂","CH₂","CH₂","NH₂"],M:["CH₂","CH₂","S","CH₃"],F:["CH₂",{ring:"ph"}],P:[],S:["CH₂","OH"],T:[{t:"CH",b:"CH₃"},"OH"],W:["CH₂",{ring:"ind"}],Y:["CH₂",{ring:"phOH"}],V:[{t:"CH",b:"CH₃"},"CH₃"],U:["CH₂","SeH"]};
 function structSVG(a){
@@ -1156,11 +1269,12 @@ function show(i,scroll){
   document.querySelectorAll(".tile").forEach(t=>t.setAttribute("aria-pressed",t.dataset.i==i?"true":"false"));
   const a=A[i];
   $("#cardwrap").innerHTML=`<article class="card">
-    <div class="ch"><button class="x" id="cls" aria-label="Close card">×</button><div class="big">${a[0]}</div><div><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p><p class="say">say <i>${PRON[a[0]]||""}</i></p></div></div>
+    <div class="ch"><span class="cshp" aria-hidden="true">${shapeIcon(a[0],60,1.2)}</span><div class="cht"><h3>${a[2]}</h3><p class="sub">${a[1]} · ${a[0]} · ${ESS[a[6]]}</p><p class="say">say <i>${PRON[a[0]]||""}</i></p></div><span class="cbt"><button type="button" class="cmin" id="cmin" aria-expanded="${cardMin?"false":"true"}">${cardMin?"+ Open":"− Minimise"}</button><button class="x" id="cls" aria-label="Close card">×</button></span></div>
     ${stripe(a,"strip")}
-    <div class="tabs" role="tablist"><button data-t="f">Facts</button><button data-t="s">Structure</button><button data-t="r">Roles</button></div>
+    <div class="cbody">
+    <div class="tabs" role="tablist"><button data-t="f">Facts</button><button data-t="r">Roles</button><button data-t="s">Structure</button><button data-t="z">Size</button></div>
     <div class="chips">${a[8].map(r=>`<span class="chip"><i style="${sw(r[0])}"></i>${PAL[r[0]][0]}</span>`).join("")}<span class="chip cls">${CLS[a[5]]}</span></div>
-    <div class="sec pane on" data-t="f"><table class="spec"><tbody>
+    <div class="sec pane on" data-t="f"><table class="spec fgrid"><tbody>
       <tr><td>One-letter</td><td>${a[0]}</td></tr>
       <tr><td>Three-letter</td><td>${a[1]}</td></tr>
       <tr><td>Codons (mRNA)</td><td>${a[4].split(" ").map(c=>`<span class="cod">${c}</span>`).join("")}</td></tr>
@@ -1172,8 +1286,9 @@ function show(i,scroll){
     <div class="sec half pane" data-t="s"><p class="lab">Structure</p><div class="struct">${structSVG(a)}<p class="rr">R = ${a[7]}</p><p class="rn"><span style="color:var(--accent)">Orange</span>: the side chain, the only part that changes. Navy: the backbone, shared by all 21.</p></div></div>${sizeSec(a)}
     <div class="sec half pane" data-t="r"><p class="lab">Roles in the body</p><ul class="roles">${a[8].map(r=>`<li><i style="${sw(r[0])}"></i><span>${r[1]}</span><em>${PAL[r[0]][0]}</em></li>`).join("")}</ul></div>
     <p class="cardfoot">Average weights. Lab certificates often list monoisotopic mass, slightly lower.</p>
+    </div>
   </article>`;
-  setTab(tab);if(scroll&&narrow())openSheet(i);
+  $("#cardwrap").classList.toggle("cmn",cardMin);setTab(tab);if(scroll&&narrow())openSheet(i);
 }
 $("#tiles").addEventListener("click",e=>{const t=e.target.closest(".tile");if(!t)return;const i=+t.dataset.i;if(narrow()&&openI===i){closeSheet();return}show(i,true)});
 
@@ -1279,7 +1394,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
     {const wob=Math.sin(t*2.2)*1.2;o+=`<g><ellipse cx="${f1(polX+wob)}" cy="${f1(polY)}" rx="15" ry="17" fill="#C2DCFF" fill-opacity=".92" stroke="#3E4A80" stroke-width="1.6"/><ellipse cx="${f1(polX+wob+5)}" cy="${f1(polY-4)}" rx="5" ry="6" fill="#FFFFF4" opacity=".55"/>`+tx(polX,polY+30,"#3E4A80","RNA polymerase",7.5,700)+`</g>`}
     svg.innerHTML=o}
   function loop(now){if(!run)return;const dt=now-last;last=now;t+=Math.min(.05,Math.max(0,dt/1000))*.8;draw();raf=requestAnimationFrame(loop)}
-  measure();draw();addEventListener("bs-text",()=>{measure();draw()});let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth===lw&&Rs.length)return;lw=innerWidth;clearTimeout(walkInit.rt);walkInit.rt=setTimeout(()=>{measure();draw()},120)});
+  measure();draw();addEventListener("am-zoom",()=>{measure();draw()});let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth===lw&&Rs.length)return;lw=innerWidth;clearTimeout(walkInit.rt);walkInit.rt=setTimeout(()=>{measure();draw()},120)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{measure();draw()});
   if(still||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;last=performance.now();raf=requestAnimationFrame(loop)}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box)}
@@ -1388,7 +1503,7 @@ function madeOf(p){const el=$("#madeof");if(!el)return;const m=p&&!p[1]&&MADE[p[
   const head=`<p class="lab">What it’s made of</p><div class="mk"><b>${m.k}</b><span>${m.f}</span><span><i>·</i> ${m.w}</span></div>`;
   const body=m.soup?soupSVG():`<div class="parts">${m.parts.map(x=>`<div class="pt${x[3]===1||x[4]?" on":""}">${partIcon(x[0],x[3]&&x[3]!==1?x[3]:"")}<strong>${x[1]}</strong>${x[2]?`<em>${x[2]}</em>`:""}</div>`).join("")}</div>`;
   const why=m.why||WHY[p[0]]||"";const wt=(ORI[p[0]]||[])[0]==="mix"?"Why it’s not one peptide":"Why it’s not a peptide";el.innerHTML=head+body+(why?`<div class="whynot"><i class="ptr" aria-hidden="true"></i><b>${wt}</b><span>${why}</span></div>`:"")+`<p class="mtxt">${m.t}</p>`;el.hidden=false}
-function origin(p){const el=$("#origin");if(!el)return;const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;madeOf(null);return}
+function origin(p){const el=$("#origin");if(!el)return;{const under=!!(p&&p[1]),st=$("#string"),mo=$("#madeof");if(under&&st&&el.previousElementSibling!==st)st.after(el);else if(!under&&mo&&el.nextElementSibling!==mo)mo.before(el);el.classList.toggle("osm",under)}const o=p&&ORI[p[0]];if(!o){el.innerHTML="";el.hidden=true;madeOf(null);return}
   const t=OT[o[0]];let map="";
   if(o[2]&&o[2].ghost){const g=o[2];let dots="";const gh=n=>Array.from({length:n},()=>`<i class="gh">?</i>`).join("");dots=gh(6)+Array.from({length:g.len},(_,k)=>odot(((p&&p[1])||"")[k])).join("")+gh(6);map=`<div class="omap ghost" style="--per:${g.len+12}">${dots}</div><p class="ocap">The <b>15 known links</b>, sitting inside a longer stomach protein that has never been published. The question marks are the unknown rest, on both sides. The 157 is part of its name, not its position: the chain itself is only 15 links long.</p>`}
   else if(o[2]){const g=o[2],rows=g.len>60?4:g.len>20?2:1,per=Math.ceil(g.len/rows);let dots="";const sq=(p&&p[1])||"";for(let i=1;i<=g.len;i++){dots+=i>=g.a&&i<=g.b?odot(sq[i-g.a]):`<i></i>`}
@@ -1605,7 +1720,7 @@ function renderList(){
 function openList(){clearTimeout(typeof blurT!=="undefined"?blurT:null);$("#plist").hidden=false;$("#q").setAttribute("aria-expanded","true");renderList()}
 function closeList(){$("#plist").hidden=true;$("#q").setAttribute("aria-expanded","false");hl=-1}
 let demo=false;
-const TOUR=[["Thymosin Beta-4","Made whole by the body: 43 links, straight from a gene."],["BPC-157","A 15-link piece of a stomach protein nobody has published."],["Kisspeptin-10","Only the last 10 links of a 54-link hormone."],["GHK-Cu","Three links holding a copper atom, the reason the vial is blue."],["Oxytocin","Nine links closed into a ring by a sulfur bridge."],["Semaglutide","A natural hormone rebuilt in a lab to last a week."],["FOXO4-DRI","Mirror-image links, written backwards, so enzymes can’t cut it."],["Insulin","Long enough to be a protein: 86 links before it is trimmed."],["Cerebrolysin","Not a peptide at all: a soup of pieces from pig brain."]];
+const TOUR=[["BPC-157","A 15-link piece of a stomach protein nobody has published."],["Thymosin Beta-4","Made whole by the body: 43 links, straight from a gene."],["Kisspeptin-10","Only the last 10 links of a 54-link hormone."],["GHK-Cu","Three links holding a copper atom, the reason the vial is blue."],["Oxytocin","Nine links closed into a ring by a sulfur bridge."],["Semaglutide","A natural hormone rebuilt in a lab to last a week."],["FOXO4-DRI","Mirror-image links, written backwards, so enzymes can’t cut it."],["Insulin","Long enough to be a protein: 86 links before it is trimmed."],["Cerebrolysin","Not a peptide at all: a soup of pieces from pig brain."]];
 let tourI=-1,tourKeep=false;
 function goTour(k){k=(k+TOUR.length)%TOUR.length;const i=P.findIndex(p=>p[0]===TOUR[k][0]);if(i<0)return;tourI=k;tourKeep=true;pick(i,true,k===0)}
 function pick(i,go,isDemo){if(!tourKeep)tourI=-1;tourKeep=false;demo=!!isDemo;document.querySelector(".res").classList.toggle("tourm",tourI>=0);cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1]?p[1].split("").map(x=>REV[x]).join("")+"TAA":"";document.querySelector(".res").classList.toggle("np",!p[1]);renderPop();renderList();tr();if(!p[1]){head();origin(p);$("#statsbox").innerHTML="";}if(go){requestAnimationFrame(()=>{const t=(p[1]||tourI>=0)?$("#nowline"):$("#s5");if(!t)return;const y=t.getBoundingClientRect().top+scrollY-14;scrollTo({top:Math.max(0,y),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})})}}
@@ -1631,23 +1746,23 @@ $("#q").addEventListener("input",()=>{hl=-1;openList()});
 $("#cnt").textContent="· "+P.length;
 $("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
 $("#scrim").addEventListener("click",closeSheet);
-$("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
+$("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cmin")){cardMin=!cardMin;try{localStorage.setItem("am-cardmin",cardMin?"1":"0")}catch(_){}$("#cardwrap").classList.toggle("cmn",cardMin);const b=$("#cmin");b.textContent=cardMin?"+ Open":"− Minimise";b.setAttribute("aria-expanded",String(!cardMin));return}if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-addEventListener("bs-text",()=>{try{drawString(lastCh,true)}catch(e){}});let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();drawString(lastCh,true);fitDNA();renderPop()},200)});
+addEventListener("am-zoom",()=>{try{fitKey();drawString(lastCh,true)}catch(e){}});let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();fitKey();drawString(lastCh,true);fitDNA();renderPop()},200)});
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();tourI=0;tourKeep=true;pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"),false,true);shapeKey();steps();helixInit();walkInit();famous();$("#ftabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;ffi=+b.dataset.i;famous()});$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(+r.dataset.k===0){const h=document.querySelector("h2:has(.tap)")||$("#tiles");h.scrollIntoView({behavior:"smooth",block:"start"});return}if(+r.dataset.k===LAD.length-1){$("#famous").scrollIntoView({behavior:"smooth",block:"start"});return}if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
+show(11,false);home();tourI=0;tourKeep=true;pick(P.findIndex(p=>p[0]==="BPC-157"),false,true);shapeKey();steps();helixInit();walkInit();famous();$("#ftabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;ffi=+b.dataset.i;famous()});$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(+r.dataset.k===0){const h=document.querySelector("h2:has(.tap)")||$("#tiles");h.scrollIntoView({behavior:"smooth",block:"start"});return}if(+r.dataset.k===LAD.length-1){$("#famous").scrollIntoView({behavior:"smooth",block:"start"});return}if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 function libSlug(n){return n.toLowerCase().replace(/\+/g,"plus").replace(/[()]/g,"").replace(/[–—]/g,"-").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function amHash(){const h=decodeURIComponent(location.hash);let m=h.match(/^#([A-Za-z])$/);if(m){const i=A.findIndex(a=>a[0]===m[1].toUpperCase());if(i<0)return;show(i,true);if(!narrow()){const t=document.querySelector('.tile[data-i="'+i+'"]');if(t)t.scrollIntoView({block:"center"})}return}m=h.match(/^#p\/(.+)$/);if(m){const i=P.findIndex(p=>libSlug(p[0])===m[1]);if(i>=0)pick(i,true)}}
 addEventListener("hashchange",amHash);setTimeout(amHash,0);
 </script>
 <script>
-/* V54 text size: three steps shared across Bare Signals (localStorage bs-text: s|m|l). Zoom on the page content, never the nav. */
-(function(){var K={s:.88,m:1,l:1.15};function get(){try{var v=localStorage.getItem('bs-text');return K[v]?v:'m'}catch(e){return 'm'}}
-function apply(v,save){var w=document.querySelector('.wrap');if(w)w.style.zoom=K[v]===1?'':K[v];document.querySelectorAll('[data-tsz]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tsz===v)});if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}dispatchEvent(new Event('bs-text'))}
-apply(get(),false);document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-tsz]');if(b)apply(b.dataset.tsz,true)});
-addEventListener('storage',function(e){if(e.key==='bs-text')apply(get(),false)});})();
+/* V55 text size: the control lives in /nav.js v9, which dispatches window 'bs-text' {key,k}. This page zooms its own content (.wrap and the card) and re-reads bs-text on load. Internal redraws listen to 'am-zoom'. */
+(function(){var K={s:.88,m:1,l:1.15},curK=null;function get(){try{var v=localStorage.getItem('bs-text');return K[v]?v:'m'}catch(e){return 'm'}}
+function apply(v){if(!K[v])v='m';var k=K[v];document.documentElement.dataset.amText=v;document.documentElement.style.setProperty('--amz',k);var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k;if(curK!==k){curK=k;dispatchEvent(new Event('am-zoom'))}}
+apply(get());addEventListener('bs-text',function(e){apply(e&&e.detail&&e.detail.key||get())});
+addEventListener('storage',function(e){if(e.key==='bs-text')apply(get())});})();
 </script>
 </body>
 </html>

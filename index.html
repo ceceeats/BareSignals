@@ -7,13 +7,13 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
+/* Home v17 (23 Oct 2026): hooked to nav v9: the text size control (small A / A / large A) moved from the page header to the site bar's wordmark line (the bar stays on screen); Home listens to bs-text and scales the screens as before; the big BARE SIGNALS title is now for screen readers only since the bar already carries the wordmark, the tagline leads; page height reads the bar's reserved space (--bsnav-h0); the gallery highlight in the bar still follows the slide and, when the phone bar is compact, scrolls into view; text size clicks no longer stop the gallery. v16 kept at /home/v16/. Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
 a{color:inherit;text-decoration:none}
 .mono{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
-main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-left,0px)) 10px;display:flex;flex-direction:column;height:calc(100svh - var(--navh,126px));min-height:560px}
+main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-left,0px)) 10px;display:flex;flex-direction:column;height:calc(100svh - var(--bsnav-h0,126px));min-height:560px}
 .hd{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
 .hd h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 5px;letter-spacing:.04em}
 .hd .tag{margin:0;font-size:15px;line-height:1.3;font-style:italic}
@@ -265,14 +265,8 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 .lbx .band{display:flex;height:9px;border-top:1.5px solid var(--ink);flex:none}
 .lbx .band u{display:block}
 /* v16: text size control (bs-text), scales the screens only */
-.hd{position:relative;padding-right:0}.hd h1{padding-right:92px}
-.hdr{display:flex}
-.hd .tsz{position:absolute;top:0;right:0}
-.tsz{display:inline-flex;border:1.5px solid var(--ink);background:var(--chip)}
-.tsz button{font:700 12px/1 "Hanken Grotesk",system-ui,sans-serif;color:var(--ink);background:none;border:0;border-right:1.5px solid var(--ink);width:26px;height:24px;padding:0;cursor:pointer}
-.tsz button:last-child{border-right:0}
-.tsz button[data-tz="s"]{font-size:10px}.tsz button[data-tz="l"]{font-size:15px}
-.tsz button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.hd h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0;padding:0}
+.hd .tag{font-style:italic}
 .sl .scr .body>*{zoom:var(--tz,1)}
 @media (min-width:900px){
   main{padding-top:20px}
@@ -289,7 +283,7 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 <body><main>
 <header class="hd">
   <div><h1>BARE SIGNALS</h1><p class="tag">I bare my notes for those who can benefit from it.</p></div>
-  <div class="hdr"><span class="tsz" role="group" aria-label="Text size"><button type="button" data-tz="s" aria-label="Smaller text">A</button><button type="button" data-tz="m" aria-label="Standard text">A</button><button type="button" data-tz="l" aria-label="Bigger text">A</button></span><span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span></div>
+  <div class="hdr"><span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span></div>
 </header>
 <div class="gal" id="gal" aria-roledescription="carousel" aria-label="Every page, one at a time"></div>
 <div class="cap" id="cap"></div>
@@ -309,11 +303,11 @@ var HOME={stop:function(){}};
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.bsn a[href]');if(!a)return;
   if(e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
   e.preventDefault();e.stopImmediatePropagation();try{HOME.stop()}catch(x){}location.assign(a.href)},true);
-document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('.bsn'))try{HOME.stop()}catch(x){}},true);
-/* text size, shared across the site (bs-text) */
-(function(){var K={s:.88,m:1,l:1.15},cur='m';try{cur=localStorage.getItem('bs-text')||'m'}catch(e){}if(!K[cur])cur='m';
-  var set=function(v){cur=v;document.documentElement.style.setProperty('--tz',K[v]);[].forEach.call(document.querySelectorAll('.tsz button'),function(b){b.setAttribute('aria-pressed',b.dataset.tz===v)});try{localStorage.setItem('bs-text',v)}catch(e){}};
-  set(cur);document.querySelector('.tsz').addEventListener('click',function(e){var b=e.target.closest('button');if(b){set(b.dataset.tz);window.dispatchEvent(new Event('bs-text'))}});})();
+document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('.bsn a'))try{HOME.stop()}catch(x){}},true);
+/* text size: set from the site bar (nav v9 dispatches bs-text {key,k}); scales the screens only */
+(function(){var K={s:.88,m:1,l:1.15},cur='m';try{cur=localStorage.getItem('bs-text')||'m'}catch(e){}
+  var set=function(k){document.documentElement.style.setProperty('--tz',+k||1)};
+  set(K[cur]||1);addEventListener('bs-text',function(e){set(e.detail&&e.detail.k)});})();
 
 /* load whichever Library version is live */
 function liveV(dir,fb,cb){fetch('/'+dir+'/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);cb(m?m[1]:fb)}).catch(function(){cb(fb)})}
@@ -524,7 +518,7 @@ loadData(function(){
   }
   function place(){var w=$('#gal').querySelector('.sl'),sw=w?w.offsetWidth+18:400;
     [].forEach.call($('#gal').children,function(s,i){var k=i-cur;if(k>4)k-=8;if(k<-4)k+=8;s.style.transform='translateX('+(k*sw)+'px) scale('+(k?0.9:1)+')';s.style.zIndex=10-Math.abs(k);s.classList.toggle('on',k===0);s.style.visibility=Math.abs(k)>2?'hidden':'visible'})}
-  function navHL(){var a=document.querySelectorAll('.bsn .bsl a');[].forEach.call(a,function(x){x.classList.toggle('hl',x.getAttribute('href')===PAGES[cur][0])})}
+  function navHL(){var a=document.querySelectorAll('.bsn .bsl a');[].forEach.call(a,function(x){x.classList.toggle('hl',x.getAttribute('href')===PAGES[cur][0])});try{window.BS_NAV&&window.BS_NAV.el.classList.contains('c')&&window.BS_NAV.showCurrent()}catch(e){}}
   function go(i,user){
     var wrap=i>=8;cur=(i+8)%8;
     if(wrap&&!user){fi++;build()}
@@ -537,9 +531,9 @@ loadData(function(){
   }
   function start(){if(started)return;started=true;
     build();go(0);requestAnimationFrame(frame);requestAnimationFrame(lscroll);
-    var tries=0;(function wait(){if(document.querySelector('.bsn')){$('main').style.setProperty('--navh',document.querySelector('.bsn').offsetHeight+'px');navHL()}else if(tries++<40)setTimeout(wait,50)})();
+    var tries=0;(function wait(){if(document.querySelector('.bsn')){navHL()}else if(tries++<40)setTimeout(wait,50)})();
     addEventListener('bs-text',function(){if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
-    addEventListener('resize',function(){var n=document.querySelector('.bsn');if(n)$('main').style.setProperty('--navh',n.offsetHeight+'px');place();if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
+    addEventListener('resize',function(){place();if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
   }
   function user(i){paused=true;$('#pause').textContent='Play';go(i,true);T('home-gallery:'+PAGES[(i+8)%8][1],'Gallery '+PAGES[(i+8)%8][1])}
   $('#next').addEventListener('click',function(){user(cur+1)});

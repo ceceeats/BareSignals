@@ -3,6 +3,10 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v14 (23 Oct 2026) at /supplements/v14/
+- Hooked to Nav v9: the text-size strip at the very top (Bare Signals label + A A A) is gone; the three-step control now sits on the site bar's wordmark line, which stays on screen. The page listens to bs-text and scales .wrap as before.
+- Laptop side card sticks just under the site bar and its height fits the screen at every text size. Tile names, the open card title and h1 grow by less at large text (open card title 24px, was 27px). Data unchanged (copied to v14). v13 kept.
+
 ## v13 (23 Oct 2026) at /supplements/v13/
 - Text size control (small A / A / large A) at the top of the page; default A, small is 0.88, large 1.15. Saved as bs-text so it carries between pages.
 - Tiles are portrait cards: two per row on phone, five on laptop next to the open card, compact text (15px name, 3-line summary, 2 on phone). Tapping still opens the full card.

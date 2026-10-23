@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v18 (23 Oct 2026) at /blood/v18/
+- Hooked to Nav v9: the three-step text size control moved from the page header into the site bar (which now stays on screen). The page listens to bs-text and zooms main and the sheet as before; card names and sheet titles grow by less at large; the sticky search now sits just under the site bar. Fixed the large-A glitch: the sheet (test and compound detail) was zoomed past the screen height so its title was cut off; its height now undoes the zoom. Removed the duplicate Bare Signals label above the title. Data, core and lib copied to /blood/v18/ unchanged. v17 kept.
+
 ## v17 (23 Oct 2026) at /blood/v17/
 - Type Rule v1: role tags, test chips, section labels and badges all at one small tag size (8.5px mono caps); body text 13.5px, card names 16px, page title 22px; big plan numbers cut to 17px. Three-step text size control (small A / A / large A) top right, saved as bs-text and shared with the other pages.
 - Test chips (Amylase, ALT, AST...) on compound cards now the same size as the role tags.
