@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Sticker samples v2 · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Sticker samples v2 (23 Oct 2026): dose text brought down to the same small size as the line under it; one name size for every compound (long names wrap instead of growing or shrinking). v1 kept. Sticker samples v1 (23 Oct 2026): four ways to fit dose, how often, cycle and tiny role tags on the Library sticker. Not linked from the site. Built live from Library data. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.4 var(--body)}
+main{max-width:820px;margin:0 auto;padding:16px 16px 40px}
+h1{font:700 24px/1.05 var(--display);margin:4px 0 4px}
+.lede{color:var(--soft);margin:0 0 6px;font-size:14px}
+h2{font:700 19px/1.1 var(--display);margin:30px 0 2px;display:flex;gap:10px;align-items:baseline}
+h2 span{font:500 10px var(--mono);letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+.why{color:var(--soft);font-size:13px;margin:0 0 10px}
+.ph{max-width:390px;border:1.5px dashed var(--rule);padding:8px}
+.ph.wide{max-width:none}
+.cap{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:0 0 6px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.g1{display:grid;grid-template-columns:1fr;gap:7px}
+/* shared sticker */
+.tl{position:relative;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);min-width:0;overflow:hidden}
+.in{padding:6px 6px 5px 7px;display:flex;flex-direction:column;flex:1;min-width:0;position:relative}
+.nm{font:700 13.5px/1.05 var(--display);letter-spacing:-.01em;padding-right:22px;overflow-wrap:anywhere}
+.nm.l8,.nm.l11,.nm.l16{font-size:13.5px}
+.aa{position:absolute;right:5px;top:6px;font:500 8px/1.05 var(--mono);color:var(--accent);text-align:right}
+.aa b{display:block;font-size:10px;font-weight:600}
+.cls{font:500 7.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.fda{display:inline-block;font:600 7px var(--mono);background:#E00000;color:#fff;padding:1px 3px;margin-top:3px;letter-spacing:.04em;align-self:flex-start}
+.use{font-size:9.5px;line-height:1.2;color:var(--soft);margin-top:4px}
+.ds{margin-top:auto;padding-top:5px}
+.ds .d{font:600 9.5px/1.2 var(--body);display:block}
+.ds .f{font:500 7.5px/1.3 var(--mono);color:var(--soft);display:block;margin-top:1px}
+.tags{display:flex;flex-wrap:wrap;gap:2px;margin-top:4px}
+.t{font:500 5.6px/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:2px 2px 1.5px;border:.8px solid var(--ink);white-space:nowrap}
+.band{display:flex;height:9px;border-top:1.5px solid var(--ink)}
+.band u{display:block}
+/* B: labels inside the stripe */
+.lb{display:flex;height:15px;border-top:1.5px solid var(--ink)}
+.lb u{display:flex;align-items:center;justify-content:center;overflow:hidden;text-decoration:none;font:500 5.4px/1 var(--mono);letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;padding:0 1px;border-right:1px solid rgba(62,74,128,.35)}
+.lb u:last-child{border-right:0}
+/* C: rectangle 2 per row */
+.C .nm,.C .nm.l8,.C .nm.l11,.C .nm.l16{font-size:14.5px}
+.C .use{font-size:10px}
+.cells{display:grid;grid-template-columns:1.25fr 1fr 1fr;border:1.2px solid var(--ink);margin-top:6px;background:var(--paper)}
+.cells div{padding:3px 4px;border-right:1.2px solid var(--ink);min-width:0}
+.cells div:last-child{border-right:0}
+.cells small{display:block;font:500 6.2px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.cells b{display:block;font:600 9px/1.2 var(--body);overflow-wrap:anywhere}
+.C .t{font-size:6.6px;padding:2px 3px}
+/* D: list row */
+.D .tl{flex-direction:row}
+.D .in{flex-direction:row;gap:10px;align-items:stretch;padding:7px 8px}
+.D .lft{flex:1 1 44%;min-width:0;display:flex;flex-direction:column}
+.D .rgt{flex:1 1 56%;min-width:0;display:flex;flex-direction:column;justify-content:space-between}
+.D .vb{width:10px;display:flex;flex-direction:column;border-left:1.5px solid var(--ink)}
+.D .vb u{display:block}
+.D .nm,.D .nm.l8,.D .nm.l11,.D .nm.l16{font-size:14.5px;padding-right:0}
+.D .aa{position:static;text-align:left;margin-top:2px}
+.D .aa b{display:inline;font-size:9px;margin-right:2px}
+.D .cells{margin-top:0}
+.D .t{font-size:6.4px}
+.pick{margin-top:30px;border:1.5px solid var(--ink);background:var(--chip);padding:10px 12px;font-size:13.5px}
+.pick b{font:700 15px var(--display)}
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+<main>
+<h1>Sticker samples v2</h1>
+<p class="lede">Same compounds in four layouts. Each adds the dose, how often and the cycle, plus every role as a tiny tag. Phone width (390px) unless marked.</p>
+<div id="out"></div>
+<div class="pick"><b>Tell me A, B, C or D</b> (or mix: e.g. "C, but with B's stripe"). The full card still opens on tap.</div>
+</main>
+<script src="/library/v43/data.js"></script>
+<script>
+const D=window.BS_DATA,P=window.BS_PALETTE,HEX={},LONG={},SHORT={};P.forEach(p=>{HEX[p[0]]=p[2];LONG[p[0]]=p[1]});
+const SH={Appetite:'Appetite',Glucose:'Glucose',Fat:'Fat',Energy:'Energy',Endocrine:'Endocrine',Muscle:'Muscle',Bone:'Bone',Repair:'Tissue repair',Inflammation:'Inflammation',Immunity:'Immunity',Skin:'Skin',Hair:'Hair',Cognition:'Cognition',Drive:'Drive',Mood:'Mood',Plasticity:'Plasticity',Neuroprotection:'Neuro',Sleep:'Sleep',Desire:'Desire',Reproductive:'Reproductive',Protection:'Cell protection',Aging:'Aging',Organ:'Organ',Cancer:'Cancer',Tanning:'Tanning',DNA:'DNA',Pain:'Pain',Gut:'Gut',Reward:'Reward',Heart:'Heart'};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const fg=h=>lum(h)>.42?'#3E4A80':'#FFFFE2';
+const by=s=>D.find(x=>x.slug===s);
+const PICK=['kpv','thymosin-beta-4','bpc-157','semaglutide','klow','nad','tesa-ipa-cjc','retatrutide','tb-500-frag-17-23'].map(s=>by(s)||D.find(x=>x.slug.indexOf(s)===0)).filter(Boolean);
+const short=t=>String(t||'').replace(/\s*\([^)]*\)/g,'').replace(/weeks?/g,'wk').replace(/months?/g,'mo').replace(/maintenance/g,'maint.').replace(/ongoing/i,'ongoing').trim();
+const cyc=t=>{t=short(t);if(/→/.test(t))t=t.split('→').pop().replace(/maint\.\s*/,'');t=t.split(/,|;/)[0].replace(/\s*on$/,'').trim();return t};
+const nlc=o=>{const n=o.name.length;return n>=16?' l16':n>=11?' l11':n>=8?' l8':''};
+const aa=o=>o.blend?'<b>'+o.blend.parts.length+'</b>in':o.seq&&o.seq.length?'<b>'+o.seq.length+'</b>AA':'';
+const roles=o=>[...(o.roles||[])];
+const band=o=>roles(o).map((k,i)=>`<u style="flex:${i===0?3:i===1?2:1};background:${HEX[k]}"></u>`).join('');
+const tags=(o,cls)=>`<div class="tags">${roles(o).map(k=>`<span class="t" style="background:${HEX[k]};color:${fg(HEX[k])}">${esc(cls==='long'?LONG[k]:SH[k])}</span>`).join('')}</div>`;
+const fda=o=>o.fda?'<span class="fda">FDA ✓</span>':'';
+const cls=o=>o.blend?'<span class="cls">blend</span>':'';
+const d=o=>o.dose||{};
+function A(o){return `<div class="tl"><div class="in"><span class="nm${nlc(o)}">${esc(o.name)}</span><span class="aa">${aa(o)}</span>${cls(o)}${fda(o)}<span class="ds"><span class="d">${esc(short(d(o).dose)||'No common dose')}</span><span class="f">${esc(short(d(o).freq))}${d(o).cycle?' · '+esc(cyc(d(o).cycle)):''}</span></span>${tags(o)}</div><div class="band">${band(o)}</div></div>`}
+function B(o){return `<div class="tl"><div class="in"><span class="nm${nlc(o)}">${esc(o.name)}</span><span class="aa">${aa(o)}</span>${cls(o)}${fda(o)}<span class="use">${esc(o.fn||'')}</span><span class="ds"><span class="d">${esc(short(d(o).dose)||'No common dose')}</span><span class="f">${esc(short(d(o).freq))}${d(o).cycle?' · '+esc(cyc(d(o).cycle)):''}</span></span></div><div class="lb">${roles(o).map((k,i)=>`<u style="flex:${i===0?3:i===1?2:1};background:${HEX[k]};color:${fg(HEX[k])}">${esc(SH[k])}</u>`).join('')}</div></div>`}
+function C(o){return `<div class="tl"><div class="in"><span class="nm${nlc(o)}">${esc(o.name)}</span><span class="aa">${aa(o)}</span>${cls(o)}${fda(o)}<span class="use">${esc(o.fn||'')}</span><div class="cells"><div><small>Dose</small><b>${esc(short(d(o).dose)||'NA')}</b></div><div><small>How often</small><b>${esc(short(d(o).freq)||'NA')}</b></div><div><small>Cycle</small><b>${esc(cyc(d(o).cycle)||'NA')}</b></div></div>${tags(o,'long')}</div><div class="band">${band(o)}</div></div>`}
+function Dr(o){return `<div class="tl"><div class="in"><div class="lft"><span class="nm${nlc(o)}">${esc(o.name)}</span><span class="aa">${aa(o)}</span>${cls(o)}${fda(o)}<span class="use">${esc(o.fn||'')}</span></div><div class="rgt"><div class="cells"><div><small>Dose</small><b>${esc(short(d(o).dose)||'NA')}</b></div><div><small>How often</small><b>${esc(short(d(o).freq)||'NA')}</b></div><div><small>Cycle</small><b>${esc(cyc(d(o).cycle)||'NA')}</b></div></div>${tags(o,'long')}</div></div><div class="vb">${roles(o).map((k,i)=>`<u style="flex:${i===0?3:i===1?2:1};background:${HEX[k]}"></u>`).join('')}</div></div>`}
+const sec=(id,t,why,fn,grid,wide)=>`<h2>${t}<span>Option ${id}</span></h2><p class="why">${why}</p><div class="ph${wide?' wide':''}"><p class="cap">${wide?'Phone and laptop':'Phone, 390px'}</p><div class="${grid} ${id}">${PICK.map(fn).join('')}</div></div>`;
+document.getElementById('out').innerHTML=
+ sec('A','Square, dose in the sticker','Today’s size and 3 across. The use line makes way for the dose (bold) and how often · cycle. All roles sit as tiny tags above the colour stripe. Long names shrink.',A,'g3')+
+ sec('B','Square, roles inside the stripe','Keeps the use line. The colour stripe gets taller and carries the role names inside each block, so the stripe itself becomes the tags.',B,'g3')+
+ sec('C','Rectangle, 2 across','Wider and taller sticker. Dose, how often and cycle in three boxes like the card; roles as small readable tags with full names.',C,'g2')+
+ sec('D','Long row, 1 across','A list row: name and use on the left, the three dose boxes and tags on the right, the colour stripe runs down the edge. Most readable, longest scroll.',Dr,'g1',true);
+</script>
+</body>
+</html>

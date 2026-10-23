@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -785,7 +786,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   <div class="top">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From Gene to Peptide<small>V52</small></h1>
+    <h1>From Gene to Peptide<small>V53</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -903,9 +904,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 52 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 52 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V52:</b> every amino acid gets its own shape. Shape is the family: round for oily, hexagon for rings, soft square for water-loving, a down-pointing triangle for negative, a diamond for positive and a half-disc for proline. Size is the real side-chain volume, from tiny glycine to tryptophan. Small marks show special atoms: forks for branches, a yellow dot for sulfur, a white dot for OH, an orange dot for selenium. The shapes are the centre of each tile, every built chain, the amino acid step of the opening walk and each amino card, which now explains its shape. A shape key sits under the grid, and How to read a tile explains the shape. <a href="/aminos/v51/">V51 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 53 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 53 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V53:</b> the last two chains take the shapes. The opening walk now builds its chain from the same shapes as the tiles, the falling amino acid is its shape, and the fold step coils those shapes. The alpha helix under Then it folds is now a real helix-forming chain, GLP-1, drawn shape by shape, still turning every 3.6 amino acids. <a href="/aminos/v52/">V52 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V52:</b> every amino acid gets its own shape. Shape is the family: round for oily, hexagon for rings, soft square for water-loving, a down-pointing triangle for negative, a diamond for positive and a half-disc for proline. Size is the real side-chain volume, from tiny glycine to tryptophan. Small marks show special atoms: forks for branches, a yellow dot for sulfur, a white dot for OH, an orange dot for selenium. The shapes are the centre of each tile, every built chain, the amino acid step of the opening walk and each amino card, which now explains its shape. A shape key sits under the grid, and How to read a tile explains the shape. <a href="/aminos/v51/">V51 kept here</a>.</p>
     <p style="margin-top:6px"><b>V51:</b> fix: the turns where a chain doubles back are now drawn as one smooth curve. They were exact half circles, which could flip from one side to the other between frames while the chain rippled, so the turn looked like it was snapping. <a href="/aminos/v50/">V50 kept here</a>.</p>
     <p><b>V50:</b> 22 familiar names join the list, so the page compares grey-market peptides with what people already take. Approved peptide medicines: vasopressin, octreotide, leuprolide, liraglutide, salmon calcitonin, bivalirudin and linaclotide, plus aspartame, the dipeptide sweetener. Molecules the body makes from a single amino acid: melatonin, serotonin, dopamine, thyroxine, GABA and taurine. Everyday pills and supplements: caffeine, aspirin, metformin, vitamin C, vitamin D3, sildenafil, magnesium glycinate and collagen peptides. Every non-peptide now carries a Why it’s not a peptide note, pointing up at its parts drawing. Popular is a short mixed row of 16, from Thymosin Beta-4 to caffeine; Show all holds everything, with a new Rx or not sort, and approved medicines carry ℞. Collagen peptides and Cerebrolysin are labelled peptide mixtures. <a href="/aminos/v49/">V49 kept here</a>.</p>
     <p style="margin-top:6px"><b>V49:</b> the shimmer on the tour chips is softer, slower and rarer: a faint gold glint that slides across one chip at a time, every few seconds, so each chip only glints about once every 24 seconds. <a href="/aminos/v48/">V48 kept here</a>.</p>
@@ -1022,6 +1024,7 @@ function shape(L,cx,cy,sc=1){const r=size(L)*sc,c=col(L),fg=lum(c)>.42?INK:"#FFF
   const fs=Math.max(8,Math.min(15,r*.9));const ty=L==="P"?cy+r*.3:"DE".includes(L)?(()=>{const rr=r*1.2,tp=-rr*.7,ap=rr*(L==="E"?1.15:1.0),sh=-(2*tp+ap)/3;return cy+sh+(tp+ap)/2+rr*.06+fs*.36})():cy+fs*.36;
   return g+ex+`<text x="${f1(cx)}" y="${f1(ty)}" text-anchor="middle" font-size="${f1(fs)}" font-weight="700" fill="${fg}" font-family="Bricolage Grotesque,sans-serif">${L}</text>`}
 return {shape,FAM,DESC,size}})();const shapeSVG=SHP_.shape,SHFAM=SHP_.FAM,SHDESC=SHP_.DESC;
+const noTxt=s=>s.replace(/<text[^>]*>[^<]*<\/text>$/,"");
 function shapeIcon(L,box=60,sc=1.05){return `<svg viewBox="0 0 ${box} ${box}" width="${box}" height="${box}" aria-hidden="true">${shapeSVG(L,box/2,box/2+2,sc)}</svg>`}
 function sizeSec(a){const v=VOL[a[0]]||VOL.C,mn=60.1,mx=227.8,pc=((v-mn)/(mx-mn))*100,word=v<100?"Small":v<150?"Medium":v<185?"Large":"Very large",ticks=Object.entries(VOL).map(([L,x])=>`<i style="left:${(((x-mn)/(mx-mn))*100).toFixed(1)}%" title="${L}"></i>`).join("");const fam=(SHFAM.find(f=>f[2].includes(a[0]))||["",""])[0];return `<div class="sec pane szs"><p class="lab">Size and shape</p><div class="szsh">${shapeIcon(a[0],70,1.35)}<div><b>${fam}</b><span>Drawn as ${SHDESC[a[0]]||""}.</span></div></div><div class="szh"><b>${word}</b><span>side chain about ${Math.round(v)} Å³${a[0]==="U"?", like cysteine":""}</span></div><div class="szbar">${ticks}<em style="left:${pc.toFixed(1)}%">${a[0]}</em></div><div class="szl"><span>G · smallest</span><span>W · largest</span></div><p class="szt">${SHP[a[0]]||""}</p></div>`}
 const dotC=L=>{const a=(typeof A!=="undefined"&&A.find)?A.find(x=>x[0]===L):null;return a?PAL[a[8][0][0]][1]:"#3E4A80"};const odot=(L)=>L?`<i class="on" title="${L}" style="background:${dotC(L)}"></i>`:`<i class="on"></i>`;
@@ -1189,20 +1192,20 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
     {const q=r[3],cy=cyOf(3),xm=q.x+q.w/2,dip=cy+16,Lr=CODS[g][1],c=acol(Lr);
       o+=`<path d="M${f1(q.x)},${f1(cy)} C${f1(q.x+q.w*.3)},${f1(cy)} ${f1(xm-14)},${f1(dip)} ${f1(xm)},${f1(dip)} S${f1(q.x+q.w*.7)},${f1(cy)} ${f1(q.x+q.w)},${f1(cy)}" fill="none" stroke="${INK}" stroke-width="2"/>`;
       const nx=CODS[(g+1)%CODS.length][1],fy=q.y+4+fph*(dip-14-q.y-4);
-      o+=`<circle cx="${f1(xm)}" cy="${f1(fy)}" r="${f1(4+fph*3)}" fill="${acol(nx)}" stroke="${INK}" stroke-width="1.2" opacity="${f1(1-fph*.6)}"/>`;
+      o+=`<g opacity="${f1(1-fph*.6)}">${noTxt(shapeSVG(nx,xm,fy,.3+fph*.25))}</g>`;
       o+=shapeSVG(Lr,xm,dip,.9)+tx(xm,dip+26,"#3E4A80",(A.find(x=>x[0]===Lr)||[0,0,""])[2],8.5,700)}
     // 05 Chain
     {const q=r[4],cy=cyOf(4),sp=19,sh=(t*9)%sp,base=Math.floor(t*9/sp),Y=x=>{const u=(x-q.x)/q.w,e=Math.sin(Math.PI*u);return cy-e*(8+5*Math.sin(u*Math.PI*2-t*.9))};let p="";for(let x=q.x;x<=q.x+q.w;x+=2)p+=(p?"L":"M")+f1(x)+","+f1(Y(x));
       let bd="";for(let i=0;;i++){const x=q.x+6+i*sp+sh;if(x>q.x+q.w-6)break;const L=CODS[((i-base)%CODS.length+CODS.length)%CODS.length][1],c=acol(L),edge=Math.min(1,(x-q.x)/14,(q.x+q.w-x)/14);
-        bd+=`<g opacity="${f1(Math.max(0,edge))}"><circle cx="${f1(x)}" cy="${f1(Y(x))}" r="7.5" fill="${c}" stroke="${INK}" stroke-width="1.3"/><text x="${f1(x)}" y="${f1(Y(x)+3)}" text-anchor="middle" font-size="8.5" font-weight="700" fill="${lum(c)>.42?INK:"#FFFFE2"}" font-family="Bricolage Grotesque,sans-serif">${L}</text></g>`}
+        bd+=`<g opacity="${f1(Math.max(0,edge))}">${shapeSVG(L,x,Y(x),.5)}</g>`}
       o+=`<path d="${p}" fill="none" stroke="${INK}" stroke-width="2"/>`+bd}
     // 06 Fold
     {const q=r[5],cy=cyOf(5),pad=6,rx=5,pitch=Math.max(14,q.w/5.2),Am=Math.min(24,q.h*.26),xs=q.x+pad,turns=(q.w-2*pad-rx*2)/pitch,TT=turns*2*Math.PI,ph=t*1.1;
       const at=v=>[xs+rx+(v/(2*Math.PI))*pitch+rx*Math.cos(v+ph),cy+Am*Math.sin(v+ph)*Math.min(1,v/2.2),Math.cos(v+ph)];
       let back="",front="",prev=at(0);o+=ln(q.x,cy,prev[0],prev[1],INK,2);
       for(let v=.12;v<=TT;v+=.12){const pt=at(v),z=(pt[2]+prev[2])/2,seg=ln(prev[0],prev[1],pt[0],pt[1],INK,z>0?2.6:1.4,z>0?"":`opacity=".45"`);if(z>0)front+=seg;else back+=seg;prev=pt}
-      const HXC=["Inflammation","Drive","Gut","Muscle","DNA","Endocrine","Mood","Pain","Fat","Immunity","Organ","Repair"];let bs=[];let kk=0;for(let v=0;v<=TT;v+=2*Math.PI/3.6,kk++){bs.push([at(v),PAL[HXC[kk%HXC.length]][1]])}
-      bs.sort((a,b)=>a[0][2]-b[0][2]);const beads=bs.map(([p,c])=>`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="${f1(3.4+p[2]*1.6)}" fill="${c}" stroke="${INK}" stroke-width="1.1" opacity="${p[2]>0?1:.55}"/>`).join("");
+      const HXC=["Inflammation","Drive","Gut","Muscle","DNA","Endocrine","Mood","Pain","Fat","Immunity","Organ","Repair"];let bs=[];let kk=0;for(let v=0;v<=TT;v+=2*Math.PI/3.6,kk++){bs.push([at(v),CODS[kk%CODS.length][1]])}
+      bs.sort((a,b)=>a[0][2]-b[0][2]);const beads=bs.map(([p,L])=>`<g opacity="${p[2]>0?1:.55}">${noTxt(shapeSVG(L,p[0],p[1],.3+p[2]*.08))}</g>`).join("");
       o+=back+beads+front}
     {const wob=Math.sin(t*2.2)*1.2;o+=`<g><ellipse cx="${f1(polX+wob)}" cy="${f1(polY)}" rx="15" ry="17" fill="#C2DCFF" fill-opacity=".92" stroke="#3E4A80" stroke-width="1.6"/><ellipse cx="${f1(polX+wob+5)}" cy="${f1(polY-4)}" rx="5" ry="6" fill="#FFFFF4" opacity=".55"/>`+tx(polX,polY+30,"#3E4A80","RNA polymerase",7.5,700)+`</g>`}
     svg.innerHTML=o}
@@ -1236,7 +1239,7 @@ function helixInit(){const box=$("#helix");if(!box)return;let ph=0,run=false,raf
     const at=t=>[pad+rx+(t/(2*Math.PI))*pitch+rx*Math.cos(t+ph),cy+A*Math.sin(t+ph),Math.cos(t+ph)];
     let back="",front="",fy="",prev=at(0);for(let t=.07;t<=T;t+=.07){const p=at(t),z=(p[2]+prev[2])/2;const seg=`<line x1="${prev[0].toFixed(1)}" y1="${prev[1].toFixed(1)}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="#3E4A80" stroke-linecap="round" stroke-width="${z>0?2.4:1.6}" opacity="${z>0?1:.42}"/>`;if(z>0){fy+=seg.replace('stroke="#3E4A80"','stroke="#FFDE59"').replace(/stroke-width="[^"]*"/,'stroke-width="9"').replace(/opacity="[^"]*"/,'opacity=".8"');front+=seg}else back+=seg;prev=p}
     const bs=[];for(let t=0;t<=T;t+=2*Math.PI/3.6){bs.push(at(t))}
-    const HX=["Inflammation","Drive","Gut","Muscle","DNA","Endocrine","Mood","Pain","Fat","Immunity","Organ","Repair","Sleep","Glucose","Heart","Cognition","Bone","Energy","Protection","Aging"];const beads=bs.map((p,k)=>[p,PAL[HX[k%HX.length]][1]]).sort((a,b)=>a[0][2]-b[0][2]).map(([p,col])=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${((mob?4.5:5.5)+p[2]*2).toFixed(1)}" fill="${col}" stroke="#3E4A80" stroke-width="${p[2]>0?1.5:1}" opacity="${p[2]>0?1:.5}"/>`).join("");
+    const HXS="HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG";const beads=bs.map((p,k)=>[p,HXS[k%HXS.length]]).sort((a,b)=>a[0][2]-b[0][2]).map(([p,L])=>`<g opacity="${p[2]>0?1:.5}">${shapeSVG(L,p[0],p[1],(mob?.46:.56)*(1+p[2]*.28))}</g>`).join("");
     box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${back}${fy}${beads}${front}</svg>`}
   function loop(){ph-=.012;draw();if(run)raf=requestAnimationFrame(loop)}
   draw();if(still||!("IntersectionObserver" in window))return;

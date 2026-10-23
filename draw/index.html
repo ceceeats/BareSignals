@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Draw Line v19 (23 Oct 2026): popup closes on outside click, Escape or ×; beginners see all three basics open; your own entries and choices in orange; blinking cue on the compound name; vial size sits under the name on the card. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -58,6 +59,21 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 ::placeholder{color:#8A93BE}
 input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 
+/* v19: what you type or choose shows in orange */
+#pname,#note,#mixed{color:var(--accent);font-weight:600}
+.tight .q[aria-pressed="true"]{background:var(--accent);border-color:var(--accent-ink);color:#fff}
+.pln b{color:var(--accent);font-weight:600}
+#meta .kv b.u{color:var(--accent);font-weight:600}
+.dn,.dn.ph{color:var(--accent)}
+.dv{padding:3px 0 0 12px;font:500 12px var(--mono);color:var(--soft)}
+.dv b{color:var(--accent);font-weight:600}
+/* v19: name cue keeps blinking while the name is empty */
+#cue-name .cur{left:11px;top:9px}
+#cue-name.cue input{padding-left:26px}
+/* v19: popup close */
+.askx{position:absolute;top:8px;right:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--soft);background:var(--chip);color:var(--ink);font:500 20px/1 var(--body);cursor:pointer;padding:0}
+.askx:hover{background:#fff;border-color:var(--ink)}
+#ask h2{padding-right:40px}
 /* soft orange type cue, one field at a time */
 .cuew{position:relative;margin-top:2px}
 .cur{display:none;position:absolute;top:10px;left:12px;width:9px;height:20px;background:var(--accent);pointer-events:none;z-index:2;animation:blink 1.1s steps(1) infinite}
@@ -241,7 +257,6 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .draw{border:1.5px solid var(--ink);background:var(--paper)}
 .dh{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
 .dn{padding:10px 12px 0;font:700 20px/1.1 var(--display);overflow-wrap:anywhere}
-.dn.ph{color:var(--soft)}
 .db{display:grid;grid-template-columns:clamp(96px,32%,128px) minmax(0,1fr);border-top:1.5px solid var(--ink)}
 .syrcol{border-right:1.5px solid var(--ink);background:var(--chip);padding:8px 6px 6px;display:flex;flex-direction:column;align-items:center;min-width:0}
 .syr{width:100%}
@@ -442,13 +457,14 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v18</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v19</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
+  <button class="askx" id="askX" type="button" aria-label="Close, show the beginner view">×</button>
   <h2 id="askT">What do you already know?</h2>
   <div class="askc">
-    <div class="opt"><button class="btn pri" id="askB" type="button">I'm a beginner</button><small>Shows 3 short visual steps first.</small></div>
+    <div class="opt"><button class="btn pri" id="askB" type="button" autofocus>I'm a beginner</button><small>Shows 3 short visual steps first.</small></div>
     <div class="opt"><button class="btn" id="askE" type="button">I'm an expert</button><small>Goes straight to the calculator, text only.</small></div>
   </div>
 </dialog>
@@ -511,7 +527,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 
     <div class="name">
       <label class="fl" for="pname"><b>Peptide or compound</b><span>Optional</span></label>
-      <input type="text" id="pname" maxlength="32" autocomplete="off" placeholder="BPC-157">
+      <div class="cuew cue" id="cue-name"><i class="cur" aria-hidden="true"></i><input type="text" id="pname" maxlength="32" autocomplete="off" placeholder="BPC-157"></div>
     </div>
 
     <div class="sbx">
@@ -589,6 +605,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="ctop">
         <div>
           <div class="dn ph" id="cName">Your peptide</div>
+          <div class="dv" id="cVial"></div>
           <div class="rec"><span>Insulin syringe recommended</span></div>
         </div>
         <div class="drawto">
@@ -738,6 +755,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v19: the beginner or expert popup now closes when you click outside it, press Escape or tap the ×, and that gives the beginner view. Beginners see Weight, Mixing and Syringes open straight away, on laptop and phone. Everything you type or choose shows in orange: the compound name, the Take and When choices, the mixed date, your notes, and your answers on the card. The compound name field blinks until you fill it, and the card shows the name first with the vial size on the line under it. v1 to v18 are unchanged.</span>
   <span>v18: counts a few actions for the site statistics (first complete calculation per visit, card copied, math copied), nothing on the page changed by that. Plus: the page keeps a tidy single column from phone up to a wide screen, so the card and the input rows stop stretching into loose tables at tablet and half-laptop widths; it widens to two columns only on a real laptop. The water is brand blue again; the vials now read apart by their caps, orange for compound, green for diluent, periwinkle for solution. v1 to v17 are unchanged.</span>
   <span>v17: carries the v15 and v16 work from the other track (prefill from a Dosage or Library link, opens in quick mode; brand line Bare Signals · Calculator) and adds the design sweep: one chevron close style with Hide and Show, readable FAQ questions, the version history tucked away, a popup that dims the page with the basics opening one at a time, and a tighter Luer push demo on wide screens. v1 to v16 are unchanged.</span>
   <span>v15 (design sweep): one close button style across the page (chevron, Hide and Show), FAQ questions in plain readable text, the version history tucked in here, the entry popup now dims the page and the basics open one at a time for beginners, and the Luer push demo sits tighter on a wide screen. v1 to v14 are unchanged.</span>
@@ -1159,7 +1177,9 @@ function update(){
   vial2.set(isFinite(S.water)?nf(S.water,3)+' mL':'— mL',isFinite(S.water)?S.water:0);
   mountMain();
   const c0=cfg(),nm=S.name.trim();
-  const cn=$('#cName');cn.textContent=(nm||'Your peptide')+(isFinite(S.vial)?' · '+nf(S.vial,3)+' mg vial':'');cn.classList.toggle('ph',!nm);
+  const cn=$('#cName');cn.textContent=nm||'Your peptide';cn.classList.toggle('ph',!nm);
+  $('#cVial').innerHTML=isFinite(S.vial)?'<b>'+nf(S.vial,3)+' mg</b> vial':'';
+  $('#cue-name').classList.toggle('cue',!nm);
   renderPlan();
 
   if(!ok){
@@ -1301,7 +1321,7 @@ function renderPlan(){
   const el=$('#plan');
   el.innerHTML=rows.map(function(r){return '<div class="pln"><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>';}).join('');
   el.hidden=!rows.length;
-  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b>'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b>'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
+  $('#meta').innerHTML='<div class="kv"><span>Syringe</span><b class="u">'+S.size+' mL '+(S.type==='insulin'?'insulin':'Luer lock')+'</b></div><div class="kv"><span>Mixed</span><b class="u">'+fmtDate(S.mixed)+'</b></div><div class="kv"><span>Use by</span><b class="o">'+fmtDate(addDays(S.mixed,28))+' <small>28 days</small></b></div>';
 }
 function buildTxt(c,luer,nm){
   const pb=planBits(),L=[];
@@ -1378,7 +1398,12 @@ $$('.blk .bt').forEach(function(t){t.onclick=function(){const b=t.closest('.blk'
 function syncAll(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});const b=$('#allBt');b.setAttribute('aria-expanded',!all);b.classList.toggle('shut',all);b.querySelector('.btl').textContent=all?'Show all':'Hide all';}
 $$('.blk .bt').forEach(function(t){t.addEventListener('click',syncAll);});
 $('#allBt').onclick=function(){const all=['w','m','s'].every(function(k){return $('.blk[data-k="'+k+'"]').dataset.open==='0';});['w','m','s'].forEach(function(k){setBlk(k,all);});syncAll();};
-$('#askB').onclick=function(){setBlk('w',true);setBlk('m',false);setBlk('s',false);syncAll();$('#ask').close();setTimeout(function(){$('#intro').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});},0);};
+function showBasics(){['w','m','s'].forEach(function(k){setBlk(k,true);});syncAll();}
+function goBeginner(){showBasics();setMode('guided',false);const d=$('#ask');if(d.open)d.close();setTimeout(function(){$('#intro').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});},0);}
+$('#askB').onclick=goBeginner;
+$('#askX').onclick=goBeginner;
+$('#ask').addEventListener('cancel',function(e){e.preventDefault();goBeginner();});
+$('#ask').addEventListener('click',function(e){if(e.target!==this)return;const r=this.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)goBeginner();});
 $('#askE').onclick=function(){['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();setMode('quick',false);$('#ask').close();setTimeout(function(){$('#calc').scrollIntoView({behavior:'auto',block:'start'});},0);};
 $('#toGloss').onclick=function(){const g=$('#glossary');g.open=true;g.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
 
@@ -1509,7 +1534,7 @@ try{const q=new URLSearchParams(location.search),qn=q.get('n'),qd=parseFloat(q.g
 renderRef();
 renderLadder();renderMix();wasteReset();
 renderSizes();renderGauge();paintCues();
-['w','m','s'].forEach(function(k){setBlk(k,false);});syncAll();
+['w','m','s'].forEach(function(k){setBlk(k,!pre&&startMode!=='quick');});syncAll();
 update();
 if(pre){setMode('quick',false);}
 else if(startMode!=='quick'&&typeof $('#ask').showModal==='function'){try{$('#ask').showModal();}catch(e){}}
