@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v8 (23 Oct 2026) at /protocol/v8/
+- Reads Library v41 (Batch 3: 11 metabolic pipeline and fat/muscle compounds) and Blood Work v15. v7 kept.
+
 ## v7 (23 Oct 2026) at /protocol/v7/
 - Reads Library v40 (117 entries: 17 Batch 1 compounds, 18 blends) and Blood Work v14 cross-links (blends' tests merged from components). v6 kept.
 

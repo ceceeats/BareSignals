@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v12 (23 Oct 2026) at /supplements/v12/
+- Goes with lists gain the Batch 3 compounds (27 pairings). v11 kept.
+
 ## v11 (23 Oct 2026) at /supplements/v11/
 - Goes with lists gain the 12 Batch 1 compounds and 18 blends (171 pairings), each linked to its Library card. v10 kept.
 

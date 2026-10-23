@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v15 (23 Oct 2026) at /blood/v15/
+- 9 Batch 3 compounds added (Amycretin, MariTide, UBT-251, Liraglutide, Efocipegtrutide, VK2735, ATX-304, CBL-514, Bimagrumab); Pemvidutide and Tesofensine, already researched here, now link to their new Library cards. /blood/v15/lib.js regenerated. v14 kept.
+
 ## v14 (23 Oct 2026) at /blood/v14/
 - 12 Batch 1 compounds added (Survodutide, Mazdutide, Eloralintide, BAM-15, HMG, Abaloparatide, Vitamin B12, Thymalin; P21, Adamax, PTD-DBM, PNC-27 as a general safety baseline only).
 - 18 blends added as their own group: their components' tests combined, each listed once, supplements merged.
