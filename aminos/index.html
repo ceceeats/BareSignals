@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Aminos V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
+<!-- Aminos V54 (23 Oct 2026): Type Rule v1, one text scale (tags 8.5px mono, footnotes small, body 13.5px, names 15px, section titles 18px, h1 22px), plus the three-step text size control (shared bs-text key). Shapes and animations unchanged. V53 kept at /aminos/v53/. Previously V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -780,13 +780,81 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
 .howto summary{font-size:13px!important;padding:6px 10px!important}
 #q{font-size:16px!important}
 .more2{margin:-6px 0 10px auto;font-size:13px}
+/* ===== V54 · Bare Signals Type Rule v1 (one scale for the page, at text size A) ===== */
+body{font-size:13.5px!important;line-height:1.5}
+/* text size control */
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 6px}
+.hrow .lab{margin:0!important}
+.tsz{display:inline-flex;align-items:stretch;border:1.5px solid var(--ink);flex:none}
+.tsz button{all:unset;cursor:pointer;font:600 12px/1 var(--body);color:var(--ink);padding:4px 7px;min-width:12px;text-align:center;display:flex;align-items:center;justify-content:center}
+.tsz button+button{border-left:1.5px solid var(--ink)}
+.tsz button[data-tsz="s"]{font-size:10px}.tsz button[data-tsz="l"]{font-size:15px}
+.tsz button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tsz button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* T-page */
+h1{font:700 22px/1.1 var(--display)!important;letter-spacing:-.01em!important}
+h1 small{font:500 8.5px/1 var(--mono)!important;letter-spacing:.08em!important;vertical-align:middle!important;margin-left:8px;padding:3px 5px;border:1px solid var(--accent);color:var(--accent)}
+/* section titles: one size */
+h2,h2:has(.tap),.t2,.t3,.gloss summary{font:700 18px/1.15 var(--display)!important;letter-spacing:-.005em!important}
+.t2,.t3{margin:4px 0 8px!important}
+.howto summary{font:700 12.5px var(--display)!important;padding:6px 10px!important}
+/* T-tag: mono caps labels, tags, section labels */
+.lab,.divider span,.nextp span,.k9,.spec td:first-child,#cardwrap .spec td:first-child,.traits b,.nwl,.glab,.fsz,#pname .pnl,.combo .drop .let,#madeof .mk b,.found li b,#cardwrap .pane .lab{font:500 8.5px/1.1 var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase}
+.divider span{color:var(--ink)!important}
+.divider.p1,.divider{margin:22px 0 10px!important}
+.tile .t3,.hxt .hm,.ch .sub,#cardwrap .ch .sub,.roles em,.pc .aa,.pk .aa,.pk .n,#pname .lib,.rung span,.btip span{font:500 8.5px/1.1 var(--mono)!important;letter-spacing:.06em!important;text-transform:uppercase}
+.otg,.otag b{font:500 8.5px/1 var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase;padding:3px 5px;border:1px solid currentColor}
+.otag{align-items:center!important}
+.sg,.tile .mk .sg b,.kk .sg b{font-size:8.5px!important;font-weight:500!important}
+.found li b{font-size:9px!important;color:var(--accent)}
+/* T-foot: footnotes, sources, captions, units */
+.note,.cardfoot,#cardwrap .cardfoot,.log,.log p,.snote,.ocap,.shn,.traits p,.traits i,#pleg,#pleg em,.conn span,.rn,#cardwrap .rn,.hcap,.tap,.pt em,.lsub,.szl,.szh span,.gloss summary span,#pname .pnc,.say,.cs i{font-size:10.5px!important;line-height:1.4}
+.szl,.szh span,.gloss summary span,#pname .pnc,.say{font-family:var(--mono)!important;font-size:9px!important;font-weight:500!important}
+.say i{font-weight:700}
+.log b{font-size:10.5px!important}
+.log summary.lab{font-size:8.5px!important}
+/* T-small: secondary text next to tags and names */
+.wc span,.top .wc span,.sh p,.nowline,.nowline .tline,.gi dd,.szt,.szsh span,.shk em,.traits div,.otag span,.chip,#cardwrap .chip,.ch5,.ch5 em,.combo .drop .pk em,.tch,.psort button,.seg button,.tabs button,.ftabs button,.nextp em,.key,.kk span,.lcap,.fcats,.pk,.tryb,.nowline .tryb,.mod,.found li span,.whynot span,.mtxt,#err,.empty,.path span,.roles li,#cardwrap .roles li,.cod,.codons span,#madeof .mk span{font-size:12px!important;line-height:1.35}
+.ch5 em,.combo .drop .pk em{font-size:11.5px!important}
+.tabs button,.ftabs button,.psort button,.seg button{font-family:var(--body)!important}
+.ftabs button{padding:6px 10px!important}
+/* T-body: paragraphs */
+.lede,.top .lede,.left .lede,.p1lede,.lede2,.ftxt p,.found .fl,.hxk,.v9{font-size:13.5px!important;line-height:1.5!important}
+.lede2{margin-bottom:14px!important}
+.p1lede{margin:0 0 10px!important}
+.pword{font-size:1em!important}
+/* T-num */
+.stats strong{font:600 12.5px/1.2 var(--body)!important}
+.v9{font-size:12.5px!important;font-weight:600}
+.spec,.spec td,#cardwrap .spec td{font-size:12.5px!important}
+.spec td:first-child{font-size:8.5px!important}
+.rr,#cardwrap .rr{font-size:11px!important}
+/* T-title: every name one size */
+.ch h3,#cardwrap .ch h3,.sh h3,.ftxt h4,#pname strong,.nowline b.nwn,.wc strong,.top .wc strong,.nextp b,.szh b,.szsh b,.shk b,.gi dt,.pc .nm2,.found li strong,.found:not(.open) li strong,.whynot b,.btip b,.path strong{font:700 15px/1.15 var(--display)!important;letter-spacing:0!important}
+#pname strong,.nowline b.nwn{font-size:17px!important}
+.nowline b.nwn{padding-bottom:5px!important;background-size:100% 4px!important}
+.hxt strong{font:700 13.5px/1.12 var(--display)!important}
+@media (min-width:900px){.tile .nmA{font-size:13.5px!important}}
+/* hero numbers become tags */
+.sh b{font:500 8.5px/1 var(--mono)!important;letter-spacing:.08em!important;color:var(--accent)!important;margin:0 0 4px!important;padding:3px 5px;border:1px solid var(--accent);display:inline-block!important;width:max-content}
+.wc b,.top .wc b{font:500 8.5px/1 var(--mono)!important;letter-spacing:.08em!important;color:var(--accent)!important;margin-top:4px!important}
+.big{font-size:24px!important}
+#cardwrap .big{font-size:18px!important}
+/* actions: one button size */
+button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{font-size:12.5px!important}
+.more,.fmore,.foldall,.nowline .tnext,.rung b{font-family:var(--display)!important;font-weight:700!important}
+.step{margin-bottom:16px!important}
+@media (max-width:899px){.sh b{display:inline-block!important}}
+.found:not(.open) li b{font-size:9px!important}
+.ftxt .fsz{font:500 8.5px/1.1 var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase;margin:4px 0 8px!important}
+.code,#dna{font-size:12.5px!important}
 </style>
 
 <div class="wrap">
   <div class="top">
   <header>
-    <p class="lab">Bare Signals · Aminos</p>
-    <h1>From Gene to Peptide<small>V53</small></h1>
+    <div class="hrow"><p class="lab">Bare Signals · Aminos</p><span class="tsz" role="group" aria-label="Text size"><button type="button" data-tsz="s" aria-label="Smaller text">A</button><button type="button" data-tsz="m" aria-label="Standard text">A</button><button type="button" data-tsz="l" aria-label="Larger text">A</button></span></div>
+    <h1>From Gene to Peptide<small>V54</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -904,9 +972,10 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 53 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 53 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V53:</b> the last two chains take the shapes. The opening walk now builds its chain from the same shapes as the tiles, the falling amino acid is its shape, and the fold step coils those shapes. The alpha helix under Then it folds is now a real helix-forming chain, GLP-1, drawn shape by shape, still turning every 3.6 amino acids. <a href="/aminos/v52/">V52 kept here</a>.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 54 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 54 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V54:</b> one text scale for the whole page. Tags and labels are small mono caps, footnotes small, every paragraph one size, every name one size, every section title one size; the big step numbers and the 46px titles are gone. A three-step text size control (small A, A, large A) sits top right and is remembered across Bare Signals pages. <a href="/aminos/v53/">V53 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V53:</b> the last two chains take the shapes. The opening walk now builds its chain from the same shapes as the tiles, the falling amino acid is its shape, and the fold step coils those shapes. The alpha helix under Then it folds is now a real helix-forming chain, GLP-1, drawn shape by shape, still turning every 3.6 amino acids. <a href="/aminos/v52/">V52 kept here</a>.</p>
     <p style="margin-top:6px"><b>V52:</b> every amino acid gets its own shape. Shape is the family: round for oily, hexagon for rings, soft square for water-loving, a down-pointing triangle for negative, a diamond for positive and a half-disc for proline. Size is the real side-chain volume, from tiny glycine to tryptophan. Small marks show special atoms: forks for branches, a yellow dot for sulfur, a white dot for OH, an orange dot for selenium. The shapes are the centre of each tile, every built chain, the amino acid step of the opening walk and each amino card, which now explains its shape. A shape key sits under the grid, and How to read a tile explains the shape. <a href="/aminos/v51/">V51 kept here</a>.</p>
     <p style="margin-top:6px"><b>V51:</b> fix: the turns where a chain doubles back are now drawn as one smooth curve. They were exact half circles, which could flip from one side to the other between frames while the chain rippled, so the turn looked like it was snapping. <a href="/aminos/v50/">V50 kept here</a>.</p>
     <p><b>V50:</b> 22 familiar names join the list, so the page compares grey-market peptides with what people already take. Approved peptide medicines: vasopressin, octreotide, leuprolide, liraglutide, salmon calcitonin, bivalirudin and linaclotide, plus aspartame, the dipeptide sweetener. Molecules the body makes from a single amino acid: melatonin, serotonin, dopamine, thyroxine, GABA and taurine. Everyday pills and supplements: caffeine, aspirin, metformin, vitamin C, vitamin D3, sildenafil, magnesium glycinate and collagen peptides. Every non-peptide now carries a Why it’s not a peptide note, pointing up at its parts drawing. Popular is a short mixed row of 16, from Thymosin Beta-4 to caffeine; Show all holds everything, with a new Rx or not sort, and approved medicines carry ℞. Collagen peptides and Cerebrolysin are labelled peptide mixtures. <a href="/aminos/v49/">V49 kept here</a>.</p>
@@ -1156,7 +1225,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
   const CODS=[["AUG","M"],["GCU","A"],["AAA","K"],["CCU","P"],["GAU","D"],["GAA","E"]];
   const acol=L=>{const a=A.find(x=>x[0]===L);return a?PAL[a[8][0][0]][1]:"#6777B6"};
   const f1=v=>v.toFixed(1);
-  function measure(){const b=box.getBoundingClientRect();W=box.clientWidth;H=box.clientHeight;const sc=W>=1000?1.45:1;Rs=[...box.querySelectorAll(".wa")].map(e=>{const r=e.getBoundingClientRect();return{x:(r.left-b.left)/sc,y:(r.top-b.top)/sc,w:r.width/sc,h:r.height/sc}});svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${(W/sc).toFixed(1)} ${(H/sc).toFixed(1)}`);W=W/sc;H=H/sc}
+  function measure(){const b=box.getBoundingClientRect();W=box.clientWidth;H=box.clientHeight;const sc=W>=1000?1.45:1,kz=(box.offsetWidth&&b.width/box.offsetWidth)||1,d=sc*kz;Rs=[...box.querySelectorAll(".wa")].map(e=>{const r=e.getBoundingClientRect();return{x:(r.left-b.left)/d,y:(r.top-b.top)/d,w:r.width/d,h:r.height/d}});svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${(W/sc).toFixed(1)} ${(H/sc).toFixed(1)}`);W=W/sc;H=H/sc}
   const ln=(x1,y1,x2,y2,c,w=2,ex="")=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${ex}/>`;
   const tx=(x,y,c,str,fs=8,fw=500)=>`<text x="${f1(x)}" y="${f1(y)}" text-anchor="middle" font-size="${fs}" font-weight="${fw}" fill="${c}" font-family="JetBrains Mono,monospace">${str}</text>`;
   function draw(){if(!Rs.length)measure();const INK="#3E4A80",OR="#DB6830";let o="",polX=0,polY=0;const r=Rs,cyOf=k=>r[k].y+r[k].h*.5;
@@ -1210,7 +1279,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
     {const wob=Math.sin(t*2.2)*1.2;o+=`<g><ellipse cx="${f1(polX+wob)}" cy="${f1(polY)}" rx="15" ry="17" fill="#C2DCFF" fill-opacity=".92" stroke="#3E4A80" stroke-width="1.6"/><ellipse cx="${f1(polX+wob+5)}" cy="${f1(polY-4)}" rx="5" ry="6" fill="#FFFFF4" opacity=".55"/>`+tx(polX,polY+30,"#3E4A80","RNA polymerase",7.5,700)+`</g>`}
     svg.innerHTML=o}
   function loop(now){if(!run)return;const dt=now-last;last=now;t+=Math.min(.05,Math.max(0,dt/1000))*.8;draw();raf=requestAnimationFrame(loop)}
-  measure();draw();let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth===lw&&Rs.length)return;lw=innerWidth;clearTimeout(walkInit.rt);walkInit.rt=setTimeout(()=>{measure();draw()},120)});
+  measure();draw();addEventListener("bs-text",()=>{measure();draw()});let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth===lw&&Rs.length)return;lw=innerWidth;clearTimeout(walkInit.rt);walkInit.rt=setTimeout(()=>{measure();draw()},120)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{measure();draw()});
   if(still||!("IntersectionObserver" in window))return;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!run){run=true;last=performance.now();raf=requestAnimationFrame(loop)}else if(!e.isIntersecting){run=false;cancelAnimationFrame(raf)}})).observe(box)}
@@ -1335,7 +1404,7 @@ function beadTip(){const box=$("#string");if(!box)return;const tip=document.crea
   const clearHot=()=>document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"));
   const showG=g=>{clearTimeout(hideT);if(g===curG&&!tip.hidden)return;curG=g;const i=+g.dataset.i,a=lastCh[i];if(!a)return;const c=g.getBoundingClientRect(),b=box.getBoundingClientRect();
     tip.innerHTML=`<b>${a[2]}</b><span>${a[1]} · ${a[0]} · position ${i+1}</span>`;tip.hidden=false;
-    const x=c.left-b.left+c.width/2,y=c.top-b.top,below=y<60;tip.classList.toggle("below",below);tip.style.left=Math.min(Math.max(x,70),b.width-70)+"px";tip.style.top=(below?y+c.height:y)+"px";clearHot();g.classList.add("hot")};
+    const kz=(box.offsetWidth&&b.width/box.offsetWidth)||1,x=(c.left-b.left+c.width/2)/kz,y=(c.top-b.top)/kz,bw=b.width/kz,below=y<60;tip.classList.toggle("below",below);tip.style.left=Math.min(Math.max(x,70),bw-70)+"px";tip.style.top=(below?y+c.height/kz:y)+"px";clearHot();g.classList.add("hot")};
   const hideNow=()=>{tip.hidden=true;curG=null;clearHot()};
   const hideLater=ms=>{clearTimeout(hideT);hideT=setTimeout(hideNow,ms)};
   const at=(x,y)=>{const el=document.elementFromPoint(x,y);return el&&el.closest?el.closest("#string .bd"):null};
@@ -1564,7 +1633,7 @@ $("#dna").addEventListener("input",()=>{cur=null;renderPop();tr()});
 $("#scrim").addEventListener("click",closeSheet);
 $("#cardwrap").addEventListener("click",e=>{if(e.target.closest("#cls")){closeSheet();return}const b=e.target.closest(".tabs button");if(b)setTab(b.dataset.t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();drawString(lastCh,true);fitDNA();renderPop()},200)});
+addEventListener("bs-text",()=>{try{drawString(lastCh,true)}catch(e){}});let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===lastW)return;clearTimeout(rzT);rzT=setTimeout(()=>{lastW=innerWidth;home();drawString(lastCh,true);fitDNA();renderPop()},200)});
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
@@ -1572,6 +1641,13 @@ show(11,false);home();tourI=0;tourKeep=true;pick(P.findIndex(p=>p[0]==="Thymosin
 function libSlug(n){return n.toLowerCase().replace(/\+/g,"plus").replace(/[()]/g,"").replace(/[–—]/g,"-").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function amHash(){const h=decodeURIComponent(location.hash);let m=h.match(/^#([A-Za-z])$/);if(m){const i=A.findIndex(a=>a[0]===m[1].toUpperCase());if(i<0)return;show(i,true);if(!narrow()){const t=document.querySelector('.tile[data-i="'+i+'"]');if(t)t.scrollIntoView({block:"center"})}return}m=h.match(/^#p\/(.+)$/);if(m){const i=P.findIndex(p=>libSlug(p[0])===m[1]);if(i>=0)pick(i,true)}}
 addEventListener("hashchange",amHash);setTimeout(amHash,0);
+</script>
+<script>
+/* V54 text size: three steps shared across Bare Signals (localStorage bs-text: s|m|l). Zoom on the page content, never the nav. */
+(function(){var K={s:.88,m:1,l:1.15};function get(){try{var v=localStorage.getItem('bs-text');return K[v]?v:'m'}catch(e){return 'm'}}
+function apply(v,save){var w=document.querySelector('.wrap');if(w)w.style.zoom=K[v]===1?'':K[v];document.querySelectorAll('[data-tsz]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tsz===v)});if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}dispatchEvent(new Event('bs-text'))}
+apply(get(),false);document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-tsz]');if(b)apply(b.dataset.tsz,true)});
+addEventListener('storage',function(e){if(e.key==='bs-text')apply(get(),false)});})();
 </script>
 </body>
 </html>

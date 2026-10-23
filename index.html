@@ -7,7 +7,7 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
+/* Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
@@ -36,8 +36,8 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 .cap{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;max-width:420px;width:100%;margin:12px auto 0}
 .cap b{font:700 22px/1.05 "Bricolage Grotesque",system-ui,sans-serif}
 .cap p{margin:0;grid-column:1;color:var(--soft);font-size:14px;line-height:1.3}
-.cap a{grid-row:1/3;grid-column:2;font:500 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:12px 12px;border:1.5px solid var(--ink);background:var(--act);color:#8A3A10;white-space:nowrap}
-.cap a:hover{background:#FFD3B4}
+.cap a{grid-row:1/3;grid-column:2;font:700 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:12px 12px;border:1.5px solid #DB6830;background:#DB6830;color:#fff;white-space:nowrap}
+.cap a:hover{background:#B9531F;border-color:#B9531F}
 .prog{display:flex;gap:4px;max-width:420px;width:100%;margin:10px auto 0}
 .prog button{flex:1;height:5px;border:0;padding:0;background:var(--rule);cursor:pointer;position:relative;overflow:hidden}
 .prog button i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
@@ -46,7 +46,7 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 @keyframes fill{to{transform:scaleX(1)}}
 .foot{max-width:420px;width:100%;margin:8px auto 0;display:flex;justify-content:space-between;color:var(--soft)}
 .foot button{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;cursor:pointer;padding:4px 0}
-.bsn .bsl a.hl{background:#3E4A80!important;color:#FFFFE2!important;transition:background .3s}
+.bsn .bsl a.hl:not([aria-current]){background:#F9D9C2!important;color:#3E4A80!important;box-shadow:inset 0 -3px 0 #DB6830;transition:background .3s}
 
 /* slide pieces */
 .rtg{display:inline-block;font:500 9.5px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;vertical-align:middle;text-decoration:none}
@@ -190,6 +190,90 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 .wk i{display:block;height:16px;border:1px solid var(--ink)}
 .acts2{display:flex;gap:6px;margin-top:10px}
 .acts2 span{flex:1;text-align:center;font:500 9.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:8px 4px;border:1.5px solid var(--ink);background:var(--act);color:#8A3A10}
+
+/* v16: Type Rule v1 across every screen */
+.rtg{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace!important;letter-spacing:.06em;padding:3px 5px!important;border:1px solid var(--ink)!important}
+.lbl,.fp h5{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:9px 0 5px}
+.bw h4,.sp h4,.pr h4,.am h4,.md h4{font:700 16px/1.1 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 3px}
+.tchips{gap:4px}
+.tchips span{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink);gap:4px}
+.tchips span u{width:7px;height:7px}
+.tchips .cnt{font:500 9px "JetBrains Mono",monospace!important;text-transform:none}
+.rl li,.hw li,.nst,.fp ol li,.fp .ns,.inv,.am .note{font-size:12px;line-height:1.35}
+.hw small,.mkl small,.tiers small{font-size:9px}
+.mkl>div{font-size:11.5px;padding:4px 7px}
+.mkl .nm{font-size:9px}
+.kv{font-size:11.5px;line-height:1.3}.kv span{padding:5px 7px}.kv b{padding:6px 7px}
+.labl{font-size:10.5px}.labl b{font:600 12.5px/1.2 "Hanken Grotesk",system-ui,sans-serif}
+.coa{font-size:11.5px}.coa div{padding:5px 7px}
+.slist li{font-size:12px;padding:5px 2px}
+.st1 b{font-size:12px}.st1 .dz{font-size:9px}
+.sl2 small{font-size:11.5px!important}
+.lets{gap:5px}.lets span{font-size:9px}.lets span b{width:18px;height:18px;font-size:9.5px}
+.two{font-size:11.5px}.two b{font-size:13.5px}
+.pur div{font-size:9px}
+.calc .row b{font:600 12.5px "Hanken Grotesk",system-ui,sans-serif}
+.calc .math{font-size:10px}
+.ctab{font-size:10.5px}
+.wk{font-size:11px}
+.acts2 span{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;padding:6px 4px;background:#FFEFE3;color:#DB6830;border-color:#DB6830}
+.am .deep{font-size:8.5px}
+.cap p{font-size:13.5px}
+/* v16: Dosage, compact cards two per row */
+.dcol{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.dcol .dcard .dh{display:block;padding:5px 6px 4px}
+.dcol .dcard .dh b{display:block;font:700 13.5px/1.05 "Bricolage Grotesque",system-ui,sans-serif;overflow-wrap:anywhere}
+.dcol .dcard .dh span{display:block;text-align:left;font:500 8px/1.2 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.dcol .dcard .hero{display:block;padding:4px 6px}
+.dcol .dcard .hero small,.dcol .dg small{display:block;font:500 7.5px/1.2 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.dcol .dcard .hero b{display:block;text-align:left;font:600 12.5px/1.2 "Hanken Grotesk",system-ui,sans-serif}
+.dcol .dg div{padding:3px 6px;font-size:10.5px;font-weight:500;line-height:1.25;min-width:0;overflow-wrap:anywhere}
+.dcol .dcard .sb{height:5px}
+.dcol .tiers{grid-column:1/-1;border:1.5px solid var(--ink);background:var(--paper)}
+.dcol .tiers .lbl{margin:6px 7px 4px}
+.dcol .tiers ol{margin:0 7px 6px;gap:2px}
+.dcol .tiers li{font-size:11.5px}
+/* v16: Library screen, a moving mini Library */
+.body.lbx{display:flex;flex-direction:column}
+.lbx .q{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--paper);padding:6px 8px;font:500 11.5px/1.2 "Hanken Grotesk",system-ui,sans-serif;color:var(--soft);flex:none}
+.lbx .q em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s}
+.lbx .q em.sw{opacity:0}
+.lbx .q span{font:500 9px "JetBrains Mono",monospace;color:var(--accent);flex:none}
+.lbx .seg{display:flex;border:1.5px solid var(--ink);margin-top:6px;overflow:hidden;white-space:nowrap;flex:none;align-self:flex-start;max-width:100%}
+.lbx .seg span{font:500 11px/1 "Hanken Grotesk",system-ui,sans-serif;padding:5px 7px;border-right:1.5px solid var(--ink);flex:none}
+.lbx .seg span:last-child{border-right:0}
+.lbx .seg span.on{background:var(--ink);color:var(--paper)}
+.lbx .rb{display:flex;align-items:center;gap:7px;border:1.5px solid var(--ink);background:var(--paper);padding:5px 7px;margin-top:6px;flex:none}
+.lbx .rb b{font:500 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+.lbx .rb .sws{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.lbx .rb .sws i{display:block;width:7px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.18)}
+.lbx .rb em{font:500 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--soft)}
+.lbx .vp{position:relative;flex:1;min-height:0;overflow:hidden;margin-top:8px}
+.lbx .gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px 6px;padding:0 4px 0 0;will-change:transform}
+.lbx .tl{position:relative;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);min-width:0;min-height:96px;overflow:hidden}
+.lbx .in{padding:6px 6px 5px 7px;display:flex;flex-direction:column;flex:1;min-width:0;position:relative}
+.lbx .nm{font:700 13.5px/1.05 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.01em;overflow-wrap:normal}
+.lbx .aa{float:right;margin:0 -1px 1px 3px;font:500 8px/1.05 "JetBrains Mono",monospace;color:var(--accent);text-align:right}
+.lbx .aa b{display:block;font-size:10px;font-weight:600}
+.lbx .cls{font:500 7.5px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.lbx .fda{display:inline-block;font:600 7px "JetBrains Mono",monospace;background:#E00000;color:#fff;padding:1px 3px;margin-top:3px;letter-spacing:.04em;align-self:flex-start}
+.lbx .ds{margin-top:auto;padding-top:5px}
+.lbx .ds .d{font:600 9.5px/1.2 "Hanken Grotesk",system-ui,sans-serif;display:block}
+.lbx .ds .f{font:500 7.5px/1.3 "JetBrains Mono",monospace;color:var(--soft);display:block;margin-top:1px}
+.lbx .tags{display:flex;flex-wrap:wrap;gap:2px;margin-top:4px}
+.lbx .t{font:500 5.6px/1 "JetBrains Mono",monospace;letter-spacing:.03em;text-transform:uppercase;padding:2px 2px 1.5px;border:.8px solid var(--ink);white-space:nowrap}
+.lbx .band{display:flex;height:9px;border-top:1.5px solid var(--ink);flex:none}
+.lbx .band u{display:block}
+/* v16: text size control (bs-text), scales the screens only */
+.hd{position:relative;padding-right:0}.hd h1{padding-right:92px}
+.hdr{display:flex}
+.hd .tsz{position:absolute;top:0;right:0}
+.tsz{display:inline-flex;border:1.5px solid var(--ink);background:var(--chip)}
+.tsz button{font:700 12px/1 "Hanken Grotesk",system-ui,sans-serif;color:var(--ink);background:none;border:0;border-right:1.5px solid var(--ink);width:26px;height:24px;padding:0;cursor:pointer}
+.tsz button:last-child{border-right:0}
+.tsz button[data-tz="s"]{font-size:10px}.tsz button[data-tz="l"]{font-size:15px}
+.tsz button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sl .scr .body>*{zoom:var(--tz,1)}
 @media (min-width:900px){
   main{padding-top:20px}
   .hd h1{font-size:26px}.hd .tag{font-size:17px}
@@ -205,7 +289,7 @@ main{max-width:1180px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-le
 <body><main>
 <header class="hd">
   <div><h1>BARE SIGNALS</h1><p class="tag">I bare my notes for those who can benefit from it.</p></div>
-  <span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span>
+  <div class="hdr"><span class="tsz" role="group" aria-label="Text size"><button type="button" data-tz="s" aria-label="Smaller text">A</button><button type="button" data-tz="m" aria-label="Standard text">A</button><button type="button" data-tz="l" aria-label="Bigger text">A</button></span><span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span></div>
 </header>
 <div class="gal" id="gal" aria-roledescription="carousel" aria-label="Every page, one at a time"></div>
 <div class="cap" id="cap"></div>
@@ -219,6 +303,17 @@ var T=function(n,t){try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
 var $=function(s){return document.querySelector(s)};
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var first=function(s){s=String(s||'').trim();var m=s.match(/^[\s\S]*?[.!?](?=\s|$)/);return m?m[0]:s};
+
+/* top bar links always navigate: stop the gallery and go, before anything else can get in the way */
+var HOME={stop:function(){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.bsn a[href]');if(!a)return;
+  if(e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
+  e.preventDefault();e.stopImmediatePropagation();try{HOME.stop()}catch(x){}location.assign(a.href)},true);
+document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('.bsn'))try{HOME.stop()}catch(x){}},true);
+/* text size, shared across the site (bs-text) */
+(function(){var K={s:.88,m:1,l:1.15},cur='m';try{cur=localStorage.getItem('bs-text')||'m'}catch(e){}if(!K[cur])cur='m';
+  var set=function(v){cur=v;document.documentElement.style.setProperty('--tz',K[v]);[].forEach.call(document.querySelectorAll('.tsz button'),function(b){b.setAttribute('aria-pressed',b.dataset.tz===v)});try{localStorage.setItem('bs-text',v)}catch(e){}};
+  set(cur);document.querySelector('.tsz').addEventListener('click',function(e){var b=e.target.closest('button');if(b){set(b.dataset.tz);window.dispatchEvent(new Event('bs-text'))}});})();
 
 /* load whichever Library version is live */
 function liveV(dir,fb,cb){fetch('/'+dir+'/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);cb(m?m[1]:fb)}).catch(function(){cb(fb)})}
@@ -350,23 +445,39 @@ loadData(function(){
     ['/protocol/','Protocol','Build a stack, see what overlaps and what to test.','Build a protocol']
   ];
   var fi=0,cur=0,timer=null,paused=RM,DUR=5200,o=null,started=false;
+  var durOf=function(k){return k===0?9000:DUR};
+  HOME.stop=function(){clearTimeout(timer);paused=true};
 
   function bar(a,b){return '<div class="bar"><span>'+a+'</span><span>'+b+'</span></div>'}
-  function sLibrary(o){var d=o.dose||{},rs=(o.roles||[]).slice(0,3);
-    return '<div class="scr">'+bar('Library · card',esc(o.originDetail||''))+'<div class="body">'+
-      '<div class="cardstripe">'+band(o)+'</div><h4 style="font:700 28px/1 Bricolage Grotesque,system-ui,sans-serif;margin:0 0 6px">'+esc(o.name)+'</h4>'+
-      (d.dose?'<div class="cells"><div><small>Dose</small><b>'+esc(d.dose)+'</b></div><div><small>How often</small><b>'+esc(d.freq||'')+'</b></div></div>':'')+
-      '<ul class="rl">'+rs.map(function(k){return '<li>'+TAG(k)+'<span>'+esc((o.desc||{})[k]||'')+'</span></li>'}).join('')+'</ul>'+
-      '<div class="wd3"><div><small style="color:#4F7A2B">Worked</small>'+esc(first(o.worked||o.helps))+'</div><div><small style="color:#C0392B">Didn’t</small>'+esc(first(o.didnt))+'</div></div>'+
-      ((o.mech||[]).length?'<span class="lbl">How it works</span><ol class="hw">'+o.mech.slice(0,3).map(function(m,i){var c=col(m[2]);return '<li><b style="background:'+c+';color:'+txt(c)+'">'+(i+1)+'</b><span>'+esc(m[0])+'<small>'+esc(m[1])+'</small></span></li>'}).join('')+'</ol>':'')+
-      (syns(o).length?'<span class="lbl">Synergies</span><div class="tchips">'+syns(o).slice(0,5).map(function(x){return '<span><u style="background:'+col(x.primary)+'"></u>'+esc(x.name)+'</span>'}).join('')+'</div>':'')+
-      (o.nameNote&&o.nameNote.t?'<span class="lbl">Name story</span><p class="nst">'+esc(o.nameNote.t)+'</p>':'')+
-      '</div></div>'}
+  /* Library: a moving mini Library, Option A stickers with dose */
+  var LIBW=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'],lwi=0;
+  var SH={Repair:'Tissue repair',Protection:'Cell protection',Neuroprotection:'Neuro'};
+  var shortT=function(t){return String(t||'').replace(/\s*\([^)]*\)/g,'').replace(/weeks?/g,'wk').replace(/months?/g,'mo').replace(/maintenance/g,'maint.').trim()};
+  var cyc=function(t){t=shortT(t);if(/→/.test(t))t=t.split('→').pop().replace(/maint\.\s*/,'');return t.split(/,|;/)[0].replace(/\s*on$/,'').trim()};
+  var L2c=function(h){return L2(h)>.42?'#3E4A80':'#FFFFE2'};
+  function sticker(o){var d=o.dose||{},rs=o.roles||[];
+    return '<div class="tl"><div class="in"><span class="nm"><span class="aa">'+(o.blend?'<b>'+o.blend.parts.length+'</b>in':o.seq&&o.seq.length?'<b>'+o.seq.length+'</b>AA':'')+'</span>'+esc(o.name)+'</span>'+(o.blend?'<span class="cls">blend</span>':'')+(o.fda?'<span class="fda">FDA ✓</span>':'')+
+      '<span class="ds"><span class="d">'+esc(shortT(d.dose)||'No common dose')+'</span><span class="f">'+esc(shortT(d.freq))+(d.cycle?' · '+esc(cyc(d.cycle)):'')+'</span></span>'+
+      '<div class="tags">'+rs.map(function(k){var c=col(k);return '<span class="t" style="background:'+c+';color:'+L2c(c)+'">'+esc(SH[k]||k)+'</span>'}).join('')+'</div></div>'+
+      '<div class="band">'+band(o)+'</div></div>'}
+  var LTOP=['thymosin-beta-4','bpc-157','tb-500-frag-17-23','ghk-cu','kpv','retatrutide','klow','semaglutide','bpc-157-tb-500'].map(BY).filter(Boolean);
+  var LALL=(function(){var rest=D.filter(function(x){return LTOP.indexOf(x)<0}).sort(function(a,b){return ((a.rank||999)-(b.rank||999))||a.name.localeCompare(b.name)});var L=LTOP.concat(rest).slice(0,30);return L.slice(0,L.length-L.length%3)})();
+  var FAMK=['Appetite','Glucose','Fat','Energy','Endocrine','Muscle','Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning','Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer','Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward','Desire','Reproductive'].filter(function(k){return PAL[k]});
+  function sLibrary(){var g=LALL.map(sticker).join('');
+    return '<div class="scr">'+bar('Library',D.length+' compounds')+'<div class="body lbx">'+
+      '<div class="q"><em id="lbq">Try “'+LIBW[lwi%LIBW.length]+'” or any name</em><span>'+D.length+'</span></div>'+
+      '<div class="seg">'+['Roles','Popular','Blends','Evidence','Origin','A to Z','Size'].map(function(l){return '<span'+(l==='Popular'?' class="on"':'')+'>'+l+'</span>'}).join('')+'</div>'+
+      '<div class="rb"><b>Roles</b><span class="sws">'+FAMK.map(function(k){return '<i style="background:'+col(k)+'"></i>'}).join('')+'</span><em>Show</em></div>'+
+      '<div class="vp"><div class="gr" id="lbgr">'+g+g+'</div></div></div></div>'}
+  if(!RM)setInterval(function(){var e=document.getElementById('lbq');if(!e)return;e.classList.add('sw');setTimeout(function(){lwi++;e.textContent='Try “'+LIBW[lwi%LIBW.length]+'” or any name';e.classList.remove('sw')},250)},2600);
+  var LS={t0:0,on:false};
+  function lscroll(now){requestAnimationFrame(lscroll);var g=document.getElementById('lbgr');if(!g||!LS.on||RM||!vis)return;
+    var half=g.scrollHeight/2+3.5,y=Math.max(0,(now-LS.t0)/1000)*24;g.style.transform='translateY('+(-(y%half)).toFixed(1)+'px)'}
   function syns(o){return (o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(Boolean)}
-  function dcard(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span class="mono" style="font-size:8.5px">'+esc(d.conf==='logged'?'Logged research':(d.conf||''))+'</span></div><div class="hero"><small class="mono" style="color:var(--soft)">Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
+  function dcard(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span>'+esc(d.conf==='logged'?'Logged research':(d.conf||''))+'</span></div><div class="hero"><small>Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
   function partner(o){var s=(o.syn||[]).map(function(n){return D.filter(function(x){return x.name===n})[0]}).filter(function(x){return x&&x.dose&&x.dose.dose&&x!==o});return s[0]||null}
-  function tiers(o){var t=(o.dose||{}).tiers;if(!t||!t.length)return '';return '<div class="tiers"><span class="lbl" style="margin:8px 8px 4px">Top doses people take</span><ol>'+t.slice(0,3).map(function(x,i){return '<li><b class="tn">'+(i+1)+'</b><span><b>'+esc(x.dose||'')+'</b> '+esc(x.freq||'')+'<small>'+esc(x.label||'')+'</small></span></li>'}).join('')+'</ol></div>'}
-  function sDosage(o){var ps=syns(o).filter(function(x){return x.dose&&x.dose.dose&&x!==o}).slice(0,2);return '<div class="scr">'+bar('Dosage','side by side')+'<div class="body"><div class="dcol">'+dcard(o).replace('<span class="sb">',tiers(o)+'<span class="sb">')+ps.map(dcard).join('')+'</div></div></div>'}
+  function tiers(o){var t=(o.dose||{}).tiers;if(!t||!t.length)return '';return '<div class="tiers"><span class="lbl">Top doses people take · '+esc(o.name)+'</span><ol>'+t.slice(0,3).map(function(x,i){return '<li><b class="tn">'+(i+1)+'</b><span><b>'+esc(x.dose||'')+'</b> '+esc(x.freq||'')+'<small>'+esc(x.label||'')+'</small></span></li>'}).join('')+'</ol></div>'}
+  function sDosage(o){var ps=syns(o).filter(function(x){return x.dose&&x.dose.dose&&x!==o}).slice(0,3),cs=[o].concat(ps).map(dcard);return '<div class="scr">'+bar('Dosage','side by side')+'<div class="body"><div class="dcol">'+cs.slice(0,2).join('')+tiers(o)+cs.slice(2).join('')+'</div></div></div>'}
   function sBlood(o){var c=(BW.comps||{})[o.slug];if(!c)return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><p>Blood work entry coming.</p></div></div>';
     var tests=(c.before||[]).map(function(t){var x=(BW.tests||{})[t[0]];return x?'<span><u style="background:'+x[1]+'"></u>'+esc(x[0])+'</span>':''}).join('');
     return '<div class="scr bw">'+bar('Blood Work',esc(o.name))+'<div class="body"><h4>'+esc(o.name)+'</h4><span class="lbl">Test before starting</span><div class="tchips">'+tests+'</div>'+
@@ -405,8 +516,8 @@ loadData(function(){
   function build(){
     o=FEAT[fi%FEAT.length];
     var c=calc(o);
-    var html=[sLibrary(o),sDosage(o),sBlood(o),sSupps(o),sAminos(o),sMade(),c.html.replace(/<div class="bar">.*?<\/div>/,function(m){return m+'<div class="body">'}).replace(/<\/div>$/,'</div></div>'),sProtocol(o)];
-    var hrefs=[lib(o),'/dosage/?only='+encodeURIComponent(o.slug),'/blood/','/supplements/','/aminos/','/made/',c.href,'/protocol/'];
+    var html=[sLibrary(),sDosage(o),sBlood(o),sSupps(o),sAminos(o),sMade(),c.html.replace(/<div class="bar">.*?<\/div>/,function(m){return m+'<div class="body">'}).replace(/<\/div>$/,'</div></div>'),sProtocol(o)];
+    var hrefs=['/library/','/dosage/?only='+encodeURIComponent(o.slug),'/blood/','/supplements/','/aminos/','/made/',c.href,'/protocol/'];
     $('#gal').innerHTML=html.map(function(h,i){return '<a class="sl" data-i="'+i+'" href="'+hrefs[i]+'" aria-label="'+PAGES[i][1]+'">'+h+'</a>'}).join('');
     PAGES.forEach(function(p,i){p[4]=hrefs[i]});
     box=document.getElementById('hstring');
@@ -419,13 +530,15 @@ loadData(function(){
     if(wrap&&!user){fi++;build()}
     place();navHL();
     var p=PAGES[cur];$('#cap').innerHTML='<b>'+p[1]+'</b><p>'+p[2]+'</p><a href="'+(p[4]||p[0])+'" data-open="'+p[1]+'">'+p[3]+' →</a>';
-    $('#prog').innerHTML=PAGES.map(function(q,k){return '<button type="button" data-k="'+k+'" aria-label="'+q[1]+'" class="'+(k<cur?'done':k===cur&&!paused?'run':k===cur?'done':'')+'" style="--dur:'+DUR+'ms"><i></i></button>'}).join('');
+    $('#prog').innerHTML=PAGES.map(function(q,k){return '<button type="button" data-k="'+k+'" aria-label="'+q[1]+'" class="'+(k<cur?'done':k===cur&&!paused?'run':k===cur?'done':'')+'" style="--dur:'+durOf(k)+'ms"><i></i></button>'}).join('');
     if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null});else LV=null;
-    clearTimeout(timer);if(!paused)timer=setTimeout(function(){go(cur+1)},DUR);
+    if(cur===0){if(!LS.on){LS.on=true;LS.t0=performance.now()+1300}}else{LS.on=false;var lg=document.getElementById('lbgr');if(lg)lg.style.transform=''}
+    clearTimeout(timer);if(!paused)timer=setTimeout(function(){go(cur+1)},durOf(cur));
   }
   function start(){if(started)return;started=true;
-    build();go(0);requestAnimationFrame(frame);
+    build();go(0);requestAnimationFrame(frame);requestAnimationFrame(lscroll);
     var tries=0;(function wait(){if(document.querySelector('.bsn')){$('main').style.setProperty('--navh',document.querySelector('.bsn').offsetHeight+'px');navHL()}else if(tries++<40)setTimeout(wait,50)})();
+    addEventListener('bs-text',function(){if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
     addEventListener('resize',function(){var n=document.querySelector('.bsn');if(n)$('main').style.setProperty('--navh',n.offsetHeight+'px');place();if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null})});
   }
   function user(i){paused=true;$('#pause').textContent='Play';go(i,true);T('home-gallery:'+PAGES[(i+8)%8][1],'Gallery '+PAGES[(i+8)%8][1])}

@@ -2,6 +2,15 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v17 (23 Oct 2026) at /blood/v17/
+- Type Rule v1: role tags, test chips, section labels and badges all at one small tag size (8.5px mono caps); body text 13.5px, card names 16px, page title 22px; big plan numbers cut to 17px. Three-step text size control (small A / A / large A) top right, saved as bs-text and shared with the other pages.
+- Test chips (Amylase, ALT, AST...) on compound cards now the same size as the role tags.
+- Full card: Test before you start, Also check while on it, What it does to your markers and Everything it touches sit in two columns on phone with smaller text; marker numbers sit under the name instead of a wide right column.
+- Add to my plan is a small orange button in one compact row with Library and Dosage links; label is fixed width so taps never shift it. Tested 6 taps in a row and triple taps on 5 cards with touch on a phone viewport and with a mouse on desktop: state, saved plan and tab count always match. The added note no longer catches taps meant for buttons under it (only its Open My plan link is tappable).
+- Fix: "Blood markers it moves" tags overlapped their text when the card was expanded (tag sat in a 12px column). Tags now sit above their line.
+- Long intro and caution box replaced by one line: "Better cautious than not: test before you start, and keep testing."
+- Compound search stays on screen when you scroll (sticky), matches names and Library aliases (Ozempic, Wegovy, Mounjaro, TB500...) and lists name or alias matches first, then label matches, then compounds whose notes mention it. Full card shows "Also called". My plan search also matches aliases. /blood/v17/data.js = v16 + BW_ALIAS from Library v43. v16 kept.
+
 ## v16 (23 Oct 2026) at /blood/v16/
 - Add to my plan fix: on phones the button stayed solid orange after you removed a compound (sticky hover), so it looked like it was still in the plan. Hover colours now only apply on mouse devices; tap highlight removed.
 - After each tap a short note shows "<compound> added · N in plan" with an "Open My plan" button.

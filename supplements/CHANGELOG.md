@@ -3,6 +3,11 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v13 (23 Oct 2026) at /supplements/v13/
+- Text size control (small A / A / large A) at the top of the page; default A, small is 0.88, large 1.15. Saved as bs-text so it carries between pages.
+- Tiles are portrait cards: two per row on phone, five on laptop next to the open card, compact text (15px name, 3-line summary, 2 on phone). Tapping still opens the full card.
+- Type Rule v1: every tag, role tag, badge, filter chip and section label uses the 8.5px mono caps badge style; footnotes 9px mono / 10.5px; body 13.5px; doses 12.5px (no big hero numbers); card name 17px; page title 22px. v12 kept.
+
 ## v12 (23 Oct 2026) at /supplements/v12/
 - Goes with lists gain the Batch 3 compounds (27 pairings). v11 kept.
 
