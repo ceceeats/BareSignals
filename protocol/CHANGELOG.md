@@ -2,6 +2,21 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v18 (24 Oct 2026) at /protocol/v18/
+Takes the good parts of a competitor's personalised protocol (personal note, why each peptide, preparing the vials, a "next" list, version number, sharps and dry-alcohol lines) and keeps everything this page already did better (dated calendar, restock, blood work, overlap check, links that edit).
+- Her day: clock times for Morning, Lunch (was Midday), Afternoon, Evening, Bedtime (08:00, 12:30, 15:00, 19:00, 22:00 by default). Used in the Week calendar, the routine and the calendar file.
+- A note for her (or to yourself) at the top of the protocol and the printout.
+- Routine view, now the default: one quiet page grouped by clock time (08:00 ☀ Morning, 15:00 ☾ Afternoon...), each peptide with dose, units or sprays, which days, until when, and why it's there; then Soon (restocks, vial ends, blood tests, last doses) and Next (planned peptides).
+- Add to my calendar: downloads an .ics file with every dose for the next 4 months at her times, doses at the same time grouped into one event with a reminder, plus all-day restock, vial and blood test days. Works with Google Calendar (Settings → Import) and Apple Calendar (Add All).
+- Weekly frequencies can be pinned to weekdays (e.g. NAD+ Mon · Wed · Fri).
+- Why it's in the stack: one editable line per peptide (defaults to the Library's use line).
+- Planned, not started: a peptide can sit in the stack as "Next up" without going on the calendar or into blood work.
+- Same peptide on two routes (e.g. KPV injected and nasal) as two cards; the overlap check shows it in blue with the combined daily amount instead of a red double.
+- Preparing the vials: one sentence per vial (water, swirl, nasal half-vial recipe) with mg/ml, units or sprays per dose and doses per vial; also in the printout.
+- Version number counts up on every save and shows on the protocol and printout.
+- Printout opens with the routine, then at a glance, preparing, four weekly calendars, the whole run, what each one is (with why), blood work, how to take it, overlap check, notes, log.
+- Built on v17, kept.
+
 ## v17 (24 Oct 2026) at /protocol/v17/
 - Smart defaults: a peptide added from step one is ready straight away, not a blank card. Start dose = the low end of the Library's typical dose, start date = today (no staggering by default), recommended frequency, time and food where the Library has them, the usual route, and the mix from the Bare Signals sticker sheet: vial size per compound (93 matched), water 2 ml BAC by default, 3 ml for 30 mg vials and up and for Tesamorelin (gels if too little), 5 ml for NAD+ 1000 mg, SS-31 50 mg in 2 ml; nasal = half a vial in a 5 ml bottle (1 part BAC to 4 saline). Switching route resets the mix to that route's default.
 - "Use recommended for all" (tap, then confirm) resets every card to those defaults, keeping dates and stock.
