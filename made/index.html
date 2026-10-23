@@ -520,7 +520,7 @@ input[type=range]{accent-color:var(--act)!important}
 <div class="wrap">
 
 <header>
-  <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p><span class="tsz" role="group" aria-label="Text size"><button type="button" data-tsz="s" aria-label="Smaller text">A</button><button type="button" data-tsz="m" aria-label="Standard text">A</button><button type="button" data-tsz="l" aria-label="Larger text">A</button></span></div>
+  <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p></div>
   <h1>From recipe to vial<small>V4</small></h1>
   <p class="lede" style="margin-top:8px">A peptide is a recipe built from tiny bricks. This page follows one from the recipe card to the sealed vial, and shows what can go wrong at every step.</p>
 </header>
@@ -530,6 +530,7 @@ input[type=range]{accent-color:var(--act)!important}
   <nav class="walk" aria-label="Steps" id="walk"></nav>
 </section>
 
+<!-- Made v5 (23 Oct 2026): page A A A buttons removed; text size follows the site bar (nav v10), laptop starts at 1.15 with steps to 1.45. v4 kept at /made/v4/. -->
 <!-- PART ONE -->
 <section id="recipe">
   <div class="divider"><span>Part one · The recipe</span></div>
@@ -1662,10 +1663,9 @@ var rzT=0;addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(
 </script>
 <script>
 /* text size: three steps shared across Bare Signals (localStorage bs-text: s|m|l). Zoom on the page content, never the nav. */
-(function(){var K={s:.88,m:1,l:1.15};function get(){try{var v=localStorage.getItem('bs-text');return K[v]?v:'m'}catch(e){return 'm'}}
-function apply(v,save){var w=document.querySelector('.wrap');if(w)w.style.zoom=K[v]===1?'':K[v];document.querySelectorAll('[data-tsz]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tsz===v)});if(save){try{localStorage.setItem('bs-text',v)}catch(e){}}dispatchEvent(new Event('bs-text'))}
-apply(get(),false);document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-tsz]');if(b)apply(b.dataset.tsz,true)});
-addEventListener('storage',function(e){if(e.key==='bs-text')apply(get(),false)});})();
+(function(){var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):({s:.88,m:1,l:1.15}[localStorage.getItem('bs-text')]||1))}catch(e){}
+function apply(k){k=+k||1;var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k}
+apply(k0);addEventListener('bs-text',function(e){if(e&&e.detail&&e.detail.k)apply(e.detail.k)});})();
 </script>
 </body>
 </html>

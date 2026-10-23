@@ -1,0 +1,1671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="How peptides are made, from recipe to vial: where amino acids come from, cells and beads, caps, what falls off the bead, purification, freeze drying, purity, the COA, endotoxin, heavy metals, pH and reactions.">
+<title>Made · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;
+  --repair:#E1DE62;--repair-ink:#8A8712;--red:#FF5050;--grid:#6777B6;--lav:#DDD0F6;--green:#AACC96;--orange:#FFA51F;--coral:#F28E79;--sky:#74BCFF;--violet:#B493E8;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+h1{font:700 26px/1.05 var(--display);margin:0;text-wrap:balance}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+h2{font:700 20px/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+h3{font:700 16px/1.2 var(--display);margin:0 0 4px}
+p{margin:0 0 10px}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
+.lede{max-width:62ch}
+.note{font-size:12.5px;color:var(--ink-soft)}
+.soft{color:var(--ink-soft)}
+b.o{color:var(--accent);font-weight:600}
+a{color:var(--ink)}
+section{scroll-margin-top:12px}
+
+/* walk: six steps, cell to vial */
+.walk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:14px 0 8px}
+.walk a{display:flex;flex-direction:column;gap:2px;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:8px 9px 10px;text-decoration:none;min-width:0;background:var(--paper)}
+.walk a:hover{background:var(--chip)}
+.walk svg{width:100%;height:58px;display:block;margin-bottom:4px}
+.walk b{font:500 10.5px var(--mono);color:var(--accent);letter-spacing:.08em}
+.walk strong{font:700 15px/1.1 var(--display)}
+.walk span{font-size:12px;line-height:1.3;color:var(--ink-soft)}
+
+/* dividers */
+.divider{display:flex;align-items:center;gap:12px;margin:34px 0 14px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
+.divider span{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink);width:max-content;max-width:100%;margin:6px 0 12px}
+.tabs button{font:600 13px var(--body);color:var(--ink);background:var(--chip);border:0;border-right:1px solid var(--rule);padding:8px 11px;cursor:pointer}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pane{border:1.5px solid var(--rule);background:var(--chip);padding:14px}
+
+/* step lists */
+.steps{list-style:none;margin:0 0 12px;padding:0;counter-reset:s;border-top:1.5px solid var(--rule)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 8px;padding:9px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);font:500 11px var(--mono);color:var(--accent);padding-top:3px}
+.steps li b{font-weight:600}
+
+/* chips (selectors) */
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 10px}
+.ctrl .lab{margin:0;min-width:84px}
+.seg{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--mono);color:var(--ink);background:var(--paper);border:0;border-right:1px solid var(--rule);padding:6px 8px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* stacking */
+.chainviz{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:2px;margin:8px 0}
+.chainviz i{aspect-ratio:1;display:block;background:var(--green)}
+.chainviz i.d1{background:var(--orange)}
+.chainviz i.d2{background:var(--red)}
+.big{font:700 34px/1 var(--display)}
+.stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);margin:8px 0}
+.stat div{border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:7px 8px}
+.stat b{display:block;font:700 20px/1.1 var(--display)}
+.stat span{font-size:11.5px;color:var(--ink-soft);line-height:1.25;display:block}
+.key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-soft)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{width:11px;height:11px;display:inline-block}
+
+/* bead build animation */
+.bead svg{width:100%;height:auto;display:block}
+@keyframes drop{0%{transform:translateY(-26px);opacity:0}40%{opacity:1}100%{transform:none;opacity:1}}
+.bead .add{animation:drop 1.2s ease-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.bead .add{animation:none}}
+
+/* tiles (impurities) */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:9px 9px 0;display:flex;flex-direction:column;gap:3px;min-height:96px;background:var(--paper)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+@media (hover:hover){.tile:hover{background:var(--chip)}}
+.tile[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tile[aria-pressed="true"] .ms,.tile[aria-pressed="true"] .wh{color:var(--paper)}
+.tile strong{font:700 15px/1.1 var(--display)}
+.tile .ms{font:500 11px var(--mono);color:var(--accent)}
+.tile .wh{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.tile .bar{height:8px;margin:auto -9px 0;border-top:1.5px solid var(--grid)}
+.open{border:1.5px solid var(--ink);background:var(--chip);padding:12px 14px;margin:10px 0 0}
+.open h3{margin-bottom:6px}
+.open p{font-size:14px}
+
+/* chromatogram */
+.chrom{border:1.5px solid var(--rule);background:var(--paper);padding:8px}
+.chrom svg{width:100%;height:auto;display:block}
+
+/* purity */
+.grid1k{display:grid;grid-template-columns:repeat(40,minmax(0,1fr));gap:1px;background:var(--rule);border:1.5px solid var(--grid);margin:8px 0 6px}
+.grid1k i{aspect-ratio:1;display:block;background:var(--paper)}
+.grid1k i.x{background:var(--red)}
+.vialbar{display:flex;height:34px;border:1.5px solid var(--ink);margin:8px 0 6px}
+.vialbar i{display:block;min-width:0;transition:flex-grow .4s}
+.verdict{border-left:4px solid var(--accent);padding:6px 10px;background:var(--chip);font-size:14px;margin:8px 0}
+
+/* COA */
+.coa{border:1.5px solid var(--ink);background:#fff;font-size:13px}
+.coa .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 12px;border-bottom:1.5px solid var(--ink)}
+.coa .hd b{font:700 16px var(--display)}
+.coa .hd span{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.coa table{width:100%;border-collapse:collapse}
+.coa td{border-bottom:1px solid var(--rule);padding:7px 10px;vertical-align:top}
+.coa td:first-child{width:28px;padding-right:0}
+.coa td:nth-child(2){font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);width:38%}
+.coa tr{cursor:pointer}
+@media (hover:hover){.coa tr:hover td{background:var(--chip)}}
+.coa tr.sel td{background:#FFF7C2}
+.num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border:1.5px solid var(--ink);font:500 10.5px var(--mono)}
+.freq{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;margin-left:4px;white-space:nowrap}
+.f1{background:var(--green)}.f2{background:var(--repair)}.f3{background:#FFC9C9}
+.coa tr.ex{cursor:default}.coa tr.ex td{background:#FFF7C2;font:400 13.5px/1.45 var(--body);letter-spacing:0;text-transform:none;color:var(--ink);padding:8px 12px 10px;width:auto}
+.cols{display:grid;grid-template-columns:1fr;gap:10px}
+.box{border:1.5px solid var(--rule);background:var(--chip);padding:10px 12px}
+.box h3{font-size:15px}
+.box ul{margin:4px 0 0;padding-left:18px;font-size:14px}
+.box li{margin:3px 0}
+.box.yes{border-color:var(--green)}.box.no{border-color:var(--red)}
+.checks{list-style:none;padding:0;margin:0}
+.checks li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:14px}
+.checks li::before{content:"";width:12px;height:12px;border:1.5px solid var(--ink);margin-top:4px}
+
+/* sequence */
+.seq{display:flex;flex-wrap:wrap;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.seq button{all:unset;box-sizing:border-box;cursor:pointer;width:calc(100%/15);min-width:0;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);text-align:center;padding:6px 0 4px;background:var(--paper)}
+.seq button b{display:block;font:700 18px/1 var(--display)}
+@media (max-width:560px){.seq button b{font-size:14px}.seq button span{font-size:7.5px}}
+.seq button span{font:500 8.5px var(--mono);color:var(--ink-soft)}
+.seq button.gone{background:repeating-linear-gradient(45deg,var(--paper) 0 4px,#FFC9C9 4px 8px)}
+.seq button.gone b{opacity:.25;text-decoration:line-through}
+.ms-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink);margin:8px 0}
+.ms-read div{padding:7px 8px;border-right:1px solid var(--rule)}
+.ms-read div:last-child{border-right:0}
+.ms-read b{display:block;font:700 18px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.ms-read span{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* pH */
+.ph{position:relative;margin:26px 0 54px}
+.ph .scale{display:flex;height:18px;border:1.5px solid var(--ink)}
+.ph .scale i{flex:1}
+.ph .ticks{position:relative;height:14px;font:500 9.5px var(--mono);color:var(--ink-soft);margin-top:3px}
+.ph .ticks span{position:absolute;transform:translateX(-50%)}.ph .ticks span:first-child{transform:none}.ph .ticks span:last-child{transform:translateX(-100%)}
+.ph .mk{position:absolute;top:-6px;height:30px;border-left:2px solid var(--ink)}
+.ph .mk span{position:absolute;left:4px;font:500 10px/1.15 var(--mono);white-space:nowrap}
+.ph .rng{position:absolute;top:-4px;height:26px;background:rgba(62,74,128,.18);border:1.5px solid var(--ink)}
+
+/* toxins */
+.spec{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 10px}
+.spec th{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:5px 7px;border:1.5px solid var(--red);background:var(--paper)}
+.spec td{border:1.5px solid var(--red);padding:6px 7px;vertical-align:top}
+.spec td.n{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.calc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0}
+.calc label{display:flex;flex-direction:column;gap:3px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.calc input{font:600 16px var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:6px 8px;border-radius:0;width:100%}
+
+/* reactions */
+.react{display:grid;grid-template-columns:1fr;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid)}
+.react div{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:10px 11px}
+.react .when{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.react p{font-size:13.5px;margin:4px 0 0}
+.react .sw{height:6px;margin:-10px -11px 8px}
+.alarm{border:2.5px solid var(--red);background:#FFF1F1;padding:12px 14px;margin:14px 0}
+.alarm h3{color:#C02424;font-size:18px}
+.alarm ol{margin:6px 0 0;padding-left:20px;font-size:14px}
+.alarm li{margin:4px 0}
+
+details.deep{border-top:1.5px solid var(--rule);margin-top:10px}
+details.deep summary{cursor:pointer;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding:8px 0}
+details.deep p{font-size:14px}
+
+.foot{margin-top:40px;border-top:1.5px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--ink-soft)}
+.foot ol{padding-left:20px;margin:6px 0 12px}
+.foot li{margin:3px 0}
+sup a{text-decoration:none;font:500 9.5px var(--mono);color:var(--accent)}
+
+@media (min-width:900px){
+  .wrap{max-width:980px;padding-top:30px}
+  h1{font-size:40px}
+  .lede{font-size:16px}
+  .walk{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .walk svg{height:76px}
+  .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+  .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cols{grid-template-columns:1fr 1fr}
+  .react{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid1k{grid-template-columns:repeat(50,minmax(0,1fr))}
+}
+@media (max-width:380px){.walk span{font-size:11px}.tile strong{font-size:14px}}
+@media print{.tabs{display:none}}
+/* ---- v3 additions ---- */
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 6px}
+.hrow .lab{margin:0!important}
+.tsz{display:inline-flex;align-items:stretch;border:1.5px solid var(--ink);flex:none}
+.tsz button{all:unset;cursor:pointer;font:600 12px/1 var(--body);color:var(--ink);padding:4px 7px;min-width:12px;text-align:center;display:flex;align-items:center;justify-content:center}
+.tsz button+button{border-left:1.5px solid var(--ink)}
+.tsz button[data-tsz="s"]{font-size:10px}.tsz button[data-tsz="l"]{font-size:15px}
+.tsz button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.walk{grid-template-columns:repeat(4,minmax(0,1fr))}
+.walk svg{height:44px}
+@media (max-width:560px){.walk span{display:none}.walk a{padding:6px 6px 8px}.walk strong{font-size:13px}}
+.tag{display:inline-block;font:500 8.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:0 5px;border:1.5px solid var(--ink);white-space:nowrap;vertical-align:1px}
+.tag.inv{background:var(--ink);color:var(--paper)}
+.svgbox{border:1.5px solid var(--rule);background:var(--paper);padding:6px}
+.svgbox svg{width:100%;height:auto;display:block}
+.cap{font:500 10px var(--mono);letter-spacing:.06em;color:var(--ink-soft);margin:4px 0 0}
+.fix{border:1.5px solid var(--ink);background:var(--chip);padding:10px 12px;margin:10px 0}
+.fix h3{font-size:15px}
+.fix p{font-size:14px;margin:0 0 6px}.fix p:last-child{margin:0}
+.ends{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0}
+.ends div{border:1.5px solid var(--rule);background:var(--chip);padding:8px 10px;font-size:13.5px}
+.ends b{display:block;font:700 14px var(--display);margin-bottom:2px}
+.diffs{font-size:13.5px;margin:6px 0 0;padding-left:18px}
+.diffs li{margin:2px 0}
+.pairrow{display:grid;grid-template-columns:1fr;gap:2px;margin:6px 0}
+.pairrow .nm{display:flex;justify-content:space-between;gap:8px;font:600 13px var(--body)}
+.pairrow .nm span{font:500 10.5px var(--mono);color:var(--ink-soft)}
+/* letters */
+.aa20{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.aa20 button{all:unset;box-sizing:border-box;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);background:var(--paper);display:flex;flex-direction:column;align-items:center;padding:4px 2px 0;min-width:0}
+.aa20 button svg{width:40px;height:40px}
+.aa20 button span{font:500 8.5px var(--mono);letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase;padding-bottom:3px}
+.aa20 button i{display:block;height:6px;align-self:stretch;border-top:1.5px solid var(--grid)}
+.aa20 button[aria-pressed="true"]{background:var(--chip);outline:2px solid var(--accent);outline-offset:-3px}
+@media (min-width:900px){.aa20{grid-template-columns:repeat(10,minmax(0,1fr))}}
+.rkey{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--ink-soft);margin:4px 0}
+.rkey span{display:inline-flex;align-items:center;gap:5px}.rkey i{width:12px;height:12px;border:1.5px solid var(--ink);display:inline-block}
+/* E. coli */
+@keyframes wig{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+.fl{animation:wig 1.1s ease-in-out infinite}
+.fl2{animation:wig 1.3s ease-in-out infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pl{transform-origin:90px 70px;animation:spin 9s linear infinite}
+/* bead build */
+.bb{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:start}
+.bb .vessel svg{width:96px;height:auto;display:block}
+@media (max-width:899px){.bb{grid-template-columns:96px minmax(0,1fr)}.bbwide{grid-column:1/-1}}
+.chainviz{max-width:560px}
+.phase{font:700 16px/1.15 var(--display);margin:0}
+.phase small{display:block;font:400 12.5px/1.35 var(--body);color:var(--ink-soft);margin-top:2px}
+.ctr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.ctr div{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:5px 7px}
+.ctr b{display:block;font:700 17px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.ctr span{font:500 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:560px){.ctr{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.btnrow{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.btn{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:5px 9px;cursor:pointer;border-radius:0}
+.btn:hover{background:var(--chip)}
+.cmp{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}
+.cmp th{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:4px 6px;border-bottom:1.5px solid var(--ink)}
+.cmp td{padding:5px 6px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.cmp tr.on td{background:#FFF7C2;font-weight:600}
+.lenbar{height:8px;background:var(--grid);display:block}
+/* state strip */
+.states{list-style:none;margin:8px 0;padding:0;border-top:1.5px solid var(--rule)}
+.states li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:13.5px}
+.st{font:500 8.5px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-align:center;border:1.5px solid var(--ink);height:max-content}
+.st.l{background:var(--sky)}.st.s{background:var(--paper)}.st.m{background:linear-gradient(90deg,var(--paper) 50%,var(--sky) 50%)}.st.f{background:#DDEBFF}
+/* routes */
+.routes{display:grid;grid-template-columns:1fr;gap:10px;margin:8px 0}
+.route{border:1.5px solid var(--ink);background:var(--paper)}
+.route h3{font-size:14px;margin:0;padding:7px 10px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.route ul{list-style:none;margin:0;padding:0}
+.route li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:5px 10px;border-bottom:1px solid var(--rule);font-size:13.5px}
+.route li:last-child{border-bottom:0}
+.route li span{font:500 10px var(--mono);color:var(--ink-soft);text-align:right}
+.route .chips{display:flex;flex-wrap:wrap;gap:4px;padding:8px 10px}
+.route .chips b{font:500 11px var(--mono);border:1.5px solid var(--rule);padding:2px 6px;background:var(--chip);font-weight:500}
+@media (min-width:900px){.routes{grid-template-columns:1fr 1fr}}
+/* crude rows */
+.crude{border-top:1.5px solid var(--grid)}
+.crow{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr);width:100%;cursor:pointer;border-bottom:1.5px solid var(--grid);padding:8px 0 6px}
+.crow .t{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.crow strong{font:700 15px/1.1 var(--display)}
+.crow .ms{font:500 10.5px var(--mono);color:var(--accent);white-space:nowrap}
+.crow svg{width:100%;max-width:420px;height:auto;display:block;margin:4px 0 2px}
+.crow .more{font-size:13.5px;margin:2px 0 4px;color:var(--ink)}
+.crow .more p{margin:0 0 4px}
+.crow[aria-expanded="false"] .more{display:none}
+.crow .wh{font-size:12.5px;color:var(--ink-soft)}
+@media (hover:hover){.crow:hover{background:var(--chip)}}
+.rank{list-style:none;margin:8px 0;padding:0}
+.rank li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px;align-items:center;padding:4px 0;font-size:13px}
+.rank i{display:block;height:12px;border:1.5px solid var(--ink)}
+.facts{list-style:none;margin:8px 0 0;padding:0;border-top:1.5px solid var(--rule)}
+.facts li{padding:7px 0;border-bottom:1.5px solid var(--rule);font-size:13.5px}
+.facts li b.n{font:700 18px var(--display);margin-right:4px}
+/* dry */
+.dry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:start}
+.dry svg{width:120px;height:auto;display:block}
+.dstrip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:10px 0 0}
+.dstrip button{all:unset;box-sizing:border-box;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:5px 3px;text-align:center;font:500 9px/1.2 var(--mono);color:var(--ink-soft);background:var(--paper);min-width:0;overflow:hidden}
+.dstrip button b{display:block;font:700 14px var(--display);color:var(--ink)}
+.dstrip button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}.dstrip button[aria-pressed="true"] b{color:var(--paper)}
+@media (max-width:420px){.dstrip button span{display:none}}
+.dsteps{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--rule)}
+.dsteps li{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:6px;padding:6px 0;border-bottom:1.5px solid var(--rule);font-size:13.5px;cursor:pointer;opacity:.55;transition:opacity .25s}
+.dsteps li.on{opacity:1}
+.dsteps li.on .dn{background:var(--ink);color:var(--paper)}
+.dn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1.5px solid var(--ink);font:500 9.5px var(--mono)}
+/* purity lens */
+.lens svg{width:100%;height:auto;display:block}
+.slide{display:flex;align-items:center;gap:10px;margin:8px 0}
+.slide input{flex:1;accent-color:#3E4A80}
+.slide output{font:700 24px/1 var(--display);min-width:78px;text-align:right;font-variant-numeric:tabular-nums}
+.warn{border:1.5px solid var(--red);background:#FFF1F1;padding:8px 11px;font-size:13.5px;margin:8px 0}
+.warn b{color:#C02424}
+.ladder{list-style:none;margin:8px 0;padding:0}
+.ladder li{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:8px;align-items:center;font-size:12.5px;padding:3px 0}
+.ladder li i{display:block;height:10px;background:var(--grid)}
+.ladder li .lv{font:500 10px var(--mono);color:var(--ink-soft);text-align:right}
+.ladder li .lt{display:block;font-size:12.5px}
+@media (min-width:900px){.bb{grid-template-columns:120px minmax(0,1fr)}.bb .vessel svg{width:120px}.dry{grid-template-columns:150px minmax(0,1fr)}.dry svg{width:150px}}
+@media (prefers-reduced-motion:reduce){.fl,.fl2,.pl{animation:none}}
+
+
+/* ---- v4 additions ---- */
+.like{display:flex;gap:8px;align-items:baseline;border-left:3px solid var(--grid);background:var(--chip);padding:7px 10px;margin:8px 0;font-size:14px}
+.like b.k{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--grid);flex:none}
+.walk a{gap:1px}
+.walk svg{height:50px}
+@media (min-width:900px){.walk{grid-template-columns:repeat(8,minmax(0,1fr))}.walk svg{height:58px}}
+.g2{display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
+.g3{display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
+.g4{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:640px){.g4{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{border:1.5px solid var(--ink);background:var(--paper)}
+.card .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 10px;border-bottom:1.5px solid var(--ink)}
+.card .hd h3{margin:0;font-size:15px}
+.card .bd{padding:8px 10px}
+.card .bd p{font-size:13.5px;margin:0 0 6px}
+.card svg.anim{width:100%;height:auto;display:block;background:var(--chip);border-bottom:1.5px solid var(--rule)}
+.kv{display:grid;grid-template-columns:78px minmax(0,1fr);gap:3px 8px;font-size:13px;margin:4px 0 0}
+.kv dt{font:500 9px/1.9 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.kv dd{margin:0}
+/* recipe card */
+.rcard{border:1.5px solid var(--ink);background:#fff;position:relative;margin:10px 0}
+.rcard::before{content:"";position:absolute;left:0;right:0;top:46px;height:0;border-top:1.5px dashed var(--rule)}
+.rc-hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 12px;height:46px;box-sizing:border-box}
+.rc-hd h3{font:700 20px/1 var(--display);margin:0}
+.rc-hd span{font:500 10px var(--mono);color:var(--ink-soft);letter-spacing:.04em}
+.rc-cols{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 12px 12px;background:repeating-linear-gradient(#fff 0 25px,#EEF1FF 25px 26px)}
+@media (min-width:640px){.rc-cols{grid-template-columns:200px minmax(0,1fr)}}
+.rc-ing{list-style:none;margin:0;padding:0}
+.rc-ing li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:6px;font-size:13.5px;height:26px}
+.rc-ing li svg{width:28px;height:26px}
+.rc-ing li span{font:500 11px var(--mono);color:var(--ink-soft)}
+.rc-note{margin:0;padding:8px 12px;border-top:1.5px solid var(--rule);font-size:13px;font-style:italic;color:var(--ink-soft);background:#fff}
+/* chem ends */
+.chem{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.chem div{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:6px 8px 8px;background:var(--paper);min-width:0}
+.chem div.on{background:#EAF7F5}
+.chem svg{width:100%;height:auto;display:block;max-height:96px}
+.chem b{display:block;font:700 13.5px/1.15 var(--display)}
+.chem span{display:block;font-size:12px;line-height:1.3;color:var(--ink-soft)}
+.atoms{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--ink-soft);margin:2px 0 8px}
+.atoms i{display:inline-flex;width:16px;height:16px;border-radius:50%;border:1.2px solid var(--ink);align-items:center;justify-content:center;font:700 8.5px var(--mono);color:var(--ink);font-style:normal;margin-right:4px;vertical-align:-3px}
+/* caps legend */
+.capkey{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:12px;color:var(--ink-soft);margin:6px 0}
+.capkey span{display:inline-flex;align-items:center;gap:6px}
+.capkey i{display:inline-block;width:18px;height:12px;border:1.2px solid var(--ink)}
+/* stepper controls */
+.ctlbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0}
+.ctlbar .btn{min-width:38px;text-align:center}
+.btn.go{background:var(--ink);color:var(--paper)}
+.ctlbar input[type=range]{flex:1;min-width:120px;accent-color:#3E4A80}
+.ctlbar .rv{font:500 10.5px var(--mono);color:var(--ink-soft);min-width:70px}
+.pips{display:flex;border:1.5px solid var(--ink);margin:6px 0;flex-wrap:wrap}
+.pips button{all:unset;cursor:pointer;flex:1 1 0;min-width:0;text-align:center;font:500 9.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:6px 3px;border-right:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.pips button:last-child{border-right:0}
+.pips button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.stepcap{min-height:58px;font-size:14px;margin:4px 0}
+.stepcap b{font:700 16px var(--display);display:block;margin-bottom:2px}
+/* bead build v4 */
+.bwrap{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;align-items:start}
+.bwrap .vessel svg{width:104px;height:auto;display:block}
+.bside{min-width:0}
+.ctr{max-width:440px}
+.ctr b{font-size:16px}
+.cmp{max-width:560px}
+.bchain{grid-column:1/-1}
+@media (min-width:900px){.bwrap{grid-template-columns:130px minmax(0,1fr)}.bwrap .vessel svg{width:130px}.bchain{grid-column:2}}
+@keyframes drip{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+.drip{animation:drip .7s linear infinite}
+@keyframes slosh{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
+.slosh{animation:slosh 1.6s ease-in-out infinite}
+@keyframes flyoff{to{transform:translate(18px,-34px) rotate(25deg);opacity:0}}
+.flyoff{animation:flyoff 1s .5s ease-in forwards;transform-box:fill-box;transform-origin:center}
+@keyframes flyright{to{transform:translateX(26px)}}
+.flyright{animation:flyright 1s .6s ease-in-out forwards}
+@keyframes popin{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
+.popin{animation:popin .6s ease-out}
+/* board */
+.board{display:grid;grid-template-columns:1fr;gap:10px;margin:8px 0}
+.grp{border:1.5px solid var(--ink);background:var(--paper)}
+.grp .gh{display:flex;align-items:center;gap:8px;padding:6px 9px;border-bottom:1.5px solid var(--ink)}
+.grp .gh svg{width:30px;height:22px;flex:none}
+.grp .gh b{font:700 14px var(--display)}
+.grp .gh span{margin-left:auto;font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:4px;padding:8px 9px}
+.chip{display:inline-flex;flex-direction:column;gap:2px;border:1.5px solid var(--rule);background:var(--chip);padding:3px 6px 4px;font:500 11px var(--mono);min-width:0}
+.chip i{display:block;height:4px;background:var(--grid)}
+.chip small{font-size:9px;color:var(--ink-soft)}
+@media (min-width:900px){.board{grid-template-columns:1.4fr 1fr 1fr}.board .wide{grid-row:span 2}}
+/* lens legend */
+.lkey{list-style:none;margin:6px 0;padding:0}
+.lkey li{display:grid;grid-template-columns:28px minmax(0,1fr) 64px;gap:6px;align-items:center;font-size:13px;padding:3px 0;border-bottom:1px solid var(--rule)}
+.lkey li svg{width:28px;height:12px}
+.lkey li span{font:600 12px var(--body);text-align:right;font-variant-numeric:tabular-nums}
+.lkey li em{font-style:normal;font-size:11.5px;color:var(--ink-soft);display:block}
+/* letters */
+.aa20 button.dim{opacity:.25}
+.rkey button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:2px 6px;border:1.5px solid transparent}
+.rkey button[aria-pressed="true"]{border-color:var(--ink);background:var(--chip)}
+.rkey button i{width:12px;height:12px;border:1.5px solid var(--ink);display:inline-block}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.who div{border:1.5px solid var(--ink);background:var(--chip);padding:6px 8px;font-size:13px}
+.who svg{width:100%;height:60px;display:block}
+.who b{display:block;font:700 14px var(--display)}
+/* crude grid */
+@media (min-width:900px){.crude{display:grid;grid-template-columns:1fr 1fr;column-gap:22px}}
+.crow svg{max-width:360px}
+/* ss31 */
+.dosebars{list-style:none;margin:8px 0;padding:0}
+.dosebars li{display:grid;grid-template-columns:86px minmax(0,1fr) 92px;gap:8px;align-items:center;font-size:13px;padding:3px 0}
+.dosebars i{display:block;height:12px;border:1.5px solid var(--ink)}
+.dosebars span{font:500 10.5px var(--mono);color:var(--ink-soft);text-align:right}
+.strip5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:8px 0}
+.strip5 div{border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:4px 4px 6px;text-align:center;font-size:11.5px;line-height:1.25;min-width:0}
+.strip5 svg{width:100%;height:36px;display:block}
+.strip5 b{display:block;font:500 9px var(--mono);color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.drip,.slosh,.flyoff,.flyright,.popin{animation:none}}
+/* mini library cards */
+.minis{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+.mini{position:relative;display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:2px 8px;align-items:start;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);background:#fff;padding:6px 8px 14px;min-width:0;flex:1 1 220px;max-width:340px}
+.mini .maa{display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--ink);padding:2px 0;font:500 8px var(--mono);letter-spacing:.06em}
+.mini .maa b{font:700 16px/1 var(--display)}
+.mini .mn b{display:block;font:700 15px/1.1 var(--display)}
+.mini .mn b em{font:500 8.5px var(--mono);font-style:normal;border:1px solid var(--ink);padding:0 3px;vertical-align:2px}
+.mini .mn small{display:block;font-size:11.5px;color:var(--ink-soft);line-height:1.25}
+.mini .mtg{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.mini .mtg span{font:500 8px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:0 4px;border:1px solid var(--ink)}
+.mini .mgo{font:500 9px var(--mono);color:var(--act,#DB6830);white-space:nowrap}
+.mini .mband{position:absolute;left:0;right:0;bottom:0;height:8px;display:flex;border-top:1.5px solid var(--ink)}
+.mini .mband i{display:block;height:100%}
+@media (hover:hover){.mini:hover{background:var(--chip)}}
+/* crude compared */
+.crude2{border-top:1.5px solid var(--grid)}
+.crow2{border-bottom:1.5px solid var(--grid);border-left:5px solid;padding:7px 0 6px 9px}
+.crow2 .t{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.crow2 strong{font:700 15px/1.1 var(--display)}
+.crow2 .w{font:500 10.5px var(--mono);color:#B0412B;text-align:right}
+.crow2 p{font-size:12.5px;color:var(--ink-soft);margin:0}
+.crow2 svg{width:100%;max-width:330px;height:auto;display:block;margin:2px 0}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.float{animation:bob 3.2s ease-in-out infinite}
+/* vial row */
+.vrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);margin:10px 0 0}
+.vrow button{all:unset;box-sizing:border-box;cursor:pointer;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);padding:6px 4px 8px;text-align:center;background:var(--paper);display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.vrow svg{width:64px;height:auto;display:block}
+.vrow b{font:500 10px var(--mono);color:var(--accent)}
+.vrow span{font:600 12px/1.2 var(--body)}
+.vrow em{font-style:normal;padding:0 4px}
+.vrow button[aria-pressed="true"]{background:var(--actbg);outline:2px solid var(--act);outline-offset:-3px}
+@media (min-width:640px){.vrow{grid-template-columns:repeat(7,minmax(0,1fr))}}
+.ladder li{grid-template-columns:28px minmax(0,1fr) 92px}
+/* interactive = orange (site action colour) */
+:root{--act:#DB6830;--actbd:#F2B48F;--actbg:#FFEFE3}
+.seg{border-color:var(--act)}
+.seg button{background:var(--actbg);border-right-color:var(--actbd)}
+.seg button[aria-pressed="true"]{background:var(--act);color:#fff}
+.btn{border-color:var(--act);background:var(--actbg)}
+.btn:hover{background:#FFE0CC}
+.btn.go{background:var(--act);color:#fff}
+.pips{border-color:var(--act)}
+.pips button{background:var(--actbg);border-right-color:var(--actbd)}
+.pips button[aria-pressed="true"]{background:var(--act);color:#fff}
+.tabs{border-color:var(--act)}.tabs button{background:var(--actbg)}.tabs button[aria-selected="true"]{background:var(--act);color:#fff}
+input[type=range]{accent-color:var(--act)!important}
+.slide output{color:var(--act)}
+.rkey button[aria-pressed="true"]{border-color:var(--act);background:var(--actbg)}
+.aa20 button[aria-pressed="true"]{background:var(--actbg);outline-color:var(--act)}
+.coa tr.sel td{background:var(--actbg)}
+.calc input{border-color:var(--act)}
+#bbPips button{cursor:default}
+@media (min-width:900px){.chem{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.fix p.cap{font:500 10px/1.4 var(--mono);color:var(--ink-soft)}
+.fix p.lab{font:500 10.5px var(--mono);letter-spacing:.12em}
+.lkey li{grid-template-columns:28px minmax(0,1fr) 78px}
+.mini{flex:1 1 150px}
+.mini .mtg span:nth-child(n+3){display:none}
+@media (min-width:640px){.mini .mtg span:nth-child(n+3){display:inline}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p></div>
+  <h1>From recipe to vial<small>V4</small></h1>
+  <p class="lede" style="margin-top:8px">A peptide is a recipe built from tiny bricks. This page follows one from the recipe card to the sealed vial, and shows what can go wrong at every step.</p>
+</header>
+
+<section>
+  <p class="lab" style="margin-top:16px">The whole path, tap a step</p>
+  <nav class="walk" aria-label="Steps" id="walk"></nav>
+</section>
+
+<!-- Made v5 (23 Oct 2026): page A A A buttons removed; text size follows the site bar (nav v10), laptop starts at 1.15 with steps to 1.45. v4 kept at /made/v4/. -->
+<!-- PART ONE -->
+<section id="recipe">
+  <div class="divider"><span>Part one · The recipe</span></div>
+  <h2>A peptide is a recipe of bricks</h2>
+  <p class="like"><b class="k">Like</b><span>Lego. There are 20 kinds of brick. Every brick has the same plug and the same socket; only the piece on top differs. Snap them in one exact order and you have a peptide.</span></p>
+  <div class="g2">
+    <div>
+      <div class="svgbox" id="snap"></div>
+      <p class="cap">The next brick’s plug (front, N end) snaps into the socket (back, C end) of the one before. Each snap squeezes out one drop of water, so a chain weighs a little less than its bricks.</p>
+    </div>
+    <div>
+      <div class="ctrl"><span class="lab">Recipe</span><div class="seg" id="rcSel"></div></div>
+      <div id="rcMini"></div>
+      <div class="rcard">
+        <div class="rc-hd"><h3 id="rcName">Selank</h3><span id="rcMeta"></span></div>
+        <div class="rc-cols">
+          <div><p class="lab" style="margin:0 0 2px">Ingredients</p><ul class="rc-ing" id="rcIng"></ul></div>
+          <div><p class="lab" style="margin:0 0 2px">Method · snap in this order</p><div id="rcMethod"></div></div>
+        </div>
+        <p class="rc-note" id="rcNote"></p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">End caps: what NA and Amidate actually are</h3>
+  <p>Same bricks, two extra caps on the ends. Here is what the ends look like up close.</p>
+  <div class="atoms"><span><i style="background:#E3E0BF">C</i>carbon</span><span><i style="background:#FF8A8A">O</i>oxygen</span><span><i style="background:#74BCFF">N</i>nitrogen</span><span><i style="background:#fff">H</i>hydrogen</span></div>
+  <div class="chem" id="chem"></div>
+  <div class="g2" style="margin-top:6px">
+    <div>
+      <p class="like"><b class="k">Like</b><span>a Pac-Man that only eats from loose ends. Enzymes called exopeptidases chew a chain one brick at a time from either end. Caps hide the ends.</span></p>
+      <div class="ctrl"><div class="seg" id="chompSel"><button data-v="0" aria-pressed="true">Selank, no caps</button><button data-v="1" aria-pressed="false">NA Selank Amidate</button></div></div>
+    </div>
+    <div>
+      <div class="svgbox" id="chomp"></div>
+      <p class="cap" id="chompCap"></p>
+    </div>
+  </div>
+  <p class="note">The idea behind the NA versions is a longer life and an easier slip through membranes. Human data comparing capped and plain versions is thin (reported, not proven).</p>
+
+  <h3 style="margin-top:18px">Look-alikes: same bricks, different molecule</h3>
+  <p>Names that look like twins on a sticker. The highlighted spots are the only differences, and each one changes the weight a COA should show.</p>
+  <div class="ctrl"><div class="seg" id="pairSel"></div></div>
+  <div id="pairOut"></div>
+</section>
+
+<!-- PART TWO -->
+<section id="letters">
+  <div class="divider"><span>Part two · The bricks</span></div>
+  <h2>Where each brick comes from</h2>
+  <div class="who">
+    <div><svg viewBox="0 0 120 60" aria-hidden="true" id="whoCell"></svg><b>Grown in cells</b>The cell makes its own bricks from sugar. Nobody adds any.</div>
+    <div><svg viewBox="0 0 120 60" aria-hidden="true" id="whoJar"></svg><b>Stacked on beads</b>Bricks arrive in jars, already capped, bought by the kilo.</div>
+  </div>
+  <p>The jars are filled in four ways. The world makes millions of tonnes a year, mostly for food and animal feed; peptide makers buy an extra-clean sliver.<sup><a href="#s9">9</a></sup></p>
+  <div class="g4" id="aaRoutes"></div>
+
+  <h3 style="margin-top:16px">All 20, by how they are made</h3>
+  <div class="rkey" id="rkey"></div>
+  <div class="aa20" id="aa20"></div>
+  <div class="open" id="aaOpen"></div>
+
+  <h3 style="margin-top:18px">Then the caps go on</h3>
+  <p class="like"><b class="k">Like</b><span>the cap on a marker. A bare brick would snap onto anything, even itself. Caps make it snap once, in the right place.</span></p>
+  <div class="capkey"><span><i style="background:#3E4A80"></i>Front cap (Fmoc): off every round</span><span><i style="background:#B493E8"></i>Side guard: off once, at the end</span><span><i style="background:#87CFC5"></i>End caps (Ac, NH₂): stay for good</span></div>
+  <div class="g2">
+    <div class="svgbox" id="caps"></div>
+    <div>
+      <div class="pips" id="capPips"></div>
+      <div class="stepcap" id="capCap"></div>
+      <div class="ctlbar"><button class="btn" id="capPrev" type="button">‹</button><button class="btn go" id="capPlay" type="button">Pause</button><button class="btn" id="capNext" type="button">›</button></div>
+    </div>
+  </div>
+  <p class="verdict"><b class="o">Two caps, two removers:</b> base takes the front cap off every round, acid takes the guards off once. That split is the whole trick of the stack.<sup><a href="#s16">16</a></sup></p>
+
+  <div class="fix" id="ss31">
+    <h3>Short and still pricey: SS-31</h3>
+    <div class="g2">
+      <div>
+        <div id="ssMini"></div>
+        <div class="svgbox" id="ssChain"></div>
+        <p class="cap">Four bricks, two of them special: a mirror-form arginine and Dmt, a lab-made tyrosine the body never builds, reported as costly to make cleanly.<sup><a href="#s18">18</a></sup></p>
+      </div>
+      <div>
+        <p class="lab" style="margin:0 0 2px">Reported daily amounts</p>
+        <ul class="dosebars" id="dosebars"></ul>
+        <p style="font-size:13.5px">Short chains are cheap per round, but SS-31 is used by the milligram. Add special bricks and attention since elamipretide's FDA approval in September 2025,<sup><a href="#s18">18</a></sup> and short stops meaning cheap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PART THREE -->
+<section id="build">
+  <div class="divider"><span>Part three · The build</span></div>
+  <h2>Which peptide, which way</h2>
+  <p>Almost every research peptide is stacked by machine. Cells only win for long chains of natural bricks. Bars show length.</p>
+  <div class="board" id="board"></div>
+  <p class="note">Brand medicines are listed by their label route. A research vial of the same name can be made another way: research semaglutide is usually reported as stacked on beads, the route regulators expect for copies of synthetic peptides.<sup><a href="#s11">11</a></sup> Of 38 recent small peptide medicines, 31 are made fully by chemistry.<sup><a href="#s11">11</a></sup></p>
+
+  <h2 id="beads" style="margin-top:22px">Stacked on beads</h2>
+  <p class="like"><b class="k">Like</b><span>building a Lego tower one brick at a time on a grain of sand, then washing the sand between every brick. Not in a beaker: in a tube with a filter at the bottom. Liquid in, soak, drain, repeat. The beads never leave.</span></p>
+  <div class="ctrl"><span class="lab">Peptide</span><div class="seg" id="bbSel"></div></div>
+  <div id="bbMini"></div>
+  <div class="bwrap">
+    <div class="vessel" id="vessel"></div>
+    <div class="bside">
+      <div class="pips" id="bbPips"></div>
+      <div class="stepcap" id="bbPhase"></div>
+      <div class="ctr">
+        <div><span>Round</span><b id="cRound">1 / 5</b></div>
+        <div><span>Liquid changes</span><b id="cLiq">0</b></div>
+        <div><span>Machine time</span><b id="cTime">0 h</b></div>
+        <div><span>Full chains left</span><b id="cFull">100%</b></div>
+      </div>
+      <div class="ctlbar"><button class="btn" id="bbPrev" type="button" aria-label="Back one step">‹</button><button class="btn go" id="bbPlay" type="button">Play</button><button class="btn" id="bbNext" type="button" aria-label="Next step">›</button><div class="seg" id="bbSpd"><button data-v="3200" aria-pressed="true">Slow</button><button data-v="1500" aria-pressed="false">Faster</button></div></div>
+      <div class="ctlbar"><span class="rv" id="bbRv">Round 1</span><input type="range" id="bbRound" min="1" max="5" value="1" aria-label="Jump to round"></div>
+    </div>
+    <div class="bchain"><div class="svgbox" id="bbChain"></div><p class="cap">One bead, zoomed in. The chain is built backwards: the back (C end) sits on the bead and new bricks go on the front. Violet: side guards. Navy: the front cap.</p></div>
+  </div>
+
+  <h3 style="margin-top:16px">Look inside the crude</h3>
+  <p>Every round has a small miss rate. Zoom into the tube after the last round and count what was built.</p>
+  <div class="ctrl"><span class="lab">Each snap works</span><div class="seg" id="effSel"></div></div>
+  <div class="g2">
+    <div><div class="svgbox" id="crudeLens"></div><p class="cap" id="crudeCap"></p></div>
+    <div><ul class="lkey" id="crudeKey"></ul><p class="note">Illustrative model: each snap fails at the rate picked, plus a small fixed share of guard, mirror and oxygen mistakes. Real crude depends on the bricks. The peptide follows the one picked in the stacking above.</p></div>
+  </div>
+
+  <h3 style="margin-top:14px">Same steps, more rounds</h3>
+  <div class="g2">
+    <table class="cmp" id="cmpT"></table>
+    <div>
+      <p class="note">About nine liquid changes and 30 to 60 minutes a round on a standard machine. Across 40 real peptide processes, 1 kg of peptide used about <b>13,000 kg</b> of solvents, reagents and water, against a few hundred for a pill drug.<sup><a href="#s12">12</a></sup></p>
+      <p class="verdict"><b class="o">Why longer usually costs more:</b> more rounds, more solvent, more broken chains, and twins closer to the right one, so the cleanup throws more away. Not always: SS-31 is short and pricey.</p>
+    </div>
+  </div>
+
+  <h2 id="cells" style="margin-top:22px">Grown in cells</h2>
+  <p class="like"><b class="k">Like</b><span>a brewery. Give a cell the gene, feed it sugar, and billions of copies build the chain for you with their own ribosomes. Three kinds of cell do most of the work.</span></p>
+  <div class="strip5" id="strip5"></div>
+  <div class="g3" id="cellCards"></div>
+  <p class="verdict" style="margin-top:10px"><b class="o">What comes along:</b> bits of the cell itself. Host proteins, host DNA and, from bacteria, <b>endotoxin</b> (Part eleven). All of it has to be washed out. Brand semaglutide's chain is grown in yeast, then the fatty tail is added by chemistry.<sup><a href="#s1">1</a></sup></p>
+</section>
+
+<!-- PART FOUR -->
+<section id="crude">
+  <div class="divider"><span>Part four · The crude</span></div>
+  <h2>What falls off the bead</h2>
+  <p>Acid cuts every chain off its bead, then ice-cold ether turns the liquid into a powder: the <b>crude</b>. It is the right chain mixed with its mistakes. Here they all are on one peptide.</p>
+  <div id="crudeMini"></div>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <div class="crude2" id="crudeList"></div>
+      <p class="note">Weights are in daltons, the unit for molecules (one hydrogen atom is about 1). A COA's mass line compares these weights, which is how most mistakes get caught.</p>
+    </div>
+    <div>
+      <div class="fix" style="margin-top:0">
+        <h3>Mirror swap: left hand, right hand</h3>
+        <div class="svgbox" id="hands"></div>
+        <p>Every brick except glycine comes in two mirror shapes, like your hands: same parts, mirror arrangement. The body builds only with left-hand bricks, called <b>L</b>. A brick that flips to the right-hand form, <b>D</b>, weighs exactly the same, which is why it hides from mass spec, but it can sit in the receptor the wrong way.</p>
+        <p class="note">Some peptides use D bricks on purpose (Ipamorelin, MT-2) to slow enzymes down. A swap is a D where the recipe says L.</p>
+      </div>
+      <h3 style="margin-top:12px">Which mistakes happen most</h3>
+      <ul class="rank" id="rankL"></ul>
+      <ul class="facts">
+        <li><b class="n">10 of 13</b> impurities found in one 15-brick test peptide were single missing bricks.<sup><a href="#s13">13</a></sup> BPC-157 is also 15 bricks.</li>
+        <li><b class="n">44%</b> of research peptides ordered at 95% purity or better actually met it when a university lab retested them. One sample's main molecule was not the ordered peptide at all.<sup><a href="#s14">14</a></sup></li>
+        <li><b class="n">+16</b> oxidation is documented in approved medicines: leuprolide and eledoisin.<sup><a href="#s13">13</a></sup></li>
+        <li><b class="n">D</b> swaps are most common at histidine, cysteine, aspartic acid and serine.<sup><a href="#s15">15</a></sup></li>
+      </ul>
+      <p class="verdict"><b class="o">The hardest step:</b> the snap. Missing, extra and mirror-swapped bricks are all born there, and they are the twins hardest to cut away. Oxidation and deamidation keep forming in storage, after the COA was written.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART FIVE -->
+<section id="purify">
+  <div class="divider"><span>Part five · Purify</span></div>
+  <h2>Keep the peak, cut the rest</h2>
+  <p class="like"><b class="k">Like</b><span>a race where every molecule runs the same track. Greasier runners are slower. The lab keeps the runners who cross the line in the middle of the pack.</span></p>
+  <div class="two">
+    <div>
+      <p>The crude is dissolved and pushed through a steel column packed with greasy silica (HPLC). A UV light at the exit draws a peak each time something passes.</p>
+      <p>The right chain makes the tallest peak. Its <b>near twins</b> (one brick missing, one extra, a guard left on) leave a few seconds before or after it. The lab keeps a slice around the middle: the <b class="o">cut</b>. Purity is a business choice as much as a science one.</p>
+    </div>
+    <div>
+      <div class="chrom"><svg id="chrom" viewBox="0 0 320 180" aria-label="Chromatogram"></svg></div>
+      <div class="ctrl" style="margin-top:8px"><span class="lab">The cut</span><div class="seg" id="cutSel"><button data-c="w" aria-pressed="false">Wide</button><button data-c="m" aria-pressed="true">Medium</button><button data-c="n" aria-pressed="false">Narrow</button><button data-c="auto" aria-pressed="true">Auto</button></div></div>
+      <p class="note">Plays on its own; tap a cut to hold it, Auto to play again.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART SIX -->
+<section id="dry">
+  <div class="divider"><span>Part six · Dose, dry, seal</span></div>
+  <h2>From a liquid to a white cake</h2>
+  <p class="like"><b class="k">Like</b><span>instant coffee. Make the drink, freeze it, then pull the ice off as vapour. What stays is a dry cake that turns back into the drink when water is added. Lyophilized just means freeze dried.</span></p>
+  <div class="vrow" id="vrow"></div>
+  <p class="cap">Drawn as a 3 mL vial. Tap a vial for its step.</p>
+  <div class="open" id="vOpen"></div>
+  <p class="note" style="margin-top:8px">Vials are pressed shut inside the dryer itself, before air is let back in.<sup><a href="#s17">17</a></sup> Many are closed under a partial vacuum, often with nitrogen, which is why a fresh vial can pull water in on its own.</p>
+<h3 style="margin-top:12px">The whole trip, solid and liquid</h3>
+  <ul class="states">
+    <li><span class="st m">Wet solid</span><span>Chain on beads, soaked and drained every round.</span></li>
+    <li><span class="st l">Liquid</span><span>Cut free in acid (TFA).</span></li>
+    <li><span class="st s">Solid</span><span>Crashed out in cold ether: the crude powder.</span></li>
+    <li><span class="st l">Liquid</span><span>Dissolved again, through the HPLC, slices pooled, salt swapped, diluted to the dose.</span></li>
+    <li><span class="st f">Frozen</span><span>Filled into vials and frozen.</span></li>
+    <li><span class="st s">Solid</span><span>Ice pulled off as vapour: the cake. Then sealed.</span></li>
+    <li><span class="st l">Liquid</span><span>Back to liquid only when someone adds water (the <a href="/water/">Water</a> page).</span></li>
+  </ul>
+  <p class="verdict"><b class="o">What is left in the vial:</b> the peptide, its salt partner (TFA or acetate), some water the powder pulls from air, any filler (mannitol keeps the cake's shape), and whatever impurities survived the cut. "10 mg" on a label rarely means 10 mg of pure peptide. Part nine does the math.</p>
+</section>
+
+
+<!-- PART SEVEN -->
+<section id="purity">
+  <div class="divider"><span>Part seven · Purity, seen</span></div>
+  <h2>What 99.9%, 98% and 90% look like</h2>
+  <div id="purMini"></div>
+  <p>After the cut, the vial is mostly the right chain plus near twins that slipped through. Slide the purity and look inside.</p>
+  <div class="slide"><input type="range" id="purR" min="90" max="99.9" step="0.1" value="98" aria-label="Purity"><output id="purO">98%</output></div>
+  <div class="ctrl"><div class="seg" id="purSel"></div></div>
+  <div class="g2">
+    <div>
+      <div class="svgbox" id="lens"></div>
+      <p class="cap" id="lensCap"></p>
+    </div>
+    <div>
+      <ul class="lkey" id="purKey"></ul>
+      <div class="warn"><b>You will never see these.</b> Each one is a single dissolved molecule, about a millionth of a millimetre. No eye or ordinary microscope can see them. Specks you <i>can</i> see are a different problem (clumps, particles, contamination).</div>
+      <div class="stat">
+        <div><b id="pImp">200 mcg</b><span>not the right chain, per 10 mg</span></div>
+        <div><b id="pDraw">1 in 50</b><span>molecules is something else</span></div>
+        <div><b id="pMol">85 quadrillion</b><span>wrong molecules in a 10 mg BPC-157 vial</span></div>
+      </div>
+      <div class="verdict" id="pVerdict"></div>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:6px">
+    <div>
+      <h3>How small is that</h3>
+      <ul class="ladder" id="ladder"></ul>
+    </div>
+    <details class="deep" open><summary>What the purity number cannot see</summary>
+      <div class="cols">
+        <div class="box no"><h3>Invisible to purity</h3><ul>
+          <li>Water and salt partners (TFA, acetate)</li>
+          <li>Endotoxin</li>
+          <li>Heavy metals</li>
+          <li>Leftover solvents</li>
+          <li>Bacteria or fungi</li>
+          <li>A wrong molecule that exits at the same moment</li>
+        </ul></div>
+        <div class="box"><h3>So a 99% vial can still</h3><ul>
+          <li>hold only 70% peptide by weight</li>
+          <li>carry endotoxin</li>
+          <li>be the wrong peptide, if nobody ran mass spec</li>
+          <li>be non-sterile</li>
+        </ul></div>
+      </div>
+      <p style="margin-top:10px;font-size:14px">Medicines also limit each single impurity, not only the total. A grey market COA almost always gives one total number.</p>
+    </details>
+  </div>
+</section>
+
+<section id="coa">
+  <div class="divider"><span>Part eight · The COA</span></div>
+  <h2>Certificate of Analysis, line by line</h2>
+  <p>A COA is a lab's report on <b>one batch</b> (the lot). Not on every vial, not on the brand. Tap a line. Colour shows how often each line appears on research peptide COAs.</p>
+  <div class="key" style="margin-bottom:8px"><span><i class="f1"></i>Usually there</span><span><i class="f2"></i>Sometimes</span><span><i class="f3"></i>Rarely</span></div>
+  <div class="two">
+    <div>
+      <div class="coa">
+        <div class="hd"><b>Certificate of Analysis</b><span>Example · not a real lot</span></div>
+        <table id="coaT"></table>
+      </div>
+    </div>
+    <div>
+      <div class="cols" style="grid-template-columns:1fr">
+        <div class="box yes"><h3>A COA covers</h3><ul>
+          <li>That one lot, on the test date</li>
+          <li>Only the tests printed on it</li>
+          <li>The lab's own method and limits</li>
+        </ul></div>
+        <div class="box no"><h3>A COA does not cover</h3><ul>
+          <li>The vial in hand, unless the lot number matches</li>
+          <li>Shipping heat, storage, time since testing</li>
+          <li>Any test that is not on the page</li>
+          <li>How you mix, store or draw it</li>
+        </ul></div>
+      </div>
+      <h3 style="margin-top:12px">Read it like a skeptic</h3>
+      <ul class="checks">
+        <li><span>Lot number on the COA matches the lot on the vial in hand.</span></li>
+        <li><span>Mass spec found weight matches the theoretical weight for that sequence (Part nine).</span></li>
+        <li><span>A chromatogram picture is attached, not just a number.</span></li>
+        <li><span>The picture is not the same one reused across different compounds.</span></li>
+        <li><span>Who tested it: the maker (in-house) or an outside lab you can contact.</span></li>
+        <li><span>Every lot reading exactly 99.9% is a pattern, not a result.</span></li>
+        <li><span>Endotoxin and sterility lines exist if it is meant for injection.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PART SIX -->
+<section id="weight">
+  <div class="divider"><span>Part nine · Weight</span></div>
+  <h2>Two weights that matter</h2>
+  <div class="tabs" role="tablist" data-tabs="w">
+    <button role="tab" aria-selected="true" data-p="w1">Molecular weight</button>
+    <button role="tab" aria-selected="false" data-p="w2">Vial weight</button>
+  </div>
+  <div class="pane" id="w1">
+    <p><b>Molecular weight is a fingerprint.</b> Every sequence has one exact weight, the sum of its letters minus the water lost at each link. Mass spec (MS) weighs the molecules in the batch. If the found weight matches the theoretical one, the chain is probably the right one.</p>
+    <p>This is BPC-157, 15 letters. Tap any letter to drop it, the way a missed link would.</p>
+    <div class="seq" id="seq"></div>
+    <div class="ms-read">
+      <div><span>Theoretical</span><b>1419.5</b></div>
+      <div><span>This chain</span><b id="msNow">1419.5</b></div>
+      <div><span>Difference</span><b id="msDiff">0</b></div>
+    </div>
+    <p class="note" id="msNote">Weights in daltons (g/mol). A missing proline drops 97.1, a missing glycine 57.1. MS sees that instantly; HPLC may not.</p>
+  </div>
+  <div class="pane" id="w2" hidden>
+    <p><b>The label weight is usually powder weight.</b> Part of that powder is the salt partner and water. The share that is real peptide is the <b>net peptide content</b>, usually 60 to 90%.<sup><a href="#s4">4</a></sup> Purity and net content are two different numbers and both shrink what you actually hold.</p>
+    <div class="ctrl"><span class="lab">Net content</span><div class="seg" id="netSel"></div></div>
+    <div class="vialbar" id="vBar"></div>
+    <div class="key" style="margin-bottom:8px"><span><i style="background:var(--green)"></i>Right peptide</span><span><i style="background:var(--red)"></i>Peptide impurities</span><span><i style="background:var(--lav)"></i>Salt partner and water</span></div>
+    <div class="verdict" id="vNote"></div>
+    <p class="note">Uses the purity you picked in Part seven, on a 10 mg vial. The <a href="/draw/">Calculator</a> works out water and syringe marks from the label weight; this is why the label weight is a ceiling, not a promise. Vial fill also varies from vial to vial.</p>
+  </div>
+</section>
+
+<!-- PART SEVEN -->
+<section id="ph">
+  <div class="divider"><span>Part ten · pH</span></div>
+  <h2>Why acid and base matter</h2>
+  <div class="ph" aria-hidden="true">
+    <div class="scale"><i style="background:#FF5050"></i><i style="background:#FF7A4D"></i><i style="background:#FFA51F"></i><i style="background:#FFC94A"></i><i style="background:#E1DE62"></i><i style="background:#C9DD7A"></i><i style="background:#AACC96"></i><i style="background:#9CD1B4"></i><i style="background:#86C6D6"></i><i style="background:#74BCFF"></i><i style="background:#7FA0F0"></i><i style="background:#8C8BE6"></i><i style="background:#B493E8"></i><i style="background:#9B7FD6"></i></div>
+    <div class="ticks"><span style="left:calc(0/14*100%)">0</span><span style="left:calc(2/14*100%)">2</span><span style="left:calc(4/14*100%)">4</span><span style="left:calc(6/14*100%)">6</span><span style="left:calc(7/14*100%)">7</span><span style="left:calc(8/14*100%)">8</span><span style="left:calc(10/14*100%)">10</span><span style="left:calc(12/14*100%)">12</span><span style="left:calc(14/14*100%)">14</span></div>
+    <div class="rng" style="left:calc(4.5/14*100%);width:calc(2.5/14*100%)"></div>
+    <div class="mk" style="left:calc(5.7/14*100%);top:24px;height:24px;border-color:#3E4A80"><span style="top:12px">BAC water, 4.5 to 7</span></div>
+    <div class="mk" style="left:calc(7.4/14*100%);top:-22px;height:40px;border-color:#DB6830"><span style="top:-2px;color:#DB6830">Blood, 7.35 to 7.45</span></div>
+  </div>
+  <div class="cols">
+    <div class="box"><h3>Dissolving</h3><p style="font-size:14px;margin:0">Every peptide has a pH where its charges cancel (its isoelectric point). Near that pH it dissolves worst and can turn cloudy or clump. That is why some peptides need a slightly acidic water to go clear.</p></div>
+    <div class="box"><h3>Shelf life</h3><p style="font-size:14px;margin:0">Higher pH speeds some breakdown, like asparagine turning into aspartate (deamidation). Wrong pH plus warmth plus time equals a weaker vial with more impurities than its COA shows.</p></div>
+    <div class="box"><h3>Sting</h3><p style="font-size:14px;margin:0">Leftover TFA makes a solution more acidic. More acid, more sting at the injection site. A COA may list pH or the salt form.</p></div>
+    <div class="box" style="grid-column:1/-1"><h3>The water: BAC water vs saline</h3>
+      <table class="spec" style="margin:6px 0 4px"><tr><th></th><th>BAC water</th><th>Saline</th></tr>
+      <tr><td><b>Inside</b></td><td>Sterile water + 0.9% benzyl alcohol</td><td>Sterile water + 0.9% salt (sodium chloride)</td></tr>
+      <tr><td><b>Preservative</b></td><td>Yes: the alcohol slows bacteria after opening</td><td>None, unless labelled bacteriostatic saline</td></tr>
+      <tr><td><b>Use</b></td><td>Multi-dose; commonly kept up to 28 days after the first puncture</td><td>Single use: open, draw, discard</td></tr>
+      <tr><td><b>pH</b></td><td class="n">about 5.7 (4.5 to 7)</td><td class="n">about 5.5 (4.5 to 7)</td></tr></table>
+      <p style="font-size:13.5px;margin:0">Neither sterilises a dirty vial. The <a href="/water/">Water</a> page compares BAC, HAC and GAC.<sup><a href="#s5">5</a></sup></p></div>
+  </div>
+  <p class="verdict" style="margin-top:10px"><b class="o">Signal:</b> a mixed vial that stays cloudy, has floating bits, or changes colour is telling you something changed. Clear and colourless is the baseline for most peptides. GHK-Cu is the known exception: copper makes it blue.</p>
+</section>
+
+<!-- PART EIGHT -->
+<section id="toxins">
+  <div class="divider"><span>Part eleven · Toxins</span></div>
+  <h2>What purity never measured</h2>
+  <div class="tabs" role="tablist" data-tabs="t">
+    <button role="tab" aria-selected="true" data-p="t1">Endotoxin</button>
+    <button role="tab" aria-selected="false" data-p="t2">Heavy metals</button>
+    <button role="tab" aria-selected="false" data-p="t3">Solvents</button>
+    <button role="tab" aria-selected="false" data-p="t4">Microbes</button>
+  </div>
+
+  <div class="pane" id="t1">
+    <p><b>Endotoxin is a piece of dead bacteria.</b> It is a fat-sugar molecule (lipopolysaccharide, LPS) from the outer wall of gram-negative bacteria like <i>E. coli</i>. Bacteria shed a little while alive and a lot when they die.<sup><a href="#s6">6</a></sup> So a product can be sterile, zero living bacteria, and still be full of endotoxin.</p>
+    <p><b>Why it matters.</b> The immune system reads LPS as an infection. Small amounts in the blood bring fever, chills, shaking, aches and headache within hours. Large amounts can drop blood pressure into shock.</p>
+    <p><b>Why it is hard to remove.</b> It survives heat. Normal autoclaving does not reliably destroy it; it takes dry heat around 250°C for 30 minutes.<sup><a href="#s6">6</a></sup> Sterile filters catch bacteria, not reliably their endotoxin. It has to be kept out from the start: clean water, clean glass, clean hands.</p>
+    <p><b>The limit.</b> Injected medicines are held under 5 endotoxin units (EU) per kg of body weight per hour.<sup><a href="#s3">3</a></sup> Tested with LAL, a reagent made from horseshoe crab blood that clots when endotoxin is present.</p>
+    <h3 style="margin-top:8px">Read an endotoxin line</h3>
+    <div class="calc">
+      <label>Body weight, kg<input id="ekg" type="number" inputmode="decimal" value="60" min="20" max="200"></label>
+      <label>COA endotoxin, EU per mg<input id="eeu" type="number" inputmode="decimal" value="1" min="0" step="0.1"></label>
+    </div>
+    <div class="verdict" id="eOut"></div>
+    <p class="note">For understanding a COA line only. "&lt; 1 EU/mg" means under the test's floor, not zero. No endotoxin line at all means nobody measured it.</p>
+  </div>
+
+  <div class="pane" id="t2" hidden>
+    <p><b>Heavy metals come from the process</b>: metal catalysts, reagents, water, steel equipment. They are not counted in purity and need a separate test (ICP-MS). The risk is mostly slow: metals build up with repeated use, so small amounts over months matter more than one shot.</p>
+    <table class="spec">
+      <tr><th>Metal</th><th>Daily limit, injected</th><th>What too much does</th></tr>
+      <tr><td><b>Cadmium</b></td><td class="n">2 µg</td><td>Kidneys, bone</td></tr>
+      <tr><td><b>Mercury</b></td><td class="n">3 µg</td><td>Nerves, kidneys</td></tr>
+      <tr><td><b>Lead</b></td><td class="n">5 µg</td><td>Nerves, blood, kidneys</td></tr>
+      <tr><td><b>Cobalt</b></td><td class="n">5 µg</td><td>Heart, thyroid</td></tr>
+      <tr><td><b>Palladium</b></td><td class="n">10 µg</td><td>A catalyst residue, sensitises</td></tr>
+      <tr><td><b>Arsenic</b></td><td class="n">15 µg</td><td>Skin, nerves, cancer risk</td></tr>
+      <tr><td><b>Nickel</b></td><td class="n">20 µg</td><td>Allergy, a common sensitiser</td></tr>
+      <tr><td><b>Copper</b></td><td class="n">300 µg</td><td>Liver. GHK-Cu carries copper on purpose</td></tr>
+    </table>
+    <p class="note">Limits are ICH Q3D permitted daily exposures for injected (parenteral) medicines, total from every source per day.<sup><a href="#s7">7</a></sup> Injected limits are tighter than oral ones because nothing is filtered by the gut first. Research peptide COAs rarely include this test.</p>
+  </div>
+
+  <div class="pane" id="t3" hidden>
+    <p><b>Bead chemistry runs on solvents</b>: DMF and NMP to link, DCM to wash, piperidine to uncap, TFA to cut free, ether to crash the crude out, acetonitrile in the HPLC. Freeze drying removes most of it. "Most" is what a residual solvent test (gas chromatography, GC) puts a number on.</p>
+    <p>DMF and NMP are reproductive toxins in high exposure; DCM is a suspected carcinogen. At trace levels in a single vial the concern is low; across months of daily injections it is an unknown when nobody tested.</p>
+    <p class="note">Medicines follow ICH Q3C solvent limits. Research COAs almost never list residual solvents.</p>
+  </div>
+
+  <div class="pane" id="t4" hidden>
+    <p><b>Powder is not automatically sterile.</b> Sterility comes from the process: filtering the solution through a 0.22 µm membrane before filling, in a clean room, then sealing. A sterility test (USP &lt;71&gt;) checks that nothing grows from samples of the lot.</p>
+    <p>Bacteria or fungi in a vial cause local infection: a hot, swollen, painful lump that gets worse over days, sometimes an abscess. Each puncture of the stopper is also a chance to bring something in, which is why bacteriostatic water exists.</p>
+    <p class="note">Filtration removes living bacteria. It does not reliably remove endotoxin or metals. Three different problems, three different tests.</p>
+  </div>
+</section>
+
+<!-- PART NINE -->
+<section id="react">
+  <div class="divider"><span>Part twelve · Reactions</span></div>
+  <h2>When the body answers back</h2>
+  <p>Timing tells you a lot. A reaction can come from the peptide itself, an impurity, clumped aggregates, the preservative or contamination. Tolerating last month's vial says nothing about a new lot.</p>
+  <div class="react">
+    <div><div class="sw" style="background:var(--repair)"></div><p class="when">Minutes to hours</p><h3>Injection site</h3><p>Redness, itch, a small bump or sting. Common, local, fades in a day or two.</p></div>
+    <div><div class="sw" style="background:var(--orange)"></div><p class="when">30 min to a few hours</p><h3>Fever-type</h3><p>Chills, shaking, fever, aches, headache, nausea. Classic picture of endotoxin. Needs medical attention if strong, or if blood pressure feels low (dizzy, faint).</p></div>
+    <div><div class="sw" style="background:var(--red)"></div><p class="when">Seconds to 30 min</p><h3>Allergic</h3><p>Hives spreading past the site, swelling of lips, tongue or throat, hoarse voice, wheeze, dizziness, pale clammy skin. This can become anaphylaxis.</p></div>
+    <div><div class="sw" style="background:var(--violet)"></div><p class="when">1 to 3 days</p><h3>Infection</h3><p>The spot gets hotter, bigger and more painful instead of better. Red streaks, pus or fever. Needs a doctor.</p></div>
+  </div>
+  <div class="alarm" role="note">
+    <h3>Anaphylaxis is an emergency</h3>
+    <p style="font-size:14px;margin:0">Throat or tongue swelling, trouble breathing or swallowing, wheeze, sudden dizziness, collapse. Can start within minutes.<sup><a href="#s8">8</a></sup></p>
+    <ol>
+      <li>Use an adrenaline auto-injector straight away if one is prescribed.</li>
+      <li>Call emergency services: 112 (Indonesia, EU), 911 (US), 999 (UK). Say "anaphylaxis".</li>
+      <li>Lie down with legs raised. Sit up if breathing is hard. Do not stand or walk, even if it eases.</li>
+      <li>Second adrenaline dose after 5 minutes if no better.</li>
+    </ol>
+  </div>
+  <p class="note">Educational, not medical advice. If something feels wrong after an injection, get help early. Bring the vial and its lot number.</p>
+</section>
+
+<footer class="foot">
+  <p class="lab">Sources</p>
+  <ol>
+    <li id="s1">Ozempic (semaglutide) prescribing information: produced in yeast by recombinant DNA technology, followed by chemical modification.</li>
+    <li id="s2"><a href="https://www.nobelprize.org/prizes/chemistry/1984/summary/">Nobel Prize in Chemistry 1984, Bruce Merrifield</a>, solid phase synthesis.</li>
+    <li id="s3"><a href="https://www.acciusa.com/pdfs/whitepapers/EndotoxinLimits_SeanJH-PR17-012.pdf">Associates of Cape Cod, Endotoxin Limits</a>: threshold pyrogenic dose 5 EU/kg (0.2 EU/kg intrathecal).</li>
+    <li id="s4"><a href="https://ambiopharm.com/?p=10700">AmbioPharm, peptide content and purity</a>: net peptide content usually 60 to 90%; TFA salts from HPLC, most peptide APIs made as acetate. See also <a href="https://lifetein.com/What-is-net-peptide-content.html">LifeTein, net peptide content</a>.</li>
+    <li id="s5"><a href="https://labeling.pfizer.com/ShowLabeling.aspx?id=4666">Bacteriostatic Water for Injection USP, label</a>: 0.9% benzyl alcohol, pH 5.7 (4.5 to 7.0). 0.9% Sodium Chloride Injection USP labels list pH about 5.5 (4.5 to 7.0).</li>
+    <li id="s6"><a href="https://www.wakopyrostar.com/blog/kit-lal/post/common-lab-sources-of-endotoxin-and-strategies-for-its-detection-and-removal/">FUJIFILM Wako, sources of endotoxin</a>: gram-negative outer membrane, heat resistant, 250°C for 30 min, LAL test.</li>
+    <li id="s7"><a href="https://www.labcorp.com/education-events/articles/elemental-impurities-usp-and-ich-q3d-guidelines">Labcorp, ICH Q3D elemental impurities</a>: parenteral PDEs.</li>
+    <li id="s8"><a href="https://www.anaphylaxis.org.uk/what-to-do-in-an-emergency/">Anaphylaxis UK, what to do in an emergency</a>.</li>
+    <li id="s9"><a href="https://www.nature.com/articles/ja2017142">Journal of Antibiotics (2017), microbes that overproduce amino acids</a>: 6.68 million tonnes in 2014, mostly fermentation then ion exchange and crystallisation; glutamate over 40%; lysine for feed; threonine about 132 g/L in E. coli; methionine about 850,000 t/yr by chemistry.</li>
+    <li id="s10"><a href="https://www.ams.usda.gov/sites/default/files/media/Amino%20Acid%203%20TR.pdf">USDA AMS technical review, Amino Acids Processing (2007)</a>: L-cysteine from hair keratin by acid hydrolysis, Strecker and enzymatic routes.</li>
+    <li id="s11"><a href="https://decibio.com/insights/chemical-vs-recombinant-the-manufacturing-decisions-behind-blockbuster-peptide-drugs">DeciBio, chemical vs recombinant (May 2026)</a>: 31 of 38 recent small peptides chemical; semaglutide hybrid, yeast backbone; tirzepatide chemical; chemistry best under about 30 letters; FDA expects generic peptides made chemically.</li>
+    <li id="s12"><a href="https://acsgcipr.org/focus-areas/peptides/">ACS GCI Pharmaceutical Roundtable, peptides</a>: process mass intensity about 13,000 for SPPS across 40 processes, against 168 to 308 for small molecules.</li>
+    <li id="s13"><a href="https://pubmed.ncbi.nlm.nih.gov/25044089">D'Hondt et al., Related impurities in peptide medicines (2014)</a>: 10 of 13 impurities in a 15-mer were one-letter deletions; deletions, insertions and oxidations in leuprolide, goserelin, triptorelin, eledoisin.</li>
+    <li id="s14"><a href="https://doi.org/10.1016/j.jpha.2014.12.002">Quality evaluation of synthetic quorum sensing peptides used in R&amp;D, J. Pharm. Anal. (2015)</a>: only 44% met the ordered purity; most impurities were deletions; one sample was a different molecule.</li>
+    <li id="s15"><a href="https://iris-biotech.de/de/blog/pitfalls-in-peptide-production.html">Iris Biotech, pitfalls in peptide production</a>: deletions among the most widespread issues; Asp, Cys, His, Ser prone to racemization; Cys, Met, Trp, Tyr oxidation.</li>
+    <li id="s16"><a href="https://chempep.com/?p=40312">ChemPep, Rink amide resin</a>: TFA cleavage gives a C-terminal amide; Fmoc removed with 20% piperidine in DMF.</li>
+    <li id="s17"><a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-guides/lyophilization-parenteral-793">FDA, Lyophilization of Parenteral (7/93) inspection guide</a>: freezing, primary drying by sublimation, secondary drying; vials fully stoppered inside the chamber.</li>
+    <li id="s18"><a href="https://thepeptidecatalog.com/articles/ss-31-buying-guide">The Peptide Catalog, SS-31 guide (Apr 2026)</a>: Dmt described as expensive to synthesise correctly; elamipretide FDA accelerated approval 19 Sep 2025 for Barth syndrome.</li>
+  </ol>
+  <p>Checked 23 Oct 2026 · Made V4 · An ever evolving reference · <a href="/made/v3/">V3</a> · <a href="/made/v2/">V2</a></p>
+</footer>
+</div>
+<script src="/library/v45/data.js"></script>
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.from((r||document).querySelectorAll(s))};
+var track=function(n){try{window.bsTrack&&window.bsTrack('made:'+n)}catch(e){}};
+
+/* tabs */
+$$('[data-tabs]').forEach(function(t){
+  var bs=$$('button',t);
+  bs.forEach(function(b){b.addEventListener('click',function(){
+    bs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');$('#'+x.dataset.p).hidden=x!==b});
+    track('tab-'+b.dataset.p);
+  })});
+});
+function seg(el,items,cur,fn){
+  el.innerHTML=items.map(function(it){return '<button data-v="'+it[0]+'" aria-pressed="'+(String(it[0])===String(cur))+'">'+it[1]+'</button>'}).join('');
+  $$('button',el).forEach(function(b){b.addEventListener('click',function(){$$('button',el).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});fn(b.dataset.v)})});
+}
+/* ===== Made v3: shapes (ported from Aminos V54 shapeSVG, same colours) ===== */
+var INK='#3E4A80',PAPER='#FFFFE2';
+var VOL={G:60.1,A:88.6,S:89.0,C:108.5,D:111.1,P:112.7,N:114.1,T:116.1,E:138.4,V:140.0,Q:143.8,H:153.2,M:162.9,I:166.7,L:166.7,K:168.6,R:173.4,F:189.9,Y:193.6,W:227.8,U:112};
+var COL={"A":"#F28E79","R":"#9E1B32","N":"#C2DCFF","D":"#74BCFF","C":"#99ACFF","Q":"#AACC96","E":"#C2DCFF","G":"#FFEEEE","H":"#FF5050","I":"#F28E79","L":"#F28E79","K":"#FFEEEE","M":"#74BCFF","F":"#CC007E","P":"#FFEEEE","S":"#C2DCFF","T":"#AACC96","W":"#CC007E","Y":"#B493E8","V":"#F28E79","U":"#99ACFF"};
+function f1(v){return (+v).toFixed(1)}
+function lum(h){var n=parseInt(h.slice(1),16),f=function(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)}
+function size(L){return 11+11*(((VOL[L]||112)-60)/168)}
+function rpoly(pts,rad){var n=pts.length,d='';for(var i=0;i<n;i++){var p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n];var v1=[p0[0]-p1[0],p0[1]-p1[1]],v2=[p2[0]-p1[0],p2[1]-p1[1]],l1=Math.hypot(v1[0],v1[1]),l2=Math.hypot(v2[0],v2[1]),k=Math.min(rad,l1/2.2,l2/2.2);var a=[p1[0]+v1[0]/l1*k,p1[1]+v1[1]/l1*k],b=[p1[0]+v2[0]/l2*k,p1[1]+v2[1]/l2*k];d+=(i?' L':'M')+f1(a[0])+','+f1(a[1])+' Q'+f1(p1[0])+','+f1(p1[1])+' '+f1(b[0])+','+f1(b[1])}return d+' Z'}
+function ppts(n,r,rot,cx,cy){var o=[];for(var i=0;i<n;i++){var a=rot+i*2*Math.PI/n;o.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}return o}
+/* returns {b: body svg, t: letter svg} */
+function shapeParts(L,cx,cy,sc){var r=size(L)*sc,c=COL[L]||'#ccc',fg=lum(c)>.42?INK:PAPER,S='fill="'+c+'" stroke="'+INK+'" stroke-width="'+f1(1.5*sc)+'" stroke-linejoin="round"',g='',ex='';
+  var fork=function(x,y,h){return '<path d="M'+f1(x)+','+f1(y)+' l0,'+f1(-h*.45)+' m0,0 l'+f1(-h*.35)+','+f1(-h*.45)+' m'+f1(h*.35)+','+f1(h*.45)+' l'+f1(h*.35)+','+f1(-h*.45)+'" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'" stroke-linecap="round" fill="none"/>'};
+  var dot=function(x,y,fill){return '<circle cx="'+f1(x)+'" cy="'+f1(y)+'" r="'+f1(3.2*sc)+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="'+f1(1.1*sc)+'"/>'};
+  if('GAVLIM'.indexOf(L)>=0){g='<circle cx="'+f1(cx)+'" cy="'+f1(cy)+'" r="'+f1(r)+'" '+S+'/>';
+    if(L==='V')ex=fork(cx,cy-r,r*.9);if(L==='L')ex='<line x1="'+f1(cx)+'" y1="'+f1(cy-r)+'" x2="'+f1(cx)+'" y2="'+f1(cy-r-r*.3)+'" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'"/>'+fork(cx,cy-r-r*.3,r*.8);
+    if(L==='I')ex=fork(cx-r*.45,cy-r*.88,r*.7)+fork(cx+r*.45,cy-r*.88,r*.7);if(L==='M')ex=dot(cx+r*.62,cy-r*.62,'#E1DE62')}
+  else if('FYW'.indexOf(L)>=0){if(L==='W'){var h=r*.62;g='<path d="'+rpoly(ppts(6,h,Math.PI/6,cx-h*.87,cy),h*.22)+'" '+S+'/><path d="'+rpoly(ppts(6,h,Math.PI/6,cx+h*.87,cy),h*.22)+'" '+S+'/>'}else g='<path d="'+rpoly(ppts(6,r*1.05,Math.PI/6,cx,cy),r*.24)+'" '+S+'/>';if(L==='Y')ex=dot(cx+r*.95,cy-r*.55,'#FFFFF4')}
+  else if(L==='H'){g='<path d="'+rpoly(ppts(5,r*1.08,-Math.PI/2,cx,cy+r*.08),r*.26)+'" '+S+'/>'}
+  else if('STNQCU'.indexOf(L)>=0){var w=L==='N'?r*.8:L==='Q'?r*.75:r*.95,hh=L==='N'?r*1.15:L==='Q'?r*1.35:r*.95;g='<rect x="'+f1(cx-w)+'" y="'+f1(cy-hh)+'" width="'+f1(2*w)+'" height="'+f1(2*hh)+'" rx="'+f1(r*.35)+'" '+S+'/>';
+    if(L==='S')ex=dot(cx+w,cy-hh,'#FFFFF4');if(L==='T')ex=dot(cx+w,cy-hh,'#FFFFF4')+fork(cx-w*.35,cy-hh,r*.7);if(L==='C')ex=dot(cx+w,cy-hh,'#E1DE62');if(L==='U')ex=dot(cx+w,cy-hh,'#DB6830')}
+  else if('DE'.indexOf(L)>=0){var rr=r*1.2,top=-rr*.7,ap=rr*(L==='E'?1.15:1.0),sh=-(2*top+ap)/3;g='<path d="'+rpoly([[cx-rr,cy+top+sh],[cx+rr,cy+top+sh],[cx,cy+ap+sh]],rr*.3)+'" '+S+'/>'}
+  else if('KR'.indexOf(L)>=0){var w2=r*(L==='K'?.82:.95),h2=r*(L==='K'?1.3:1.15);g='<path d="'+rpoly([[cx,cy-h2],[cx+w2,cy],[cx,cy+h2],[cx-w2,cy]],r*.32)+'" '+S+'/>';if(L==='R')ex=fork(cx,cy-h2,r*.8)}
+  else if(L==='P'){var R=r*1.1,bb=cy+r*.45,k=R*.18;g='<path d="M'+f1(cx-R+k)+','+f1(bb)+' Q'+f1(cx-R)+','+f1(bb)+' '+f1(cx-R)+','+f1(bb-k)+' A'+f1(R)+','+f1(R-k)+' 0 0 1 '+f1(cx+R)+','+f1(bb-k)+' Q'+f1(cx+R)+','+f1(bb)+' '+f1(cx+R-k)+','+f1(bb)+' Z" '+S+'/>'}
+  var fs=Math.max(8,Math.min(15,r*.9)),ty;
+  if(L==='P')ty=cy+r*.3;else if('DE'.indexOf(L)>=0){var rr2=r*1.2,tp=-rr2*.7,ap2=rr2*(L==='E'?1.15:1.0),sh2=-(2*tp+ap2)/3;ty=cy+sh2+(tp+ap2)/2+rr2*.06+fs*.36}else ty=cy+fs*.36;
+  return {b:g+ex,t:'<text x="'+f1(cx)+'" y="'+f1(ty)+'" text-anchor="middle" font-size="'+f1(fs)+'" font-weight="700" fill="'+fg+'" font-family="Bricolage Grotesque,sans-serif">'+L+'</text>'}}
+function shapeSVG(L,cx,cy,sc){var p=shapeParts(L,cx,cy,sc);return p.b+p.t}
+
+function parseT(s){if(Array.isArray(s))return s;return s.split('')}
+function onScreen(el,fn){if(!('IntersectionObserver' in window)){fn(true);return}new IntersectionObserver(function(es){es.forEach(function(e){fn(e.isIntersecting)})},{rootMargin:'80px'}).observe(el)}
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ===== Made v4 drawing kit ===== */
+var FMOC='#3E4A80',GUARD='#B493E8',ENDC='#87CFC5',DIFF='#FFDE59';
+var TY={right:['#AACC96','Right chain','all bricks, in order'],del:['#FFA51F','Missing letter','one snap failed, chain kept growing'],trunc:['#E1DE62','Stopped short','growth stopped early'],ins:['#F28E79','Extra letter','a brick snapped twice'],guard:['#B493E8','Guard left on','a side guard never came off'],mirror:['#DDD0F6','Mirror swap','one brick flipped to its mirror form'],ox:['#74BCFF','Oxidised','picked up an oxygen']};
+var GUARDED={K:'Boc',W:'Boc',R:'Pbf',D:'tBu',E:'tBu',S:'tBu',T:'tBu',Y:'tBu',H:'Trt',N:'Trt',Q:'Trt',C:'Trt'};
+var NAMES={G:'Glycine',A:'Alanine',V:'Valine',L:'Leucine',I:'Isoleucine',M:'Methionine',F:'Phenylalanine',Y:'Tyrosine',W:'Tryptophan',H:'Histidine',S:'Serine',T:'Threonine',N:'Asparagine',Q:'Glutamine',C:'Cysteine',D:'Aspartic acid',E:'Glutamic acid',K:'Lysine',R:'Arginine',P:'Proline'};
+function mono(x,y,t,o){o=o||{};return '<text x="'+f1(x)+'" y="'+f1(y)+'"'+(o.a?' text-anchor="'+o.a+'"':'')+' font-family="JetBrains Mono,monospace" font-size="'+(o.s||8)+'" fill="'+(o.c||INK)+'"'+(o.w?' font-weight="'+o.w+'"':'')+'>'+t+'</text>'}
+function tokSVG(tok,cx,cy,sc,op){op=op||'';var m=/^(x|d|xd):(.+)$/.exec(tok),o='';
+  if(!m)return '<g'+op+'>'+shapeSVG(tok,cx,cy,sc)+'</g>';
+  if(m[1]==='d'){var p=shapeParts(m[2],cx,cy,sc);o='<g transform="translate('+f1(2*cx)+',0) scale(-1,1)">'+p.b+'</g>'+p.t+dMark(cx,cy,sc)}
+  else{var r=15*sc;o='<circle cx="'+f1(cx)+'" cy="'+f1(cy)+'" r="'+f1(r)+'" fill="#fff" stroke="'+INK+'" stroke-width="'+f1(1.5*sc)+'" stroke-dasharray="'+f1(3*sc)+' '+f1(2*sc)+'"/><text x="'+f1(cx)+'" y="'+f1(cy+3.4*sc)+'" text-anchor="middle" font-size="'+f1((m[2].length>3?8:9.5)*sc)+'" font-weight="600" fill="'+INK+'" font-family="JetBrains Mono,monospace">'+m[2]+'</text>';if(m[1]==='xd')o+=dMark(cx,cy,sc)}
+  return '<g'+op+'>'+o+'</g>'}
+function dMark(cx,cy,sc){return '<text x="'+f1(cx-17*sc)+'" y="'+f1(cy-12*sc)+'" font-size="'+f1(10*sc)+'" font-weight="700" fill="#DB6830" stroke="#FFFFE2" stroke-width="'+f1(2.5*sc)+'" paint-order="stroke" font-family="JetBrains Mono,monospace">D</text>'}
+function endTag(x,y,txt,hi,sc,anchor){var w=(txt.length*6.2+10)*sc,h=15*sc,xx=anchor==='end'?x-w:anchor==='mid'?x-w/2:x;return '<rect x="'+f1(xx)+'" y="'+f1(y-h/2)+'" width="'+f1(w)+'" height="'+f1(h)+'" fill="'+(hi?ENDC:'#FFFFF4')+'" stroke="'+INK+'" stroke-width="'+f1(1.3*sc)+'"/><text x="'+f1(xx+w/2)+'" y="'+f1(y+3.4*sc)+'" text-anchor="middle" font-size="'+f1(9*sc)+'" font-weight="600" fill="'+INK+'" font-family="JetBrains Mono,monospace">'+txt+'</text>'}
+function hat(x,y,t,sc,col){var w=Math.max(22,t.length*6+8)*sc;return '<line x1="'+f1(x)+'" y1="'+f1(y+11*sc)+'" x2="'+f1(x)+'" y2="'+f1(y+17*sc)+'" stroke="'+INK+'" stroke-width="'+f1(1.2*sc)+'"/><rect x="'+f1(x-w/2)+'" y="'+f1(y)+'" width="'+f1(w)+'" height="'+f1(11*sc)+'" rx="'+f1(2*sc)+'" fill="'+(col||GUARD)+'" stroke="'+INK+'" stroke-width="'+f1(1*sc)+'"/>'+'<text x="'+f1(x)+'" y="'+f1(y+8.3*sc)+'" text-anchor="middle" font-size="'+f1(7.5*sc)+'" font-weight="600" fill="'+INK+'" font-family="JetBrains Mono,monospace">'+t+'</text>'}
+function fmocCap(x,y,sc,cls){return '<g'+(cls?' class="'+cls+'"':'')+'><rect x="'+f1(x)+'" y="'+f1(y-12*sc)+'" width="'+f1(15*sc)+'" height="'+f1(24*sc)+'" rx="'+f1(3*sc)+'" fill="'+FMOC+'"/><text x="'+f1(x+7.5*sc)+'" y="'+f1(y-16*sc)+'" text-anchor="middle" font-size="'+f1(7.5*sc)+'" font-weight="600" fill="'+FMOC+'" font-family="JetBrains Mono,monospace">Fmoc</text></g>'}
+/* chain: o = sc, per, n, c, nHi, cHi, marks{i:{k,t}}, tail{i,t,hi}, ring[a,b], bead, guards, fmocLast, nums, maxK */
+function chainSVG(toks,o){o=o||{};var sc=o.sc||.7,cw=44*sc,n=toks.length,per=Math.min(o.per||12,Math.max(n,1)),rows=Math.ceil(n/per)||1,mk=o.marks||{};
+  var topMark=Object.keys(mk).some(function(k){var m=mk[k];return m.k==='guard'||m.k==='ox'||m.k==='ins'}),labMark=Object.keys(mk).some(function(k){return mk[k].lab});
+  var hasMir=Object.keys(mk).some(function(k){return mk[k].k==='mirror'});var up=o.tail?52:o.guards?50:labMark?(topMark?62:48):topMark?42:30,rh=(up+32+(hasMir?24:0))*sc,bot=(o.ring||o.nums?24:6)*sc,top=4*sc;
+  var lp=o.bead?56*sc:(o.n?(o.n.length*6.2+18)*sc:10*sc),rp=(o.c?(o.c.length*6.2+18):o.fmocLast?24:10)*sc;
+  var W=lp+per*cw+rp,H=top+rows*rh+bot,pos=[],i;
+  for(i=0;i<n;i++){var row=Math.floor(i/per),col=i%per;if(row%2)col=per-1-col;pos.push([lp+col*cw+cw/2,top+row*rh+up*sc])}
+  var s='',st0=0;while(st0<n-1&&mk[st0]&&mk[st0].k==='ghost')st0++;
+  if(o.ring&&n){var a=pos[o.ring[0]],b=pos[o.ring[1]],yb=a[1]+30*sc;s+='<path d="M'+f1(a[0])+','+f1(a[1]+18*sc)+' C'+f1(a[0])+','+f1(yb+6*sc)+' '+f1(b[0])+','+f1(yb+6*sc)+' '+f1(b[0])+','+f1(b[1]+18*sc)+'" fill="none" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'" stroke-dasharray="'+f1(4*sc)+' '+f1(3*sc)+'"/>'+mono((a[0]+b[0])/2,yb+17*sc,'ring: '+o.ring[2],{a:'middle',s:f1(8.5*sc)})}
+  if(n>1){var d='M'+f1(pos[st0][0])+','+f1(pos[st0][1]);for(var j=st0+1;j<n;j++)d+=' L'+f1(pos[j][0])+','+f1(pos[j][1]);s+='<path d="'+d+'" fill="none" stroke="'+INK+'" stroke-width="'+f1(2*sc)+'"/>'}
+  if(o.bead){var by=n?pos[0][1]:top+up*sc;s+='<line x1="'+f1(lp-14*sc)+'" y1="'+f1(by)+'" x2="'+f1(n?pos[0][0]:lp)+'" y2="'+f1(by)+'" stroke="'+INK+'" stroke-width="'+f1(2*sc)+'"/><circle cx="'+f1(lp-30*sc)+'" cy="'+f1(by)+'" r="'+f1(22*sc)+'" fill="#E1DE62" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'"/>'+mono(lp-30*sc,by+3*sc,'bead',{a:'middle',s:f1(8.5*sc)})}
+  if(o.tail){var tp=pos[o.tail.i],tc=o.tail.hi?'#DB6830':INK;s+='<path d="M'+f1(tp[0])+','+f1(tp[1]-18*sc)+' l'+f1(6*sc)+','+f1(-6*sc)+' l'+f1(-6*sc)+','+f1(-6*sc)+' l'+f1(6*sc)+','+f1(-6*sc)+' l'+f1(-6*sc)+','+f1(-6*sc)+'" fill="none" stroke="'+tc+'" stroke-width="'+f1(2.2*sc)+'" stroke-linejoin="round"/>'+'<text x="'+f1(tp[0]+10*sc)+'" y="'+f1(tp[1]-36*sc)+'" font-size="'+f1(9.5*sc)+'" fill="'+tc+'" font-weight="600" font-family="JetBrains Mono,monospace">'+o.tail.t+'</text>'}
+  for(var q=0;q<n;q++){var p=pos[q],m=mk[q],t=toks[q];
+    if(m&&m.k==='gap'){s+='<rect x="'+f1(p[0]-14*sc)+'" y="'+f1(p[1]-14*sc)+'" width="'+f1(28*sc)+'" height="'+f1(28*sc)+'" fill="'+PAPER+'" stroke="'+TY.del[0]+'" stroke-width="'+f1(1.8*sc)+'" stroke-dasharray="'+f1(3*sc)+' '+f1(2*sc)+'"/><text x="'+f1(p[0])+'" y="'+f1(p[1]+4*sc)+'" text-anchor="middle" font-size="'+f1(11*sc)+'" fill="#B86A00" font-weight="700" font-family="JetBrains Mono,monospace">−'+t.replace(/^.*:/,'')+'</text>';continue}
+    if(m&&m.k==='ghost'){s+=tokSVG(t,p[0],p[1],sc,' opacity=".14"');continue}
+    if(m&&(m.k==='diff'||m.k==='ins'||m.k==='mirror'))s+='<circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r="'+f1(23*sc)+'" fill="'+(m.k==='diff'?DIFF:m.k==='ins'?TY.ins[0]:TY.mirror[0])+'" opacity=".55"/>';
+    if(m&&m.k==='mirror'){s+='<line x1="'+f1(p[0])+'" y1="'+f1(p[1])+'" x2="'+f1(p[0])+'" y2="'+f1(p[1]+12*sc)+'" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'"/><circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r="'+f1(3*sc)+'" fill="'+INK+'"/>'+tokSVG(t,p[0],p[1]+26*sc,sc)}else s+=tokSVG(t,p[0],p[1],sc);
+    if(o.guards&&GUARDED[t])s+=hat(p[0],p[1]-44*sc,GUARDED[t],sc);
+    if(m&&m.k==='guard')s+=hat(p[0],p[1]-40*sc,m.t||'guard',sc);
+    if(m&&m.k==='ox')s+='<circle cx="'+f1(p[0]+15*sc)+'" cy="'+f1(p[1]-22*sc)+'" r="'+f1(7*sc)+'" fill="#FF8A8A" stroke="'+INK+'" stroke-width="'+f1(1.2*sc)+'"/><text x="'+f1(p[0]+15*sc)+'" y="'+f1(p[1]-19*sc)+'" text-anchor="middle" font-size="'+f1(8.5*sc)+'" font-weight="700" fill="'+INK+'" font-family="JetBrains Mono,monospace">O</text>';
+    if(m&&m.k==='ins'&&!m.lab)s+=mono(p[0],p[1]-27*sc,'extra',{a:'middle',s:f1(8*sc),c:'#B0412B',w:600});
+    if(false)s+='<line x1="'+f1(p[0])+'" y1="'+f1(p[1]-24*sc)+'" x2="'+f1(p[0])+'" y2="'+f1(p[1]+24*sc)+'" stroke="#DB6830" stroke-width="'+f1(1.4*sc)+'" stroke-dasharray="'+f1(3*sc)+' '+f1(2*sc)+'"/>';
+    if(m&&m.lab){var ly=p[1]-(topMark?52:36)*sc,tw=m.lab.length*5.6*sc+10*sc;s+='<line x1="'+f1(p[0])+'" y1="'+f1(ly+6*sc)+'" x2="'+f1(p[0])+'" y2="'+f1(p[1]-(m.k==='guard'?40:20)*sc)+'" stroke="#E0352B" stroke-width="'+f1(1.3*sc)+'"/><rect x="'+f1(Math.max(1,p[0]-tw/2))+'" y="'+f1(ly-8*sc)+'" width="'+f1(tw)+'" height="'+f1(13*sc)+'" rx="'+f1(2*sc)+'" fill="#E0352B"/>'+mono(Math.max(1,p[0]-tw/2)+tw/2,ly+1.5*sc,m.lab,{a:'middle',s:f1(8.5*sc),c:'#fff',w:600})}
+    if(o.nums)s+=mono(p[0],p[1]+30*sc,q+1,{a:'middle',s:f1(8*sc),c:'#6B76A8'});
+  }
+  if(o.fmocLast&&n)s+=fmocCap(pos[n-1][0]+(Math.floor((n-1)/per)%2?-28:13)*sc,pos[n-1][1],sc);
+  if(o.n&&n&&!o.bead)s+=endTag(pos[0][0]-cw/2,pos[0][1],o.n,o.nHi,sc,'end');
+  if(o.c&&n){var lr=Math.floor((n-1)/per),lp2=pos[n-1];s+=lr%2?endTag(lp2[0]-cw/2,lp2[1],o.c,o.cHi,sc,'end'):endTag(lp2[0]+cw/2,lp2[1],o.c,o.cHi,sc,'start')}
+  return '<svg viewBox="0 0 '+f1(W)+' '+f1(H)+'" xmlns="http://www.w3.org/2000/svg" role="img" style="max-width:'+f1(W*(o.maxK||1.6))+'px">'+s+'</svg>'}
+/* ring layout for MT-2 / PT-141 (wide screens) */
+function ringSVG(cTag,cHi,sc){sc=sc||.72;var ring=['D','H','d:F','R','W','K'],deg=[180,240,300,0,60,120],R=62*sc,cx=210*sc,cy=96*sc,W=330*sc,H=196*sc,s='',pt=deg.map(function(a){a=a*Math.PI/180;return [cx+R*Math.cos(a),cy+R*Math.sin(a)]});
+  for(var i=0;i<5;i++)s+='<line x1="'+f1(pt[i][0])+'" y1="'+f1(pt[i][1])+'" x2="'+f1(pt[i+1][0])+'" y2="'+f1(pt[i+1][1])+'" stroke="'+INK+'" stroke-width="'+f1(2*sc)+'"/>';
+  s+='<line x1="'+f1(pt[5][0])+'" y1="'+f1(pt[5][1])+'" x2="'+f1(pt[0][0])+'" y2="'+f1(pt[0][1])+'" stroke="#DB6830" stroke-width="'+f1(2.4*sc)+'" stroke-dasharray="'+f1(4*sc)+' '+f1(3*sc)+'"/>';
+  var nx=cx-R-50*sc;s+='<line x1="'+f1(nx)+'" y1="'+f1(cy)+'" x2="'+f1(pt[0][0])+'" y2="'+f1(cy)+'" stroke="'+INK+'" stroke-width="'+f1(2*sc)+'"/>';
+  s+=mono(cx,cy+3*sc,'ring',{a:'middle',s:f1(9*sc),c:'#6B76A8'});
+  s+=mono(pt[5][0]-10*sc,pt[5][1]+30*sc,'closed here: D to K',{a:'end',s:f1(8.5*sc),c:'#DB6830',w:600});
+  s+=tokSVG('x:Nle',nx,cy,sc)+endTag(nx-17*sc,cy,'Ac',false,sc,'end');
+  pt.forEach(function(p,i){s+=tokSVG(ring[i],p[0],p[1],sc)});
+  var k=pt[5];s+='<line x1="'+f1(k[0])+'" y1="'+f1(k[1])+'" x2="'+f1(k[0]+30*sc)+'" y2="'+f1(k[1]+34*sc)+'" stroke="'+INK+'" stroke-width="'+f1(2*sc)+'"/>'+endTag(k[0]+30*sc,k[1]+34*sc,cTag,cHi,sc,'mid');
+  return '<svg viewBox="0 0 '+f1(W)+' '+f1(H)+'" role="img" style="max-width:'+f1(W*1.5)+'px">'+s+'</svg>'}
+/* lego brick: plug (front, N) on the left, socket (back, C) on the right; rev flips it (bricks on a bead) */
+function brick(L,x,y,sc,o){o=o||{};var w=62*sc,h=26*sc,s='',rv=o.rev;
+  s+='<line x1="'+f1(x+w/2)+'" y1="'+f1(y)+'" x2="'+f1(x+w/2)+'" y2="'+f1(y-10*sc)+'" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'"/>';
+  s+=shapeSVG(L,x+w/2,y-24*sc,.82*sc);
+  s+='<rect x="'+f1(x)+'" y="'+f1(y)+'" width="'+f1(w)+'" height="'+f1(h)+'" rx="'+f1(4*sc)+'" fill="#FFFFF4" stroke="'+INK+'" stroke-width="'+f1(1.6*sc)+'"/>';
+  var py=y+h/2-6*sc,sx=rv?x-1*sc:x+w-8*sc,px=rv?x+w:x-10*sc;
+  s+='<rect x="'+f1(sx)+'" y="'+f1(py)+'" width="'+f1(9*sc)+'" height="'+f1(12*sc)+'" fill="#FFD9D9" stroke="'+INK+'" stroke-width="'+f1(1.2*sc)+'"/>';
+  if(!o.noPlug)s+='<rect x="'+f1(px)+'" y="'+f1(py+1*sc)+'" width="'+f1(10*sc)+'" height="'+f1(10*sc)+'" rx="'+f1(2*sc)+'" fill="#74BCFF" stroke="'+INK+'" stroke-width="'+f1(1.2*sc)+'"/>';
+  var nX=rv?x+w-13*sc:x+13*sc,cX=rv?x+13*sc:x+w-13*sc;
+  s+=mono(nX,y+h/2+3*sc,'N',{s:f1(8*sc),c:'#2F6DB5',w:700,a:'middle'})+mono(cX,y+h/2+3*sc,'C',{s:f1(8*sc),c:'#B0412B',w:700,a:'middle'});
+  return s}
+/* chemistry ball-and-stick */
+var ATC={C:'#E3E0BF',O:'#FF8A8A',N:'#74BCFF',H:'#fff'};
+function atom(e,x,y,r){r=r||9;return '<circle cx="'+f1(x)+'" cy="'+f1(y)+'" r="'+r+'" fill="'+ATC[e]+'" stroke="'+INK+'" stroke-width="1.3"/>'+mono(x,y+3,e,{a:'middle',s:8.5,w:700})}
+function bond(x1,y1,x2,y2,dbl){if(!dbl)return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+INK+'" stroke-width="1.8"/>';var dx=y2-y1,dy=x1-x2,l=Math.hypot(dx,dy),ox=dx/l*2.4,oy=dy/l*2.4;return '<line x1="'+f1(x1+ox)+'" y1="'+f1(y1+oy)+'" x2="'+f1(x2+ox)+'" y2="'+f1(y2+oy)+'" stroke="'+INK+'" stroke-width="1.6"/><line x1="'+f1(x1-ox)+'" y1="'+f1(y1-oy)+'" x2="'+f1(x2-ox)+'" y2="'+f1(y2-oy)+'" stroke="'+INK+'" stroke-width="1.6"/>'}
+function chainStub(x,y,dir){/* the rest of the peptide, as faded bricks */var s='';for(var i=0;i<2;i++){var cx=x+dir*(14+i*22);s+='<circle cx="'+cx+'" cy="'+y+'" r="8" fill="#DDD0F6" stroke="'+INK+'" stroke-width="1.2" opacity="'+(1-i*.45)+'"/>'}return '<line x1="'+x+'" y1="'+y+'" x2="'+(x+dir*40)+'" y2="'+y+'" stroke="'+INK+'" stroke-width="1.8"/>'+s+mono(x+dir*26,y+22,'rest of chain',{a:'middle',s:7,c:'#6B76A8'})}
+function chemSVG(kind){var s='',y=50;
+  if(kind==='nh2'){s+=chainStub(132,y,1)+bond(108,y,132,y)+bond(108,y,86,y-18)+bond(108,y,86,y+18)+atom('N',108,y)+atom('H',86,y-18,7)+atom('H',86,y+18,7)+mono(66,y+5,'+',{s:16,c:'#2F6DB5',w:700})}
+  if(kind==='ac'){s+='<rect x="34" y="16" width="80" height="78" fill="#EAF7F5" stroke="'+ENDC+'" stroke-width="2" stroke-dasharray="4 3"/>'+mono(74,12,'acetyl cap',{a:'middle',s:8,c:'#2B7F74',w:600})+chainStub(140,y+6,1)+bond(124,y+6,140,y+6)+bond(124,y+6,124,y+30)+bond(98,y+6,124,y+6)+bond(98,y+6,98,y-20,1)+bond(68,y+6,98,y+6)+bond(68,y+6,50,y-8)+bond(68,y+6,50,y+20)+bond(68,y+6,70,y+32)+atom('N',124,y+6)+atom('H',124,y+30,6.5)+atom('C',98,y+6)+atom('O',98,y-20)+atom('C',68,y+6)+atom('H',50,y-8,6)+atom('H',50,y+20,6)+atom('H',70,y+32,6)}
+  if(kind==='cooh'){s+=chainStub(64,y,-1)+bond(64,y,90,y)+bond(90,y,108,y-22,1)+bond(90,y,110,y+18)+bond(110,y+18,132,y+18)+atom('C',90,y)+atom('O',108,y-22)+atom('O',110,y+18)+atom('H',132,y+18,7)+mono(150,y+24,'−',{s:16,c:'#B0412B',w:700})}
+  if(kind==='conh2'){s+='<rect x="98" y="'+(y+2)+'" width="58" height="46" fill="#EAF7F5" stroke="'+ENDC+'" stroke-width="2" stroke-dasharray="4 3"/>'+mono(160,y+12,'amide',{s:8,c:'#2B7F74',w:600})+chainStub(64,y,-1)+bond(64,y,90,y)+bond(90,y,108,y-22,1)+bond(90,y,112,y+18)+bond(112,y+18,136,y+12)+bond(112,y+18,128,y+38)+atom('C',90,y)+atom('O',108,y-22)+atom('N',112,y+18)+atom('H',136,y+12,7)+atom('H',128,y+38,7)}
+  return '<svg viewBox="0 0 200 100" role="img">'+s+'</svg>'}
+function pacSVG(x,y,r,dir,eat){var a1=34*Math.PI/180,a0=3*Math.PI/180,pth=function(a){return 'M'+f1(x)+','+f1(y)+' L'+f1(x+dir*r*Math.cos(a))+','+f1(y-r*Math.sin(a))+' A'+r+','+r+' 0 1 '+(dir>0?0:1)+' '+f1(x+dir*r*Math.cos(a))+','+f1(y+r*Math.sin(a))+' Z'};
+  return '<path d="'+pth(a1)+'" fill="#FFDE59" stroke="'+INK+'" stroke-width="1.5">'+(eat?'<animate attributeName="d" values="'+pth(a1)+';'+pth(a0)+';'+pth(a1)+'" dur=".35s" repeatCount="indefinite"/>':'')+'</path><circle cx="'+f1(x-dir*r*.15)+'" cy="'+f1(y-r*.5)+'" r="2" fill="'+INK+'"/>'}
+
+/* ===== walk icons ===== */
+(function(){var I=[
+ ['#recipe','Recipe','The bricks, in order.','<rect x="26" y="5" width="48" height="50" rx="3" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><path d="M33 16h34" stroke="#E3E0BF" stroke-width="2" stroke-linecap="round"/><circle cx="37" cy="29" r="4.5" fill="#AACC96" stroke="#3E4A80" stroke-width="1.2"/><rect x="45" y="24.5" width="9" height="9" rx="2.5" fill="#C2DCFF" stroke="#3E4A80" stroke-width="1.2"/><path d="M63 24.5l5 4.5-5 4.5-5-4.5z" fill="#FFEEEE" stroke="#3E4A80" stroke-width="1.2"/><path d="M33 44h26" stroke="#E3E0BF" stroke-width="2" stroke-linecap="round"/>'],
+ ['#letters','Bricks','Where amino acids come from.','<g stroke="#3E4A80" stroke-width="1.5"><rect x="22" y="34" width="26" height="15" rx="3" fill="#F28E79"/><rect x="52" y="34" width="26" height="15" rx="3" fill="#74BCFF"/><rect x="37" y="15" width="26" height="15" rx="3" fill="#AACC96"/><rect x="27" y="29" width="6" height="5" rx="1" fill="#F28E79"/><rect x="57" y="29" width="6" height="5" rx="1" fill="#74BCFF"/><rect x="42" y="10" width="6" height="5" rx="1" fill="#AACC96"/><rect x="52" y="10" width="6" height="5" rx="1" fill="#AACC96"/></g>'],
+ ['#build','Build','Stacked on beads, or grown.','<circle cx="34" cy="40" r="11" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.5"/><path d="M45 40H86" stroke="#3E4A80" stroke-width="1.6"/><circle cx="54" cy="40" r="5" fill="#AACC96" stroke="#3E4A80" stroke-width="1.2"/><rect x="61" y="35" width="10" height="10" rx="2.5" fill="#C2DCFF" stroke="#3E4A80" stroke-width="1.2"/><circle cx="80" cy="40" r="5" fill="#F28E79" stroke="#3E4A80" stroke-width="1.2"/><rect x="86" y="34" width="6" height="12" rx="1.5" fill="#3E4A80"/>'],
+ ['#crude','Crude','The right chain, plus mistakes.','<g stroke="#3E4A80" stroke-width="1.2"><path d="M18 18H82" stroke-width="1.6"/><circle cx="22" cy="18" r="4" fill="#AACC96"/><circle cx="38" cy="18" r="4" fill="#AACC96"/><circle cx="54" cy="18" r="4" fill="#AACC96"/><circle cx="70" cy="18" r="4" fill="#AACC96"/><path d="M18 34H42M58 34H82" stroke-width="1.6"/><circle cx="22" cy="34" r="4" fill="#FFA51F"/><circle cx="38" cy="34" r="4" fill="#FFA51F"/><circle cx="62" cy="34" r="4" fill="#FFA51F"/><circle cx="78" cy="34" r="4" fill="#FFA51F"/><path d="M18 50H50" stroke-width="1.6"/><circle cx="22" cy="50" r="4" fill="#E1DE62"/><circle cx="38" cy="50" r="4" fill="#E1DE62"/></g>'],
+ ['#purify','Purify','Keep the peak, cut the rest.','<rect x="41" y="8" width="18" height="44" fill="#E1DE62" opacity=".45"/><path d="M8 52C24 52 26 46 30 46S36 52 40 52C46 52 46 10 50 10S54 52 60 52C64 52 66 45 70 45S76 52 92 52" fill="none" stroke="#3E4A80" stroke-width="1.8" stroke-linecap="round"/>'],
+ ['#dry','Dry','Dosed, freeze dried, sealed.','<path d="M42 10h16v6c6 2 9 6 9 11v24a4 4 0 0 1-4 4H37a4 4 0 0 1-4-4V27c0-5 3-9 9-11z" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><rect x="40" y="6" width="20" height="6" rx="1.5" fill="#6777B6"/><path d="M35 44h30v6a4 4 0 0 1-4 4H39a4 4 0 0 1-4-4z" fill="#FFFFF4" stroke="#E3E0BF" stroke-width="1.5"/>'],
+ ['#purity','Purity','What 98% looks like inside.','<circle cx="45" cy="28" r="19" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><path d="M59 42l14 13" stroke="#3E4A80" stroke-width="3.5" stroke-linecap="round"/><g fill="#AACC96"><circle cx="37" cy="22" r="2.6"/><circle cx="46" cy="18" r="2.6"/><circle cx="53" cy="27" r="2.6"/><circle cx="39" cy="33" r="2.6"/><circle cx="48" cy="37" r="2.6"/></g><circle cx="45" cy="27" r="3" fill="#FFA51F" stroke="#3E4A80" stroke-width=".8"/>'],
+ ['#coa','Test','What a COA checks, and not.','<rect x="29" y="5" width="42" height="50" rx="3" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><path d="M36 16h28M36 24h20M36 32h24" stroke="#C2DCFF" stroke-width="2.2" stroke-linecap="round"/><circle cx="61" cy="45" r="7" fill="#AACC96" stroke="#3E4A80" stroke-width="1.3"/><path d="M57.5 45l2.5 2.5 4.5-5" fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round"/>']];
+ $('#walk').innerHTML=I.map(function(x,i){return '<a href="'+x[0]+'"><svg viewBox="0 0 100 60" aria-hidden="true">'+x[3]+'</svg><b>0'+(i+1)+'</b><strong>'+x[1]+'</strong><span>'+x[2]+'</span></a>'}).join('')})();
+
+/* ===== Part one: snap demo ===== */
+(function(){var s='<svg viewBox="0 0 300 130" role="img" aria-label="Two bricks snapping together">';
+  s+='<g>'+brick('T',50,70,1)+'</g>';
+  s+='<g><animateTransform attributeName="transform" type="translate" values="70 0;70 0;0 0;0 0;70 0" keyTimes="0;.2;.45;.85;1" dur="4.5s" repeatCount="indefinite"/>'+brick('K',114,70,1)+'</g>';
+  s+='<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.44;.5;.8;.86" dur="4.5s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 0;0 26;0 26" keyTimes="0;.44;.5;.8;1" dur="4.5s" repeatCount="indefinite"/><path d="M112 96c0 0-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z" fill="#74BCFF" stroke="#3E4A80" stroke-width="1.2"/>'+mono(122,108,'H₂O',{s:8,c:'#2F6DB5',w:600})+'</g>';
+  s+=mono(40,124,'plug = front (N end)',{s:8,c:'#2F6DB5'})+mono(286,124,'socket = back (C end)',{s:8,c:'#B0412B',a:'end'});
+  s+=mono(81,16,'T',{a:'middle',s:8,c:'#6B76A8'})+mono(150,16,'K snaps on',{a:'middle',s:8,c:'#6B76A8'});
+  $('#snap').innerHTML=s+'</svg>'})();
+
+/* ===== recipe card ===== */
+var RECIPES=[
+ ['kpv','KPV',['K','P','V'],'342.4','COOH','The last three bricks of α-MSH. About as short as a recipe gets.'],
+ ['sel','Selank',['T','K','P','R','P','G','P'],'751.9','COOH','Tuftsin (TKPR), a natural immune peptide, with PGP added to the end so it lasts longer.'],
+ ['ipa','Ipamorelin',['x:Aib','H','xd:Nal','d:F','K'],'711.9','NH₂','Two lab-made bricks (Aib, Nal) and two mirror forms. Only a bead can cook this one. Finished with an NH₂ cap.'],
+ ['bpc','BPC-157',['G','E','P','P','P','G','K','P','A','D','D','A','G','L','V'],'1419.5','COOH','Fifteen bricks, three prolines in a row. A cut piece of a larger stomach protein.']];
+var XN={'x:Aib':'Aib, lab-made','xd:Nal':'D-Nal, lab-made mirror','d:F':'D-Phe, mirror form'};
+function rcDraw(k){var R=RECIPES.find(function(r){return r[0]===k}),t=R[2],cnt={},ord=[];t.forEach(function(x){if(!cnt[x]){cnt[x]=0;ord.push(x)}cnt[x]++});
+  $('#rcName').textContent=R[1];$('#rcMeta').textContent=t.length+' bricks · '+R[3]+' Da · ends '+(R[4]==='NH₂'?'H₂N … NH₂':'H₂N … COOH');
+  $('#rcIng').innerHTML=ord.map(function(x){var nm=XN[x]||NAMES[x];return '<li><svg viewBox="0 0 32 30">'+tokSVG(x,16,16,.62)+'</svg><span style="font:inherit;color:inherit">'+nm+'</span><span>× '+cnt[x]+'</span></li>'}).join('');
+  var w=($('#rcMethod').clientWidth||300),per=Math.max(5,Math.min(12,Math.floor(w/(w>380?38:32))));
+  $('#rcMethod').innerHTML=chainSVG(t,{sc:w>380?.8:.66,per:per,n:'N',c:R[4]==='NH₂'?'NH₂':'C',cHi:R[4]==='NH₂',nums:1,maxK:1.4});
+  $('#rcNote').textContent='Chef’s note: '+R[5]+' Swap one brick and it is a different dish.'}
+seg($('#rcSel'),RECIPES.map(function(r){return [r[0],r[1]]}),'sel',function(v){rcDraw(v);track('recipe-'+v)});
+
+/* ===== end caps ===== */
+$('#chem').innerHTML=[['nh2','Plain front','H₂N: carries a plus charge.',0],['ac','NA front (N-acetyl)','An acetyl cap sits on the nitrogen. +42 to the weight, no charge.',1],['cooh','Plain back','COOH, an acid: carries a minus charge.',0],['conh2','Amidate back (C-amide)','The OH becomes NH₂. −1 to the weight, no charge.',1]].map(function(c){return '<div'+(c[3]?' class="on"':'')+'>'+chemSVG(c[0])+'<b>'+c[1]+'</b><span>'+c[2]+'</span></div>'}).join('');
+var ch={cap:0,l:0,r:0,t:0,vis:true,bounce:0};
+function chompDraw(){var all=['T','K','P','R','P','G','P'],t=all.slice(ch.l,7-ch.r),sc=.7,cw=44*sc,x0=150-(t.length*cw)/2,y=48,s='<svg viewBox="0 0 300 92" role="img">';
+  var end0=x0-(ch.cap?26:6),end1=x0+t.length*cw+(ch.cap?26:6);
+  s+='<line x1="'+f1(x0+cw/2)+'" y1="'+y+'" x2="'+f1(x0+(t.length-.5)*cw)+'" y2="'+y+'" stroke="'+INK+'" stroke-width="1.6"/>';
+  t.forEach(function(L,i){s+=shapeSVG(L,x0+i*cw+cw/2,y,sc)});
+  if(ch.cap){s+=endTag(x0,y,'Ac',true,sc,'end')+endTag(x0+t.length*cw,y,'NH₂',true,sc,'start')}
+  var b=ch.bounce?10:0;
+  s+=pacSVG(end0-16-b,y,13,1,!ch.cap)+pacSVG(end1+16+b,y,13,-1,!ch.cap);
+  s+=mono(150,86,ch.cap?'blocked by the caps':(t.length<7?(7-t.length)+' brick'+(7-t.length>1?'s':'')+' eaten':'eating from both loose ends'),{a:'middle',s:8.5,c:ch.cap?'#2B7F74':'#B0412B',w:600});
+  $('#chomp').innerHTML=s+'</svg>';
+  $('#chompCap').textContent=ch.cap?'NA Selank Amidate: an acetyl cap on the front, an amide on the back. The enzymes bump into the caps.':'Plain Selank: open ends, so exopeptidases nibble one brick at a time.'}
+function chompTick(){clearTimeout(ch.t);if(!ch.vis)return;
+  if(ch.cap){ch.bounce=1-ch.bounce;chompDraw();ch.t=setTimeout(chompTick,700);return}
+  if(7-ch.l-ch.r<=3){ch.t=setTimeout(function(){ch.l=0;ch.r=0;chompDraw();ch.t=setTimeout(chompTick,1200)},1500);return}
+  if((ch.l+ch.r)%2)ch.l++;else ch.r++;chompDraw();ch.t=setTimeout(chompTick,1300)}
+seg($('#chompSel'),[[0,'Selank, no caps'],[1,'NA Selank Amidate']],0,function(v){ch.cap=+v;ch.l=0;ch.r=0;ch.bounce=0;chompDraw();chompTick();track('chomp')});
+onScreen($('#chomp'),function(v){ch.vis=v;if(v&&!RM)chompTick();else clearTimeout(ch.t)});
+
+/* ===== look-alikes ===== */
+var PAIRS=[
+ ['sel','Selank',{a:['Selank','TKPRPGP',{n:'H₂N',c:'COOH'},'751.9'],b:['NA Selank Amidate','TKPRPGP',{n:'Ac',c:'NH₂',nHi:1,cHi:1},'792.9'],d:['Front: acetyl cap (+42)','Back: amide instead of acid (−1)','The seven bricks: identical']}],
+ ['sem','Semax',{a:['Semax','MEHFPGP',{n:'H₂N',c:'COOH'},'813.9'],b:['NA Semax Amidate','MEHFPGP',{n:'Ac',c:'NH₂',nHi:1,cHi:1},'855.0'],d:['Front: acetyl cap (+42)','Back: amide (−1)','Same seven bricks, with a methionine that can oxidise either way']}],
+ ['mt','MT-2 vs PT-141',{a:['MT-2',['x:Nle','D','H','d:F','R','W','K'],{n:'Ac',c:'NH₂',cHi:1,ring:[1,6,'D to K']},'1024.2'],b:['PT-141',['x:Nle','D','H','d:F','R','W','K'],{n:'Ac',c:'COOH',cHi:1,ring:[1,6,'D to K']},'1025.2'],d:['Only the back end differs: amide in MT-2, plain acid in PT-141','One dalton apart: the closest twins on this page','Both: Nle (not a body brick), D-Phe (mirror), and a ring closed from D to K'],ring:1}],
+ ['glp','Semaglutide vs Liraglutide',{a:['Semaglutide',['H','x:Aib'].concat('EGTFTSDVSSYLEGQAAKEFIAWLVRGRG'.split('')),{n:'H₂N',c:'COOH',per:11,mk:{1:{k:'diff'}},tail:{i:19,t:'C18 diacid + long linker',hi:1}},'4113.6'],b:['Liraglutide','HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG'.split(''),{n:'H₂N',c:'COOH',per:11,mk:{1:{k:'diff'}},tail:{i:19,t:'C16 fatty acid',hi:1}},'3751.2'],d:['Brick 2: Aib in semaglutide (a lab brick that blocks the DPP-4 enzyme), A in liraglutide','The fatty tail on K: longer in semaglutide, the main reason it lasts a week instead of a day','The other 29 bricks: identical']}]
+];
+var pairCur='sel';
+function pairDraw(k){pairCur=k;var P=PAIRS.find(function(p){return p[0]===k})[2],h='',wide=($('#pairOut').clientWidth||320)>=640;
+  h+='<div class="g2">';
+  [P.a,P.b].forEach(function(x){var t=parseT(x[1]),o=x[2],per=o.per||12;if(wide&&o.per)per=16;var svg=(P.ring&&wide)?ringSVG(o.c,o.cHi):chainSVG(t,{sc:.62,n:o.n,c:o.c,nHi:o.nHi,cHi:o.cHi,per:per,marks:o.mk,tail:o.tail,ring:o.ring,maxK:1.5});
+    h+='<div class="pairrow"><div class="nm">'+x[0]+'<span>'+x[3]+' Da</span></div><div class="svgbox">'+svg+'</div></div>'});
+  h+='</div><ul class="diffs">'+P.d.map(function(z){return '<li>'+z+'</li>'}).join('')+'</ul>';
+  $('#pairOut').innerHTML=h}
+seg($('#pairSel'),PAIRS.map(function(p){return [p[0],p[1]]}),'sel',function(v){pairDraw(v);track('pair-'+v)});
+
+/* ===== Part two: who makes the bricks ===== */
+$('#whoCell').innerHTML='<rect x="20" y="16" width="80" height="30" rx="15" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.5"/><g>'+shapeSVG('E',46,31,.4)+shapeSVG('K',62,31,.4)+shapeSVG('G',76,31,.4)+'</g><rect x="4" y="27" width="8" height="8" rx="2" fill="#fff" stroke="#3E4A80"><animate attributeName="x" values="0;20" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite"/></rect>';
+$('#whoJar').innerHTML='<rect x="38" y="14" width="44" height="40" rx="5" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><rect x="34" y="8" width="52" height="8" rx="2" fill="#6777B6" stroke="#3E4A80" stroke-width="1.2"/>'+shapeSVG('K',58,36,.5)+'<rect x="66" y="30" width="7" height="12" rx="1.5" fill="'+FMOC+'"/><rect x="51" y="17" width="14" height="6" rx="1.5" fill="'+GUARD+'" stroke="#3E4A80" stroke-width=".8"/>';
+
+/* ===== Part two: four ways to fill the jar ===== */
+function anim(dur,vals,attr,extra){return '<animate attributeName="'+attr+'" values="'+vals+'" dur="'+dur+'s" repeatCount="indefinite"'+(extra||'')+'/>'}
+function mv(dur,path,begin,kt){return '<animateMotion dur="'+dur+'s" repeatCount="indefinite" path="'+path+'"'+(begin?' begin="'+begin+'s"':'')+(kt||'')+'/>'}
+var AAR_ANIM=(function(){
+ /* A: fermented */
+ var a='<svg class="anim" viewBox="0 0 260 150" role="img" aria-label="Bacteria in a tank turning sugar into amino acids"><defs><clipPath id="tkA"><rect x="40" y="36" width="120" height="98" rx="18"/></clipPath></defs>';
+ for(var i=0;i<3;i++)a+='<rect x="'+(68+i*26)+'" y="0" width="10" height="10" rx="2.5" fill="#fff" stroke="#3E4A80" stroke-width="1.2" opacity="0">'+anim(3,'-4;64','y',' begin="'+i+'s"')+anim(3,'0;1;1;0','opacity',' begin="'+i+'s" keyTimes="0;.12;.75;1"')+'</rect>';
+ a+=mono(30,14,'sugar',{s:8.5,c:'#6B76A8'});
+ a+='<rect x="40" y="36" width="120" height="98" rx="18" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.6"/><g clip-path="url(#tkA)"><path fill="#DDD0F6" opacity=".75" d="M30 64 Q55 58 80 64 T130 64 T180 64 V140 H30Z">'+anim(3.2,'M30 64 Q55 58 80 64 T130 64 T180 64 V140 H30Z;M30 64 Q55 70 80 64 T130 64 T180 64 V140 H30Z;M30 64 Q55 58 80 64 T130 64 T180 64 V140 H30Z','d')+'</path>';
+ var rods=[[58,78,0],[92,86,1],[124,76,2],[70,106,1],[108,112,0],[136,100,2],[84,96,2]];
+ rods.forEach(function(r,k){a+='<g><animateTransform attributeName="transform" type="translate" values="0 0;'+(k%2?6:-5)+' '+(k%3?-5:4)+';0 0" dur="'+(3+k*.4)+'s" repeatCount="indefinite"/><rect x="'+r[0]+'" y="'+r[1]+'" width="18" height="8" rx="4" fill="#AACC96" stroke="#3E4A80" stroke-width="1.1" transform="rotate('+(r[2]*14-14)+' '+(r[0]+9)+' '+(r[1]+4)+')"/></g>'});
+ a+='</g><path d="M160 92 H190 V58 Q190 46 202 46 H214" fill="none" stroke="#3E4A80" stroke-width="9" stroke-linecap="round"/><path d="M160 92 H190 V58 Q190 46 202 46 H214" fill="none" stroke="#FFFFF4" stroke-width="6" stroke-linecap="round"/>';
+ ['E','K','E'].forEach(function(L,k){a+='<g opacity="0">'+mv(3,'M158 92 H190 V58 Q190 46 202 46 H222',k)+anim(3,'0;1;1;0','opacity',' begin="'+k+'s" keyTimes="0;.1;.85;1"')+shapeSVG(L,0,0,.38)+'</g>'});
+ a+='<rect x="214" y="30" width="38" height="42" rx="4" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="#fff" stroke="#3E4A80" stroke-width="1"><path d="M220 68l7-11 7 11z"/><path d="M231 68l6-9 6 9z"/><path d="M226 68l5-7 5 7z"/></g>'+mono(233,84,'crystals',{a:'middle',s:8,c:'#6B76A8'})+mono(100,146,'bacteria eat sugar, leak one brick',{a:'middle',s:8,c:'#6B76A8'})+'</svg>';
+ /* B: chemistry */
+ var b='<svg class="anim" viewBox="0 0 260 150" role="img" aria-label="Chemistry making left and right forms"><defs><clipPath id="fkB"><path d="M92 20 h26 v38 l38 66 q5 10 -8 10 h-82 q-13 0 -8 -10 l34 -66 z"/></clipPath></defs>';
+ b+='<path d="M92 20 h26 v38 l38 66 q5 10 -8 10 h-82 q-13 0 -8 -10 l34 -66 z" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><g clip-path="url(#fkB)"><path fill="#74BCFF" opacity=".35" d="M40 94 Q70 88 100 94 T160 94 V140 H40Z">'+anim(2.8,'M40 94 Q70 88 100 94 T160 94 V140 H40Z;M40 94 Q70 100 100 94 T160 94 V140 H40Z;M40 94 Q70 88 100 94 T160 94 V140 H40Z','d')+'</path>';
+ for(i=0;i<5;i++)b+='<circle cx="'+(84+i*10)+'" cy="128" r="2.4" fill="#fff" stroke="#6B76A8" stroke-width=".8">'+anim(2+i*.3,'130;92','cy')+anim(2+i*.3,'1;0','opacity')+'</circle>';
+ b+='</g><rect x="88" y="14" width="34" height="8" rx="2" fill="#E3E0BF" stroke="#3E4A80" stroke-width="1.2"/>';
+ var mit='<path d="M-7 12 V-4 Q-7 -12 0 -12 Q7 -12 7 -4 V12 Z M-7 2 Q-13 1 -12 -5 Q-11 -9 -7 -6" fill="currentColor" stroke="#3E4A80" stroke-width="1.3" stroke-linejoin="round"/>';
+ b+='<g opacity="0" style="color:#74BCFF">'+mv(4,'M150 70 Q190 60 214 44')+anim(4,'0;1;1;0','opacity',' keyTimes="0;.15;.8;1"')+mit+mono(0,24,'L',{a:'middle',s:9,w:700})+'</g>';
+ b+='<g opacity="0" style="color:#C2DCFF">'+mv(4,'M150 80 Q190 96 226 104',2)+anim(4,'0;1;1;0','opacity',' begin="2s" keyTimes="0;.15;.8;1"')+'<g transform="scale(-1,1)">'+mit+'</g>'+mono(0,24,'D',{a:'middle',s:9,w:700,c:'#DB6830'})+'</g>';
+ b+=mono(10,32,'small',{s:8,c:'#6B76A8'})+mono(10,42,'chemicals in',{s:8,c:'#6B76A8'});
+ b+='<circle cx="36" cy="58" r="4" fill="#E3E0BF" stroke="#3E4A80">'+anim(3,'36;96','cx')+anim(3,'58;80','cy')+anim(3,'1;0','opacity')+'</circle><circle cx="30" cy="70" r="3.5" fill="#74BCFF" stroke="#3E4A80">'+anim(3,'30;98','cx',' begin="1.2s"')+anim(3,'70;84','cy',' begin="1.2s"')+anim(3,'1;0','opacity',' begin="1.2s"')+'</circle>';
+ b+=mono(130,146,'both hands come out: left (L) and right (D)',{a:'middle',s:8,c:'#6B76A8'})+'</svg>';
+ /* C: enzyme */
+ var c='<svg class="anim" viewBox="0 0 260 150" role="img" aria-label="An enzyme joining fumaric acid and ammonia into aspartic acid">';
+ c+='<path d="M66 94 Q66 46 112 46 L116 46 Q120 66 130 66 Q140 66 144 46 L148 46 Q194 46 194 94 Q194 132 130 132 Q66 132 66 94 Z" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.6"/>'+mono(130,100,'aspartase',{a:'middle',s:10,w:600})+mono(130,114,'the enzyme',{a:'middle',s:8,c:'#6B76A8'});
+ var fum='<g><line x1="-15" y1="0" x2="15" y2="0" stroke="#3E4A80" stroke-width="1.4"/><circle cx="-15" cy="0" r="4.5" fill="#FF8A8A" stroke="#3E4A80"/><circle cx="-5" cy="0" r="4.5" fill="#E3E0BF" stroke="#3E4A80"/><circle cx="5" cy="0" r="4.5" fill="#E3E0BF" stroke="#3E4A80"/><circle cx="15" cy="0" r="4.5" fill="#FF8A8A" stroke="#3E4A80"/></g>';
+ var nh3='<g><circle cx="0" cy="0" r="5.5" fill="#74BCFF" stroke="#3E4A80"/><circle cx="-7" cy="5" r="3" fill="#fff" stroke="#3E4A80"/><circle cx="7" cy="5" r="3" fill="#fff" stroke="#3E4A80"/><circle cx="0" cy="-7" r="3" fill="#fff" stroke="#3E4A80"/></g>';
+ c+='<g>'+mv(4,'M20 24 Q80 10 126 56','',' keyTimes="0;1" keyPoints="0;1"')+anim(4,'1;1;0;0','opacity',' keyTimes="0;.42;.46;1"')+fum+'</g>';
+ c+='<g>'+mv(4,'M240 24 Q180 10 136 58')+anim(4,'1;1;0;0','opacity',' keyTimes="0;.42;.46;1"')+nh3+'</g>';
+ c+='<circle cx="130" cy="58" r="4" fill="#FFFFF4" opacity="0">'+anim(4,'4;4;22;4','r',' keyTimes="0;.42;.5;.56"')+anim(4,'0;0;.9;0;0','opacity',' keyTimes="0;.42;.48;.56;1"')+'</circle>';
+ c+='<g opacity="0">'+mv(4,'M130 58 Q150 20 226 22')+anim(4,'0;0;1;1;0','opacity',' keyTimes="0;.5;.56;.94;1"')+shapeSVG('D',0,0,.55)+'</g>';
+ c+=mono(20,14,'fumaric acid',{s:8,c:'#6B76A8'})+mono(240,14,'ammonia',{s:8,c:'#6B76A8',a:'end'})+mono(130,146,'one enzyme, one job: only the left-hand form',{a:'middle',s:8,c:'#6B76A8'})+'</svg>';
+ /* D: from protein */
+ var d='<svg class="anim" viewBox="0 0 260 150" role="img" aria-label="Hair keratin broken down by acid into amino acids">';
+ d+='<path d="M60 22 C40 30 22 58 22 86 C22 96 26 104 30 110 C40 96 54 74 62 48 C64 38 64 28 60 22 Z" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.4" stroke-linejoin="round"/><path d="M60 22 C48 56 36 88 18 124" fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round"/><g fill="none" stroke="#C9C29A" stroke-width="1"><path d="M54 40 L36 46M50 52 L30 60M46 64 L26 74M42 76 L26 88M56 34 L62 40M52 46 L60 54"/></g><path d="M72 40 C80 60 70 78 80 100 S84 120 78 128" fill="none" stroke="#924C1C" stroke-width="1.6" stroke-linecap="round"/>'+mono(46,140,'feather, hair',{a:'middle',s:8,c:'#6B76A8'});
+ for(i=0;i<3;i++)d+='<path d="M0 -6c0 0-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z" fill="#FF8A8A" stroke="#3E4A80" stroke-width="1" opacity="0">'+'<animateTransform attributeName="transform" type="translate" values="'+(112+i*30)+' 4;'+(112+i*30)+' 50" dur="2.4s" begin="'+(i*.5)+'s" repeatCount="indefinite"/>'+anim(2.4,'0;1;0','opacity',' begin="'+(i*.5)+'s"')+'</path>';
+ d+=mono(176,14,'acid + heat',{a:'middle',s:8,c:'#B0412B'});
+ var kr='GCSCPGCT'.split('');
+ d+='<line x1="96" y1="76" x2="236" y2="76" stroke="#3E4A80" stroke-width="1.6">'+anim(5,'1;1;0;0;1','opacity',' keyTimes="0;.35;.45;.95;1"')+'</line>';
+ kr.forEach(function(L,k){var x=96+k*20,isC=L==='C',dx=(k-3.5)*4;
+   d+='<g><animateTransform attributeName="transform" type="translate" values="0 0;0 0;'+dx+' 0;'+(isC?(214-x)+' 46':dx+' 0')+';'+(isC?(214-x)+' 46':dx+' 0')+';0 0" keyTimes="0;.35;.5;.75;.95;1" dur="5s" repeatCount="indefinite"/>'+(isC?'':anim(5,'1;1;1;.2;.2;1','opacity',' keyTimes="0;.35;.5;.75;.95;1"'))+shapeSVG(L,x,76,.42)+'</g>'});
+ d+='<rect x="196" y="112" width="40" height="24" rx="4" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.4"/>'+mono(216,146,'cysteine kept',{a:'middle',s:8,c:'#6B76A8'})+'</svg>';
+ return [['f','Grown by bacteria','Most bricks','Like a brewery. Engineered bacteria eat sugar and leak one amino acid into the broth. It is pulled out (ion exchange) and crystallised.',a],
+  ['c','Made by chemistry','Glycine, methionine','Small chemicals react in a flask. Chemistry makes both hands at once, like a pile of left and right gloves. Methionine for feed is sold that way; glycine has no hands at all.',b],
+  ['e','Made by an enzyme','Aspartic acid, alanine','Like a stapler with one job. The enzyme aspartase joins fumaric acid and ammonia and only ever makes the left-hand form.',c],
+  ['p','Taken from protein','Cysteine (history)','Feathers and hair are rich in cysteine. Acid and heat snap the protein back into single bricks, and cysteine is fished out. Bacteria now compete.',d]]})();
+var RT={f:['#AACC96','Bacteria'],c:['#74BCFF','Chemistry'],e:['#E1DE62','Enzyme'],p:['#F28E79','From protein'],m:['mix','Mixed']};
+$('#aaRoutes').innerHTML=AAR_ANIM.map(function(r){return '<div class="card">'+r[4]+'<div class="hd"><h3>'+r[1]+'</h3><span class="tag" style="background:'+RT[r[0]][0]+'">'+r[2]+'</span></div><div class="bd"><p>'+r[3]+'</p></div></div>'}).join('');
+var AAR=[
+ ['G','Glycine','c','The smallest brick has no left or right form, so plain chemistry makes it cheaply.'],
+ ['A','Alanine','e','Mostly made by an enzyme that trims aspartic acid; fermentation is also used.'],
+ ['V','Valine','f','Grown by engineered bacteria fed sugar.'],
+ ['L','Leucine','f','Grown by bacteria fed sugar; once mostly pulled from broken-down protein.'],
+ ['I','Isoleucine','f','Grown by bacteria fed sugar.'],
+ ['M','Methionine','c','The big exception: mostly chemistry, about 850,000 tonnes a year for animal feed, as a mix of both hands. No fermentation route had gone commercial at the time of the review.'],
+ ['F','Phenylalanine','f','Grown by bacteria fed sugar. Much of it goes into the sweetener aspartame.'],
+ ['Y','Tyrosine','m','Pulled from broken-down protein or grown by bacteria.'],
+ ['W','Tryptophan','f','Grown by engineered E. coli fed sugar.'],
+ ['H','Histidine','f','Grown by bacteria fed sugar.'],
+ ['S','Serine','m','Made by enzymes from glycine, or by fermentation.'],
+ ['T','Threonine','f','Grown by engineered E. coli; reported around 130 g per litre of broth.'],
+ ['N','Asparagine','m','Made from aspartic acid or pulled from plant sources; small volumes.'],
+ ['Q','Glutamine','f','Grown by bacteria fed sugar.'],
+ ['C','Cysteine','p','Long made from keratin: human hair and duck feathers, broken down with acid and purified. Bacterial fermentation now competes.'],
+ ['D','Aspartic acid','e','Made in one enzyme step: fumaric acid plus ammonia, using aspartase.'],
+ ['E','Glutamic acid','f','The biggest of all: over 40% of world amino acid volume, mostly sold as MSG. Grown by Corynebacterium glutamicum, which pushes it out into the broth.'],
+ ['K','Lysine','f','The fastest growing: mostly for animal feed. Grown by Corynebacterium glutamicum fed sugar.'],
+ ['R','Arginine','f','Grown by bacteria fed sugar.'],
+ ['P','Proline','f','Grown by bacteria fed sugar.']
+];
+var aa={sel:-1,rt:''};
+function aaBg(k){return k==='m'?'repeating-linear-gradient(45deg,#fff 0 3px,#AACC96 3px 6px)':RT[k][0]}
+$('#rkey').innerHTML=['f','c','e','p','m'].map(function(k){var n=AAR.filter(function(a){return a[2]===k}).length;return '<button type="button" data-k="'+k+'" aria-pressed="false"><i style="background:'+aaBg(k)+'"></i>'+RT[k][1]+' · '+n+'</button>'}).join('');
+$('#aa20').innerHTML=AAR.map(function(a,i){return '<button type="button" data-i="'+i+'" aria-pressed="false"><svg viewBox="0 0 40 40">'+shapeSVG(a[0],20,21,.85)+'</svg><span>'+a[1].slice(0,7)+'</span><i style="background:'+aaBg(a[2])+'"></i></button>'}).join('');
+function aaShow(){$$('#aa20 button').forEach(function(b){var i=+b.dataset.i;b.setAttribute('aria-pressed',i===aa.sel?'true':'false');b.classList.toggle('dim',!!aa.rt&&AAR[i][2]!==aa.rt)});
+  $$('#rkey button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===aa.rt?'true':'false')});
+  var h;
+  if(aa.sel>=0){var a=AAR[aa.sel];h='<h3>'+a[1]+' <span class="tag" style="background:'+(a[2]==='m'?'#fff':RT[a[2]][0])+'">'+RT[a[2]][1]+'</span></h3><p style="margin:0 0 4px">'+a[3]+'</p><p class="note" style="margin:0">Tap it again, or another brick, to go back.</p>'}
+  else if(aa.rt){var L=AAR.filter(function(a){return a[2]===aa.rt});h='<h3>'+RT[aa.rt][1]+' · '+L.length+' bricks</h3><p style="margin:0">'+L.map(function(a){return a[1]}).join(', ')+'. Tap the key again to show all.</p>'}
+  else h='<h3>Tap a brick, or a colour in the key</h3><p style="margin:0">'+AAR.filter(function(a){return a[2]==='f'}).length+' of the 20 are mostly grown by bacteria fed sugar. Chemistry, enzymes and protein cover the rest. Stripe colour = main route today.</p>';
+  $('#aaOpen').innerHTML=h}
+$$('#aa20 button').forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.i;aa.sel=aa.sel===i?-1:i;aaShow();track('aa')})});
+$$('#rkey button').forEach(function(b){b.addEventListener('click',function(){aa.rt=aa.rt===b.dataset.k?'':b.dataset.k;aa.sel=-1;aaShow()})});
+aaShow();
+
+/* ===== caps stepper ===== */
+var CAPS=[['Plain','A plain brick','Both ends are open. It would snap onto anything, even another copy of itself.'],
+ ['Front cap','Front cap on','Fmoc covers the plug, like the cap on a marker, so this brick can only snap once.'],
+ ['Side guard','Side guard on','Bricks with a reactive top piece get tape over it: Boc on lysine. Others use tBu, Trt or Pbf.'],
+ ['Snap on','Into the stack','The open socket snaps onto the chain on the bead. Still capped, still guarded.'],
+ ['Base','Base bath, every round','A mild base (piperidine) pops off the front cap only, so the next brick can snap on. The guard stays.'],
+ ['Acid','Acid bath, once, at the end','Strong acid (TFA) peels off every guard and cuts the chain off the bead.']];
+var cp={i:0,run:true,t:0,vis:true};
+function capsDraw(){var i=cp.i,s='<svg viewBox="12 24 290 128" role="img" aria-label="'+CAPS[i][1]+'">',bx=170,by=92;
+  if(i===4)s+='<rect x="0" y="0" width="330" height="150" fill="#74BCFF" opacity=".22" class="popin"/>'+mono(322,16,'base bath',{a:'end',s:9,c:'#2F6DB5',w:600});
+  if(i===5)s+='<rect x="0" y="0" width="330" height="150" fill="#FF8A8A" opacity=".22" class="popin"/>'+mono(322,16,'acid bath (TFA)',{a:'end',s:9,c:'#B0412B',w:600});
+  if(i>=3){s+='<circle cx="40" cy="'+(by+13)+'" r="22" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.6"/>'+mono(40,by+16,'bead',{a:'middle',s:8.5})}
+  s+='<g'+(i===5?' class="flyright"':'')+'>';
+  if(i>=3){s+='<line x1="62" y1="'+(by+13)+'" x2="'+bx+'" y2="'+(by+13)+'" stroke="#3E4A80" stroke-width="2"/>'+shapeSVG('G',88,by+13,.6)+shapeSVG('P',122,by+13,.6)+shapeSVG('A',150,by+13,.55)}
+  s+=brick('K',bx,by,1,{rev:true});
+  if(i>=2&&i<5)s+=hat(bx+31,by-62,'Boc',1);
+  if(i===5)s+='<g class="flyoff">'+hat(bx+31,by-62,'Boc',1)+'</g>';
+  if(i>=1&&i<4)s+=fmocCap(bx+62,by+13,1,i===1?'popin':'');
+  if(i===4)s+=fmocCap(bx+62,by+13,1,'flyoff');
+  s+='</g>';
+  if(i<3)s+=mono(bx+4,by+44,'socket open',{a:'middle',s:8,c:'#B0412B'});
+  $('#caps').innerHTML=s+'</svg>';
+  $('#capCap').innerHTML='<b>'+(i+1)+' · '+CAPS[i][1]+'</b>'+CAPS[i][2];
+  $$('#capPips button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.i===i?'true':'false')})}
+$('#capPips').innerHTML=CAPS.map(function(c,i){return '<button type="button" data-i="'+i+'">'+c[0]+'</button>'}).join('');
+function capTick(){clearTimeout(cp.t);if(!cp.run||!cp.vis||RM)return;cp.t=setTimeout(function(){cp.i=(cp.i+1)%CAPS.length;capsDraw();capTick()},3400)}
+function capStop(){cp.run=false;clearTimeout(cp.t);$('#capPlay').textContent='Play'}
+$$('#capPips button').forEach(function(b){b.addEventListener('click',function(){capStop();cp.i=+b.dataset.i;capsDraw();track('caps')})});
+$('#capPrev').addEventListener('click',function(){capStop();cp.i=(cp.i+CAPS.length-1)%CAPS.length;capsDraw()});
+$('#capNext').addEventListener('click',function(){capStop();cp.i=(cp.i+1)%CAPS.length;capsDraw()});
+$('#capPlay').addEventListener('click',function(){cp.run=!cp.run;this.textContent=cp.run?'Pause':'Play';if(cp.run)capTick();else clearTimeout(cp.t)});
+capsDraw();onScreen($('#caps'),function(v){cp.vis=v;if(v)capTick();else clearTimeout(cp.t)});
+
+/* ===== SS-31 ===== */
+$('#ssChain').innerHTML=chainSVG(['d:R','x:Dmt','K','F'],{sc:.8,n:'H₂N',c:'NH₂',cHi:1,maxK:1.3});
+$('#dosebars').innerHTML=[['BPC-157','250–500 mcg',.05],['TB-500 frag','~2 mg',.2],['SS-31','5–10 mg',1]].map(function(d){return '<li><span style="font:inherit;color:inherit;text-align:left">'+d[0]+'</span><i style="width:'+Math.max(2,d[2]*100)+'%;background:'+(d[2]===1?'#FFA51F':'#C2DCFF')+'"></i><span>'+d[1]+'</span></li>'}).join('');
+$('#dosebars').insertAdjacentHTML('afterend','<p class="cap" style="margin-top:0">Typical reported amounts from the <a href="/dosage/">Dosage</a> page, not advice.</p>');
+
+/* ===== Part three: board ===== */
+(function(){var ico={bead:'<circle cx="9" cy="14" r="7" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.3"/><path d="M16 14h12" stroke="#3E4A80" stroke-width="1.4"/><circle cx="20" cy="14" r="3" fill="#AACC96" stroke="#3E4A80"/><circle cx="27" cy="14" r="3" fill="#C2DCFF" stroke="#3E4A80"/>',
+  ecoli:'<rect x="2" y="6" width="26" height="12" rx="6" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.3"/>',
+  yeast:'<ellipse cx="13" cy="12" rx="10" ry="8" fill="#FFF1B8" stroke="#3E4A80" stroke-width="1.3"/><ellipse cx="24" cy="7" rx="4" ry="3.4" fill="#FFF1B8" stroke="#3E4A80" stroke-width="1.2"/>',
+  cho:'<circle cx="15" cy="11" r="9" fill="#FFEEEE" stroke="#3E4A80" stroke-width="1.3"/><circle cx="14" cy="11" r="4" fill="#FCB0B4"/>',
+  body:'<path d="M15 3c4 5 7 9 7 13a7 7 0 0 1-14 0c0-4 3-8 7-13z" fill="#F28E79" stroke="#3E4A80" stroke-width="1.3"/>',
+  mol:'<path d="M15 3l8 4.5v9L15 21l-8-4.5v-9z" fill="#fff" stroke="#3E4A80" stroke-width="1.3"/>'};
+ var G=[['bead','Stacked on beads','most research vials',1,[['KPV',3],['GHK-Cu',3],['Pinealon',3],['Bioregulators','2–4'],['Epitalon',4],['SS-31',4],['Ipamorelin',5],['GHRP-2',6],['GHRP-6',6],['Hexarelin',6],['TB-500',7],['Selank',7],['NA Selank Amidate',7],['Semax',7],['NA Semax Amidate',7],['MT-2',7],['PT-141',7],['Oxytocin',9],['DSIP',9],['Kisspeptin-10',10],['BPC-157',15],['MOTS-c',16],['AOD-9604',16],['Thymosin α1',28],['CJC-1295',29],['Sermorelin',29],['Research semaglutide',31],['Cagrilintide',37],['LL-37',37],['Retatrutide',39],['Tirzepatide',39],['Tesamorelin',44]]],
+  ['ecoli','Grown in E. coli','brand medicines',0,[['Teriparatide',34],['Insulin (Lilly)',51],['IGF-1 LR3',83],['Somatropin (HGH)',191]]],
+  ['yeast','Grown in yeast','brand medicines',0,[['Semaglutide (brand)',31],['Liraglutide',31],['Insulin (Novo)',51]]],
+  ['cho','Grown in hamster cells','antibodies',0,[['Bimagrumab','~1,300'],['MariTide','antibody + peptides']]],
+  ['body','Taken from bodies','extracts',0,[['HCG','urine or cells'],['HMG','urine'],['Cerebrolysin','pig brain'],['Thymalin','calf thymus']]],
+  ['mol','Not a chain at all','plain chemistry',0,[['NAD+',''],['MK-677',''],['5-Amino-1MQ',''],['SLU-PP-332',''],['Methylene blue',''],['Bromantane',''],['Tesofensine',''],['Orforglipron','']]]];
+ $('#board').innerHTML=G.map(function(g){return '<div class="grp'+(g[3]?' wide':'')+'"><div class="gh"><svg viewBox="0 0 30 22">'+ico[g[0]]+'</svg><b>'+g[1]+'</b><span>'+g[2]+'</span></div><div class="chips">'+g[4].map(function(c){var n=typeof c[1]==='number'?c[1]:0,w=n?Math.min(100,Math.round(Math.log(n+1)/Math.log(200)*100)):0;return '<span class="chip">'+c[0]+(c[1]!==''?'<small>'+(n?n+' bricks':c[1])+'</small>':'')+(w?'<i style="width:'+w+'%"></i>':'')+'</span>'}).join('')+'</div></div>'}).join('')})();
+
+/* ===== stacked on beads, controlled ===== */
+var BB=[
+ {k:'kpv',n:'KPV',t:['K','P','V'],c:'COOH'},
+ {k:'epi',n:'Epitalon',t:['A','E','D','G'],c:'COOH'},
+ {k:'ipa',n:'Ipamorelin',t:['x:Aib','H','xd:Nal','d:F','K'],c:'NH₂'},
+ {k:'sel',n:'Selank',t:'TKPRPGP'.split(''),c:'COOH'},
+ {k:'bpc',n:'BPC-157',t:'GEPPPGKPADDAGLV'.split(''),c:'COOH'},
+ {k:'sema',n:'Semaglutide',t:['H','x:Aib'].concat('EGTFTSDVSSYLEGQAAKEFIAWLVRGRG'.split('')),c:'COOH'},
+ {k:'tesa',n:'Tesamorelin',t:'YADAIFTNSYRKVLGQLSARKLLQDIMSRQQGESNQERGARARL'.split(''),c:'NH₂'}];
+var PH={anchor:['First brick on','The beads arrive with the back brick already attached, capped.','#E1DE62','first brick',1],
+ uncap:['Uncap','Base bath: the front cap pops off the newest brick.','#9CCBFF','base',2],
+ wash:['Wash','Solvent floods in and drains out. Loose leftovers leave; the chain stays because the bead stays.','#EEF3FF','wash',3],
+ link:['Snap on','The next capped brick plus an activator flow in and snap onto the open front.','#EDEB8E','next brick',1],
+ cut:['Cut free','Acid bath (TFA): every guard peels off and the chain lets go of the bead.','#FFB0B0','acid',1],
+ crude:['Crude','Into ice-cold ether: the chain crashes out as a solid powder.','#F3F0FF','cold ether',1]};
+var bb={i:2,e:.99,run:false,ph:0,steps:[],t:0,t2:0,vis:false,spd:3200,started:false};
+function bbSteps(N){var s=[['anchor',1],['wash',1]];for(var r=2;r<=N;r++){s.push(['uncap',r-1],['wash',r-1],['link',r],['wash',r])}s.push(['uncap',N],['cut',N],['crude',N]);return s}
+function vesselSVG(key,full){var P=PH[key],s='<svg viewBox="0 0 118 190" role="img" aria-label="Reaction tube: '+P[0]+'"><defs><clipPath id="vcl"><rect x="22" y="12" width="62" height="128" rx="3"/></clipPath></defs>';
+  s+='<rect x="22" y="12" width="62" height="128" rx="3" fill="#fff" stroke="#3E4A80" stroke-width="2"/>';
+  var lvl=full?36:122;s+='<g clip-path="url(#vcl)"><g class="slosh"><path d="M10 '+lvl+' Q30 '+(lvl-5)+' 53 '+lvl+' T96 '+lvl+' V150 H10Z" fill="'+P[2]+'" stroke="#6B76A8" stroke-width=".8" style="transition:d .5s"/></g>';
+  for(var i=0;i<18;i++){var x=28+(i%9)*6.4,y=128-Math.floor(i/9)*6.2;s+='<circle cx="'+f1(x)+'" cy="'+f1(y)+'" r="3.1" fill="#E1DE62" stroke="#3E4A80" stroke-width=".8"/>'}
+  s+='</g><line x1="22" y1="134" x2="84" y2="134" stroke="#3E4A80" stroke-width="2" stroke-dasharray="3 2"/>';
+  s+='<path d="M44 140h18l-4 14h-10z" fill="#E3E0BF" stroke="#3E4A80" stroke-width="1.5"/><path d="M53 154v6" stroke="#3E4A80" stroke-width="2"/>';
+  if(!full&&key!=='crude')s+='<path class="drip" d="M53 162c0 0-3 4-3 6a3 3 0 0 0 6 0c0-2-3-6-3-6z" fill="'+P[2]+'" stroke="#3E4A80" stroke-width=".8"/>';
+  s+=mono(53,full?28:116,P[3],{a:'middle',s:8,w:600})+mono(92,137,'filter',{s:7,c:'#6B76A8'})+mono(53,186,full?'soaking':'draining',{a:'middle',s:7.5,c:'#6B76A8'});
+  if(key==='link'&&full){s+=tokSVG(BB[bb.i].t[BB[bb.i].t.length-bb.steps[bb.ph][1]]||'G',53,62,.45)}
+  return s+'</svg>'}
+function bbRender(){var P=BB[bb.i],N=P.t.length,st=bb.steps[bb.ph],key=st[0],built=st[1],ph=PH[key];
+  var w=($('#bbChain').clientWidth||320),per=Math.max(5,Math.min(16,Math.floor((w-60)/30)));
+  var j=bb.ph;while(j>0&&bb.steps[j][0]==='wash')j--;var lk=bb.steps[j][0],capped=(lk==='anchor'||lk==='link');
+  var svg;
+  if(key==='cut'||key==='crude')svg=chainSVG(P.t,{sc:N>20?.5:.62,per:per,n:'H₂N',c:P.c,cHi:P.c==='NH₂',maxK:1.4});
+  else{var rev=P.t.slice().reverse().slice(0,built);svg=chainSVG(rev,{sc:N>20?.5:.62,per:per,bead:1,guards:1,fmocLast:capped,maxK:1.4})}
+  $('#bbChain').innerHTML=svg;
+  $('#vessel').innerHTML=vesselSVG(key,true);
+  clearTimeout(bb.t2);bb.t2=setTimeout(function(){if(key!=='crude'&&key!=='anchor')$('#vessel').innerHTML=vesselSVG(key,false)},Math.min(1600,bb.spd*.55));
+  $('#bbPhase').innerHTML='<b>'+ph[0]+'</b>'+ph[1]+(key==='link'&&P.t[N-built]&&/:/.test(P.t[N-built])?' This one is a special brick.':'');
+  var liq=0;for(var i=0;i<=bb.ph;i++)liq+=PH[bb.steps[i][0]][4];
+  var r=Math.max(1,built);$('#cRound').textContent=Math.min(r,N)+' / '+N;$('#cLiq').textContent=liq;
+  $('#cTime').textContent=r<2?'30–60 min':(r*.5).toFixed(r<20?1:0).replace('.0','')+'–'+r+' h';
+  $('#cFull').textContent=Math.round(Math.pow(bb.e,Math.max(0,r-1))*100)+'%';
+  var pip=key==='anchor'?0:key==='cut'||key==='crude'?5:{uncap:1,wash:(bb.steps[bb.ph-1]&&bb.steps[bb.ph-1][0]==='link')?4:2,link:3}[key];
+  if(key==='wash'&&bb.ph===1)pip=2;
+  $$('#bbPips button').forEach(function(b,k){b.setAttribute('aria-pressed',k===pip?'true':'false')});
+  $('#bbRound').max=N;$('#bbRound').value=Math.min(r,N);$('#bbRv').textContent='Round '+Math.min(r,N)+' of '+N}
+$('#bbPips').innerHTML=['Start','Uncap','Wash','Snap','Wash','Cut'].map(function(x){return '<button type="button" tabindex="-1">'+x+'</button>'}).join('');
+function bbTick(){clearTimeout(bb.t);if(!bb.run||!bb.vis)return;var last=bb.ph>=bb.steps.length-1;bb.t=setTimeout(function(){bb.ph=last?0:bb.ph+1;bbRender();bbTick()},last?4000:bb.spd)}
+function bbSetRun(v){bb.run=v;$('#bbPlay').textContent=v?'Pause':'Play';if(v)bbTick();else clearTimeout(bb.t)}
+function bbStart(i){bb.i=i;bb.steps=bbSteps(BB[i].t.length);bb.ph=0;bbRender();cmpTable();crudeDraw();if(bb.run)bbTick()}
+seg($('#bbSel'),BB.map(function(p,i){return [i,p.n+' · '+p.t.length]}),2,function(v){bbStart(+v);track('bead-'+BB[+v].k)});
+seg($('#bbSpd'),[[3200,'Slow'],[1500,'Faster']],3200,function(v){bb.spd=+v;if(bb.run)bbTick()});
+$('#bbPlay').addEventListener('click',function(){bbSetRun(!bb.run);track('bead-play')});
+$('#bbPrev').addEventListener('click',function(){bbSetRun(false);bb.ph=Math.max(0,bb.ph-1);bbRender()});
+$('#bbNext').addEventListener('click',function(){bbSetRun(false);bb.ph=Math.min(bb.steps.length-1,bb.ph+1);bbRender()});
+$('#bbRound').addEventListener('input',function(){bbSetRun(false);var r=+this.value,k=bb.steps.findIndex(function(s){return s[0]==='link'&&s[1]===r});bb.ph=r===1?0:k<0?bb.steps.length-1:k;bbRender()});
+onScreen($('#vessel'),function(v){bb.vis=v;if(v&&!bb.started&&!RM){bb.started=true;bbSetRun(true)}else if(v&&bb.run)bbTick();else clearTimeout(bb.t)});
+function cmpTable(){var h='<tr><th>Peptide</th><th>Rounds</th><th>Liquid changes</th><th>Machine time</th><th>Full chains</th></tr>';
+  BB.forEach(function(p,i){var n=p.t.length;h+='<tr'+(i===bb.i?' class="on"':'')+'><td>'+p.n+'<i class="lenbar" style="width:'+Math.round(n/44*100)+'%"></i></td><td>'+n+'</td><td>'+(n*9+3)+'</td><td>'+(n*.5).toFixed(n<20?1:0).replace('.0','')+'–'+n+' h</td><td>'+Math.round(Math.pow(.99,n-1)*100)+'%</td></tr>'});
+  $('#cmpT').innerHTML=h}
+
+/* ===== microscope lens (shared by crude and purity) ===== */
+function glyph(t,x,y){var c=TY[t][0],s='',dx=4.6,r=2.1,xs;
+  xs=t==='trunc'?[-2,-1,0]:t==='ins'?[-2.5,-1.5,-.5,.5,1.5,2.5]:[-2,-1,0,1,2];
+  var pts=xs.filter(function(v,i){return !(t==='del'&&i===2)}).map(function(v){return x+v*dx});
+  s+='<line x1="'+f1(pts[0])+'" y1="'+f1(y)+'" x2="'+f1(t==='del'?x-dx:pts[pts.length-1])+'" y2="'+f1(y)+'" stroke="#3E4A80" stroke-width=".8"/>';
+  if(t==='del')s+='<line x1="'+f1(x+dx)+'" y1="'+f1(y)+'" x2="'+f1(x+2*dx)+'" y2="'+f1(y)+'" stroke="#3E4A80" stroke-width=".8"/>';
+  pts.forEach(function(px,i){var hollow=t==='mirror'&&i===2,raised=t==='ins'&&i===3;s+='<circle cx="'+f1(px)+'" cy="'+f1(raised?y-3:y)+'" r="'+r+'" fill="'+(hollow?'#fff':c)+'" stroke="#3E4A80" stroke-width="'+(t==='right'?.4:.7)+'"/>'});
+  if(t==='guard')s+='<rect x="'+f1(x-3)+'" y="'+f1(y-6.5)+'" width="6" height="3" fill="'+GUARD+'" stroke="#3E4A80" stroke-width=".5"/>';
+  if(t==='ox')s+='<circle cx="'+f1(x-2*dx)+'" cy="'+f1(y-4)+'" r="1.4" fill="#FF8A8A" stroke="#3E4A80" stroke-width=".5"/>';
+  return s}
+var SLOTS=(function(){var o=[],cx=232,cy=112;for(var y=cy-91;y<=cy+91;y+=13)for(var x=cx-100;x<=cx+100;x+=25){var off=Math.round((y-cy)/13)%2?12.5:0,xx=x+off;if(Math.hypot(xx-cx,y-cy)<93)o.push([xx,y])}o.sort(function(a,b){return Math.hypot(a[0]-cx,a[1]-cy)-Math.hypot(b[0]-cx,b[1]-cy)});o=o.slice(0,100);var s=5;for(var i=o.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1)),t=o[i];o[i]=o[j];o[j]=t}return o})();
+function lensSVG(dist,label,cloudy){var n=SLOTS.length,cnt={},keys=Object.keys(dist).filter(function(k){return k!=='right'}),tot=Math.round((1-dist.right)*n),used=0;
+  keys.forEach(function(k){cnt[k]=Math.floor(dist[k]*n);used+=cnt[k]});keys.slice().sort(function(a,b){return (dist[b]*n-cnt[b])-(dist[a]*n-cnt[a])}).forEach(function(k){if(used<tot){cnt[k]++;used++}});cnt.right=n-used;
+  var order=[];keys.forEach(function(k){for(var i=0;i<cnt[k];i++)order.push(k)});while(order.length<n)order.push('right');
+  var s='<svg viewBox="0 0 340 228" role="img" aria-label="Vial and microscope view">';
+  s+='<path d="M30 40v12c-10 3-14 8-14 16v128c0 5 3 8 8 8h52c5 0 8-3 8-8V68c0-8-4-13-14-16V40z" fill="#fff" stroke="#3E4A80" stroke-width="2"/><rect x="26" y="32" width="48" height="10" rx="2" fill="#6B76A8" stroke="#3E4A80" stroke-width="1.2"/>';
+  s+='<rect x="18" y="104" width="64" height="98" fill="'+(cloudy?'#F3F0FF':'#74BCFF')+'" opacity="'+(cloudy?1:.2)+'"/><path d="M18 104 q8 -3 16 0 t16 0 t16 0 t16 0" fill="none" stroke="#74BCFF" stroke-width="1"/>';
+  s+=mono(50,222,label,{a:'middle',s:7.5,c:'#6B76A8'});
+  s+='<circle cx="58" cy="150" r="9" fill="none" stroke="#DB6830" stroke-width="1.8"/><path d="M66 143 L148 40 M66 157 L148 186" stroke="#DB6830" stroke-width="1" stroke-dasharray="3 3"/>';
+  s+='<circle cx="232" cy="112" r="102" fill="#F4F8FF" stroke="#DB6830" stroke-width="2"/>';
+  SLOTS.forEach(function(p,i){s+=glyph(order[i],p[0],p[1])});
+  s+='<rect x="186" y="212" width="92" height="13" fill="#FFFFE2"/>'+mono(232,222,'zoom ≈ 10 million ×',{a:'middle',s:8,c:'#DB6830'})+'</svg>';
+  return {svg:s,n:n,cnt:cnt}}
+function keyHTML(dist,per){return Object.keys(TY).map(function(k){var v=(dist[k]||0)*per;if(k!=='right'&&!(dist[k]>0))return '';return '<li><svg viewBox="0 0 28 12">'+glyph(k,14,7)+'</svg><span style="text-align:left;font:inherit">'+TY[k][1]+'<em>'+TY[k][2]+'</em></span><span>'+(v>=10?Math.round(v):v>=1?v.toFixed(1).replace('.0',''):v.toFixed(2)).toLocaleString()+' / '+per.toLocaleString()+'</span></li>'}).join('')}
+function crudeDist(n,e){var chain=1-Math.pow(e,n-1),oth={guard:.008,ox:.006,mirror:.004,ins:.003},o=0,d={};for(var k in oth){d[k]=oth[k];o+=oth[k]}d.del=chain*.7;d.trunc=chain*.3;d.right=Math.max(0,1-chain-o);return d}
+function crudeDraw(){var P=BB[bb.i],d=crudeDist(P.t.length,bb.e),L=lensSVG(d,'crude, '+P.n,true);
+  $('#crudeLens').innerHTML=L.svg;$('#crudeKey').innerHTML=keyHTML(d,1000);
+  $('#crudeCap').textContent=P.n+', '+P.t.length+' rounds at '+(bb.e*100).toFixed(1).replace('.0','')+'% per snap: about '+Math.round(d.right*100)+'% right chains before cleanup. '+L.n+' molecules in the zoom.'}
+seg($('#effSel'),[[.995,'99.5%'],[.99,'99%'],[.98,'98%'],[.97,'97%']],.99,function(v){bb.e=+v;crudeDraw();bbRender();track('stack')});
+
+/* ===== grown in cells ===== */
+(function(){
+ var ec='<svg class="anim" viewBox="0 0 240 140" role="img" aria-label="E. coli building a peptide that clumps inside, then bursting open">';
+ ec+='<g><animateTransform attributeName="transform" type="rotate" values="-6 40 72;6 40 72;-6 40 72" dur="1.2s" repeatCount="indefinite"/><path d="M40 66 C24 58 22 84 6 76" fill="none" stroke="#6B76A8" stroke-width="1.4"/><path d="M40 80 C24 90 24 106 8 102" fill="none" stroke="#6B76A8" stroke-width="1.4"/></g>';
+ ec+='<rect x="40" y="40" width="168" height="64" rx="32" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.8"/>';
+ ec+='<g><animateTransform attributeName="transform" type="rotate" values="0 78 72;360 78 72" dur="8s" repeatCount="indefinite"/><circle cx="78" cy="72" r="12" fill="none" stroke="#3E4A80" stroke-width="1.6"/><path d="M78 60 A12 12 0 0 1 90 72" fill="none" stroke="#DB6830" stroke-width="3.5"/></g>'+mono(78,96,'plasmid',{a:'middle',s:7.5});
+ ec+='<path d="M96 72 C110 62 118 82 132 72" fill="none" stroke="#FFA51F" stroke-width="2" stroke-dasharray="3 2"/><ellipse cx="132" cy="66" rx="9" ry="6" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.2"/><ellipse cx="132" cy="77" rx="11" ry="6" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.2"/>';
+ for(var i=0;i<4;i++)ec+='<circle r="2.6" fill="#F28E79" stroke="#3E4A80" stroke-width=".7">'+mv(1.6,'M134 60 Q150 48 172 64',i*.4)+anim(6,'1;1;0;0','opacity',' keyTimes="0;.7;.72;1"')+'</circle>';
+ ec+='<circle cx="176" cy="70" r="3" fill="#F28E79" stroke="#3E4A80" stroke-width="1.2">'+anim(6,'3;14;14;14','r',' keyTimes="0;.7;.95;1"')+'<animate attributeName="cx" values="176;176;216;176" keyTimes="0;.75;.95;1" dur="6s" repeatCount="indefinite"/><animate attributeName="cy" values="70;70;44;70" keyTimes="0;.75;.95;1" dur="6s" repeatCount="indefinite"/></circle>';
+ ec+='<path d="M200 46 l-6 10 6 6 -6 10 6 6 -6 10 6 8" fill="none" stroke="#FFFFE2" stroke-width="3" opacity="0">'+anim(6,'0;0;1;1;0','opacity',' keyTimes="0;.7;.74;.95;1"')+'</path>';
+ ec+=mono(176,30,'clump (inclusion body)',{a:'middle',s:7.5})+mono(120,132,'about 2 µm long · burst open to harvest',{a:'middle',s:7.5,c:'#6B76A8'})+'</svg>';
+ var ye='<svg class="anim" viewBox="0 0 240 140" role="img" aria-label="Yeast cell pushing a peptide out into the broth">';
+ ye+='<ellipse cx="96" cy="76" rx="56" ry="46" fill="#FFF1B8" stroke="#3E4A80" stroke-width="1.8"/><ellipse cx="146" cy="36" rx="8" ry="6" fill="#FFF1B8" stroke="#3E4A80" stroke-width="1.5">'+anim(7,'6;20;20;6','rx',' keyTimes="0;.85;.95;1"')+anim(7,'5;16;16;5','ry',' keyTimes="0;.85;.95;1"')+'</ellipse>';
+ ye+='<circle cx="86" cy="80" r="14" fill="#FFDE59" opacity=".7" stroke="#3E4A80" stroke-width="1"/>'+mono(86,83,'nucleus',{a:'middle',s:6.5})+'<path d="M60 56 q14 -8 28 0 M58 104 q16 6 32 0" fill="none" stroke="#C9A800" stroke-width="1.4"/>';
+ for(i=0;i<3;i++){ye+='<g opacity="0">'+mv(4.5,'M110 80 C140 90 150 110 226 124',i*1.5)+anim(4.5,'0;1;1;0','opacity',' begin="'+(i*1.5)+'s" keyTimes="0;.1;.85;1"')+'<line x1="-8" y1="0" x2="8" y2="0" stroke="#3E4A80" stroke-width="1"/><circle cx="-8" cy="0" r="2.6" fill="#AACC96" stroke="#3E4A80" stroke-width=".7"/><circle cx="0" cy="0" r="2.6" fill="#C2DCFF" stroke="#3E4A80" stroke-width=".7"/><circle cx="8" cy="0" r="2.6" fill="#F28E79" stroke="#3E4A80" stroke-width=".7"/></g>'}
+ ye+=mono(150,14,'budding',{a:'middle',s:7.5})+mono(226,112,'pushed out',{a:'end',s:7.5})+mono(120,136,'about 5 µm · same family as baking yeast',{a:'middle',s:7.5,c:'#6B76A8'})+'</svg>';
+ var ch='<svg class="anim" viewBox="0 0 240 140" role="img" aria-label="Hamster ovary cell releasing antibodies">';
+ ch+='<circle cx="96" cy="72" r="56" fill="none" stroke="#F28E79" stroke-width="2" stroke-dasharray="2 5"/><circle cx="96" cy="72" r="52" fill="#FFEEEE" stroke="#3E4A80" stroke-width="1.8"/><circle cx="88" cy="70" r="20" fill="#FCB0B4" stroke="#3E4A80" stroke-width="1.2"/>'+mono(88,73,'nucleus',{a:'middle',s:7});
+ ch+='<path d="M116 48 q10 6 2 14 q-8 8 4 14 M120 92 q12 4 6 12" fill="none" stroke="#C782A5" stroke-width="1.6"/>';
+ var Y='<path d="M0 8 V0 M0 0 L-6 -7 M0 0 L6 -7" fill="none" stroke="#6777B6" stroke-width="2.4" stroke-linecap="round"/>';
+ for(i=0;i<4;i++)ch+='<g opacity="0">'+mv(5,'M120 72 C150 60 170 30 224 '+(22+i*10),i*1.25)+anim(5,'0;1;1;0','opacity',' begin="'+(i*1.25)+'s" keyTimes="0;.1;.85;1"')+Y+'</g>';
+ ch+=mono(212,96,'Y = antibody',{a:'end',s:7.5})+mono(120,136,'about 15 µm · slow, costly, for huge proteins',{a:'middle',s:7.5,c:'#6B76A8'})+'</svg>';
+ var C=[['E. coli','bacterium',ec,'Fast and cheap. The chain often clumps inside, so the cells are burst open and the clump is refolded.','HGH, insulin (Lilly), IGF-1 LR3, teriparatide','Endotoxin, bacterial proteins and DNA'],
+  ['Yeast','fungus',ye,'Pushes the chain out into the broth, so nothing has to be burst. Can fold a little better than bacteria.','Semaglutide and liraglutide backbones, insulin (Novo)','Yeast proteins and DNA; no endotoxin'],
+  ['Hamster cells (CHO)','mammal cell',ch,'Ovary cells from Chinese hamsters, grown for weeks. The only way to fold and decorate huge proteins like antibodies.','Bimagrumab, MariTide','Hamster proteins and DNA; viruses are screened for']];
+ $('#cellCards').innerHTML=C.map(function(c){return '<div class="card">'+c[2]+'<div class="hd"><h3>'+c[0]+'</h3><span class="tag">'+c[1]+'</span></div><div class="bd"><p>'+c[3]+'</p><dl class="kv"><dt>Makes</dt><dd>'+c[4]+'</dd><dt>Leaves</dt><dd>'+c[5]+'</dd></dl></div></div>'}).join('');
+ var st=[['Write the gene','<path d="M8 10 Q18 26 30 18 T52 26" fill="none" stroke="#3E4A80" stroke-width="1.6"/><path d="M8 26 Q18 10 30 18 T52 10" fill="none" stroke="#DB6830" stroke-width="1.6"/><path d="M14 16v4M24 12v12M36 12v12M46 16v4" stroke="#6B76A8" stroke-width="1.1"/>'],['Into a ring','<circle cx="30" cy="18" r="12" fill="none" stroke="#3E4A80" stroke-width="1.6"/><path d="M30 6a12 12 0 0 1 12 12" fill="none" stroke="#DB6830" stroke-width="3.5"/>'],['Into a cell','<rect x="8" y="8" width="44" height="20" rx="10" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.4"/><circle cx="22" cy="18" r="5" fill="none" stroke="#DB6830" stroke-width="1.6"/>'],['Feed sugar','<rect x="14" y="4" width="32" height="28" rx="6" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.4"/><rect x="14" y="14" width="32" height="18" rx="5" fill="#DDD0F6"/><rect x="22" y="18" width="8" height="4" rx="2" fill="#AACC96"/><rect x="32" y="24" width="8" height="4" rx="2" fill="#AACC96"/>'],['Harvest','<path d="M14 6h32l-6 12v12H20V18z" fill="#fff" stroke="#3E4A80" stroke-width="1.4"/><circle cx="30" cy="24" r="3" fill="#F28E79"/>']];
+ $('#strip5').innerHTML=st.map(function(x,i){return '<div><svg viewBox="0 0 60 36">'+x[1]+'</svg><b>0'+(i+1)+'</b>'+x[0]+'</div>'}).join('');
+})();
+
+/* ===== Part five: chromatogram, auto ===== */
+var CUT={w:[118,212,'Wide',['More powder.','Near twins on both','shoulders come along.','Lower purity.']],m:[136,192,'Medium',['The common trade off.','Some twin edges kept.']],n:[150,176,'Narrow',['Only the centre of','the peak. Higher purity,','less powder, higher price.']]};
+function chrom(c){
+  var base=150;
+  var pk=[[60,10,7],[92,18,6],[124,30,5],[163,120,9],[200,26,5],[236,14,6],[272,8,7]];
+  var y=function(x){var s=0;pk.forEach(function(p){s+=p[1]*Math.exp(-Math.pow(x-p[0],2)/(2*p[2]*p[2]))});return base-s};
+  var d='M10 '+y(10).toFixed(1);for(var x=11;x<=310;x++)d+='L'+x+' '+y(x).toFixed(1);
+  var k=CUT[c],a=k[0],b=k[1];
+  var f='M'+a+' '+base;for(x=a;x<=b;x++)f+='L'+x+' '+y(x).toFixed(1);f+='L'+b+' '+base+'Z';
+  var lines=k[3].map(function(t,i){return '<tspan x="14" dy="'+(i?11:0)+'">'+t+'</tspan>'}).join('');
+  $('#chrom').innerHTML='<rect x="'+a+'" y="14" width="'+(b-a)+'" height="'+(base-14)+'" fill="#E1DE62" opacity=".35" style="transition:all .5s"/>'+
+   '<path d="'+f+'" fill="#AACC96" opacity=".7"/>'+
+   '<path d="'+d+'" fill="none" stroke="#3E4A80" stroke-width="1.8"/>'+
+   '<line x1="10" y1="'+base+'" x2="310" y2="'+base+'" stroke="#6B76A8"/>'+
+   '<text x="14" y="22" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="13" fill="#3E4A80">'+k[2]+' cut</text>'+
+   '<text x="14" y="38" font-family="Hanken Grotesk,sans-serif" font-size="9.5" fill="#3E4A80">'+lines+'</text>'+
+   '<text x="163" y="12" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#3E4A80">the peptide</text>'+
+   '<text x="124" y="'+(base-36)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#DB6830">twin</text>'+
+   '<text x="200" y="'+(base-32)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#DB6830">twin</text>'+
+   '<text x="10" y="166" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#6B76A8">time →  watery first, greasy last</text>'+
+   '<text x="10" y="177" font-family="JetBrains Mono,monospace" font-size="8" fill="#6B76A8">left: often a letter missing · right: often a guard left on</text>';
+  $$('#cutSel button').forEach(function(x){if(x.dataset.c!=='auto')x.setAttribute('aria-pressed',x.dataset.c===c?'true':'false')});
+}
+var cAuto=true,cI=1,cOrd=['w','m','n'],cT=0,cVis=true;
+function cLoop(){clearTimeout(cT);if(!cAuto||!cVis||RM)return;cT=setTimeout(function(){cI=(cI+1)%3;chrom(cOrd[cI]);cLoop()},2600)}
+$$('#cutSel button').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.c==='auto'){cAuto=true;b.setAttribute('aria-pressed','true');cLoop();return}cAuto=false;$('#cutSel [data-c="auto"]').setAttribute('aria-pressed','false');clearTimeout(cT);cI=cOrd.indexOf(b.dataset.c);chrom(b.dataset.c);track('cut')})});
+chrom('m');onScreen($('#chrom'),function(v){cVis=v;if(v)cLoop();else clearTimeout(cT)});
+
+
+$('#rankL').innerHTML=[['Missing letter',96,TY.del[0],'most common in the crude'],['Stopped short',62,TY.trunc[0],'common, easy to remove'],['Extra letter',44,TY.ins[0],'less common'],['Guard left on',40,TY.guard[0],'depends on the guards'],['Mirror swap',30,TY.mirror[0],'His, Cys, Asp, Ser'],['Oxidised, deamidated',34,TY.ox[0],'grow in storage']].map(function(r){return '<li><span>'+r[0]+'</span><span><i style="width:'+r[1]+'%;background:'+r[2]+'"></i><span class="cap" style="margin:2px 0 0;display:block">'+r[3]+'</span></span></li>'}).join('');
+$('#rankL').insertAdjacentHTML('afterend','<p class="cap">Order from reviews of peptide impurities, not a measured average. Bar length is a rough guide.</p>');
+
+/* ===== Part seven: purity lens with types ===== */
+var P={p:98,net:75,mg:10};
+function purDist(p){var imp=(100-p)/100,sh={del:.55,guard:.12,mirror:.1,ox:.1,ins:.08,trunc:.05},d={right:1-imp};for(var k in sh)d[k]=imp*sh[k];return d}
+function bigWord(n){var u=[[1e18,'quintillion'],[1e15,'quadrillion'],[1e12,'trillion']];for(var i=0;i<u.length;i++)if(n>=u[i][0]){var x=n/u[i][0];return (x>=10?Math.round(x):x.toFixed(1).replace('.0',''))+' '+u[i][1]}return Math.round(n).toLocaleString()}
+var VERD=[[99.5,'Top tier for research peptides. What remains is mostly near twins, at trace levels.'],[99,'High. One part in a hundred is something else, mostly near twins.'],[98,'The most common claim on research COAs. Twice the impurity of 99%.'],[95,'A lower tier. Impurities are now a real share of every injection.'],[0,'Closer to crude than to clean. Many labs sell this only for non-human lab work.']];
+function lensDraw(){var d=purDist(P.p),L=lensSVG(d,'3 mL vial · looks clear',false),bad=L.n-L.cnt.right;
+  $('#lens').innerHTML=L.svg;$('#purKey').innerHTML=keyHTML(d,1000);
+  $('#lensCap').textContent=L.n+' molecules in the zoom, '+bad+' wrong'+(bad===0?' (at 99.9% only about 1 in 1,000, so most views like this show none)':'')+'. The mix of mistakes is typical, not measured for one peptide.';
+  $('#purO').textContent=(P.p%1?P.p.toFixed(1):P.p)+'%';
+  var impMcg=10000*(100-P.p)/100;$('#pImp').textContent=impMcg>=1000?parseFloat((impMcg/1000).toFixed(2))+' mg':Math.round(impMcg)+' mcg';
+  var r=100/(100-P.p);$('#pDraw').textContent='1 in '+(r>=100?Math.round(r).toLocaleString():Math.round(r));
+  $('#pMol').textContent=bigWord(4.24e18*(100-P.p)/100);
+  var v=VERD.find(function(z){return P.p>=z[0]});$('#pVerdict').innerHTML='<b class="o">'+$('#purO').textContent+':</b> '+v[1];
+  $$('#purSel button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.v===P.p?'true':'false')});
+  vial()}
+$('#purR').addEventListener('input',function(){P.p=Math.round(+this.value*10)/10;lensDraw()});
+$('#purR').addEventListener('change',function(){track('purity')});
+seg($('#purSel'),[[99.9,'99.9'],[99.5,'99.5'],[99,'99'],[98,'98'],[95,'95'],[90,'90']],98,function(v){P.p=+v;$('#purR').value=v;lensDraw();track('purity')});
+
+
+/* ===== mini Library cards ===== */
+var LIB=window.BS_DATA||[],HEXP={};(window.BS_PALETTE||[]).forEach(function(p){HEXP[p[0]]=[p[2],p[1]]});
+function fgOn(h){return lum(h)>.42?INK:PAPER}
+function miniCard(slug,note){var o=LIB.find(function(x){return x.slug===slug});if(!o)return '';
+  var b=(o.sticker&&o.sticker.blocks)||{},W={};[[b.wide,49],[b.mid,25],[b.lt,15],[b.lb,11]].forEach(function(z){if(z[0])W[z[0]]=(W[z[0]]||0)+z[1]});
+  var band=Object.keys(W).sort(function(x,y){return W[y]-W[x]}).map(function(c){return '<i style="flex:'+W[c]+';background:'+(HEXP[c]?HEXP[c][0]:'#FFFFE2')+'"></i>'}).join('');
+  var n=(o.seq||'').length,tags=(o.roles||[]).slice(0,4).map(function(k){var c=HEXP[k];return c?'<span style="background:'+c[0]+';color:'+fgOn(c[0])+'">'+c[1]+'</span>':''}).join('');
+  return '<a class="mini" href="/library/#/p/'+slug+'" target="_blank" rel="noopener"><span class="maa"><b>'+(n||'·')+'</b>AA</span><span class="mn"><b>'+o.name+(o.fda&&o.fdaFill?' <em>FDA ✓</em>':'')+'</b><small>'+(o.fn||'')+'</small><span class="mtg">'+tags+'</span></span><span class="mgo">Library ↗</span><span class="mband">'+band+'</span></a>'+(note?'<p class="cap" style="margin-top:3px">'+note+'</p>':'')}
+function minis(id,slugs){var el=$(id);if(el)el.innerHTML='<div class="minis">'+slugs.map(function(s){return miniCard(s)}).join('')+'</div>'}
+var RC_SLUG={kpv:'kpv',sel:'selank',ipa:'ipamorelin',bpc:'bpc-157'},BB_SLUG={kpv:'kpv',epi:'epitalon',ipa:'ipamorelin',sel:'selank',bpc:'bpc-157',sema:'semaglutide',tesa:'tesamorelin'};
+var PAIR_SLUG={sel:['selank','na-selank-amidate'],sem:['semax','na-semax-amidate'],mt:['mt-2','pt-141'],glp:['semaglutide','liraglutide']};
+var _rc=rcDraw;rcDraw=function(k){_rc(k);minis('#rcMini',[RC_SLUG[k]])};
+var _pd=pairDraw;pairDraw=function(k){_pd(k);$('#pairOut').insertAdjacentHTML('afterbegin','<div class="minis">'+PAIR_SLUG[k].map(function(s){return miniCard(s)}).join('')+'</div>')};
+var _bs=bbStart;bbStart=function(i){_bs(i);minis('#bbMini',[BB_SLUG[BB[i].k]])};
+minis('#ssMini',['ss-31']);minis('#crudeMini',['semax']);minis('#purMini',['bpc-157']);
+
+/* ===== crude, compared ===== */
+var SX='MEHFPGP'.split('');
+var CR2=[
+ ['right','Right chain','813.9 · the target','All seven bricks, in order, guards gone.',SX,{}],
+ ['del','Missing letter','147 lighter: no F','One snap failed; the chain skipped a brick and kept growing.',SX,{3:{k:'gap',lab:'F missing'}}],
+ ['ins','Extra letter','57 heavier: one more G','A brick snapped twice, usually because a cap came off too early.',['M','E','H','F','P','G','G','P'],{5:{k:'ins',lab:'extra G'}}],
+ ['trunc','Stopped short','about 400 lighter','Growth stopped early. The front was never built (it grows from the back).',SX,{0:{k:'ghost'},1:{k:'ghost'},2:{k:'ghost',lab:'never built'}}],
+ ['guard','Guard left on','242 heavier: the Trt guard','A side guard never came off, here on histidine.',SX,{2:{k:'guard',t:'Trt',lab:'guard stuck on'}}],
+ ['mirror','Mirror swap','same weight: mass spec is blind','Histidine flipped to its mirror form. Drawn with its top piece below the line so you can see it; the real change is a mirror image.',['M','E','d:H','F','P','G','P'],{2:{k:'mirror',lab:'H flipped to mirror form'}}],
+ ['ox','Oxidised','16 heavier: one oxygen','Methionine picked up an oxygen, at the factory or later in the vial.',SX,{0:{k:'ox',lab:'oxygen added'}}],
+ ['agg','Stuck together','2× heavier or more','Whole chains clump into pairs or bigger. Can make a vial cloudy.',null,null]];
+$('#crudeList').innerHTML=CR2.map(function(c,i){var svg;
+  if(c[4])svg=chainSVG(c[4],{sc:.58,per:9,marks:c[5],n:'N',c:'C',maxK:1.45});
+  else{var one=chainSVG(SX,{sc:.44,per:9}).replace(/^<svg[^>]*>|<\/svg>$/g,'');svg='<svg viewBox="0 0 300 70" role="img" style="max-width:330px"><g>'+one+'</g><g transform="translate(20,24)">'+one+'</g></svg>'}
+  return '<div class="crow2" style="border-left-color:'+(TY[c[0]]?TY[c[0]][0]:'#FF5050')+'"><div class="t"><strong>'+c[1]+'</strong><span class="w">'+c[2]+'</span></div><div class="float" style="animation-delay:-'+(i*.7)+'s">'+svg+'</div><p>'+c[3]+'</p></div>'}).join('');
+(function(){var mit='<path d="M-11 18 V-6 Q-11 -18 0 -18 Q11 -18 11 -6 V18 Z M-11 4 Q-20 3 -19 -6 Q-17 -12 -11 -8" stroke="#3E4A80" stroke-width="1.5" stroke-linejoin="round"/>';
+  $('#hands').innerHTML='<svg viewBox="0 0 260 100" role="img" aria-label="Left and right mirror forms">'+
+   '<g transform="translate(80,44)" fill="#74BCFF">'+mit+'</g>'+'<g transform="translate(180,44) scale(-1,1)" fill="#DDD0F6">'+mit+'</g>'+
+   '<line x1="130" y1="10" x2="130" y2="76" stroke="#DB6830" stroke-width="1.5" stroke-dasharray="4 3"/>'+mono(130,8,'mirror',{a:'middle',s:8,c:'#DB6830'})+
+   mono(80,84,'L · left hand',{a:'middle',s:8.5,w:600})+mono(80,94,'what the body builds',{a:'middle',s:7,c:'#6B76A8'})+mono(180,84,'D · right hand',{a:'middle',s:8.5,w:600})+mono(180,94,'the mirror swap',{a:'middle',s:7,c:'#6B76A8'})+'</svg>'})();
+
+/* ===== vial row: one 3 mL vial per step ===== */
+var DRY=[
+ ['Swap the salt','Liquid','Sometimes. The HPLC liquid leaves TFA stuck to the peptide as a salt. Many medicines swap it for acetate, a gentler partner.<sup><a href="#s4">4</a></sup> Grey market peptides are often left as TFA.'],
+ ['Measure','Liquid','The lab measures how much peptide is in the pooled liquid, then dilutes it so one fill holds the label dose, for example 1 mL holding 10 mg. This step sets the mg on the sticker.'],
+ ['Fill','Liquid','The same volume goes into every vial. Fill accuracy is why vials of one lot still differ a little.'],
+ ['Freeze','Frozen','Vials go onto cold shelves in the freeze dryer and freeze solid, stoppers resting half in so vapour can escape.'],
+ ['Vacuum dry','Drying','The chamber is pumped down. Ice turns straight to vapour without melting (sublimation). This can take days. What stays is the cake.'],
+ ['Press stoppers','Powder','Still inside the dryer, the shelves squeeze together and push every stopper home, often under a partial vacuum or nitrogen.<sup><a href="#s17">17</a></sup>'],
+ ['Crimp, label','Sealed','An aluminium cap is crimped over the stopper. Label, lot number, box.']];
+function vial3(i){var s='<svg viewBox="0 0 70 124" role="img" aria-label="'+DRY[i][0]+'"><defs><clipPath id="vc'+i+'"><path d="M17 40 v66 q0 6 6 6 h24 q6 0 6 -6 v-66 q0 -6 -6 -8 v-6 h-24 v6 q-6 2 -6 8z"/></clipPath></defs>';
+  var liq='#74BCFF',cake='#FFF9DC';
+  s+='<path d="M17 40 v66 q0 6 6 6 h24 q6 0 6 -6 v-66 q0 -6 -6 -8 v-6 h-24 v6 q-6 2 -6 8z" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><g clip-path="url(#vc'+i+')">';
+  var wave=function(y,c,op){return '<path fill="'+c+'" opacity="'+op+'" d="M10 '+y+' q7 -3 14 0 t14 0 t14 0 t14 0 V120 H10z">'+anim(2.2,'M10 '+y+' q7 -3 14 0 t14 0 t14 0 t14 0 V120 H10z;M10 '+y+' q7 3 14 0 t14 0 t14 0 t14 0 V120 H10z;M10 '+y+' q7 -3 14 0 t14 0 t14 0 t14 0 V120 H10z','d')+'</path>'};
+  if(i===0)s+=wave(80,liq,.45);
+  if(i===1)s+=wave(80,liq,.45)+'<g stroke="#3E4A80" stroke-width=".9">'+[86,94,102].map(function(y){return '<line x1="19" y1="'+y+'" x2="25" y2="'+y+'"/>'}).join('')+'</g>';
+  if(i===2)s+='<rect x="10" y="80" width="60" height="40" fill="'+liq+'" opacity=".45">'+anim(2.4,'112;80;80','y',' keyTimes="0;.7;1"')+'</rect><rect x="33" y="0" width="4" height="100" fill="'+liq+'" opacity=".55">'+anim(2.4,'1;1;0','opacity',' keyTimes="0;.7;1"')+'</rect>';
+  if(i===3){s+='<rect x="10" y="80" width="60" height="40" fill="#DDEBFF"/>';[[26,88],[40,96],[32,104],[44,86]].forEach(function(p,k){s+='<path d="M'+p[0]+' '+(p[1]-4)+'v8M'+(p[0]-4)+' '+p[1]+'h8" stroke="#fff" stroke-width="1.6" stroke-linecap="round">'+anim(1.6,'0;1;0','opacity',' begin="'+(k*.4)+'s"')+'</path>'})}
+  if(i>=4){s+='<rect x="19" y="'+(i===4?86:92)+'" width="32" height="'+(i===4?26:20)+'" rx="2" fill="'+cake+'" stroke="#C9C29A" stroke-width="1.4"/>';for(var k=0;k<8;k++)s+='<circle cx="'+(23+(k*9)%26)+'" cy="'+(96+(k*5)%12)+'" r="1" fill="#E3E0BF"/>';
+    if(i===4)for(k=0;k<4;k++)s+='<circle cx="'+(28+k*5)+'" cy="80" r="1.6" fill="#74BCFF">'+anim(1.4+k*.2,'84;10','cy')+anim(1.4+k*.2,'1;0','opacity')+'</circle>'}
+  s+='</g>';
+  /* stopper */
+  if(i>=3){var sy=i<5?14:20;s+='<g>'+(i===5?'<animateTransform attributeName="transform" type="translate" values="0 -6;0 -6;0 0;0 0" keyTimes="0;.3;.6;1" dur="2.4s" repeatCount="indefinite"/>':'')+'<rect x="21" y="'+sy+'" width="28" height="8" rx="1.5" fill="#6B76A8" stroke="#3E4A80" stroke-width="1.2"/><rect x="25" y="'+(sy+8)+'" width="20" height="'+(i<5?6:8)+'" fill="#6B76A8" stroke="#3E4A80"/></g>'}
+  if(i===5)s+='<rect x="8" y="4" width="54" height="6" fill="#E3E0BF" stroke="#3E4A80"><animate attributeName="y" values="-2;-2;4;4" keyTimes="0;.3;.6;1" dur="2.4s" repeatCount="indefinite"/></rect>';
+  if(i===6)s+='<rect x="19" y="16" width="32" height="16" rx="2" fill="#C9CCD8" stroke="#3E4A80" stroke-width="1.3"/><rect x="19" y="56" width="32" height="24" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1"/>'+mono(35,68,'10 mg',{a:'middle',s:7,w:700})+mono(35,76,'lot A',{a:'middle',s:5.5,c:'#6B76A8'})+'<rect x="21" y="18" width="4" height="12" fill="#fff" opacity=".7">'+anim(2.5,'21;45;21','x')+'</rect>';
+  if(i===0)s+=mono(35,70,'TFA→ac',{a:'middle',s:6.5,c:'#2F6DB5'});
+  if(i===1)s+=mono(35,70,'10 mg/mL',{a:'middle',s:6.5,c:'#2F6DB5'});
+  if(i<3)s+='<rect x="25" y="22" width="20" height="4" fill="#fff" stroke="#3E4A80"/>';
+  return s+mono(35,121,'3 mL',{a:'middle',s:6.5,c:'#6B76A8'})+'</svg>'}
+$('#vrow').innerHTML=DRY.map(function(d,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+vial3(i)+'<b>'+(i+1)+'</b><span>'+d[0]+'</span><em class="st '+(d[1]==='Liquid'?'l':d[1]==='Frozen'?'f':d[1]==='Drying'?'m':'s')+'">'+d[1]+'</em></button>'}).join('');
+var vSel=-1;function vShow(i){vSel=i;$$('#vrow button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.i===i?'true':'false')});$('#vOpen').innerHTML=i<0?'<h3>Tap a vial</h3><p style="margin:0;font-size:14px">Three vials are liquid, one frozen, one drying, two finished powder. The liquid ones keep moving.</p>':'<h3>'+(i+1)+' · '+DRY[i][0]+' <span class="tag">'+DRY[i][1]+'</span></h3><p style="margin:0;font-size:14px">'+DRY[i][2]+'</p>'}
+$$('#vrow button').forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.i;vShow(vSel===i?-1:i);track('dry')})});vShow(-1);
+
+/* ===== how small, with icons, log scale ===== */
+(function(){var I={eye:'<path d="M2 10 Q13 1 24 10 Q13 19 2 10z" fill="#fff" stroke="#3E4A80" stroke-width="1.3"/><circle cx="13" cy="10" r="4" fill="#74BCFF" stroke="#3E4A80"/><circle cx="13" cy="10" r="1.6" fill="#3E4A80"/>',
+  hair:'<path d="M3 16 C8 4 14 18 19 6 S23 4 24 4" fill="none" stroke="#924C1C" stroke-width="2" stroke-linecap="round"/>',
+  ecoli:'<rect x="3" y="6" width="20" height="9" rx="4.5" fill="#DDD0F6" stroke="#3E4A80" stroke-width="1.2"/><path d="M3 10 q-2 3 -1 6" fill="none" stroke="#6B76A8"/>',
+  scope:'<path d="M9 3 l6 0 l-2 10 l-2 0z" fill="#C2DCFF" stroke="#3E4A80" stroke-width="1.1"/><path d="M5 18 h16 M13 13 v5 M17 9 q5 2 2 9" fill="none" stroke="#3E4A80" stroke-width="1.3"/>',
+  mol:'<g stroke="#3E4A80" stroke-width="1"><path d="M6 12 L13 8 L20 12" fill="none"/><circle cx="6" cy="12" r="3" fill="#AACC96"/><circle cx="13" cy="8" r="3" fill="#C2DCFF"/><circle cx="20" cy="12" r="3" fill="#F28E79"/></g>'};
+ var L=[['eye','What the eye can see','0.1 mm',1e-4],['hair','A human hair, across','0.07 mm',7e-5],['ecoli','One E. coli','0.002 mm',2e-6],['scope','Smallest a light microscope shows','0.0002 mm',2e-7],['mol','One peptide like BPC-157','~0.000002 mm',2e-9]];
+ $('#ladder').innerHTML=L.map(function(l){var w=(Math.log10(l[3])+10)/6*100;return '<li><svg viewBox="0 0 26 20" style="width:26px;height:20px">'+I[l[0]]+'</svg><span class="lt">'+l[1]+'<i style="width:'+w.toFixed(1)+'%"></i></span><span class="lv">'+l[2]+'</span></li>'}).join('');
+ $('#ladder').insertAdjacentHTML('afterend','<p class="cap">Bars on a log scale from 0.0000001 mm to 0.1 mm: every sixth of the bar is a factor of ten. A peptide is roughly 35,000 times thinner than a hair. A 10 mg BPC-157 vial holds about 4.2 quintillion of them.</p>')})();
+
+/* weight: vial bar (10 mg, purity from Part seven) */
+P.net=75;P.mg=10;
+function fmt(mcg){return mcg>=1000?parseFloat((mcg/1000).toFixed(2))+' mg':Math.round(mcg)+' mcg'}
+function vial(){
+  var pep=P.net/100,right=pep*P.p/100,imp=pep-right,other=1-pep;
+  $('#vBar').innerHTML='<i style="flex:'+right+';background:var(--green)"></i><i style="flex:'+Math.max(imp,.004)+';background:var(--red)"></i><i style="flex:'+other+';background:var(--lav)"></i>';
+  $('#vNote').innerHTML='A "'+P.mg+' mg" vial at '+P.p+'% purity and '+P.net+'% net content holds about <b class="o">'+parseFloat((P.mg*right).toFixed(2))+' mg</b> of the right peptide, '+fmt(P.mg*1000*imp)+' of peptide impurities, and '+(P.mg*other).toFixed(1)+' mg of salt and water.';
+}
+seg($('#netSel'),[[60,'60%'],[75,'75%'],[90,'90%']],75,function(v){P.net=+v;vial();track('net')});
+
+/* COA */
+var COA=[
+ ['Product','BPC-157 (example)',1,'Name and sequence. Check the sequence is written out (GEPPPGKPADDAGLV for BPC-157), not just the name.'],
+ ['Lot / batch','EX-0000-A',1,'The key to everything. The COA only describes vials with this exact lot printed on them.'],
+ ['Test date','dd mmm yyyy',1,'Results describe the powder on that day. Time, heat and shipping since then are not covered.'],
+ ['Appearance','White lyophilized powder',1,'A visual check. Yellowing or a collapsed, sticky cake can mean moisture or breakdown.'],
+ ['Identity · MS','Theory 1419.5 · Found 1419.6',1,'Mass spec. Found weight should match the theoretical weight within about one unit. This is the line that proves it is the right molecule (Part nine).'],
+ ['Purity · HPLC','98.7%',1,'Share of UV peaks that are the right chain. Ask for the chromatogram picture, and note the wavelength (214 to 220 nm is standard).'],
+ ['Net peptide content','not tested',2,'How much of the powder is actually peptide. Usually 60 to 90%. Without it, "10 mg" is powder weight.'],
+ ['Water · KF','≤ 8%',2,'Karl Fischer test for moisture. Water adds weight and speeds breakdown.'],
+ ['Counterion','TFA / acetate',2,'Which salt partner the peptide carries. Tells you why a solution may sting and how much of the weight is not peptide.'],
+ ['Endotoxin · LAL','< 1 EU/mg',3,'The fever-causing bacterial fragment (Part eleven). Should be there for anything meant to be injected.'],
+ ['Sterility','Pass / not tested',3,'Whether anything grew from samples of the lot. Separate from endotoxin.'],
+ ['Heavy metals · ICP-MS','not tested',3,'Lead, cadmium, mercury, arsenic and others. Rare on research COAs.'],
+ ['Residual solvents · GC','not tested',3,'DMF, DCM, acetonitrile, ether left from the build. Rare on research COAs.'],
+ ['Lab and signature','Lab name, analyst',1,'Who ran the tests. An outside lab you can contact and verify beats an unsigned in-house sheet.']
+];
+var FR={1:['f1','usually'],2:['f2','sometimes'],3:['f3','rarely']};
+var cT=$('#coaT'),cSel=4;
+cT.innerHTML=COA.map(function(r,i){return '<tr data-i="'+i+'"><td><span class="num">'+(i+1)+'</span></td><td>'+r[0]+'</td><td>'+r[1]+'<span class="freq '+FR[r[2]][0]+'">'+FR[r[2]][1]+'</span></td></tr>'}).join('');
+function coa(i){var old=$('tr.ex',cT);if(old)old.remove();cSel=cSel===i?-1:i;$$('tr[data-i]',cT).forEach(function(t){t.classList.toggle('sel',+t.dataset.i===cSel)});if(cSel<0)return;var r=COA[i],row=$('tr[data-i="'+i+'"]',cT),ex=document.createElement('tr');ex.className='ex';ex.innerHTML='<td colspan="3"><b class="o">'+r[0]+':</b> '+r[3]+'</td>';row.after(ex);}
+$$('tr[data-i]',cT).forEach(function(t){t.addEventListener('click',function(){coa(+t.dataset.i);track('coa-'+COA[+t.dataset.i][0])})});
+cSel=-1;coa(4);
+
+/* BPC-157 mass */
+var RES={G:57.05,E:129.12,P:97.12,K:128.17,A:71.08,D:115.09,L:113.16,V:99.13};
+var SEQ='GEPPPGKPADDAGLV'.split(''),gone={};
+$('#seq').innerHTML=SEQ.map(function(a,i){return '<button data-i="'+i+'" aria-pressed="false"><b>'+a+'</b><span>'+(i+1)+'</span></button>'}).join('');
+function mass(){
+  var m=1419.53;SEQ.forEach(function(a,i){if(gone[i])m-=RES[a]});
+  var d=m-1419.5;
+  $('#msNow').textContent=m.toFixed(1);
+  $('#msDiff').textContent=(Math.abs(d)<.15?'0':d.toFixed(1));
+  $('#msDiff').style.color=Math.abs(d)<.15?'':'#C02424';
+  var n=Object.keys(gone).length;
+  $('#msNote').textContent=n?('MS would read '+m.toFixed(1)+', not 1419.5. '+n+' letter'+(n>1?'s':'')+' missing. A COA showing this "found" weight is a different molecule.'):'Weights in daltons (g/mol). A missing proline drops 97.1, a missing glycine 57.1. MS sees that instantly; HPLC may not.';
+}
+$$('#seq button').forEach(function(b){b.addEventListener('click',function(){var i=b.dataset.i;if(gone[i])delete gone[i];else gone[i]=1;b.classList.toggle('gone',!!gone[i]);b.setAttribute('aria-pressed',gone[i]?'true':'false');mass();track('ms')})});
+mass();
+
+/* endotoxin */
+function endo(){
+  var kg=parseFloat($('#ekg').value),eu=parseFloat($('#eeu').value);
+  if(!(kg>0)){$('#eOut').textContent='Enter a body weight.';return}
+  var lim=5*kg;
+  var s='<b class="o">'+Math.round(lim)+' EU</b> is the medicine limit for '+kg+' kg, per hour.';
+  if(eu>0){var mg=lim/eu;s+=' At '+eu+' EU/mg, it would take <b class="o">'+(mg>=100?Math.round(mg):mg.toFixed(1))+' mg</b> of powder in one hour to reach it.'+(mg<1?' That is less than a single vial, so this line is a real warning.':'')}
+  else s+=' Enter the COA value to compare.';
+  $('#eOut').innerHTML=s;
+}
+['#ekg','#eeu'].forEach(function(id){$(id).addEventListener('input',endo)});
+endo();
+/* init */
+rcDraw('sel');pairDraw('sel');bbStart(2);lensDraw();chompDraw();
+var rzT=0;addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(function(){pairDraw(pairCur);bbRender()},200)});
+})();
+</script>
+<script>
+/* text size: three steps shared across Bare Signals (localStorage bs-text: s|m|l). Zoom on the page content, never the nav. */
+(function(){var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):({s:.88,m:1,l:1.15}[localStorage.getItem('bs-text')]||1))}catch(e){}
+function apply(k){k=+k||1;var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k}
+apply(k0);addEventListener('bs-text',function(e){if(e&&e.detail&&e.detail.k)apply(e.detail.k)});})();
+</script>
+</body>
+</html>

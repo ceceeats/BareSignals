@@ -2,6 +2,9 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v5 (23 Oct 2026)
+The page’s own A A A buttons are gone; text size follows the site bar (nav v10): phone three steps, laptop five, laptop starts at 1.15. v4 kept at /made/v4/.
+
 ## v4 (23 Oct 2026) at /made/v4/
 Rebuilt from Cece's v3 review; v3 kept at /made/v3/. Heavier on visuals, metaphors (Lego bricks, recipe card, Pac-Man enzymes, brewery, gloves, stapler, race, instant coffee), less text.
 - Walk icons redrawn. Recipe as a recipe card (ingredients with shapes and counts, numbered method chain, chef's note) for KPV, Selank, Ipamorelin, BPC-157; Lego snap animation (plug into socket, water drops out).

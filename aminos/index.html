@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V57 (23 Oct 2026): text size follows nav v10 (applies the number nav sends, so the laptop fourth and fifth A work; laptop starts at 1.15). V56 kept at /aminos/v56/. -->
 <!-- Aminos V55 (23 Oct 2026): BPC-157 is the featured example; origin sits small under the chain; each tile carries its shape at the top beside the name (marks move to the codon row) with balanced padding; the shape key sits above the table; the amino card is compact (tabs) and can be minimised, its letter box replaced by the shape; text size now comes from /nav.js v9 (bs-text event), large text keeps 3 to 4 tiles a row on phone. V54 kept at /aminos/v54/. Previously V54 (23 Oct 2026): Type Rule v1, one text scale (tags 8.5px mono, footnotes small, body 13.5px, names 15px, section titles 18px, h1 22px), plus the three-step text size control (shared bs-text key). Shapes and animations unchanged. V53 kept at /aminos/v53/. Previously V53 (23 Oct 2026): the opening walk animation and the alpha helix under step 05 now draw every bead with the V52 per-amino-acid shapes (shapeSVG). V52 kept at /aminos/v52/. -->
 <html lang="en">
 <head>
@@ -1031,7 +1032,7 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V56</small></h1>
+    <h1>From Gene to Peptide<small>V57</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1150,8 +1151,9 @@ button.b,.more,.more2,.fmore,.foldall,.nowline .tnext,.tryb,.rung b,.hbtn .b{fon
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 56 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 56 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 57 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 57 rounds of edits by Cece, 21 to 23 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V57:</b> text size follows the site bar’s new laptop scale (five steps on laptop, starting at the old large A).</p>
     <p><b>V56:</b> the amino card shows facts, roles, structure and size together again, no tabs and no minimise. Tile shapes are bigger on laptops; the shape key leaves the top of the grid and becomes The shapes, a closed table under the essential key that lists all 21 with what each shape means. In Build a peptide the sticker banner moves to the top, under the example label; step 05 now opens with You built, right above where the peptide comes from. Every chain sits on graph paper with a caption line of length, weight, size class and origin, and proteins add one line on what they are. Ten more peptides join (pramlintide, setmelanotide, enfuvirtide, teduglutide, ziconotide, abaloparatide, IGF-1, lanreotide, Argireline and Matrixyl), and Popular now leads with 17 popular peptides before the familiar non-peptides. Proteins you already know becomes five moving cards: collagen twisting, keratin coiling, hemoglobin carrying oxygen, an antibody catching its target and myosin walking along actin. <a href="/aminos/v55/">V55 kept here</a>.</p>
     <p><b>V55:</b> BPC-157 is now the first example. Where a peptide comes from (cut from a protein, made whole, lab made) sits small right under its chain. Each tile carries its shape at the top beside the name, and the essential, charge and ring marks move beside the codon squares. The shape key sits above the table. The amino card is compact, with Facts, Roles, Structure and Size tabs, its shape in place of the letter box, and a Minimise button. Text size now lives in the site bar; large text keeps three tiles a row on phone. <a href="/aminos/v54/">V54 kept here</a>.</p>
     <p style="margin-top:6px"><b>V54:</b> one text scale for the whole page. Tags and labels are small mono caps, footnotes small, every paragraph one size, every name one size, every section title one size; the big step numbers and the 46px titles are gone. A three-step text size control (small A, A, large A) sits top right and is remembered across Bare Signals pages. <a href="/aminos/v53/">V53 kept here</a>.</p>
@@ -1870,10 +1872,9 @@ addEventListener("hashchange",amHash);setTimeout(amHash,0);
 </script>
 <script>
 /* V55 text size: the control lives in /nav.js v9, which dispatches window 'bs-text' {key,k}. This page zooms its own content (.wrap and the card) and re-reads bs-text on load. Internal redraws listen to 'am-zoom'. */
-(function(){var K={s:.88,m:1,l:1.15},curK=null;function get(){try{var v=localStorage.getItem('bs-text');return K[v]?v:'m'}catch(e){return 'm'}}
-function apply(v){if(!K[v])v='m';var k=K[v];document.documentElement.dataset.amText=v;document.documentElement.style.setProperty('--amz',k);var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k;if(curK!==k){curK=k;dispatchEvent(new Event('am-zoom'))}}
-apply(get());addEventListener('bs-text',function(e){apply(e&&e.detail&&e.detail.key||get())});
-addEventListener('storage',function(e){if(e.key==='bs-text')apply(get())});})();
+(function(){var curK=null;var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):({s:.88,m:1,l:1.15}[localStorage.getItem('bs-text')]||1))}catch(e){}
+function apply(k){k=+k||1;var v=k<.95?'s':k>1.05?'l':'m';document.documentElement.dataset.amText=v;document.documentElement.style.setProperty('--amz',k);var w=document.querySelector('.wrap');if(w)w.style.zoom=k===1?'':k;if(curK!==k){curK=k;dispatchEvent(new Event('am-zoom'))}}
+apply(k0);addEventListener('bs-text',function(e){if(e&&e.detail&&e.detail.k)apply(e.detail.k)});})();
 </script>
 </body>
 </html>
