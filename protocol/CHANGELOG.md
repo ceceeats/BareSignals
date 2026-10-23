@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v6 (23 Oct 2026) at /protocol/v6/
+- Reads Library v36 (99 compounds: Batch 1 from the sticker list, name stories). No layout change. v5 kept.
+
 ## v5 (23 Oct 2026) at /protocol/v5/
 - Same as v4, reads Library v34 (adds community dose tiers; doses unchanged). v4 kept.
 
