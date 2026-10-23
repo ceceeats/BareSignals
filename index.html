@@ -7,7 +7,7 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v12 (23 Oct 2026): random card shows only the first two other names; signal string panel gets a clear Read more button under the name (the small Open link was hard to see); People take it for roles shown as colour tags like the Library. v11 kept at /home/v11/. Home v11: string U-turns drawn as a smooth curve instead of an exact half-circle arc, which could flip sides between frames and made the turn snap while rippling. v10 kept at /home/v10/. Home v10: name block made small and quiet (definition rewritten: genes, supplements, peptides), and the chain becomes Signal strings, a showcase of 14 hand-picked strings (popular peptides, odd shapes, supplements, two non-peptides built from amino acids) with a what-to-look-at note, how it started and roles under each, picker chips and auto-advance. v9 kept at /home/v9/. Home v9: the top chain is now the Aminos string: round beads on one line, snaking left to right and back from N to C, each bead in its amino acid's colour from the Aminos page, drawn in then rippling (glycine swings widest, proline barely moves, copper peptides rock as one piece). v8 kept at /home/v8/. Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
+/* Home v13 (23 Oct 2026): fewer cards. The 8 Inside cards and the random card are replaced by a five-screen feature tour (Library tiles, the card over faded tiles with Another, the full read, the dosing guide, the calculator) and a slim Also inside row; the 30-role wall uses filled role tags. v12 kept at /home/v12/. Home v12 (23 Oct 2026): random card shows only the first two other names; signal string panel gets a clear Read more button under the name (the small Open link was hard to see); People take it for roles shown as colour tags like the Library. v11 kept at /home/v11/. Home v11: string U-turns drawn as a smooth curve instead of an exact half-circle arc, which could flip sides between frames and made the turn snap while rippling. v10 kept at /home/v10/. Home v10: name block made small and quiet (definition rewritten: genes, supplements, peptides), and the chain becomes Signal strings, a showcase of 14 hand-picked strings (popular peptides, odd shapes, supplements, two non-peptides built from amino acids) with a what-to-look-at note, how it started and roles under each, picker chips and auto-advance. v9 kept at /home/v9/. Home v9: the top chain is now the Aminos string: round beads on one line, snaking left to right and back from N to C, each bead in its amino acid's colour from the Aminos page, drawn in then rippling (glycine swings widest, proline barely moves, copper peptides rock as one piece). v8 kept at /home/v8/. Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
@@ -144,7 +144,86 @@ h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-sp
 /* role wall */
 .wall{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1.5px solid var(--ink);border-top:1.5px solid var(--ink)}
 .wall a{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:7px 9px 7px 7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--chip);font-size:13.5px;line-height:1.15}
-.wall a u{display:block;width:22px;height:22px;border:1.5px solid var(--ink)}
+.wall a{grid-template-columns:1fr auto!important}
+.wall a .rtg{justify-self:start}
+/* v13 role tag (same look as Library and Blood Work) */
+.rtg{display:inline-block;font:500 9.5px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;vertical-align:middle;text-decoration:none}
+.wall a .rtg{font-size:10px;padding:5px 7px;white-space:normal}
+/* v13 feature tour: five app-like screens */
+.tour{display:grid;gap:30px}
+.feat{display:grid;grid-template-columns:1fr;gap:12px;align-items:center}
+.ft .n{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;color:var(--accent)}
+.ft h3{font:700 26px/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:4px 0 6px}
+.ft p{margin:0 0 12px;color:var(--soft);font-size:15px;line-height:1.42;max-width:42ch}
+.ft .btn{display:inline-block;padding:9px 16px;background:var(--ink);color:#FFFFE2;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--rule);font:500 12.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.ft .btn:hover{background:var(--accent);border-color:var(--accent)}
+.scr{border:1.5px solid var(--ink);background:var(--chip);box-shadow:5px 5px 0 var(--rule);padding:10px;position:relative;overflow:hidden}
+.scr .bar{display:flex;justify-content:space-between;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:-2px 0 8px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--paper);min-height:96px;text-decoration:none;color:var(--ink)}
+.tile .in{padding:6px 6px 4px;flex:1;display:flex;flex-direction:column}
+.tile b{font:700 15px/1.02 "Bricolage Grotesque",system-ui,sans-serif;display:flex;justify-content:space-between;gap:4px}
+.tile b small{font:500 8.5px/1.1 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--accent);text-align:right}
+.tile .in>span{margin-top:auto;padding-top:6px;font-size:10.5px;line-height:1.25;color:var(--soft)}
+.tile .sb{display:flex;height:10px;flex:none;border-top:1.5px solid var(--ink)}
+.tile .sb u{display:block}
+.tile:hover{background:#FFFDE8}
+.fade .tiles{opacity:.3;filter:saturate(.5);pointer-events:none}
+.mcard{position:relative;margin:-62px 8px 0;border:1.5px solid var(--ink);background:var(--chip);box-shadow:4px 4px 0 var(--rule);padding:10px}
+.mcard h4{font:700 24px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0}
+.mcard .sub{font:500 9.5px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);margin:4px 0 8px;letter-spacing:.04em}
+.cells{display:grid;grid-template-columns:1.4fr 1fr;border:1.5px solid var(--ink);margin-bottom:8px}
+.cells div{padding:4px 6px;border-right:1.5px solid var(--ink)}
+.cells div:last-child{border-right:0}
+.cells small,.dg small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:500}
+.cells b{font-size:13.5px}
+.rl{list-style:none;margin:0;padding:0}
+.rl li{display:flex;flex-wrap:wrap;gap:3px 7px;align-items:center;padding:2px 0;font-size:12.5px;line-height:1.3}
+.macts{display:flex;gap:6px;margin-top:9px}
+.macts a,.macts button{flex:1;text-align:center;font:500 10.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:8px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;text-decoration:none}
+.macts button{background:#F9D9C2}
+.fp .ban{display:grid;grid-template-columns:1fr 22px;gap:10px;border-bottom:1.5px solid var(--ink);padding-bottom:8px;margin-bottom:4px}
+.fp .ban b{font:700 26px/1 "Bricolage Grotesque",system-ui,sans-serif;display:block}
+.fp .ban em{font-style:normal;font-size:13px;display:block;margin:4px 0 6px}
+.fp .ban .vb{display:flex;flex-direction:column;border:1.5px solid var(--ink)}
+.fp .ban .vb u{display:block}
+.fp h5{font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:9px 0 5px}
+.fp ol{list-style:none;margin:0 0 0 4px;padding:0;border-left:1.5px solid var(--ink)}
+.fp ol li{padding:0 0 6px 11px;position:relative;font-size:12.5px;line-height:1.3}
+.fp ol li::before{content:"";position:absolute;left:-5px;top:3px;width:8px;height:8px;background:var(--accent)}
+.fp ol li b{display:block;font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}
+.fp .ns{font-size:12.5px;line-height:1.42;margin:0}
+.fp .wd2{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);margin-top:9px;font-size:12px;line-height:1.3}
+.fp .wd2 div{padding:6px}
+.fp .wd2 div+div{border-left:1.5px solid var(--ink)}
+.fp .wd2 small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.dcol{display:grid;gap:8px}
+.dcard{border:1.5px solid var(--ink);background:var(--paper)}
+.dcard .dh{padding:8px 8px 6px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dcard .dh b{font:700 18px/1 "Bricolage Grotesque",system-ui,sans-serif}
+.dcard .dh span{font-size:11.5px;color:var(--soft);text-align:right}
+.dcard .hero{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 8px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.dcard .hero b{font:700 19px/1.05 "Bricolage Grotesque",system-ui,sans-serif;text-align:right}
+.dg{display:grid;grid-template-columns:1fr 1fr}
+.dg div{padding:5px 8px;font-size:12.5px;font-weight:600}
+.dg div:nth-child(odd){border-right:1.5px solid var(--ink)}
+.dg div:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+.dcard .sb{display:flex;height:7px;border-top:1.5px solid var(--ink)}
+.dcard .sb u{display:block}
+.calc .row{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);margin-bottom:10px;background:var(--paper)}
+.calc .row div{padding:5px 7px;border-right:1.5px solid var(--ink)}
+.calc .row div:last-child{border-right:0}
+.calc .row small{display:block;font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.calc .row b{font-size:15px}
+.calc svg{display:block;width:100%;height:auto}
+.calc .math{font:500 11px/1.55 "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);margin:8px 0 0}
+.calc .math b{color:var(--accent);font-weight:500}
+.also{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:30px;padding-top:12px;border-top:1.5px solid var(--rule)}
+.also .mono{margin-right:6px;color:var(--soft)}
+.also a{border:1.5px solid var(--ink);padding:6px 10px;font-size:13.5px;text-decoration:none;background:var(--chip);color:var(--ink)}
+.also a:hover{background:#F7F5D6}
+@media (min-width:860px){.feat{grid-template-columns:5fr 7fr;gap:40px}.feat:nth-child(even) .ft{order:2}.tour{gap:46px}.scr{padding:14px}.tile{min-height:112px}.tile b{font-size:17px}.dcol{grid-template-columns:1fr 1fr}}
+
 .wall a small{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft)}
 .wall a:hover{background:#F7F5D6}
 
@@ -203,12 +282,10 @@ h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-sp
   <div id="res"></div>
 </div>
 
-<h2><span>The library so far</span><em class="grow">growing weekly</em></h2>
-<div class="count" id="count"></div>
 </div>
 <div>
-<h2><span>A signal, at random</span><em id="rn"></em></h2>
-<div class="card" id="card"><p style="padding:14px 12px">Loading the library…</p></div>
+<h2><span>The library so far</span><em class="grow">growing weekly</em></h2>
+<div class="count" id="count"></div>
 </div>
 </div>
 
@@ -216,17 +293,9 @@ h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-sp
 <h2><span>30 roles, one colour each</span><em>tap a role</em></h2>
 <div class="wall" id="wall"></div>
 
-<h2><span>Inside</span></h2>
-<div class="pages">
-<a class="go" href="/library/"><b>Library<small>Draft</small></b><span>Every compound: story, roles, what worked and what didn't</span></a>
-<a class="go" href="/aminos/"><b>Aminos</b><span>The 20 letters every signal is written in</span></a>
-<a class="go" href="/made/"><b>Made<small>Draft</small></b><span>How peptides are made, cleaned and tested</span></a>
-<a class="go" href="/dosage/"><b>Dosage<small>Draft</small></b><span>Common reported doses, side by side</span></a>
-<a class="go" href="/blood/"><b>Blood Work<small>Draft</small></b><span>What to test before and while on</span></a>
-<a class="go" href="/supplements/"><b>Supplements<small>Draft</small></b><span>What goes with each peptide, by label</span></a>
-<a class="go" href="/draw/"><b>Calculator<small>Draft</small></b><span>Vial, water and syringe, worked out</span></a>
-<a class="go" href="/protocol/"><b>Protocol<small>Draft</small></b><span>Build a stack, see what overlaps and what to test</span></a>
-</div>
+<h2><span>Inside, step by step</span><em>five screens</em></h2>
+<div class="tour" id="tour"><p class="mono" style="padding:14px 0">Loading the library…</p></div>
+<div class="also"><span class="mono">Also inside</span><a href="/blood/">Blood Work</a><a href="/supplements/">Supplements</a><a href="/protocol/">Protocol</a><a href="/aminos/">Aminos</a><a href="/made/">Made</a></div>
 
 <p class="end mono">An ever evolving reference · updated continuously</p>
 </main>
@@ -362,30 +431,65 @@ loadData(function(){
   q.addEventListener('input',run);
   res.addEventListener('click',function(e){var a=e.target.closest('a[data-s]');if(a)T('home-search-open:'+a.dataset.s,'Search open '+a.dataset.s)});
 
-  /* 3. a random compound card */
-  /* hand-picked: entries with the deepest research, mixed across kinds and outcomes (logged, approved, body-made, Russian brain peptides, GH, cautionary, non-peptides) */
+  /* 3. feature tour (v13) */
   var DEEP=['ghk-cu','bpc-157','tb-500-frag-17-23','kpv','semaglutide','tirzepatide','retatrutide','somatropin-hgh','tesamorelin','ss-31','oxytocin','mots-c','thymosin-alpha-1','thymosin-beta-4','ll-37','glutathione','semax','selank','epitalon','cerebrolysin','ipamorelin','mk-677','foxo4-dri','adipotide','mt-2','nadplus','methylene-blue','creatine'];
   var R=D.filter(function(o){return DEEP.indexOf(o.slug)>-1&&(o.found||o.story)&&(o.worked||o.helps)&&o.didnt});
   var seen=[];
-  function pick(){
-    var pool=R.filter(function(o){return seen.indexOf(o.slug)<0});if(!pool.length){seen=[];pool=R}
-    var o=pool[Math.floor(Math.random()*pool.length)];seen.push(o.slug);return o;
+  function pick(){var pool=R.filter(function(o){return seen.indexOf(o.slug)<0});if(!pool.length){seen=[];pool=R}var o=pool[Math.floor(Math.random()*pool.length)];seen.push(o.slug);return o}
+  var BY=function(s){return D.filter(function(o){return o.slug===s})[0]};
+  var TAG=function(k){var c=col(k);return '<span class="rtg" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</span>'};
+  var aa=function(o){return o.seq&&o.seq.length?o.seq.length+'<br>AA':''};
+  var band=function(o,h){var rs=o.roles||[];return rs.map(function(k,i){return '<u style="flex:'+(i===0?3:i===1?2:1)+';background:'+col(k)+'"></u>'}).join('')};
+  var tile=function(o){return '<a class="tile" href="'+lib(o)+'"><span class="in"><b>'+esc(o.name)+'<small>'+aa(o)+'</small></b><span>'+esc(o.fn||'')+'</span></span><span class="sb">'+band(o)+'</span></a>'};
+  var SIX=['bpc-157','ghk-cu','semaglutide','retatrutide','semax','nad'].map(function(s){return BY(s)||D.filter(function(o){return o.slug.indexOf(s)===0})[0]}).filter(Boolean);
+  var FILL=['tb-500-frag-17-23','kpv','tirzepatide','selank','mots-c','epitalon'].map(BY).filter(Boolean);
+  var unit=function(str){var m=String(str||'').replace(/,/g,'').match(/([\d.]+)\s*(mcg|mg)\b/i);return m?{v:parseFloat(m[1]),u:m[2].toLowerCase()}:null};
+  var fmt=function(x){return (Math.round(x*100)/100).toString()};
+
+  function screens(o){
+    var d=o.dose||{},rs=(o.roles||[]).slice(0,3);
+    /* 2. card over faded tiles */
+    var card='<div class="scr fade"><div class="bar"><span>Library · card</span><span>tap a tile</span></div><div class="tiles">'+FILL.map(tile).join('')+'</div>'+
+      '<div class="mcard"><h4>'+esc(o.name)+'</h4><p class="sub">'+esc(o.originDetail||'')+'</p>'+
+      (d.dose?'<div class="cells"><div><small>Dose</small><b>'+esc(d.dose)+'</b></div><div><small>How often</small><b>'+esc(d.freq||'')+'</b></div></div>':'')+
+      '<ul class="rl">'+rs.map(function(k){return '<li>'+TAG(k)+'<span>'+esc((o.desc||{})[k]||'')+'</span></li>'}).join('')+'</ul>'+
+      '<div class="macts"><a href="/library/#/p/'+encodeURIComponent(o.slug)+'" data-full="'+esc(o.slug)+'">Full page →</a><button type="button" class="again">↻ Another</button></div></div></div>';
+    /* 3. full read */
+    var tl=(o.tl||[]).slice(0,3);
+    var full='<div class="scr fp"><div class="bar"><span>Full read</span><span>'+esc(o.name)+'</span></div>'+
+      '<div class="ban"><div><b>'+esc(o.name)+'</b><em>'+esc(d.use||o.fn||'')+'</em>'+(o.primary?TAG(o.primary):'')+'</div><span class="vb">'+band(o)+'</span></div>'+
+      (tl.length?'<h5>Timeline</h5><ol>'+tl.map(function(x){return '<li><b>'+esc(x[0])+'</b>'+esc(x[1])+'</li>'}).join('')+'</ol>':'')+
+      (o.nameNote&&o.nameNote.t?'<h5>Name story</h5><p class="ns">'+esc(o.nameNote.t)+'</p>':'<h5>How it started</h5><p class="ns">'+esc(story(o))+'</p>')+
+      '<div class="wd2"><div><small style="color:#4F7A2B">Worked</small>'+esc(first(o.worked||o.helps))+'</div><div><small style="color:#C0392B">Didn’t</small>'+esc(first(o.didnt))+'</div></div></div>';
+    return {card:card,full:full};
   }
-  function card(o){
-    var roles=(o.roles||[]);
-    $('#rn').textContent=R.length+' deep entries';
-    $('#card').innerHTML=
-      '<div class="stripe">'+roles.map(function(k,i){return '<u style="flex:'+(i===0?3:1)+';background:'+col(k)+'"></u>'}).join('')+'</div>'+
-      '<div class="hd"><div><b>'+esc(o.name)+'</b><small class="mono">'+esc(o.originDetail||'')+(o.alias?' · '+esc(o.alias.split(/,\s*/).slice(0,2).join(', ')):'')+'</small></div>'+(o.fda?'<span class="fda mono">FDA ✓</span>':'')+'</div>'+
-      '<div class="tags">'+roles.slice(0,5).map(function(k){var c=col(k);return '<a href="/library/#/role/'+encodeURIComponent(k)+'" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</a>'}).join('')+'</div>'+
-      '<p><span class="mono">How it started</span>'+esc(story(o))+'</p>'+
-      '<div class="wd"><div><span class="mono">Worked</span>'+esc(first(o.worked||o.helps))+'</div><div><span class="mono">Didn’t</span>'+esc(first(o.didnt))+'</div></div>'+
-      '<div class="acts"><a href="/library/#/p/'+encodeURIComponent(o.slug)+'" data-full="'+esc(o.slug)+'">Full page →</a><button type="button" id="again">↻ Another</button></div>';
+  function dose(o){var d=o.dose||{};return '<div class="dcard"><div class="dh"><b>'+esc(o.name)+'</b><span>'+esc(d.use||o.fn||'')+'</span></div><div class="hero"><small class="mono" style="color:var(--soft)">Dose</small><b>'+esc(d.dose||'NA')+'</b></div><div class="dg"><div><small>How often</small>'+esc(d.freq||'NA')+'</div><div><small>Cycle</small>'+esc(d.cycle||'NA')+'</div><div><small>Route</small>'+esc(d.route||'NA')+'</div><div><small>Half-life</small>'+esc(d.half||'NA')+'</div></div><span class="sb">'+band(o)+'</span></div>'}
+  function calc(o){
+    var u=unit(o.dose&&o.dose.dose),vial=10,ml=2;
+    if(!u){o=BY('bpc-157')||o;u={v:250,u:'mcg'}}
+    var mg=u.u==='mcg'?u.v/1000:u.v,conc=vial/ml,units=mg/conc*100;
+    if(units>100||units<2){o=BY('bpc-157')||o;u={v:250,u:'mcg'};mg=.25;units=mg/conc*100}
+    var w=320,x0=20,x1=290,fx=x0+(x1-x0)*Math.min(units,100)/100,ticks='';
+    for(var t=0;t<=100;t+=10){var x=x0+(x1-x0)*t/100;ticks+='<line x1="'+x+'" y1="18" x2="'+x+'" y2="'+(t%50?26:30)+'" stroke="#3E4A80" stroke-width="1.2"/>'+(t%50?'':'<text x="'+x+'" y="42" font-size="9" text-anchor="middle" fill="#6B76A8" font-family="JetBrains Mono,monospace">'+t+'</text>')}
+    var svg='<svg viewBox="0 0 '+w+' 50" role="img" aria-label="Syringe filled to '+fmt(units)+' units"><rect x="'+x0+'" y="6" width="'+(fx-x0)+'" height="12" fill="#DB6830" opacity=".75"/><rect x="'+x0+'" y="6" width="'+(x1-x0)+'" height="12" fill="none" stroke="#3E4A80" stroke-width="1.5"/><line x1="'+x1+'" y1="12" x2="314" y2="12" stroke="#3E4A80" stroke-width="2"/><line x1="'+x0+'" y1="2" x2="'+x0+'" y2="22" stroke="#3E4A80" stroke-width="2"/>'+ticks+'</svg>';
+    var href='/draw/?n='+encodeURIComponent(o.name)+'&dose='+u.v+'&u='+u.u;
+    return {o:o,href:href,html:'<div class="scr calc"><div class="bar"><span>Calculator</span><span>'+esc(o.name)+'</span></div><div class="row"><div><small>Vial</small><b>'+vial+' mg</b></div><div><small>BAC water</small><b>'+ml+' mL</b></div><div><small>Dose</small><b>'+fmt(u.v)+' '+u.u+'</b></div></div>'+svg+
+      '<p class="math">'+vial+' mg ÷ '+ml+' mL = '+fmt(conc)+' mg/mL<br>'+fmt(mg)+' mg ÷ '+fmt(conc)+' mg/mL = '+fmt(mg/conc)+' mL = <b>'+fmt(units)+' units</b> on a U-100 syringe</p></div>'};
   }
-  if(R.length)card(pick());
-  $('#card').addEventListener('click',function(e){
-    if(e.target.closest('#again')){var o=pick();card(o);T('home-another','Another signal');return}
-    var f=e.target.closest('[data-full]');if(f)T('home-card-open:'+f.dataset.full,'Card open '+f.dataset.full);
+  function feat(n,h,p,href,label,scr){return '<section class="feat"><div class="ft"><span class="n">0'+n+'</span><h3>'+h+'</h3><p>'+p+'</p><a class="btn" href="'+href+'">'+label+'</a></div>'+scr+'</section>'}
+  function tour(o){
+    var sc=screens(o),c=calc(o),D2=[o,BY('semaglutide')||BY('bpc-157')].filter(function(x,i,a){return x&&x.dose&&a.indexOf(x)===i}).slice(0,2);
+    $('#tour').innerHTML=
+      feat(1,'The Library','Every compound as a tile: the colours are what people use it for, the corner counts its amino acids. '+D.length+' so far, sorted by popularity, evidence or origin.','/library/','Open the Library →','<div class="scr"><div class="bar"><span>Library</span><span>'+D.length+' compounds</span></div><div class="tiles">'+SIX.map(tile).join('')+'</div></div>')+
+      feat(2,'The card','Tap a tile and its card opens right there: the usual dose, each role with what it does, and how it works. Swipe for the next one.','/library/#/'+encodeURIComponent(o.slug),'Open this card →',sc.card)+
+      feat(3,'The full read','The long version: how it was found, what was tested, what worked and what didn’t, what people report, the name story and every source.','/library/#/p/'+encodeURIComponent(o.slug),'Read '+esc(o.name)+' →',sc.full)+
+      feat(4,'The dosing guide','What people commonly take, side by side: dose, how often, cycle, route and half-life, with the label dose kept apart from community use.','/dosage/','Open Dosage →','<div class="scr"><div class="bar"><span>Dosage</span><span>side by side</span></div><div class="dcol">'+D2.map(dose).join('')+'</div></div>')+
+      feat(5,'The calculator','Vial size, water and dose in; the syringe line out, with the maths shown so you can check it.',c.href,'Work it out →',c.html);
+  }
+  if(R.length)tour(pick());
+  $('#tour').addEventListener('click',function(e){
+    if(e.target.closest('.again')){tour(pick());T('home-another','Another signal');var f=document.querySelectorAll('.feat')[1];if(f&&f.getBoundingClientRect().top<0)f.scrollIntoView({block:'start'});return}
+    var a=e.target.closest('a');if(a)T('home-tour:'+(a.getAttribute('href')||''),'Tour link');
   });
 
   /* 4. counters */
@@ -402,7 +506,7 @@ loadData(function(){
 
   /* 5. the role wall, most-used first */
   var cnt={};D.forEach(function(o){(o.roles||[]).forEach(function(r){cnt[r]=(cnt[r]||0)+1})});
-  $('#wall').innerHTML=P.slice().sort(function(a,b){return (cnt[b[0]]||0)-(cnt[a[0]]||0)}).map(function(p){return '<a href="/library/#/role/'+encodeURIComponent(p[0])+'" data-r="'+esc(p[0])+'"><u style="background:'+p[2]+'"></u><span>'+esc(p[1])+'</span><small>'+(cnt[p[0]]||0)+'</small></a>'}).join('');
+  $('#wall').innerHTML=P.slice().sort(function(a,b){return (cnt[b[0]]||0)-(cnt[a[0]]||0)}).map(function(p){return '<a href="/library/#/role/'+encodeURIComponent(p[0])+'" data-r="'+esc(p[0])+'"><span class="rtg" style="background:'+p[2]+';color:'+txt(p[2])+'">'+esc(p[1])+'</span><small>'+(cnt[p[0]]||0)+'</small></a>'}).join('');
   $('#wall').addEventListener('click',function(e){var a=e.target.closest('a[data-r]');if(a)T('home-role:'+a.dataset.r,'Role '+a.dataset.r)});
 });
 })();

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Bare Signals</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Home v12 (23 Oct 2026): random card shows only the first two other names; signal string panel gets a clear Read more button under the name (the small Open link was hard to see); People take it for roles shown as colour tags like the Library. v11 kept at /home/v11/. Home v11: string U-turns drawn as a smooth curve instead of an exact half-circle arc, which could flip sides between frames and made the turn snap while rippling. v10 kept at /home/v10/. Home v10: name block made small and quiet (definition rewritten: genes, supplements, peptides), and the chain becomes Signal strings, a showcase of 14 hand-picked strings (popular peptides, odd shapes, supplements, two non-peptides built from amino acids) with a what-to-look-at note, how it started and roles under each, picker chips and auto-advance. v9 kept at /home/v9/. Home v9: the top chain is now the Aminos string: round beads on one line, snaking left to right and back from N to C, each bead in its amino acid's colour from the Aminos page, drawn in then rippling (glycine swings widest, proline barely moves, copper peptides rock as one piece). v8 kept at /home/v8/. Home v8: a living front page built from the Library's own data. Moving amino chain that spells a real compound and cycles, search by what you're dealing with, a random compound card (how it started, what worked, what didn't), counters, the 30-role colour wall, then the page boxes. Reads whichever Library version is live (falls back to v32). v7 kept at /home/v7/. Home v7: adds the Protocol box, v6 kept at /home/v6/. Home v6: adds the Made box, v5 kept at /home/v5/. Home v5: adds the Supplements box. Anonymous v4 kept at /home/v4-anon/. Older versions kept at /home/v1/ to /home/v4/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:680px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 34px}
+a{color:inherit;text-decoration:none}
+.mono{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+h2{font:500 10px/1.4 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:30px 0 9px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+h2 em{font-style:normal;color:var(--accent)}
+
+/* top: small name block */
+.top{display:grid;grid-template-columns:1fr;gap:7px;padding-bottom:12px;border-bottom:1.5px solid var(--ink)}
+h1{font:700 22px/1 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:.04em;white-space:nowrap}
+.mean{display:grid;grid-template-columns:auto 1fr;gap:3px 9px;margin:0;font-size:13px;line-height:1.35;color:var(--soft)}
+.mean b{font:500 9.5px/1.7 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.mean span i{font-style:italic;color:var(--ink)}
+.mean span em{font-style:normal;color:var(--ink)}
+
+
+/* signal strings showcase */
+.show{margin-top:12px}
+.showlede{margin-top:16px!important}
+.showlede{font:700 24px/1.12 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 4px}
+.showsub{margin:0 0 12px;color:var(--soft);font-size:14.5px;line-height:1.38}
+.sbox{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.picks{display:flex;gap:6px;overflow-x:auto;padding:10px 10px 9px;border-bottom:1.5px solid var(--ink);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.picks::-webkit-scrollbar{display:none}
+.picks button{flex:none;font:500 10px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:7px 8px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.picks button u{display:block;width:8px;height:8px;border:1px solid var(--ink)}
+.picks button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.stage{display:block;padding:12px 10px 2px;min-height:80px;cursor:pointer}
+.string{width:100%}
+.string svg{display:block;max-width:100%;height:auto;overflow:visible}
+.string .bb{stroke-dasharray:1;stroke-dashoffset:0;animation:draw 1.2s ease-out}
+.string .bb.np{stroke-dasharray:3 6;animation:none}
+.string .bd{animation:pop .5s ease-out both;animation-delay:calc(var(--i)*30ms)}
+.string.out svg{opacity:0;transition:opacity .4s}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0}to{opacity:1}}
+.sinfo{padding:2px 14px 12px}
+.sname{display:inline-flex;align-items:baseline;gap:10px}
+.sname b{font:700 24px/1.05 "Bricolage Grotesque",system-ui,sans-serif}
+.sname .open{color:var(--accent);white-space:nowrap}
+.sname:hover b{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.smeta{display:block;color:var(--soft);margin-top:4px}
+.smeta.np{color:var(--accent)}
+.look{margin:8px 0 0;font-size:14.5px;line-height:1.42}
+.rmore{display:inline-block;margin:10px 0 2px;padding:9px 16px;background:var(--ink);color:var(--paper,#FFFFE2)!important;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--rule);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.rmore:hover{background:var(--accent);border-color:var(--accent)}
+.sfor .rtg{font:500 10px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace!important;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;justify-self:start}
+.sfor{margin-top:10px;border-top:1.5px solid var(--rule)}
+.sfor>.mono{display:block;color:var(--accent);margin:8px 0 2px}
+.sfor a{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:baseline;padding:4px 0;font-size:14px;line-height:1.3}
+.sfor a u{display:block;width:12px;height:12px;border:1.5px solid var(--ink);align-self:center}
+.sfor a b{font-weight:500;white-space:nowrap}
+.sfor a span{color:var(--soft)}
+.sfor a:hover b{text-decoration:underline;text-underline-offset:3px}
+.look .mono{display:block;color:var(--accent);margin-bottom:3px}
+@media (max-width:420px){.sfor a{grid-template-columns:1fr;row-gap:3px;padding:4px 0}.sfor a span{grid-column:1;font-size:13px}}
+.stags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.stags a{font:500 9.5px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:5px 6px;border:1.5px solid var(--ink)}
+.snav{display:grid;grid-template-columns:auto 1fr auto;border-top:1.5px solid var(--ink)}
+.snav span{display:flex;align-items:center;justify-content:center;color:var(--soft);border-left:1.5px solid var(--ink);border-right:1.5px solid var(--ink)}
+.snav button{font:500 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:13px 14px;border:0;background:var(--chip);color:var(--ink);cursor:pointer;text-align:center}
+.snav button:hover{background:#F7F5D6}
+.key{margin:7px 0 0;color:var(--soft)}
+/* lower half */
+.lower>div>h2:first-child{margin-top:30px}
+.count b{font-variant-numeric:tabular-nums}
+.count b.tick{animation:tick .16s ease-out}
+@keyframes tick{from{transform:translateY(-35%);opacity:.35}to{transform:none;opacity:1}}
+.grow::before{content:"▲ ";display:inline-block;animation:up 1.6s ease-in-out infinite}
+@keyframes up{0%,100%{transform:translateY(1px);opacity:.5}50%{transform:translateY(-2px);opacity:1}}
+@media (min-width:900px){
+  main{max-width:1080px}
+  .hero{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:start}
+  .show{margin-top:0}
+  .hl{padding-top:6px}
+  h1{font-size:26px}
+  .showlede{font-size:40px!important;margin-top:26px!important}
+  .showsub{font-size:16px}
+  .lower{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  .wall{grid-template-columns:repeat(5,1fr)!important}
+  .pages{grid-template-columns:repeat(4,1fr)!important}
+  .go span{font-size:13px}
+}
+
+/* search */
+.find{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);margin-top:22px}
+.find label{display:block;padding:10px 12px 0;color:var(--accent)}
+.find input{width:100%;border:0;background:transparent;font:700 22px/1.2 "Bricolage Grotesque",system-ui,sans-serif;color:var(--ink);padding:4px 12px 11px;outline:none}
+.find input::placeholder{color:#A9AFD0}
+#res a{display:grid;grid-template-columns:6px 1fr auto;gap:10px;align-items:center;padding:9px 12px 9px 0;border-top:1.5px solid var(--rule)}
+#res a:hover{background:#F7F5D6}
+#res a .st{align-self:stretch;display:flex;flex-direction:column}
+#res a .st u{flex:1;display:block}
+#res a b{display:block;font:700 17px/1.15 "Bricolage Grotesque",system-ui,sans-serif}
+#res a small{display:block;color:var(--soft);font-size:13px;line-height:1.3;margin-top:2px}
+#res a em{font-style:normal;color:var(--accent)}
+#res .none{border-top:1.5px solid var(--rule);padding:10px 12px;color:var(--soft);font-size:14px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 12px}
+.quick button{font:500 10px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);padding:7px 8px;cursor:pointer}
+.quick button:hover{background:var(--act)}
+
+/* the random card */
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.card .stripe{display:flex;height:9px;border-bottom:1.5px solid var(--ink)}
+.card .stripe u{display:block}
+.card .hd{padding:11px 12px 0;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card .hd b{font:700 30px/1 "Bricolage Grotesque",system-ui,sans-serif;display:block}
+.card .hd small{display:block;color:var(--soft);margin-top:5px}
+.card .fda{border:1.5px solid var(--ink);padding:4px 6px;white-space:nowrap;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;padding:10px 12px 0}
+.tags a{font:500 10px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:6px 7px;border:1.5px solid var(--ink)}
+.card p{margin:0;padding:11px 12px 0;font-size:15px;line-height:1.42}
+.card p .mono{display:block;color:var(--accent);margin-bottom:3px}
+.wd{display:grid;grid-template-columns:1fr 1fr;margin:12px 0 0;border-top:1.5px solid var(--ink)}
+.wd div{padding:10px 12px 11px;font-size:13.5px;line-height:1.38}
+.wd div+div{border-left:1.5px solid var(--ink)}
+.wd .mono{display:block;margin-bottom:4px;color:var(--soft)}
+.wd div:first-child .mono{color:#4D7A2C}.wd div+div .mono{color:#C0392B}
+.acts{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--ink)}
+.acts a,.acts button{font:500 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:13px 10px;text-align:center;border:0;cursor:pointer;color:var(--ink);background:var(--chip)}
+.acts button{border-left:1.5px solid var(--ink);background:var(--act);color:#8A3A10}
+.acts a:hover{background:#F7F5D6}.acts button:hover{background:#FFD3B4}
+
+/* counters */
+.count{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);background:var(--chip)}
+.count a{padding:10px 8px 9px;border-right:1.5px solid var(--ink)}
+.count a:last-child{border-right:0}
+.count b{display:block;font:700 28px/1 "Bricolage Grotesque",system-ui,sans-serif}
+.count span{display:block;margin-top:4px;color:var(--soft);font:500 9.5px/1.25 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+.count a:hover{background:#F7F5D6}
+
+/* role wall */
+.wall{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1.5px solid var(--ink);border-top:1.5px solid var(--ink)}
+.wall a{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:7px 9px 7px 7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--chip);font-size:13.5px;line-height:1.15}
+.wall a u{display:block;width:22px;height:22px;border:1.5px solid var(--ink)}
+.wall a small{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft)}
+.wall a:hover{background:#F7F5D6}
+
+/* pages */
+.pages{display:grid;grid-template-columns:1fr;gap:10px}
+.go{display:block;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 14px 10px}
+.go:hover{box-shadow:3px 3px 0 var(--accent)}
+.go b{display:flex;justify-content:space-between;align-items:baseline;font:700 21px/1.1 "Bricolage Grotesque",system-ui,sans-serif}
+.go b small{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.go span{display:block;color:var(--soft);font-size:14px;margin-top:3px}
+.end{margin:22px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);color:var(--soft)}
+
+@media (min-width:760px){
+  main{padding-top:38px}
+  
+  .wall{grid-template-columns:repeat(3,1fr)}
+  .pages{grid-template-columns:1fr 1fr}
+}
+@media (max-width:380px){.count b{font-size:23px}.wall a{font-size:12.5px}}
+@media (prefers-reduced-motion:reduce){.string .bb,.string .bd,.count b.tick,.grow::before{animation:none}}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body><main>
+
+<div class="hero">
+<div class="hl">
+<header class="top">
+<h1>BARE SIGNALS</h1>
+<div class="mean">
+<b>bare</b><span><i>adj.</i> as it is. Raw, simple, naked.</span>
+<b>signals</b><span><i>n.</i> what tells the body what to do. Genes are signals. Supplements are signals. <em>Peptides are signals, spelled out in amino acids.</em></span>
+</div>
+</header>
+<p class="showlede">Every peptide is a string.</p>
+<p class="showsub">A few amino acids in the right order, and the body reads it as an instruction. Pick one to see what it’s made of.</p>
+</div>
+<section class="show" aria-label="Signal strings">
+<div class="sbox">
+  <div class="picks" id="picks" role="group" aria-label="Pick a string"></div>
+  <a class="stage" id="stage" href="/library/"><div class="string" id="string"></div></a>
+  <div class="sinfo" id="sinfo"></div>
+  <div class="snav"><button type="button" data-step="-1" aria-label="Previous">←</button><span class="mono" id="spos"></span><button type="button" data-step="1" aria-label="Next">→</button></div>
+</div>
+<p class="key mono">Bead colours: each amino acid’s main role, as on <a href="/aminos/" style="color:var(--accent)">Aminos</a></p>
+</section>
+</div>
+
+<div class="lower">
+<div>
+<h2><span>Find a signal</span><em>by name or feeling</em></h2>
+<div class="find">
+  <label for="q" class="mono">What are you dealing with?</label>
+  <input id="q" type="search" autocomplete="off" placeholder="Try “brain fog”">
+  <div class="quick" id="quick"></div>
+  <div id="res"></div>
+</div>
+
+<h2><span>The library so far</span><em class="grow">growing weekly</em></h2>
+<div class="count" id="count"></div>
+</div>
+<div>
+<h2><span>A signal, at random</span><em id="rn"></em></h2>
+<div class="card" id="card"><p style="padding:14px 12px">Loading the library…</p></div>
+</div>
+</div>
+
+
+<h2><span>30 roles, one colour each</span><em>tap a role</em></h2>
+<div class="wall" id="wall"></div>
+
+<h2><span>Inside</span></h2>
+<div class="pages">
+<a class="go" href="/library/"><b>Library<small>Draft</small></b><span>Every compound: story, roles, what worked and what didn't</span></a>
+<a class="go" href="/aminos/"><b>Aminos</b><span>The 20 letters every signal is written in</span></a>
+<a class="go" href="/made/"><b>Made<small>Draft</small></b><span>How peptides are made, cleaned and tested</span></a>
+<a class="go" href="/dosage/"><b>Dosage<small>Draft</small></b><span>Common reported doses, side by side</span></a>
+<a class="go" href="/blood/"><b>Blood Work<small>Draft</small></b><span>What to test before and while on</span></a>
+<a class="go" href="/supplements/"><b>Supplements<small>Draft</small></b><span>What goes with each peptide, by label</span></a>
+<a class="go" href="/draw/"><b>Calculator<small>Draft</small></b><span>Vial, water and syringe, worked out</span></a>
+<a class="go" href="/protocol/"><b>Protocol<small>Draft</small></b><span>Build a stack, see what overlaps and what to test</span></a>
+</div>
+
+<p class="end mono">An ever evolving reference · updated continuously</p>
+</main>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var T=function(n,t){try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var first=function(s){s=String(s||'').trim();var m=s.match(/^[\s\S]*?[.!?](?=\s|$)/);return m?m[0]:s};
+
+/* load whichever Library version is live */
+function loadData(cb){
+  var go=function(v){var s=document.createElement('script');s.src='/library/'+v+'/data.js';s.onload=cb;s.onerror=function(){if(v!=='v32')go('v32')};document.head.appendChild(s)};
+  fetch('/library/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=t.match(/replace\('(v\d+)\//);go(m?m[1]:'v32')}).catch(function(){go('v32')});
+}
+
+loadData(function(){
+  var D=window.BS_DATA||[],P=window.BS_PALETTE||[];
+  var PAL={};P.forEach(function(p){PAL[p[0]]={label:p[1],c:p[2]}});
+  var lum=function(h){h=h.replace('#','');var r=parseInt(h.substr(0,2),16),g=parseInt(h.substr(2,2),16),b=parseInt(h.substr(4,2),16);return (0.299*r+0.587*g+0.114*b)/255};
+  var txt=function(h){return lum(h)<0.55?'#FFFFF4':'#3E4A80'};
+  var col=function(k){return (PAL[k]||{c:'#E3E0BF'}).c};
+  var lib=function(o){return '/library/#/'+encodeURIComponent(o.slug)};
+
+  /* 1. Signal strings: hand-picked showcase, drawn and moved exactly like /aminos/ */
+  var AAR={A:'Muscle',R:'Heart',N:'Cognition',D:'DNA',C:'Protection',Q:'Gut',E:'Cognition',G:'Skin',H:'Inflammation',I:'Muscle',L:'Muscle',K:'Skin',M:'DNA',F:'Mood',P:'Skin',S:'Cognition',T:'Gut',W:'Mood',Y:'Drive',V:'Muscle',U:'Protection'};
+  var L2=function(h){var n=parseInt(h.slice(1),16),f=function(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+  var FX=function(l){return l==='G'?1.45:l==='P'?.3:1};
+  /* slug, what to look at; np = not a peptide, built from these amino acids */
+  var PICK=[
+   ['bpc-157','Three prolines in a row (PPP) near the start. Proline-rich stretches are hard for gut enzymes to cut, one proposed reason BPC-157 holds up in stomach acid.'],
+   ['ghk-cu','Just three links, holding one copper ion between them. The body cuts GHK out of collagen when tissue breaks down, and blood levels fall with age.'],
+   ['retatrutide','The PPPS tail at the end is borrowed from exenatide, a peptide first found in Gila monster venom. Three links are swapped for lab-made versions (shown here as A and L) so enzymes can’t cut it.'],
+   ['semax','MEHF is a piece of ACTH, a stress hormone (its links 4 to 7). The PGP tail was added so enzymes chew it up more slowly.'],
+   ['selank','TKPR is tuftsin, a natural immune peptide. It wears the same PGP tail as Semax: one design trick, two very different effects.'],
+   ['mots-c','Written in mitochondrial DNA, not in the cell’s nucleus. One of the very few peptides mitochondria make from their own genes.'],
+   ['ll-37','Named after its first two letters (L, L) and its length, 37. The K and R scattered through it carry a positive charge that helps it punch holes in bacteria.'],
+   ['oxytocin','Nine links, but the two C’s bridge to each other and close the first six into a ring, so it rocks as one stiff piece.'],
+   ['dsip','Three glycines (G), the most flexible amino acid there is. Watch them swing wider than the rest.'],
+   ['tb-500-frag-17-23','Seven links cut from thymosin beta-4, a 43-link protein: the stretch that grabs actin. Vials sold as TB-500 often hold the full protein instead.'],
+   ['glutathione','Three links, but E joins through its side chain (a gamma bond) instead of the backbone. Most enzymes that cut peptides can’t break it.'],
+   ['carnosine','The shortest string here: β-alanine and histidine. Packed into muscle and brain, where it soaks up acid during hard effort.'],
+   ['creatine','Your kidneys and liver build it from three amino acids: arginine and glycine first, then a methyl group from methionine.','RGM'],
+   ['nadplus','Cells can build it from tryptophan, step by step, or from forms of vitamin B3. Tissue levels fall with age.','W']
+  ];
+  var S=PICK.map(function(x){var o=D.find(function(d){return d.slug===x[0]});return o?{o:o,note:x[1],np:x[2]||null}:null}).filter(function(x){return x&&(x.np||x.o.seq)});
+  var box=$('#string'),info=$('#sinfo'),picks=$('#picks'),stage=$('#stage'),si=0,LV=null,vis=true,auto=!RM,nextT=null,f1=function(v){return v.toFixed(1)};
+  function draw(it){
+    var o=it.o,np=!!it.np,ch=(it.np||o.seq).split(''),n=ch.length,W=box.clientWidth||340,mob=W<520,small=n<=6,bigM=n<=10;
+    var big=W<520?34:40,minD=W<520?19:22,tt=Math.min(1,Math.max(0,(n-10)/30));
+    var d=Math.round(big-(big-minD)*Math.pow(tt,.6)),step=np?d*2:d+Math.round(d*(small?.35:.3)),fs=Math.max(10.5,Math.round(d*.44));
+    var amp=np?0:d*(small?.3:bigM?.24:.3),rowH=Math.round(d+Math.max(12,d*.5)+2*amp),padMin=d/2+26;
+    var fit=Math.max(3,Math.floor((W-2*padMin)/step)+1),per=n<=fit?n:Math.ceil(n/Math.ceil(n/fit)),pad=n<=fit?(W-(n-1)*step)/2:(W-(per-1)*step)/2;
+    if(np)pad=Math.max(padMin,(W-(n-1)*step-90)/2);
+    var rows=Math.ceil(n/per),top=d/2+6+amp,H=top+(rows-1)*rowH+d/2+8+amp;
+    var pts=ch.map(function(a,i){var r=Math.floor(i/per),k=i%per;return[r%2===0?pad+k*step:pad+(per-1-k)*step,top+r*rowH+(small?amp*(i%2?1:-1):amp*Math.sin(i*.85))*FX(a),r]});
+    var tail=small?d/2+8:Math.max(10,Math.round(d*.4));
+    function path(P2){var p='M'+f1(P2[0][0]-tail)+','+f1(P2[0][1])+' L'+f1(P2[0][0])+','+f1(P2[0][1]);
+      for(var i=1;i<P2.length;i++){var x0=P2[i-1][0],y0=P2[i-1][1],x1=P2[i][0],y1=P2[i][1];
+        if(P2[i][2]===P2[i-1][2]){var hx=(x1-x0)/2;p+=' C'+f1(x0+hx)+','+f1(y0)+' '+f1(x1-hx)+','+f1(y1)+' '+f1(x1)+','+f1(y1)}
+        else{var k=(y1-y0)*2/3,sx=P2[i-1][2]%2===0?1:-1;p+=' C'+f1(x0+sx*k)+','+f1(y0)+' '+f1(x1+sx*k)+','+f1(y1)+' '+f1(x1)+','+f1(y1)}}
+      var E=P2[P2.length-1],lr=E[2]%2===0;return p+' L'+f1(E[0]+(lr?tail:-tail))+','+f1(E[1])}
+    var Lp=pts[n-1],lastRight=Lp[2]%2===0;
+    var beads=ch.map(function(a,i){var c=col(AAR[a]||'Repair'),fg=L2(c)>.42?'#3E4A80':'#FFFFE2';
+      return '<g class="bd" style="--i:'+i+'"><circle cx="'+f1(pts[i][0])+'" cy="'+f1(pts[i][1])+'" r="'+d/2+'" fill="'+c+'" stroke="#3E4A80" stroke-width="1.5"/><text x="'+f1(pts[i][0])+'" y="'+f1(pts[i][1]+fs*.36)+'" text-anchor="middle" fill="'+fg+'" font-size="'+fs+'" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">'+a+'</text></g>'}).join('');
+    var lab='font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif"',ends;
+    if(np){var ex=Lp[0]+d/2+16;ends='<path class="bb np" d="M'+f1(pts[0][0])+','+f1(pts[0][1])+' L'+f1(ex)+','+f1(Lp[1])+'" fill="none" stroke="#3E4A80" stroke-width="2"/><text x="'+f1(ex+6)+'" y="'+f1(Lp[1]+6)+'" '+lab+'>→ '+esc(o.name)+'</text>';beads=ends+beads;ends=''}
+    else{var nx=pts[0][0]-tail-5,cx2=Lp[0]+(lastRight?tail+5:-tail-5);beads='<path class="bb" d="'+path(pts)+'" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>'+beads;ends='<text x="'+f1(nx)+'" y="'+f1(pts[0][1]+6)+'" text-anchor="end" '+lab+'>N</text><text x="'+f1(cx2)+'" y="'+f1(Lp[1]+6)+'" text-anchor="'+(lastRight?'start':'end')+'" '+lab+'>C</text>'}
+    box.innerHTML='<svg viewBox="0 0 '+W+' '+f1(H)+'" width="'+W+'" height="'+f1(H)+'" role="img" aria-label="'+esc(o.name)+(np?', built from '+n+' amino acids':': '+n+' amino acids in one chain')+'"><g class="lvg">'+beads+ends+'</g></svg>';
+    box.classList.remove('out');
+    var nts=o.seqNote||'';
+    LV=np?null:{pts:pts,path:path,d:d,fs:fs,fl:ch.map(function(a){return a==='G'?1.6:a==='P'?.25:1}),rigid:/-Cu$/.test(o.name)||(/ring|cyclic|bridge|disulfide/i.test(nts)&&!/curled ring|pyroglutamate/i.test(nts)),cx:W/2,cy:H/2,t0:performance.now()+(RM?0:900+n*30)};
+  }
+  function two(t){t=String(t||'').trim();var m=t.match(/^[\s\S]*?[.!?](?=\s|$)(\s+[\s\S]*?[.!?](?=\s|$))?/);return m?m[0]:t}
+  function story(o){var a=first(o.story),b=first(o.found);var c=[a,b].filter(function(x){return x&&x.length<=240}).sort(function(x,y){return y.length-x.length});var r=c[0]||a||b;
+    if(r.length<90){var src=(r===a?o.story:o.found)||'',t2=two(src);if(t2.length<=260)r=t2}return r}
+  function show(i,user){
+    si=(i+S.length)%S.length;var it=S[si],o=it.o,n=(it.np||o.seq).length;
+    draw(it);
+    picks.querySelectorAll('button').forEach(function(b,k){b.setAttribute('aria-pressed',k===si)});
+    var pb=picks.children[si];if(pb&&user!=='auto')pb.scrollIntoView({block:'nearest',inline:'center',behavior:RM?'auto':'smooth'});
+    var kind=it.np?'<span class="mono smeta np">Not a peptide · built from '+n+' amino acid'+(n>1?'s':'')+'</span>':'<span class="mono smeta">'+n+' amino acids · '+esc(o.originDetail||'')+'</span>';
+    info.innerHTML='<a class="sname" href="'+lib(o)+'" data-open="'+esc(o.slug)+'"><b>'+esc(o.name)+'</b></a>'+kind+'<a class="rmore mono" href="'+lib(o)+'" data-open="'+esc(o.slug)+'">Read more →</a>'+
+      '<div class="sfor"><span class="mono">People take it for</span>'+(o.roles||[]).slice(0,3).map(function(k){var c=col(k),dd=(o.desc||{})[k];return '<a href="/library/#/role/'+encodeURIComponent(k)+'"><b class="rtg" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</b>'+(dd?'<span>'+esc(dd)+'</span>':'')+'</a>'}).join('')+'</div>'+
+      '<p class="look"><span class="mono">Look at the string</span>'+esc(it.note)+'</p>';
+    stage.href=lib(o);stage.dataset.open=o.slug;stage.setAttribute('aria-label','Open '+o.name+' in the Library');
+    $('#spos').textContent=(si+1)+' of '+S.length+' strings';
+    clearTimeout(nextT);if(auto)nextT=setTimeout(function(){box.classList.add('out');setTimeout(function(){show(si+1,'auto')},420)},11000);
+  }
+  picks.innerHTML=S.map(function(it,k){return '<button type="button" data-k="'+k+'" aria-pressed="false"><u style="background:'+col(it.o.primary)+'"></u>'+esc(it.o.name.replace(' frag 17–23',''))+'</button>'}).join('');
+  picks.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;auto=false;show(+b.dataset.k,true);T('home-string:'+S[+b.dataset.k].o.slug,'String '+S[+b.dataset.k].o.name)});
+  document.querySelector('.snav').addEventListener('click',function(e){var b=e.target.closest('[data-step]');if(b){auto=false;show(si+(+b.dataset.step),true);T('home-string-step','String step')}});
+  document.querySelector('.sbox').addEventListener('click',function(e){var a=e.target.closest('[data-open]');if(a)T('home-string-open:'+a.dataset.open,'String open '+a.dataset.open)});
+  function frame(now){requestAnimationFrame(frame);if(!LV||!vis||RM||now<LV.t0)return;var svg=box.querySelector('svg');if(!svg)return;
+    var t=(now-LV.t0)/1000,ease=Math.min(1,t/1.2),g=svg.querySelector('.lvg');
+    if(LV.rigid){g.setAttribute('transform','rotate('+f1(Math.sin(t*1.1)*2.2*ease)+' '+f1(LV.cx)+' '+f1(LV.cy)+')');return}
+    var A=LV.d*.11*ease,P2=LV.pts.map(function(q,i){return[q[0],q[1]+A*LV.fl[i]*Math.sin(t*1.7+i*.75),q[2]]});
+    svg.querySelectorAll('.bd').forEach(function(b,i){b.firstChild.setAttribute('cy',f1(P2[i][1]));b.lastChild.setAttribute('y',f1(P2[i][1]+LV.fs*.36))});
+    svg.querySelector('.bb').setAttribute('d',LV.path(P2));
+  }
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(!vis){clearTimeout(nextT)}else if(auto&&S.length){clearTimeout(nextT);nextT=setTimeout(function(){show(si+1,'auto')},11000)}})}).observe(box);
+  if(S.length){show(0,'auto');requestAnimationFrame(frame)}
+  var lw=innerWidth;addEventListener('resize',function(){if(innerWidth!==lw&&S.length){lw=innerWidth;draw(S[si])}});
+
+  /* 2. search by name, alias, keyword or role */
+  var q=$('#q'),res=$('#res');
+  var W=['brain fog','joint pain','can’t sleep','belly fat','glow','gut','libido','tired','healing','focus'];
+  var wi=0;if(!RM)setInterval(function(){if(!q.value&&document.activeElement!==q){wi=(wi+1)%W.length;q.placeholder='Try “'+W[wi]+'”'}},2600);
+  $('#quick').innerHTML=W.slice(0,6).map(function(w){return '<button type="button" data-w="'+esc(w)+'">'+esc(w)+'</button>'}).join('');
+  $('#quick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;q.value=b.dataset.w;run();T('home-quick:'+b.dataset.w,'Quick '+b.dataset.w)});
+  function score(o,s){
+    var n=o.name.toLowerCase(),sc=0;
+    if(n===s)sc+=10;else if(n.indexOf(s)===0)sc+=6;else if(n.indexOf(s)>-1)sc+=4;
+    if((o.alias||'').toLowerCase().indexOf(s)>-1)sc+=3;
+    (o.kw||[]).forEach(function(k){k=k.toLowerCase();if(k===s)sc+=4;else if(k.indexOf(s)>-1||s.indexOf(k)>-1&&k.length>3)sc+=2});
+    (o.roles||[]).forEach(function(r,i){var L=((PAL[r]||{}).label||r).toLowerCase();if(L.indexOf(s)>-1||r.toLowerCase()===s)sc+=i===0?3:1.5});
+    if(o.desc)for(var k in o.desc){if(String(o.desc[k]).toLowerCase().indexOf(s)>-1){sc+=1;break}}
+    return sc?sc+(o.rank||0)/100:0;
+  }
+  function why(o,s){
+    if(o.desc){for(var k in o.desc){if(String(o.desc[k]).toLowerCase().indexOf(s)>-1)return o.desc[k]}if(o.desc[o.primary])return o.desc[o.primary]}
+    return (PAL[o.primary]||{}).label||'';
+  }
+  var missT;
+  function run(){
+    var s=q.value.trim().toLowerCase().replace(/[’']/g,'');
+    if(s.length<2){res.innerHTML='';return}
+    var r=D.map(function(o){return [score(o,s),o]}).filter(function(x){return x[0]>0}).sort(function(a,b){return b[0]-a[0]}).slice(0,6);
+    if(!r.length){res.innerHTML='<div class="none">Nothing for that yet. The library grows every week. <a href="/library/" style="color:#DB6830">Browse all '+D.length+' →</a></div>';clearTimeout(missT);missT=setTimeout(function(){T('home-miss:'+s,'No result '+s)},1200);return}
+    res.innerHTML=r.map(function(x){var o=x[1];return '<a href="'+lib(o)+'" data-s="'+esc(o.slug)+'"><span class="st">'+(o.roles||[]).slice(0,4).map(function(k){return '<u style="background:'+col(k)+'"></u>'}).join('')+'</span><span><b>'+esc(o.name)+'</b><small>'+esc(why(o,s))+'</small></span><em class="mono">Open</em></a>'}).join('');
+  }
+  q.addEventListener('input',run);
+  res.addEventListener('click',function(e){var a=e.target.closest('a[data-s]');if(a)T('home-search-open:'+a.dataset.s,'Search open '+a.dataset.s)});
+
+  /* 3. a random compound card */
+  /* hand-picked: entries with the deepest research, mixed across kinds and outcomes (logged, approved, body-made, Russian brain peptides, GH, cautionary, non-peptides) */
+  var DEEP=['ghk-cu','bpc-157','tb-500-frag-17-23','kpv','semaglutide','tirzepatide','retatrutide','somatropin-hgh','tesamorelin','ss-31','oxytocin','mots-c','thymosin-alpha-1','thymosin-beta-4','ll-37','glutathione','semax','selank','epitalon','cerebrolysin','ipamorelin','mk-677','foxo4-dri','adipotide','mt-2','nadplus','methylene-blue','creatine'];
+  var R=D.filter(function(o){return DEEP.indexOf(o.slug)>-1&&(o.found||o.story)&&(o.worked||o.helps)&&o.didnt});
+  var seen=[];
+  function pick(){
+    var pool=R.filter(function(o){return seen.indexOf(o.slug)<0});if(!pool.length){seen=[];pool=R}
+    var o=pool[Math.floor(Math.random()*pool.length)];seen.push(o.slug);return o;
+  }
+  function card(o){
+    var roles=(o.roles||[]);
+    $('#rn').textContent=R.length+' deep entries';
+    $('#card').innerHTML=
+      '<div class="stripe">'+roles.map(function(k,i){return '<u style="flex:'+(i===0?3:1)+';background:'+col(k)+'"></u>'}).join('')+'</div>'+
+      '<div class="hd"><div><b>'+esc(o.name)+'</b><small class="mono">'+esc(o.originDetail||'')+(o.alias?' · '+esc(o.alias.split(/,\s*/).slice(0,2).join(', ')):'')+'</small></div>'+(o.fda?'<span class="fda mono">FDA ✓</span>':'')+'</div>'+
+      '<div class="tags">'+roles.slice(0,5).map(function(k){var c=col(k);return '<a href="/library/#/role/'+encodeURIComponent(k)+'" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</a>'}).join('')+'</div>'+
+      '<p><span class="mono">How it started</span>'+esc(story(o))+'</p>'+
+      '<div class="wd"><div><span class="mono">Worked</span>'+esc(first(o.worked||o.helps))+'</div><div><span class="mono">Didn’t</span>'+esc(first(o.didnt))+'</div></div>'+
+      '<div class="acts"><a href="/library/#/p/'+encodeURIComponent(o.slug)+'" data-full="'+esc(o.slug)+'">Full page →</a><button type="button" id="again">↻ Another</button></div>';
+  }
+  if(R.length)card(pick());
+  $('#card').addEventListener('click',function(e){
+    if(e.target.closest('#again')){var o=pick();card(o);T('home-another','Another signal');return}
+    var f=e.target.closest('[data-full]');if(f)T('home-card-open:'+f.dataset.full,'Card open '+f.dataset.full);
+  });
+
+  /* 4. counters */
+  var nat=D.filter(function(o){return o.origin==='body'||o.origin==='frag'}).length;
+  var labd=D.filter(function(o){return o.origin==='lab'}).length;
+  var fda=D.filter(function(o){return o.fda}).length;
+  $('#count').innerHTML=[[D.length,'compounds','/library/'],[nat,'from nature','/library/'],[labd,'lab-designed','/library/'],[fda,'FDA approved','/library/']].map(function(x){return '<a href="'+x[2]+'"><b data-n="'+x[0]+'">'+x[0]+'</b><span>'+x[1]+'</span></a>'}).join('');
+  (function(){var bs=[].slice.call(document.querySelectorAll('#count b')),done=false;
+    function run(){if(done)return;done=true;bs.forEach(function(b){var n=+b.dataset.n,from=Math.max(0,n-Math.max(4,Math.round(n*.12))),v=from,steps=n-from;b.textContent=from;
+      (function go(k){if(v>=n)return;setTimeout(function(){v++;b.textContent=v;b.classList.remove('tick');void b.offsetWidth;b.classList.add('tick');go(k+1)},90+Math.pow(k/steps,3)*260)})(0)})}
+    if(RM)return;bs.forEach(function(b){b.textContent=Math.max(0,+b.dataset.n-Math.max(4,Math.round(+b.dataset.n*.12)))});
+    if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run();io.disconnect()}})},{threshold:.6});io.observe($('#count'))}else run();
+  })();
+
+  /* 5. the role wall, most-used first */
+  var cnt={};D.forEach(function(o){(o.roles||[]).forEach(function(r){cnt[r]=(cnt[r]||0)+1})});
+  $('#wall').innerHTML=P.slice().sort(function(a,b){return (cnt[b[0]]||0)-(cnt[a[0]]||0)}).map(function(p){return '<a href="/library/#/role/'+encodeURIComponent(p[0])+'" data-r="'+esc(p[0])+'"><u style="background:'+p[2]+'"></u><span>'+esc(p[1])+'</span><small>'+(cnt[p[0]]||0)+'</small></a>'}).join('');
+  $('#wall').addEventListener('click',function(e){var a=e.target.closest('a[data-r]');if(a)T('home-role:'+a.dataset.r,'Role '+a.dataset.r)});
+});
+})();
+</script>
+</body></html>
