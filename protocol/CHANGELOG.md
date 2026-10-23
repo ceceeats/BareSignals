@@ -2,6 +2,11 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v15 (24 Oct 2026) at /protocol/v15/
+- Step one now works like the Library: a search box with a match count, the Library's role families (Body and metabolism, Repair and structure, Protection and organs, Brain and mood, Sex and reproduction) that open into filled role tags in their own colours (no more red tags), and compact Library-style tiles, most popular first (12 on a laptop, 6 on a phone, Show all). Each tile: name, sticker colours, use line, reported dose, frequency and cycle, two role tags, full stripe. Tap a tile to add it; tap again to remove (in-stack tiles turn dark, like the Library's selected tile). Adding from a tile no longer jumps the page.
+- Opening a protocol link in a tab that already has the page now loads it (hash change).
+- Built on v14, kept.
+
 ## v14 (24 Oct 2026) at /protocol/v14/
 - Vials (or bottles) on hand per peptide, counting the one in use (1 to 6). Doses past that stock show faded and struck through on the Month and Week calendars, with "needs a restock" on the first day it runs short and "last one on hand" on the vial that ends it. Overview shows those weeks as a dashed, faded bar. Cards and At a glance show vials needed, on hand, and "restock by" date with how many more. Kept in the link and in the AI plan text ("on hand 2"). Built on v13, kept.
 
