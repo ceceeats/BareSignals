@@ -82,6 +82,26 @@
 .whynot .ptr{position:absolute;top:-9px;left:50%;width:14px;height:14px;background:var(--chip);border-left:1.5px solid var(--accent);border-top:1.5px solid var(--accent);transform:translateX(-50%) rotate(45deg)}
 .whynot b{display:block;font:700 13.5px var(--display);color:var(--accent);margin-bottom:2px}
 .whynot span{display:block;font-size:13.5px;line-height:1.45;color:var(--ink)}
+
+.tile .gh{display:none}
+.hxt .hsh{position:absolute;right:4px;bottom:12px}
+.tile .gsh{position:absolute;right:4px;bottom:10px;width:46%;max-width:62px;pointer-events:none;z-index:0}
+.tile .gsh svg{width:100%;height:auto;display:block}
+.tile .hd,.tile .t3,.tile .row2{position:relative;z-index:1}
+.string .bd.hot{filter:drop-shadow(0 0 3px rgba(219,104,48,.85))}
+.szsh{display:flex;align-items:center;gap:12px;margin:2px 0 10px}
+.szsh b{display:block;font:700 16px var(--display);color:var(--ink)}
+.szsh span{display:block;font-size:13px;color:var(--ink-soft);line-height:1.4}
+.shkey{margin-top:14px;border-top:1.5px solid var(--rule);padding-top:12px}
+.shk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px;margin-top:6px}
+.shk div{min-width:0}
+.shk .shi{display:flex;flex-wrap:wrap;gap:0;margin-bottom:2px}
+.shk .shi svg{width:30px;height:30px}
+.shk b{display:block;font:700 14px var(--display);color:var(--ink)}
+.shk em{display:block;font:italic 400 12px/1.35 var(--body);color:var(--ink-soft)}
+.shn{font-size:12px;color:var(--ink-soft);line-height:1.45;margin:10px 0 0;max-width:72ch}
+@media (min-width:900px){.tile .gsh{width:40px;right:8px;bottom:14px}.tiles .tile .t3{text-align:left}}
+@media (max-width:899px){.shk{grid-template-columns:repeat(2,minmax(0,1fr))}.shk .shi svg{width:26px;height:26px}.tile .gsh{width:44%;bottom:8px;right:3px}}
 </style>
 <script src="/nav.js" defer></script>
 </head>
@@ -765,7 +785,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   <div class="top">
   <header>
     <p class="lab">Bare Signals · Aminos</p>
-    <h1>From Gene to Peptide<small>V50</small></h1>
+    <h1>From Gene to Peptide<small>V52</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -791,13 +811,13 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
     <p class="p1lede">Think of this as the periodic table of life. Every peptide and protein in your body is spelled from these 21 letters, in different orders and lengths. Each tile is one amino acid: tap it to see its structure, its weight and what it does in the body.</p>
     <details class="howto"><summary>How to read a tile</summary>
       <div class="hx">
-        <div class="hxt"><strong>Alanine</strong><span class="hm">Ala · 89</span><span class="hp"><i></i><i></i><i></i><i></i></span><em>A</em><span class="hs"><i style="background:#F28E79"></i><i style="background:#FFCBAA"></i><i style="background:#FCB0B4"></i></span>
+        <div class="hxt"><strong>Alanine</strong><span class="hm">Ala · 89</span><span class="hp"><i></i><i></i><i></i><i></i></span><span class="hsh"><svg viewBox="0 0 60 60" width="54" height="54" aria-hidden="true"><circle cx="30" cy="31" r="14" fill="#F28E79" stroke="#3E4A80" stroke-width="1.6"/><text x="30" y="36" text-anchor="middle" font-size="13" font-weight="700" fill="#3E4A80" font-family="Bricolage Grotesque,sans-serif">A</text></svg></span><span class="hs"><i style="background:#F28E79"></i><i style="background:#FFCBAA"></i><i style="background:#FCB0B4"></i></span>
           <b class="c1">1</b><b class="c2">2</b><b class="c3">3</b><b class="c4">4</b><b class="c5">5</b></div>
         <ol class="hxk">
           <li><b>Alanine</b> is the full name. Say it <i>AL-uh-neen</i>. Every card below shows how to say its name.</li>
           <li><b>Ala</b> is the three-letter code, the short name scientists write. <b>89</b> is its weight: 89 g/mol. Glycine is the lightest at 75, tryptophan the heaviest at 204.</li>
           <li>The <b>squares</b> count the codons that spell it. Alanine has four; methionine and tryptophan have only one.</li>
-          <li>The big faded <b>A</b> is the one-letter code. It is the letter used to write every sequence on this page.</li>
+          <li>The <b>shape</b> holds the one-letter code, <b>A</b>, the letter used to write every sequence on this page. The shape shows its family: round for oily, hexagon for rings, soft square for water-loving, a down triangle for negative, a diamond for positive, a half-disc for proline. Its size is the real size of its side chain. Alanine is small and round.</li>
           <li>The <b>stripe</b> shows what it is known for in the body, in Bare Signals colours. Small marks in the top corner show essential or not, charge, rings and sulfur; the key is under the grid.</li>
         </ol>
       </div>
@@ -816,6 +836,7 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
       <span><span class="sg" style="color:var(--accent)"><b>▸</b></span>Start signal</span>
       <span><span class="sg" style="color:var(--accent)"><b>B</b></span>Branched-chain (BCAA)</span>
     </div>
+    <div class="shkey" id="shkey"></div>
     <div class="found">
       <p class="lab">When each letter was found</p>
       <button type="button" class="fmore" onclick="this.closest('.found').classList.toggle('open');this.textContent=this.closest('.found').classList.contains('open')?'Hide the name stories ↑':'Where the names come from ↓'">Where the names come from ↓</button>
@@ -882,8 +903,9 @@ h2:has(.tap){font-size:30px!important;letter-spacing:-.01em}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 50 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 50 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 52 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 52 rounds of edits by Cece, 21 to 22 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V52:</b> every amino acid gets its own shape. Shape is the family: round for oily, hexagon for rings, soft square for water-loving, a down-pointing triangle for negative, a diamond for positive and a half-disc for proline. Size is the real side-chain volume, from tiny glycine to tryptophan. Small marks show special atoms: forks for branches, a yellow dot for sulfur, a white dot for OH, an orange dot for selenium. The shapes are the centre of each tile, every built chain, the amino acid step of the opening walk and each amino card, which now explains its shape. A shape key sits under the grid, and How to read a tile explains the shape. <a href="/aminos/v51/">V51 kept here</a>.</p>
     <p style="margin-top:6px"><b>V51:</b> fix: the turns where a chain doubles back are now drawn as one smooth curve. They were exact half circles, which could flip from one side to the other between frames while the chain rippled, so the turn looked like it was snapping. <a href="/aminos/v50/">V50 kept here</a>.</p>
     <p><b>V50:</b> 22 familiar names join the list, so the page compares grey-market peptides with what people already take. Approved peptide medicines: vasopressin, octreotide, leuprolide, liraglutide, salmon calcitonin, bivalirudin and linaclotide, plus aspartame, the dipeptide sweetener. Molecules the body makes from a single amino acid: melatonin, serotonin, dopamine, thyroxine, GABA and taurine. Everyday pills and supplements: caffeine, aspirin, metformin, vitamin C, vitamin D3, sildenafil, magnesium glycinate and collagen peptides. Every non-peptide now carries a Why it’s not a peptide note, pointing up at its parts drawing. Popular is a short mixed row of 16, from Thymosin Beta-4 to caffeine; Show all holds everything, with a new Rx or not sort, and approved medicines carry ℞. Collagen peptides and Cerebrolysin are labelled peptide mixtures. <a href="/aminos/v49/">V49 kept here</a>.</p>
     <p style="margin-top:6px"><b>V49:</b> the shimmer on the tour chips is softer, slower and rarer: a faint gold glint that slides across one chip at a time, every few seconds, so each chip only glints about once every 24 seconds. <a href="/aminos/v48/">V48 kept here</a>.</p>
@@ -974,7 +996,34 @@ const A=[
 const WT=[10,7,5,3.5],H2O=18.015;
 const $=s=>document.querySelector(s);
 const VOL={"G": 60.1, "A": 88.6, "S": 89.0, "C": 108.5, "D": 111.1, "P": 112.7, "N": 114.1, "T": 116.1, "E": 138.4, "V": 140.0, "Q": 143.8, "H": 153.2, "M": 162.9, "I": 166.7, "L": 166.7, "K": 168.6, "R": 173.4, "F": 189.9, "Y": 193.6, "W": 227.8},SHP={"G": "A single hydrogen: the smallest of all. It lets the chain bend almost any way, a hinge.", "A": "Small and compact, one carbon. It slips easily into helices.", "S": "Small, with an OH tip that grabs water.", "C": "Small, with a sulfur tip that can bond to another cysteine and lock two parts of a chain together.", "D": "A short arm ending in a negative acid group.", "P": "A ring that loops back onto its own backbone, so the chain cannot rotate there. It locks a kink, the stiffest link.", "N": "A short arm ending in an amide that pairs with water.", "T": "Small and branched, with an OH tip.", "E": "A medium arm ending in a negative acid group.", "V": "Branched like a Y. Oily, so it hides inside folds.", "Q": "A medium arm ending in an amide.", "H": "A small ring that can flip between charged and neutral, which makes it useful in enzyme pockets.", "M": "A long, bendy arm with sulfur in the middle.", "I": "Branched twice. Oily and bulky, it packs the core of folded proteins.", "L": "Branched at the tip. Oily, and a favourite of helices.", "K": "A long, flexible arm ending in a positive charge.", "R": "A long arm ending in a forked positive head that holds charge strongly.", "F": "A flat six-carbon ring. Oily; it stacks against other rings.", "Y": "A flat ring with an OH tip. It can carry phosphate signals.", "W": "A double ring, the largest side chain. Rare in proteins, often sitting at membrane edges.", "U": "Like cysteine, but with selenium in place of sulfur. About the same size."};
-function sizeSec(a){const v=VOL[a[0]]||VOL.C,mn=60.1,mx=227.8,pc=((v-mn)/(mx-mn))*100,word=v<100?"Small":v<150?"Medium":v<185?"Large":"Very large",ticks=Object.entries(VOL).map(([L,x])=>`<i style="left:${(((x-mn)/(mx-mn))*100).toFixed(1)}%" title="${L}"></i>`).join("");return `<div class="sec pane szs"><p class="lab">Size and shape</p><div class="szh"><b>${word}</b><span>side chain about ${Math.round(v)} Å³${a[0]==="U"?", like cysteine":""}</span></div><div class="szbar">${ticks}<em style="left:${pc.toFixed(1)}%">${a[0]}</em></div><div class="szl"><span>G · smallest</span><span>W · largest</span></div><p class="szt">${SHP[a[0]]||""}</p></div>`}
+function shapeKey(){const el=document.getElementById("shkey");if(!el)return;el.innerHTML=`<p class="lab">The shapes</p><div class="shk">${SHFAM.map(f=>`<div><span class="shi">${f[2].map(L=>shapeIcon(L,34,.62)).join("")}</span><b>${f[0]}</b><em>${f[1]}</em></div>`).join("")}</div><p class="shn">Size is the real side-chain size. Forks mark branches; a yellow dot sulfur, a white dot OH, an orange dot selenium. A teaching shorthand: the families and sizes are real chemistry, the drawings are not real 3D shapes, and a few letters sit between families.</p>`}
+const SHP_=(()=>{const VOL={G:60.1,A:88.6,S:89.0,C:108.5,D:111.1,P:112.7,N:114.1,T:116.1,E:138.4,V:140.0,Q:143.8,H:153.2,M:162.9,I:166.7,L:166.7,K:168.6,R:173.4,F:189.9,Y:193.6,W:227.8,U:112};
+const FAM=[["Oily","round; they hide inside folds",["G","A","V","L","I","M"]],["Rings","hexagons; flat and stacking",["F","Y","W","H"]],["Water-loving","soft squares; they face the water",["S","T","N","Q","C","U"]],["Negative","pointing down; acid tips",["D","E"]],["Positive","diamonds; charged tips",["K","R"]],["The odd one","a half-disc that bends the chain",["P"]]];
+const DESC={G:"just a hydrogen: the smallest dot",A:"small and round",V:"round with one fork: branched",L:"round with a fork on a stem",I:"round with two forks",M:"round with a sulfur dot",F:"a plain hexagon ring",Y:"a ring with an OH dot",W:"two fused rings: the biggest",H:"a five-ring that can carry +",S:"small square with an OH dot",T:"square with OH and a fork",N:"a short upright square",Q:"a taller upright square",C:"square with a sulfur dot",U:"square with a selenium dot",D:"short down arrow",E:"longer down arrow",K:"a long diamond",R:"a diamond with a forked head",P:"a half-disc: the kink"};
+const INK="#3E4A80",f1=v=>v.toFixed(1);
+const col=L=>{const a=A.find(x=>x[0]===L);return a?PAL[a[8][0][0]][1]:"#ccc"};
+const size=L=>11+11*((VOL[L]-60)/168);
+const poly=(n,r,rot,cx,cy)=>Array.from({length:n},(_,i)=>{const a=rot+i*2*Math.PI/n;return f1(cx+r*Math.cos(a))+","+f1(cy+r*Math.sin(a))}).join(" ");
+const rpoly=(pts,rad)=>{const n=pts.length;let d="";for(let i=0;i<n;i++){const p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n];const v1=[p0[0]-p1[0],p0[1]-p1[1]],v2=[p2[0]-p1[0],p2[1]-p1[1]],l1=Math.hypot(...v1),l2=Math.hypot(...v2),k=Math.min(rad,l1/2.2,l2/2.2);const a=[p1[0]+v1[0]/l1*k,p1[1]+v1[1]/l1*k],b=[p1[0]+v2[0]/l2*k,p1[1]+v2[1]/l2*k];d+=(i?" L":"M")+f1(a[0])+","+f1(a[1])+" Q"+f1(p1[0])+","+f1(p1[1])+" "+f1(b[0])+","+f1(b[1])}return d+" Z"};
+const ppts=(n,r,rot,cx,cy)=>Array.from({length:n},(_,i)=>{const a=rot+i*2*Math.PI/n;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]});
+function shape(L,cx,cy,sc=1){const r=size(L)*sc,c=col(L),fg=lum(c)>.42?INK:"#FFFFE2",S=`fill="${c}" stroke="${INK}" stroke-width="${f1(1.5*sc)}" stroke-linejoin="round"`;let g="",ex="";
+  const fork=(x,y,h)=>`<path d="M${f1(x)},${f1(y)} l0,${f1(-h*.45)} m0,0 l${f1(-h*.35)},${f1(-h*.45)} m${f1(h*.35)},${f1(h*.45)} l${f1(h*.35)},${f1(-h*.45)}" stroke="${INK}" stroke-width="${f1(1.6*sc)}" stroke-linecap="round" fill="none"/>`;
+  const dot=(x,y,fill)=>`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(3.2*sc)}" fill="${fill}" stroke="${INK}" stroke-width="${f1(1.1*sc)}"/>`;
+  if("GAVLIM".includes(L)){g=`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(r)}" ${S}/>`;
+    if(L==="V")ex=fork(cx,cy-r,r*.9);if(L==="L")ex=`<line x1="${f1(cx)}" y1="${f1(cy-r)}" x2="${f1(cx)}" y2="${f1(cy-r-r*.3)}" stroke="${INK}" stroke-width="${f1(1.6*sc)}"/>`+fork(cx,cy-r-r*.3,r*.8);
+    if(L==="I")ex=fork(cx-r*.45,cy-r*.88,r*.7)+fork(cx+r*.45,cy-r*.88,r*.7);if(L==="M")ex=dot(cx+r*.62,cy-r*.62,"#E1DE62")}
+  else if("FYW".includes(L)){if(L==="W"){const h=r*.62;g=`<path d="${rpoly(ppts(6,h,Math.PI/6,cx-h*.87,cy),h*.22)}" ${S}/><path d="${rpoly(ppts(6,h,Math.PI/6,cx+h*.87,cy),h*.22)}" ${S}/>`}else g=`<path d="${rpoly(ppts(6,r*1.05,Math.PI/6,cx,cy),r*.24)}" ${S}/>`;if(L==="Y")ex=dot(cx+r*.95,cy-r*.55,"#FFFFF4")}
+  else if(L==="H"){g=`<path d="${rpoly(ppts(5,r*1.08,-Math.PI/2,cx,cy+r*.08),r*.26)}" ${S}/>`}
+  else if("STNQCU".includes(L)){const w=L==="N"?r*.8:L==="Q"?r*.75:r*.95,h=L==="N"?r*1.15:L==="Q"?r*1.35:r*.95;g=`<rect x="${f1(cx-w)}" y="${f1(cy-h)}" width="${f1(2*w)}" height="${f1(2*h)}" rx="${f1(r*.35)}" ${S}/>`;
+    if(L==="S")ex=dot(cx+w,cy-h,"#FFFFF4");if(L==="T")ex=dot(cx+w,cy-h,"#FFFFF4")+fork(cx-w*.35,cy-h,r*.7);if(L==="C")ex=dot(cx+w,cy-h,"#E1DE62");if(L==="U")ex=dot(cx+w,cy-h,"#DB6830")}
+  else if("DE".includes(L)){const rr=r*1.2,top=-rr*.7,ap=rr*(L==="E"?1.15:1.0),sh=-(2*top+ap)/3;g=`<path d="${rpoly([[cx-rr,cy+top+sh],[cx+rr,cy+top+sh],[cx,cy+ap+sh]],rr*.3)}" ${S}/>`}
+  else if("KR".includes(L)){const w=r*(L==="K"?.82:.95),h=r*(L==="K"?1.3:1.15);g=`<path d="${rpoly([[cx,cy-h],[cx+w,cy],[cx,cy+h],[cx-w,cy]],r*.32)}" ${S}/>`;if(L==="R")ex=fork(cx,cy-h,r*.8)}
+  else if(L==="P"){{const R=r*1.1,b=cy+r*.45,k=R*.18;g=`<path d="M${f1(cx-R+k)},${f1(b)} Q${f1(cx-R)},${f1(b)} ${f1(cx-R)},${f1(b-k)} A${f1(R)},${f1(R-k)} 0 0 1 ${f1(cx+R)},${f1(b-k)} Q${f1(cx+R)},${f1(b)} ${f1(cx+R-k)},${f1(b)} Z" ${S}/>`}}
+  const fs=Math.max(8,Math.min(15,r*.9));const ty=L==="P"?cy+r*.3:"DE".includes(L)?(()=>{const rr=r*1.2,tp=-rr*.7,ap=rr*(L==="E"?1.15:1.0),sh=-(2*tp+ap)/3;return cy+sh+(tp+ap)/2+rr*.06+fs*.36})():cy+fs*.36;
+  return g+ex+`<text x="${f1(cx)}" y="${f1(ty)}" text-anchor="middle" font-size="${f1(fs)}" font-weight="700" fill="${fg}" font-family="Bricolage Grotesque,sans-serif">${L}</text>`}
+return {shape,FAM,DESC,size}})();const shapeSVG=SHP_.shape,SHFAM=SHP_.FAM,SHDESC=SHP_.DESC;
+function shapeIcon(L,box=60,sc=1.05){return `<svg viewBox="0 0 ${box} ${box}" width="${box}" height="${box}" aria-hidden="true">${shapeSVG(L,box/2,box/2+2,sc)}</svg>`}
+function sizeSec(a){const v=VOL[a[0]]||VOL.C,mn=60.1,mx=227.8,pc=((v-mn)/(mx-mn))*100,word=v<100?"Small":v<150?"Medium":v<185?"Large":"Very large",ticks=Object.entries(VOL).map(([L,x])=>`<i style="left:${(((x-mn)/(mx-mn))*100).toFixed(1)}%" title="${L}"></i>`).join("");const fam=(SHFAM.find(f=>f[2].includes(a[0]))||["",""])[0];return `<div class="sec pane szs"><p class="lab">Size and shape</p><div class="szsh">${shapeIcon(a[0],70,1.35)}<div><b>${fam}</b><span>Drawn as ${SHDESC[a[0]]||""}.</span></div></div><div class="szh"><b>${word}</b><span>side chain about ${Math.round(v)} Å³${a[0]==="U"?", like cysteine":""}</span></div><div class="szbar">${ticks}<em style="left:${pc.toFixed(1)}%">${a[0]}</em></div><div class="szl"><span>G · smallest</span><span>W · largest</span></div><p class="szt">${SHP[a[0]]||""}</p></div>`}
 const dotC=L=>{const a=(typeof A!=="undefined"&&A.find)?A.find(x=>x[0]===L):null;return a?PAL[a[8][0][0]][1]:"#3E4A80"};const odot=(L)=>L?`<i class="on" title="${L}" style="background:${dotC(L)}"></i>`:`<i class="on"></i>`;
 const PRON={"A": "AL-uh-neen", "R": "AR-jih-neen", "N": "uh-SPAR-uh-jeen", "D": "uh-SPAR-tik acid", "C": "SIS-teh-een", "Q": "GLOO-tuh-meen", "E": "gloo-TAM-ik acid", "G": "GLY-seen", "H": "HIS-tih-deen", "I": "eye-so-LOO-seen", "L": "LOO-seen", "K": "LY-seen", "M": "meh-THY-oh-neen", "F": "fen-ul-AL-uh-neen", "P": "PRO-leen", "S": "SEER-een", "T": "THREE-oh-neen", "W": "TRIP-toh-fan", "Y": "TY-roh-seen", "V": "VAY-leen", "U": "seh-LEE-noh-SIS-teh-een"};
 const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
@@ -992,7 +1041,7 @@ function home(){const cw=$("#cardwrap");if(narrow()){if(openI===null)cw.hidden=t
 const SHY={R:"Argi&shy;nine",Y:"Tyro&shy;sine",F:"Phenyl&shy;alanine",U:"Seleno&shy;cys&shy;teine",W:"Trypto&shy;phan",M:"Methio&shy;nine",Q:"Gluta&shy;mine",N:"Aspara&shy;gine",E:"Gluta&shy;mic acid",D:"Aspar&shy;tic acid",I:"Iso&shy;leucine",H:"Histi&shy;dine",T:"Threo&shy;nine",C:"Cyste&shy;ine"};
 const SIG={R:"+",H:"+",K:"+",D:"−",E:"−",F:"⬡",W:"⬡",Y:"⬡",C:"S",M:"S ▸",U:"Se",I:"B",L:"B",V:"B"};
 const ncod=a=>a[0]==="U"?1:a[4].split(" ").length;
-$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA${a[2].length>13?" lng":""}">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gh" aria-hidden="true">${a[0]}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
+$("#tiles").innerHTML=A.map((a,i)=>`<button class="tile" id="tile-${i}" data-i="${i}" aria-pressed="false" aria-label="${a[2]}, ${a[1]}, ${Math.round(a[3])} grams per mole, ${ncod(a)} codons"><span class="hd"><span class="nmA${a[2].length>13?" lng":""}">${SHY[a[0]]||a[2]}</span><span class="mk"><i class="ess${essCls(a[6])}" aria-hidden="true"></i><span class="sg" aria-hidden="true">${(SIG[a[0]]||"").split(" ").filter(Boolean).map(x=>`<b>${x}</b>`).join("")}</span></span></span><span class="t3">${a[1]} · ${Math.round(a[3])}</span><span class="row2"><span class="pips" aria-hidden="true">${"<i></i>".repeat(ncod(a))}</span></span><span class="gsh" aria-hidden="true">${shapeIcon(a[0],60,1.1)}</span>${stripe(a,"mini")}</button>`).join("")+KEYS;
 
 const SC={A:["CH₃"],R:["CH₂","CH₂","CH₂","NH","C(=NH)NH₂"],N:["CH₂","C(=O)NH₂"],D:["CH₂","COOH"],C:["CH₂","SH"],Q:["CH₂","CH₂","C(=O)NH₂"],E:["CH₂","CH₂","COOH"],G:["H"],H:["CH₂",{ring:"imid"}],I:[{t:"CH",b:"CH₃"},"CH₂","CH₃"],L:["CH₂",{t:"CH",b:"CH₃"},"CH₃"],K:["CH₂","CH₂","CH₂","CH₂","NH₂"],M:["CH₂","CH₂","S","CH₃"],F:["CH₂",{ring:"ph"}],P:[],S:["CH₂","OH"],T:[{t:"CH",b:"CH₃"},"OH"],W:["CH₂",{ring:"ind"}],Y:["CH₂",{ring:"phOH"}],V:[{t:"CH",b:"CH₃"},"CH₃"],U:["CH₂","SeH"]};
 function structSVG(a){
@@ -1141,7 +1190,7 @@ function walkInit(){const box=$("#walk");if(!box)return;const svg=box.querySelec
       o+=`<path d="M${f1(q.x)},${f1(cy)} C${f1(q.x+q.w*.3)},${f1(cy)} ${f1(xm-14)},${f1(dip)} ${f1(xm)},${f1(dip)} S${f1(q.x+q.w*.7)},${f1(cy)} ${f1(q.x+q.w)},${f1(cy)}" fill="none" stroke="${INK}" stroke-width="2"/>`;
       const nx=CODS[(g+1)%CODS.length][1],fy=q.y+4+fph*(dip-14-q.y-4);
       o+=`<circle cx="${f1(xm)}" cy="${f1(fy)}" r="${f1(4+fph*3)}" fill="${acol(nx)}" stroke="${INK}" stroke-width="1.2" opacity="${f1(1-fph*.6)}"/>`;
-      o+=`<circle cx="${f1(xm)}" cy="${f1(dip)}" r="13" fill="${c}" stroke="${INK}" stroke-width="1.6"/>`+`<text x="${f1(xm)}" y="${f1(dip+4.5)}" text-anchor="middle" font-size="13" font-weight="700" fill="${lum(c)>.42?INK:"#FFFFE2"}" font-family="Bricolage Grotesque,sans-serif">${Lr}</text>`+tx(xm,dip+26,"#3E4A80",(A.find(x=>x[0]===Lr)||[0,0,""])[2],8.5,700)}
+      o+=shapeSVG(Lr,xm,dip,.9)+tx(xm,dip+26,"#3E4A80",(A.find(x=>x[0]===Lr)||[0,0,""])[2],8.5,700)}
     // 05 Chain
     {const q=r[4],cy=cyOf(4),sp=19,sh=(t*9)%sp,base=Math.floor(t*9/sp),Y=x=>{const u=(x-q.x)/q.w,e=Math.sin(Math.PI*u);return cy-e*(8+5*Math.sin(u*Math.PI*2-t*.9))};let p="";for(let x=q.x;x<=q.x+q.w;x+=2)p+=(p?"L":"M")+f1(x)+","+f1(Y(x));
       let bd="";for(let i=0;;i++){const x=q.x+6+i*sp+sh;if(x>q.x+q.w-6)break;const L=CODS[((i-base)%CODS.length+CODS.length)%CODS.length][1],c=acol(L),edge=Math.min(1,(x-q.x)/14,(q.x+q.w-x)/14);
@@ -1281,7 +1330,7 @@ function applyFold(nudge){const ids=["dnasb","mrnasb","codsb"];ids.forEach(id=>{
 function setFolds(){const r=document.querySelector(".foldrow");const n=($("#dna").value||"").replace(/\s/g,"").length;if(r)r.hidden=n<=60;if(n<=60&&folded){folded=false}applyFold(false)}
 function beadTip(){const box=$("#string");if(!box)return;const tip=document.createElement("div");tip.className="btip";tip.hidden=true;box.appendChild(tip);let hideT=null,curG=null;
   const clearHot=()=>document.querySelectorAll("#string .bd.hot").forEach(n=>n.classList.remove("hot"));
-  const showG=g=>{clearTimeout(hideT);if(g===curG&&!tip.hidden)return;curG=g;const i=+g.dataset.i,a=lastCh[i];if(!a)return;const c=g.querySelector("circle").getBoundingClientRect(),b=box.getBoundingClientRect();
+  const showG=g=>{clearTimeout(hideT);if(g===curG&&!tip.hidden)return;curG=g;const i=+g.dataset.i,a=lastCh[i];if(!a)return;const c=g.getBoundingClientRect(),b=box.getBoundingClientRect();
     tip.innerHTML=`<b>${a[2]}</b><span>${a[1]} · ${a[0]} · position ${i+1}</span>`;tip.hidden=false;
     const x=c.left-b.left+c.width/2,y=c.top-b.top,below=y<60;tip.classList.toggle("below",below);tip.style.left=Math.min(Math.max(x,70),b.width-70)+"px";tip.style.top=(below?y+c.height:y)+"px";clearHot();g.classList.add("hot")};
   const hideNow=()=>{tip.hidden=true;curG=null;clearHot()};
@@ -1315,7 +1364,7 @@ function liveInit(){if(liveOn)return;liveOn=true;if(matchMedia("(prefers-reduced
   function frame(now){requestAnimationFrame(frame);const L=box._lv;if(!L||!liveVis||now<L.t0)return;const svg=box.querySelector("svg");if(!svg)return;const t=(now-L.t0)/1000,ease=Math.min(1,t/1.2);
     const g=svg.querySelector(".lvg");if(L.rigid){if(g)g.setAttribute("transform",`rotate(${f1(Math.sin(t*1.1)*2.2*ease)} ${f1(L.cx)} ${f1(L.cy)})`);return}
     const A=L.d*.11*ease,n=L.pts.length,P2=L.pts.map((q,i)=>[q[0],q[1]+A*L.fl[i]*Math.sin(t*1.7+i*.75),q[2]]);
-    const bds=svg.querySelectorAll(".bd");bds.forEach((b,i)=>{const c=b.querySelector("circle"),x=b.querySelector("text");if(c)c.setAttribute("cy",f1(P2[i][1]));if(x)x.setAttribute("y",f1(P2[i][1]+L.fs*.36))});
+    const bds=svg.querySelectorAll(".bd");bds.forEach((b,i)=>{const sh=b.firstElementChild;if(sh)sh.setAttribute("transform",`translate(0,${f1(P2[i][1]-L.pts[i][1])})`)});
     let p=`M${f1(P2[0][0]-L.tail)},${f1(P2[0][1])} L${f1(P2[0][0])},${f1(P2[0][1])}`;
     for(let i=1;i<n;i++){const[x0,y0]=P2[i-1],[x1,y1]=P2[i];if(P2[i][2]===P2[i-1][2]){const hx=(x1-x0)/2;p+=` C${f1(x0+hx)},${f1(y0)} ${f1(x1-hx)},${f1(y1)} ${f1(x1)},${f1(y1)}`}else{const k=(y1-y0)*2/3,sx=P2[i-1][2]%2===0?1:-1;p+=` C${f1(x0+sx*k)},${f1(y0)} ${f1(x1+sx*k)},${f1(y1)} ${f1(x1)},${f1(y1)}`}}
     const E=P2[n-1];p+=` L${f1(E[0]+(L.lastRight?L.tail:-L.tail))},${f1(E[1])}`;const bb=svg.querySelector(".bb");if(bb)bb.setAttribute("d",p)}
@@ -1336,7 +1385,7 @@ function drawString(ch,still){
     if(pts[i][2]===pts[i-1][2]){const hx=(x1-x0)/2;p+=` C${(x0+hx).toFixed(1)},${y0.toFixed(1)} ${(x1-hx).toFixed(1)},${y1.toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`}else{const k=(y1-y0)*2/3,sx=pts[i-1][2]%2===0?1:-1;p+=` C${(x0+sx*k).toFixed(1)},${y0.toFixed(1)} ${(x1+sx*k).toFixed(1)},${y1.toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`}}
   const L=pts[pts.length-1],lastRight=L[2]%2===0;p+=` L${L[0]+(lastRight?tail:-tail)},${L[1]}`;
   const beads=ch.map((a,i)=>{const[x,y]=pts[i],c=PAL[a[8][0][0]][1],fg=lum(c)>.42?"#3E4A80":"#FFFFE2";
-    return `<g class="bd" data-i="${i}" style="--i:${i}"><circle cx="${x}" cy="${y}" r="${d/2}" fill="${c}" stroke="#3E4A80" stroke-width="1.5"/><text x="${x}" y="${y+fs*.36}" text-anchor="middle" fill="${fg}" font-size="${fs}" font-weight="700" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">${a[0]}</text></g>`}).join("");
+    return `<g class="bd" data-i="${i}" style="--i:${i}"><g class="sh">${shapeSVG(a[0],x,y,d/32)}</g></g>`}).join("");
   const nx=pts[0][0]-tail-5,cx2=L[0]+(lastRight?tail+5:-tail-5);
   const pp=cur!==null?P[cur]:null,nts=((pp&&pp[3])||"")+" "+((pp&&ORI[pp[0]])?ORI[pp[0]][1]:"");box._lv={pts:pts.map(q=>q.slice()),tail,lastRight,d,fs,cx:W/2,cy:H/2,fl:ch.map(a=>a[0]==="G"?1.6:a[0]==="P"?.25:1),rigid:cuOn||(pp&&["Ubiquitin","Somatropin (HGH)","Insulin","IGF-1 LR3"].includes(pp[0]))||(/ring|cyclic|bridge|disulfide/i.test(nts)&&!/curled ring|pyroglutamate/i.test(nts)),t0:performance.now()+(still?0:Math.min(3000,900+n*25))};liveInit();
   box.classList.toggle("still",!!still);box.dataset.n=ch.length;box.querySelectorAll('svg').forEach(n=>n.remove());box.insertAdjacentHTML('afterbegin',`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${ch.length} amino acids joined in one continuous chain"><g class="lvg"><path class="bb" d="${p}" pathLength="1" fill="none" stroke="#3E4A80" stroke-width="2"/>${beads}${cuOn?(()=>{const g=pts[0],h=pts[1],k=pts[2]||pts[1],cx=(g[0]+h[0])/2,cyy=Math.min(g[1],h[1])-d*1.15,rr=d*.42;return `<g class="cu"><line x1="${cx}" y1="${cyy}" x2="${g[0]}" y2="${g[1]-d/2}" stroke="#1C3AA9" stroke-width="2" stroke-dasharray="3 3"/><line x1="${cx}" y1="${cyy}" x2="${h[0]}" y2="${h[1]-d/2}" stroke="#1C3AA9" stroke-width="2" stroke-dasharray="3 3"/><line x1="${cx}" y1="${cyy}" x2="${k[0]}" y2="${k[1]-d/2}" stroke="#1C3AA9" stroke-width="1.4" stroke-dasharray="2 3" opacity=".6"/><circle cx="${cx}" cy="${cyy}" r="${rr}" fill="#1C3AA9" stroke="#3E4A80" stroke-width="1.5"/><text x="${cx}" y="${cyy+rr*.36}" text-anchor="middle" font-size="${Math.round(rr*.95)}" font-weight="700" fill="#FFFFE2" font-family="Bricolage Grotesque,sans-serif">Cu</text><text x="${cx+rr+6}" y="${cyy-12}" font-size="10.5" fill="#1C3AA9" font-weight="700" font-family="JetBrains Mono,monospace">copper</text><text x="${cx+rr+6}" y="${cyy}" font-size="10" fill="#6B76A8" font-family="JetBrains Mono,monospace">turns the vial blue</text></g>`})():""}<text x="${nx}" y="${pts[0][1]+6}" text-anchor="end" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">N</text><text x="${cx2}" y="${L[1]+6}" text-anchor="${lastRight?"start":"end"}" font-size="17" font-weight="700" fill="#DB6830" font-family="Bricolage Grotesque,Hanken Grotesk,sans-serif">C</text></g></svg>`);
@@ -1516,7 +1565,7 @@ let lastW=innerWidth,rzT=null;addEventListener("resize",()=>{if(innerWidth===las
 $("#dnaview").addEventListener("click",editDNA);
 $("#dnaview").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();editDNA()}});
 $("#dna").addEventListener("blur",()=>{if($("#dna").value.trim()){$("#dna").hidden=true;$("#dnaview").hidden=false;renderCode()}});
-show(11,false);home();tourI=0;tourKeep=true;pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"),false,true);steps();helixInit();walkInit();famous();$("#ftabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;ffi=+b.dataset.i;famous()});$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(+r.dataset.k===0){const h=document.querySelector("h2:has(.tap)")||$("#tiles");h.scrollIntoView({behavior:"smooth",block:"start"});return}if(+r.dataset.k===LAD.length-1){$("#famous").scrollIntoView({behavior:"smooth",block:"start"});return}if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
+show(11,false);home();tourI=0;tourKeep=true;pick(P.findIndex(p=>p[0]==="Thymosin Beta-4"),false,true);shapeKey();steps();helixInit();walkInit();famous();$("#ftabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;ffi=+b.dataset.i;famous()});$("#ladder").addEventListener("click",e=>{const r=e.target.closest(".rung");if(!r)return;const L=LAD[+r.dataset.k];if(+r.dataset.k===0){const h=document.querySelector("h2:has(.tap)")||$("#tiles");h.scrollIntoView({behavior:"smooth",block:"start"});return}if(+r.dataset.k===LAD.length-1){$("#famous").scrollIntoView({behavior:"smooth",block:"start"});return}if(L[2]){pick(P.findIndex(p=>p[0]===L[2]),true)}else{$("#lcap").innerHTML=`<b>${L[0]}.</b> ${L[3]}`}});beadTip();$("#foldall").addEventListener("click",()=>{folded=!folded;applyFold(true)});$("#seeprot").addEventListener("click",()=>pick(P.findIndex(p=>p[0]==="IGF-1 LR3"),true));watchString();
 function libSlug(n){return n.toLowerCase().replace(/\+/g,"plus").replace(/[()]/g,"").replace(/[–—]/g,"-").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function amHash(){const h=decodeURIComponent(location.hash);let m=h.match(/^#([A-Za-z])$/);if(m){const i=A.findIndex(a=>a[0]===m[1].toUpperCase());if(i<0)return;show(i,true);if(!narrow()){const t=document.querySelector('.tile[data-i="'+i+'"]');if(t)t.scrollIntoView({block:"center"})}return}m=h.match(/^#p\/(.+)$/);if(m){const i=P.findIndex(p=>libSlug(p[0])===m[1]);if(i>=0)pick(i,true)}}
 addEventListener("hashchange",amHash);setTimeout(amHash,0);
