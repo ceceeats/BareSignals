@@ -122,7 +122,11 @@ input[type=range]{width:100%;accent-color:var(--accent);height:28px;margin:0}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
 .wtabs{display:flex;gap:6px;justify-content:flex-start;align-items:center;width:100%;max-width:340px}
 .wtl{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-right:2px}
-.wconv{font:700 15px/1.3 var(--display);color:var(--ink);text-align:center}
+.wconv{display:flex;align-items:center;justify-content:center;gap:8px;font:700 15px/1.3 var(--display);color:var(--ink);flex-wrap:wrap}
+.wnums b{color:var(--accent-ink)}
+.wstep{flex:0 0 auto;width:34px;height:34px;border:1.5px solid var(--soft);background:#fff;color:var(--accent-ink);font:700 18px var(--display);cursor:pointer;line-height:1}
+.wstep:active{background:var(--accent);color:#fff}
+.whint{font:500 11px var(--mono);color:var(--soft);text-align:center}
 .wscale{display:flex;align-items:center;justify-content:center;gap:5px}
 .wscale figure{display:flex;flex-direction:column;align-items:center;gap:3px;margin:0;flex:0 0 auto}
 .wscale figcaption{font:600 10px var(--mono);color:var(--soft);text-align:center;line-height:1.15}
@@ -475,6 +479,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
 .dwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
 .dwrap.on{grid-template-rows:1fr}
 .dwrap>div{overflow:hidden;min-height:0}
+.datecue{display:inline-block;width:8px;height:13px;background:var(--accent);vertical-align:-2px;margin-left:5px;animation:blink 1.1s steps(1) infinite}
+.datecue.off{display:none}
 .dhint{font:500 10.5px var(--mono);color:var(--accent-ink);text-align:center;padding:2px 0 4px}
 .rteaser{display:grid;gap:0;margin:8px 0 0;border-top:1.5px solid var(--accent)}
 .rteaser.ghost{opacity:.4}
@@ -524,7 +530,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v27</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v28</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -543,14 +549,8 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <div class="bh"><div><span class="bno">1</span><b>Weight</b><em>g · mg · mcg</em></div><button class="bt" type="button" aria-expanded="false"><span class="btl">Show</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
     <div class="bf"><div class="bfi"><div class="bbody">
       <div class="wbox">
-        <div class="wconv"><b>1 g</b> = <b>1,000 mg</b> = <b>1,000,000 mcg</b></div>
-        <div class="wscale" aria-label="Each step is a thousandth of the one before">
-          <figure><span class="sqg"></span><figcaption><b>1 g</b><i>the whole powder</i></figcaption></figure>
-          <span class="zx">zoom<br>1,000×</span>
-          <figure><span class="sqm"></span><figcaption><b>1 mg</b><i>one box</i></figcaption></figure>
-          <span class="zx">zoom<br>1,000×</span>
-          <figure><span class="sqc"><i></i></span><figcaption><b>1 mcg</b><i>one dot · µg</i></figcaption></figure>
-        </div>
+        <div class="wconv"><button class="wstep" type="button" id="wDn" aria-label="Fewer grams">&minus;</button><span class="wnums"><b id="wG">1</b> g = <b id="wMg">1,000</b> mg = <b id="wMcg">1,000,000</b> mcg</span><button class="wstep" type="button" id="wUp" aria-label="More grams">+</button></div>
+        <p class="whint">Tap + to change the number. Same weight, three scales.</p>
         <div class="wcalc">
           <span class="wcl">Quick convert</span>
           <div class="wcrow">
@@ -659,7 +659,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="blk" data-k="n" data-open="1" style="min-width:0">
         <div class="bh"><div><b>Dates and notes</b><em>optional</em></div><button class="bt" type="button" data-ot="Hide" data-ct="Show" aria-expanded="true"><span class="btl">Hide</span><svg class="arr" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8L6 4L10 8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
         <div class="bf"><div class="bfi"><div class="nbody">
-          <label class="nl" for="mixed">Mixed on · today by default</label>
+          <label class="nl" for="mixed">Mixed on <span class="datecue" id="mixedCue" aria-hidden="true"></span></label>
           <input type="date" id="mixed">
           <div class="nl">Take</div>
           <div class="qchips tight" id="freqQ" role="group" aria-label="How often"></div>
@@ -753,17 +753,17 @@ body:not([data-mode="quick"]) .tmath{display:none}
       <div class="cmp">
         <div class="cmpc">
           <h3>Pen</h3>
-          <div class="st">Dialed · short needle</div>
+          <div class="st">Dialed &middot; 31&ndash;34G</div>
           <div class="mini" id="syrP"></div>
         </div>
         <div class="cmpc">
           <h3>Insulin</h3>
-          <div class="st">Fixed needle</div>
+          <div class="st">Fixed &middot; 31G</div>
           <div class="mini" id="syrA"></div>
         </div>
         <div class="cmpc">
           <h3>Luer lock</h3>
-          <div class="st">Needle twists on</div>
+          <div class="st">Twists on &middot; 25G</div>
           <div class="mini" id="syrB"></div>
         </div>
         <div class="cmpp"><button class="btn pri" id="push" type="button">Push the plunger</button></div>
@@ -858,6 +858,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v28: the guided Dates and notes now behaves like the quick cards, 5 on 2 off auto-fills Monday to Friday, weekly and every other day let you pick days, Custom is there too, and a blinking cue sits by the mixed date. The weight boxes are gone; the top line is now a stepper, tap plus or minus and 1 g, 1,000 mg and 1,000,000 mcg all change together. In the residue demo the pen is drawn as big as the Luer with a thinner short needle and its gauge (31 to 34G, insulin 31G, Luer 25G), and pressing only moves it a little, since it is a filled 3 mL cartridge. v1 to v27 are unchanged.</span>
   <span>v27: Quick rebuilt as stacked dose cards. One line per card (compound, vial mg, BAC water mL, dose), a flat syringe that fills to the units with the number beside it, and the strength, doses and use-by under it. Add another dose stacks a new card; each has an optional date panel (mixed date, 28 or 60 day expiry, how often, days, when). v1 to v26 are unchanged.</span>
   <span>v26: a stripped expert mode. Quick now hides the full calculator, the syringe and the FAQ and shows one small panel: type the compound, pick a vial (5, 10 or 20 mg) and BAC water (2, 3 or 5 mL), set the dose, and it shows the draw, strength, doses and use-by, plus an order you can build (add vials, copy the card or the order). v1 to v25 are unchanged.</span>
   <span>v25: the page now sits in the same width as the Bare Signals bar on laptop: the title starts under the wordmark and the card ends under the A buttons, at every text size. v1 to v24 are unchanged.</span>
@@ -1397,23 +1398,23 @@ function update(){
 /* ---------- pen mini for the waste demo ---------- */
 let VIDpm=0;
 function penMini(host){
-  const id='pm'+(++VIDpm),liqTop=150,liqBot=310,needTop=316,needTip=368;
+  const id='pm'+(++VIDpm),liqTop=118,liqBot=312,needTop=318,needTip=354;
   host.innerHTML='<svg viewBox="0 0 116 430" role="img" aria-label="Injection pen, dial the dose and press">'+
     '<defs><clipPath id="'+id+'"><rect class="pmnc" x="0" y="'+needTop+'" width="120" height="0"/></clipPath></defs>'+
-    '<g class="pmk"><rect class="sy" x="34" y="10" width="48" height="24" rx="5"/>'+
-    '<line class="tk" x1="44" y1="13" x2="44" y2="31"/><line class="tk" x1="52" y1="13" x2="52" y2="31"/><line class="tk" x1="58" y1="13" x2="58" y2="31"/><line class="tk" x1="64" y1="13" x2="64" y2="31"/><line class="tk" x1="72" y1="13" x2="72" y2="31"/></g>'+
-    '<rect class="bg" x="36" y="68" width="44" height="248" rx="8"/>'+
-    '<rect class="bg" x="50" y="104" width="16" height="208"/>'+
-    '<rect class="pmliq" x="51" y="'+liqTop+'" width="14" height="'+(liqBot-liqTop)+'" fill="var(--liquid)"/>'+
-    '<rect class="pmstop" x="51" y="'+(liqTop-6)+'" width="14" height="7" fill="#EDEBC8" stroke="var(--ink)" stroke-width="1"/>'+
-    '<rect class="ol" x="50" y="104" width="16" height="208"/>'+
-    '<rect class="ol" x="36" y="68" width="44" height="248" rx="8"/>'+
-    '<rect class="bg" x="43" y="42" width="30" height="20"/><rect class="ol" x="43" y="42" width="30" height="20"/>'+
-    '<text class="pendose" id="pmDose" x="58" y="56" text-anchor="middle">20 u</text>'+
-    '<path class="nz" d="M50 316 L66 316 L61 328 L55 328Z"/>'+
-    '<rect class="hubf" x="54" y="326" width="8" height="8"/>'+
-    '<path class="ndl" d="M56.4 334 L59.6 334 L59.6 362 L57 368 Z"/>'+
-    '<g clip-path="url(#'+id+')"><path class="pmdead" d="M56.6 334 L59.4 334 L59.4 362 L57.2 367 Z" fill="var(--liquid)"/></g>'+
+    '<g class="pmk"><rect class="sy" x="22" y="8" width="72" height="26" rx="6"/>'+
+    '<line class="tk" x1="34" y1="11" x2="34" y2="31"/><line class="tk" x1="44" y1="11" x2="44" y2="31"/><line class="tk" x1="54" y1="11" x2="54" y2="31"/><line class="tk" x1="64" y1="11" x2="64" y2="31"/><line class="tk" x1="74" y1="11" x2="74" y2="31"/><line class="tk" x1="84" y1="11" x2="84" y2="31"/></g>'+
+    '<rect class="bg" x="26" y="66" width="64" height="252" rx="10"/>'+
+    '<rect class="bg" x="46" y="104" width="24" height="210"/>'+
+    '<rect class="pmliq" x="47" y="'+liqTop+'" width="22" height="'+(liqBot-liqTop)+'" fill="var(--liquid)"/>'+
+    '<rect class="pmstop" x="47" y="'+(liqTop-6)+'" width="22" height="7" fill="#EDEBC8" stroke="var(--ink)" stroke-width="1"/>'+
+    '<rect class="ol" x="46" y="104" width="24" height="210"/>'+
+    '<rect class="ol" x="26" y="66" width="64" height="252" rx="10"/>'+
+    '<rect class="bg" x="40" y="44" width="36" height="20"/><rect class="ol" x="40" y="44" width="36" height="20"/>'+
+    '<text class="pendose" id="pmDose" x="58" y="58" text-anchor="middle">20 u</text>'+
+    '<path class="nz" d="M50 318 L66 318 L61 330 L55 330Z"/>'+
+    '<rect class="hubf" x="55" y="328" width="6" height="7"/>'+
+    '<path class="ndl" d="M57 335 L59 335 L59 350 L57.8 354 Z"/>'+
+    '<g clip-path="url(#'+id+')"><path class="pmdead" d="M57.2 335 L58.8 335 L58.8 350 L57.9 353 Z" fill="var(--liquid)"/></g>'+
     '<g class="pmdrip"></g></svg>';
   const q=function(sel){return host.querySelector(sel);};
   this.liq=q('.pmliq');this.stop=q('.pmstop');this.k=q('.pmk');this.nc=q('.pmnc');this.dr=q('.pmdrip');this.dose=q('.pendose');
@@ -1428,7 +1429,7 @@ penMini.prototype.set=function(frac,e){
 };
 penMini.prototype.reset=function(){this.tok++;this.set(1,0);this.dr.innerHTML='';};
 penMini.prototype.press=function(dur,cb){
-  const self=this,tok=++this.tok,f1=0.5;
+  const self=this,tok=++this.tok,f1=0.86;
   return new Promise(function(res){
     if(reduce||dur<=0){self.set(f1,1);if(cb)cb(1);return res();}
     const t0=performance.now();
@@ -1442,7 +1443,7 @@ penMini.prototype.press=function(dur,cb){
 };
 penMini.prototype.drip=function(n){
   if(reduce)return;const g=this.dr,made=[];
-  for(let i=0;i<n;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','drop');c.setAttribute('cx',58+(i-1)*0.8);c.setAttribute('cy',370);c.setAttribute('r',2.4);c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);}
+  for(let i=0;i<n;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','drop');c.setAttribute('cx',58+(i-1)*0.8);c.setAttribute('cy',356);c.setAttribute('r',2.4);c.style.animationDelay=(i*0.2)+'s';g.appendChild(c);made.push(c);}
   setTimeout(function(){made.forEach(function(c){if(c.parentNode)c.parentNode.removeChild(c);});},1700);
 };
 
@@ -1746,17 +1747,19 @@ setMode(startMode);
     $(box).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'" aria-pressed="false">'+v+'</button>';}).join('');
     $$(box+' .q').forEach(function(b){b.onclick=function(){tog(b.dataset.v);$$(box+' .q').forEach(function(x){x.setAttribute('aria-pressed',get(x.dataset.v));});update();};});
   };
-  const FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on, 2 off',0],['When needed',0]];
-  function daysNeeded(){const f=FREQ.filter(function(x){return x[0]===S.freq;})[0];return f?!!f[1]:false;}
+  const FREQ=[['Daily',0],['Every other day',1],['Weekly',1],['5 on, 2 off','mf'],['Custom',1]];
+  function freqMeta(){return FREQ.filter(function(x){return x[0]===S.freq;})[0];}
+  function daysNeeded(){const f=freqMeta();return f?!!f[1]:false;}
   function paintDays(){$$('#dayQ .q').forEach(function(x){x.setAttribute('aria-pressed',S.days.indexOf(x.dataset.v)>-1);});$('#dayHint').style.display=S.days.length?'none':'';}
   function syncDays(nudge){const w=$('#daysWrap'),need=daysNeeded();w.classList.toggle('on',need);if(!need){S.days=[];paintDays();}if(need&&nudge&&!S.days.length){w.classList.remove('nudge');void w.offsetWidth;w.classList.add('nudge');}}
   $('#freqQ').innerHTML=FREQ.map(function(f){return '<button type="button" class="btn q" data-v="'+f[0]+'" aria-pressed="false">'+f[0]+'</button>';}).join('');
-  $$('#freqQ .q').forEach(function(b){b.onclick=function(){S.freq=S.freq===b.dataset.v?'':b.dataset.v;$$('#freqQ .q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===S.freq);});syncDays(true);update();};});
+  $$('#freqQ .q').forEach(function(b){b.onclick=function(){S.freq=S.freq===b.dataset.v?'':b.dataset.v;$$('#freqQ .q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===S.freq);});var f=freqMeta();if(f&&f[1]==='mf')S.days=['Mon','Tue','Wed','Thu','Fri'];else if(!f||f[1]===0)S.days=[];paintDays();syncDays(true);update();};});
   $('#dayQ').innerHTML=DAYS.map(function(d){return '<button type="button" class="btn q" data-v="'+d+'" aria-pressed="false">'+d+'</button>';}).join('');
   $$('#dayQ .q').forEach(function(b){b.onclick=function(){const i=S.days.indexOf(b.dataset.v);if(i>-1)S.days.splice(i,1);else S.days.push(b.dataset.v);paintDays();update();};});
   syncDays(false);
   mk2('#timeQ',TIMES,function(v){return S.times.indexOf(v)>-1;},function(v){const i=S.times.indexOf(v);if(i>-1)S.times.splice(i,1);else S.times.push(v);});
-  $('#mixed').addEventListener('input',function(){S.mixed=this.value||todayISO();update();});
+  $('#mixed').addEventListener('focus',function(){var c=$('#mixedCue');if(c)c.classList.add('off');});
+  $('#mixed').addEventListener('input',function(){var c=$('#mixedCue');if(c)c.classList.add('off');S.mixed=this.value||todayISO();update();});
   $('#mixed').addEventListener('change',function(){if(!this.value)this.value=todayISO();S.mixed=this.value;update();});
   $('#note').addEventListener('input',function(){S.note=this.value;update();});
 })();
@@ -1800,6 +1803,7 @@ renderMix();wasteReset();
 (function(){
   const F={g:1e6,mg:1e3,mcg:1};let wcu='g';
   function nfc(n){return n>=1?n.toLocaleString('en-US',{maximumFractionDigits:3}):String(+n.toPrecision(3));}
+  (function(){var g=1;function nfc(n){return n.toLocaleString('en-US');}function wpaint(){$('#wG').textContent=nfc(g);$('#wMg').textContent=nfc(g*1000);$('#wMcg').textContent=nfc(g*1000000);}$('#wUp').onclick=function(){g++;wpaint();};$('#wDn').onclick=function(){g=Math.max(1,g-1);wpaint();};wpaint();})();
   function wcCalc(){
     const v=parseFloat($('#wcIn').value);
     if(!isFinite(v)||v<0){$('#wcOut').textContent='';return;}
