@@ -1,4 +1,4 @@
-/* Bare Signals Scan v2 (24 Oct 2026): community doses only (built into data.js), a peptide diary on this phone (ask first; log now or earlier, dose, other stack doses taken, note), My diary view with copy and CSV. v1 kept at /scan/v1/.
+/* Bare Signals Scan v2.4 (25 Oct 2026): real syringe icon (needle, barrel with ticks, flange, plunger, thumb press) for the injection stamp and the draw sticker, replacing the pen-like line. Scan v2 (24 Oct 2026): community doses only (built into data.js), a peptide diary on this phone (ask first; log now or earlier, dose, other stack doses taken, note), My diary view with copy and CSV. v1 kept at /scan/v1/.
    Scan v1 (24 Oct 2026). Opened by a vial QR: baresignals.co/S/<CODE>.
    Welcome card (mini Library card) + Reconstitute (prefilled: stock vial, 2 ml BAC, recommended start dose; Guide me / copy / screenshot)
    + Add to my protocol (recommended dose; builds a checklist across scans, with a Taken log; opens in the Protocol builder)
@@ -42,14 +42,14 @@ function tag(r,dash){const c=col(r);return `<span class="tag${dash?' dash':''}" 
 function weights(x){const out=[];const seen={};const add=(k,w)=>{if(!PAL[k]||seen[k])return;seen[k]=1;out.push([k,w])};add(x.p,5);(x.r||[]).forEach(k=>add(k,2));(x.rp||[]).forEach(k=>add(k,1));return out.sort((a,b)=>a[1]-b[1])}
 function stripe(x,cls){return `<div class="${cls||'stripe'}" aria-hidden="true">${weights(x).map(w=>`<i style="background:${col(w[0])};flex:${w[1]}"></i>`).join('')}</div>`}
 const SVG={
- inj:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3M12.5 3.5L5 11l-2 .5.5-2L11 2M7 6l3 3M2 14l1.5-1.5"/></svg>',
+ inj:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 12 12)"><path d="M1 12h4"/><rect x="5" y="10.6" width="2" height="2.8"/><rect x="7" y="9" width="9" height="6"/><path d="M10 9v2.2M12.5 9v2.2"/><path d="M16 7v10"/><path d="M16 12h4"/><path d="M20 8.5v7"/></g></svg>',
  oral:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5.5" width="12" height="5" rx="2.5" transform="rotate(-35 8 8)"/><path d="M6.2 4.6l3.6 6.8" transform="rotate(-35 8 8) translate(0 0)"/></svg>',
  nasal:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v3l-2 6h8l-2-6V2zM5 14h6"/></svg>',
  iv:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 1.5h6v6l-3 2-3-2zM8 9.5V15"/></svg>',
  topical:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2s4 4.5 4 7.5a4 4 0 0 1-8 0C4 6.5 8 2 8 2z"/></svg>',
  drop:'<svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .8S10 5 10 7.6A4 4 0 0 1 2 7.6C2 5 6 .8 6 .8z"/></svg>',
  D:'<svg viewBox="0 0 12 12"><text x="6" y="10" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="800" font-size="11" fill="currentColor">D</text></svg>',
- syr:'<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8.5 1l2.5 2.5M9.7 2.3L3.8 8.2l-1.6.4.4-1.6L8.5 1M5.3 4.5l2.2 2.2M1 11l1.2-1.2"/></svg>',
+ syr:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 12 12)"><path d="M1 12h4"/><rect x="5" y="10.6" width="2" height="2.8"/><rect x="7" y="9" width="9" height="6"/><path d="M10 9v2.2M12.5 9v2.2"/><path d="M16 7v10"/><path d="M16 12h4"/><path d="M20 8.5v7"/></g></svg>',
  bin:'<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h8M4.5 3V1.6h3V3M3 3l.6 7.5h4.8L9 3"/></svg>',
  cam:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 6V3h3M15 3h3v3M18 14v3h-3M5 17H2v-3M6 7h3v3H6zM11 7h3v3h-3zM6 12h3M11 12h3v2"/></svg>',
  list:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5l1.5 1.5L7 4M9 5.5h8M3 10l1.5 1.5L7 9M9 10.5h8M9 15.5h8M3.5 15.5h3"/></svg>'
