@@ -650,6 +650,28 @@ section:not(.open)>.deepbody{display:none}
 section.open>.sum{box-shadow:none}
 body.quick .walk span{display:none}
 @media (min-width:900px){.sum ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 16px}.sum li{border-top:0;border-left:1px solid var(--rule);padding:4px 0 6px 10px}.sum li:first-child{border-left:0;padding-left:0}}
+/* ---- v10: quick read reel ---- */
+#reel{margin:12px 0 0}
+body:not(.quick) #reel{display:none}
+body.quick section[id],body.quick .act,body.quick nav.walk,body.quick .walklab{display:none!important}
+.rgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:640px){.rgrid{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.rgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rc{border:1.5px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);display:flex;flex-direction:column;min-width:0}
+.rh{display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1.5px solid var(--ink)}
+.rh span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--ink);color:var(--paper);font:700 12px var(--display);flex:none}
+.rh b{font:700 15px/1.15 var(--display)}
+.ra{background:var(--chip);border-bottom:1.5px solid var(--rule)}
+.ra svg{width:100%;height:auto;display:block}
+.rc p{font-size:13.5px;line-height:1.42;margin:8px 10px 6px;flex:1}
+.rgo{all:unset;box-sizing:border-box;cursor:pointer;margin:0 10px 10px;align-self:flex-start;font:600 11px var(--mono);letter-spacing:.04em;color:#fff;background:var(--act);padding:6px 10px}
+.rgo:hover{filter:brightness(.95)}
+.ralarm{border:2px solid var(--red);background:#FFF1F1;padding:10px 12px;margin:12px 0 0;font-size:13.5px;line-height:1.42}
+.ralarm b{display:block;color:#C02424;font:700 15px var(--display);margin-bottom:2px}
+body.quick:not(.srcopen) .foot ol{display:none}
+.srcbtn{all:unset;cursor:pointer;display:none;font:600 11px var(--mono);color:var(--act);border:1.5px solid var(--act);background:var(--actbg);padding:5px 9px;margin:4px 0 8px}
+body.quick .srcbtn{display:inline-block}
+.ralarm .rgo{margin:8px 0 0;display:inline-block;background:#C02424}
 </style>
 <script src="/nav.js" defer></script>
 </head>
@@ -658,17 +680,18 @@ body.quick .walk span{display:none}
 
 <header>
   <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p></div>
-  <h1>How peptides are made<small>V9</small></h1>
+  <h1>How peptides are made<small>V10</small></h1>
   <p class="lede" style="margin-top:8px">A peptide is a recipe built from tiny bricks. This page follows one from the recipe card to the sealed vial, and shows what can go wrong at every step.</p>
 </header>
 
 <section>
   <div class="mode">
     <p class="lab" style="margin:0 0 6px">How do you want to read?</p>
-    <div class="seg" id="modeSel"><button type="button" data-v="q">Quick read · about 3 min</button><button type="button" data-v="f">Full lesson</button></div>
+    <div class="seg" id="modeSel"><button type="button" data-v="q">Quick read · 9 steps</button><button type="button" data-v="f">Full lesson · 13 parts</button></div>
     <p class="note" id="modeNote" style="margin:6px 0 0"></p>
   </div>
-  <p class="lab" style="margin-top:16px">The whole path, tap a step</p>
+  <div id="reel"></div>
+  <p class="lab walklab" style="margin-top:16px">The whole path, tap a step</p>
   <nav class="walk" aria-label="Steps" id="walk"></nav>
 </section>
 
@@ -1207,7 +1230,7 @@ body.quick .walk span{display:none}
     <li id="s28"><a href="https://cora.ucc.ie/bitstreams/e8d58a42-4be8-4f2d-a7a7-adaaa42418a8/download">Gervasi et al., Parenteral protein formulations: approved products in the EU (Eur J Pharm Biopharm, 2018)</a>: 264 products, 90 freeze-dried; excipient roles and frequencies (sucrose 59%, mannitol 33%, trehalose 10%, histidine 34%, any buffer 61%, surfactants 62%, salts 42%, preservatives 6% of powders and 29% of liquids, methionine 6% and 12%).</li>
     <li id="s29"><a href="https://b2b.sigmaaldrich.com/US/en/technical-documents/technical-article/research-and-disease-areas/cell-and-developmental-biology-research/peptide-stability">Sigma-Aldrich, peptide stability</a>: Asp-Pro cleavage, Asp-Gly and Asn-Gly, Cys and Met oxidation, N-terminal Gln pyroglutamate, diketopiperazine; store lyophilized at −20 °C, avoid freeze-thaw, avoid pH above 8 and oxygen. Charged-peptide sticking: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4416745">Adsorption of cationic peptides to solid surfaces of glass and plastic</a> (not read in full; reported).</li>
   </ol>
-  <p>Checked 24 Oct 2026 · Made V9 · An ever evolving reference · <a href="/made/v8/">V8</a> · <a href="/made/v7/">V7</a> · <a href="/made/v6/">V6</a> · <a href="/made/v5/">V5</a> · <a href="/made/v4/">V4</a> · <a href="/made/v3/">V3</a> · <a href="/made/v2/">V2</a></p>
+  <p>Checked 24 Oct 2026 · Made V10 · An ever evolving reference · <a href="/made/v9/">V9</a> · <a href="/made/v8/">V8</a> · <a href="/made/v7/">V7</a> · <a href="/made/v6/">V6</a> · <a href="/made/v5/">V5</a> · <a href="/made/v4/">V4</a> · <a href="/made/v3/">V3</a> · <a href="/made/v2/">V2</a></p>
 </footer>
 </div>
 <script src="/library/v49/data.js"></script>
@@ -1998,49 +2021,144 @@ $('#lifeC').innerHTML=[
 ].map(function(c){return '<div class="card"><div class="lifev">'+vialWith(c[1],c[1]==='MIXED'?'BAC WATER':c[2]?'LIQUID':'SEALED',c[2])+'</div><div class="hd"><h3>'+c[0]+'</h3></div><div class="bd"><p>'+c[3]+c[5]+'</p><ul class="diffs">'+c[4].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'}).join('');
 scDraw('semax');
 
-/* ===== v9: quick read and full lesson ===== */
+/* ===== v10: Quick read (animated reel) and Full lesson ===== */
 var ACTS={recipe:['Act one','Make it','From the recipe to a clean powder. Parts one to five.'],dry:['Act two','Keep it','Drying, helpers, and what wears a peptide down. Parts six and seven.'],purity:['Act three','Check it','What the numbers on a vial and a COA mean, and what they miss. Parts eight to thirteen.']};
-var SUM={
- recipe:['A peptide is amino acids (bricks) snapped together in one exact order. Every snap is a peptide bond, so every chain has one front (N end) and one back (C end).','Caps on the ends, like the NA and Amidate in NA Selank Amidate, slow down the enzymes that eat peptides.','Change one brick or one cap and it is a different molecule with a different weight.'],
- letters:['The 20 amino acids are mostly grown by bacteria fed sugar. A few come from chemistry, enzymes or protein.','Peptide labs buy them as ready-made, capped powders.','Special lab-made bricks cost far more. That is part of why short SS-31 is pricey.'],
- build:['Almost every research peptide is stacked by machine on tiny beads, one brick per round: uncap, wash, snap, wash.','Temporary caps make each brick snap only once; base and acid take them off.','Long medicines like HGH and insulin are grown in E. coli, yeast or hamster cells instead.'],
- crude:['What falls off the bead is the right chain plus near twins.','Missing bricks are by far the most common. Then chains that stopped short, extra bricks, guards left on, mirror swaps and oxidised bricks.','They weigh almost the same as the right chain, which is why cleaning up is hard.'],
- purify:['HPLC sorts the molecules by how greasy they are and draws a peak for each.','The lab keeps a slice around the main peak.','A wider slice gives more powder and lower purity. Purity is partly a business choice.'],
- dry:['The clean liquid is measured to the dose, filled into vials, frozen and vacuum dried into a cake (lyophilised).','The vials are sealed inside the dryer.','Dry and airless, the powder lasts far longer than any liquid.'],
- keep:['Medicines add helpers called excipients: sugar, buffer, surfactant, preservative. Research vials usually have none.','Water, oxygen, light, heat and shaking wear a peptide down.','Some sequences have more soft spots than others. Pick any peptide to see its own.'],
- purity:['98% purity means 2 in every 100 molecules are something else, mostly near twins.','You will never see them: each is a single dissolved molecule.','Purity does not measure water, salt, endotoxin, metals or sterility.'],
- coa:['A COA describes one batch, on one day, and only the tests printed on it.','Check that the lot matches the vial, the mass spec matches the peptide, and a chromatogram is attached.','For anything injected, look for endotoxin and sterility lines.'],
- weight:['Mass spec weighs the molecule: one missing brick changes the number.','A "10 mg" label is powder weight. Usually only 60 to 90% of it is peptide.','Purity and peptide content are two different numbers, and both shrink what you hold.'],
- ph:['pH changes how a peptide dissolves, how fast it breaks down, and how much it stings.','BAC water sits around pH 5.7, blood around 7.4.','Cloudy, specks or a colour change mean something in the vial changed.'],
- toxins:['Purity never measures endotoxin (bits of dead bacteria that cause fever), heavy metals, leftover solvents or microbes.','Each needs its own test.','Research COAs rarely include them.'],
- react:['The timing tells you the likely cause: injection site, fever-type, allergic or infection.','Throat swelling, trouble breathing or collapse is anaphylaxis: call emergency services.','Bring the vial and its lot number.']};
-var SUMCOL=['#AACC96','#FFDE59','#74BCFF'];
+Object.keys(ACTS).forEach(function(id){var sec=document.getElementById(id);if(!sec)return;var a=ACTS[id],ab=document.createElement('div');ab.className='act';ab.innerHTML='<span>'+a[0]+'</span><b>'+a[1]+'</b><p>'+a[2]+'</p>';sec.parentNode.insertBefore(ab,sec)});
 var MODE=(function(){try{return localStorage.getItem('bs-made-mode')||'q'}catch(e){return 'q'}})();
-(function(){Object.keys(SUM).forEach(function(id,k){var sec=document.getElementById(id);if(!sec)return;
-  var dv=sec.querySelector('.divider'),h2=sec.querySelector('h2');if(!dv||!h2)return;
-  if(ACTS[id]){var a=ACTS[id],ab=document.createElement('div');ab.className='act';ab.innerHTML='<span>'+a[0]+'</span><b>'+a[1]+'</b><p>'+a[2]+'</p>';sec.parentNode.insertBefore(ab,sec)}
-  var body=document.createElement('div');body.className='deepbody';
-  var n=h2.nextSibling;while(n){var nx=n.nextSibling;body.appendChild(n);n=nx}
-  var sm=document.createElement('div');sm.className='sum';
-  sm.innerHTML='<p class="lab" style="margin:0 0 4px">In short</p><ul>'+SUM[id].map(function(t,i){return '<li><i style="background:'+SUMCOL[i]+'"></i><span>'+t+'</span></li>'}).join('')+'</ul><button type="button" class="opn" aria-expanded="false"></button>';
-  h2.after(sm);sm.after(body);
-  sm.querySelector('.opn').addEventListener('click',function(){var open=!sec.classList.contains('open');setOpen(sec,open);if(!open)sec.scrollIntoView({block:'start'});track((open?'open-':'close-')+id)})})})();
-function setOpen(sec,open){sec.classList.toggle('open',open);var b=sec.querySelector('.opn');if(b){b.setAttribute('aria-expanded',open?'true':'false');b.textContent=open?'Close this part ▴':'Open the full lesson ▾'}if(open)setTimeout(function(){dispatchEvent(new Event('resize'))},60)}
 function setMode(m,save){MODE=m;document.body.classList.toggle('quick',m==='q');
-  Object.keys(SUM).forEach(function(id){var sec=document.getElementById(id);if(sec)setOpen(sec,m==='f')});
   $$('#modeSel button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===m?'true':'false')});
-  $('#modeNote').textContent=m==='q'?'Quick read: one short card per part. Tap “Open the full lesson” on any part to go deeper.':'Full lesson: every animation, table and source. Each part still has its short card at the top, and closes on tap.';
+  $('#modeNote').textContent=m==='q'?'Nine animated steps, start to finish. Tap “Full lesson” on any step to dive into that part.':'Everything: every animation, table, tool and source, in thirteen parts.';
+  if(m==='f')setTimeout(function(){dispatchEvent(new Event('resize'))},60);
   if(save){try{localStorage.setItem('bs-made-mode',m)}catch(e){}}}
 $$('#modeSel button').forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.v,true);track('mode-'+b.dataset.v)})});
-function openForHash(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);if(!el)return;var sec=el.closest('section');if(sec&&SUM[sec.id]&&!sec.classList.contains('open')){setOpen(sec,true);setTimeout(function(){el.scrollIntoView()},80)}}
+function openForHash(){var h=location.hash.slice(1);if(!h||MODE==='f')return;var el=document.getElementById(h);if(el&&el.closest('section[id]')){setMode('f',false);setTimeout(function(){el.scrollIntoView()},80)}}
 addEventListener('hashchange',openForHash);
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var el=document.getElementById(a.getAttribute('href').slice(1));if(!el)return;var sec=el.closest('section');if(sec&&SUM[sec.id]&&!sec.classList.contains('open')&&!el.matches('section'))setOpen(sec,true)});
-setMode(MODE,false);openForHash();
 var _rz=0;addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){try{scDraw(scCur)}catch(e){}},220)});
 
 /* init */
 rcDraw('sel');pairDraw('sel');bbStart(2);lensDraw();chompDraw();
 var rzT=0;addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(function(){pairDraw(pairCur);bbRender()},200)});
+/* ===== v10: quick read reel (nine animated steps) ===== */
+function kt(a){return a.map(function(x){return (+x).toFixed(3)}).join(';')}
+function show(dur,t0,t1,end){/* opacity: hidden, fade in at t0 (s), hold, fade out by end (s); keyTimes always end at 1 */var D=dur;t1=t1||t0+.3;end=Math.min(end||D-.4,D-.31);if(t0<=0){t0=0}var k=[0,Math.max(t0,.001)/D,t1/D,end/D,(end+.3)/D,1],v='0;0;1;1;0;0';if(t0<=0){k=[0,t1/D,end/D,(end+.3)/D,1];v='1;1;1;0;0'}return '<animate attributeName="opacity" values="'+v+'" keyTimes="'+kt(k)+'" dur="'+D+'s" repeatCount="indefinite"/>'}
+function slideIn(dur,t0,dx,dy){var D=dur;return '<animateTransform attributeName="transform" type="translate" values="'+dx+' '+dy+';'+dx+' '+dy+';0 0;0 0" keyTimes="'+kt([0,t0/D,(t0+.45)/D,1])+'" dur="'+D+'s" repeatCount="indefinite"/>'}
+var REEL=[];
+/* 1 recipe: bricks snap in one by one */
+REEL.push(['recipe','A recipe of bricks',(function(){var D=8,t='TKPRPGP'.split(''),s='<svg viewBox="0 0 340 150" role="img" aria-label="Selank bricks snapping together one by one">';
+  var x0=46,cw=40,y=78;
+  s+=endTag(x0-cw/2,y,'N',false,.9,'end');
+  t.forEach(function(L,i){var t0=.4+i*.75,x=x0+i*cw;if(i)s+='<line x1="'+(x-cw)+'" y1="'+y+'" x2="'+x+'" y2="'+y+'" stroke="#3E4A80" stroke-width="2" opacity="0">'+show(D,t0+.4,t0+.5)+'</line>'});
+  t.forEach(function(L,i){var t0=.4+i*.75,x=x0+i*cw;
+    s+='<g opacity="0">'+show(D,t0,t0+.3)+'<g>'+slideIn(D,t0,0,-34)+shapeSVG(L,x,y,.72)+'</g></g>';
+    if(i)s+='<g opacity="0">'+show(D,t0+.45,t0+.5,t0+1.1)+'<path d="M'+(x-cw/2)+' '+(y+14)+'c0 0-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z" fill="#74BCFF" stroke="#3E4A80" stroke-width=".8"><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 14" keyTimes="'+kt([0,(t0+.45)/D,(t0+1.1)/D])+'" dur="'+D+'s" repeatCount="indefinite"/></path></g>'});
+  s+='<g opacity="0">'+show(D,5.9,6.2)+endTag(x0+6*cw+cw/2,y,'C',false,.9,'start')+mono(170,132,'7 bricks, 6 peptide bonds, 6 drops of water out',{a:'middle',s:9,c:'#2F6DB5',w:600})+'</g>';
+  s+=mono(170,22,'Selank: T K P R P G P',{a:'middle',s:9.5,c:'#6B76A8'});
+  return s+'</svg>'})(),'A peptide is amino acids snapped together in one exact order. Change one brick, or the cap on an end, and it is a <b>different molecule</b> with a different weight.']);
+/* 2 bricks: reuse the bacteria tank */
+REEL.push(['letters','Where the bricks come from',AAR_ANIM[0][4].replace('class="anim" ','').replace('<svg ','<svg class="rv" '),'Most amino acids are <b>brewed by bacteria fed sugar</b>, then crystallised. Peptide labs buy them as ready-capped white powders.']);
+/* 3 beads: JS driven, see beadReel */
+REEL.push(['build','Stacked on beads, one brick a round','<div id="rqBead"></div>','Research peptides are built by machine on beads smaller than sand. Every brick is a round of <b>uncap, wash, snap, wash</b>. BPC-157 takes 15 rounds and about 138 liquid changes.']);
+/* 4 what falls off */
+REEL.push(['crude','What falls off the bead',(function(){var D=9,s='<svg viewBox="0 0 340 170" role="img" aria-label="Chains cut off a bead fall into a pile of right chains and near twins">';
+  s+='<rect x="0" y="0" width="340" height="170" fill="#FFB0B0" opacity="0">'+'<animate attributeName="opacity" values="0;0;.35;.35;0;0" keyTimes="'+kt([0,.08,.14,.32,.4,1])+'" dur="'+D+'s" repeatCount="indefinite"/></rect>';
+  s+=mono(62,18,'acid bath',{a:'middle',s:9,c:'#B0412B',w:600})+'<circle cx="62" cy="88" r="26" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.6"/>'+mono(62,91,'bead',{a:'middle',s:8.5});
+  var C=[['right',-60],['right',-30],['del',0],['right',30],['trunc',60],['ins',90]],pile=[[196,52],[268,52],[196,92],[268,92],[196,132],[268,132]],ord=[0,1,3,2,4,5];
+  C.forEach(function(c,i){var a=c[1]*Math.PI/180,bx=62+48*Math.cos(a),by=88+48*Math.sin(a),p=pile[ord.indexOf(i)],t0=2.4+i*.35;
+    s+='<line x1="'+(62+26*Math.cos(a)).toFixed(1)+'" y1="'+(88+26*Math.sin(a)).toFixed(1)+'" x2="'+(bx-14*Math.cos(a)).toFixed(1)+'" y2="'+(by-14*Math.sin(a)).toFixed(1)+'" stroke="#3E4A80" stroke-width="1.2"><animate attributeName="opacity" values="1;1;0;0;1" keyTimes="'+kt([0,2.2/D,2.4/D,.95,1])+'" dur="'+D+'s" repeatCount="indefinite"/></line>';
+    s+='<g><animateTransform attributeName="transform" type="translate" values="'+bx.toFixed(1)+' '+by.toFixed(1)+';'+bx.toFixed(1)+' '+by.toFixed(1)+';'+p[0]+' '+p[1]+';'+p[0]+' '+p[1]+';'+bx.toFixed(1)+' '+by.toFixed(1)+'" keyTimes="'+kt([0,t0/D,(t0+1)/D,.95,1])+'" dur="'+D+'s" repeatCount="indefinite"/><g transform="scale(2.2)">'+glyph(c[0],0,0)+'</g></g>'});
+  [['right chains',232,36,'#2B7F74'],['missing brick',196,113,'#B86A00'],['stopped short',196,153,'#8A8712'],['extra brick',268,153,'#B0412B']].forEach(function(l,i){s+='<g opacity="0">'+show(D,5.2+i*.2)+mono(l[1],l[2],l[0],{a:'middle',s:8.5,c:l[3],w:600})+'</g>'});
+  return s+'</svg>'})(),'Acid cuts the chains free. Most are right; the rest are <b>near twins</b>. A missing brick is by far the most common mistake, and twins weigh almost the same as the real thing.']);
+/* 5 purify: molecules race through a column, peak drawn, cut kept */
+REEL.push(['purify','The race that cleans it',(function(){var D=8,base=132,pk=[[70,14,7],[104,22,6],[134,34,5],[170,96,9],[206,28,5],[240,16,6],[276,10,7]],y=function(x){var v=0;pk.forEach(function(p){v+=p[1]*Math.exp(-Math.pow(x-p[0],2)/(2*p[2]*p[2]))});return base-v};
+  var d='M20 '+y(20).toFixed(1);for(var x=21;x<=320;x++)d+='L'+x+' '+y(x).toFixed(1);
+  var f='M146 '+base;for(x=146;x<=194;x++)f+='L'+x+' '+y(x).toFixed(1);f+='L194 '+base+'Z';
+  var s='<svg viewBox="0 0 340 170" role="img" aria-label="Chromatogram drawing itself, then the middle of the main peak is kept">';
+  s+='<rect x="146" y="20" width="48" height="'+(base-20)+'" fill="#E1DE62" opacity="0">'+show(D,4.6,5)+'</rect><path d="'+f+'" fill="#AACC96" opacity="0">'+show(D,4.8,5.2)+'</path>';
+  s+='<line x1="20" y1="'+base+'" x2="320" y2="'+base+'" stroke="#6B76A8"/>';
+  s+='<path d="'+d+'" fill="none" stroke="#3E4A80" stroke-width="2" stroke-dasharray="700" stroke-dashoffset="700"><animate attributeName="stroke-dashoffset" values="700;0;0" keyTimes="0;.55;1" dur="'+D+'s" repeatCount="indefinite"/></path>';
+  s+='<circle r="4" fill="#DB6830"><animateMotion dur="'+D+'s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear" path="'+d+'"/></circle>';
+  s+='<g opacity="0">'+show(D,5)+mono(170,14,'keep this slice',{a:'middle',s:9,c:'#2B7F74',w:600})+mono(110,base-46,'twin',{a:'middle',s:8,c:'#DB6830'})+mono(222,base-40,'twin',{a:'middle',s:8,c:'#DB6830'})+'</g>';
+  s+=mono(20,154,'time →   watery molecules leave first, greasy ones last',{s:8.5,c:'#6B76A8'});
+  return s+'</svg>'})(),'A steel column makes every molecule race. The right chain makes the tallest peak; the lab <b>keeps the middle slice</b>. A narrower slice is purer, but gives less powder.']);
+/* 6 dry */
+REEL.push(['dry','Liquid to a white cake',(function(){var D=9,s='<svg viewBox="0 0 340 170" role="img" aria-label="One vial: liquid, frozen, vacuum dried, sealed">',X=118;
+  s+='<defs><clipPath id="rqv"><path d="M'+(X+12)+' 54 v80 q0 8 8 8 h48 q8 0 8 -8 v-80 q0 -8 -8 -11 v-9 h-48 v9 q-8 3 -8 11z"/></clipPath></defs>';
+  s+='<path d="M'+(X+12)+' 54 v80 q0 8 8 8 h48 q8 0 8 -8 v-80 q0 -8 -8 -11 v-9 h-48 v9 q-8 3 -8 11z" fill="#fff" stroke="#3E4A80" stroke-width="2"/><g clip-path="url(#rqv)">';
+  s+='<g opacity="0">'+show(D,0,.3,2.2)+'<path fill="#99ACFF" opacity=".8" d="M100 96 q12 -5 24 0 t24 0 t24 0 t24 0 V150 H100z"><animate attributeName="d" values="M100 96 q12 -5 24 0 t24 0 t24 0 t24 0 V150 H100z;M100 96 q12 5 24 0 t24 0 t24 0 t24 0 V150 H100z;M100 96 q12 -5 24 0 t24 0 t24 0 t24 0 V150 H100z" dur="2s" repeatCount="indefinite"/></path></g>';
+  s+='<g opacity="0">'+show(D,2.2,2.5,4.4)+'<rect x="100" y="96" width="100" height="60" fill="#DDEBFF"/>'+[[136,108],[156,120],[146,132],[166,104]].map(function(p){return '<path d="M'+p[0]+' '+(p[1]-5)+'v10M'+(p[0]-5)+' '+p[1]+'h10" stroke="#74BCFF" stroke-width="2" stroke-linecap="round"/>'}).join('')+'</g>';
+  s+='<g opacity="0">'+show(D,4.4,4.7,6.4)+'<rect x="100" y="108" width="100" height="48" fill="#FFF9DC"/>'+[0,1,2,3,4].map(function(k){return '<circle cx="'+(138+k*7)+'" cy="104" r="2" fill="#74BCFF"><animate attributeName="cy" values="110;40" dur="'+(1.1+k*.15)+'s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="'+(1.1+k*.15)+'s" repeatCount="indefinite"/></circle>'}).join('')+'</g>';
+  s+='<g opacity="0">'+show(D,6.4,6.7)+'<rect x="100" y="112" width="100" height="44" fill="#FFF9DC" stroke="#C9C29A"/></g></g>';
+  s+='<g><animateTransform attributeName="transform" type="translate" values="0 -10;0 -10;0 0;0 0" keyTimes="'+kt([0,6.4/D,6.9/D,1])+'" dur="'+D+'s" repeatCount="indefinite"/><rect x="'+(X+20)+'" y="24" width="44" height="12" rx="2" fill="#6B76A8" stroke="#3E4A80" stroke-width="1.3"/></g>';
+  s+='<rect x="'+(X+18)+'" y="22" width="48" height="16" rx="2" fill="#C9CCD8" stroke="#3E4A80" stroke-width="1.3" opacity="0">'+show(D,7.3,7.5)+'</rect>';
+  var L=[['1 · liquid, measured to the dose',0,2.2],['2 · frozen solid',2.2,4.4],['3 · vacuum: ice leaves as vapour',4.4,6.4],['4 · a dry cake, stoppered, crimped',6.4,D-.4]];
+  L.forEach(function(l){s+='<g opacity="0">'+show(D,l[1],l[1]+.3,l[2])+mono(170,164,l[0],{a:'middle',s:9.5,c:'#3E4A80',w:600})+'</g>'});
+  return s+'</svg>'})(),'The clean liquid is measured to the dose, filled, frozen, then <b>vacuum dried</b> (lyophilised) into a cake and sealed. Dry and airless, it lasts far longer than any liquid.']);
+/* 7 keep: threats bounce off the sealed powder, hit the mixed vial */
+REEL.push(['keep','What wears it down',(function(){var D=6,s='<svg viewBox="0 0 340 170" role="img" aria-label="Water, oxygen, light and heat bounce off a sealed powder vial but reach a mixed vial">';
+  var vial=function(x,liq){return '<path d="M'+(x+10)+' 62 v64 q0 7 7 7 h40 q7 0 7 -7 v-64 q0 -7 -7 -10 v-8 h-40 v8 q-7 3 -7 10z" fill="#fff" stroke="#3E4A80" stroke-width="1.8"/><rect x="'+(x+15)+'" y="36" width="44" height="10" rx="2" fill="#6B76A8"/>'+(liq?'<rect x="'+(x+12)+'" y="92" width="50" height="39" fill="#99ACFF" opacity=".75"/>':'<rect x="'+(x+14)+'" y="108" width="46" height="23" fill="#FFF9DC" stroke="#C9C29A"/>')};
+  s+=vial(40,0)+vial(236,1);
+  s+='<path d="M77 58 L97 66 V80 C97 90 88 96 77 99 C66 96 57 90 57 80 V66 Z" fill="#87CFC5" opacity=".85" stroke="#3E4A80" stroke-width="1.2"/>';
+  var IC=['<path d="M0 -8c0 0-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z" fill="#74BCFF" stroke="#3E4A80" stroke-width="1.1"/>','<circle r="8" fill="#FF8A8A" stroke="#3E4A80" stroke-width="1.1"/><text y="3" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700" fill="#3E4A80">O₂</text>','<circle r="5" fill="#FFDE59" stroke="#3E4A80" stroke-width="1.1"/><path d="M0 -9v3M0 6v3M-9 0h3M6 0h3M-6.4 -6.4l2 2M4.4 4.4l2 2M-6.4 6.4l2 -2M4.4 -4.4l2 -2" stroke="#C9A800" stroke-width="1.4"/>','<rect x="-2.5" y="-9" width="5" height="13" rx="2.5" fill="#fff" stroke="#3E4A80" stroke-width="1.1"/><circle cy="5" r="4" fill="#FF5050" stroke="#3E4A80" stroke-width="1.1"/>'];var icons=IC.map(function(x,i){return [x,i]});
+  icons.forEach(function(ic,i){var y=40+i*26,t0=i*.4;
+    s+='<g>'+'<animateTransform attributeName="transform" type="translate" values="170 '+y+';118 '+(y+6)+';170 '+y+'" keyTimes="0;.5;1" dur="'+D/2+'s" begin="'+t0+'s" repeatCount="indefinite"/>'+ic[0]+'</g>';
+    s+='<g>'+'<animateTransform attributeName="transform" type="translate" values="170 '+y+';254 '+(y+30)+'" dur="'+D/2+'s" begin="'+(t0+.2)+'s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.8;1" dur="'+D/2+'s" begin="'+(t0+.2)+'s" repeatCount="indefinite"/>'+ic[0]+'</g>'});
+  s+=mono(77,150,'sealed powder',{a:'middle',s:9,w:600})+mono(77,162,'water, air, light kept out',{a:'middle',s:8,c:'#6B76A8'})+mono(273,150,'mixed research vial',{a:'middle',s:9,w:600})+mono(273,162,'no helpers inside',{a:'middle',s:8,c:'#6B76A8'});
+  return s+'</svg>'})(),'Water, oxygen, light, heat and shaking wear a peptide down. Medicines add helpers (sugar, buffer, preservative); <b>research vials usually have none</b>, so once mixed: fridge, dark, swirl, never shake.']);
+/* 8 purity: JS driven dots */
+REEL.push(['purity','What 98% looks like','<div id="rqPur"></div>','Purity counts the right chain against its twins. <b>98% = 2 in every 100 molecules are something else.</b> You will never see them: each is one dissolved molecule.']);
+/* 9 COA */
+REEL.push(['coa','What a COA checks, and skips',(function(){var D=8,s='<svg viewBox="0 0 340 170" role="img" aria-label="A certificate of analysis ticking off the tests it covers and flagging the ones it usually skips">';
+  s+='<rect x="60" y="8" width="220" height="156" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/><rect x="60" y="8" width="220" height="22" fill="#3E4A80"/>'+mono(170,23,'CERTIFICATE OF ANALYSIS · LOT A',{a:'middle',s:9,c:'#FFFFE2',w:600});
+  var R=[['Lot matches the vial',1],['Identity: mass spec',1],['Purity: HPLC 98.7%',1],['Endotoxin',0],['Sterility',0],['Heavy metals',0]];
+  R.forEach(function(r,i){var y=48+i*20,t0=.6+i*.8;
+    s+='<g opacity="0">'+show(D,t0)+mono(76,y,r[0],{s:9.5,c:r[1]?'#3E4A80':'#B0412B',w:600})+(r[1]?'<circle cx="258" cy="'+(y-3)+'" r="7" fill="#AACC96" stroke="#3E4A80"/><path d="M254 '+(y-3)+'l3 3 5-6" fill="none" stroke="#3E4A80" stroke-width="1.6"/>':'<rect x="214" y="'+(y-11)+'" width="56" height="12" rx="2" fill="#FFD9D9"/>'+mono(242,y-2,'often missing',{a:'middle',s:7.5,c:'#B0412B',w:600}))+'<line x1="72" y1="'+(y+6)+'" x2="268" y2="'+(y+6)+'" stroke="#E3E0BF"/></g>'});
+  return s+'</svg>'})(),'A COA covers <b>one batch, on one day</b>, and only the tests printed on it. Match the lot to your vial, and look for mass spec, a chromatogram and an endotoxin line.']);
+
+/* render reel */
+$('#reel').innerHTML='<div class="rgrid">'+REEL.map(function(r,i){return '<article class="rc"><div class="rh"><span>'+(i+1)+'</span><b>'+r[1]+'</b></div><div class="ra">'+r[2]+'</div><p>'+r[3]+'</p><button type="button" class="rgo" data-to="'+r[0]+'">Full lesson ›</button></article>'}).join('')+'</div>'+
+ '<div class="ralarm"><b>If something goes wrong</b> Throat or tongue swelling, trouble breathing or collapse after an injection is anaphylaxis: use adrenaline if prescribed and call emergency services (112 in Indonesia). <button type="button" class="rgo" data-to="react">Reactions ›</button></div>';
+(function(){var f=document.querySelector('.foot');if(!f)return;var n=f.querySelectorAll('ol li').length,b=document.createElement('button');b.type='button';b.className='srcbtn';b.textContent='Show all '+n+' sources';b.addEventListener('click',function(){document.body.classList.toggle('srcopen');b.textContent=document.body.classList.contains('srcopen')?'Hide sources':'Show all '+n+' sources'});var ol=f.querySelector('ol');ol.parentNode.insertBefore(b,ol)})();
+$$('#reel .rgo').forEach(function(b){b.addEventListener('click',function(){setMode('f',true);var el=document.getElementById(b.dataset.to);if(el)setTimeout(function(){el.scrollIntoView({block:'start'})},60);track('reel-'+b.dataset.to)})});
+
+/* bead scene, JS timeline: uncap, wash, snap, wash */
+(function(){var host=$('#rqBead'),T=['G','D','E','A'],PH=[['UNCAP','#9CCBFF','base pops the cap off'],['WASH','#EEF3FF','solvent rinses, beads stay'],['SNAP','#EDEB8E','next capped brick joins'],['WASH','#EEF3FF','leftovers drain away']],st={r:1,p:0,t:0,vis:false};
+  function draw(){var built=st.p>=2?st.r+1:st.r,ph=PH[st.p],full=true,s='<svg viewBox="0 0 340 170" role="img" aria-label="Bead build: '+ph[0]+'">';
+    s+='<defs><clipPath id="rqt"><rect x="20" y="26" width="62" height="112" rx="3"/></clipPath></defs><rect x="20" y="26" width="62" height="112" rx="3" fill="#fff" stroke="#3E4A80" stroke-width="2"/><g clip-path="url(#rqt)"><rect class="rqliq" x="20" y="44" width="62" height="96" fill="'+ph[1]+'"/>';
+    for(var i=0;i<14;i++)s+='<circle cx="'+(28+(i%7)*7.8).toFixed(1)+'" cy="'+(126-Math.floor(i/7)*7)+'" r="3.3" fill="#E1DE62" stroke="#3E4A80" stroke-width=".8"/>';
+    s+='</g><line x1="20" y1="133" x2="82" y2="133" stroke="#3E4A80" stroke-width="2" stroke-dasharray="3 2"/><path d="M43 138h16l-3 10h-10z" fill="#E3E0BF" stroke="#3E4A80" stroke-width="1.3"/>';
+    s+='<rect x="18" y="6" width="66" height="16" rx="2" fill="'+(st.p===2?'#DB6830':'#3E4A80')+'"/>'+mono(51,17.5,ph[0],{a:'middle',s:9.5,c:'#fff',w:700});
+    s+='<path d="M92 82 L112 82" stroke="#E3E0BF" stroke-width="1.5" stroke-dasharray="3 3"/>'+mono(102,74,'zoom',{a:'middle',s:7.5,c:'#6B76A8'});
+    var bx=140,by=86;s+='<g class="wig2"><circle cx="'+bx+'" cy="'+by+'" r="18" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.5"/></g>'+mono(bx,by+3,'bead',{a:'middle',s:8});
+    var n=Math.min(built,T.length),cw=38,x=bx+18;
+    for(i=0;i<n;i++){var cx=x+cw/2+i*cw,isNew=st.p===2&&i===n-1;s+='<line x1="'+(cx-cw/2)+'" y1="'+by+'" x2="'+cx+'" y2="'+by+'" stroke="#3E4A80" stroke-width="2"/><g'+(isNew?' class="dropin"':'')+'>'+shapeSVG(T[i],cx,by,.62)+(GUARDED[T[i]]&&st.r<T.length+1?hat(cx,by-40,GUARDED[T[i]],.8):'')+'</g>';
+      if(isNew)s+=mono(cx-cw/2,by-14,'+',{a:'middle',s:15,c:'#E0352B',w:700})}
+    var lastX=x+cw/2+(n-1)*cw+14;
+    if(st.p!==0||st.r===1&&st.p===0&&false)s+='<g'+(st.p===2?' class="dropin"':'')+'><rect x="'+lastX+'" y="'+(by-10)+'" width="11" height="20" rx="2" fill="#3E4A80"/></g>';
+    if(st.p===0)s+='<g class="flyoff"><rect x="'+lastX+'" y="'+(by-10)+'" width="11" height="20" rx="2" fill="#3E4A80"/></g>';
+    s+=mono(232,134,ph[2],{a:'middle',s:9,c:'#3E4A80',w:600});
+    s+=mono(232,152,'Epitalon · round '+Math.min(st.r+(st.p>=2?1:0),T.length)+'/'+T.length+' · '+((st.r-1)*4+st.p+1)+' liquid changes',{a:'middle',s:8.5,c:'#6B76A8'});
+    s+=mono(232,22,'violet: side guard · navy: front cap',{a:'middle',s:8,c:'#6B76A8'});
+    host.innerHTML=s+'</svg>';
+    var l=host.querySelector('.rqliq');if(l){l.style.transition='y 1s ease-in,height 1s ease-in';setTimeout(function(){l.setAttribute('y','128');l.setAttribute('height','12')},700)}}
+  function tick(){clearTimeout(st.t);if(!st.vis||RM)return;st.t=setTimeout(function(){st.p++;if(st.p>3){st.p=0;st.r++;if(st.r>=T.length){st.r=1}}draw();tick()},1700)}
+  draw();onScreen(host,function(v){st.vis=v;if(v)tick();else clearTimeout(st.t)})})();
+
+/* purity scene, JS cycle */
+(function(){var host=$('#rqPur'),L=[[99.9,'1 in 1,000'],[99,'1 in 100'],[98,'2 in 100'],[95,'5 in 100'],[90,'10 in 100']],st={i:2,t:0,vis:false},kinds=['del','del','guard','mirror','ox','del','ins','del','trunc','del'];
+  var pos=[];for(var r=0;r<10;r++)for(var c=0;c<10;c++)pos.push([168+c*17.5,14+r*14.2]);
+  var ordr=pos.map(function(_,i){return i});(function(){var s=3;for(var i=99;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1)),t=ordr[i];ordr[i]=ordr[j];ordr[j]=t}})();
+  function draw(){var p=L[st.i],bad=Math.round(100-p[0]),isB={};for(var i=0;i<bad;i++)isB[ordr[i]]=kinds[i%kinds.length];
+    var s='<svg viewBox="0 0 340 170" role="img" aria-label="'+p[0]+'% purity">';
+    s+='<text x="62" y="70" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="34" fill="#DB6830">'+p[0]+'%</text>'+mono(62,92,p[1],{a:'middle',s:10.5,w:600})+mono(62,106,'is something else',{a:'middle',s:9,c:'#6B76A8'});
+    s+='<g>'+L.map(function(x,k){return '<rect x="'+(14+k*20)+'" y="126" width="16" height="8" fill="'+(k===st.i?'#DB6830':'#FFE0CC')+'"/>'}).join('')+'</g>'+mono(62,150,'99.9 → 90',{a:'middle',s:8,c:'#6B76A8'});
+    pos.forEach(function(q,i){var k=isB[i];s+=k?'<g class="wig" style="animation-delay:-'+(i%7)*.2+'s"><circle cx="'+q[0]+'" cy="'+q[1]+'" r="5.2" fill="'+TY[k][0]+'" stroke="#3E4A80" stroke-width="1.2"/></g>':'<circle cx="'+q[0]+'" cy="'+q[1]+'" r="4.2" fill="#AACC96"/>'});
+    s+=mono(247,166,'1 dot = 1 molecule',{a:'middle',s:8,c:'#6B76A8'});
+    host.innerHTML=s+'</svg>'}
+  function tick(){clearTimeout(st.t);if(!st.vis||RM)return;st.t=setTimeout(function(){st.i=(st.i+1)%L.length;draw();tick()},2200)}
+  draw();onScreen(host,function(v){st.vis=v;if(v)tick();else clearTimeout(st.t)})})();
+if(RM)$$('#reel svg').forEach(function(sv){try{sv.pauseAnimations()}catch(e){}});
+
+setMode(MODE,false);openForHash();
 })();
 </script>
 <script>

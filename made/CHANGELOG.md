@@ -2,6 +2,11 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v10 (25 Oct 2026) at /made/v10/
+Quick read rebuilt as an animated reel; the v9 "In short" text cards are gone. Built on v9, kept.
+- Quick read (default) is nine compact animated steps, three across on laptop, one per row on phone: 1 a recipe of bricks (Selank snaps together, water drops out), 2 where the bricks come from (bacteria tank to crystals), 3 stacked on beads (live uncap, wash, snap, wash loop on Epitalon with round and liquid-change counter), 4 what falls off the bead (acid frees chains into a pile of right chains, missing, short and extra), 5 the race that cleans it (chromatogram draws itself, middle slice kept), 6 liquid to a white cake (one vial: liquid, frozen, vapour, sealed cake), 7 what wears it down (water, oxygen, light, heat bounce off sealed powder, reach a mixed vial), 8 what 98% looks like (100 molecules, cycles 99.9 to 90%), 9 what a COA checks and skips. Each has a two-line caption and a "Full lesson" button that opens that part; an anaphylaxis strip closes the reel. Sources fold behind a button in Quick read.
+- Full lesson (13 parts) unchanged, with the three act banners. Phone Quick read about 4,400px vs about 47,900px for the full lesson.
+
 ## v9 (24 Oct 2026) at /made/v9/
 Two ways to read, and less repetition. Built on v8, kept.
 - "How do you want to read?" switch under the intro: Quick read (default, remembered per browser) or Full lesson. Quick shows one "In short" card of three points per part, with "Open the full lesson" to expand just that part; Full opens everything, and every part still starts with its short card and can close. Links into a closed part open it. Phone page drops from about 32,800px to about 7,500px in Quick.
