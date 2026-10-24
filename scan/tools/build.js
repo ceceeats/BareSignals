@@ -47,11 +47,20 @@ for(const d of D){
     community dose: the first tier that is not a label or trial tier. Label doses are never the default. */
  const tier=(ds0.tiers||[]).find(t=>!/label|trial|clinical|fda|rx/i.test(t.label||'')&&t.tag!=='label')||null;
  const ds=Object.assign({},ds0,tier?{dose:tier.dose,freq:tier.freq||ds0.freq,cycle:tier.dur||ds0.cycle,route:tier.route||ds0.route}:{dose:String(ds0.dose||'').replace(/;\s*[^;]*\(label[^)]*\)\s*$/i,'').replace(/\s*\(?community\)?/i,'')});
+ /* v2.1 fix (24 Oct 2026): the first tier is often the dose people HOLD after titration (Reta Common 4–8 mg).
+    For titrated compounds the start is: a stated "X mg start", else the first step of a "0.25→0.5→…" ladder,
+    else the lowest community tier (Reta microdose 0.5 mg). The card range then runs from that start to the common top. */
+ const comm=(ds0.tiers||[]).filter(t=>!/label|trial|max|top|aggressive|high|clinical|performance/i.test(t.label||''));
+ const titr=comm.some(t=>/titrat|start|→/i.test(t.dur||''));
+ let tstart=null;
+ if(tier&&titr){const txt=comm.map(t=>t.dur||'').join(' ');let m=txt.match(/([\d.]+)\s*mg start/i)||txt.match(/\(([\d.]+)\s*→/);
+  if(m)tstart=+m[1];else{const lows=comm.map(t=>parseFloat(String(t.dose).replace(/^~/,''))).filter(v=>v>0);if(lows.length)tstart=Math.min(...lows)}
+  if(tstart){const top=String(tier.dose).match(/[–-]\s*([\d.]+)\s*(mg|mcg)/);ds.dose=tstart+(top?'–'+top[1]+' '+top[2]:' mg');}}
  const dsrc=tier?'Community · '+tier.label:ds0.conf==='logged'?'Logged':/label/i.test(String(ds0.dose))?'Community':ds0.conf==='verified'?'Reported':'Community';
  const route=pr.route||routeOf(ds);
  const chips=pr.chips||doseChips(ds.dose);
  const bd=d.blend&&d.blend.draw;
- let start=pr.start||chips[0]||'';
+ let start=pr.start||(tstart?tstart+' mg':'')||chips[0]||'';
  const vial=STOCK[d.slug]||VIAL[d.slug]||(d.blend&&parseFloat(d.blend.total))||0;
  const water=bd&&bd.ml?bd.ml:(vial?waterFor(d.slug):0);
  const all=(d.roles||[]).concat((d.reported||[]).filter(r=>(d.roles||[]).indexOf(r)<0));
