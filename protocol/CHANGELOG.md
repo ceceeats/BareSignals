@@ -2,6 +2,16 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v22 (24 Oct 2026) at /protocol/v22/
+- Proportional stripe instead of the square sticker marker everywhere (calendar, routine, cards, chips, pictures): every role the peptide has, the main role widest and on the right, like the Library tiles.
+- Time-of-day icons: sunrise (morning), sun (lunch), afternoon sun, sunset (evening), moon (bedtime). The calendar has one slot per time of day with its icon and clock time, instead of morning and evening halves.
+- Calmer calendar and pictures: no coloured blocks, just the stripe, name, dose and units. On a phone, the Week view lists the days top to bottom.
+- One name field "Whose protocol" replaces Myself / Someone else; the title, day and note follow the name.
+- Compact controls, closer to the Calculator: smaller time boxes, note, chips, buttons, save bar and stack cards.
+- Stack cards lead with the dose: name, then "5 mg 20 units", then how often with the time icon and clock time, then dates and restock.
+- Step one peptides are one-word chips (stripe + name, ✓ when in the stack) instead of big tiles, 40 popular shown first; opening a role group lists all its peptides as chips straight away.
+- Built on the other session's v21, kept.
+
 ## v20 (24 Oct 2026) at /protocol/v20/
 - Phone pictures: three 1080 px wide PNGs drawn on the device (nothing uploaded), about 250 to 450 KB each, previewed in a sheet with Save, Save all to Photos (phone share sheet) or Download all. 1 · Routine: the note, then each clock time with every peptide's colour, dose, units or sprays, days and end date, then Next. 2 · Next two weeks: 14 rows by up to five time-of-day columns (her clock times), each dose a coloured block with name, dose and units, not-in-stock doses faded, vial ends, restocks and blood tests marked. 3 · To do: what to buy and by when (count and vial size), blood tests with dates and the test list, coming vial ends.
 - One clear colour per peptide in each protocol: starts from the vial sticker's main colour; if that is too close to one already used (BPC-157 and TB-500 are both Tissue repair yellow) or too pale to see, it takes the next colour from the peptide's own sticker and roles. Calendar, routine, at a glance and the pictures use it; stack cards keep the sticker mini-square.
