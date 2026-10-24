@@ -2,6 +2,12 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v25 (25 Oct 2026) at /protocol/v25/
+- Roles fold into one Library-style bar (ROLES + every role colour + Show); Show opens the five groups, Hide closes them and clears picked roles.
+- Peptide chips are small and on one line, with a plain square in the main role colour (no stripe box), like the Supplements "Goes with" chips, and flow inline.
+- Short names on chips, stack cards, calendar and pictures (full name on hover): Tesa, Ipa, CJC, CJC DAC, 5-Amino, BPC, TB-500, Tβ4, TA-1, Reta, Cagri, Sema, Tirz, HGH, NA Selank, NA Semax, GSH.
+- Built on v24, kept.
+
 ## v24 (25 Oct 2026) at /protocol/v24/
 - The page opens on the stack: step one is "What's your stack?", step two "Your doses". The name, times of day and note box moved into a small optional fold under the Save button ("Name, times of day, a note"), showing the name once set. Built on v23, kept.
 
