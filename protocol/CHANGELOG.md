@@ -2,6 +2,12 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v26 (25 Oct 2026)
+- No BAC water shown anywhere on the page: card mix line and "Preparing the vials" removed. The editor keeps "Vial size" and hides the water under "mixed differently?" so units still work out.
+- One injection mark, same size and colour everywhere.
+- Role stripes run full-bleed across the top of each card and the editor, using the Library sticker proportions (49/25/15/11; blends add each part's sticker). No box inside a box.
+- "Unsaved" moved off the stripe.
+
 ## v25 (25 Oct 2026) at /protocol/v25/
 - Roles fold into one Library-style bar (ROLES + every role colour + Show); Show opens the five groups, Hide closes them and clears picked roles.
 - Peptide chips are small and on one line, with a plain square in the main role colour (no stripe box), like the Supplements "Goes with" chips, and flow inline.
