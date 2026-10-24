@@ -1,5 +1,6 @@
 <!doctype html>
 <!-- Draw Line v25 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the sticky card's right edge with the A buttons); text size fallback reads the laptop scale; v24 kept at /draw/v24/. -->
+<!-- Draw Line v34 (24 Oct 2026): quick card gains a reverse mode — Set by Draw units back-solves BAC water (water = 10 x draw x vial_mg / dose_mcg) so a target syringe number can be held across compounds; BAC field becomes a read-only output in that mode; water outside 2-3 mL is flagged. -->
 <!-- Draw Line v33 (24 Oct 2026): over-syringe check (red full syringe, N\u00d7 100, total units, Check your dose) when units>100; rare-vial flag vs common size (VIAL/STOCK from protocol v23); gap logger (localStorage bs-qlog + bsTrack draw_qlog) for unknown compounds, missing vial data, over-doses. -->
 <!-- Draw Line v32 (24 Oct 2026): quick card gains fuzzy compound suggestions (misspelling-tolerant, tap to fill name), a timing note in the reported line where the library has one, and Low/High dose chips that fill the dose field + unit on tap. -->
 <!-- Draw Line v31 (24 Oct 2026): quick card relaid (compound on top; vial, BAC, dose on one row below; reported-dose footnote a small full-width line); number fields accept point or comma for decimals (0.5 works on comma-only keypads). -->
@@ -297,6 +298,13 @@ body[data-mode="quick"] .form,body[data-mode="quick"] .cardcol,body[data-mode="q
 .wl b{font-weight:700;color:#A62619}
 .dsU.over{color:#A62619;font-weight:700}
 .dsU.over small{display:block;font-weight:400;color:#8E2117;font-size:calc(10px*var(--k,1))}
+.dmode{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:4px}
+.dml{font:600 calc(10.5px*var(--k,1)) var(--mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--soft,#59649A)}
+.mtog{background:none;border:1.3px solid var(--ink,#3E4A80);color:var(--ink,#3E4A80);padding:3px 9px;font:600 calc(11px*var(--k,1)) var(--mono,monospace);cursor:pointer}
+.mtog[aria-pressed=true]{background:var(--ink,#3E4A80);color:var(--paper,#FFFFE2)}
+.drawin{display:inline-flex;align-items:center;gap:5px;font:600 calc(11px*var(--k,1)) var(--mono,monospace);color:var(--ink,#3E4A80)}
+.drawin .iDraw{width:52px}
+.iWater.out{background:var(--chip,#F3EFB0);color:var(--accent-ink,#B04A16);font-weight:700;border-style:dashed}
 .dref b{font-weight:600;color:var(--accent-ink,#B04A16)}
 .dref i{font-style:normal;color:var(--soft,#59649A)}
 .dref:empty{display:none}
@@ -562,7 +570,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v33</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v34</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -890,6 +898,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v34: the quick card works both ways. Set by BAC water (type the water, read the draw) or Set by Draw units (type the number of units you want to pull and it back-solves the BAC water, so you can keep every compound on the same draw). BAC water = 10 \u00d7 draw \u00d7 vial mg \u00f7 dose mcg. If the water lands outside the usual 2 to 3 mL it is flagged. v1 to v32 unchanged.</span>
   <span>v33: the quick card now checks for mistakes. A dose that needs more than one 100-unit syringe turns the syringe red, shows how many syringes (3\u00d7 100) and the total units, and prints Check your dose. An unusual vial size for the compound (far from what it is normally sold as) is flagged against its common size. Compounds or vial sizes the data cannot answer are logged for research follow-up. v1 to v31 unchanged.</span>
   <span>v32: the quick card now helps you spell and dose. Type a part or a misspelling of a compound (Reda for Retatrutide) and a suggestion list appears; tap one to fill the name. The reported line adds a timing note where one exists (before bed, in the morning, empty stomach) and a Low and High chip that type the dose for you when tapped. v1 to v30 unchanged.</span>
   <span>v31: the quick card is re-laid-out and the dose field takes decimals again. Compound sits on its own row at the top; vial mg, BAC mL and dose share the row below. The number fields now accept a point or a comma, so 0.5 works on every keyboard. The reported dose range is a small full-width line under the row, so it has room to show in full. v1 to v30 are unchanged.</span>
@@ -1711,6 +1720,7 @@ $('#tipPen').innerHTML=tipSVG('pen');
   function expVial(e){return (e&&e.s&&VIALMAP[e.s]!=null)?VIALMAP[e.s]:null;}
   function warnHTML(d){var msgs=[],c=compute(d);
     if(c&&c.units>100){var n=Math.ceil(c.units/100);msgs.push(['Check your dose','At '+nf(c.units,1)+' units this is over a 100-unit syringe ('+n+'\u00d7). Likely a typo in the dose, or mcg and mg swapped.']);}
+    if(d&&d.mode==='draw'){var ew=effWater(d);if(ew!=null&&(ew<1||ew>3.5))msgs.push(['Water out of range','To draw '+nm(d.draw)+' units at this dose you need '+(Math.round(ew*100)/100)+' mL BAC, outside the usual 2 to 3 mL. Raise the dose or lower the draw.']);}
     var e=refData(d&&d.name),v=nm(d.vial);
     if(isFinite(v)&&v>0){var E=expVial(e);
       if(E!=null){if(v>E*2.5||v<E/2.5)msgs.push(['Uncommon vial',e.n+' is usually sold as '+E+' mg. Double-check the vial size.']);}
@@ -1741,12 +1751,16 @@ $('#tipPen').innerHTML=tipSVG('pen');
       '</svg>';
   }
   function nm(v){return parseFloat(String(v==null?'':v).replace(/,/g,'.'));}
+  function effWater(d){
+    if(d&&d.mode==='draw'){var vial=nm(d.vial),dose=nm(d.dose),draw=nm(d.draw);if(!(isFinite(vial)&&vial>0&&isFinite(dose)&&dose>0&&isFinite(draw)&&draw>0))return null;var doseMcg=d.unit==='mg'?dose*1000:dose;return draw*(vial*1000)/(100*doseMcg);}
+    return nm(d.water);
+  }
   function compute(d){
-    var vial=nm(d.vial),water=nm(d.water),dose=nm(d.dose);
+    var vial=nm(d.vial),water=effWater(d),dose=nm(d.dose);
     if(!(isFinite(vial)&&vial>0&&isFinite(water)&&water>0&&isFinite(dose)&&dose>0))return null;
     return calc({vialMg:vial,waterMl:water,dose:dose,doseUnit:d.unit,type:'insulin',dead:0.005});
   }
-  function metaHTML(d){var c=compute(d);return c?('<span>Strength <b>'+nf(c.conc,0)+' mcg/mL</b></span><span>Doses per vial <b>'+c.ideal+'</b></span>'):'<span>Fill in vial, water and dose</span>';}
+  function metaHTML(d){var c=compute(d);if(!c)return '<span>Fill in the fields</span>';var ex=(d.mode==='draw')?('<span>BAC water <b>'+(Math.round(effWater(d)*100)/100)+' mL</b></span>'):'';return ex+'<span>Strength <b>'+nf(c.conc,0)+' mcg/mL</b></span><span>Doses per vial <b>'+c.ideal+'</b></span>';}
   function syrHTML(d){var c=compute(d);if(c&&c.units>100){var n=Math.ceil(c.units/100);return fsyr(100,true)+'<span class="dsU over">'+n+' \u00d7 100 u<br><small>'+nf(c.units,1)+' units total</small></span>';}return fsyr(c?c.units:0)+'<span class="dsU">'+(c?nf(c.units,1)+' units':'&mdash;')+'</span>';}
   function crow(vals,on){return '<div class="drow2">'+vals.map(function(v){return '<button class="btn q" type="button" data-v="'+v+'" aria-pressed="'+(on(v)?'true':'false')+'">'+v+'</button>';}).join('')+'</div>';}
   var FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on 2 off','mf'],['Custom',1]];
@@ -1763,11 +1777,17 @@ $('#tipPen').innerHTML=tipSVG('pen');
       '</div>'+
       '<div class="dline dBot">'+
         '<label class="dfield dNum"><span>Vial mg</span><input class="iVial" type="text" inputmode="decimal" value="'+esc(String(d.vial))+'"></label>'+
-        '<label class="dfield dNum"><span>BAC mL</span><input class="iWater" type="text" inputmode="decimal" value="'+esc(String(d.water))+'"></label>'+
+        '<label class="dfield dNum dBacF"><span>BAC mL</span><input class="iWater" type="text" inputmode="decimal"'+(d.mode==='draw'?' readonly':'')+' value="'+esc(String(d.mode==='draw'?(Math.round((effWater(d)||0)*100)/100):d.water))+'"></label>'+
         '<div class="dfield dDoseF"><span>Dose</span><div class="ddi"><input class="iDose" type="text" inputmode="decimal" value="'+esc(String(d.dose))+'"><div class="dUnit">'+['mcg','mg'].map(function(u){return '<button class="btn u" type="button" data-u="'+u+'" aria-pressed="'+(d.unit===u?'true':'false')+'">'+u+'</button>';}).join('')+'</div></div></div>'+
       '</div>'+
       '<div class="dref">'+drefHTML(d)+'</div>'+
       '<div class="dfill">'+dfillHTML(d)+'</div>'+
+      '<div class="dmode">'+
+        '<span class="dml">Set by</span>'+
+        '<button class="mtog" type="button" data-m="water" aria-pressed="'+(d.mode!=='draw')+'">BAC water</button>'+
+        '<button class="mtog" type="button" data-m="draw" aria-pressed="'+(d.mode==='draw')+'">Draw units</button>'+
+        (d.mode==='draw'?('<span class="drawin">draw <input class="iDraw" type="text" inputmode="decimal" value="'+esc(String(d.draw))+'"> u</span>'):'')+
+      '</div>'+
       '<div class="dsyr">'+syrHTML(d)+'</div>'+
       '<div class="dmeta">'+metaHTML(d)+'</div>'+
       '<div class="dwarn">'+warnHTML(d)+'</div>'+
@@ -1781,7 +1801,7 @@ $('#tipPen').innerHTML=tipSVG('pen');
       '</div>'):'');
     wire(el,d);return el;
   }
-  function refresh(el,d){el.querySelector('.dsyr').innerHTML=syrHTML(d);el.querySelector('.dmeta').innerHTML=metaHTML(d);var u=el.querySelector('.duseby b');if(u)u.textContent=usebyStr(d);var w=el.querySelector('.dwarn');if(w)w.innerHTML=warnHTML(d);paintRef(el,d);}
+  function refresh(el,d){var iw=el.querySelector('.iWater');if(iw){if(d.mode==='draw'){var ew=effWater(d);if(ew!=null){d.water=ew;iw.value=(Math.round(ew*100)/100);}iw.readOnly=true;iw.classList.add('out');}else{iw.readOnly=false;iw.classList.remove('out');}}el.querySelector('.dsyr').innerHTML=syrHTML(d);el.querySelector('.dmeta').innerHTML=metaHTML(d);var u=el.querySelector('.duseby b');if(u)u.textContent=usebyStr(d);var w=el.querySelector('.dwarn');if(w)w.innerHTML=warnHTML(d);paintRef(el,d);}
   function wire(el,d){
     var inm=el.querySelector('.iName');
     inm.addEventListener('input',function(){d.name=this.value;refresh(el,d);paintSug(el,d);});
@@ -1789,10 +1809,12 @@ $('#tipPen').innerHTML=tipSVG('pen');
     el.addEventListener('click',function(e){
       var sg=e.target.closest('.sugb');if(sg){d.name=sg.dataset.n;inm.value=d.name;var b=el.querySelector('.dsug');if(b){b.innerHTML='';b.classList.remove('on');}paintRef(el,d);return;}
       var fb=e.target.closest('.fillb');if(fb){d.dose=fb.dataset.v;d.unit=fb.dataset.u;var di=el.querySelector('.iDose');if(di)di.value=d.dose;el.querySelectorAll('.dUnit .u').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.u===d.unit);});refresh(el,d);return;}
+      var mt=e.target.closest('.mtog');if(mt){var m=mt.dataset.m;if(d.mode!==m){d.mode=m;if(m==='draw'&&!(nm(d.draw)>0))d.draw=10;render();}return;}
     });
     el.querySelector('.iVial').addEventListener('input',function(){d.vial=this.value;refresh(el,d);});
     el.querySelector('.iWater').addEventListener('input',function(){d.water=this.value;refresh(el,d);});
     el.querySelector('.iDose').addEventListener('input',function(){d.dose=this.value;refresh(el,d);});
+    var idr=el.querySelector('.iDraw');if(idr)idr.addEventListener('input',function(){d.draw=this.value;refresh(el,d);});
     el.querySelector('.iDose').addEventListener('blur',function(){var c=compute(d);if(c&&c.units>100)qlog('over_dose',d.name,nf(c.units,1)+'u');});
     el.querySelectorAll('.dUnit .u').forEach(function(b){b.onclick=function(){d.unit=b.dataset.u;el.querySelectorAll('.dUnit .u').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.u===d.unit);});refresh(el,d);};});
     el.querySelector('.toDate').onclick=function(){d.dateOpen=!d.dateOpen;render();};
@@ -1807,7 +1829,7 @@ $('#tipPen').innerHTML=tipSVG('pen');
     };});
   }
   function render(){var host=$('#xCards');host.innerHTML='';cards.forEach(function(d){host.appendChild(buildCard(d));});}
-  function addCard(){cards.push({name:'',vial:10,water:2,dose:500,unit:'mcg',exp:28,mixed:'',freq:'',days:[],times:[],dateOpen:false});}
+  function addCard(){cards.push({name:'',vial:10,water:2,dose:500,unit:'mcg',mode:'water',draw:10,exp:28,mixed:'',freq:'',days:[],times:[],dateOpen:false});}
   $('#xAdd').onclick=function(){addCard();render();};
   $('#xFull').onclick=function(){setMode('guided');};
   addCard();render();
