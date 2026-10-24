@@ -21,7 +21,8 @@ const libHtml=fs.readFileSync(ROOT+'/library/'+LIB+'/index.html','utf8');
 const NP=vm.runInNewContext('('+libHtml.match(/const NP=(\{[^;]*\});/)[1]+')');
 
 /* same rules as Protocol v23 (parseFreq, doseChips, routeOf, waterFor) so a scan and the builder agree */
-function parseFreq(s){s=String(s||'').toLowerCase();if(!s)return 'D';
+function parseFreq(s){s=String(s||'').toLowerCase().split(/,?\s+or\s+|;/)[0].replace(/×\s*\/\s*wk|x\s*\/\s*wk/g,'× weekly');if(!s)return 'D';
+ if(/3–5× weekly|3-5× weekly|4–5× weekly/.test(s))return '3W';
  if(/as needed|prn|once, may|rescue/.test(s)&&!/daily or prn/.test(s))return 'PRN';
  if(/5 on|5 days\/wk/.test(s))return '5on2';
  if(/3x daily|3× daily|before major meals/.test(s))return 'D3';
@@ -47,20 +48,28 @@ for(const d of D){
     community dose: the first tier that is not a label or trial tier. Label doses are never the default. */
  const tier=(ds0.tiers||[]).find(t=>!/label|trial|clinical|fda|rx/i.test(t.label||'')&&t.tag!=='label')||null;
  const ds=Object.assign({},ds0,tier?{dose:tier.dose,freq:tier.freq||ds0.freq,cycle:tier.dur||ds0.cycle,route:tier.route||ds0.route}:{dose:String(ds0.dose||'').replace(/;\s*[^;]*\(label[^)]*\)\s*$/i,'').replace(/\s*\(?community\)?/i,'')});
- /* v2.1 fix (24 Oct 2026): the first tier is often the dose people HOLD after titration (Reta Common 4–8 mg).
-    For titrated compounds the start is: a stated "X mg start", else the first step of a "0.25→0.5→…" ladder,
-    else the lowest community tier (Reta microdose 0.5 mg). The card range then runs from that start to the common top. */
- const comm=(ds0.tiers||[]).filter(t=>!/label|trial|max|top|aggressive|high|clinical|performance/i.test(t.label||''));
- const titr=comm.some(t=>/titrat|start|→/i.test(t.dur||''));
- let tstart=null;
- if(tier&&titr){const txt=comm.map(t=>t.dur||'').join(' ');let m=txt.match(/([\d.]+)\s*mg start/i)||txt.match(/\(([\d.]+)\s*→/);
-  if(m)tstart=+m[1];else{const lows=comm.map(t=>parseFloat(String(t.dose).replace(/^~/,''))).filter(v=>v>0);if(lows.length)tstart=Math.min(...lows)}
-  if(tstart){const top=String(tier.dose).match(/[–-]\s*([\d.]+)\s*(mg|mcg)/);ds.dose=tstart+(top?'–'+top[1]+' '+top[2]:' mg');}}
+ /* v2.2 (24 Oct 2026), Cece's standing rule: every recommendation starts from the LOWEST dose possible.
+    Start = the lowest community dose found anywhere: a stated "X mg start", the first step of a "0.25→0.5" ladder,
+    or the lowest tier (Reta microdose 0.5 mg, TB-500 daily low 250 mcg). That tier's frequency goes with it.
+    Card range runs from that start to the common top. Label tiers never count. */
+ const toMgS=(v,u)=>/mcg|µg/i.test(u)?v/1000:/^g$/i.test(u)?v*1000:v;
+ const lowOf=t=>{const m=String(t).replace(/(\d),(\d{3})/g,'$1$2').replace(/^~\s*/,'').match(/^([\d.]+)\s*(?:[–-]\s*[\d.]+\s*)?(mcg|µg|mg|g|IU)\b/i);return m?{v:+m[1],u:m[2],mg:toMgS(+m[1],m[2])}:null};
+ const comm=(ds0.tiers||[]).filter(t=>!/label|trial|clinical|fda|rx|stack/i.test(t.label||''));
+ let tstart=null,tfreq=null,low=null;
+ if(tier){const base=lowOf(tier.dose);
+  comm.forEach(t=>{const l=lowOf(t.dose);if(!l||!base||(l.u==='IU')!==(base.u==='IU'))return;if(!low||l.mg<low.mg){low=l;low.t=t}});
+  const txt=comm.map(t=>t.dur||'').join(' ');const m=txt.match(/([\d.]+)\s*mg start/i)||txt.match(/\(([\d.]+)\s*→/);
+  if(m&&(!low||+m[1]<low.mg)){low={v:+m[1],u:'mg',mg:+m[1],t:tier}}
+  if(low&&base&&low.mg<base.mg){tstart=low.v+' '+(low.u==='µg'?'mcg':low.u);tfreq=low.t!==tier&&!/→|start/.test(low.t.dur||'')?low.t.freq:null;
+   const top=String(tier.dose).match(/[–-]\s*([\d.]+)\s*(mg|mcg|IU)/i)||String(tier.dose).match(/^([\d.]+)\s*(mg|mcg|IU)/i);
+   ds.dose=low.v+(top?'–'+top[1]+' '+top[2]:' '+low.u).replace(/^(\d[\d.]*)–\1 /,'$1 ');
+   if(low.u!==(top&&top[2])&&top)ds.dose=tstart+' to '+top[1]+' '+top[2];}}
+ if(pr.chips&&pr.range){/* her own injectable ranges (5-Amino-1MQ 1–50 mg): lowest chip, not her old 5 mg start */tstart=pr.chips[0];}
  const dsrc=tier?'Community · '+tier.label:ds0.conf==='logged'?'Logged':/label/i.test(String(ds0.dose))?'Community':ds0.conf==='verified'?'Reported':'Community';
  const route=pr.route||routeOf(ds);
  const chips=pr.chips||doseChips(ds.dose);
  const bd=d.blend&&d.blend.draw;
- let start=pr.start||(tstart?tstart+' mg':'')||chips[0]||'';
+ let start=tstart||chips[0]||pr.start||'';
  const vial=STOCK[d.slug]||VIAL[d.slug]||(d.blend&&parseFloat(d.blend.total))||0;
  const water=bd&&bd.ml?bd.ml:(vial?waterFor(d.slug):0);
  const all=(d.roles||[]).concat((d.reported||[]).filter(r=>(d.roles||[]).indexOf(r)<0));
@@ -68,7 +77,7 @@ for(const d of D){
   ds:Object.fromEntries((all).map(r=>[r,(d.desc||{})[r]||''])),
   u:ds.use||d.fn||'',fda:!!d.fda,o:d.otl||d.originDetail||'',
   d:{dose:(pr.range?pr.range.split(' · ')[0]:ds.dose)||'',freq:ds.freq||'',cycle:ds.cycle||'',route:pr.route==='inj'&&pr.range?'Sub-Q':ds.route||'',half:ds0.half||'',src:pr.range?'Bare Signals start':dsrc,dose2:pr.range||''},
-  rt:route,ch:chips,st:start,f:pr.f||parseFreq(ds.freq),vm:vial,vw:water,bu:bd&&bd.units||0,
+  rt:route,ch:[...new Set([start].concat(chips))].filter(Boolean),st:start,f:tfreq?parseFreq(tfreq):pr.f||parseFreq(ds.freq),sf:tfreq||'',vm:vial,vw:water,bu:bd&&bd.units||0,
   bl:d.blend?d.blend.parts.map(p=>[p[2],p[1]]):null,bu2:d.blend&&d.blend.unit||'',
   kind:d.kind||'',go:parseWeeks(ds.cycle),stock:!!STOCK[d.slug],rank:d.rank};
 }
