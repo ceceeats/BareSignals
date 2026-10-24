@@ -271,7 +271,12 @@ body[data-mode="quick"] .form,body[data-mode="quick"] .cardcol,body[data-mode="q
 .dfield input{min-height:34px;padding:4px 8px;width:100%}
 .dName{flex:1 1 110px;min-width:84px}
 .dNum{flex:0 0 56px;width:56px}
-.dUnit{display:grid;grid-template-columns:1fr 1fr;align-self:flex-end}
+.dUnit{display:grid;grid-template-columns:1fr 1fr;flex:0 0 auto}
+.dDoseF{flex:1 1 150px;min-width:120px}
+.ddi{display:flex;gap:4px}
+.ddi input{flex:1;min-width:48px}
+.duseby{font:600 11.5px var(--mono);color:var(--ink);margin-top:5px}
+.duseby b{color:var(--accent-ink)}
 .dUnit .u{min-height:34px;padding:2px 8px;font:600 11px var(--mono)}
 .dUnit .u+.u{border-left:0}
 .dsyr{display:flex;align-items:center;gap:8px;margin-top:2px}
@@ -530,7 +535,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v28</span></div>
+  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v29</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -858,6 +863,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v29: tidier quick dose card. The dose unit (mcg or mg) now sits inline with the dose, the result line drops the dose you just typed and shows only strength and doses per vial, the flat syringe has 0 and max marks, Use by moved under Use within, and the Days row only appears for weekly, 5 on 2 off and custom (5 on 2 off auto-fills Mon to Fri), so you cannot build a schedule that contradicts itself. v1 to v28 are unchanged.</span>
   <span>v28: the guided Dates and notes now behaves like the quick cards, 5 on 2 off auto-fills Monday to Friday, weekly and every other day let you pick days, Custom is there too, and a blinking cue sits by the mixed date. The weight boxes are gone; the top line is now a stepper, tap plus or minus and 1 g, 1,000 mg and 1,000,000 mcg all change together. In the residue demo the pen is drawn as big as the Luer with a thinner short needle and its gauge (31 to 34G, insulin 31G, Luer 25G), and pressing only moves it a little, since it is a filled 3 mL cartridge. v1 to v27 are unchanged.</span>
   <span>v27: Quick rebuilt as stacked dose cards. One line per card (compound, vial mg, BAC water mL, dose), a flat syringe that fills to the units with the number beside it, and the strength, doses and use-by under it. Add another dose stacks a new card; each has an optional date panel (mixed date, 28 or 60 day expiry, how often, days, when). v1 to v26 are unchanged.</span>
   <span>v26: a stripped expert mode. Quick now hides the full calculator, the syringe and the FAQ and shows one small panel: type the compound, pick a vial (5, 10 or 20 mg) and BAC water (2, 3 or 5 mL), set the dose, and it shows the draw, strength, doses and use-by, plus an order you can build (add vials, copy the card or the order). v1 to v25 are unchanged.</span>
@@ -1665,23 +1671,31 @@ $('#tipPen').innerHTML=tipSVG('pen');
     var bx0=42,bx1=196,bw=bx1-bx0,fw=bw*Math.max(0,Math.min(1,units/max));
     var step=max/(max<=30?6:max<=50?5:10),t='';
     for(var k=0;k<=max+0.001;k+=step){var x=(bx0+bw*(k/max)).toFixed(1);t+='<line x1="'+x+'" x2="'+x+'" y1="10" y2="15" stroke="#3E4A80" stroke-width="1"/>';}
-    return '<svg viewBox="0 0 214 40" role="img" aria-label="Draw '+nf(units,1)+' units">'+
+    return '<svg viewBox="0 0 214 46" role="img" aria-label="Draw '+nf(units,1)+' units of '+max+'">'+
       '<line x1="4" y1="22" x2="30" y2="22" stroke="#3E4A80" stroke-width="1.6"/>'+
       '<path d="M30 15 L42 15 L42 29 L30 29 Z" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.1"/>'+
       '<rect x="'+bx0+'" y="10" width="'+bw+'" height="19" rx="1" fill="#fff" stroke="#3E4A80" stroke-width="1.4"/>'+
       '<rect x="'+bx0+'" y="11.4" width="'+fw.toFixed(1)+'" height="16.2" fill="#99ACFF"/>'+t+
       '<rect x="'+(bx0+fw-2).toFixed(1)+'" y="8" width="3.4" height="23" fill="#DB6830"/>'+
       '<line x1="'+(bx0+fw+1.4).toFixed(1)+'" x2="208" y1="22" y2="22" stroke="#3E4A80" stroke-width="1.6"/>'+
-      '<rect x="206" y="7" width="5" height="25" fill="#EDEBC8" stroke="#3E4A80" stroke-width="1"/></svg>';
+      '<rect x="206" y="7" width="5" height="25" fill="#EDEBC8" stroke="#3E4A80" stroke-width="1"/>'+
+      '<text x="'+bx0+'" y="42" font-size="7.5" fill="#59649A" text-anchor="middle" font-family="monospace">0</text>'+
+      '<text x="'+bx1+'" y="42" font-size="7.5" fill="#59649A" text-anchor="middle" font-family="monospace">'+max+'</text>'+
+      '</svg>';
   }
   function compute(d){
     var vial=parseFloat(d.vial),water=parseFloat(d.water),dose=parseFloat(d.dose);
     if(!(isFinite(vial)&&vial>0&&isFinite(water)&&water>0&&isFinite(dose)&&dose>0))return null;
     return calc({vialMg:vial,waterMl:water,dose:dose,doseUnit:d.unit,type:'insulin',dead:0.005});
   }
-  function metaHTML(d){var c=compute(d);return c?('<span>Strength <b>'+nf(c.conc,0)+' mcg/mL</b></span><span>Dose <b class="o">'+nf(c.doseMcg,0)+' mcg</b></span><span>Doses <b>'+c.ideal+'</b></span><span>Use by <b>'+fmtDate(addDays(d.mixed||todayISO(),d.exp))+'</b></span>'):'<span>Fill in vial, water and dose</span>';}
-  function syrHTML(d){var c=compute(d);return fsyr(c?c.units:0)+'<span class="dsU">'+(c?nf(c.units,1)+' u':'&mdash;')+'</span>';}
+  function metaHTML(d){var c=compute(d);return c?('<span>Strength <b>'+nf(c.conc,0)+' mcg/mL</b></span><span>Doses per vial <b>'+c.ideal+'</b></span>'):'<span>Fill in vial, water and dose</span>';}
+  function syrHTML(d){var c=compute(d);return fsyr(c?c.units:0)+'<span class="dsU">'+(c?nf(c.units,1)+' units':'&mdash;')+'</span>';}
   function crow(vals,on){return '<div class="drow2">'+vals.map(function(v){return '<button class="btn q" type="button" data-v="'+v+'" aria-pressed="'+(on(v)?'true':'false')+'">'+v+'</button>';}).join('')+'</div>';}
+  var FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on 2 off','mf'],['Custom',1]];
+  var FN=FREQ.map(function(f){return f[0];});
+  function fmeta(f){for(var i=0;i<FREQ.length;i++)if(FREQ[i][0]===f)return FREQ[i];return null;}
+  function needDays(f){var m=fmeta(f);return m?!!m[1]:false;}
+  function usebyStr(d){return fmtDate(addDays(d.mixed||todayISO(),d.exp));}
   function buildCard(d){
     var el=document.createElement('div');el.className='dcard';
     el.innerHTML=
@@ -1689,22 +1703,21 @@ $('#tipPen').innerHTML=tipSVG('pen');
         '<label class="dfield dName"><span>Compound</span><input class="iName" type="text" maxlength="32" placeholder="BPC-157" value="'+esc(d.name||'')+'"></label>'+
         '<label class="dfield dNum"><span>Vial mg</span><input class="iVial" type="number" inputmode="decimal" step="any" min="0" value="'+esc(String(d.vial))+'"></label>'+
         '<label class="dfield dNum"><span>BAC mL</span><input class="iWater" type="number" inputmode="decimal" step="any" min="0" value="'+esc(String(d.water))+'"></label>'+
-        '<label class="dfield dNum"><span>Dose</span><input class="iDose" type="number" inputmode="decimal" step="any" min="0" value="'+esc(String(d.dose))+'"></label>'+
-        '<div class="dUnit seg">'+['mcg','mg'].map(function(u){return '<button class="btn u" type="button" data-u="'+u+'" aria-pressed="'+(d.unit===u?'true':'false')+'">'+u+'</button>';}).join('')+'</div>'+
+        '<div class="dfield dDoseF"><span>Dose</span><div class="ddi"><input class="iDose" type="number" inputmode="decimal" step="any" min="0" value="'+esc(String(d.dose))+'"><div class="dUnit">'+['mcg','mg'].map(function(u){return '<button class="btn u" type="button" data-u="'+u+'" aria-pressed="'+(d.unit===u?'true':'false')+'">'+u+'</button>';}).join('')+'</div></div></div>'+
       '</div>'+
       '<div class="dsyr">'+syrHTML(d)+'</div>'+
       '<div class="dmeta">'+metaHTML(d)+'</div>'+
       '<div class="dfoot"><button class="lk toDate" type="button">'+(d.dateOpen?'Hide date':'+ Add date')+'</button><button class="lk rm" type="button">Remove</button></div>'+
       (d.dateOpen?('<div class="ddate">'+
         '<div><div class="dl">Mixed on</div><input type="date" class="iMixed" value="'+(d.mixed||todayISO())+'"></div>'+
-        '<div><div class="dl">Use within</div>'+crow(['28','60'],function(v){return String(d.exp)===v;}).replace(/>28</,'>28 days<').replace(/>60</,'>60 days<')+'</div>'+
-        '<div><div class="dl">How often</div>'+crow(FREQ,function(v){return d.freq===v;})+'</div>'+
-        '<div><div class="dl">Days</div>'+crow(DW,function(v){return d.days.indexOf(v)>-1;})+'</div>'+
+        '<div><div class="dl">Use within</div>'+crow(['28','60'],function(v){return String(d.exp)===v;}).replace(/>28</,'>28 days<').replace(/>60</,'>60 days<')+'<div class="duseby">Use by <b>'+usebyStr(d)+'</b></div></div>'+
+        '<div><div class="dl">How often</div>'+crow(FN,function(v){return d.freq===v;})+'</div>'+
+        (needDays(d.freq)?('<div><div class="dl">Days</div>'+crow(DW,function(v){return d.days.indexOf(v)>-1;})+'</div>'):'')+
         '<div><div class="dl">When</div>'+crow(TM,function(v){return d.times.indexOf(v)>-1;})+'</div>'+
       '</div>'):'');
     wire(el,d);return el;
   }
-  function refresh(el,d){el.querySelector('.dsyr').innerHTML=syrHTML(d);el.querySelector('.dmeta').innerHTML=metaHTML(d);}
+  function refresh(el,d){el.querySelector('.dsyr').innerHTML=syrHTML(d);el.querySelector('.dmeta').innerHTML=metaHTML(d);var u=el.querySelector('.duseby b');if(u)u.textContent=usebyStr(d);}
   function wire(el,d){
     el.querySelector('.iName').addEventListener('input',function(){d.name=this.value;});
     el.querySelector('.iVial').addEventListener('input',function(){d.vial=this.value;refresh(el,d);});
@@ -1717,7 +1730,7 @@ $('#tipPen').innerHTML=tipSVG('pen');
     el.querySelectorAll('.ddate .q').forEach(function(b){b.onclick=function(){
       var v=b.dataset.v,grp=b.parentNode;
       if(['28','60'].indexOf(v)>-1){d.exp=+v;grp.querySelectorAll('.q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);});refresh(el,d);}
-      else if(FREQ.indexOf(v)>-1){d.freq=d.freq===v?'':v;grp.querySelectorAll('.q').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===d.freq);});}
+      else if(FN.indexOf(v)>-1){d.freq=d.freq===v?'':v;var m=fmeta(d.freq);if(m&&m[1]==='mf')d.days=['Mon','Tue','Wed','Thu','Fri'];else if(!m||m[1]===0)d.days=[];render();}
       else if(DW.indexOf(v)>-1){var i=d.days.indexOf(v);if(i>-1)d.days.splice(i,1);else d.days.push(v);b.setAttribute('aria-pressed',d.days.indexOf(v)>-1);}
       else{var j=d.times.indexOf(v);if(j>-1)d.times.splice(j,1);else d.times.push(v);b.setAttribute('aria-pressed',d.times.indexOf(v)>-1);}
     };});
@@ -1747,7 +1760,7 @@ setMode(startMode);
     $(box).innerHTML=vals.map(function(v){return '<button type="button" class="btn q" data-v="'+v+'" aria-pressed="false">'+v+'</button>';}).join('');
     $$(box+' .q').forEach(function(b){b.onclick=function(){tog(b.dataset.v);$$(box+' .q').forEach(function(x){x.setAttribute('aria-pressed',get(x.dataset.v));});update();};});
   };
-  const FREQ=[['Daily',0],['Every other day',1],['Weekly',1],['5 on, 2 off','mf'],['Custom',1]];
+  const FREQ=[['Daily',0],['Every other day',0],['Weekly',1],['5 on, 2 off','mf'],['Custom',1]];
   function freqMeta(){return FREQ.filter(function(x){return x[0]===S.freq;})[0];}
   function daysNeeded(){const f=freqMeta();return f?!!f[1]:false;}
   function paintDays(){$$('#dayQ .q').forEach(function(x){x.setAttribute('aria-pressed',S.days.indexOf(x.dataset.v)>-1);});$('#dayHint').style.display=S.days.length?'none':'';}
