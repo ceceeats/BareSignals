@@ -2,6 +2,11 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v20 (24 Oct 2026) at /protocol/v20/
+- Phone pictures: three 1080 px wide PNGs drawn on the device (nothing uploaded), about 250 to 450 KB each, previewed in a sheet with Save, Save all to Photos (phone share sheet) or Download all. 1 · Routine: the note, then each clock time with every peptide's colour, dose, units or sprays, days and end date, then Next. 2 · Next two weeks: 14 rows by up to five time-of-day columns (her clock times), each dose a coloured block with name, dose and units, not-in-stock doses faded, vial ends, restocks and blood tests marked. 3 · To do: what to buy and by when (count and vial size), blood tests with dates and the test list, coming vial ends.
+- One clear colour per peptide in each protocol: starts from the vial sticker's main colour; if that is too close to one already used (BPC-157 and TB-500 are both Tissue repair yellow) or too pale to see, it takes the next colour from the peptide's own sticker and roles. Calendar, routine, at a glance and the pictures use it; stack cards keep the sticker mini-square.
+- Built on the other session's v19 (roles row, Library sort tabs, Blood Work style tests), kept.
+
 ## v18 (24 Oct 2026) at /protocol/v18/
 Takes the good parts of a competitor's personalised protocol (personal note, why each peptide, preparing the vials, a "next" list, version number, sharps and dry-alcohol lines) and keeps everything this page already did better (dated calendar, restock, blood work, overlap check, links that edit).
 - Her day: clock times for Morning, Lunch (was Midday), Afternoon, Evening, Bedtime (08:00, 12:30, 15:00, 19:00, 22:00 by default). Used in the Week calendar, the routine and the calendar file.
