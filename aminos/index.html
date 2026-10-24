@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V60 (24 Oct 2026): compact build header on phone; tour chips in the Library Synergies style; role legend as filled Library role tags. V59 kept at /aminos/v59/. -->
 <!-- Aminos V59 (24 Oct 2026): amino acid library of shape families with Library-style profile tiles and card; origin map under the chain; role tags inside the chain box on laptop; 53 Library entries incl. blends, unpublished chains and big proteins. V58 kept at /aminos/v58/. -->
 <!-- Aminos V58 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons); version log links in ink, no default link blue; phone fallback text size l. V57 kept at /aminos/v57/. -->
 <!-- Aminos V57 (23 Oct 2026): text size follows nav v10 (applies the number nav sends, so the laptop fourth and fifth A work; laptop starts at 1.15). V56 kept at /aminos/v56/. -->
@@ -1163,13 +1164,39 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .string .ctags{position:absolute;display:flex;flex-wrap:wrap;gap:3px;max-width:84%;z-index:1;pointer-events:none}
 .string .ctags .rtg{font-size:9px;padding:3px 6px;border-width:1px}
 .string .ctags.flow{position:static;max-width:none;justify-content:center;padding:0 0 8px}
+
+/* V60: Synergies-style example chips, Library role tags, compact build header */
+.tchips .tch{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font:500 12px/1.2 var(--body)!important;color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:3px 8px 3px 4px!important;white-space:nowrap;flex:none}
+.tchips .tch i{width:10px;height:10px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.tchips .tch.on{background:var(--ink);color:var(--paper)}
+.tchips .tch:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tchips .tch::after{display:none!important}
+#pleg .rtl{display:flex;flex-wrap:wrap;gap:3px;width:100%}
+#pleg .rtl .rtg{font-size:8.5px;padding:3px 5px}
+#pleg span:not(.rtl){display:none}
+#topban #pname,#topban #pleg{width:auto!important;max-width:none!important;align-self:stretch!important;box-sizing:border-box}
+#topban #pname .pnt{flex:1 1 auto!important;min-width:0!important;width:auto!important}
+#topban #pname .pst{flex:0 0 34%!important;width:auto!important}
+@media (min-width:900px){#topban{padding-left:0!important}#topban #pname .pst{flex-basis:30%!important}}
+@media (max-width:899px){
+ .trans>.lede2{font-size:13px!important;line-height:1.45;margin-bottom:6px}
+ .nowline .tline{font-size:12px!important;margin:4px 0 2px!important}
+ .nowline .tbtns{gap:10px!important;margin:4px 0!important}
+ .nowline .tnext{font-size:12.5px!important;padding:6px 11px!important}
+ .nowline .tryb{font-size:12px!important}
+ .nowline .tchips{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;overflow-x:auto;gap:5px!important;width:100%;padding:2px 0 6px;margin:4px 0 0!important;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent)}
+ .nowline .tchips::-webkit-scrollbar{display:none}
+ #pname strong{font-size:20px!important}
+ #pleg{margin:6px 0 0!important;gap:4px!important}
+ #pleg em{font-size:10px!important}
+}
 </style>
 
 <div class="wrap">
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V59</small></h1>
+    <h1>From Gene to Peptide<small>V60</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1289,8 +1316,9 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 59 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 59 rounds of edits by Cece, 21 to 24 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 60 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 60 rounds of edits by Cece, 21 to 24 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V60:</b> the top of Build a peptide is shorter on phones: the example chips look like the Synergies chips in the Library (a colour square and the name, small, in one swipeable row), the Next example button and the one-line description are smaller, and the roles under the example are filled role tags, the way the Library labels them. <a href="/aminos/v59/">V59 kept here</a>.</p>
     <p><b>V59:</b> Part one becomes The amino acid library: the table is gone, and the 21 are grouped by shape into six families (oily, rings, water-loving, negative, positive, the odd one), each a profile tile in the Library sticker style with its weight, essential badge, size, one line on what it does, filled role tags, codons, the year it was found and its colour stripe. The amino card follows the Library card: smaller type, filled role tags, the shape on graph paper, and four blocks (what it is for, facts, structure, size and shape). For every peptide cut from a protein, the map of where its links come from now sits right under the chain in the same shapes and colours, and hovering one lights up the other. On laptops each chain carries its role tags inside the graph paper. 53 entries join from the Library (167 in all): 11 buildable peptides, 8 with unpublished sequences, 3 big proteins, 11 non-peptides, 2 mixtures and all 18 blends, each blend showing its share of the vial and a card per part. <a href="/aminos/v58/">V58 kept here</a>.</p>
     <p><b>V58:</b> the page now sits in the same width as the Bare Signals bar on every laptop: the title starts under the wordmark and the right edge ends under the A buttons, at every text size. Links in this log are ink, not browser blue. On laptop the open amino card stacks structure above roles instead of squeezing them side by side. <a href="/aminos/v57/">V57 kept here</a>.</p>
     <p><b>V57:</b> text size follows the site bar’s new laptop scale (five steps on laptop, starting at the old large A).</p>
@@ -2019,10 +2047,10 @@ const TOUR=[["BPC-157","A 15-link piece of a stomach protein nobody has publishe
 let tourI=-1,tourKeep=false;
 function goTour(k){k=(k+TOUR.length)%TOUR.length;const i=P.findIndex(p=>p[0]===TOUR[k][0]);if(i<0)return;tourI=k;tourKeep=true;pick(i,true,k===0)}
 function pick(i,go,isDemo){if(!tourKeep)tourI=-1;tourKeep=false;demo=!!isDemo;document.querySelector(".res").classList.toggle("tourm",tourI>=0);cur=i;closeList();const p=P[i];$("#dna").hidden=true;$("#dnaview").hidden=false;$("#dna").value=p[1]?p[1].split("").map(x=>REV[x]).join("")+"TAA":"";document.querySelector(".res").classList.toggle("np",!p[1]);renderPop();renderList();tr();if(!p[1]){head();origin(p);$("#statsbox").innerHTML="";}if(go){requestAnimationFrame(()=>{const t=$("#nowline");if(!t)return;const y=t.getBoundingClientRect().top+scrollY-14;scrollTo({top:Math.max(0,y),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})})}}
-function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=c.map(k=>`<span><i style="${sw(k)}"></i>${PAL[k][0]}</span>`).join("");if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
+function legend(p){const el=$("#pleg");if(!el)return;const c=p?(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]):[];el.innerHTML=`<span class="rtl">${c.slice().reverse().map(k=>rtag(k)).join("")}</span>`;if(c.length)el.innerHTML+=`<em>Research associations, not proven effects.</em>`;el.hidden=!c.length}
 function head(){
   if(cur===null){placeBanner(null);$("#s5n").classList.remove("gone");$("#s5h").textContent="Built";$("#s5p").textContent="What you made";$("#pname").innerHTML="";legend(null);const nl=$("#nowline");if(nl)nl.innerHTML=`<span class="nwl">Building</span><b class="nwn">your own DNA</b>`;return ""}
-  const p=P[cur];legend(p);{const np=!p[1];$("#s5n").classList.toggle("gone",np);$("#s5h").textContent=np?"What it is":"Built";$("#s5p").textContent=np?({bl:"Several things in one vial",unp:"A chain kept private",prot:"Too big to build here",mix:"Many chains at once"})[(ORI[p[0]]||[])[0]]||"Not built from a gene":"What you made"}const nl=$("#nowline");const uc=(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]).map(k=>PAL[k][1]);const ug=uc.length?`linear-gradient(90deg,${uc.map((c,k)=>`${c} ${(k*100/uc.length).toFixed(1)}% ${((k+1)*100/uc.length).toFixed(1)}%`).join(",")})`:"linear-gradient(#3E4A80,#3E4A80)";if(nl)nl.innerHTML=`<span class="nwl">${tourI>=0?`Example ${tourI+1} of ${TOUR.length}`:"Building"}</span><b class="nwn" style="--ug:${ug}">${p[0]}</b>${tourI>=0?`<span class="tline">${TOUR[tourI][1]}</span>`:""}<span class="tbtns">${tourI>=0?`<button type="button" class="tnext" onclick="goTour(${tourI+1})">${tourI===TOUR.length-1?"Start again ↺":"Next example →"}</button>`:`<button type="button" class="tnext" onclick="goTour(0)">Take the tour →</button>`}<button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">or pick any ↓</button></span><span class="tchips">${TOUR.map((x,k)=>`<button type="button" class="tch${k===tourI?" on":""}" onclick="goTour(${k})">${x[0]}</button>`).join("")}</span>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span><a class="lib" href="/library/#/p/${libSlug(p[0])}">Read in the library</a></div>${stickerStripe(p[0],p[2])}`;placeBanner(p);
+  const p=P[cur];legend(p);{const np=!p[1];$("#s5n").classList.toggle("gone",np);$("#s5h").textContent=np?"What it is":"Built";$("#s5p").textContent=np?({bl:"Several things in one vial",unp:"A chain kept private",prot:"Too big to build here",mix:"Many chains at once"})[(ORI[p[0]]||[])[0]]||"Not built from a gene":"What you made"}const nl=$("#nowline");const uc=(STR[p[0]]||(p[2]?[p[2]]:[])).filter(k=>PAL[k]).map(k=>PAL[k][1]);const ug=uc.length?`linear-gradient(90deg,${uc.map((c,k)=>`${c} ${(k*100/uc.length).toFixed(1)}% ${((k+1)*100/uc.length).toFixed(1)}%`).join(",")})`:"linear-gradient(#3E4A80,#3E4A80)";if(nl)nl.innerHTML=`<span class="nwl">${tourI>=0?`Example ${tourI+1} of ${TOUR.length}`:"Building"}</span><b class="nwn" style="--ug:${ug}">${p[0]}</b>${tourI>=0?`<span class="tline">${TOUR[tourI][1]}</span>`:""}<span class="tbtns">${tourI>=0?`<button type="button" class="tnext" onclick="goTour(${tourI+1})">${tourI===TOUR.length-1?"Start again ↺":"Next example →"}</button>`:`<button type="button" class="tnext" onclick="goTour(0)">Take the tour →</button>`}<button type="button" class="tryb" onclick="document.getElementById('pickers').scrollIntoView({behavior:'smooth',block:'start'})">or pick any ↓</button></span><span class="tchips">${TOUR.map((x,k)=>`<button type="button" class="tch${k===tourI?" on":""}" onclick="goTour(${k})"><i style="${(q=>q&&PAL[q[2]]?sw(q[2]):"background:#E3E0BF")(P.find(q=>q[0]===x[0]))}"></i>${x[0]}</button>`).join("")}</span>`;$("#pname").innerHTML=`<div class="pnt"><span class="pnl">${p[1]?"You built":"You picked"}</span><strong>${p[0]}</strong><span class="pnc">${!p[1]?"<b class='isprot'>Not a peptide</b>":p[1].length+" amino acids"}${p[1]&&p[1].length>=50?" · <b class='isprot'>a protein</b>":""}${p[2]?" · "+PAL[p[2]][0]:""}</span><a class="lib" href="/library/#/p/${libSlug(p[0])}">Read in the library</a></div>${stickerStripe(p[0],p[2])}`;placeBanner(p);
   return p[3]?`<p class="mod">Modified: ${p[3]}.</p>`:"";
 }
 $("#popmore2").addEventListener("click",()=>{popAll=!popAll;renderPop();if(popAll)$("#pop").scrollIntoView({block:"nearest",behavior:"smooth"})});$("#popmore").addEventListener("click",()=>{popAll=!popAll;renderPop();if(!popAll)$("#pickers").scrollIntoView({block:"start",behavior:"smooth"})});$("#psort").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;popSort=b.dataset.s;renderPop()});
