@@ -2,6 +2,16 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v8 (24 Oct 2026) at /made/v8/
+New Part seven, Excipients and stability, between Dose, dry, seal and Purity; later parts renumbered (Purity is now eight, COA nine, Weight ten, pH eleven, Toxins twelve, Reactions thirteen) and every cross-reference updated. Built on v7, kept.
+- The supporting cast: eight excipient cards (bulking agent, sugar shield, buffer, tonicity, surfactant, preservative, antioxidant, pH adjuster) with icon, job, common examples, how often each appears in EU freeze-dried protein and peptide medicines (Gervasi 2018), and which labels use it.
+- Read a real label: Ozempic pen, Forteo pen, Egrifta SV vial, Zepbound vial and KwikPen, Pitocin, and a typical research vial; each ingredient colour-coded by job with amounts, plus a by-weight bar where amounts are known (the peptide is 0.5% of Forteo's solids, 6% of Egrifta SV's).
+- What wears a peptide down: seven threats (water, oxygen, light, heat, pH, surfaces and shaking, freeze-thaw) with the bricks each attacks and the defence.
+- Find the soft spots: pick any Library peptide (10 popular chips plus a list of every sequenced entry); the chain gets red labels on oxidation, deamidation, Asp-Gly, Asp-Pro, front Q and diketopiperazine spots, plus clumping and sticking flags, a soft-spot meter and per-peptide notes (caps, rings, special bricks, GHK-Cu copper, oxytocin bridge). Rules from Sigma-Aldrich; read from sequence, not measured.
+- Popular peptides at a glance: 20 peptides by soft-spot type, rows open the scanner.
+- Three vials, three lifespans: sealed powder, medicine pen in use (Ozempic 56 days), research vial mixed with BAC water; the 28 days is the water's rule, not a tested life.
+- Walk gains a ninth step, Keep (3 across on phone, 9 on laptop). Chain labels stack on two heights when soft spots sit close. Library data now v49. Sources 23 to 29.
+
 ## v7 (24 Oct 2026) at /made/v7/
 One content width with the site bar: on laptop the page is the shared 1240px box with 24px sides, zoom compensated, so the title starts under the BARE SIGNALS wordmark and the right edge ends under the A buttons at every text size; phone 16px sides, full width. Phone fix: the pH boxes and the BAC water vs saline table no longer push past the screen at the large A (they were 97px too wide). Phone fallback text size is the large A. At the two largest laptop A the four ways bricks are made sit two across, and their tags wrap instead of running out of the card. Built on v6, kept.
 
