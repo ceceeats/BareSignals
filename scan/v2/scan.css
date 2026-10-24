@@ -34,7 +34,7 @@ button{font:inherit;color:inherit}
 .spec .v{font:600 .9rem/1.2 var(--mono);overflow-wrap:anywhere}
 .spec .v.big{color:var(--draw)}
 .stamp{display:inline-flex;align-items:center;gap:4px}
-.stamp svg{flex:none;width:14px;height:14px}
+.stamp svg{flex:none;width:17px;height:17px}
 .mine{margin:10px 0 0;padding:7px 9px;border:1.5px dashed var(--act);background:var(--actbg);font-size:.88rem;display:flex;gap:8px;align-items:center;justify-content:space-between}
 .mine b{font-family:var(--mono);font-size:.8rem}
 /* action buttons: always the orange action colour */
@@ -82,7 +82,7 @@ button{font:inherit;color:inherit}
 .warn{margin:8px 0 0;padding:7px 9px;border:1.5px solid var(--flag);background:#FFF0F0;color:#7A1A1A;font-size:.86rem}
 .stk{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
 .sk{display:inline-flex;align-items:center;gap:5px;font:600 .74rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--cream);border:1.5px solid currentColor;padding:4px 6px 3px}
-.sk svg{width:11px;height:11px;flex:none}
+.sk svg{width:13px;height:13px;flex:none}
 .sk.w{color:var(--water)}.sk.d{color:var(--dose)}.sk.s{color:var(--draw)}.sk.e{color:var(--exp)}
 .syr{display:block;width:100%;height:auto;margin:10px 0 0}
 .round{font-size:.85rem;color:var(--soft);margin:8px 0 0}
