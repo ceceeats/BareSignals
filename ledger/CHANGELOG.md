@@ -1,0 +1,2 @@
+# Bare Signals Ledger (private, unlinked, noindex)
+- v1 (24 Oct 2026): first design audit of the live site at commit 84b6aea. 13 pages read at phone 390px and laptop 1280px. 53 entries in 9 sections (F clashes, C colours, R role tags, B badges, A advice boxes, O buttons, T text, S symbols, P tiles and cards), each with Like / Don't like / Smaller / Bigger / Same as + note. Notes save on the device; "Copy all my notes" to paste into chat.
