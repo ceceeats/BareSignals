@@ -6,7 +6,7 @@
    Rerun after any Library or Protocol release so scan pages carry the new data. */
 const fs=require('fs'),path=require('path'),vm=require('vm');
 const ROOT=path.resolve(__dirname,'../..');
-const V='v1';
+const V='v2'; /* v2: community dose first (never the label dose), dose diary */
 const LIB=(fs.readFileSync(ROOT+'/library/index.html','utf8').match(/replace\('(v\d+)\//)||[])[1];
 const PRO=(fs.readFileSync(ROOT+'/protocol/index.html','utf8').match(/(v\d+)\//)||[])[1];
 if(!LIB||!PRO)throw new Error('could not find live Library or Protocol version');
@@ -31,7 +31,7 @@ function parseFreq(s){s=String(s||'').toLowerCase();if(!s)return 'D';
  if(/1–3× weekly|twice weekly|2× weekly|1–2× weekly|2x weekly/.test(s))return '2W';
  if(/once weekly|1× weekly|weekly/.test(s)&&!/daily/.test(s))return '1W';
  return 'D'}
-function doseChips(ds){const s=String(ds||'').replace(/^~\s*/,'');const m=s.match(/^([\d.]+)\s*(?:[–-]\s*([\d.]+))?\s*(mcg|mg|IU|mL|g|units?|U)\b(?!\s*\/)/i);
+function doseChips(ds){const s=String(ds||'').replace(/(\d),(\d{3})/g,'$1$2').replace(/^~\s*/,'');const m=s.match(/^([\d.]+)\s*(?:[–-]\s*([\d.]+))?\s*(mcg|mg|IU|mL|g|units?|U)\b(?!\s*\/)/i);
  if(!m)return [];const u=m[3];const out=[m[1]+' '+u];if(m[2])out.push(m[2]+' '+u);return out}
 function routeOf(ds){const r=String((ds&&ds.route)||'').toLowerCase();if(!r)return '';if(/nasal/.test(r)&&!/sub-?q|inj|im\b/.test(r))return 'nasal';if(/^oral|sublingual/.test(r))return 'oral';if(/^topical/.test(r))return 'topical';return 'inj'}
 function parseWeeks(s){s=String(s||'').toLowerCase();return /ongoing|continuous|similar to|same as|prn|no cycling|up to 2 years/.test(s)}
@@ -42,7 +42,12 @@ const codeOf={};Object.entries(CODES).forEach(([c,s])=>codeOf[s]=c);
 const out={};
 for(const d of D){
  const c=codeOf[d.slug];if(!c)continue;
- const ds=d.dose||{};const pr=PREC[d.slug]||{};
+ const ds0=d.dose||{};const pr=PREC[d.slug]||{};
+ /* Cece's rule (24 Oct 2026): people here self-experiment with grey-market peptides, so the recommended dose is always the
+    community dose: the first tier that is not a label or trial tier. Label doses are never the default. */
+ const tier=(ds0.tiers||[]).find(t=>!/label|trial|clinical|fda|rx/i.test(t.label||'')&&t.tag!=='label')||null;
+ const ds=Object.assign({},ds0,tier?{dose:tier.dose,freq:tier.freq||ds0.freq,cycle:tier.dur||ds0.cycle,route:tier.route||ds0.route}:{dose:String(ds0.dose||'').replace(/;\s*[^;]*\(label[^)]*\)\s*$/i,'').replace(/\s*\(?community\)?/i,'')});
+ const dsrc=tier?'Community · '+tier.label:ds0.conf==='logged'?'Logged':/label/i.test(String(ds0.dose))?'Community':ds0.conf==='verified'?'Reported':'Community';
  const route=pr.route||routeOf(ds);
  const chips=pr.chips||doseChips(ds.dose);
  const bd=d.blend&&d.blend.draw;
@@ -53,7 +58,7 @@ for(const d of D){
  out[c]={c,s:d.slug,n:d.name,cl:cls(d),p:d.primary,r:d.roles||[],rp:(d.reported||[]).filter(r=>(d.roles||[]).indexOf(r)<0),
   ds:Object.fromEntries((all).map(r=>[r,(d.desc||{})[r]||''])),
   u:ds.use||d.fn||'',fda:!!d.fda,o:d.otl||d.originDetail||'',
-  d:{dose:ds.dose||'',freq:ds.freq||'',cycle:ds.cycle||'',route:ds.route||'',half:ds.half||''},
+  d:{dose:(pr.range?pr.range.split(' · ')[0]:ds.dose)||'',freq:ds.freq||'',cycle:ds.cycle||'',route:pr.route==='inj'&&pr.range?'Sub-Q':ds.route||'',half:ds0.half||'',src:pr.range?'Bare Signals start':dsrc,dose2:pr.range||''},
   rt:route,ch:chips,st:start,f:pr.f||parseFreq(ds.freq),vm:vial,vw:water,bu:bd&&bd.units||0,
   bl:d.blend?d.blend.parts.map(p=>[p[2],p[1]]):null,bu2:d.blend&&d.blend.unit||'',
   kind:d.kind||'',go:parseWeeks(ds.cycle),stock:!!STOCK[d.slug],rank:d.rank};
