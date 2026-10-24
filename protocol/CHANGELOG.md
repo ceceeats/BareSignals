@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v24 (25 Oct 2026) at /protocol/v24/
+- The page opens on the stack: step one is "What's your stack?", step two "Your doses". The name, times of day and note box moved into a small optional fold under the Save button ("Name, times of day, a note"), showing the name once set. Built on v23, kept.
+
 ## v23 (24 Oct 2026) at /protocol/v23/
 - Vial sizes from Cece's stock (Purchase Logbook, Compound totals, 24 Oct 2026) for the 28 compounds she owns or has on order, e.g. MOTS-c 40 mg, SS-31 50 mg, 5-Amino-1MQ 50 mg, CJC + Ipa 5 + 5 mg; the sticker sheet fills the rest. Water: 2 ml BAC for nearly everything (Tesamorelin 3 ml, NAD+ 5 ml), so doses stay measurable in units.
 - Stack cards show the mix ("50 mg + 2 ml BAC") and always the syringe units.
