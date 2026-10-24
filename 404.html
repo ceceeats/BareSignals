@@ -4,10 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<script src="/S/codes.js"></script>
+<script>/* 404 v2 (24 Oct 2026): vial scan links. /s/rta, /S/reta, /S/retatrutide, /S/RTA/20 (vial mg) all land on the locked /S/<CODE>/ page; unknown codes go to /S/ with the code shown. */
+(function(){var m=location.pathname.match(/^\/s\/([^\/]+)(?:\/([\d.]+))?\/?$/i);if(!m)return;
+var raw=decodeURIComponent(m[1]),up=raw.toUpperCase().replace(/[^A-Z0-9]/g,''),C=window.BS_CODES||{},A=window.BS_CODE_ALIAS||{},c='';
+if(C[up])c=up;else if(A[up])c=A[up];else{var lo=raw.toLowerCase();for(var k in C)if(C[k]===lo){c=k;break}}
+location.replace(c?'/S/'+c+'/'+(m[2]?'#v='+m[2]:''):'/S/?c='+encodeURIComponent(raw.slice(0,20)));})();</script>
 <title>Not here · Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* 404 v1. Catches old or mistyped links; sends them to the newest version of the page they wanted. */
+/* 404 v2 adds vial scan routing (script in head). 404 v1. Catches old or mistyped links; sends them to the newest version of the page they wanted. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--rule:#E3E0BF}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif}
