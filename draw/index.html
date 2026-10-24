@@ -1,5 +1,6 @@
 <!doctype html>
 <!-- Draw Line v25 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the sticky card's right edge with the A buttons); text size fallback reads the laptop scale; v24 kept at /draw/v24/. -->
+<!-- Draw Line v35 (24 Oct 2026): header links to the new /nasal/ calculator. -->
 <!-- Draw Line v34 (24 Oct 2026): quick card gains a reverse mode — Set by Draw units back-solves BAC water (water = 10 x draw x vial_mg / dose_mcg) so a target syringe number can be held across compounds; BAC field becomes a read-only output in that mode; water outside 2-3 mL is flagged. -->
 <!-- Draw Line v33 (24 Oct 2026): over-syringe check (red full syringe, N\u00d7 100, total units, Check your dose) when units>100; rare-vial flag vs common size (VIAL/STOCK from protocol v23); gap logger (localStorage bs-qlog + bsTrack draw_qlog) for unknown compounds, missing vial data, over-doses. -->
 <!-- Draw Line v32 (24 Oct 2026): quick card gains fuzzy compound suggestions (misspelling-tolerant, tap to fill name), a timing note in the reported line where the library has one, and Low/High dose chips that fill the dose field + unit on tap. -->
@@ -570,7 +571,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
     <h1>Draw Line</h1>
     <div class="sub">Peptide reconstitution calculator</div>
   </div>
-  <div class="tags"><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v34</span></div>
+  <div class="tags"><a class="linkbtn" href="/nasal/">Nasal &rarr;</a><button class="linkbtn" id="toGloss" type="button">Glossary</button><span class="tag">Draft · ever evolving</span><span class="tag mute">v35</span></div>
 </header>
 
 <dialog id="ask" aria-labelledby="askT">
@@ -898,6 +899,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 <footer class="foot">
   <span>Math only. Not medical advice. Check every number against your vial label and a second calculation.</span>
   <details class="log"><summary>What changed</summary>
+  <span>v35: added a link to the new Nasal Spray calculator in the header. The quick card is unchanged.</span>
   <span>v34: the quick card works both ways. Set by BAC water (type the water, read the draw) or Set by Draw units (type the number of units you want to pull and it back-solves the BAC water, so you can keep every compound on the same draw). BAC water = 10 \u00d7 draw \u00d7 vial mg \u00f7 dose mcg. If the water lands outside the usual 2 to 3 mL it is flagged. v1 to v32 unchanged.</span>
   <span>v33: the quick card now checks for mistakes. A dose that needs more than one 100-unit syringe turns the syringe red, shows how many syringes (3\u00d7 100) and the total units, and prints Check your dose. An unusual vial size for the compound (far from what it is normally sold as) is flagged against its common size. Compounds or vial sizes the data cannot answer are logged for research follow-up. v1 to v31 unchanged.</span>
   <span>v32: the quick card now helps you spell and dose. Type a part or a misspelling of a compound (Reda for Retatrutide) and a suggestion list appears; tap one to fill the name. The reported line adds a timing note where one exists (before bed, in the morning, empty stomach) and a Low and High chip that type the dose for you when tapped. v1 to v30 unchanged.</span>

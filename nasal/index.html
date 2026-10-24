@@ -1,0 +1,281 @@
+<!doctype html>
+<!-- Nasal Spray v1 (24 Oct 2026): nasal reconstitution calculator. Vial mg + BAC water + saline (default 1:8 in a 10 mL bottle) -> concentration, mcg per 0.1 mL pump, sprays and doses per bottle, how long it lasts. Dose by mcg or by sprays (toggle). Compound suggestions + reported-dose reference reuse the library dose list. Setup shown as a diagram. /nasal/ is the live file, copies in /nasal/vN/. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Nasal Spray · Bare Signals</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FFFFE2; --ink:#3E4A80; --soft:#59649A; --rule:#E3E0BF; --chip:#FFFFF4;
+  --line:#E1DE62;--accent:#DB6830; --accent-ink:#B04A16; --liquid:#99ACFF; --saline:#CFE8F5;
+  --bad:#A8261C; --badbg:#FFE3DE;
+  --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(15px*var(--k,1))/1.45 var(--body);padding-block:18px 56px;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+h1,h2,h3,p,dl,dd,figure{margin:0}
+button,input{font:inherit;color:inherit}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.page{--z:1;--hk:1;max-width:calc(var(--bs-w,1240px) / var(--z));margin:0 auto;padding-inline:calc(var(--bs-pad,16px) / var(--z));display:flex;flex-direction:column;gap:16px}
+@media (min-width:1000px){.page{padding-inline:calc(var(--bs-pad,24px) / var(--z))}}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.brand{font:600 calc(11px*var(--k,1)) var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+h1{font:700 calc(34px*var(--hk,1)) var(--display);line-height:1.02;margin-top:2px}
+.sub{color:var(--soft);margin-top:3px;font-size:calc(14px*var(--k,1))}
+.tags{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.tag{border:1.3px solid var(--rule);padding:4px 8px;font:600 calc(10.5px*var(--k,1)) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.tag.mute{color:var(--ink);border-color:var(--ink)}
+.linkbtn{background:none;border:1.3px solid var(--accent);color:var(--accent-ink);padding:4px 10px;font:600 calc(11px*var(--k,1)) var(--mono);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.card{border:1.5px solid var(--ink);background:var(--chip);padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px}
+.field{display:flex;flex-direction:column;gap:3px;min-width:0}
+.field>span{font:600 calc(10px*var(--k,1)) var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
+input{border:1.4px solid var(--ink);background:#fff;padding:7px 9px;width:100%;font:600 calc(16px*var(--k,1)) var(--mono);color:var(--accent-ink)}
+input::placeholder{color:#B8BFD6;font-weight:400}
+.dTop{position:relative;display:flex}
+.name{flex:1 1 100%}
+.dsug{position:absolute;left:0;right:0;top:100%;z-index:30;background:var(--paper);border:1.5px solid var(--ink);border-top:0;max-height:240px;overflow:auto;display:none;box-shadow:0 8px 18px rgba(62,74,128,.18)}
+.dsug.on{display:block}
+.dsug .sugb{display:flex;justify-content:space-between;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(62,74,128,.15);padding:8px 10px;font:600 calc(13px*var(--k,1)) var(--body);color:var(--ink);cursor:pointer}
+.dsug .sugb:last-child{border-bottom:0}
+.dsug .sugb span{font-weight:400;color:var(--soft);font-family:var(--mono);font-size:calc(10.5px*var(--k,1));white-space:nowrap}
+.dsug .sugb:hover,.dsug .sugb:focus{background:var(--chip);outline:none}
+.dref{font:400 calc(11px*var(--k,1))/1.35 var(--body);color:var(--soft);min-height:0}
+.dref:empty{display:none}
+.dref b{font-weight:600;color:var(--accent-ink)}
+.dref i{font-style:normal}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+@media (max-width:560px){.grid{grid-template-columns:repeat(3,1fr)}}
+.dmode{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.dml{font:600 calc(10.5px*var(--k,1)) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.mtog{background:none;border:1.3px solid var(--ink);color:var(--ink);padding:4px 11px;font:600 calc(11px*var(--k,1)) var(--mono);cursor:pointer}
+.mtog[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.minput,.perday{display:inline-flex;align-items:center;gap:5px;font:600 calc(12px*var(--k,1)) var(--mono);color:var(--ink)}
+.minput input{width:92px}.perday input{width:46px}
+.perday{color:var(--soft)}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--rule);border:1.5px solid var(--ink);margin-top:2px}
+.out .cell{background:var(--chip);padding:9px 11px;display:flex;flex-direction:column;gap:2px}
+.out .cell.hero{grid-column:1 / -1;background:#FFF6E8}
+.out .k{font:600 calc(10px*var(--k,1)) var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
+.out .v{font:700 calc(20px*var(--k,1)) var(--display);color:var(--ink)}
+.out .v small{font:400 calc(12px*var(--k,1)) var(--body);color:var(--soft)}
+.out .hero .v{color:var(--accent-ink)}
+.warn{display:flex;flex-direction:column;gap:5px}
+.warn:empty{display:none}
+.wl{background:var(--badbg);border-left:3px solid var(--bad);color:#8E2117;font:400 calc(12px*var(--k,1))/1.4 var(--body);padding:7px 10px}
+.wl b{font-weight:700;color:var(--bad)}
+.setup{border:1.5px solid var(--rule);padding:14px}
+.setup h2{font:700 calc(18px*var(--hk,1)) var(--display);margin-bottom:3px}
+.setup .lead{color:var(--soft);font-size:calc(13px*var(--k,1));margin-bottom:10px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:start}
+@media (max-width:620px){.steps{grid-template-columns:1fr}}
+.step{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+.step svg{width:100%;height:auto;max-width:150px}
+.step .cap{font:600 calc(11px*var(--k,1)) var(--mono);color:var(--ink)}
+.step .cap b{color:var(--accent-ink)}
+.step .n{font:700 calc(11px*var(--k,1)) var(--mono);color:var(--paper);background:var(--ink);width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.pumpline{margin-top:12px;border-top:1px dashed var(--rule);padding-top:10px;font:600 calc(13px*var(--k,1)) var(--mono);color:var(--ink);text-align:center}
+.pumpline b{color:var(--accent-ink)}
+.note{color:var(--soft);font-size:calc(12px*var(--k,1));margin-top:10px;line-height:1.5}
+.changelog{font-size:calc(12px*var(--k,1));color:var(--soft)}
+.changelog summary{font:600 calc(11px*var(--k,1)) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.changelog span{display:block;margin-top:7px;line-height:1.5}
+.foot{color:var(--soft);font-size:calc(11px*var(--k,1));text-align:center}
+</style>
+<script src="/nav.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div>
+    <div class="brand">Calculator</div>
+    <h1>Nasal Spray</h1>
+    <div class="sub">Nasal reconstitution calculator</div>
+  </div>
+  <div class="tags"><a class="linkbtn" href="/draw/">Draw Line &rarr;</a><span class="tag">Draft · ever evolving</span><span class="tag mute">v1</span></div>
+</header>
+
+<section class="card">
+  <div class="dTop">
+    <label class="field name"><span>Peptide</span><input id="iName" type="text" maxlength="32" autocomplete="off" placeholder="BPC-157"></label>
+    <div class="dsug" id="dsug"></div>
+  </div>
+  <div class="dref" id="dref"></div>
+
+  <div class="grid">
+    <label class="field"><span>Vial mg</span><input id="iVial" type="text" inputmode="decimal" value="10"></label>
+    <label class="field"><span>BAC mL</span><input id="iBac" type="text" inputmode="decimal" value="1"></label>
+    <label class="field"><span>Saline mL</span><input id="iSaline" type="text" inputmode="decimal" value="8"></label>
+    <label class="field"><span>Bottle mL</span><input id="iBottle" type="text" inputmode="decimal" value="10"></label>
+    <label class="field"><span>Pump mL</span><input id="iPump" type="text" inputmode="decimal" value="0.1"></label>
+  </div>
+
+  <div class="dmode">
+    <span class="dml">Dose by</span>
+    <button class="mtog" type="button" data-m="mcg" aria-pressed="true">mcg</button>
+    <button class="mtog" type="button" data-m="sprays" aria-pressed="false">sprays</button>
+    <span class="minput" id="mInput"></span>
+    <span class="perday">· <input id="iPerDay" type="text" inputmode="decimal" value="1"> dose/day</span>
+  </div>
+
+  <div class="out" id="out"></div>
+  <div class="warn" id="warn"></div>
+</section>
+
+<section class="setup">
+  <h2>How to set it up</h2>
+  <div class="lead">One part BAC water to reconstitute, the rest saline to dilute, into a pump bottle. Default 1 mL BAC + 8 mL saline in a 10 mL bottle.</div>
+  <div class="steps" id="steps"></div>
+  <div class="pumpline" id="pumpline"></div>
+  <p class="note">BAC water dissolves the peptide and keeps it stable; plain saline makes up the volume so the bottle fills and each spray is gentle. Prime the pump with a few sprays into a tissue before the first dose, and after it sits unused, so the first real spray is a full dose. Many protocols split a dose between nostrils: two sprays can mean one per side. Keep it refrigerated and use within the date on your draw log. Math only, not a dose recommendation.</p>
+</section>
+
+<details class="changelog">
+  <summary>Version history</summary>
+  <span>v1: nasal reconstitution calculator. Enter the vial, the BAC water and saline (default 1:8 into a 10 mL bottle), and the pump size (default 0.1 mL). It shows the concentration, the mcg in each spray, how many sprays and doses the bottle holds and how long it lasts. Dose can be set by mcg or by sprays. A setup diagram shows the vial, the BAC and saline, and the pump.</span>
+</details>
+
+<div class="foot">Bare Signals · baresignals.co</div>
+
+</div>
+
+<script>
+var DOSE_LIST=[{"n":"FOXO4-DRI","s":"foxo4-dri","k":["foxo4-dri","foxo4 senolytic proxofim","foxo4 d-retro-inverso peptide","foxo4-p53 interfering peptide"],"d":"~5 mg (est.)","f":"days 1, 3, 5","lo":[5,"mg"],"hi":[5,"mg"]},{"n":"NAD+","s":"nadplus","k":["nad+","nadplus","nad coenzyme","nicotinamide adenine dinucleotide","dpn+","diphosphopyridine nucleotide","coenzyme i","cozymase","nadh"],"d":"50–100 mg","f":"2–3× weekly","lo":[50,"mg"],"hi":[100,"mg"]},{"n":"Methylene blue","s":"methylene-blue","k":["methylene blue","methylene-blue","methylthioninium mb","methylthioninium chloride","provayblue","basic blue 9","c.i. 52015","urolene blue"],"d":"5–20 mg","f":"once daily","lo":[5,"mg"],"hi":[20,"mg"]},{"n":"Retatrutide","s":"retatrutide","k":["retatrutide","reta ly3437943 triple agonist glp-3","ly-3437943"],"d":"2–12 mg","f":"once weekly","lo":[2,"mg"],"hi":[12,"mg"]},{"n":"Cagrilintide","s":"cagrilintide","k":["cagrilintide","cagri amylin cagrisema","am833","nn9838","glxc-26801","cagrisema"],"d":"1–4.5 mg","f":"once weekly","lo":[1,"mg"],"hi":[4.5,"mg"]},{"n":"Somatropin (HGH)","s":"somatropin-hgh","k":["somatropin-hgh","hgh growth hormone somatropin gh","somatotropin","rhgh","genotropin","norditropin","humatrope","nutropin","omnitrope","saizen","zomacton"],"d":"0.2–1 mg","f":"once daily","lo":[0.2,"mg"],"hi":[1,"mg"]},{"n":"Gonadorelin","s":"gonadorelin","k":["gonadorelin","gnrh lhrh","factrel","lutrepulse","hoe 471","ay 24031","ru 19847","abbott 41070","lh-rh","gonadorelin acetate","gonadorelin hydrochloride"],"d":"50–100 mcg","f":"twice weekly","lo":[50,"mcg"],"hi":[100,"mcg"]},{"n":"Larazotide","s":"larazotide","k":["larazotide","at-1001 larazotide acetate","inn-202"],"d":"0.5 mg","f":"3x daily","lo":[0.5,"mg"],"hi":[0.5,"mg"]},{"n":"Carnosine","s":"carnosine","k":["carnosine","l-carnosine beta-alanyl histidine","beta-alanyl-l-histidine","l-carnosine"],"d":"500–2000 mg","f":"1–2x daily","lo":[500,"mg"],"hi":[2000,"mg"]},{"n":"MK-677","s":"mk-677","k":["mk-677","ibutamoren nutrobal","mk-0677","l-163","lum-201","ibutamoren mesylate"],"d":"12.5–25 mg","f":"daily","w":"before bed","lo":[12.5,"mg"],"hi":[25,"mg"]},{"n":"SLU-PP-332","s":"slu-pp-332","k":["slu-pp-332","slu pp 332 exercise mimetic","cas 303760-60-3","4-hydroxy-n'-benzohydrazide"],"d":"500 mcg–1.5 mg","f":"once daily","lo":[500,"mcg"],"hi":[1.5,"mg"]},{"n":"5-Amino-1MQ","s":"5-amino-1mq","k":["5-amino-1mq","methylquinolinium","5-amino-1-methylquinolinium","5-amino-1-methylquinolinium iodide","5-amino-1-mq iodide","nnmt inhibitor 5-amino-1mq"],"d":"50–100 mg","f":"once daily","lo":[50,"mg"],"hi":[100,"mg"]},{"n":"Bromantane","s":"bromantane","k":["bromantane","ladasten","bromantan","bromontan","adk-709","n-adamantan-2-amine"],"d":"50–100 mg","f":"once daily","lo":[50,"mg"],"hi":[100,"mg"]},{"n":"Glucagon","s":"glucagon","k":["glucagon","reference","glucagen","gvoke","baqsimi"],"d":"1 mg","f":"once, may repeat","lo":[1,"mg"],"hi":[1,"mg"]},{"n":"Exenatide","s":"exenatide","k":["exenatide","exendin-4 gila monster reference","exendin-4","ac2993","byetta","bydureon","bydureon bcise","exenatide lar"],"d":"5–10 mcg","f":"twice daily","lo":[5,"mcg"],"hi":[10,"mcg"]},{"n":"Amylin","s":"amylin","k":["amylin","iapp reference","iapp","islet amyloid polypeptide","diabetes-associated peptide","insulinoma amyloid peptide"],"d":"15–120 mcg","f":"before major meals","lo":[15,"mcg"],"hi":[120,"mcg"]},{"n":"BPC-157","s":"bpc-157","k":["bpc-157","bepecin","pl 14736","pl-10","pld-116","body protection compound 157"],"d":"250–500 mcg","f":"1–2× daily","lo":[250,"mcg"],"hi":[500,"mcg"]},{"n":"TB-500 frag 17–23","s":"tb-500-frag-17-23","k":["tb-500 frag 17–23","tb-500-frag-17-23","tb-500","ac-lkktetq","tβ4"],"d":"2–2.5 mg","f":"1–2× weekly","lo":[2,"mg"],"hi":[2.5,"mg"]},{"n":"GHK-Cu","s":"ghk-cu","k":["ghk-cu","copper tripeptide-1","prezatide copper","prezatide copper acetate","copper peptide","tripeptide-copper complex"],"d":"1–3 mg","f":"Daily or 5 on, 2 off","lo":[1,"mg"],"hi":[3,"mg"]},{"n":"KPV","s":"kpv","k":["kpv","alpha-msh","lys-pro-val","tripeptide kpv","l-lysyl-l-prolyl-l-valine"],"d":"250 mcg–1 mg","f":"1–2× daily","lo":[250,"mcg"],"hi":[1,"mg"]},{"n":"Thymosin Beta-4","s":"thymosin-beta-4","k":["thymosin beta-4","thymosin-beta-4","tb-500 tb500 tb4 thymosin beta-4 full","tβ4","tmsb4x"],"d":"2–2.5 mg","f":"2–3× weekly","lo":[2,"mg"],"hi":[2.5,"mg"]},{"n":"Semaglutide","s":"semaglutide","k":["semaglutide","ozempic","wegovy","rybelsus","nn9535","nnc 0113-0217"],"d":"0.25–2.4 mg (HD 7.2 mg)","f":"once weekly","lo":[0.25,"mg"],"hi":[2.4,"mg"]},{"n":"Tirzepatide","s":"tirzepatide","k":["tirzepatide","ly3298176","mounjaro","zepbound"],"d":"2.5–15 mg","f":"once weekly","lo":[2.5,"mg"],"hi":[15,"mg"]},{"n":"MOTS-c","s":"mots-c","k":["mots-c","motsc","mitochondrial orf of the 12s rrna-c"],"d":"5–10 mg","f":"1–3× weekly","lo":[5,"mg"],"hi":[10,"mg"]},{"n":"SS-31","s":"ss-31","k":["ss-31","elamipretide","forzinity","bendavia","mtp-131"],"d":"5–10 mg","f":"daily","lo":[5,"mg"],"hi":[10,"mg"]},{"n":"Ipamorelin","s":"ipamorelin","k":["ipamorelin","nnc 26-0161","nnc-26-0161"],"d":"100–300 mcg","f":"daily","w":"before bed, empty stomach","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"CJC-1295 no DAC","s":"cjc-1295-no-dac","k":["cjc-1295 no dac","cjc-1295-no-dac","modified grf","mod grf 1-29","tetrasubstituted grf"],"d":"100–300 mcg","f":"daily","w":"before bed","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"Tesamorelin","s":"tesamorelin","k":["tesamorelin","th9507","egrifta","egrifta sv","egrifta wr","tesamorelin acetate"],"d":"1–2 mg","f":"daily","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"Sermorelin","s":"sermorelin","k":["sermorelin","geref","gerel","grf 1-29","ghrhnh2","sermorelin acetate"],"d":"200–500 mcg","f":"daily","w":"before bed","lo":[200,"mcg"],"hi":[500,"mcg"]},{"n":"Kisspeptin-10","s":"kisspeptin-10","k":["kisspeptin-10","kp-10","metastin","kisspeptin-54"],"d":"100–200 mcg","f":"daily or PRN","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Selank","s":"selank","k":["selank","selanc","селанк","tkprpgp"],"d":"200–400 mcg","f":"daily","lo":[200,"mcg"],"hi":[400,"mcg"]},{"n":"Semax","s":"semax","k":["semax","семакс","gly9","h-met-glu-his-phe-pro-gly-pro-oh"],"d":"200–600 mcg","f":"daily","lo":[200,"mcg"],"hi":[600,"mcg"]},{"n":"Pinealon","s":"pinealon","k":["pinealon","edr","edr peptide","glu-asp-arg"],"d":"1–2 mg","f":"once daily, AM","w":"in the morning","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"Epitalon","s":"epitalon","k":["epitalon","epithalon","epithalone","aedg peptide","ala-glu-asp-gly"],"d":"5–10 mg","f":"daily","lo":[5,"mg"],"hi":[10,"mg"]},{"n":"DSIP","s":"dsip","k":["dsip","emideltide","delta-sleep-inducing peptide","deltaran"],"d":"100–200 mcg","f":"as needed","w":"before bed","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Thymosin Alpha-1","s":"thymosin-alpha-1","k":["thymosin alpha-1","thymosin-alpha-1","thymalfasin","zadaxin","timosina","tα1"],"d":"1.6 mg","f":"twice weekly","lo":[1.6,"mg"],"hi":[1.6,"mg"]},{"n":"LL-37","s":"ll-37","k":["ll-37","fall-39","cathelicidin","hcap-18","camp"],"d":"100–200 mcg","f":"daily, 5 days/wk","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"MT-2","s":"mt-2","k":["mt-2","melanotan ii","mt-ii","melanotan-2"],"d":"250–500 mcg","f":"daily","lo":[250,"mcg"],"hi":[500,"mcg"]},{"n":"PT-141","s":"pt-141","k":["pt-141","bremelanotide","vyleesi"],"d":"1–1.75 mg","f":"as needed","lo":[1,"mg"],"hi":[1.75,"mg"]},{"n":"Oxytocin","s":"oxytocin","k":["oxytocin","pitocin","syntocinon","induxin"],"d":"10–40 IU","f":"as needed"},{"n":"CJC-1295 with DAC","s":"cjc-1295-with-dac","k":["cjc-1295 with dac","cjc-1295-with-dac","dac:grf","cjc-1295 dac"],"d":"2 mg","f":"once weekly","lo":[2,"mg"],"hi":[2,"mg"]},{"n":"IGF-1 LR3","s":"igf-1-lr3","k":["igf-1 lr3","igf-1-lr3","igf1 lr3 long r3","long r3 igf-1","lr3-igf-1","long arginine 3-igf-1","igf-1 long r3"],"d":"20–50 mcg","f":"daily","lo":[20,"mcg"],"hi":[50,"mcg"]},{"n":"PEG-MGF","s":"peg-mgf","k":["peg-mgf","mgf mechano growth factor","pegylated mgf","igf-1ec","igf-iec e-peptide"],"d":"200 mcg","f":"Daily or EOD","lo":[200,"mcg"],"hi":[200,"mcg"]},{"n":"GHK (no Cu)","s":"ghk-no-cu","k":["ghk-no-cu","ghk copper free","glycyl-l-histidyl-l-lysine","gly-his-lys","tripeptide-1"],"d":"1–2 mg","f":"Daily","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"Adipotide","s":"adipotide","k":["adipotide","ftpp prohibitin","ftpp","prohibitin-tp01","prohibitin-targeting peptide 1","ckggrakdc-gg-d2"],"d":"0.1–0.5 mg/kg","f":"Every 2-3 days"},{"n":"Cardiogen","s":"cardiogen","k":["cardiogen","bioregulator","aedr","ala-glu-asp-arg"],"d":"100–200 mcg","f":"1–2× daily, with meals","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Chonluten","s":"chonluten","k":["chonluten","bioregulator","edg","glu-asp-gly"],"d":"1–100 mcg","f":"once daily","lo":[1,"mcg"],"hi":[100,"mcg"]},{"n":"Bronchogen","s":"bronchogen","k":["bronchogen","bioregulator","aedl","ala-glu-asp-leu"],"d":"100–200 mcg","f":"1–2× daily, with meals","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Pancragen","s":"pancragen","k":["pancragen","bioregulator","kedw","lys-glu-asp-trp","h-lys-glu-asp-trp-nh2"],"d":"100–200 mcg","f":"1–2× daily, with meals","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Prostamax","s":"prostamax","k":["prostamax","bioregulator","kedp","lys-glu-asp-pro","prostate bioregulator"],"d":"1–2 mg","f":"daily or every other day","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"Vesugen","s":"vesugen","k":["vesugen","bioregulator","t-38","ked","lys-glu-asp"],"d":"1–100 mcg","f":"once daily","lo":[1,"mcg"],"hi":[100,"mcg"]},{"n":"Vesilute","s":"vesilute","k":["vesilute","bioregulator","ed","glu-asp"],"d":"1–2 mg","f":"Daily","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"Cartalax","s":"cartalax","k":["cartalax","bioregulator","aed","ala-glu-asp"],"d":"2–5 mg","f":"once daily","lo":[2,"mg"],"hi":[5,"mg"]},{"n":"NA Selank Amidate","s":"na-selank-amidate","k":["na selank amidate","na-selank-amidate","n-acetyl selank amide","ac-tkprpgp-nh2","tp-7"],"d":"100–200 mcg","f":"daily","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"NA Semax Amidate","s":"na-semax-amidate","k":["na semax amidate","na-semax-amidate","n-acetyl semax amide","ac-mehfpgp-nh2"],"d":"100–300 mcg","f":"daily","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"Glutathione","s":"glutathione","k":["glutathione","gsh","reduced glutathione","l-glutathione","gamma-l-glutamyl-l-cysteinylglycine","philothion"],"d":"600–1500 mg","f":"1–3× weekly","lo":[600,"mg"],"hi":[1500,"mg"]},{"n":"Vilon","s":"vilon","k":["vilon","bioregulator","ke","lys-glu"],"d":"~1 mcg","f":"once daily","lo":[1,"mcg"],"hi":[1,"mcg"]},{"n":"Thymogen","s":"thymogen","k":["thymogen","bioregulator","oglufanide","l-glu-l-trp","ew","im862"],"d":"100 mcg","f":"1× daily","lo":[100,"mcg"],"hi":[100,"mcg"]},{"n":"Crystagen","s":"crystagen","k":["crystagen","bioregulator","edp","glu-asp-pro","h-glu-asp-pro-oh"],"d":"10 mcg","f":"once daily","lo":[10,"mcg"],"hi":[10,"mcg"]},{"n":"Cortagen","s":"cortagen","k":["cortagen","bioregulator","aedp","ala-glu-asp-pro"],"d":"1–3 mcg","f":"once daily","lo":[1,"mcg"],"hi":[3,"mcg"]},{"n":"Testagen","s":"testagen","k":["testagen","bioregulator","kedg","lys-glu-asp-gly","testoluten"],"d":"100–200 mcg","f":"1–2× daily, with meals","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Thymulin","s":"thymulin","k":["thymulin","facteur thymique sérique","fts","serum thymic factor","zinc-thymulin"],"d":"~1–10 mcg","f":"daily","lo":[1,"mcg"],"hi":[10,"mcg"]},{"n":"ARA-290","s":"ara-290","k":["ara-290","cibinetide","ara290","phbsp","pyroglutamate helix b surface peptide"],"d":"2–4 mg","f":"daily","lo":[2,"mg"],"hi":[4,"mg"]},{"n":"Humanin","s":"humanin","k":["humanin","hn","alzheimer's survival peptide","mt-rnr2-encoded peptide"],"d":"1–5 mg","f":"daily","lo":[1,"mg"],"hi":[5,"mg"]},{"n":"AOD-9604","s":"aod-9604","k":["aod-9604","aod9604","tyr-hgh","hgh fragment 176-191","cas 221231-10-3"],"d":"250–500 mcg","f":"daily","lo":[250,"mcg"],"hi":[500,"mcg"]},{"n":"HGH frag 176–191","s":"hgh-frag-176-191","k":["hgh frag 176–191","hgh-frag-176-191","hgh fragment 176-191","gh","somatotropin","fragment 176-191"],"d":"250–500 mcg","f":"daily","w":"before bed","lo":[250,"mcg"],"hi":[500,"mcg"]},{"n":"GHRP-2","s":"ghrp-2","k":["ghrp-2","pralmorelin","pralmorelin hydrochloride","pralmorelin dihydrochloride","kp-102","gpa-748","way-gpa-748","ghrp kaken 100"],"d":"100–300 mcg","f":"2–3× daily","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"GHRP-6","s":"ghrp-6","k":["ghrp-6","sk&f 110679","his-d-trp-ala-trp-d-phe-lys-nh2","growth hormone releasing hexapeptide"],"d":"100–300 mcg","f":"2–3× daily","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"Hexarelin","s":"hexarelin","k":["hexarelin","examorelin","ep-23905","mf-6003"],"d":"100–200 mcg","f":"2–3× daily","lo":[100,"mcg"],"hi":[200,"mcg"]},{"n":"Melanotan 1","s":"melanotan-1","k":["melanotan 1","melanotan-1","afamelanotide","scenesse","cuv1647","ept1647","ndp-msh","ndp-α-msh","melanotan i"],"d":"0.5–1 mg","f":"daily load, weekly maint","lo":[0.5,"mg"],"hi":[1,"mg"]},{"n":"VIP","s":"vip","k":["vip","vasoactive intestinal polypeptide","aviptadil"],"d":"50–100 mcg","f":"daily","lo":[50,"mcg"],"hi":[100,"mcg"]},{"n":"Teriparatide","s":"teriparatide","k":["teriparatide","forteo","forsteo","rhpth","pth","ly333334","bonsity","terrosa","movymia"],"d":"20 mcg","f":"1× daily","lo":[20,"mcg"],"hi":[20,"mcg"]},{"n":"Abaloparatide","s":"abaloparatide","k":["abaloparatide","tymlos","ba058","bim-44058","eladynos","abaloparatide-sc"],"d":"80 mcg","f":"once daily","lo":[80,"mcg"],"hi":[80,"mcg"]},{"n":"Adamax","s":"adamax","k":["adamax","semax derivative","adamantyl semax","ac-mehfpgpag-nh2"],"d":"100–300 mcg","f":"once daily","lo":[100,"mcg"],"hi":[300,"mcg"]},{"n":"BAM-15","s":"bam-15","k":["bam-15","bam15","n5","6-diamine","cas 210302-17-3"],"d":"No human dose (animal only); 25–50 mg reported","f":"once or twice daily (reported)","lo":[25,"mg"],"hi":[50,"mg"]},{"n":"Dihexa","s":"dihexa","k":["dihexa","pnb-0408","n-hexanoic-tyr-ile- aminohexanoic amide","n-hexanoic-tyr-ile--aminohexanoic amide","fosgonimeton"],"d":"5–10 mg","f":"once daily","lo":[5,"mg"],"hi":[10,"mg"]},{"n":"Eloralintide","s":"eloralintide","k":["eloralintide","ly3841136"],"d":"1–9 mg (trial)","f":"once weekly","lo":[1,"mg"],"hi":[9,"mg"]},{"n":"HCG","s":"hcg","k":["hcg","human chorionic gonadotropin","chorionic gonadotropin","pregnyl","novarel","ovidrel","choriogonadotropin alfa","ovitrelle","profasi","beta-hcg"],"d":"500 IU (TRT); 500–4,000 IU (label)","f":"every other day to 3×/week"},{"n":"HMG","s":"hmg","k":["hmg","human menopausal gonadotropin","menotropins","menotrophin","menopur","pergonal","repronex","humegon","menogon"],"d":"225 IU/day (IVF); 75 IU (men, off-label)","f":"daily (IVF); every other day to 3×/week (men)"},{"n":"L-Carnitine","s":"l-carnitine","k":["l-carnitine","levocarnitine","carnitor","lc120","lc216","lc526","lipo-c","lipo-b","vitamin bt","carnitene","-3-hydroxy-4-butanoate"],"d":"50–200 mg/day (community); 10–20 mg/kg (label, dialysis)","f":"daily or pre-workout; blends 1 mL 2–3×/week","w":"pre-workout"},{"n":"Mazdutide","s":"mazdutide","k":["mazdutide","ly3305677","ibi362","xinermei"],"d":"4–6 mg (9 mg under review)","f":"once weekly","lo":[4,"mg"],"hi":[6,"mg"]},{"n":"Orforglipron","s":"orforglipron","k":["orforglipron","foundayo","ly3502970","owl833","ly-3502970"],"d":"0.8–17.2 mg tablet","f":"once daily","lo":[0.8,"mg"],"hi":[17.2,"mg"]},{"n":"PE-22-28","s":"pe-22-28","k":["pe-22-28","spadin analog","mini-spadin","gvswglr","gly-val-ser-trp-gly-leu-arg","sortilin propeptide"],"d":"50–200 mcg","f":"once daily","lo":[50,"mcg"],"hi":[200,"mcg"]},{"n":"PNC-27","s":"pnc-27","k":["pnc-27","pnc27","p53-penetratin peptide","p53-penetratin"],"d":"No human dose established; vendor sheets list 100–500 mcg","f":"Daily to 3× weekly (vendor sheets)","lo":[100,"mcg"],"hi":[500,"mcg"]},{"n":"Survodutide","s":"survodutide","k":["survodutide","bi 456906"],"d":"0.6–6.0 mg (trial)","f":"once weekly","lo":[0.6,"mg"],"hi":[6,"mg"]},{"n":"Thymalin","s":"thymalin","k":["thymalin","timalin","тималин","thymus polypeptide extract"],"d":"5–20 mg (adults)","f":"once daily","lo":[5,"mg"],"hi":[20,"mg"]},{"n":"Vitamin B12","s":"vitamin-b12","k":["vitamin b12","vitamin-b12","cobalamin","cyanocobalamin","methylcobalamin","hydroxocobalamin","b12 shot","mecobalamin","cobamamide","extrinsic factor"],"d":"1,000 mcg (1 mg) community; 100 mcg (label)","f":"weekly (community); label loading then monthly"},{"n":"BPC-157 + TB-500","s":"bpc-157-tb-500","k":["bpc-157 + tb-500","bpc-157-tb-500","wolverine stack","wolverine blend","bpc-157 + tβ4","bpc-157 + thymosin beta-4","tb-500 + bpc-157"],"d":"0.5–1 mg blend","f":"1× daily","lo":[0.5,"mg"],"hi":[1,"mg"]},{"n":"CJC-1295 no DAC + Ipamorelin","s":"cjc-ipamorelin","k":["cjc-1295 no dac + ipamorelin","cjc-ipamorelin","mod grf 1-29 + ipamorelin","cjc + ipa blend"],"d":"100 + 100 mcg per shot (200 mcg of blend)","f":"1–3× daily, or once pre-bed","w":"before bed, empty stomach","lo":[100,"mcg"],"hi":[100,"mcg"]},{"n":"GHK-Cu + BPC-157","s":"ghk-cu-bpc-157","k":["ghk-cu + bpc-157","ghk-cu-bpc-157","copper peptide + bpc","glow without tb-500"],"d":"250–500 mcg BPC-157 equivalent","f":"1× daily","lo":[250,"mcg"],"hi":[500,"mcg"]},{"n":"GHK-Cu + KPV","s":"ghk-cu-kpv","k":["ghk-cu + kpv","ghk-cu-kpv","copper peptide + kpv","klow without bpc-157 and tb-500"],"d":"1–2 mg GHK-Cu equivalent","f":"1× daily","lo":[1,"mg"],"hi":[2,"mg"]},{"n":"GLOW","s":"glow","k":["glow","glow blend","glow stack","glow 70","ghk-cu + bpc-157 + tb-500"],"d":"10–15 units (70 mg in 3 mL)","f":"1× daily or 5×/week"},{"n":"Semax + Selank + PE-22-28 + Pinealon","s":"illumineuro","k":["semax + selank + pe-22-28 + pinealon","illumineuro","illumineuro protocol","illumineuro 46 mg","illumineuro 48 mg","na selank + na semax + pe-22-28 + pinealon"],"d":"100–500 mcg total blend","f":"1× daily, morning","lo":[100,"mcg"],"hi":[500,"mcg"]},{"n":"KLOW","s":"klow","k":["klow","klow blend","klow stack","klow 80","glow + kpv","ghk-cu + bpc-157 + tb-500 + kpv"],"d":"10–15 units (80 mg in 3 mL)","f":"1× daily"},{"n":"MIC + B12","s":"mic-b12","k":["mic + b12","mic-b12","mic b12","lipo-b","lipo b12","lipotropic b12 shot","micc","lc120","lc216"],"d":"1 mL (≈1 mg B12)","f":"1× weekly (some 2×)"},{"n":"NAD+ + MOTS-c + 5-Amino-1MQ","s":"mitoprime","k":["nad+ + mots-c + 5-amino-1mq","mitoprime","mito blend","mots-c + nad+ + 5-amino 120 mg"],"d":"10–20 units of a 120 mg vial in 2 mL","f":"3–4× weekly, morning, fasted","lo":[120,"mg"],"hi":[120,"mg"]},{"n":"Retatrutide + Cagrilintide","s":"reta-cagri","k":["retatrutide + cagrilintide","reta-cagri","reta + cagri blend"],"d":"1–4 mg retatrutide + 0.2–0.8 mg cagrilintide","f":"1× weekly","lo":[1,"mg"],"hi":[4,"mg"]},{"n":"Semax + Selank","s":"semax-selank","k":["semax + selank","semax-selank","russian nootropic stack","selank-semax nasal spray"],"d":"250–300 mcg of each","f":"1–2× daily, mornings","lo":[250,"mcg"],"hi":[300,"mcg"]},{"n":"SLU-PP-332 + BAM-15 oral","s":"slu-pp-332-bam-15","k":["slu-pp-332 + bam-15 oral","slu-pp-332-bam-15","slubam","bam15 + slu-pp-332 stack","err agonist + mitochondrial uncoupler","oral fat-loss stack"],"d":"1 capsule (50 mg BAM-15, 250 mcg SLU-PP-332)","f":"1× daily"},{"n":"Tesamorelin + Ipamorelin","s":"tesa-ipamorelin","k":["tesamorelin + ipamorelin","tesa-ipamorelin","tesa-ipa"],"d":"0.5–1 mg tesamorelin equivalent","f":"1× daily, pre-bed","w":"before bed, empty stomach","lo":[0.5,"mg"],"hi":[1,"mg"]},{"n":"Amycretin","s":"amycretin","k":["amycretin","zenagamtide","nn9487","nnc0487-0111","oral amycretin"],"d":"1.25–60 mg injected; up to 100 mg oral","f":"once weekly (Sub-Q) or once daily (oral)","lo":[1.25,"mg"],"hi":[60,"mg"]},{"n":"ATX-304","s":"atx-304","k":["atx-304","o304","o-304","atx304","atx-304 na salt"],"d":"400 mg (trial); 200–400 mg (reported)","f":"once daily","lo":[200,"mg"],"hi":[400,"mg"]},{"n":"Bimagrumab","s":"bimagrumab","k":["bimagrumab","bym338","ly3985863"],"d":"10 or 30 mg/kg","f":"every 4 or 12 weeks"},{"n":"CBL-514","s":"cbl-514","k":["cbl-514","cbl514","cbl-514d","caliway fat-reduction injection"],"d":"Up to 600 mg per session","f":"every 3 weeks","lo":[600,"mg"],"hi":[600,"mg"]},{"n":"Efocipegtrutide","s":"efocipegtrutide","k":["efocipegtrutide","hm15211","laps triple agonist"],"d":"2–6 mg (Phase 2b)","f":"once weekly","lo":[2,"mg"],"hi":[6,"mg"]},{"n":"Liraglutide","s":"liraglutide","k":["liraglutide","victoza","saxenda","xultophy","nn2211","lira"],"d":"0.6–1.8 mg (diabetes); 3 mg (obesity)","f":"once daily","lo":[0.6,"mg"],"hi":[1.8,"mg"]},{"n":"MariTide","s":"maritide","k":["maritide","maridebart cafraglutide","amg 133","mari-tide"],"d":"Phase 3: 21 → 35 → 70 mg escalation to target dose","f":"every 4 weeks; 8–12 weeks being tested","lo":[70,"mg"],"hi":[70,"mg"]},{"n":"Pemvidutide","s":"pemvidutide","k":["pemvidutide","alt-801","sp-1373"],"d":"1.2–2.4 mg","f":"once weekly","lo":[1.2,"mg"],"hi":[2.4,"mg"]},{"n":"Tesofensine","s":"tesofensine","k":["tesofensine","ns2330","ns-2330","teso"],"d":"0.25–0.5 mg","f":"once daily, morning","w":"in the morning","lo":[0.25,"mg"],"hi":[0.5,"mg"]},{"n":"UBT-251","s":"ubt-251","k":["ubt-251","ubt251","triple g agonist"],"d":"2–6 mg","f":"once weekly","lo":[2,"mg"],"hi":[6,"mg"]},{"n":"VK2735","s":"vk2735","k":["vk2735","vk-2735"],"d":"2.5–17.5 mg weekly (inj); 30–120 mg daily (tablet)","f":"weekly (Sub-Q) or daily (oral)","lo":[2.5,"mg"],"hi":[17.5,"mg"]},{"n":"Brenipatide","s":"brenipatide","k":["brenipatide","ly3537031","ly-3537031","'brinipatide'","lilly addiction glp-1"],"d":"0.3 to 4.5 mg tested in Phase 1; Phase 3 dose not public","f":"Once weekly in Lilly's trials (some databases list monthly)","lo":[4.5,"mg"],"hi":[4.5,"mg"]},{"n":"Petrelintide","s":"petrelintide","k":["petrelintide","zp8396","petre","zealand amylin","roche amylin"],"d":"Trial doses not disclosed in the sources checked (Phase 1b started at 0.6 and 1.2 mg)","f":"Once weekly"},{"n":"Ecnoglutide","s":"ecnoglutide","k":["ecnoglutide","xw003","ecno","sciwind glp-1","biased glp-1"],"d":"1.2, 1.8 or 2.4 mg","f":"Once weekly","lo":[2.4,"mg"],"hi":[2.4,"mg"]},{"n":"Tadalafil","s":"tadalafil","k":["tadalafil","cialis","adcirca","alyq","tadliq","entadfi","ic351","ly450190","daily cialis"],"d":"2.5–5 mg","f":"once daily","lo":[2.5,"mg"],"hi":[5,"mg"]},{"n":"Modafinil","s":"modafinil","k":["modafinil","provigil","modiodal","modalert","modvigil","crl 40476","waklert"],"d":"50–200 mg (armodafinil 50–150 mg)","f":"once in the morning","w":"in the morning","lo":[50,"mg"],"hi":[200,"mg"]},{"n":"Noopept","s":"noopept","k":["noopept","omberacetam","gvs-111","dvd-111","n-phenylacetyl-l-prolylglycine ethyl ester","ноопепт"],"d":"10–30 mg/day","f":"10 mg 2–3× daily"},{"n":"Phenylpiracetam","s":"phenylpiracetam","k":["phenylpiracetam","phenotropil","fonturacetam","carphedon","4-phenylpiracetam"],"d":"100–200 mg","f":"once in the morning","w":"in the morning","lo":[100,"mg"],"hi":[200,"mg"]},{"n":"9-Me-BC","s":"9-me-bc","k":["9-me-bc","9-methyl-beta-carboline","9-methyl-β-carboline","9-methylnorharmane","9mbc"],"d":"5–15 mg/day","f":"once in the morning","w":"in the morning"},{"n":"cGP","s":"cgp","k":["cgp","cyclic glycine-proline","cyclo","cyclo-prolylglycine","cycloprolylglycine","cpg"],"d":"Unknown as pure cGP; blackcurrant anthocyanins 300 mg 2× daily studied","f":"Daily","lo":[300,"mg"],"hi":[300,"mg"]}];
+var DOSE_IDX={},CANON={};
+DOSE_LIST.forEach(function(e){e.k.forEach(function(key){if(!(key in DOSE_IDX))DOSE_IDX[key]=e;});CANON[e.n.toLowerCase()]=e;});
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function nm(v){return parseFloat(String(v==null?'':v).replace(/,/g,'.'));}
+function nf(n,d){if(!isFinite(n))return '—';var x=(+n).toFixed(d==null?0:d);return x.replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function lev(a,b){var m=a.length,n=b.length;if(!m)return n;if(!n)return m;var p=[],i,j;for(j=0;j<=n;j++)p[j]=j;for(i=1;i<=m;i++){var prev=p[0];p[0]=i;for(j=1;j<=n;j++){var t=p[j];p[j]=Math.min(p[j]+1,p[j-1]+1,prev+(a.charAt(i-1)===b.charAt(j-1)?0:1));prev=t;}}return p[n];}
+function refData(name){if(!name)return null;var n=String(name).toLowerCase().trim();if(DOSE_IDX[n])return DOSE_IDX[n];var sq=n.replace(/[^a-z0-9]/g,'');if(!sq)return null;for(var key in DOSE_IDX){if(key.replace(/[^a-z0-9]/g,'')===sq)return DOSE_IDX[key];}return null;}
+function scoreKey(inp,key){if(key===inp)return 100;if(key.indexOf(inp)===0)return 92;if(inp.length>=3&&inp.indexOf(key)===0)return 86;if(key.indexOf(inp)>-1)return 72;if(inp.length>=3&&key.length>=4){var kp=key.slice(0,inp.length),d=lev(inp,kp);if(d<=2)return 82-d*12;var dd=lev(inp,key);if(dd<=2)return 62-dd*10;if(dd<=3&&key.length>=6)return 42;}return 0;}
+function suggest(name){var n=String(name||'').toLowerCase().trim();if(n.length<2)return [];var out=[];DOSE_LIST.forEach(function(e){var best=0;for(var j=0;j<e.k.length;j++){var sc=scoreKey(n,e.k[j]);if(sc>best)best=sc;}if(best>0)out.push([best,e]);});out.sort(function(a,b){return b[0]-a[0]||a[1].n.length-b[1].n.length;});var seen={},res=[];for(var r=0;r<out.length;r++){var e=out[r][1];if(seen[e.n])continue;seen[e.n]=1;res.push(e);if(res.length>=6)break;}return res;}
+function drefHTML(name){var e=refData(name);if(!e)return '';return 'Reported <b>'+esc(e.d)+'</b>'+(e.f?' <i>· '+esc(e.f)+'</i>':'')+' <i>· injection reference, nasal varies</i>';}
+function sugHTML(name){var n=(name||'').toLowerCase().trim();if(n.length<2||CANON[n])return '';var ls=suggest(name);if(!ls.length)return '';return ls.map(function(e){return '<button class="sugb" type="button" data-n="'+esc(e.n)+'">'+esc(e.n)+' <span>'+esc(e.d)+'</span></button>';}).join('');}
+function qlog(kind,name,detail){try{var K='bs-qlog',a=JSON.parse(localStorage.getItem(K)||'[]'),key='nasal_'+kind+'|'+String(name||'').toLowerCase()+'|'+(detail||'');if(a.some(function(x){return x.key===key}))return;a.push({key:key,kind:'nasal_'+kind,name:name||'',detail:detail||'',t:Date.now()});if(a.length>200)a=a.slice(-200);localStorage.setItem(K,JSON.stringify(a));}catch(e){}try{if(window.bsTrack)window.bsTrack('nasal_qlog',{kind:kind,name:name,detail:detail});}catch(e){}}
+
+var S={name:'',vial:10,bac:1,saline:8,bottle:10,pump:0.1,mode:'mcg',dose:300,sprays:2,perday:1};
+
+function calcN(){
+  var vial=nm(S.vial),bac=nm(S.bac),sal=nm(S.saline),bottle=nm(S.bottle),pump=nm(S.pump),perday=nm(S.perday);
+  var total=(isFinite(bac)&&bac>=0?bac:0)+(isFinite(sal)&&sal>=0?sal:0);
+  if(!(isFinite(vial)&&vial>0&&total>0&&isFinite(pump)&&pump>0))return null;
+  var vialMcg=vial*1000;
+  var conc=vialMcg/total;                 // mcg per mL
+  var perSpray=conc*pump;                  // mcg per pump
+  var spraysBottle=Math.floor(total/pump); // gross sprays
+  var spd, dose;
+  if(S.mode==='sprays'){ spd=Math.max(1,Math.round(nm(S.sprays)||0)); dose=spd*perSpray; }
+  else { dose=nm(S.dose); if(!(isFinite(dose)&&dose>0))dose=0; spd=dose>0?Math.max(1,Math.round(dose/perSpray)):0; }
+  var dosesBottle=spd>0?Math.floor(spraysBottle/spd):0;
+  var days=(dosesBottle>0&&isFinite(perday)&&perday>0)?dosesBottle/perday:0;
+  return {vial:vial,bac:bac,sal:sal,bottle:bottle,pump:pump,total:total,conc:conc,perSpray:perSpray,spraysBottle:spraysBottle,spd:spd,dose:dose,dosesBottle:dosesBottle,days:days,perday:perday};
+}
+
+function mInputHTML(){
+  if(S.mode==='sprays')return 'sprays <input id="iSpr" type="text" inputmode="decimal" value="'+esc(String(S.sprays))+'"> per dose';
+  return 'dose <input id="iDoseN" type="text" inputmode="decimal" value="'+esc(String(S.dose))+'"> mcg';
+}
+
+function outHTML(c){
+  if(!c)return '<div class="cell hero"><span class="k">Fill in the vial, water and pump</span></div>';
+  var doseStr = S.mode==='sprays'
+    ? nf(c.dose,0)+' mcg <small>('+c.spd+' spray'+(c.spd===1?'':'s')+')</small>'
+    : (c.dose>0? nf(c.dose,0)+' mcg <small>&asymp; '+c.spd+' spray'+(c.spd===1?'':'s')+' ('+nf(c.dose/c.perSpray,1)+')</small>' : '—');
+  return ''+
+    '<div class="cell hero"><span class="k">Each spray ('+nf(c.pump,2)+' mL pump)</span><span class="v">'+nf(c.perSpray,0)+' mcg</span></div>'+
+    '<div class="cell"><span class="k">Concentration</span><span class="v">'+nf(c.conc,0)+' <small>mcg/mL</small></span></div>'+
+    '<div class="cell"><span class="k">Your dose</span><span class="v">'+doseStr+'</span></div>'+
+    '<div class="cell"><span class="k">Sprays per bottle</span><span class="v">'+nf(c.spraysBottle,0)+'</span></div>'+
+    '<div class="cell"><span class="k">Doses per bottle</span><span class="v">'+(c.dosesBottle||'—')+'</span></div>'+
+    '<div class="cell"><span class="k">Lasts</span><span class="v">'+(c.days? nf(c.days,c.days<10?1:0)+' <small>days at '+nf(c.perday,c.perday%1?1:0)+'/day</small>':'—')+'</span></div>'+
+    '<div class="cell"><span class="k">In the bottle</span><span class="v">'+nf(c.total,c.total%1?2:0)+' <small>mL in a '+nf(c.bottle,c.bottle%1?1:0)+' mL bottle</small></span></div>';
+}
+
+function warnHTML(c){
+  var m=[];
+  if(c){
+    if(c.total>c.bottle)m.push(['Over the bottle',nf(c.total,2)+' mL of liquid will not fit a '+nf(c.bottle,1)+' mL bottle. Use a bigger bottle or less saline.']);
+    else if(c.total>c.bottle*0.95)m.push(['Almost full',nf(c.total,2)+' mL nearly fills the '+nf(c.bottle,1)+' mL bottle. Leave a little headroom for the pump stem.']);
+    if(c.bac>0&&c.sal>0){var ratio=c.sal/c.bac;if(ratio<2||ratio>20)m.push(['Unusual ratio','That is 1 part BAC to '+nf(ratio,ratio%1?1:0)+' parts saline. The usual nasal mix is around 1 to 8.']);}
+    if(c.mode!=='sprays'&&c.dose>0&&c.spd>8)m.push(['Many sprays','That dose needs about '+c.spd+' sprays. Raise the vial mg or lower the saline so each spray carries more.']);
+  }
+  return m.map(function(x){return '<div class="wl"><b>'+esc(x[0])+'</b> '+esc(x[1])+'</div>';}).join('');
+}
+
+/* ---- setup diagram ---- */
+function vialSVG(fillFrac,color,powder){
+  var top=14,bot=96,h=bot-top,fy=bot-h*Math.max(0,Math.min(1,fillFrac));
+  var liquid=fillFrac>0?'<rect x="20" y="'+fy.toFixed(1)+'" width="40" height="'+(bot-fy).toFixed(1)+'" fill="'+color+'"/>':'';
+  var pow=powder?'<rect x="20" y="86" width="40" height="10" fill="#E7B07A"/>':'';
+  return '<svg viewBox="0 0 80 112" role="img">'+
+    '<rect x="28" y="2" width="24" height="8" fill="#C9CCE6" stroke="#3E4A80" stroke-width="1.4"/>'+
+    '<rect x="31" y="8" width="18" height="6" fill="#EDEBC8" stroke="#3E4A80" stroke-width="1.1"/>'+
+    '<rect x="20" y="14" width="40" height="82" rx="4" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/>'+
+    liquid+pow+
+    '<rect x="20" y="14" width="40" height="82" rx="4" fill="none" stroke="#3E4A80" stroke-width="1.6"/>'+
+    '</svg>';
+}
+function bottleSVG(fillFrac){
+  var top=30,bot=104,h=bot-top,fy=bot-h*Math.max(0,Math.min(1,fillFrac));
+  return '<svg viewBox="0 0 80 120" role="img">'+
+    '<rect x="30" y="2" width="20" height="10" fill="#C9CCE6" stroke="#3E4A80" stroke-width="1.4"/>'+
+    '<rect x="26" y="12" width="28" height="7" rx="1" fill="#EDEBC8" stroke="#3E4A80" stroke-width="1.3"/>'+
+    '<line x1="40" y1="2" x2="40" y2="19" stroke="#3E4A80" stroke-width="1.2"/>'+
+    '<rect x="18" y="19" width="44" height="12" rx="2" fill="#EDEBC8" stroke="#3E4A80" stroke-width="1.4"/>'+
+    '<path d="M20 30 H60 V98 Q60 108 50 108 H30 Q20 108 20 98 Z" fill="#fff" stroke="#3E4A80" stroke-width="1.6"/>'+
+    '<clipPath id="bcl"><path d="M20 30 H60 V98 Q60 108 50 108 H30 Q20 108 20 98 Z"/></clipPath>'+
+    '<rect x="20" y="'+fy.toFixed(1)+'" width="40" height="'+(bot-fy).toFixed(1)+'" fill="#99ACFF" clip-path="url(#bcl)"/>'+
+    '<path d="M20 30 H60 V98 Q60 108 50 108 H30 Q20 108 20 98 Z" fill="none" stroke="#3E4A80" stroke-width="1.6"/>'+
+    '</svg>';
+}
+function drawSteps(c){
+  var vial=c?nf(c.vial,c.vial%1?1:0):'10', bac=c?nf(c.bac,c.bac%1?2:0):'1', sal=c?nf(c.sal,c.sal%1?2:0):'8', total=c?nf(c.total,c.total%1?2:0):'9', bottle=c?nf(c.bottle,c.bottle%1?1:0):'10';
+  var fill=c?Math.min(1,c.total/c.bottle):0.9;
+  $('#steps').innerHTML=
+    '<div class="step"><span class="n">1</span>'+vialSVG(0,'',true)+'<span class="cap">Peptide vial<br><b>'+vial+' mg</b></span></div>'+
+    '<div class="step"><span class="n">2</span>'+vialSVG(0.5,'var(--liquid)',false)+'<span class="cap">Add BAC water<br><b>'+bac+' mL</b> to dissolve</span></div>'+
+    '<div class="step"><span class="n">3</span>'+bottleSVG(fill)+'<span class="cap">Into the bottle<br>+ saline <b>'+sal+' mL</b><br>= <b>'+total+' mL</b> in '+bottle+' mL</span></div>';
+  $('#pumpline').innerHTML = c ? ('Pump <b>'+nf(c.pump,2)+' mL</b> per spray = <b>'+nf(c.perSpray,0)+' mcg</b> each &middot; bottle holds <b>'+nf(c.spraysBottle,0)+'</b> sprays' ) : 'Pump 0.1 mL per spray';
+}
+
+function paintSug(){var b=$('#dsug'),h=sugHTML(S.name);b.innerHTML=h;b.classList.toggle('on',!!h);}
+function render(){
+  var c=calcN();
+  $('#dref').innerHTML=drefHTML(S.name);
+  $('#out').innerHTML=outHTML(c);
+  $('#warn').innerHTML=warnHTML(c);
+  drawSteps(c);
+}
+
+function wire(){
+  var map={iVial:'vial',iBac:'bac',iSaline:'saline',iBottle:'bottle',iPump:'pump',iPerDay:'perday'};
+  Object.keys(map).forEach(function(id){$('#'+id).addEventListener('input',function(){S[map[id]]=this.value;render();});});
+  var inm=$('#iName');
+  inm.addEventListener('input',function(){S.name=this.value;$('#dref').innerHTML=drefHTML(S.name);paintSug();});
+  inm.addEventListener('blur',function(){setTimeout(function(){var b=$('#dsug');b.innerHTML='';b.classList.remove('on');},180);var n=(S.name||'').trim();if(n.length>=3&&!refData(S.name)&&!suggest(S.name).length)qlog('unknown_compound',n);});
+  document.addEventListener('click',function(e){
+    var sg=e.target.closest('.sugb');if(sg){S.name=sg.dataset.n;$('#iName').value=S.name;var b=$('#dsug');b.innerHTML='';b.classList.remove('on');$('#dref').innerHTML=drefHTML(S.name);return;}
+    var mt=e.target.closest('.mtog');if(mt){if(S.mode!==mt.dataset.m){S.mode=mt.dataset.m;document.querySelectorAll('.mtog').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.m===S.mode);});$('#mInput').innerHTML=mInputHTML();wireMInput();render();}return;}
+  });
+  $('#mInput').innerHTML=mInputHTML();wireMInput();
+}
+function wireMInput(){
+  var dn=$('#iDoseN');if(dn)dn.addEventListener('input',function(){S.dose=this.value;render();});
+  var sp=$('#iSpr');if(sp)sp.addEventListener('input',function(){S.sprays=this.value;render();});
+}
+wire();render();
+</script>
+</body>
+</html>
