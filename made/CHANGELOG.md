@@ -2,6 +2,12 @@
 
 /made/ always opens the newest version. Older versions stay live at their own path.
 
+## v9 (24 Oct 2026) at /made/v9/
+Two ways to read, and less repetition. Built on v8, kept.
+- "How do you want to read?" switch under the intro: Quick read (default, remembered per browser) or Full lesson. Quick shows one "In short" card of three points per part, with "Open the full lesson" to expand just that part; Full opens everything, and every part still starts with its short card and can close. Links into a closed part open it. Phone page drops from about 32,800px to about 7,500px in Quick.
+- Three acts group the 13 parts: Make it (one to five), Keep it (six and seven), Check it (eight to thirteen).
+- Merged repeats: the caps stepper moved from Part two into Part three as "The trick: two temporary caps", right before the bead build (permanent end caps stay in Part one); the crude microscope moved from Part three into Part four as "Count them", followed by "Meet each mistake"; the "Why freeze dry and seal" table is gone (Part seven covers every threat); the pH shelf-life box and the "what is left in the vial" note now point to Parts seven and ten instead of repeating them.
+
 ## v8 (24 Oct 2026) at /made/v8/
 New Part seven, Excipients and stability, between Dose, dry, seal and Purity; later parts renumbered (Purity is now eight, COA nine, Weight ten, pH eleven, Toxins twelve, Reactions thirteen) and every cross-reference updated. Built on v7, kept.
 - The supporting cast: eight excipient cards (bulking agent, sugar shield, buffer, tonicity, surfactant, preservative, antioxidant, pH adjuster) with icon, job, common examples, how often each appears in EU freeze-dried protein and peptide medicines (Gervasi 2018), and which labels use it.

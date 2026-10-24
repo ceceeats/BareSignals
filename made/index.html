@@ -630,6 +630,26 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
 .cv .cake{fill:#FFF9DC;stroke:#C9C29A;stroke-width:1.2}
 .walk{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 @media (min-width:900px){.walk{grid-template-columns:repeat(9,minmax(0,1fr))!important}}
+/* ---- v9: quick read / full lesson ---- */
+.mode{border:1.5px solid var(--act);background:var(--actbg);padding:10px 12px;margin:14px 0 4px}
+.mode .seg{background:#fff}
+.mode .seg button{font-size:12.5px;padding:7px 10px}
+.act{margin:34px 0 -18px;padding:10px 12px;background:var(--ink);color:var(--paper)}
+.act span{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.act b{display:block;font:700 22px/1.1 var(--display);margin:2px 0 2px}
+.act p{margin:0;font-size:13px;opacity:.9}
+.sum{border:1.5px solid var(--ink);background:#fff;padding:10px 12px 0;margin:6px 0 10px;box-shadow:3px 3px 0 var(--ink)}
+.sum ul{list-style:none;margin:0;padding:0}
+.sum li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:9px;padding:5px 0;font-size:14.5px;line-height:1.4;border-top:1px solid var(--rule)}
+.sum li:first-child{border-top:0}
+.sum li i{width:10px;height:10px;border:1.2px solid var(--ink);display:block;margin-top:6px}
+.sum .opn{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:calc(100% + 24px);margin:8px -12px 0;padding:9px 12px;background:var(--actbg);border-top:1.5px solid var(--act);font:600 12px var(--mono);letter-spacing:.04em;color:var(--act);text-align:left}
+.sum .opn:hover{background:#FFE0CC}
+.sum .opn:focus-visible{outline:2px solid var(--act);outline-offset:-3px}
+section:not(.open)>.deepbody{display:none}
+section.open>.sum{box-shadow:none}
+body.quick .walk span{display:none}
+@media (min-width:900px){.sum ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 16px}.sum li{border-top:0;border-left:1px solid var(--rule);padding:4px 0 6px 10px}.sum li:first-child{border-left:0;padding-left:0}}
 </style>
 <script src="/nav.js" defer></script>
 </head>
@@ -638,11 +658,16 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
 
 <header>
   <div class="hrow"><p class="lab">Bare Signals · Made · <a href="/aminos/" style="color:var(--accent);text-decoration:none">after Aminos ‹</a></p></div>
-  <h1>How peptides are made<small>V8</small></h1>
+  <h1>How peptides are made<small>V9</small></h1>
   <p class="lede" style="margin-top:8px">A peptide is a recipe built from tiny bricks. This page follows one from the recipe card to the sealed vial, and shows what can go wrong at every step.</p>
 </header>
 
 <section>
+  <div class="mode">
+    <p class="lab" style="margin:0 0 6px">How do you want to read?</p>
+    <div class="seg" id="modeSel"><button type="button" data-v="q">Quick read · about 3 min</button><button type="button" data-v="f">Full lesson</button></div>
+    <p class="note" id="modeNote" style="margin:6px 0 0"></p>
+  </div>
   <p class="lab" style="margin-top:16px">The whole path, tap a step</p>
   <nav class="walk" aria-label="Steps" id="walk"></nav>
 </section>
@@ -714,17 +739,6 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   <div class="aa20" id="aa20"></div>
   <div class="open" id="aaOpen"></div>
 
-  <h3 style="margin-top:18px">Then the caps go on</h3>
-  <p class="like"><b class="k">Like</b><span>the cap on a marker. A bare brick would snap onto anything, even itself. Caps make it snap once, in the right place.</span></p>
-  <div class="capkey"><span><i style="background:#3E4A80"></i>Front cap (Fmoc): off every round</span><span><i style="background:#B493E8"></i>Side guard: off once, at the end</span><span><i style="background:#87CFC5"></i>End caps (Ac, NH₂): stay for good</span></div>
-  <div class="stage">
-    <div class="svgbox" id="caps"></div>
-    <div class="stxt" id="capCap"></div>
-    <div class="pips" id="capPips"></div>
-  </div>
-  <div class="ctlbar mid"><button class="btn" id="capPrev" type="button" aria-label="Back one step">‹</button><button class="btn go" id="capPlay" type="button">Pause</button><button class="btn" id="capNext" type="button" aria-label="Next step">›</button></div>
-  <p class="verdict"><b class="o">Two caps, two removers:</b> base takes the front cap off every round, acid takes the guards off once. That split is the whole trick of the stack.<sup><a href="#s16">16</a></sup></p>
-
   <div class="fix" id="ss31">
     <h3>Short and still pricey: SS-31</h3>
     <div class="g2">
@@ -752,6 +766,19 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
 
   <h2 id="beads" style="margin-top:22px">Stacked on beads</h2>
   <p class="like"><b class="k">Like</b><span>building a Lego tower one brick at a time on a grain of sand, then washing the sand between every brick. Not in a beaker: in a tube with a filter at the bottom. Liquid in, soak, drain, repeat. The beads never leave.</span></p>
+  <h3 style="margin-top:14px">The trick: two temporary caps</h3>
+  <p class="like"><b class="k">Like</b><span>the cap on a marker. A bare brick would snap onto anything, even itself. Caps make it snap once, in the right place.</span></p>
+  <div class="capkey"><span><i style="background:#3E4A80"></i>Front cap (Fmoc): off every round</span><span><i style="background:#B493E8"></i>Side guard: off once, at the end</span><span><i style="background:#87CFC5"></i>Permanent end caps (Ac, NH₂, Part one): stay for good</span></div>
+  <div class="stage">
+    <div class="svgbox" id="caps"></div>
+    <div class="stxt" id="capCap"></div>
+    <div class="pips" id="capPips"></div>
+  </div>
+  <div class="ctlbar mid"><button class="btn" id="capPrev" type="button" aria-label="Back one step">‹</button><button class="btn go" id="capPlay" type="button">Pause</button><button class="btn" id="capNext" type="button" aria-label="Next step">›</button></div>
+  <p class="verdict"><b class="o">Two caps, two removers:</b> base takes the front cap off every round, acid takes the guards off once. That split is the whole trick of the stack.<sup><a href="#s16">16</a></sup></p>
+
+  
+  <h3 style="margin-top:16px">Watch a chain grow</h3>
   <p class="lab">Pick an example peptide</p>
   <div class="chipsel" id="bbSel"></div>
   <div id="bbMini"></div>
@@ -774,14 +801,6 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   </div>
   <div class="ctlbar mid"><button class="btn" id="bbPrev" type="button" aria-label="Back one step">‹</button><button class="btn go" id="bbPlay" type="button">Play</button><button class="btn" id="bbNext" type="button" aria-label="Next step">›</button><div class="seg" id="bbSpd"><button data-v="3200" aria-pressed="true">Slow</button><button data-v="1500" aria-pressed="false">Faster</button></div></div>
   <div class="ctlbar"><span class="rv" id="bbRv">Round 1</span><input type="range" id="bbRound" min="1" max="5" value="1" aria-label="Jump to round"></div>
-
-  <h3 style="margin-top:16px">Look inside the crude: before cleanup</h3>
-  <p>Every snap has a small miss rate. Here is a pretend 10 mg batch straight off the bead, before any cleanup. Part eight shows the same idea after the cleanup, in the vial you would buy.</p>
-  <div class="ctrl"><span class="lab">Each snap works</span><div class="seg" id="effSel"></div></div>
-  <div class="g2">
-    <div><div class="svgbox" id="crudeLens"></div><p class="cap" id="crudeCap"></p></div>
-    <div><ul class="lkey" id="crudeKey"></ul><p class="note">Illustrative model: each snap fails at the rate picked, plus a small fixed share of guard, mirror and oxygen mistakes. Real crude depends on the bricks. The peptide follows the one picked in the stacking above.</p></div>
-  </div>
 
   <h3 style="margin-top:14px">Same steps, more rounds</h3>
   <div class="g2">
@@ -806,6 +825,16 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   <p>Acid cuts every chain off its bead, then ice-cold ether turns the liquid into a powder: the <b>crude</b>. It is the right chain mixed with its mistakes. Here they all are on one peptide.</p>
   <div id="crudeMini"></div>
   <p class="note">Read every chain front (N, left) to back (C, right). Chains grow from the back, so when growth stops early it is the front that is missing.</p>
+  <h3 style="margin-top:14px">Count them: one batch, before cleanup</h3>
+  <p>Every snap has a small miss rate. Here is a pretend 10 mg batch straight off the bead, before any cleanup. Part eight shows the same idea after the cleanup, in the vial you would buy.</p>
+  <div class="ctrl"><span class="lab">Each snap works</span><div class="seg" id="effSel"></div></div>
+  <div class="g2">
+    <div><div class="svgbox" id="crudeLens"></div><p class="cap" id="crudeCap"></p></div>
+    <div><ul class="lkey" id="crudeKey"></ul><p class="note">Illustrative model: each snap fails at the rate picked, plus a small fixed share of guard, mirror and oxygen mistakes. Real crude depends on the bricks. The peptide follows the one picked in Part three.</p></div>
+  </div>
+
+    <h3 style="margin-top:14px">Meet each mistake</h3>
+
   <div class="g2" style="margin-top:8px">
     <div>
       <div class="crude2" id="crudeList"></div>
@@ -858,15 +887,7 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   <p class="cap">Drawn as a 3 mL vial. Tap a vial for its step.</p>
   <div class="open" id="vOpen"></div>
   <p class="note" style="margin-top:8px">Vials are pressed shut inside the dryer itself, before air is let back in.<sup><a href="#s17">17</a></sup> Many are closed under a partial vacuum, often with nitrogen, which is why a fresh vial can pull water in on its own.</p>
-  <h3 style="margin-top:12px">Why freeze dry and seal at all</h3>
-  <table class="spec"><tr><th>Threat</th><th>In a liquid</th><th>In a dry, sealed cake</th></tr>
-  <tr><td><b>Water</b></td><td>Slowly breaks bonds and drives deamidation</td><td>Almost no water, so far slower</td></tr>
-  <tr><td><b>Oxygen</b></td><td>Oxidises methionine (M) and tryptophan (W)</td><td>Sealed under vacuum or nitrogen, little oxygen inside</td></tr>
-  <tr><td><b>Microbes</b></td><td>Can grow once anything gets in</td><td>Nothing grows without water</td></tr>
-  <tr><td><b>Shipping</b></td><td>Heavier, needs cold the whole way</td><td>Light, and copes with ordinary shipping far better</td></tr>
-  <tr><td><b>Shelf life</b></td><td>Days to weeks once mixed</td><td>Months to years, longest in a freezer</td></tr></table>
-  <p class="note">General pharmaceutics, not a promise for any one vial: heat, light and time still wear a cake down.</p>
-<h3 style="margin-top:12px">The whole trip, solid and liquid</h3>
+  <h3 style="margin-top:12px">The whole trip, solid and liquid</h3>
   <ul class="states">
     <li><span class="st m">Wet solid</span><span>Chain on beads, soaked and drained every round.</span></li>
     <li><span class="st l">Liquid</span><span>Cut free in acid (TFA).</span></li>
@@ -876,7 +897,7 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
     <li><span class="st s">Solid</span><span>Ice pulled off as vapour: the cake. Then sealed.</span></li>
     <li><span class="st l">Liquid</span><span>Back to liquid only when someone adds water (the <a href="/water/">Water</a> page).</span></li>
   </ul>
-  <p class="verdict"><b class="o">What is left in the vial:</b> the peptide, its salt partner (TFA or acetate), some water the powder pulls from air, any filler (mannitol keeps the cake's shape), and whatever impurities survived the cut. "10 mg" on a label rarely means 10 mg of pure peptide. Part ten does the math.</p>
+  <p class="verdict"><b class="o">What is left in the vial:</b> the peptide, its salt partner (TFA or acetate), a little water, maybe a filler, and whatever impurities survived the cut. Part seven covers the helpers and what wears it down; Part ten does the weight math.</p>
 </section>
 
 
@@ -934,7 +955,7 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   <div class="divider"><span>Part eight · Purity, seen</span></div>
   <h2>What 99.9%, 98% and 90% look like</h2>
   <div id="purMini"></div>
-  <p><b>After cleanup.</b> Part three looked inside the crude, straight off the bead. This is a pretend 10 mg vial after the HPLC cut: far fewer mistakes, mostly near twins that slipped through. Slide the purity.</p>
+  <p><b>After cleanup.</b> Part four looked inside the crude, straight off the bead. This is a pretend 10 mg vial after the HPLC cut: far fewer mistakes, mostly near twins that slipped through. Slide the purity.</p>
   <div class="slide"><input type="range" id="purR" min="90" max="99.9" step="0.1" value="98" aria-label="Purity"><output id="purO">98%</output></div>
   <div class="ctrl"><div class="seg" id="purSel"></div></div>
   <div class="g2">
@@ -1062,7 +1083,7 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
   </div>
   <div class="cols">
     <div class="box"><h3>Dissolving</h3><p style="font-size:14px;margin:0">Every peptide has a pH where its charges cancel (its isoelectric point). Near that pH it dissolves worst and can turn cloudy or clump. That is why some peptides need a slightly acidic water to go clear.</p></div>
-    <div class="box"><h3>Shelf life</h3><p style="font-size:14px;margin:0">Higher pH speeds some breakdown, like asparagine turning into aspartate (deamidation). Wrong pH plus warmth plus time equals a weaker vial with more impurities than its COA shows.</p></div>
+    <div class="box"><h3>Shelf life</h3><p style="font-size:14px;margin:0">Higher pH speeds breakdown such as deamidation. The full list of threats, and which peptides have soft spots, is in <a href="#keep">Part seven</a>.</p></div>
     <div class="box"><h3>Sting</h3><p style="font-size:14px;margin:0">Leftover TFA makes a solution more acidic. More acid, more sting at the injection site. A COA may list pH or the salt form.</p></div>
     <div class="box" style="grid-column:1/-1"><h3>The water: BAC water vs saline</h3>
       <table class="spec bw" style="margin:6px 0 4px"><tr><th></th><th>BAC water</th><th>Saline</th></tr>
@@ -1186,7 +1207,7 @@ table.gl{width:100%;border-collapse:collapse;font-size:12px;min-width:460px}
     <li id="s28"><a href="https://cora.ucc.ie/bitstreams/e8d58a42-4be8-4f2d-a7a7-adaaa42418a8/download">Gervasi et al., Parenteral protein formulations: approved products in the EU (Eur J Pharm Biopharm, 2018)</a>: 264 products, 90 freeze-dried; excipient roles and frequencies (sucrose 59%, mannitol 33%, trehalose 10%, histidine 34%, any buffer 61%, surfactants 62%, salts 42%, preservatives 6% of powders and 29% of liquids, methionine 6% and 12%).</li>
     <li id="s29"><a href="https://b2b.sigmaaldrich.com/US/en/technical-documents/technical-article/research-and-disease-areas/cell-and-developmental-biology-research/peptide-stability">Sigma-Aldrich, peptide stability</a>: Asp-Pro cleavage, Asp-Gly and Asn-Gly, Cys and Met oxidation, N-terminal Gln pyroglutamate, diketopiperazine; store lyophilized at −20 °C, avoid freeze-thaw, avoid pH above 8 and oxygen. Charged-peptide sticking: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4416745">Adsorption of cationic peptides to solid surfaces of glass and plastic</a> (not read in full; reported).</li>
   </ol>
-  <p>Checked 24 Oct 2026 · Made V8 · An ever evolving reference · <a href="/made/v7/">V7</a> · <a href="/made/v6/">V6</a> · <a href="/made/v5/">V5</a> · <a href="/made/v4/">V4</a> · <a href="/made/v3/">V3</a> · <a href="/made/v2/">V2</a></p>
+  <p>Checked 24 Oct 2026 · Made V9 · An ever evolving reference · <a href="/made/v8/">V8</a> · <a href="/made/v7/">V7</a> · <a href="/made/v6/">V6</a> · <a href="/made/v5/">V5</a> · <a href="/made/v4/">V4</a> · <a href="/made/v3/">V3</a> · <a href="/made/v2/">V2</a></p>
 </footer>
 </div>
 <script src="/library/v49/data.js"></script>
@@ -1976,6 +1997,46 @@ $('#lifeC').innerHTML=[
  ['Research vial, mixed','MIXED','#B9C6FF','Liquid with no buffer, no sugar shield, no surfactant. Only the benzyl alcohol from the BAC water.',['Fridge, dark, upright','Swirl, never shake','Split and freeze only if you must; never refreeze a thawed portion','Cloudy, specks or a colour change: stop (Part eleven)'],'<sup><a href="#s29">29</a></sup>']
 ].map(function(c){return '<div class="card"><div class="lifev">'+vialWith(c[1],c[1]==='MIXED'?'BAC WATER':c[2]?'LIQUID':'SEALED',c[2])+'</div><div class="hd"><h3>'+c[0]+'</h3></div><div class="bd"><p>'+c[3]+c[5]+'</p><ul class="diffs">'+c[4].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'}).join('');
 scDraw('semax');
+
+/* ===== v9: quick read and full lesson ===== */
+var ACTS={recipe:['Act one','Make it','From the recipe to a clean powder. Parts one to five.'],dry:['Act two','Keep it','Drying, helpers, and what wears a peptide down. Parts six and seven.'],purity:['Act three','Check it','What the numbers on a vial and a COA mean, and what they miss. Parts eight to thirteen.']};
+var SUM={
+ recipe:['A peptide is amino acids (bricks) snapped together in one exact order. Every snap is a peptide bond, so every chain has one front (N end) and one back (C end).','Caps on the ends, like the NA and Amidate in NA Selank Amidate, slow down the enzymes that eat peptides.','Change one brick or one cap and it is a different molecule with a different weight.'],
+ letters:['The 20 amino acids are mostly grown by bacteria fed sugar. A few come from chemistry, enzymes or protein.','Peptide labs buy them as ready-made, capped powders.','Special lab-made bricks cost far more. That is part of why short SS-31 is pricey.'],
+ build:['Almost every research peptide is stacked by machine on tiny beads, one brick per round: uncap, wash, snap, wash.','Temporary caps make each brick snap only once; base and acid take them off.','Long medicines like HGH and insulin are grown in E. coli, yeast or hamster cells instead.'],
+ crude:['What falls off the bead is the right chain plus near twins.','Missing bricks are by far the most common. Then chains that stopped short, extra bricks, guards left on, mirror swaps and oxidised bricks.','They weigh almost the same as the right chain, which is why cleaning up is hard.'],
+ purify:['HPLC sorts the molecules by how greasy they are and draws a peak for each.','The lab keeps a slice around the main peak.','A wider slice gives more powder and lower purity. Purity is partly a business choice.'],
+ dry:['The clean liquid is measured to the dose, filled into vials, frozen and vacuum dried into a cake (lyophilised).','The vials are sealed inside the dryer.','Dry and airless, the powder lasts far longer than any liquid.'],
+ keep:['Medicines add helpers called excipients: sugar, buffer, surfactant, preservative. Research vials usually have none.','Water, oxygen, light, heat and shaking wear a peptide down.','Some sequences have more soft spots than others. Pick any peptide to see its own.'],
+ purity:['98% purity means 2 in every 100 molecules are something else, mostly near twins.','You will never see them: each is a single dissolved molecule.','Purity does not measure water, salt, endotoxin, metals or sterility.'],
+ coa:['A COA describes one batch, on one day, and only the tests printed on it.','Check that the lot matches the vial, the mass spec matches the peptide, and a chromatogram is attached.','For anything injected, look for endotoxin and sterility lines.'],
+ weight:['Mass spec weighs the molecule: one missing brick changes the number.','A "10 mg" label is powder weight. Usually only 60 to 90% of it is peptide.','Purity and peptide content are two different numbers, and both shrink what you hold.'],
+ ph:['pH changes how a peptide dissolves, how fast it breaks down, and how much it stings.','BAC water sits around pH 5.7, blood around 7.4.','Cloudy, specks or a colour change mean something in the vial changed.'],
+ toxins:['Purity never measures endotoxin (bits of dead bacteria that cause fever), heavy metals, leftover solvents or microbes.','Each needs its own test.','Research COAs rarely include them.'],
+ react:['The timing tells you the likely cause: injection site, fever-type, allergic or infection.','Throat swelling, trouble breathing or collapse is anaphylaxis: call emergency services.','Bring the vial and its lot number.']};
+var SUMCOL=['#AACC96','#FFDE59','#74BCFF'];
+var MODE=(function(){try{return localStorage.getItem('bs-made-mode')||'q'}catch(e){return 'q'}})();
+(function(){Object.keys(SUM).forEach(function(id,k){var sec=document.getElementById(id);if(!sec)return;
+  var dv=sec.querySelector('.divider'),h2=sec.querySelector('h2');if(!dv||!h2)return;
+  if(ACTS[id]){var a=ACTS[id],ab=document.createElement('div');ab.className='act';ab.innerHTML='<span>'+a[0]+'</span><b>'+a[1]+'</b><p>'+a[2]+'</p>';sec.parentNode.insertBefore(ab,sec)}
+  var body=document.createElement('div');body.className='deepbody';
+  var n=h2.nextSibling;while(n){var nx=n.nextSibling;body.appendChild(n);n=nx}
+  var sm=document.createElement('div');sm.className='sum';
+  sm.innerHTML='<p class="lab" style="margin:0 0 4px">In short</p><ul>'+SUM[id].map(function(t,i){return '<li><i style="background:'+SUMCOL[i]+'"></i><span>'+t+'</span></li>'}).join('')+'</ul><button type="button" class="opn" aria-expanded="false"></button>';
+  h2.after(sm);sm.after(body);
+  sm.querySelector('.opn').addEventListener('click',function(){var open=!sec.classList.contains('open');setOpen(sec,open);if(!open)sec.scrollIntoView({block:'start'});track((open?'open-':'close-')+id)})})})();
+function setOpen(sec,open){sec.classList.toggle('open',open);var b=sec.querySelector('.opn');if(b){b.setAttribute('aria-expanded',open?'true':'false');b.textContent=open?'Close this part ▴':'Open the full lesson ▾'}if(open)setTimeout(function(){dispatchEvent(new Event('resize'))},60)}
+function setMode(m,save){MODE=m;document.body.classList.toggle('quick',m==='q');
+  Object.keys(SUM).forEach(function(id){var sec=document.getElementById(id);if(sec)setOpen(sec,m==='f')});
+  $$('#modeSel button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===m?'true':'false')});
+  $('#modeNote').textContent=m==='q'?'Quick read: one short card per part. Tap “Open the full lesson” on any part to go deeper.':'Full lesson: every animation, table and source. Each part still has its short card at the top, and closes on tap.';
+  if(save){try{localStorage.setItem('bs-made-mode',m)}catch(e){}}}
+$$('#modeSel button').forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.v,true);track('mode-'+b.dataset.v)})});
+function openForHash(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);if(!el)return;var sec=el.closest('section');if(sec&&SUM[sec.id]&&!sec.classList.contains('open')){setOpen(sec,true);setTimeout(function(){el.scrollIntoView()},80)}}
+addEventListener('hashchange',openForHash);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var el=document.getElementById(a.getAttribute('href').slice(1));if(!el)return;var sec=el.closest('section');if(sec&&SUM[sec.id]&&!sec.classList.contains('open')&&!el.matches('section'))setOpen(sec,true)});
+setMode(MODE,false);openForHash();
+var _rz=0;addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){try{scDraw(scCur)}catch(e){}},220)});
 
 /* init */
 rcDraw('sel');pairDraw('sel');bbStart(2);lensDraw();chompDraw();
