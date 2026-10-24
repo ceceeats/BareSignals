@@ -2,6 +2,16 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v23 (24 Oct 2026) at /protocol/v23/
+- Vial sizes from Cece's stock (Purchase Logbook, Compound totals, 24 Oct 2026) for the 28 compounds she owns or has on order, e.g. MOTS-c 40 mg, SS-31 50 mg, 5-Amino-1MQ 50 mg, CJC + Ipa 5 + 5 mg; the sticker sheet fills the rest. Water: 2 ml BAC for nearly everything (Tesamorelin 3 ml, NAD+ 5 ml), so doses stay measurable in units.
+- Stack cards show the mix ("50 mg + 2 ml BAC") and always the syringe units.
+- Route stamps: injection (syringe), oral (pill), nasal (spray), new IV drip (bag), on the route buttons, stack cards and routine.
+- 5-Amino-1MQ as an injectable: dose options 1 to 50 mg, start 5 mg, recommended daily or 5 on 2 off, also as needed right before exercise; oral tiers hidden. CJC-1295 no DAC starts at 100 mcg; CJC + Ipamorelin at 200 mcg of blend, once daily.
+- Cycles start at the lower end of the Library's range (8–12 weeks → 8).
+- Phone keyboards that only offer a comma: "2,5 mg" or "0,5" now count as 2.5 and 0.5 in doses and mixes.
+- Step one sorts what's in stock first (her priority order: Retatrutide, BPC-157, GHK-Cu, TB-500, SS-31, NAD+, Tesamorelin, MOTS-c, Cagrilintide, Ipamorelin, then the rest of the stock), including inside opened role groups. While a group is open the popular list underneath is hidden, so a peptide no longer shows twice.
+- Built on v22, kept.
+
 ## v22 (24 Oct 2026) at /protocol/v22/
 - Proportional stripe instead of the square sticker marker everywhere (calendar, routine, cards, chips, pictures): every role the peptide has, the main role widest and on the right, like the Library tiles.
 - Time-of-day icons: sunrise (morning), sun (lunch), afternoon sun, sunset (evening), moon (bedtime). The calendar has one slot per time of day with its icon and clock time, instead of morning and evening halves.
