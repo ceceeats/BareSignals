@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V62 (25 Oct 2026): compact 21-tile amino grid with family key; tap opens the card. V61 kept at /aminos/v61/. -->
 <!-- Aminos V61 (24 Oct 2026): Popular chips at Synergies chip size. V60 kept at /aminos/v60/. -->
 <!-- Aminos V60 (24 Oct 2026): compact build header on phone; tour chips in the Library Synergies style; role legend as filled Library role tags. V59 kept at /aminos/v59/. -->
 <!-- Aminos V59 (24 Oct 2026): amino acid library of shape families with Library-style profile tiles and card; origin map under the chain; role tags inside the chain box on laptop; 53 Library entries incl. blends, unpublished chains and big proteins. V58 kept at /aminos/v58/. -->
@@ -1198,13 +1199,33 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 #pop .ch5 em,.pop5 .ch5 em{font-size:11px!important}
 #pop .ch5 .rx{font-size:10px}
 #pop,.pop5{gap:4px!important}
+
+/* V62: compact amino grid */
+.alib.amini{gap:8px}
+.alib.amini .akey{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.alib.amini .akey span{display:inline-flex;align-items:center;gap:3px}
+.alib.amini .akey svg{width:18px;height:18px;display:block}
+.alib.amini .agrid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:5px!important}
+.alib.amini .apf{padding:5px 4px 0!important;gap:1px!important;align-items:center;text-align:center;box-shadow:none}
+.alib.amini .apf:hover{box-shadow:2px 2px 0 var(--rule)}
+.alib.amini .msh svg{width:34px;height:34px;display:block;margin:-2px auto -1px}
+.alib.amini .mnm{font:700 11px/1.1 var(--display);color:var(--ink);hyphens:manual;overflow-wrap:normal;min-height:2.2em;display:flex;align-items:center;justify-content:center}
+.alib.amini .mcd{font:500 8px var(--mono);color:var(--ink-soft);letter-spacing:.03em;white-space:nowrap}
+.alib.amini .mst{display:flex;height:5px;width:calc(100% + 8px);margin:4px -4px 0;border-top:1px solid var(--ink)}
+.alib.amini .mst i{display:block}
+.alib.amini .apf[aria-pressed="true"]{background:var(--ink)}
+.alib.amini .apf[aria-pressed="true"] .mnm{color:var(--paper)}
+.alib.amini .apf[aria-pressed="true"] .mcd{color:#C9CDE6}
+@container (max-width:520px){.alib.amini .agrid{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media (max-width:899px){.alib.amini .agrid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:3px!important}.alib.amini .apf{padding:3px 2px 0!important}.alib.amini .msh svg{width:24px;height:24px;margin:-1px auto -2px}.alib.amini .mnm{font-size:9.5px;min-height:2.1em;line-height:1.05}.alib.amini .mcd{font-size:7px}.alib.amini .mst{height:4px;width:calc(100% + 4px);margin:2px -2px 0}.alib.amini .akey{font-size:8.5px;gap:2px 9px}.alib.amini .akey svg{width:15px;height:15px}}
+@media (max-width:340px){.alib.amini .agrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
 </style>
 
 <div class="wrap">
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V61</small></h1>
+    <h1>From Gene to Peptide<small>V62</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1226,8 +1247,8 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   <section>
     <div class="divider p1"><span>Part one · The letters</span></div>
-    <h2>The amino acid library <span class="tap">21 profiles, grouped by shape. Tap one to open its card.</span></h2>
-    <p class="p1lede">Every peptide and protein in your body is spelled from these 21 letters. Here they are grouped by the shape of the part that makes each one different: oily ones hide inside folds, ring ones stack, water-loving ones face outward, charged ones carry the signals.</p>
+    <h2>The amino acid library <span class="tap">Tap one to open its card.</span></h2>
+    <p class="p1lede">Every peptide and protein is spelled from these 21 letters. The shape shows the family; the stripe shows what each one does in the body.</p>
     <details class="howto"><summary>How to read a tile</summary>
       <div class="hx">
         <div class="hxt"><strong>Alanine</strong><span class="hm">Ala · 89</span><span class="hp"><i></i><i></i><i></i><i></i></span><span class="hsh"><svg viewBox="0 0 60 60" width="54" height="54" aria-hidden="true"><circle cx="30" cy="31" r="14" fill="#F28E79" stroke="#3E4A80" stroke-width="1.6"/><text x="30" y="36" text-anchor="middle" font-size="13" font-weight="700" fill="#3E4A80" font-family="Bricolage Grotesque,sans-serif">A</text></svg></span><span class="hs"><i style="background:#F28E79"></i><i style="background:#FFCBAA"></i><i style="background:#FCB0B4"></i></span>
@@ -1324,8 +1345,9 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 61 versions</summary>
-    <p style="margin:6px 0 10px"><b>Built over 61 rounds of edits by Cece, 21 to 24 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <summary class="lab" style="cursor:pointer">Version log · 62 versions</summary>
+    <p style="margin:6px 0 10px"><b>Built over 62 rounds of edits by Cece, 21 to 25 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
+    <p><b>V62:</b> the amino acid library shrinks to one compact grid of 21 small tiles, the way the Library shows its stickers: shape, name, three-letter code, weight and colour stripe, ordered by family, with a one-line family key above. Tap a tile to open its full card, with its role colours shown as proportions. The intro is shorter. <a href="/aminos/v61/">V61 kept here</a>.</p>
     <p><b>V61:</b> the Popular and Show all chips are smaller, the same size as the Synergies chips in the Library and the stack chips in Protocol. <a href="/aminos/v60/">V60 kept here</a>.</p>
     <p><b>V60:</b> the top of Build a peptide is shorter on phones: the example chips look like the Synergies chips in the Library (a colour square and the name, small, in one swipeable row), the Next example button and the one-line description are smaller, and the roles under the example are filled role tags, the way the Library labels them. <a href="/aminos/v59/">V59 kept here</a>.</p>
     <p><b>V59:</b> Part one becomes The amino acid library: the table is gone, and the 21 are grouped by shape into six families (oily, rings, water-loving, negative, positive, the odd one), each a profile tile in the Library sticker style with its weight, essential badge, size, one line on what it does, filled role tags, codons, the year it was found and its colour stripe. The amino card follows the Library card: smaller type, filled role tags, the shape on graph paper, and four blocks (what it is for, facts, structure, size and shape). For every peptide cut from a protein, the map of where its links come from now sits right under the chain in the same shapes and colours, and hovering one lights up the other. On laptops each chain carries its role tags inside the graph paper. 53 entries join from the Library (167 in all): 11 buildable peptides, 8 with unpublished sequences, 3 big proteins, 11 non-peptides, 2 mixtures and all 18 blends, each blend showing its share of the vial and a card per part. <a href="/aminos/v58/">V58 kept here</a>.</p>
@@ -1826,7 +1848,7 @@ const ASHY={Isoleucine:"Iso&shy;leucine",Methionine:"Methio&shy;nine",Phenylalan
 function alibInit(){const el=$("#alib");if(!el)return;const idx=L=>A.findIndex(a=>a[0]===L);
   const prof=L=>{const i=idx(L),a=A[i],cod=L==="U"?1:a[4].split(" ").length;
     return `<button type="button" class="apf" data-i="${i}" aria-pressed="false"><span class="apt"><span class="apsh">${shapeIcon(L,60,1.25)}</span><span class="apn"><strong>${ASHY[a[2]]||a[2]}</strong><span class="apk">${a[1]} · ${a[0]}</span><span class="say2">${PRON[L]||""}</span></span><span class="apw"><b>${Math.round(a[3])}</b>g/mol</span></span><span class="apb"><b class="bdg e-${a[6]}">${ESSB[a[6]]}</b><b class="tgx">${aSize(L)}</b></span><span class="apl">${a[8][0][1]}</span><span class="aptg">${a[8].map(r=>rtag(r[0])).join("")}</span><span class="apft"><span>${cod} codon${cod>1?"s":""}</span><span>Found ${AYEAR[L]}</span></span>${stripe(a,"apstr")}</button>`};
-  el.innerHTML=SHFAM.map(f=>`<section class="afam"><div class="afh"><span class="afi">${f[2].slice(0,3).map(L=>shapeIcon(L,30,.62)).join("")}</span><b>${f[0]}</b><span class="afd">${f[1]}</span><em>${f[2].length}</em></div><div class="agrid">${f[2].map(prof).join("")}</div></section>`).join("");
+  el.classList.add("amini");el.innerHTML=`<div class="akey">${SHFAM.map(f=>`<span>${shapeIcon(f[2][0],30,.62)}${f[0]}</span>`).join("")}</div><div class="agrid">${SHFAM.flatMap(f=>f[2]).map(L=>{const i=idx(L),a=A[i];return `<button type="button" class="apf" data-i="${i}" aria-pressed="false" aria-label="${a[2]}"><span class="msh">${shapeIcon(L,60,1.25)}</span><b class="mnm">${ASHY[a[2]]||a[2]}</b><span class="mcd">${a[1]} · ${Math.round(a[3])}</span>${stripe(a,"mst")}</button>`}).join("")}</div>`;
   el.addEventListener("click",e=>{const b=e.target.closest(".apf");if(!b)return;const i=+b.dataset.i,cw=$("#cardwrap");
     if(narrow()&&openI===i&&!cw.hidden){closeSheet();return}
     show(i,true)})}
