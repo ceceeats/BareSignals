@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v21 (25 Oct 2026) at /supplements/v21/
+- Blood tests tab also reads the researched rows from Blood Work v27 (/blood/v27/supp.js): IGF-1 now shows on Protein and Zinc (raises) and on Vitamin D3 and K2, L-Arginine, Creatine and Green Tea Extract (= no clear effect). New "=" mark in the tab key. v20 kept.
+
 ## v18 (24 Oct 2026) at /supplements/v18/
 - One content width with the site bar (nav v11): on laptop the page sits in the shared 1240px box with 24px side padding, so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons, at every text size. Phone keeps 16px sides. Scroll-fade masks use ink instead of #000. Built on v17, which stays at /supplements/v17/.
 

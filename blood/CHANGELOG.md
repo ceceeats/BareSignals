@@ -2,6 +2,13 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v27 (25 Oct 2026) at /blood/v27/
+- Fix: the open card now sits under the site bar instead of sliding over it, and the page behind gets a near-solid cream wash. On laptop, rows like Sugar & energy and Fasting Insulin used to peek out half covered beside the card.
+- "Test this if you take" gets a key for the marks it shows (◎ shows if it is working, orange dot watch for safety, three dots danger), so the circles are explained.
+- "Supplements and vitamins that move it" adds researched rows per test (new /blood/v27/suppx.js): arrow raises, lowers or = no clear effect, the size of the effect, who it applies to, VERIFIED or REPORTED, sources in a fold. Names with an orange underline open their Supplements card; dashed ones are not on Supplements yet. A Food and habits block follows.
+- IGF-1 is the first test researched: Protein, Milk and dairy, Whey, DHEA, Soy protein and Zinc (children only) raise it; Vitamin D, L-Arginine, Colostrum, Creatine and Green Tea show no clear effect; Fasting, big calorie cuts, cutting protein, vegan diet and 2+ drinks a day lower it. Other tests still show their notes only.
+- Title label now reads v27 (it still said v24). v26 kept at /blood/v26/.
+
 ## v22 (24 Oct 2026) at /blood/v22/
 - One content width with the site bar (nav v11): on laptop the page sits in the shared 1240px box with 24px side padding, so the title lines up with the BARE SIGNALS wordmark and the right edge with the A buttons, at every text size; the sticky search band no longer pokes 4px past the edges. Phone keeps 16px sides. Built on v21, which stays at /blood/v21/.
 
