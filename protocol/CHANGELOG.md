@@ -2,7 +2,16 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
-## v26 (25 Oct 2026)
+## v27 (25 Oct 2026)
+- Example protocol card at the top while the stack is empty: a fictional person (Noor, not a real stack), three peptides on their recommended starts, with Start from this example.
+- Goal templates under step one: Recovery, Gut, Fat loss, Energy, Sleep and GH, Calm and focus, Skin, Longevity, Immunity. One tap adds the set on recommended doses.
+- What to expect: a vertical timeline in the protocol (and the printout) with what people report and roughly when, plus last doses and blood tests. First draft from common community reports, to be replaced by Library research.
+- Compact editor: dose, how often and time of day up front; food, how long, first day, vial, note and why fold under More, with a one-line summary.
+- Keepsake header on the protocol: title, note line, combined stripe, Starts / Runs to / Peptides / Made date (new, saved in the link), version.
+- Today strip at the top once saved: today's doses by time of day, day N of the run, vial ends, restocks, blood tests, and a Tomorrow toggle.
+- Built on v26, kept.
+
+## v26 (25 Oct 2026) at /protocol/v26/
 - No BAC water shown anywhere on the page: card mix line and "Preparing the vials" removed. The editor keeps "Vial size" and hides the water under "mixed differently?" so units still work out.
 - One injection mark, same size and colour everywhere.
 - Role stripes run full-bleed across the top of each card and the editor, using the Library sticker proportions (49/25/15/11; blends add each part's sticker). No box inside a box.
