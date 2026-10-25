@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Blood Work · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Blood Work v25 (25 Oct 2026): My plan picks look like the Supplements Goes with boxes: cream box, ink outline, the peptide's own colour square, name in ink; only the remove x stays orange so it still reads as a button. v24 kept at /blood/v24/. Blood Work v24 (25 Oct 2026): stripes power first (power role widest on the left, then smaller in the sticker ratio 49 : 25 : 15 : 11, colours unchanged). v23 kept at /blood/v23/. Blood Work v23 (25 Oct 2026): Add to plan sits at the bottom right of every card, after the Library and Dosage links; search ranks names first via /search.js (starts with, then a word in the name, then aliases; labels and notes from 3 letters), one letter shows only names starting with it. v22 kept at /blood/v22/. Blood Work v22 (24 Oct 2026): one content width with the site bar (nav v11): .wrap uses the shared 1240px box with 24px side padding on laptop (16px on phone), title meets the wordmark, right edge meets the A buttons; sticky search band no longer pokes 4px past the box. v21 kept at /blood/v21/. */
+/* role tag: role name inside its colour block, same as Library and Home */
+.rtg{display:inline-block;font:500 10px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid #3E4A80;white-space:nowrap;font-style:normal;vertical-align:middle}
+.rtg.s{font-size:8.5px;padding:2px 4px;border-width:1px}
+.kr{grid-template-columns:minmax(0,1fr)!important}
+.kr>.rtg{justify-self:start;white-space:normal}
+.kr span{grid-column:1!important}
+
+/* Blood Work v12 (23 Oct 2026): phone fix, the "reported" tag on label rows no longer runs into the card border; label names wrap on narrow phones. v11 kept. Blood Work v11: testing protocols researched for the 18 compounds that only had Matrix marker effects (5-Amino-1MQ, SS-31, KPV and 15 more), action colour rule (orange tint = something you do or customize: My plan tab, Add to my plan, plan search and picks, checklist, copy link, Save as PDF, book a morning draw; red stays danger only; navigation stays ink) and a designed print/PDF document for My plan (white A4, ruled tables, checklist, built separately from the screen view). v10: symbol key moved to the top of each section as a labelled "Key" box (it read like part of the list), "The one thing to remember" reminders removed, personal and place notes removed from test text (data), VO2 Max note shortened. v9: compact compound cards. Each card opens as a short list (Before you start, While on it) of plain test names with a small dot for danger or watch; "Show full card" expands the full card (every Library label with what it does, the blood markers it touches, test details as compact rows, how often, red flags, test prep, markers, sources). Action buttons are orange: orange tint = something you do. Add to my plan sits on the left, Full entry in the Library and Reported dosage on the right. Bigger text. Test prep added everywhere: general rules on Blood tests, a "Before the test" section on every explainer (fasting corrected for 24 tests, biotin and other stops, timing), compound prep on cards, and a "Before your draw" checklist in My plan. v8: research numbers on marker rows ("Trials: ..." with who it was measured in, plus "research disagrees" and "no trial data" tags), TB-500 is now frag 17-23 with its research attached, full Thymosin Beta-4 researched, VO2 Max general ranges, supplement links rematched to Supplements v6. v7: phone-first compound cards. Tests are a chip grid with one symbol set (arrows, three red dots for danger, cost tier), marker effects collapse behind an expand with aim and high/low numbers on the right, every compound, test and supplement carries a colour from the 30-colour legend, "same as" protocols are written out in full, 46 researched compounds added with sources and confidence (90 in total). Built on v6 (the other session's dosage links kept). Earlier versions kept at /blood/v1/ to /blood/v6/. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+.wrap{max-width:var(--bs-w,1240px);margin:0 auto;padding:18px max(var(--bs-pad,16px),env(safe-area-inset-right,0px)) 44px max(var(--bs-pad,16px),env(safe-area-inset-left,0px))}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:68ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 12px;margin:0 0 14px;font-size:13px;line-height:1.4}
+.caution b{font:700 12px var(--display)}
+/* tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px;scroll-margin-top:8px}
+.tabs button{font:600 12.5px/1.15 var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:9px 3px;cursor:pointer;min-width:0}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs button b{font:600 10px var(--mono);margin-left:3px;color:var(--accent)}
+.tabs button[aria-pressed="true"] b{color:#FFDE59}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.qw{position:relative;flex:1 1 240px}
+.qw input{width:100%;font:500 14px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:8px 72px 8px 10px;border-radius:0}
+#count{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.sub{margin:0 0 8px;font-size:13px;color:var(--ink-soft)}
+.subh{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 8px;padding-bottom:3px;border-bottom:1.5px solid var(--rule);grid-column:1/-1}
+/* tags and chips */
+.tg{display:inline-flex;align-items:center;gap:5px;font:600 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1.2px solid var(--rule);background:var(--paper);padding:2px 6px 2px 3px}
+.tg i,.cpl i,.sug i{display:block;width:11px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.tc{font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 4px 0 0 var(--c);padding:0 5px 0 9px;text-decoration:none;white-space:nowrap;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.tc.grp{border-style:dashed}
+.tc:hover{background:var(--ink);color:var(--paper)}
+.cl{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.band{height:6px}
+/* compound cards */
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin-bottom:10px;scroll-margin-top:8px}
+.card>h2{font:700 18px/1.1 var(--display);margin:0;padding:10px 12px 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sec{border-top:1.5px solid var(--rule);padding:8px 12px}
+.sec h3{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px;color:var(--ink-soft)}
+.sec.b h3{color:var(--ink)}.sec.m h3{color:var(--accent)}.sec.f h3{color:var(--flag)}
+.sec p{margin:0 0 4px;font-size:13.5px;line-height:1.6}
+.sec p:last-child{margin-bottom:0}
+.sec.freq{display:flex;gap:8px;align-items:baseline}
+.sec.freq h3{margin:0;flex:none}.sec.freq p{font-weight:600;line-height:1.4}
+.sec.f{background:#FFF4F2}
+.sec.np p{font-size:13px;color:var(--ink-soft);font-style:italic}
+.mxl{display:grid;gap:4px}
+.mr{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:start;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 4px 0 0 var(--c);padding:6px 8px 6px 10px}
+a.mr:hover{border-color:var(--ink)}
+.mr .sy,.crow .sy{font:700 15px/1.2 var(--body);text-align:center}
+.mr b{display:block;font:600 13px/1.25 var(--body)}
+.mr span span{display:block;font-size:12.5px;line-height:1.3;color:var(--ink-soft)}
+.mr.dg,.crow.dg{background:#FFF4F2}
+.mr.dg .sy,.mr.dg b,.crow.dg .sy{color:var(--flag)}
+.mr.home{box-shadow:inset 4px 0 0 var(--rule)}
+.mr.home b::after{content:"  track at home";font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.leg{margin:6px 0 0!important;font:500 9.5px/1.5 var(--mono)!important;letter-spacing:.04em;color:var(--ink-soft)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bt{display:inline-flex;align-items:center;gap:6px;font:600 11px var(--mono);letter-spacing:.04em;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);background:var(--paper);padding:6px 10px;cursor:pointer}
+@media (hover:hover){.bt:hover{background:var(--ink);color:var(--paper)}}
+.bt.on{background:var(--ink);color:var(--paper)}
+.off{font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.card.flash{animation:fl 1.8s ease}
+@keyframes fl{0%,40%{box-shadow:0 0 0 3px var(--accent),2px 2px 0 var(--rule)}100%{box-shadow:2px 2px 0 var(--rule)}}
+/* test rows */
+.gcat{display:flex;align-items:center;gap:7px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:16px 0 6px;padding-bottom:3px;border-bottom:1.5px solid var(--rule)}
+.gcat i{display:block;width:11px;height:11px;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.tr{display:flex;justify-content:space-between;gap:8px;align-items:center;font:700 15px/1.2 var(--display);color:var(--ink);text-decoration:none;background:var(--chip);border:1.5px solid var(--ink);border-left:7px solid var(--c);box-shadow:2px 2px 0 var(--rule);padding:9px 12px;margin-bottom:8px}
+.tr:hover{box-shadow:2px 2px 0 var(--accent)}
+.tr .rg{font:500 11px var(--mono);color:var(--ink-soft);text-align:right;max-width:48%}
+/* colour key */
+.key{margin-top:22px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule)}
+.key>p{margin:0;padding:8px 12px;border-bottom:1.5px solid var(--rule)}
+.kg{display:grid;grid-template-columns:1fr}
+.kr{display:grid;grid-template-columns:14px 1fr;gap:2px 9px;padding:8px 12px;border-bottom:1px dotted var(--rule);align-items:start}
+.kr i{display:block;width:14px;height:14px;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.kr b{font:700 13px/1.2 var(--display)}
+.kr span{grid-column:2;font:500 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+/* explainer sheet */
+.sheet{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.shbg{position:absolute;inset:0;background:rgba(62,74,128,.38)}
+.shp{position:relative;width:100%;max-width:calc(700px / var(--z,1));max-height:calc(92vh / var(--z,1));max-height:calc(92dvh / var(--z,1));overflow:auto;overscroll-behavior:contain;background:var(--paper);border:1.5px solid var(--ink);border-bottom:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.shh{position:sticky;top:0;z-index:2;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.shh .in{display:flex;align-items:flex-start;gap:8px;padding:9px 12px 10px}
+.shh h2{font:700 calc(21px*var(--hk,1))/1.1 var(--display);margin:3px 0 0}
+.x{flex:none;font:600 11px var(--mono);letter-spacing:.04em;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);padding:6px 9px;cursor:pointer}
+.x:hover{background:var(--ink);color:var(--paper)}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid var(--rule);background:var(--chip)}
+.facts div{padding:8px 12px;border-right:1.5px solid var(--rule);font-size:13px;line-height:1.35;font-weight:600}
+.facts div:last-child{border-right:0}
+.facts small,.two h4{display:block;font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 3px}
+.ss{padding:11px 12px;border-bottom:1.5px solid var(--rule)}
+.ss>h3{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.ss p{margin:0 0 7px;font-size:14px;line-height:1.6}
+.ss p:last-child{margin-bottom:0}
+.two{display:grid;grid-template-columns:1fr;gap:8px}
+.two>div{border:1px solid var(--rule);background:var(--chip);padding:8px 10px}
+.two p{font-size:13.5px}
+.rt{border-top:1px solid var(--rule)}
+.rr{display:grid;grid-template-columns:minmax(92px,36%) minmax(0,1fr);border:1px solid var(--rule);border-top:0;background:var(--chip)}
+.rr b{font:600 10px/1.35 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 8px;border-right:1px solid var(--rule);box-shadow:inset 4px 0 0 var(--rule)}
+.rr span{padding:7px 9px;font-size:13.5px;line-height:1.4}
+.rr.g b{box-shadow:inset 4px 0 0 #AACC96}
+.rr.w b{box-shadow:inset 4px 0 0 #FF5050;color:var(--flag)}
+.callout{border:1.5px solid var(--accent);background:#FFF6E6;padding:8px 10px;margin-top:9px}
+.callout h4{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.callout p{font-size:13.5px}
+.cls{display:flex;flex-wrap:wrap;gap:6px}
+.cpl{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--body);text-decoration:none;color:var(--ink);border:1.2px solid var(--ink);background:var(--chip);padding:4px 9px 4px 6px}
+.cpl:hover{background:var(--ink);color:var(--paper)}
+.crl{display:grid;gap:3px}
+.crow{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;align-items:start;text-decoration:none;color:var(--ink);padding:5px 6px;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.35}
+.crow:hover{background:var(--chip)}
+.crow b{font-weight:600}
+.crow em{font-style:normal;color:var(--ink-soft)}
+.crow .q{display:block;font-size:12.5px;line-height:1.4;color:var(--ink-soft);font-style:italic;margin-top:2px}
+.rem{background:var(--ink);color:var(--paper);padding:11px 12px;margin:12px;border:1.5px solid var(--ink)}
+.rem h3{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#FFDE59;margin:0 0 5px}
+.rem p{margin:0 0 6px;font-size:14px;line-height:1.55}
+.rem .tc{color:var(--ink)}
+.shl{padding:10px 12px}
+/* plan */
+.psel{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px}
+.pc{display:inline-flex;align-items:center;gap:7px;font:600 13px var(--body);color:var(--paper);background:var(--ink);border:1.5px solid var(--ink);padding:5px 6px 5px 10px;cursor:pointer}
+.pc span{font:600 11px var(--mono);border-left:1px solid rgba(255,255,226,.4);padding-left:6px}
+.sug{margin:8px 0 4px}
+.sug .sgl{display:flex;flex-wrap:wrap;gap:6px}
+.sug .subh{margin:12px 0 6px}
+.sug button{display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--body);color:var(--ink);background:var(--chip);border:1.2px solid var(--rule);padding:5px 9px 5px 6px;cursor:pointer}
+.sug button:hover{border-color:var(--ink)}
+.sug button em{font:500 9px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.pempty{border:1.5px dashed var(--ink-soft);padding:14px;margin-top:12px;font-size:14px;color:var(--ink-soft);background:var(--chip)}
+.pstat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--chip);margin:14px 0 10px}
+.pstat div{padding:9px 10px;border-right:1.5px solid var(--ink)}
+.pstat div:last-child{border-right:0}
+.pstat b{display:block;font:700 26px/1 var(--display)}
+.pstat span{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.pbox{border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule);margin:0 0 12px}
+.pbox>.bh{padding:9px 12px 8px;border-bottom:1.5px solid var(--ink)}
+.pbox>.bh h3{font:700 16px/1.15 var(--display);margin:0}
+.pbox>.bh p{margin:3px 0 0;font-size:12.5px;color:var(--ink-soft)}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;align-items:baseline;padding:8px 12px 9px;border-bottom:1px dotted var(--rule);border-left:6px solid var(--c);text-decoration:none;color:var(--ink)}
+.prow:last-child{border-bottom:0}
+.prow:hover{background:var(--paper)}
+.prow b{font:700 14.5px/1.2 var(--display)}
+.prow .tgt{grid-column:1/-1;font:500 11.5px/1.35 var(--mono);color:var(--ink)}
+.prow .why{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.why span{font:500 9.5px var(--mono);letter-spacing:.04em;border:1px solid var(--rule);background:var(--paper);padding:1px 5px;color:var(--ink-soft)}
+.why span.dg{color:var(--flag);border-color:var(--flag)}
+.fastb{font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.2px solid var(--accent);color:var(--accent);padding:1px 5px}
+.pl{padding:8px 12px;border-bottom:1px dotted var(--rule)}
+.pl:last-child{border-bottom:0}
+.pl>b{display:block;font:700 13.5px var(--display);margin-bottom:2px}
+.pl p{margin:0 0 4px;font-size:13.5px;line-height:1.55}
+.pl .crow{border:0;padding:2px 0}
+.pacts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 12px}
+#plink{flex:1 1 220px;font:500 11px var(--mono);color:var(--ink);background:var(--chip);border:1.5px solid var(--rule);padding:6px 8px}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+@media (min-width:760px){.sheet{align-items:center;padding:24px}.shp{max-height:88vh;border-bottom:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--rule)}}
+@media (min-width:900px){
+ #list.pep{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px;align-items:start}
+ #list.gls{column-count:2;column-gap:12px}
+ #list.gls .tr,#list.gls .gcat{break-inside:avoid}
+ .kg{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .kr{border-right:1px dotted var(--rule)}
+ .pgrid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:0 12px;align-items:start}
+}
+@media (max-width:380px){.tabs button{font-size:11.5px}}
+@media (prefers-reduced-motion:reduce){.card.flash{animation:none;box-shadow:0 0 0 3px var(--accent),2px 2px 0 var(--rule)}}
+@media print{
+ .bsn,.tabs,.ctl,.key,.caution,.acts,.qw,.sug,.psel,.pacts,.sheet,.lede{display:none!important}
+ body{background:#fff}.wrap{padding:0}.pbox,.pstat{box-shadow:none;break-inside:avoid}.prow{break-inside:avoid}
+}
+/* v7: phone-first sizes, test chip grid with symbols, collapsible marker numbers, colour tags everywhere */
+body{font-size:16px}
+.lede{font-size:15px}.caution{font-size:14px}
+.tabs button{font-size:13.5px;padding:10px 3px}
+.card>h2{font-size:22px;padding:10px 12px 4px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;padding:0 12px 9px}
+.tags .tg{font-size:9.5px;padding:3px 7px 3px 4px}
+.band{display:flex;height:7px}.band i{display:block}
+.srcl{margin:0;padding:0 12px 9px;font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.sec{padding:10px 12px}
+.sec h3{font-size:10px;margin-bottom:7px}
+.sec p{font-size:15px;line-height:1.55}
+.sec.freq p{font-size:15px}
+/* symbols */
+.ic{display:inline-flex;align-items:center;justify-content:center;font:800 14px/1 var(--body);color:var(--ink);min-width:12px}
+.ic.trk{font-size:13px;color:var(--ink-soft)}
+.dots{display:inline-flex;gap:2px;align-items:center;vertical-align:middle}
+.dots i{display:block;width:7px;height:7px;border-radius:50%;background:var(--flag)}
+.dots.w i{background:#FFA51F}
+.tierb{display:inline-block;font:700 8.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:1px 4px;border:1.2px solid;vertical-align:middle;white-space:nowrap}
+.tierb.sp{color:var(--flag);border-color:var(--flag)}
+.tierb.ask{color:var(--ink-soft);border-color:var(--rule)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font:500 11px/1.3 var(--mono);color:var(--ink-soft);margin:2px 0 10px}
+.legend>span{display:inline-flex;align-items:center;gap:5px}
+.legwrap{grid-column:1/-1;border:1.5px dashed var(--rule);padding:8px 10px 0;margin-bottom:10px;background:var(--chip)}
+.legwrap .lab{margin-bottom:6px}
+/* test chip grid */
+.tks{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:6px}
+.tk{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 5px 0 0 var(--c);padding:7px 8px 7px 12px;min-height:44px;justify-content:center}
+.tk:hover{border-color:var(--ink)}
+.tk b{font:600 14.5px/1.2 var(--body)}
+.tk .tm{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:12px;line-height:1.25}
+.tk .tm em{font-style:normal;color:var(--ink-soft)}
+.tk.dg{background:#FFF4F2;border-color:#F5B5B5}
+.tk.dg .tm em{color:var(--flag);font-weight:600}
+/* markers, collapsed by default */
+.mxd summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.mxd summary::-webkit-details-marker,.nf summary::-webkit-details-marker,.srcd summary::-webkit-details-marker{display:none}
+.mxd summary .ms{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--ink);padding:4px 8px;background:var(--paper)}
+.mxd summary .ms b{font:700 12px var(--mono)}
+.mxd summary .ms::after{content:"▾";font-size:12px}
+.mxd[open] summary .ms::after{content:"▴"}
+.mxd[open] summary{margin-bottom:10px}
+.mxl{display:grid;gap:5px}
+.mr2{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:8px;align-items:center;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 4px 0 0 var(--c);padding:7px 9px 7px 10px}
+a.mr2:hover{border-color:var(--ink)}
+.mr2 .mi{display:flex;justify-content:center}
+.mr2 .mt b{display:block;font:600 14px/1.25 var(--body)}
+.mr2 .mt span{display:block;font-size:12.5px;line-height:1.3;color:var(--ink-soft)}
+.mr2 .nm{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right;max-width:44vw}
+.mr2 .nm span{font:600 11.5px/1.2 var(--mono);white-space:nowrap}
+.mr2 .nm small{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-right:4px;color:var(--ink-soft)}
+.mr2 .nm .aim{color:var(--ink)}
+.mr2 .nm .bad{color:var(--flag)}
+.mr2 .nm .bad small{color:var(--flag)}
+.mr2 .nm.hm{font:500 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.mr2.dg{background:#FFF4F2;border-color:#F5B5B5}
+.mr2.dg .mt b{color:var(--flag)}
+.mr2.home{box-shadow:inset 4px 0 0 var(--rule)}
+.nf summary,.srcd summary{list-style:none;cursor:pointer;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.nf summary::after,.srcd summary::after{content:" ▾"}
+.nf[open] summary::after,.srcd[open] summary::after{content:" ▴"}
+.nf h3{margin-top:10px}
+.srcd ol{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.45}
+.srcd li{margin-bottom:5px}
+.srcd a{color:var(--ink);text-decoration-color:var(--accent)}
+.srcd em{color:var(--ink-soft);font-style:normal}
+.rmeta p{font-size:14px;color:var(--ink);margin-top:7px}
+.rb{display:inline-block;font:600 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border:1.2px solid var(--ink);box-shadow:inset 4px 0 0 var(--rule)}
+.rb.c-verified{box-shadow:inset 4px 0 0 #AACC96}.rb.c-reported{box-shadow:inset 4px 0 0 #99ACFF}.rb.c-inferred{box-shadow:inset 4px 0 0 #FFA51F}.rb.c-speculated{box-shadow:inset 4px 0 0 #FF5050}
+.refn{font-style:italic;color:var(--ink-soft)!important}
+/* colour chips for compounds and supplements */
+.cl{color:var(--ink);font-weight:600;text-decoration:none;background:var(--paper);border:1px solid var(--rule);box-shadow:inset 3px 0 0 var(--c);padding:0 5px 0 8px;white-space:nowrap}
+.cl:hover{background:var(--ink);color:var(--paper)}
+.cpl,.spc{display:inline-flex;align-items:center;gap:6px;font:600 13.5px var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--rule);background:var(--paper);box-shadow:inset 4px 0 0 var(--c);padding:5px 9px 5px 11px}
+.cpl:hover,.spc:hover{border-color:var(--ink)}
+.crow{box-shadow:inset 3px 0 0 var(--c);padding-left:9px}
+.sug button{box-shadow:inset 4px 0 0 var(--c);padding-left:11px}
+.why span{box-shadow:inset 3px 0 0 var(--c);padding-left:7px}
+.facts.f3{grid-template-columns:1fr 1fr}
+.facts.f3 div:last-child{grid-column:1/-1;border-top:1.5px solid var(--rule)}
+.pstat{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pstat b{font-size:24px}
+.tr .tierb{margin-left:4px}
+@media (min-width:640px){.facts.f3{grid-template-columns:repeat(3,1fr)}.facts.f3 div:last-child{grid-column:auto;border-top:0}}
+@media (max-width:420px){.mr2{grid-template-columns:26px minmax(0,1fr) auto;gap:6px}.mr2 .nm span{font-size:11px}.tks{grid-template-columns:1fr 1fr}.pstat b{font-size:20px}.pstat span{font-size:8.5px}}
+.mr2 .mt .mg{display:block;margin-top:3px;font-size:12px;line-height:1.35;color:var(--ink)}
+.mr2 .mt .mg b{font:700 12px var(--mono)}
+.mr2 .mt .mgl{font:600 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-right:5px}
+.mr2 .mt i.rd{font:700 8.5px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--flag);border:1.2px solid var(--flag);padding:0 4px;white-space:nowrap}
+.mr2 .mt i.nt{font:500 8.5px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px dashed var(--rule);padding:0 4px}
+
+/* v9: compact cards, orange actions, prep */
+:root{--act:#DB6830;--actbg:#FFEFE3;--actbd:#F2B48F}
+.card>h2{font-size:23px;padding:11px 12px 6px}
+.tags{padding:0 12px 10px}
+.tags .tg{font-size:10.5px;padding:3px 8px 3px 4px}
+.tags .tg i{width:12px;height:12px}
+.cq{border-top:1.5px solid var(--rule);padding:10px 12px}
+.cq h3{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 7px;color:var(--ink-soft)}
+.cq+.cq{padding-top:8px}
+.tpl{display:flex;flex-wrap:wrap;gap:5px}
+.h3b{margin-top:12px!important}
+.ta.tm2 div{display:grid;grid-template-columns:12px 8.6em minmax(0,1fr);gap:8px;font-size:14px}.ta.tm2 b{white-space:normal}
+.chk h4{font:600 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:6px 0 0;list-style:none}
+.tp{display:inline-flex;align-items:center;gap:5px;font:600 14.5px/1.2 var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--rule);background:var(--paper);box-shadow:inset 4px 0 0 var(--c);padding:5px 8px 5px 10px}
+.tp:hover{border-color:var(--ink)}
+.tp.dg{background:#FFF4F2;border-color:#F5B5B5}
+.pd{display:inline-block;width:6px;height:6px;border-radius:50%;flex:none;background:var(--flag)}
+.pd.w{background:#FFA51F}
+.cq .more{font:500 11px var(--mono);color:var(--ink-soft);margin:7px 0 0}
+.xp{border-top:1.5px solid var(--rule)}
+.xp>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.xp>summary::-webkit-details-marker{display:none}
+.xp>summary::after{content:'▾';font-size:13px;transition:transform .15s}
+.xp[open]>summary::after{transform:rotate(180deg)}
+.xp[open]>summary{background:var(--paper)}
+.xp>summary .hint{font-weight:500;color:var(--ink-soft);text-transform:none;letter-spacing:0;font-family:var(--body);font-size:12.5px}
+.ta{display:flex;flex-direction:column;gap:5px}
+.ta div{display:flex;gap:8px;align-items:baseline;font-size:15px;line-height:1.4}
+.ta i{display:block;width:12px;height:12px;flex:none;transform:translateY(1px);box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.ta b{font-weight:600;white-space:nowrap}
+.ta span{color:var(--ink-soft)}
+.ta span{flex:1 1 auto;min-width:0}
+.ta b{white-space:normal}
+.ta div{flex-wrap:wrap;align-items:center;row-gap:3px}
+.ta .rtg{flex:none!important;color:inherit}
+.ta div>span:not(.rtg){flex:1 1 160px}
+.ta em{flex:none;margin-left:auto;font:600 9px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--rule);padding:0 4px;white-space:nowrap}
+.tch{margin-top:8px;font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.tch b{color:var(--ink);font-weight:600}
+.trl{display:flex;flex-direction:column;border:1px solid var(--rule);background:var(--paper)}
+.trw{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;text-decoration:none;color:var(--ink);box-shadow:inset 4px 0 0 var(--c);padding:7px 10px 7px 12px;border-top:1px solid var(--rule)}
+.trw:first-child{border-top:0}
+.trw:hover{background:var(--chip)}
+.trw b{font:600 15px/1.25 var(--body);display:flex;align-items:center;gap:6px}
+.trw .r{display:flex;align-items:center;gap:5px;justify-self:end}
+.trw .r .ic{font-size:13px}
+.trw em{grid-column:1/-1;font-style:normal;font-size:13px;line-height:1.35;color:var(--ink-soft)}
+.trw.dg{background:#FFF4F2}
+.trw.dg em{color:var(--flag)}
+.prl{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.prl li{font-size:14.5px;line-height:1.45;padding-left:14px;position:relative}
+.prl li::before{content:'';position:absolute;left:2px;top:.6em;width:5px;height:5px;background:var(--ink-soft)}
+.prl li.stop::before{background:var(--flag)}
+.prl li small{display:block;color:var(--ink-soft);font-size:12.5px}
+.ctag{font:600 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--rule);padding:0 4px;margin-left:4px;white-space:nowrap;vertical-align:1px}
+.newb{font:700 8.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:1px 5px;margin-left:4px;vertical-align:1px}
+.fixn{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px}
+/* actions: orange = something you do */
+.acts2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:8px;border-top:1.5px solid var(--rule);padding:10px 12px}
+.acts2 .rt{display:flex;flex-direction:column;gap:6px}
+.acts2 .bt{justify-content:space-between;font-size:11.5px;padding:7px 10px}
+.btp,.bt.act{display:flex;align-items:center;justify-content:center;text-align:center;gap:6px;font:700 12.5px/1.25 var(--mono);letter-spacing:.03em;color:var(--act);background:var(--actbg);border:1.5px solid var(--act);padding:8px 10px;cursor:pointer}
+@media (hover:hover){.btp:hover,.bt.act:hover{background:var(--act);color:#fff}}
+.btp.on{background:var(--act);color:#fff}
+.btp .pl2{font-size:20px;line-height:1;font-weight:500}
+.acts2 .off{font:500 11px var(--mono);color:var(--ink-soft);align-self:center}
+.qw input#pq{background:var(--actbg);border-color:var(--act)}
+.sug button{background:var(--actbg);border-color:var(--actbd)}
+.sug button:hover{border-color:var(--act)}
+.pc{background:var(--act);border-color:var(--act)}
+.pacts .bt{color:var(--act);background:var(--actbg);border-color:var(--act)}
+@media (hover:hover){.pacts .bt:hover{background:var(--act);color:#fff}}
+.sec.m h3{color:var(--ink)}
+/* prep boxes */
+.prepbox{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 12px}
+.prepbox>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.prepbox>summary::-webkit-details-marker{display:none}
+.prepbox>summary::after{content:'▾'}
+.prepbox[open]>summary::after{content:'▴'}
+.prepbox .in{padding:0 12px 12px}
+.chk{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.chk li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.45}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;margin:1px 0 0;border:1.5px solid var(--act);background:var(--actbg);cursor:pointer;display:grid;place-content:center}
+.chk input:checked{background:var(--act)}
+.chk input:checked::after{content:'✓';color:#fff;font:700 12px/1 var(--body)}
+.prepbox2>summary{cursor:pointer;list-style:none}.prepbox2>summary::-webkit-details-marker{display:none}
+.chk li.done span{text-decoration:line-through;color:var(--ink-soft)}
+.chk small{display:block;color:var(--ink-soft);font-size:12.5px}
+.facts .fixn{font-size:11.5px}
+@media (max-width:380px){.acts2{grid-template-columns:1fr}.tp{font-size:14px}}
+.keyb{border:1px dashed var(--ink-soft);background:var(--paper);padding:6px 8px;margin:0 0 10px;font-size:10.5px}
+.keyb .kl{font:700 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--ink-soft);padding:1px 5px}
+.mxd .keyb{margin:4px 0 10px}
+
+/* v11: action colour rule. Orange tint = something you do or customize. Red = danger only. Ink = reading and navigation. */
+.tabs button.tact{background:var(--actbg);color:var(--act)}
+.tabs button.tact[aria-pressed="true"]{background:var(--act);color:#fff}
+.tabs button.tact b{color:var(--act)}.tabs button.tact[aria-pressed="true"] b{color:#fff}
+.bt.act{display:inline-flex;font-size:11.5px}
+.actnote{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--act);background:var(--actbg);padding:9px 12px;margin:0 0 12px;font-size:14px;line-height:1.45;color:var(--ink)}
+.actnote b{color:var(--act)}
+.actnote .an{flex:none;font:700 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--act);padding:2px 6px;margin-top:2px}
+.pacts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+#pdoc{display:none}
+@media print{
+ @page{size:A4;margin:14mm 14mm 16mm}
+ html.pdoc-on body{background:#fff!important}
+ html.pdoc-on body>*:not(#pdoc){display:none!important}
+ html.pdoc-on #pdoc{display:block!important}
+ #pdoc{color:#3E4A80;font:10pt/1.45 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ #pdoc *{box-sizing:border-box}
+ #pdoc .ph{border-bottom:2.5pt solid #3E4A80;padding-bottom:9pt;margin-bottom:10pt}
+ #pdoc .pk{font:600 7.5pt "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#DB6830;margin:0 0 3pt}
+ #pdoc h1{font:700 22pt/1.05 "Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;margin:0 0 4pt;color:#3E4A80}
+ #pdoc .pm{margin:0 0 7pt;font:500 8pt "JetBrains Mono",ui-monospace,Menlo,monospace;color:#6B76A8}
+ #pdoc .pm span{word-break:break-all}
+ #pdoc .pcs{display:flex;flex-wrap:wrap;gap:4pt}
+ #pdoc .pcs span{font:600 9pt/1 "Hanken Grotesk",system-ui,sans-serif;border:.75pt solid #C9C6E4;border-left:4pt solid var(--c);padding:3pt 6pt}
+ #pdoc .pst{display:grid;grid-template-columns:repeat(4,1fr);border:1pt solid #3E4A80;margin:0 0 6pt}
+ #pdoc .pst div{padding:5pt 7pt;border-right:1pt solid #3E4A80}#pdoc .pst div:last-child{border-right:0}
+ #pdoc .pst b{display:block;font:700 17pt/1 "Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif}
+ #pdoc .pst span{font:500 6.8pt "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#6B76A8}
+ #pdoc .lgd{font:500 7.5pt "JetBrains Mono",ui-monospace,monospace;color:#6B76A8;margin:0 0 4pt}
+ #pdoc i.d1,#pdoc i.d3 b{display:inline-block;width:5pt;height:5pt;border-radius:50%;background:#FFA51F;vertical-align:1pt;margin-right:3pt}
+ #pdoc i.d3{display:inline-flex;gap:1.2pt;margin-right:3pt;vertical-align:0}#pdoc i.d3 b{background:#C02626;margin:0}
+ #pdoc section{margin-top:12pt}
+ #pdoc h2{font:700 12.5pt/1.1 "Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;margin:0 0 5pt;padding-bottom:3pt;border-bottom:1pt solid #3E4A80;break-after:avoid;page-break-after:avoid}
+ #pdoc h2 small{font:500 7.5pt "JetBrains Mono",ui-monospace,monospace;color:#6B76A8;text-transform:uppercase;letter-spacing:.06em;margin-left:5pt}
+ #pdoc h4{font:600 7.5pt "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6B76A8;margin:0 0 3pt;break-after:avoid}
+ #pdoc .cks{columns:2;column-gap:14pt}
+ #pdoc .cg{margin-bottom:6pt}
+ #pdoc .cg h4{break-after:avoid-column}
+ #pdoc .cg ul{list-style:none;margin:0;padding:0}
+ #pdoc .cg li{display:flex;gap:6pt;align-items:flex-start;break-inside:avoid;margin-bottom:3.5pt;font-size:8.8pt;line-height:1.35}
+ #pdoc .bx{flex:none;width:8pt;height:8pt;border:1pt solid #DB6830;margin-top:1.5pt}
+ #pdoc .cg small{display:block;color:#6B76A8;font-size:7.5pt}
+ #pdoc table.pt2{width:100%;border-collapse:collapse;font-size:8.6pt;line-height:1.3}
+ #pdoc thead{display:table-header-group}
+ #pdoc th{text-align:left;font:600 6.8pt "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B76A8;border-bottom:1pt solid #3E4A80;padding:3pt 5pt}
+ #pdoc td{border-bottom:.6pt solid #DDDAEE;padding:4pt 5pt;vertical-align:top}
+ #pdoc tr{break-inside:avoid;page-break-inside:avoid}
+ #pdoc td.tn{border-left:3.5pt solid var(--c);width:24%}
+ #pdoc td.tn b{font-weight:600}
+ #pdoc td.fa{width:7%}#pdoc td.fa b{color:#DB6830}
+ #pdoc td.aim{width:28%;font:500 7.6pt/1.35 "JetBrains Mono",ui-monospace,monospace}
+ #pdoc .pw{display:inline-block;margin:0 6pt 1pt 0;white-space:nowrap}
+ #pdoc .pt{font:700 6.5pt "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em;border:.75pt solid #B9B6D4;padding:0 3pt;white-space:nowrap}
+ #pdoc .pt.sp{color:#C02626;border-color:#C02626}
+ #pdoc .pc0,#pdoc .mu{color:#9AA0C4}
+ #pdoc .hm div{display:grid;grid-template-columns:30% 1fr;gap:8pt;padding:3pt 0;border-bottom:.6pt solid #DDDAEE;break-inside:avoid;font-size:8.6pt}
+ #pdoc .pcg{columns:2;column-gap:14pt}
+ #pdoc .pcb{break-inside:avoid;margin-bottom:7pt;font-size:8.6pt}
+ #pdoc .pcb h4{color:#3E4A80;font:700 9.5pt "Hanken Grotesk",system-ui,sans-serif;letter-spacing:0;text-transform:none;border-left:3.5pt solid var(--c);padding-left:5pt;margin-bottom:2pt}
+ #pdoc .pcb p{margin:0 0 2pt}
+ #pdoc .rf .pcb{border:.75pt solid #F2C4C4;background:#FFF7F6;padding:5pt 6pt}
+ #pdoc .pf{margin-top:14pt;padding-top:5pt;border-top:.75pt solid #3E4A80;font:500 7pt "JetBrains Mono",ui-monospace,monospace;color:#6B76A8}
+}
+button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.btp:active,.bt.act:active{transform:translateY(1px)}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:60;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font:600 13px var(--body);padding:10px 12px 10px 14px;box-shadow:2px 2px 0 var(--rule);max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast a{color:#fff;background:var(--act);font:700 11px var(--mono);text-decoration:none;padding:6px 9px;white-space:nowrap}
+.nodraw{border:1.5px solid var(--ink);background:var(--chip);padding:12px;margin:0 0 12px;font-size:15px}
+.nodraw b{display:block;font:700 17px var(--display);margin-bottom:4px}
+.prepbox2:not([open])>summary p{display:none}
+.prepbox2>summary h3::after{content:' ▾';font-size:.8em}.prepbox2[open]>summary h3::after{content:' ▴'}
+#pdoc .nodr{border:1.5px solid #3E4A80;padding:8px 10px;margin:10px 0;font-size:12px}
+
+/* ===== v17: Type Rule v1 + density ===== */
+:root{--tag:500 8.5px/1.1 var(--mono)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-size:13.5px;line-height:1.5}
+.lab{font:500 9px var(--mono);letter-spacing:.1em}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+h1{font:700 22px/1.05 var(--display);margin:2px 0 8px}
+h1 small{font:500 9px var(--mono)}
+.tsz{display:flex;flex:none;border:1.5px solid var(--ink);background:var(--chip);margin-top:2px}
+.tsz button{font-family:var(--display);font-weight:700;color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);width:30px;height:28px;padding:0;cursor:pointer;line-height:1}
+.tsz button:last-child{border-right:0}
+.tsz [data-ts=s]{font-size:10px}.tsz [data-ts=m]{font-size:12px}.tsz [data-ts=l]{font-size:15px}
+.tsz button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.caution{font-size:12px;line-height:1.4;padding:7px 10px;margin:0 0 10px;box-shadow:2px 2px 0 var(--rule)}
+.caution b{font:700 12px var(--body);color:var(--act)}
+.tabs button{font-size:calc(12.5px*var(--hk,1));padding:8px 3px}
+.tabs button b{font-size:9px}
+/* sticky search */
+.ctl{position:sticky;top:calc(var(--bsnav-h,0px) / var(--z,1));z-index:20;background:var(--paper);margin:0 0 10px;padding:6px 0;box-shadow:0 1.5px 0 var(--rule)}
+.qw input{font:500 13.5px var(--body);padding:8px 78px 8px 10px}
+#count{font:500 9px var(--mono)}
+.card{scroll-margin-top:62px}
+/* tags: one size */
+.rtg,.rtg.s{font:var(--tag);letter-spacing:.07em;padding:3px 5px;border:1px solid var(--ink)}
+.tags{gap:4px;padding:0 12px 8px}
+.subh,.gcat{font:var(--tag);letter-spacing:.08em;margin:14px 0 6px}
+.gcat i{width:9px;height:9px}
+.sec h3,.cq h3,.ss>h3,.chk h4,.callout h4,.facts small,.two h4,.mxd summary,.nf summary,.srcd summary,.xp>summary,.prepbox>summary{font:var(--tag);letter-spacing:.08em}
+.sec h3,.cq h3,.ss>h3{color:var(--accent);margin:0 0 6px}
+.sec.f h3{color:var(--flag)}
+.card>h2{font:700 calc(16px*var(--hk,1))/1.15 var(--display);padding:9px 12px 6px}
+.cq{padding:8px 12px}
+.cq+.cq{padding-top:6px}
+.sec{padding:8px 12px}
+.sec p{font-size:13.5px;line-height:1.5}
+.sec.freq{align-items:center}.sec.freq p{font:600 12.5px/1.35 var(--body)}
+.srcl{font:500 9px/1.4 var(--mono);padding:0 12px 6px}
+.srcl.aka{padding-top:8px;text-transform:none;letter-spacing:.02em}
+.sec.np p,.rmeta p{font-size:12px}
+.rb{font:var(--tag);padding:3px 5px}
+/* test chips = tag size */
+.tpl{gap:4px}
+.tp{font:var(--tag);letter-spacing:.06em;text-transform:uppercase;gap:4px;border:1px solid var(--ink);box-shadow:inset 3px 0 0 var(--c);padding:3px 5px 3px 7px;background:var(--paper)}
+.tp.dg{background:#FFF4F2;border-color:var(--flag);color:var(--flag)}
+.pd{width:5px;height:5px}
+.cq .more{font:500 10.5px var(--body)}
+.xp>summary{padding:8px 12px}
+.xp>summary .hint{font-size:11px}
+/* Everything it touches: two columns, tag above its line */
+.ta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 10px}
+.ta div,.ta.tm2 div{display:flex;flex-direction:column;align-items:flex-start;gap:3px;font-size:11.5px;line-height:1.35;grid-template-columns:none}
+.ta div>span:not(.rtg){flex:none}
+.ta em{margin:0;font:var(--tag);font-size:8px;padding:1px 4px}
+.ta .rtg{max-width:100%;white-space:normal}
+/* test rows: two columns */
+.trl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.trw,.trw:first-child{border-top:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 6px 5px 9px;box-shadow:inset 3px 0 0 var(--c);align-items:start;gap:1px 4px}
+.trw b{font:600 12px/1.25 var(--body);gap:4px}
+.trw em{font-size:10.5px;line-height:1.3}
+.trw .r .ic{font-size:11px}
+.tierb{font:700 8px/1.2 var(--mono);padding:1px 3px}
+.legend,.keyb{font:500 9px/1.3 var(--mono);gap:4px 10px}
+.keyb{padding:5px 7px;margin:0 0 8px}
+.keyb .kl{font-size:8.5px}
+.legwrap{padding:6px 8px 0;margin-bottom:8px}
+.dots i{width:5px;height:5px}
+/* markers: two columns, numbers under the name */
+.mxl{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.mr2{grid-template-columns:14px minmax(0,1fr);gap:2px 5px;align-items:start;padding:5px 6px 5px 8px;box-shadow:inset 3px 0 0 var(--c)}
+.mr2 .mi .ic{font-size:11px}
+.mr2 .mt b{font:600 12px/1.25 var(--body)}
+.mr2 .mt span{font-size:10.5px;line-height:1.3}
+.mr2 .mt .mg{font-size:10px;line-height:1.3}.mr2 .mt .mg b{font-size:10px}
+.mr2 .mt .mgl,.mr2 .mt i.rd,.mr2 .mt i.nt{font-size:8px}
+.mr2 .nm{grid-column:2;align-items:flex-start;text-align:left;max-width:none}
+.mr2 .nm:empty{display:none}
+.mr2 .nm span{font:600 10px/1.25 var(--mono);white-space:normal}
+.mr2 .nm small{font-size:8px}
+.mr2 .nm.hm{font-size:8px}
+.mxd summary .ms{padding:3px 6px}.mxd summary .ms b{font-size:10px}
+.leg{font:500 9px/1.45 var(--mono)!important}
+/* prep, sources, supplements */
+.prl{gap:4px}.prl li{font-size:12px;line-height:1.4;padding-left:11px}.prl li::before{top:.55em;width:4px;height:4px}
+.prl li small,.chk small{font-size:10.5px}
+.ctag,.newb{font:var(--tag);font-size:8px;padding:0 3px}
+.srcd ol{font-size:11.5px}
+.cls{gap:4px}
+.spc,.cpl{font:600 12px/1.2 var(--body);padding:3px 7px 3px 9px;box-shadow:inset 3px 0 0 var(--c)}
+/* compact action row: small orange button + two links */
+.acts3{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;border-top:1.5px solid var(--rule);padding:8px 12px}
+.acts3 [data-plan]{margin-left:auto}
+.btp.sm{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:112px;font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border-width:1.5px;user-select:none;-webkit-user-select:none}
+.btp.sm .pl2{font:700 12px/1 var(--mono)}
+.btp.sm.on{background:var(--act);color:#fff}
+.lk2{font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);padding:4px 0}
+@media (hover:hover){.lk2:hover{border-color:var(--ink)}}
+.acts3 .off{font:500 9px var(--mono)}
+.toast{pointer-events:none!important;width:max-content;font:600 12px var(--body);padding:8px 10px 8px 12px}
+.toast.on a{pointer-events:auto}
+.toast a{font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px}
+/* test list, sheets, plan */
+.tr{font:600 13.5px/1.25 var(--body);padding:7px 10px;margin-bottom:5px;border-left-width:5px}
+.tr .rg{font:500 9.5px var(--mono)}
+.sub{font-size:12px}
+.shh h2{font:700 17px/1.15 var(--display)}
+.x{font:600 9.5px var(--mono);padding:5px 8px}
+.facts div{font-size:12px}
+.ss p,.two p,.callout p{font-size:13.5px;line-height:1.5}
+.rr b{font:600 8.5px/1.35 var(--mono)}
+.rr span{font-size:12px}
+.crow{font-size:12.5px}.crow .q{font-size:11px}
+.kr b{font-size:13px}.kr span{font-size:9px}
+.foot{font:500 9px var(--mono)}
+.pstat b,.pstat b{font:700 17px/1 var(--display)}
+.pstat span{font-size:8.5px}
+.pbox>.bh h3{font-size:15px}.pbox>.bh p{font-size:11.5px}
+.prow b{font:600 13.5px/1.25 var(--body)}
+.prow .tgt{font:500 10.5px/1.35 var(--mono)}
+.why span,.fastb{font:var(--tag);font-size:8.5px;padding:2px 4px 2px 6px}
+.pl>b{font-size:13.5px}.pl p{font-size:12.5px}
+.chk li{font-size:12.5px}
+.pc{font:600 12px var(--body)}
+.sug button{font:600 12px var(--body)}
+.pempty,.nodraw{font-size:13px}.nodraw b{font-size:15px}
+.actnote{font-size:12.5px}
+.bt,.bt.act,.pacts .bt{font:600 10px var(--mono);letter-spacing:.06em;padding:6px 9px}
+.prepbox>summary{padding:8px 12px}
+@media (max-width:420px){.mr2 .nm span{font-size:10px}.tks{grid-template-columns:1fr 1fr}}
+@media (max-width:340px){.ta,.trl,.mxl{grid-template-columns:minmax(0,1fr)}}
+@media print{.tsz,.ctl{display:none!important}}
+/* v20: card view switch (same look as the Library 3/2/1 buttons) */
+.ctl{flex-wrap:wrap}
+.ctl .qw{flex:1 1 200px;min-width:0}
+.vsw{display:flex;border:1.5px solid var(--ink);background:var(--chip);flex:none;align-self:stretch}
+.vsw[hidden]{display:none}
+.vsw button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:2px;width:34px;min-height:34px;color:var(--ink);border-right:1.5px solid var(--ink)}
+.vsw button:last-child{border-right:0}
+.vsw i{display:block;width:4px;height:12px;border:1.3px solid currentColor;box-sizing:border-box}
+.vsw [data-cols="5"]{gap:1.5px}.vsw [data-cols="5"] i{width:3.5px}
+.vsw [data-cols="2"] i{width:7px}
+.vsw [data-cols="1"] i{width:15px;height:9px}
+.vsw button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.vsw button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+#list.pep{display:grid;grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));gap:0 12px;align-items:start}
+#list.gls{column-count:var(--cols,1);column-gap:12px}
+#list.gls .tr,#list.gls .gcat{break-inside:avoid}
+#list.gls .gcat{break-after:avoid}
+#list.gls>.sub,#list.gls>.prepbox,#list.gls>.legend{column-span:all}
+#list.pep[data-n="5"] .card:has(.xp[open]),#list.pep[data-n="4"] .card:has(.xp[open]){grid-column:span 2}
+/* tighter cards when they sit 3 or more across, or 2 across on a phone */
+#list.pep.tight .card>h2{font-size:calc(15px*var(--hk,1));padding:8px 9px 6px}
+#list.pep.tight .cq,#list.pep.tight .sec{padding-left:9px;padding-right:9px}
+#list.pep.tight .acts3{padding:7px 9px;gap:6px 9px}
+#list.pep.tight .btp.sm{min-width:0;flex:1 1 100%}
+#list.pep.tight .xp>summary .hint{display:none}
+/* v20: search history, this device only */
+.hist{flex:1 1 100%;min-width:0;display:flex;flex-direction:column;gap:5px;margin-top:-2px}
+.hist[hidden]{display:none}
+.hchips{display:flex;flex-wrap:wrap;gap:4px}
+.hchip{all:unset;box-sizing:border-box;cursor:pointer;font:500 8.5px/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--chip);border:1px solid var(--ink);padding:3px 5px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (hover:hover){.hchip:hover{background:var(--ink);color:var(--paper)}}
+.hrow{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font:500 9px/1.3 var(--mono);color:var(--ink-soft)}
+.hrow .hnote{flex:1 1 auto;min-width:0}
+.hlink{all:unset;cursor:pointer;font:500 9px/1.3 var(--mono);color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.hsw{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font:500 8.5px/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.hsw .tr2{position:relative;width:22px;height:11px;border:1px solid var(--ink);background:var(--paper);box-sizing:border-box}
+.hsw .tr2::after{content:"";position:absolute;top:1px;left:1px;width:7px;height:7px;background:var(--ink-soft)}
+.hsw[aria-checked="true"] .tr2{background:var(--actbg);border-color:var(--act)}
+.hsw[aria-checked="true"] .tr2::after{left:12px;background:var(--act)}
+.hlink:focus-visible,.hsw:focus-visible,.hchip:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+/* v20: clear plan, inline confirm */
+.pclr{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
+.pclr .bt.act{font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px}
+.pclr .bt.act.yes{background:var(--act);color:#fff}
+.pclr .cq2{font:600 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--act)}
+#list.pep.ph2 .card:has(.xp[open]){grid-column:1/-1}
+@media (max-width:640px){.hrow .hnote{flex-basis:100%}}
+@media print{.vsw,.hist,.pclr{display:none!important}}
+.pc{background:var(--chip)!important;color:var(--ink)!important;border:1.2px solid var(--ink)!important;font:500 13px var(--body);padding:4px 4px 4px 5px;gap:7px}
+.pc i{width:13px;height:13px;display:block;flex:none;background:var(--c);box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.pc span{font:700 11px var(--mono);color:#fff;background:var(--act);border:0!important;padding:3px 6px;margin-left:2px;line-height:1}
+.pc:hover span{filter:brightness(.92)}
+</style>
+<script src="/nav.js" defer></script>
+<script src="/search.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div>
+  <h1>Blood Work<small>V24</small></h1></div></header>
+  <main id="main">
+  <p class="caution"><b>Better cautious than not:</b> test before you start, and keep testing. Not medical advice, so bring your numbers to a clinician.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="View"></div>
+  <div class="ctl" id="ctl"><div class="qw"><input id="q" type="search" placeholder="Search" aria-label="Search" autocomplete="off" enterkeyhint="search"><span id="count"></span></div><div class="vsw" id="vsw" role="group" aria-label="Cards per row"></div><div class="hist" id="hist" hidden></div></div>
+  <div id="list"></div>
+  <div class="key" id="keyw"><p class="lab">Colour key · same colours as the Library</p><div class="kg" id="key"></div></div>
+  <p class="foot">Collected by <b>Bare Signals</b> · from the Bloodwork Encyclopedia and the Peptide × Biomarker Matrix</p>
+  </main>
+</div>
+<div class="sheet" id="sheet" hidden><div class="shbg" data-close></div><div class="shp" id="shp" role="dialog" aria-modal="true" aria-labelledby="shT" tabindex="-1"></div></div>
+<script src="/blood/v20/data.js"></script>
+<script src="/blood/v20/core.js"></script>
+<script>function bsFg(h){var n=parseInt(String(h||'#FFFFE2').slice(1),16),f=function(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)},l=.2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255),cr=function(a){return (Math.max(a,l)+.05)/(Math.min(a,l)+.05)};return cr(.0748)>=4.5?'#3E4A80':cr(.0219)>=cr(.9827)?'#1F2550':'#FFFFE2'}
+
+/* Blood Work v20 (23 Oct 2026): card view switch (laptop 5/3/2 per row, phone 2/1, saved as bw-cols-w / bw-cols-n), Clear plan button with inline Yes/No confirm under My plan, search history on this device only (last 8 per view, chips under the search, Clear history, on/off switch, bw-hist / bw-hist-off). v19 kept.
+   Blood Work v19 (23 Oct 2026): hooked to nav v10 (laptop has five text steps, default the large A 1.15, up to 1.45); the page applies the number nav sends (bs-text detail.k), reads bs-text-w on laptop at load; checked at 1.45 on 1366 and 1280 wide. v18 kept.
+   Blood Work v18 (23 Oct 2026): hooked to nav v9: the text size control lives in the site bar; the page listens to bs-text (zoom on main and the sheet, headings grow by less), sticky search sits below the site bar (top:var(--bsnav-h) corrected for zoom), the sheet no longer runs off the top of the screen at large text, duplicate Bare Signals label removed. v17 kept.
+   Blood Work v17 (23 Oct 2026): Type Rule v1 (one small tag size for role tags, test chips and labels; compact body sizes) and the three-step text size control (bs-text); test chips at tag size; test and marker lists in two columns on phone; Add to my plan is a small orange button in one compact action row, toast no longer blocks taps; "Blood markers it moves" tags no longer overlap their text; short caution replaces the long intro; sticky compound search matches name and Library aliases first. */
+/* Blood Work v16 (23 Oct 2026): checklist drops medicine-specific notes that do not apply to the plan (insulin, thyroid pills, furosemide, the pill: covered by the general 'tell the lab what you take' rule); PDF skips zeros and the checklist when nothing needs a lab test; Add to my plan no longer stays orange after removing on a phone (hover styles only on mouse devices), a short "Added · Open My plan" note after each tap; picks with no lab tests show "No blood draw needed" instead of zeros and a draw checklist; tests come before the checklist, which folds when it has more than 10 steps; Lemon Bottle says it has no component data. */
+/* Blood Work v14 (23 Oct 2026): 12 Batch 1 compounds and 18 blends added (blends list their components' tests combined); /blood/v16/lib.js regenerated for the Library. v13 kept. */
+/* Blood Work v13 (23 Oct 2026): role names shown as filled colour tags (Everything it touches, Blood markers it moves, colour key), same as Library v38 and Home. v12 kept. */
+(function(){
+const BW=window.BW;
+const {T,C,MK,TI,CI,esc,PAL,MAP,tagOf,tcol,GROUP,GCAT,GNAME,KWS,KRE,look,expand,scan,PROTO,TESTBY,MOVE,SYO,SYL,parseRange,target,annotate,markerRows,mxTests,mxName,TIER}=window.BWCore(BW);
+const rtLum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const RTAG=(k,c)=>PAL[k]?`<span class="rtg${c?' '+c:''}" style="background:${PAL[k][1]};color:${bsFg(PAL[k][1])}">${esc(PAL[k][0])}</span>`:'';
+const $=s=>document.querySelector(s);
+const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9+]/g,'');
+const flat=s=>String(s||'').replace(/\s*\n\s*/g,' ').trim();
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+/* every compound, test and supplement carries a colour from the 30-colour legend */
+const ccol=c=>c&&c.tags&&PAL[c.tags[0]]?PAL[c.tags[0]][1]:tagOf(c&&c.cat).hex;
+const palHex=k=>PAL[k]?PAL[k][1]:'#E3E0BF';
+const shortN=n=>String(n).replace(/\s*\(.*?\)\s*/g,' ').replace(/\s+/g,' ').trim();
+/* one symbol set for the whole page */
+const ico=sy=>sy==='⚡'?'<span class="dots" title="Danger, must test"><i></i><i></i><i></i></span>':sy==='⚠'?'<span class="dots w" title="Watch for safety"><i></i></span>':sy==='🔍'?'<span class="ic trk" title="Shows if it is working">◎</span>':sy==='↑'?'<span class="ic up" title="Raises it">↑</span>':sy==='↓'?'<span class="ic dn" title="Lowers it">↓</span>':'<span class="ic">•</span>';
+const tierB=t=>t&&t.tier==='specialty'?'<span class="tierb sp" title="Specialty test: pricier, not every lab runs it">$$$ rare</span>':t&&t.tier==='ask'?'<span class="tierb ask" title="Not every basic lab runs it, ask for it by name">ask lab</span>':'';
+const LEGEND=`<div class="legend keyb"><span class="kl">Key</span><span>${ico('↑')} raises</span><span>${ico('↓')} lowers</span><span>${ico('⚡')} danger, must test</span><span>${ico('⚠')} watch for safety</span><span>${ico('🔍')} shows if it works</span><span><span class="tierb sp">$$$ rare</span> pricier, few labs</span><span><span class="tierb ask">ask lab</span> ask for it by name</span></div>`;
+function chip(tg,txt){
+  const k=tg.slice(2);
+  if(tg[0]==='c')return `<a class="cl" href="#/c/${k}" style="--c:${ccol(CI[k])}">${txt}</a>`;
+  const col=tg[0]==='t'?tcol(k):tagOf(GCAT[k]||k).hex;
+  return `<a class="tc${tg[0]==='g'?' grp':''}" href="#/${tg[0]}/${encodeURIComponent(k)}" style="--c:${col}">${txt}</a>`;
+}
+/* link each test, group or compound once per block; never link a thing to itself */
+function lk(s,ctx){
+  return s.replace(KRE,(all,pre,m)=>{const k=look(m);if(!k)return all;const tg=k.t;
+    if(ctx.used.has(tg))return all;
+    if(tg[0]==='g'&&ctx.selfT&&GROUP[tg.slice(2)].includes(ctx.selfT))return all;
+    if(tg==='c:'+ctx.selfC)return all;
+    ctx.used.add(tg);return pre+chip(tg,m)});
+}
+const BRK=/^([-•*·▪]|\d+[.)]\s|[A-Z][A-Z0-9 \/()+&'’"\-]{1,40}:)/;
+function paras(s){return String(s||'').trim().split(/\n\s*\n/).map(p=>{const out=[];p.split('\n').map(x=>x.trim()).filter(Boolean).forEach(l=>{const prev=out[out.length-1];if(prev===undefined||BRK.test(l)||/:$/.test(prev))out.push(l);else out[out.length-1]=prev+' '+l});return out}).filter(p=>p.length)}
+function fmt(s,ctx){ctx=ctx||{};ctx.used=ctx.used||new Set();return paras(s).map(p=>'<p>'+p.map(l=>lk(esc(l),ctx)).join('<br>')+'</p>').join('')}
+function rangeHTML(t){const R=parseRange(t.range),ctx={used:new Set(),selfT:t.id};
+  return (R.rows.length?`<div class="rt">${R.rows.map(x=>`<div class="rr ${x.k}"><b>${esc(x.l)}</b><span>${lk(esc(x.v),ctx)}</span></div>`).join('')}</div>`:'')+
+    (R.notes.length?`<div class="callout"><h4>Before you trust the number</h4>${fmt(R.notes.join('\n\n'),ctx)}</div>`:'');}
+
+/* plan */
+let PLAN=[],showAll=false;
+try{PLAN=JSON.parse(localStorage.getItem('bw-plan')||'[]').filter(id=>CI[id])}catch(e){PLAN=[]}
+const ALIAS=window.BW_ALIAS||{},ALI=c=>(c.lib&&ALIAS[c.lib])||'';
+const planLbl=on=>on?'<span class="pl2">✓</span>In my plan':'<span class="pl2">+</span>Add to plan';
+const savePlan=()=>{try{localStorage.setItem('bw-plan',JSON.stringify(PLAN))}catch(e){}};
+
+/* compound cards */
+const band=c=>`<div class="band">${(c.tags&&c.tags.length?c.tags:[null]).map((k,i)=>`<i style="background:${k?palHex(k):tagOf(c.cat).hex};flex:${[49,25,15,11][i]||8}"></i>`).join('')}</div>`;
+const tagsHTML=c=>c.tags&&c.tags.length?`<div class="tags">${c.tags.map(k=>PAL[k]?RTAG(k):'').join('')}</div>`:'';
+function tchip(id,a){const t=TI[id];a=a||{};
+  const ic=(a.danger?ico('⚡'):a.watch?ico('⚠'):'')+(a.dir?ico(a.dir):'')+(a.track&&!a.dir?ico('🔍'):'');
+  const note=a.note||a.mnote||'',tb=tierB(t);
+  return `<a class="tk${a.danger?' dg':''}" href="#/t/${id}" style="--c:${tcol(id)}"><b>${esc(shortN(t.n))}</b>${ic||note||tb?`<span class="tm">${ic}${note?`<em>${esc(note)}</em>`:''}${tb}</span>`:''}</a>`}
+function mrow(r){
+  const col=r.tests.length?tcol(r.tests[0]):'var(--rule)';
+  const href=r.tests.length===1?`#/t/${r.tests[0]}`:r.tests.length&&r.k.slice(0,2)!=='t:'?`#/m/${r.k}`:'';
+  const n=r.nums;
+  const right=n?`<span class="nm">${n.aim?`<span class="aim"><small>aim</small>${esc(n.aim)}</span>`:''}${n.bad?`<span class="bad"><small>${n.kind}</small>${esc(n.bad)}</span>`:''}</span>`:(r.tests.length?'<span class="nm"></span>':'<span class="nm hm">track at home</span>');
+  const g=r.mag,cut=(x,n)=>x.length>n?x.slice(0,n-1).trim()+'…':x;
+  const mg=g?(g[0]?`<span class="mg"><span class="mgl">Trials</span><b>${esc(g[0])}</b>${g[1]?` · ${esc(cut(g[1],70))}`:''}${g[6]==='contra'?' <i class="rd">research disagrees</i>':''}</span>`:g[6]==='contra'?`<span class="mg"><i class="rd">research disagrees</i> ${esc(cut(g[7],140))}</span>`:'<span class="mg"><i class="nt">no trial data</i></span>'):'';
+  const inner=`<span class="mi">${ico(r.sy)}</span><span class="mt"><b>${esc(r.name)}</b>${r.note?`<span>${esc(r.note)}</span>`:''}${mg}</span>${right}`;
+  return href?`<a class="mr2${r.sy==='⚡'?' dg':''}" href="${href}" style="--c:${col}">${inner}</a>`:`<div class="mr2 home" style="--c:${col}">${inner}</div>`}
+function mxBlock(c){const rows=markerRows(c);if(!rows.length)return '';const nd=rows.filter(r=>r.sy==='⚡').length;
+  return `<details class="sec mxd"><summary><span>What it does to your markers</span><span class="ms">${nd?ico('⚡'):''}<b>${rows.length}</b></span></summary>${LEGEND}<div class="mxl">${rows.map(mrow).join('')}</div><p class="leg">Arrows are the Peptide × Biomarker Matrix. “Trials” lines are research numbers with who they were measured in. Aim and high/low numbers come from the Bloodwork Encyclopedia ranges. Tap a row for the full explainer.</p></details>`}
+const CONFL={verified:'Verified · drug label or human trials',reported:'Reported · reviews and clinic protocols',inferred:'Mostly inferred · thin human data',speculated:'Speculative · very thin data'};
+function resMeta(c){if(c.src!=='research'&&!c.resattached)return '';
+  return `<div class="sec rmeta"><span class="rb c-${esc(c.conf)}">${c.resattached?'Also researched':'Researched'} Oct 2026 · ${esc(CONFL[c.conf]||c.conf)}</span>${c.status==='reference'?'<p class="refn">Reference molecule: people do not usually take this as a product.</p>':''}${c.why?`<p>${lk(esc(c.why),{used:new Set(),selfC:c.id})}</p>`:''}</div>`}
+const srcBlock=c=>c.sources&&c.sources.length?`<details class="sec srcd"><summary>Sources (${c.sources.length})</summary><ol>${c.sources.map(s=>`<li>${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener noreferrer">${esc(s[0])}</a>`:esc(s[0])}${s[2]?` · ${esc(s[2])}`:''}${s[3]?` · <em>${esc(s[3])}</em>`:''}</li>`).join('')}</ol></details>`:'';
+const supChip=s=>`<a class="spc" href="/supplements/#/${s[0]}" style="--c:${palHex(s[2])}">${esc(s[1])}</a>`;
+const pdot=a=>a&&a.danger?'<span class="pd" title="Danger, must test"></span>':a&&a.watch?'<span class="pd w" title="Watch for safety"></span>':'';
+const tpill=(id,a)=>{const t=TI[id];return `<a class="tp${a&&a.danger?' dg':''}" href="#/t/${id}" style="--c:${tcol(id)}">${pdot(a)}${esc(shortN(t.n))}</a>`};
+function trw(id,a){const t=TI[id];a=a||{};
+  const ic=(a.dir?ico(a.dir):'')+(a.track&&!a.dir?ico('🔍'):''),note=a.note||a.mnote||'',tb=tierB(t);
+  return `<a class="trw${a.danger?' dg':''}" href="#/t/${id}" style="--c:${tcol(id)}"><b>${pdot(a)}${esc(shortN(t.n))}</b><span class="r">${ic}${tb}</span>${note?`<em>${esc(note)}</em>`:''}</a>`}
+const KIND={reported:'reported',tested:'in trials',mechanism:'mechanism'};
+function tagsAll(c){const L=(c.tagsAll||[]).filter(x=>PAL[x[0]]);const T2=c.touch||{};const tk=Object.keys(T2).filter(k=>PAL[k]);
+  if(!L.length&&!tk.length)return '';
+  return `<div class="sec"><h3>Everything it touches</h3><div class="ta">${L.map(([k,kind,d])=>`<div>${RTAG(k)}${d?`<span>${esc(d)}</span>`:''}${kind!=='main'?`<em>${KIND[kind]||kind}</em>`:''}</div>`).join('')}</div>${tk.length?`<h3 class="h3b">Blood markers it moves</h3><div class="ta tm2">${tk.map(k=>`<div>${RTAG(k)}<span>${T2[k].map(x=>esc(x.replace(/\s*\(.*?\)/,''))).join(', ')}</span></div>`).join('')}</div>`:''}</div>`}
+const CONF2={verified:'verified',reported:'reported',inferred:'inferred',speculated:'speculated'};
+const CNAMES=C.map(c=>[c.id,shortN(c.name).toLowerCase()]).filter(x=>x[1].length>3);
+function relevant(rule,ids){const r=rule.toLowerCase();if(/no compound-specific/.test(r))return false;
+  const hits=CNAMES.filter(([id,n])=>r.includes(n));if(!hits.length)return true;return hits.some(([id])=>ids.includes(id))||!hits.every(([id])=>!ids.includes(id))}
+function prepList(rules,withTests){return `<ul class="prl">${rules.map(r=>{const [rule,tests,kind,why,conf]=withTests?r:[r[0],[],r[2],r[1],r[3]];
+  return `<li class="${/stop|meds/.test(kind)?'stop':''}">${esc(rule)}${conf?`<span class="ctag">${esc(CONF2[conf]||conf)}</span>`:''}${why?`<small>${esc(why)}</small>`:''}</li>`}).join('')}</ul>`}
+function card(c){
+  const p=c.pep,inP=PLAN.includes(c.id),A=annotate(c),P=PROTO[c.id];
+  const before=[...P].filter(x=>x[1]==='before').map(x=>x[0]),mon=[...P].filter(x=>x[1]==='monitor').map(x=>x[0]);
+  const ord=ids=>ids.slice().sort((a,b)=>((A[b]||{}).danger?2:(A[b]||{}).watch?1:0)-((A[a]||{}).danger?2:(A[a]||{}).watch?1:0));
+  const pills=ids=>`<div class="tpl">${ord(ids).map(id=>tpill(id,A[id])).join('')}</div>`;
+  const rows=ids=>`<div class="trl">${ord(ids).map(id=>trw(id,A[id])).join('')}</div>`;
+  const srcl=c.src==='enc'?'From the Bloodwork Encyclopedia':c.src==='matrix'?'From the Peptide × Biomarker Matrix':'';
+  const tags4=c.tags&&c.tags.length?`<div class="tags">${c.tags.slice(0,4).map(k=>PAL[k]?RTAG(k):'').join('')}</div>`:'';
+  let h=`<div class="card" id="c-${c.id}">${band(c)}<h2>${esc(c.name)}</h2>${tags4}`;
+  if(before.length)h+=`<div class="cq"><h3>Before you start</h3>${pills(before)}</div>`;
+  if(mon.length)h+=`<div class="cq"><h3>While on it</h3>${pills(mon)}</div>`;
+  if(!before.length&&!mon.length)h+=`<div class="cq"><p class="more">No testing protocol written yet. Open the full card for what it moves.</p></div>`;
+  const nAll=(c.tagsAll||[]).length;
+  let x=(ALI(c)?`<p class="srcl aka">Also called ${esc(ALI(c))}</p>`:'')+tagsAll(c)+(srcl?`<p class="srcl">${srcl}</p>`:'')+resMeta(c);
+  if(before.length||mon.length)x+=`<div class="sec">${LEGEND}</div>`;
+  if(before.length)x+=`<div class="sec b"><h3>Test before you start</h3>${rows(before)}</div>`;
+  if(mon.length)x+=`<div class="sec m"><h3>Also check while on it</h3>${rows(mon)}</div>`;
+  if(p&&p.freq)x+=`<div class="sec freq"><h3>How often</h3><p>${esc(flat(p.freq))}</p></div>`;
+  if(p&&p.flags)x+=`<div class="sec f"><h3>Red flags</h3>${fmt(p.flags,{selfC:c.id})}</div>`;
+  const cp=(c.prep||[]).filter(r=>relevant(r[0],[c.id]));if(cp.length)x+=`<div class="sec"><h3>Before the blood draw</h3>${prepList(cp,true)}<p class="leg">Plus the general rules on every draw (water only when fasting, stop biotin, morning draw). See Blood tests.</p></div>`;
+  x+=mxBlock(c);
+  if(p&&(p.before||p.monitor))x+=`<details class="sec nf"><summary>Notes in full</summary>${p.before?`<h3>Before you start</h3>${fmt(p.before,{selfC:c.id})}`:''}${p.monitor?`<h3>While on it</h3>${fmt(p.monitor,{selfC:c.id})}`:''}</details>`;
+  x+=srcBlock(c);
+  if(c.sup&&c.sup.length)x+=`<div class="sec"><h3>Supplements people pair with it</h3><div class="cls">${c.sup.map(supChip).join('')}</div></div>`;
+  h+=`<details class="xp" data-xp="${c.id}"><summary><span>Show full card</span><span class="hint">${nAll>4?nAll+' labels · ':''}details, markers, prep</span></summary>${x}</details>`;
+  h+=`<div class="acts3">${c.lib?`<a class="lk2" href="/library/#/p/${c.lib}">Library →</a><a class="lk2" href="/dosage/#${c.lib}">Dosage →</a>`:'<span class="off">Not in the Library yet</span>'}<button type="button" class="btp sm${inP?' on':''}" data-plan="${c.id}" aria-pressed="${inP}">${planLbl(inP)}</button></div></div>`;
+  return h;
+}
+const trow=t=>{const g=target(t);return `<a class="tr" href="#/t/${t.id}" style="--c:${tcol(t.id)}"><span>${esc(t.n)}${t.tier!=='common'?' '+tierB(t):''}</span>${g?`<span class="rg">${esc(g.length>44?g.slice(0,42)+'…':g)}</span>`:''}</a>`};
+
+/* sheets */
+const ss=(h,body)=>`<div class="ss"><h3>${h}</h3>${body}</div>`;
+function head(col,lab,name,back){return `<div class="shh"><div class="band" style="background:${col}"></div><div class="in">${back?'<button type="button" class="x" data-back>&larr; Back</button>':''}<div style="flex:1;min-width:0"><p class="lab">${esc(lab)}</p><h2 id="shT">${esc(name)}</h2></div><button type="button" class="x" data-close aria-label="Close">Close ✕</button></div></div>`}
+const cpls=list=>`<div class="cls">${list.map(c=>`<a class="cpl" href="#/c/${c.id}" style="--c:${ccol(c)}">${esc(c.name)}</a>`).join('')}</div>`;
+const crows=list=>`<div class="crl">${list.slice().sort((a,b)=>SYO[a.sy]-SYO[b.sy]||a.c.i-b.c.i).map(x=>`<a class="crow${x.sy==='⚡'?' dg':''}" href="#/c/${x.c.id}" style="--c:${ccol(x.c)}"><span class="sy">${ico(x.sy)}</span><span><b>${esc(x.c.name)}</b>${x.note?` <em>· ${esc(x.note)}</em>`:''}</span></a>`).join('')}</div>`;
+function testSheet(t,back){
+  const F=s=>fmt(s,{used:new Set(['t:'+t.id]),selfT:t.id});
+  const fast=flat(t.fast),rt=flat(t.retest),tb=TESTBY[t.id]||[],mv=MOVE[t.id]||[];
+  let h=head(tcol(t.id),t.cat,t.n,back);
+  h+=`<div class="facts f3"><div><small>Fast first?</small>${fast?esc(fast):'Not noted'}${t.fastNew?'<span class="fixn">Updated from research. The Encyclopedia note said: '+esc(flat(t.fastOrig)||'nothing')+'</span>':''}</div><div><small>Retest</small>${rt?esc(rt):'Not noted'}</div><div><small>Cost</small>${t.tier==='specialty'?'<span class="tierb sp">$$$ rare</span> Specialty, pricier, few labs':t.tier==='ask'?'<span class="tierb ask">ask lab</span> Not every basic lab runs it':'Common, most labs, cheap'}</div></div>`;
+  const need=new Map();tb.forEach(c=>need.set(c.id,{c,s:new Set()}));
+  mv.forEach(x=>{if('⚡⚠🔍'.includes(x.sy)){const e=need.get(x.c.id)||{c:x.c,s:new Set()};e.s.add(x.sy);need.set(x.c.id,e)}});
+  const needL=[...need.values()].sort((a,b)=>a.c.i-b.c.i);
+  if(needL.length)h+=ss('Test this if you take',`<p class="sub">Their protocol lists this test, or the Matrix flags it.</p><div class="cls">${needL.map(e=>`<a class="cpl" href="#/c/${e.c.id}" style="--c:${ccol(e.c)}">${esc(e.c.name)}${e.s.size?' '+[...e.s].sort((a,b)=>SYO[a]-SYO[b]).map(ico).join(''):''}</a>`).join('')}</div>`);
+  if(t.prep&&t.prep.length)h+=ss('Before the test',prepList(t.prep,false)+'<p class="leg">General rules apply to every draw: water only when fasting, normal water intake, morning draw at the same time each retest, no hard training for 48h, no alcohol for 24h.</p>');
+  if(t.what)h+=ss('What it is',F(t.what));
+  if(t.feel)h+=ss('What you would feel if it is off',F(t.feel));
+  if(t.range)h+=ss('Good vs bad',rangeHTML(t));
+  if(t.up||t.down)h+=ss('Why the number can lie',`<p class="sub">The same number can mean different things. These move it in real life.</p><div class="two">${t.up?`<div><h4>${ico('↑')} Pushes it up</h4>${F(t.up)}</div>`:''}${t.down?`<div><h4>${ico('↓')} Pushes it down</h4>${F(t.down)}</div>`:''}</div>`);
+  if(t.hi||t.lo)h+=ss('What to do about it',`<div class="two">${t.hi?`<div><h4>If it is too high</h4>${F(t.hi)}</div>`:''}${t.lo?`<div><h4>If it is too low</h4>${F(t.lo)}</div>`:''}</div>`);
+  const named=(t.cm||[]).filter(x=>CI[x[0]]&&!mv.some(m=>m.c.id===x[0])).map(x=>({c:CI[x[0]],sy:x[1]==='raises'?'↑':x[1]==='lowers'?'↓':'•',note:'named in these notes: “'+x[2]+'”'}));
+  if(mv.length||named.length)h+=ss('Peptides that move it',LEGEND+crows(mv.concat(named)));
+  if(t.sup&&t.sup.length)h+=ss('Supplements and vitamins that move it',`<div class="crl">${t.sup.map(s=>`<a class="crow" href="/supplements/#/${s[0]}" style="--c:${palHex(s[2])}"><span class="sy">${/raises/.test(s[3])?ico('↑'):/lowers/.test(s[3])?ico('↓'):/used|suggest/.test(s[3])?'<span class="ic">+</span>':'<span class="ic">•</span>'}</span><span><b>${esc(s[1])}</b> <em>· ${esc(s[3])}</em><span class="q">“${esc(s[4])}”</span></span></a>`).join('')}</div><p class="leg">From the notes on this test. Tap one to open it on Supplements.</p>`);
+  h+='<div style="height:12px"></div>';
+  return h;
+}
+function listSheet(col,lab,name,back,blocks){return head(col,lab,name,back)+blocks.join('')+'<div style="height:12px"></div>'}
+function groupSheet(k,back){
+  const ids=GROUP[k],cat=GCAT[k]||k,others=T.filter(t=>t.cat===cat&&!ids.includes(t.id));
+  const users=C.filter(c=>c.pep&&scan(c.pep.before+' '+c.pep.monitor).has('g:'+k));
+  return listSheet(tagOf(cat).hex,'Test group',GNAME[k],back,[
+    ss(`When a protocol says “${GNAME[k].toLowerCase()}”`,`<p class="sub">These are the tests it usually means. Tap one to see what it tells you.</p><div class="shl" style="padding:0">${ids.map(id=>trow(TI[id])).join('')}</div>`),
+    others.length?ss('Also in this group',`<div>${others.map(trow).join('')}</div>`):'',
+    users.length?ss('Compounds that ask for it',cpls(users)):'']);
+}
+function markerSheet(j,back){
+  const mk=MK[j],list=[];C.forEach(c=>{const v=c.mx&&c.mx[j];if(v&&v[0]!=='=')list.push({c,sy:v[0],note:v[1]})});
+  return listSheet(tcol(mk.t[0]),'Marker',mk.n,back,[
+    ss('Tests for this marker',`<div>${mk.t.map(id=>trow(TI[id])).join('')}</div>`),
+    list.length?ss('Compounds that move it',LEGEND+crows(list)):'']);
+}
+
+/* views */
+let view='comp',Q={comp:'',test:'',beyond:''},base='#/',inSheet=false;
+const VIEWS=[['comp','Compounds','#/'],['test','Blood tests','#/tests'],['beyond','Beyond blood','#/beyond'],['plan','My plan','#/plan']];
+function tabs(){$('#tabs').innerHTML=VIEWS.map(([k,l,h])=>`<button type="button"${k==='plan'?' class="tact"':''} data-go="${k==='plan'&&PLAN.length?'#/plan/'+PLAN.join(','):h}" aria-pressed="${view===k}">${l}${k==='plan'&&PLAN.length?`<b>${PLAN.length}</b>`:''}</button>`).join('')}
+function key(){
+  const g={};const add=(k,w)=>{if(PAL[k])(g[k]=g[k]||new Set()).add(w)};
+  C.forEach(o=>(o.tags||[]).forEach(k=>add(k,'Compounds')));
+  T.forEach(o=>{const t=tagOf(o.cat);if(t.k)add(t.k,o.cat)});
+  C.forEach(o=>(o.sup||[]).forEach(s=>add(s[2],'Supplements')));
+  $('#key').innerHTML=Object.keys(PAL).filter(k=>g[k]).map(k=>`<div class="kr">${RTAG(k)}<span>${[...g[k]].map(esc).join(' · ')}</span></div>`).join('');
+}
+function genPrep(){const G=BW.prepGeneral||[];if(!G.length)return '';
+  return `<details class="prepbox"><summary>Before any blood test · ${G.length} rules</summary><div class="in">${prepList(G.map(g=>[g[0],g[1],/biotin|medicine/i.test(g[0])?'stop':'other',g[2]]),false)}<p class="leg">Each test also has its own “Before the test” section. Sources sit with the research log.</p></div></details>`}
+function testList(beyond){
+  const qq=norm(Q[view]);
+  const L=T.filter(t=>t.beyond===beyond&&(!qq||BS_SEARCH.rank(t.n,t.cat+' '+tagOf(t.cat).name,t.what,Q[view])>0));
+  $('#count').textContent=L.length+' of '+T.filter(t=>t.beyond===beyond).length;
+  let h=(beyond?'<p class="sub">Not blood draws: body scans, genetics, gut, women’s health and yearly checks. Tap any to see what it tells you.</p>':'<p class="sub">Every blood test in plain words. Tap any to see what it means, what the numbers should be and what can throw them off.</p>')+(beyond?'':genPrep())+'<div class="legend lg2"><span><span class="tierb sp">$$$ rare</span> pricier, few labs</span><span><span class="tierb ask">ask lab</span> ask for it by name</span></div>',cat=null;
+  L.forEach(t=>{if(t.cat!==cat){cat=t.cat;h+=`<p class="gcat"><i style="background:${tagOf(cat).hex}"></i>${esc(cat)}</p>`}h+=trow(t)});
+  return L.length?h:'<p class="lede">Nothing matches.</p>';
+}
+function compList(){
+  const qq=norm(Q.comp);
+  /* v17: name and Library aliases first, then labels, then compounds whose notes mention it */
+  const rank=c=>{if(!qq)return 0;const r=BS_SEARCH.rank(c.name,(c.mxname||'')+', '+ALI(c),'',Q.comp);if(r>=6)return 1+(10-r)/10;
+    if(qq.length<3)return 0;
+    if(norm([c.cat,(c.tags||[]).map(k=>PAL[k]?PAL[k][0]+' '+PAL[k][1]:'').join(' ')].join(' ')).includes(qq))return 3;
+    if(norm([c.pep&&c.pep.before,c.pep&&c.pep.monitor,c.pep&&c.pep.flags,c.why].join(' ')).includes(qq))return 4;return 0};
+  const R=new Map();C.forEach(c=>{const r=rank(c);if(!qq||r)R.set(c.id,r)});
+  const L=C.filter(c=>R.has(c.id));
+  $('#count').textContent=L.length+' of '+C.length;
+  const g=(src,title)=>{const a=L.filter(c=>c.src===src);return a.length?`<p class="subh">${title}</p>`+a.map(card).join(''):''};
+  let body;
+  if(qq){const by=(lo,hi)=>L.filter(c=>R.get(c.id)>=lo&&R.get(c.id)<=hi).sort((a,b)=>R.get(a.id)-R.get(b.id)||a.i-b.i);
+    const top=by(1,2),lab=by(3,3),men=by(4,4);
+    body=(top.length?`<p class="subh">Name or alias</p>`+top.map(card).join(''):'')+(lab.length?`<p class="subh">Has the label</p>`+lab.map(card).join(''):'')+(men.length?`<p class="subh">Mentioned in their notes</p>`+men.map(card).join(''):'');}
+  else body=g('enc','From the Bloodwork Encyclopedia')+g('research','Researched Oct 2026 · sources on every card')+g('blend','Blends · their components\' tests combined, each once');
+  return body?`<div class="legwrap"><p class="lab">How to read a card</p><div class="legend"><span><span class="pd"></span> danger, must test</span><span><span class="pd w"></span> watch for safety</span><span>tap a test to learn it</span><span><span class="tierb" style="color:var(--act);border-color:var(--act);background:var(--actbg)">orange</span> = something you do</span></div></div>`+body:'<p class="lede">Nothing matches.</p>';
+}
+/* v20: cards per row. Laptop (900px and up) 5/3/2, phone 2/1. Saved per device size. Drops a column if cards would get too thin (big text). */
+const COLOPT={w:[5,3,2],n:[2,1]},COLLBL={5:'Five across',3:'Three across',2:'Two across',1:'One per row'};
+let COLS={w:2,n:1},curK=1;
+try{const w=+localStorage.getItem('bw-cols-w'),n=+localStorage.getItem('bw-cols-n');if(COLOPT.w.includes(w))COLS.w=w;if(COLOPT.n.includes(n))COLS.n=n}catch(e){}
+const isWide=()=>matchMedia('(min-width:900px)').matches;
+function applyCols(){
+  const sw=$('#vsw'),L=$('#list');if(!sw||!L)return;
+  const plan=view==='plan';sw.hidden=plan;if(plan){L.style.removeProperty('--cols');delete L.dataset.n;L.classList.remove('tight');return}
+  const m=isWide()?'w':'n',c=COLS[m];
+  sw.innerHTML=COLOPT[m].map(n=>`<button type="button" data-cols="${n}" aria-pressed="${n===c}" aria-label="${COLLBL[n]}" title="${COLLBL[n]}">${'<i></i>'.repeat(n)}</button>`).join('');
+  const avail=L.getBoundingClientRect().width/(curK||1),minW=m==='w'?(view==='comp'?200:260):150;
+  const eff=Math.max(1,Math.min(c,Math.floor((avail+12)/(minW+12))||1));
+  L.style.setProperty('--cols',eff);L.dataset.n=eff;
+  L.classList.toggle('tight',view==='comp'&&(eff>=3||(m==='n'&&eff===2)));L.classList.toggle('ph2',m==='n'&&eff===2);
+}
+addEventListener('resize',()=>{clearTimeout(applyCols.t);applyCols.t=setTimeout(applyCols,120)});
+/* v20: search history. Kept only in this browser (localStorage), last 8 per view, can be cleared or switched off. Nothing is sent anywhere. */
+const HMAX=8;let HIST={comp:[],test:[],beyond:[]},HON=true;
+try{HON=localStorage.getItem('bw-hist-off')!=='1';const h=JSON.parse(localStorage.getItem('bw-hist')||'{}');for(const k in HIST)if(Array.isArray(h[k]))HIST[k]=h[k].filter(x=>typeof x==='string').slice(0,HMAX)}catch(e){}
+const saveH=()=>{try{if(!HON){localStorage.removeItem('bw-hist');return}localStorage.setItem('bw-hist',JSON.stringify(HIST))}catch(e){}};
+function addHist(q){if(!HON||view==='plan')return;q=String(q||'').trim().replace(/\s+/g,' ').slice(0,40);if(q.length<2)return;
+  const lq=q.toLowerCase();HIST[view]=[q].concat((HIST[view]||[]).filter(x=>x.toLowerCase()!==lq)).slice(0,HMAX);saveH();}
+function drawHist(){const el=$('#hist');if(!el)return;const a=HON?(HIST[view]||[]):[];
+  el.innerHTML=(a.length?`<div class="hchips" role="group" aria-label="Recent searches">${a.map(x=>`<button type="button" class="hchip" data-hq="${esc(x)}" title="Search ${esc(x)} again">${esc(x)}</button>`).join('')}</div>`:'')+
+  `<div class="hrow"><span class="hnote">${HON?'Saved only on this device. Nobody else sees it.':'History is off. Nothing is saved.'}</span>${a.length?'<button type="button" class="hlink" data-hclr>Clear history</button>':''}<button type="button" class="hsw" role="switch" data-hsw aria-checked="${HON}"><span class="tr2"></span>History ${HON?'on':'off'}</button></div>`}
+function showHist(on){const el=$('#hist');if(!el)return;if(on&&view!=='plan'){drawHist();el.hidden=false}else el.hidden=true}
+document.addEventListener('focusin',e=>{if(e.target.id==='q')showHist(true)});
+document.addEventListener('focusout',e=>{if(e.target.id!=='q')return;addHist(e.target.value);const to=e.relatedTarget;if(to&&to.closest&&to.closest('#hist'))return;showHist(false)});
+/* keep the search focused while tapping inside the history panel */
+document.addEventListener('mousedown',e=>{if(e.target.closest&&e.target.closest('#hist button'))e.preventDefault()});
+document.addEventListener('focusout',e=>{if(!e.target.closest||!e.target.closest('#hist'))return;const to=e.relatedTarget;if(to&&(to.id==='q'||to.closest('#hist')))return;showHist(false)});
+/* v20: clear plan, asks inline first */
+let PCONF=false;
+function clrCtl(){return PLAN.length?`<span class="pclr" id="pclr">${PCONF?'<span class="cq2">Clear plan?</span><button type="button" class="bt act yes" data-pclr="yes">Yes</button><button type="button" class="bt act" data-pclr="no">No</button>':'<button type="button" class="bt act" data-pclr="ask">Clear plan</button>'}</span>`:''}
+/* My plan */
+function planView(){
+  return `<p class="sub">Pick the peptides you are running or planning. You get one combined test list, the number to aim for, what needs fasting, how often to retest and the red flags. Saved in this browser only.</p>
+  <div class="qw"><input id="pq" type="search" placeholder="Type a peptide, e.g. semaglutide" autocomplete="off" aria-label="Add a peptide"></div>
+  <div class="psel" id="psel"></div><div class="sug" id="psug"></div><div id="pout"></div>`;
+}
+function planSug(){
+  const el=$('#psug');if(!el)return;const q=norm($('#pq').value);
+  const L=C.filter(c=>!PLAN.includes(c.id)&&(!q||norm(c.name+' '+c.mxname+' '+ALI(c)).includes(q)));
+  const b=c=>`<button type="button" data-padd="${c.id}" style="--c:${ccol(c)}">${esc(c.name)}${c.src==='matrix'?'<em>markers</em>':''}</button>`;
+  if(q){el.innerHTML=L.length?`<div class="sgl">${L.slice(0,12).map(b).join('')}</div>`:'<p class="sub">No match. Try another name.</p>';return}
+  if(PLAN.length&&!showAll){el.innerHTML='<button type="button" class="bt act" data-sall>+ Add more peptides</button>';return}
+  const grp=(src,t)=>{const a=L.filter(c=>c.src===src);return a.length?`<p class="subh">${t}</p><div class="sgl">${a.map(b).join('')}</div>`:''};
+  el.innerHTML=(PLAN.length?'<button type="button" class="bt act" data-sall>Done adding ✓</button>':'')+grp('enc','From the Encyclopedia')+grp('research','Researched')+grp('blend','Blends');
+}
+let DONE=new Set();try{DONE=new Set(JSON.parse(localStorage.getItem('bw-prep')||'[]'))}catch(e){}
+function drawGroups(must){
+  const seen=new Set(),G1=[],G2=[],G3=[];const add=(arr,txt,sub)=>{const k=txt.toLowerCase();if(seen.has(k))return;seen.add(k);arr.push([txt,sub])};
+  const fastT=must.filter(e=>/^yes/i.test(e.t.fast||'')).map(e=>shortN(e.t.n));
+  if(fastT.length)add(G1,'Fast 8 to 12 hours, water only (no coffee, gum or smoking)','For: '+fastT.join(', '));
+  (BW.prepGeneral||[]).forEach(g=>{if(!/^Fasting means/i.test(g[0]))add(G1,g[0],'')});
+  const cls=r=>/GLP-1|GH-releasing|peptide/i.test(r)||PLAN.some(id=>r.toLowerCase().includes(shortN(CI[id].name).toLowerCase()));
+  must.forEach(e=>(e.t.prep||[]).forEach(r=>{if((/stop|cycle|time/.test(r[2])||(r[2]==='meds'&&cls(r[0])))&&!/biotin|same time|same lab/i.test(r[0]))add(G2,r[0],shortN(e.t.n))}));
+  PLAN.forEach(id=>{const c=CI[id];(c.prep||[]).forEach(r=>{if(relevant(r[0],PLAN))add(G3,r[0],c.name)})});
+  return {G1,G2,G3}}
+let TT;function toast(msg,href){let el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';el.className='toast';el.setAttribute('role','status');document.body.appendChild(el)}
+  el.innerHTML=`<span>${esc(msg)}</span>${href?`<a href="${href}">Open My plan</a>`:''}`;el.classList.add('on');clearTimeout(TT);TT=setTimeout(()=>el.classList.remove('on'),2600)}
+function drawList(must){const {G1,G2,G3}=drawGroups(must);
+  if(!G1.length)return '';
+  const li=([t,sub])=>{const k=t.slice(0,60);return `<li class="${DONE.has(k)?'done':''}"><input type="checkbox" data-chk="${esc(k)}" ${DONE.has(k)?'checked':''} aria-label="${esc(t)}"><span>${esc(t)}${sub?`<small>${esc(sub)}</small>`:''}</span></li>`};
+  const grp=(h,a)=>a.length?`<h4>${h}</h4>${a.map(li).join('')}`:'';
+  return `<details class="pbox prepbox2"${(G1.length+G2.length+G3.length)<=10?' open':''}><summary class="bh"><h3>Before your draw · ${G1.length+G2.length+G3.length}</h3><p>Tick as you go. Saved in this browser.</p></summary><div class="pl"><ul class="chk">${grp('Every draw',G1)}${grp('For the tests in your plan',G2)}${grp('For your compounds',G3)}</ul></div></details>`}
+let LAST=null;
+/* ---- print / PDF document (separate from the screen view) ---- */
+function buildPdoc(){
+  let d=document.getElementById('pdoc');
+  if(!d){d=document.createElement('div');d.id='pdoc';document.body.appendChild(d)}
+  if(view!=='plan'||!PLAN.length||!LAST){d.innerHTML='';document.documentElement.classList.remove('pdoc-on');return}
+  const {must,watch,homeBy,nf,nd,nr}=LAST,{G1,G2,G3}=drawGroups(must);
+  const isFast=t=>/^yes/i.test(t.fast||'');
+  const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const url=location.origin+location.pathname+'#/plan/'+PLAN.join(',');
+  const dot=s=>s.has('⚡')?'<i class="d3"><b></b><b></b><b></b></i>':s.has('⚠')?'<i class="d1"></i>':'';
+  const who=e=>{const by=new Map();e.why.forEach(w=>{const x=by.get(w.c.id)||{c:w.c,s:new Set()};if(w.src==='mx')x.s.add(w.sy);by.set(w.c.id,x)});
+    return [...by.values()].map(x=>`<span class="pw">${dot(x.s)}${esc(x.c.name)}</span>`).join('')};
+  const cost=t=>t.tier==='specialty'?'<span class="pt sp">$$$ rare</span>':t.tier==='ask'?'<span class="pt">ask lab</span>':'<span class="pc0">common</span>';
+  const row=e=>{const t=e.t,g=target(t);return `<tr><td class="tn" style="--c:${tcol(t.id)}"><b>${esc(t.n)}</b></td><td>${who(e)}</td><td class="fa">${isFast(t)?'<b>Yes</b>':'No'}</td><td class="aim">${g?esc(g):'<span class="mu">see explainer</span>'}</td><td>${cost(t)}</td></tr>`};
+  const table=list=>`<table class="pt2"><thead><tr><th>Test</th><th>For</th><th>Fast</th><th>Aim for</th><th>Cost</th></tr></thead><tbody>${list.map(row).join('')}</tbody></table>`;
+  const chk=a=>a.map(([t,sub])=>`<li><span class="bx"></span><span>${esc(t)}${sub?`<small>${esc(sub)}</small>`:''}</span></li>`).join('');
+  const grp=(h,a)=>a.length?`<div class="cg"><h4>${h}</h4><ul>${chk(a)}</ul></div>`:'';
+  const perC=(f,emptyTxt)=>PLAN.map(id=>{const c=CI[id];const v=c.pep&&c.pep[f];return `<div class="pcb"><h4 style="--c:${ccol(c)}">${esc(c.name)}</h4>${v?(f==='freq'?`<p>${esc(flat(v))}</p>`:fmt(v,{selfC:c.id}).replace(/<a [^>]*>|<\/a>/g,'')):`<p class="mu">${emptyTxt}</p>`}</div>`}).join('');
+  d.innerHTML=`<header class="ph"><p class="pk">Bare Signals · Blood Work plan</p><h1>My blood work plan</h1>
+    <p class="pm">${date} · ${PLAN.length} compound${PLAN.length>1?'s':''} · <span>${esc(url.replace(/^https?:\/\//,''))}</span></p>
+    <div class="pcs">${PLAN.map(id=>{const c=CI[id];return `<span style="--c:${ccol(c)}">${esc(c.name)}</span>`}).join('')}</div></header>
+  ${must.length?`<div class="pst"><div><b>${must.length}</b><span>tests to run</span></div><div><b>${nf}</b><span>need fasting</span></div><div><b>${nd}</b><span>danger markers</span></div><div><b>${nr}</b><span>pricier, few labs</span></div></div>`:`<p class="nodr"><b>No blood draw needed.</b> Nothing in this plan needs a lab test. Track the items under Track at home yourself.</p>`}
+  <p class="lgd"><i class="d3"><b></b><b></b><b></b></i> danger, must test &nbsp; <i class="d1"></i> watch for safety &nbsp; Fast = water only, 8 to 12 hours</p>
+  ${must.length?`<section><h2>Before your draw</h2><div class="cks">${grp('Every draw',G1)}${grp('For the tests in your plan',G2)}${grp('For your compounds',G3)}</div></section>
+  <section><h2>Tests to run <small>before you start and while you are on it</small></h2>${table(must)}</section>`:''}
+  ${watch.length?`<section><h2>Also moved by your stack <small>worth adding to the same draw</small></h2>${table(watch)}</section>`:''}
+  ${homeBy.size?`<section><h2>Track at home</h2><div class="hm">${[...homeBy].map(([m,a])=>`<div><b>${esc(m)}</b><span>${a.map(x=>esc(x.c.name)+(x.note?' · '+esc(x.note):'')).join('; ')}</span></div>`).join('')}</div></section>`:''}
+  <section><h2>How often to retest</h2><div class="pcg">${perC('freq','No protocol written yet.')}</div></section>
+  <section><h2>Red flags <small>stop and get checked</small></h2><div class="pcg rf">${perC('flags','No protocol written yet.')}</div></section>
+  <footer class="pf">Bare Signals · baresignals.co/blood · General education gathered from research and real use. Not medical advice; talk to a clinician before and while using anything here.</footer>`;
+  document.documentElement.classList.add('pdoc-on');
+}
+window.addEventListener('beforeprint',buildPdoc);
+window.addEventListener('afterprint',()=>document.documentElement.classList.remove('pdoc-on'));
+function planOut(){
+  $('#psel').innerHTML=PLAN.map(id=>`<button type="button" class="pc" style="--c:${ccol(CI[id])}" data-prm="${id}" aria-label="Remove ${esc(CI[id].name)}"><i></i>${esc(CI[id].name)}<span>✕</span></button>`).join('')+clrCtl();
+  const out=$('#pout');
+  if(!PLAN.length){out.innerHTML='<div class="pempty">Nothing picked yet. Tap a peptide above or type one in, or use “Add to my plan” on any compound card.</div>';return}
+  const R=new Map(),home=[];
+  const add=(id,w)=>{if(!TI[id])return;const e=R.get(id)||{t:TI[id],why:[]};e.why.push(w);R.set(id,e)};
+  PLAN.forEach(cid=>{const c=CI[cid];PROTO[cid].forEach((w,id)=>add(id,{c,src:w}));
+    if(c.mx)Object.entries(c.mx).forEach(([k,v])=>{const sy=v[0],note=v[1];if(sy==='=')return;const ts=mxTests(k).filter(id=>TI[id]);if(!ts.length)home.push({c,sy,note,m:mxName(k)});else ts.forEach(id=>add(id,{c,src:'mx',sy,note}))})});
+  const must=[],watch=[];
+  R.forEach(e=>(e.why.some(w=>w.src!=='mx'||'⚡⚠🔍'.includes(w.sy))?must:watch).push(e));
+  must.sort((a,b)=>a.t.i-b.t.i);watch.sort((a,b)=>a.t.i-b.t.i);
+  const isFast=t=>/^yes/i.test(t.fast||'');
+  const nf=must.filter(e=>isFast(e.t)).length,nd=must.filter(e=>e.why.some(w=>w.sy==='⚡')).length,nr=must.filter(e=>e.t.tier==='specialty').length;
+  const why=e=>{const by=new Map();e.why.forEach(w=>{const x=by.get(w.c.id)||{c:w.c,s:new Set()};if(w.src==='mx')x.s.add(w.sy);by.set(w.c.id,x)});
+    return [...by.values()].map(x=>`<span class="${x.s.has('⚡')?'dg':''}" style="--c:${ccol(x.c)}">${esc(x.c.name)}${x.s.size?' '+[...x.s].sort((a,b)=>SYO[a]-SYO[b]).map(ico).join(''):''}</span>`).join('')};
+  const prow=e=>{const t=e.t,g=target(t);return `<a class="prow" href="#/t/${t.id}" style="--c:${tcol(t.id)}"><b>${esc(t.n)}</b><span>${isFast(t)?'<span class="fastb">Fast</span>':''}${tierB(t)}</span>${g?`<span class="tgt">${esc(g)}</span>`:''}<span class="why">${why(e)}</span></a>`};
+  const homeBy=new Map();home.forEach(x=>{const a=homeBy.get(x.m)||[];a.push(x);homeBy.set(x.m,a)});
+  LAST={must,watch,homeBy,nf,nd,nr};
+  out.innerHTML=(must.length?`<div class="pstat"><div><b>${must.length}</b><span>tests to run</span></div><div><b>${nf}</b><span>say fast first</span></div><div><b>${nd}</b><span>danger markers</span></div><div><b>${nr}</b><span>pricier, few labs</span></div></div>`:`<div class="nodraw"><b>No blood draw needed</b>${homeBy.size?'Nothing in this pick needs a lab test. Track the items under “Track at home” yourself.':'Nothing in this pick needs a lab test.'}</div>`)+`
+  ${nf?`<div class="actnote"><span class="an">To do</span><div><b>Book a morning draw.</b> ${nf} of these tests say to fast first, most for 8 to 12 hours. Tap a test to check its own note.</div></div>`:''}
+  <div class="pacts"><button type="button" class="bt" data-copy>Copy link to this plan</button><button type="button" class="bt" data-print>Save as PDF</button><input id="plink" readonly hidden aria-label="Plan link"></div>
+    ${LEGEND}
+  <div class="pgrid"><div>
+  ${must.length?'':'<!--'}<div class="pbox"><div class="bh"><h3>Test these</h3><p>Before you start and while you are on it. Tap any test to see what it means.</p></div>${must.map(prow).join('')||'<div class="pl"><p>No lab tests listed for this pick.</p></div>'}</div>${must.length?'':'-->'}
+  ${must.length?drawList(must):''}
+  ${watch.length?`<div class="pbox"><div class="bh"><h3>Also moved by your stack</h3><p>Not on the protocol, but these shift. Worth a look on the same draw.</p></div>${watch.map(prow).join('')}</div>`:''}
+  </div><div>
+  ${homeBy.size?`<div class="pbox"><div class="bh"><h3>Track at home</h3><p>Not lab tests. Watch these yourself.</p></div>${[...homeBy].map(([m,a])=>`<div class="pl"><b>${esc(m)}</b>${crows(a)}</div>`).join('')}</div>`:''}
+  <div class="pbox"><div class="bh"><h3>How often</h3></div>${PLAN.map(id=>{const c=CI[id];return `<div class="pl"><b>${esc(c.name)}</b><p>${c.pep&&c.pep.freq?esc(flat(c.pep.freq)):'No protocol written yet.'}</p></div>`}).join('')}</div>
+  <div class="pbox"><div class="bh"><h3>Red flags</h3><p>Stop and get checked if you notice these.</p></div>${PLAN.map(id=>{const c=CI[id];return `<div class="pl"><b>${esc(c.name)}</b>${c.pep&&c.pep.flags?fmt(c.pep.flags,{selfC:c.id}):'<p>No protocol written yet.</p>'}</div>`}).join('')}</div>
+  </div></div>`;
+}
+function setPlan(list){PLAN=[...new Set(list)].filter(id=>CI[id]);savePlan();tabs();
+  if(view==='plan'){history.replaceState(null,'',PLAN.length?'#/plan/'+PLAN.join(','):'#/plan');base=location.hash;planOut();planSug()}
+  document.querySelectorAll('[data-plan]').forEach(b=>{const on=PLAN.includes(b.dataset.plan);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.innerHTML=planLbl(on)});
+}
+function render(){
+  tabs();
+  const plan=view==='plan';
+  $('#ctl').hidden=plan;$('#keyw').hidden=plan;
+  $('#q').value=plan?'':Q[view];$('#q').placeholder=view==='comp'?(isWide()?'Find a peptide by name or alias':'Peptide or alias'):view==='test'?'Search a blood test':'Search scans and checks';
+  if(view==='comp'){$('#list').className='pep';$('#list').innerHTML=compList()}
+  else if(view==='test'){$('#list').className='gls';$('#list').innerHTML=testList(false)}
+  else if(view==='beyond'){$('#list').className='gls';$('#list').innerHTML=testList(true)}
+  else{$('#list').className='';$('#list').innerHTML=planView();planOut();planSug()}
+  applyCols();if(!$('#hist').hidden)showHist(document.activeElement===$('#q'));
+}
+function focusComp(id){const el=document.getElementById('c-'+id);if(!el)return;
+  const xd=el.querySelector('.xp');if(xd)xd.open=true;el.scrollIntoView({block:'start',behavior:RM.matches?'auto':'smooth'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}
+function openSheet(kind,k,back){
+  const p=$('#shp');
+  p.innerHTML=kind==='t'?testSheet(TI[k],back):kind==='g'?groupSheet(k,back):markerSheet(+k,back);
+  $('#sheet').hidden=false;document.body.style.overflow='hidden';p.scrollTop=0;
+  const c=p.querySelector('[data-close]');if(c)c.focus({preventScroll:true});
+}
+function closeSheet(){$('#sheet').hidden=true;document.body.style.overflow=''}
+function parse(h){h=decodeURIComponent((h||'').replace(/^#/,''));let m;
+  if(!h||h==='/')return{v:'comp'};
+  if(h==='/tests')return{v:'test'};if(h==='/beyond')return{v:'beyond'};
+  if((m=h.match(/^\/plan\/add\/(.+)$/)))return{v:'plan',add:m[1]};
+  if((m=h.match(/^\/plan(?:\/(.*))?$/)))return{v:'plan',list:m[1]};
+  if((m=h.match(/^\/c\/(.+)$/)))return{v:'comp',focus:m[1]};
+  if((m=h.match(/^\/([tgm])\/(.+)$/)))return{sheet:m[1],key:m[2]};
+  if(CI[h])return{v:'comp',focus:h}; /* Library v19 links as /blood/#slug */
+  return{v:'comp'}}
+let first=true;
+function route(){
+  const r=parse(location.hash);
+  if(r.sheet){
+    const ok=r.sheet==='t'?TI[r.key]:r.sheet==='g'?GROUP[r.key]:(MK[+r.key]&&MK[+r.key].t.length);
+    if(!ok){location.replace('#/');return}
+    if(first){view=r.sheet==='t'&&TI[r.key].beyond?'beyond':r.sheet==='t'?'test':'comp';base=VIEWS.find(v=>v[0]===view)[2];render();first=false}
+    openSheet(r.sheet,r.key,inSheet);inSheet=true;return;
+  }
+  const wasSheet=inSheet;inSheet=false;closeSheet();
+  if(r.v==='plan'&&r.list)setPlanSilently(r.list.split(','));
+  if(r.v==='plan'&&r.add){setPlanSilently(PLAN.concat(r.add));history.replaceState(null,'','#/plan/'+PLAN.join(','))}
+  if(wasSheet&&!first&&r.v===view&&!r.focus){base=location.hash||'#/';return}
+  const changed=r.v!==view;view=r.v;base=location.hash||'#/';render();
+  if(r.focus){if(Q.comp&&!document.getElementById('c-'+r.focus)){Q.comp='';render()}focusComp(r.focus)}
+  else if(changed&&!first){const tb=$('#tabs');if(tb.getBoundingClientRect().top<0)tb.scrollIntoView({block:'start'})}
+  first=false;
+}
+function setPlanSilently(list){PLAN=[...new Set(list)].filter(id=>CI[id]);savePlan()}
+document.addEventListener('click',e=>{
+  const t=e.target;let b;
+  if((b=t.closest('[data-close]'))){e.preventDefault();location.hash=base;return}
+  if(t.closest('[data-back]')){history.back();return}
+  if((b=t.closest('[data-go]'))){location.hash=b.dataset.go;return}
+  if((b=t.closest('[data-plan]'))){const id=b.dataset.plan,had=PLAN.includes(id);setPlan(had?PLAN.filter(x=>x!==id):PLAN.concat(id));toast(CI[id].name+(had?' removed':' added')+` · ${PLAN.length} in plan`,PLAN.length?'#/plan/'+PLAN.join(','):'');b.blur();return}
+  if((b=t.closest('[data-padd]'))){setPlan(PLAN.concat(b.dataset.padd));const q=$('#pq');if(q){q.value='';planSug()}return}
+  if((b=t.closest('[data-prm]'))){setPlan(PLAN.filter(x=>x!==b.dataset.prm));return}
+  if(t.closest('[data-sall]')){showAll=!showAll;planSug();return}
+  if((b=t.closest('#vsw [data-cols]'))){const m=isWide()?'w':'n',n=+b.dataset.cols;COLS[m]=n;try{localStorage.setItem('bw-cols-'+m,n)}catch(er){}applyCols();return}
+  if((b=t.closest('[data-hq]'))){const q=b.dataset.hq,i=$('#q');Q[view]=q;i.value=q;addHist(q);$('#list').innerHTML=view==='comp'?compList():testList(view==='beyond');applyCols();i.blur();showHist(false);return}
+  if(t.closest('[data-hclr]')){HIST[view]=[];saveH();drawHist();$('#q').focus({preventScroll:true});return}
+  if(t.closest('[data-hsw]')){HON=!HON;try{HON?localStorage.removeItem('bw-hist-off'):localStorage.setItem('bw-hist-off','1')}catch(er){}if(!HON)HIST={comp:[],test:[],beyond:[]};saveH();drawHist();const s2=$('#hist [data-hsw]');if(s2)s2.focus({preventScroll:true});return}
+  if((b=t.closest('[data-pclr]'))){const a=b.dataset.pclr;
+    if(a==='ask'){PCONF=true;planOut();const y=$('#pclr [data-pclr="yes"]');if(y)y.focus({preventScroll:true});return}
+    PCONF=false;if(a==='yes'){showAll=false;DONE=new Set();try{localStorage.removeItem('bw-prep')}catch(er){}setPlan([]);toast('Plan cleared · start again','');const q=$('#pq');if(q){q.value='';q.focus({preventScroll:true})}}else planOut();return}
+  if(t.closest('[data-print]')){buildPdoc();window.print();return}
+  if((b=t.closest('[data-copy]'))){const url=location.origin+location.pathname+'#/plan/'+PLAN.join(',');
+    const done=()=>{b.textContent='Link copied';setTimeout(()=>b.textContent='Copy link to this plan',1800)};
+    const show=()=>{const i=$('#plink');i.hidden=false;i.value=url;i.select()};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(url).then(done,show);else show();return}
+});
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.chk;if(k===undefined)return;e.target.checked?DONE.add(k):DONE.delete(k);e.target.closest('li').classList.toggle('done',e.target.checked);try{localStorage.setItem('bw-prep',JSON.stringify([...DONE]))}catch(err){}});
+document.addEventListener('input',e=>{
+  if(e.target.id==='q'){Q[view]=e.target.value;$('#list').innerHTML=view==='comp'?compList():testList(view==='beyond')}
+  if(e.target.id==='pq')planSug();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&!$('#sheet').hidden){location.hash=base;return}
+  if(e.key==='Enter'&&e.target.id==='q'){e.target.blur();return}
+  if(e.key==='Enter'&&e.target.id==='pq'){const f=$('#psug [data-padd]');if(f){e.preventDefault();f.click()}}
+});
+window.addEventListener('hashchange',route);
+window.addEventListener('hashchange',()=>{const t=document.getElementById('toast');if(t&&!/^#\/plan/.test(location.hash))t.classList.remove('on')});
+/* v18: text size set from the site bar (nav v9, bs-text). Zoom on main and the sheet; --z lets sticky offsets undo the zoom, --hk keeps headings calmer */
+const TSK={s:.88,m:1,l:1.15};
+function setTS(z){z=+z||1;curK=z;setTimeout(()=>{try{applyCols()}catch(e){}},0);['#main','#shp'].forEach(s=>{const el=$(s);if(el){el.style.zoom=z===1?'':z;el.style.setProperty('--z',z);el.style.setProperty('--hk',((1+.4*(z-1))/z).toFixed(4))}})}
+/* v19: nav v10 sends {key,k,wide}; apply k. Fallback read: laptop bs-text-w (default l), phone bs-text (default m) */
+function TSK0(){if(window.BS_TEXT)return BS_TEXT.get().k;const w=matchMedia('(min-width:1000px)').matches,K={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let v;try{v=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}return K[v]||1.15}
+setTS(TSK0());addEventListener('bs-text',e=>setTS(e.detail&&e.detail.k));
+key();route();
+})();
+</script>
+</body>
+</html>
