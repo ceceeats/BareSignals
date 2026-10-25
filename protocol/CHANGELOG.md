@@ -2,6 +2,14 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v31 (25 Oct 2026)
+- Example is now a swipe row of 7 fictional people, the next card peeking in from the right, with dots under it: Jane Doe 34 (healing a shoulder strain), Marco 41 (more energy), Priya 29 (focus, nasal only), Tom 52 (better sleep), Ken 63 (longevity), Lea 38 (immunity), Sam 26 (just testing, one peptide). Each card: name, sex, age, goal, length, reason, a note, each peptide with dose (D), syringe units (orange), route, how often, fasted, then a schedule: "Her day" by time, or "His week" Mon to Sun with the route mark on each dose day. Start from this on every card.
+- Popular stacks are cards that lead with what's inside (BPC + TB-500 + GHK-Cu), the nickname under it (GLOW · skin, healing, collagen). Tapping a card only opens its preview; Add to my stack, Remove and Close sit inside the preview, so nothing gets stuck on. Cards in your stack show ✓ in stack. 6 shown, Show 9 more. New dashed "+ Your own mix" card jumps to the search.
+- Step one lists the peptides first; stacks come after, under their own "Or a popular stack" divider.
+- Food symbols in sticker green; fasted is now a plain empty circle with a line through.
+- More space between sections; shorter helper lines.
+- v30 kept.
+
 ## v30 (25 Oct 2026)
 - Goal templates replaced by Popular stacks, the names people use online: Wolverine, GLOW, KLOW, Looksmax, Beauty, Grow (muscle), Lean, High energy, Smarter (IllumiNeuro), Calm focus, Sleep better, Longevity, Gut reset, Immunity, Date night. Sources: Outliyr's stack list, peptide-db's IllumiNeuro page, Wolverine and GLOW write-ups (Oct 2026).
 - Tap a stack to add it, tap again to remove it. A preview card opens under the list: each peptide with time, route, how often, food, dose (D) and syringe units, plus how many blood tests come before day one.
