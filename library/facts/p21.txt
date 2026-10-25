@@ -1,0 +1,88 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# P21
+Page: https://baresignals.co/library/#/p/p21
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: P021, CNTF-derived peptide, Ac-DGGL-AdaG-NH2, Peptide 021
+2. Origin: Lab-designed from a natural growth factor
+3. Sequence: DGGLAG (6 amino acids). Acetylated, with an adamantylated glycine amide at the C-terminus; from CNTF residues 148–151
+4. Legal and approval status: Not approved; preclinical; no registered human trial (as of Oct 2026).
+
+## Summary
+5. P21 is a short peptide taken from ciliary neurotrophic factor (CNTF), with an adamantane group added so it can enter the brain. It was developed as an oral neurogenesis lead for Alzheimer's, and people use it for memory and mood. Evidence is mouse work mostly from the inventor's lab, an independent 2024 study did not reproduce the BDNF effect, and no human study exists.
+6. Punch line: CNTF fragment with an adamantane key into the brain. Grew new neurons in Alzheimer's mice; no human study.
+7. Used for: Memory, neurogenesis
+
+## Roles (what it is used for, strongest first)
+8. Neural plasticity: Neurogenesis in aged mice
+9. Cognition: Memory in Alzheimer's mice
+10. Neural protection: Less tau and amyloid
+11. Aging & senescence: Studied in aged animals
+12. Mood (backed only by animal or user reports): Mood lift reported
+
+## How it works
+13. Copies a nerve growth factor's active spot · CNTF 148–151 mimetic · role Neural plasticity
+   P21 is built on a four-residue stretch of ciliary neurotrophic factor (CNTF), a growth factor for nerve cells. An adamantyl end cap protects it from breakdown and is meant to help it cross into the brain. All of its effects so far come from mouse and rat studies.
+14. Raises a brain growth factor in mice · BDNF up, not replicated 2024 · role Neural plasticity
+   In mice, P21 raised brain-derived neurotrophic factor (BDNF), a protein that supports synapse growth and memory. That was proposed as a main route to its memory effects. An independent 2024 study did not reproduce the BDNF increase, so this step is uncertain even in animals.
+15. Blocks a signal that holds back new neurons · LIF signalling inhibition · role Neural plasticity
+   P21 is reported to block leukaemia inhibitory factor (LIF) signalling, which acts as a brake on forming new neurons. In mice this came with more new neurons in the hippocampus, the memory centre. The authors' own literature is inconsistent here, since LIF blockade would be expected to reduce progenitors.
+16. Lowers tau tangles in Alzheimer's mice · GSK-3β down, tau phosphorylation · role Neural protection
+   In Alzheimer's model mice, P21 lowered the activity of GSK-3β, the enzyme that adds phosphate groups to tau. Less phosphorylated tau means fewer tangles in neurons. Treated mice also showed less amyloid and better memory, nearly all from the inventor's lab, with no human study.
+17. Mechanism overview: P021 is an acetylated peptide built on residues 148–151 of ciliary neurotrophic factor (CNTF), with an adamantylated glycine at the end to resist breakdown and cross the blood–brain barrier. In mice it is reported to inhibit leukaemia inhibitory factor (LIF) signalling, raise BDNF, lower GSK-3β activity and so reduce tau phosphorylation, and increase hippocampal neurogenesis. Its own literature is partly inconsistent: LIF inhibition would be expected to reduce progenitor formation, not increase it.
+
+## Dosage (community reported unless tagged)
+18. Typical: No human dose studied · NA · cycle NA · route Sub-Q or intranasal (community) (reported)
+19. Half-life: >3 h (mouse plasma)
+20. Most people take: No human dose studied; animal protocols only.
+
+## What people report
+21. Used for memory and mood; few detailed first-hand reports.
+22. Liked / worked: Memory and pathology gains in Alzheimer's mice
+23. What worked: Less tau and amyloid and better memory in Alzheimer's mice.
+24. Went wrong / did not work: Core BDNF effect not replicated (Mottolese 2024)
+25. Went wrong / did not work: Most positive studies share one inventor
+26. Went wrong / did not work: No human data
+27. What went wrong: An independent 2024 mouse study did not reproduce the core BDNF effect.
+28. Most reported: Memory and mood reported
+29. Most reported: Few detailed reports
+30. Most reported: Some report nothing
+
+## What has been tested
+31. Cognition: Memory in Alzheimer's mice (animal)
+32. Neural protection: Tau and amyloid load (animal)
+33. Neural plasticity: Hippocampal neurogenesis (animal)
+34. Mouse and rat Alzheimer's and aging models; no human studies registered.
+35. What it helps: Evidence is mouse and rat work, almost all from the inventor's lab. Alzheimer's mice showed less tau and amyloid and better memory. An independent 2024 study did not reproduce the BDNF increase. There is no human study. People use it for memory and mood, and first-hand reports are few.
+36. Trial: none. Only mouse studies; no human trial registered. (checked 2026-10-23) [S1] (inferred)
+
+## Who shouldn't take it
+37. People with active or recent cancer: CNTF pathway drives neurotrophic growth; untested. (inferred)
+
+## Synergies (paired with)
+38. Semax: Semax is reported to raise BDNF through a melanocortin-derived fragment, while P21 works on the CNTF side and neurogenesis. People pair them to push brain growth factors from two angles. All of this is user logic, not trial data, and the pair has not been tested together.
+39. Dihexa: Dihexa boosts HGF and c-Met signalling to build synapses, while P21 targets new neuron formation and tau. Both have only rodent memory data. The stack is user logic for plasticity from two pathways, and it has never been tested together.
+40. NA Semax Amidate: NA Semax Amidate is a longer-lasting Semax that is assumed to raise BDNF, while P21 acts on CNTF-linked neurogenesis in mice. People pair them for memory and drive. Neither half has human proof for this use, and the pair has not been tested together.
+
+## Where it comes from
+41. A short peptide from ciliary neurotrophic factor (CNTF), with an adamantane group added for brain entry, from the Iqbal lab in New York.
+42. First studied for: An oral neurogenesis drug lead for Alzheimer's disease.
+43. Name story: No relation to p21 (CDKN1A), the famous cell-cycle brake protein. P021 is a lab code for a four-residue slice of the nerve growth factor CNTF (residues 148-151), capped with adamantylglycine to survive and reach the brain. [S2] (inferred)
+44. 2010s: Iqbal lab derives P021 from CNTF for Alzheimer's
+45. 2014–2020: Mouse studies report less tau, less amyloid, more neurons
+46. 2024: Independent study fails to reproduce the BDNF effect in live mice
+47. Today: Sold as a research nootropic; no human trial
+
+## Sources
+[S1] Trial
+[S2] P021 Cognitive Vitality report (Alzheimer's Drug Discovery Foundation) · https://www.alzdiscovery.org/uploads/cognitive_vitality_media/P021.pdf
+[S3] ADDF Cognitive Vitality: P021 · https://www.alzdiscovery.org/cognitive-vitality/ratings/p021
+[S4] Outliyr: P21 report · https://outliyr.com/reports/p21
+[S5] Peptide-DB: P21 · https://peptide-db.com/peptides/p21

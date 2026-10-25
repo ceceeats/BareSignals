@@ -1,0 +1,136 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# PE-22-28
+Page: https://baresignals.co/library/#/p/pe-22-28
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: spadin analog, Mini-spadin, GVSWGLR, Gly-Val-Ser-Trp-Gly-Leu-Arg, sortilin propeptide (22-28)
+2. Origin: Lab-shortened fragment of a natural propeptide
+3. Sequence: GVSWGLR (7 amino acids). 7-residue analog of spadin, itself cut from the sortilin propeptide
+4. Legal and approval status: Not approved anywhere; preclinical research compound; not on any FDA list (as of Oct 2026).
+
+## Summary
+5. PE-22-28 is a 7-amino-acid shortened version of spadin, a natural peptide that blocks the TREK-1 potassium channel in neurons. It was designed in France as a fast-acting antidepressant lead, and users take it for mood, motivation and focus. All evidence is from mice and cells, showing antidepressant effects within four days, and no human trial exists.
+6. Punch line: Shortened spadin built as a fast antidepressant. Blocks TREK-1 in neurons; mice lifted within four days.
+7. Used for: Mood, motivation, focus
+
+## Roles (what it is used for, strongest first)
+8. Mood: Antidepressant effect in mice
+9. Neural plasticity: New hippocampal neurons in mice
+10. Cognition: Focus and clarity reported
+11. Neural protection: Neuron survival under stress
+12. Drive & mental stamina (backed only by animal or user reports): More motivation reported
+13. Sleep & rhythms (backed only by animal or user reports): Sleep changes reported
+
+## How it works
+14. Blocks a potassium channel that keeps neurons quiet · TREK-1 (KCNK2) inhibitor · role Mood
+   PE-22-28 blocks TREK-1 (KCNK2), a two-pore potassium channel that leaks potassium out of neurons and keeps them hard to fire. Removing that leak makes neurons easier to activate. The idea rests on mice bred without TREK-1, which resisted depression-like behaviour.
+15. Lets serotonin neurons fire more · 5-HT neuron excitability up · role Mood
+   With TREK-1 blocked, serotonin neurons in the dorsal raphe of the brainstem fire more readily. More serotonin signalling is the shared end point of most antidepressants. In mice PE-22-28 acted as an antidepressant within four days, but no human study exists.
+16. Grows new neurons in the memory centre · Hippocampal neurogenesis, BDNF · role Neural plasticity
+   Four days of dosing raised markers of new neuron formation in the hippocampus of mice, and raised PSD-95, a synapse scaffold protein, in cultured neurons. Conventional antidepressants take weeks to do this in mice. How large or durable the effect is remains unknown.
+17. Strong and selective in the dish · IC50 ~0.1 nM; no TREK-2, TRAAK, hERG effect · role Neural protection
+   In human TREK-1 channels expressed in cultured cells, PE-22-28 blocked half the current at about 0.12 nanomolar, roughly 400 times stronger than spadin. It left TREK-2, TRAAK, TRESK, TASK-1 and the cardiac hERG channel untouched. That is a clean but small panel, and it says nothing about brain levels.
+18. Mechanism overview: PE-22-28 is a seven-residue analog of spadin, the peptide released when sortilin's propeptide is cleaved. It blocks TREK-1 (KCNK2), a two-pore potassium channel that dampens neuron firing; TREK-1 knockout mice are resistant to depression. Blocking it raises the excitability of serotonin neurons in the dorsal raphe and, in mice, drives hippocampal neurogenesis within days. In cell tests it was about 400 times more potent than spadin and did not touch related channels or the cardiac hERG channel.
+
+## Dosage (community reported unless tagged)
+19. Typical: 50–200 mcg · once daily · cycle 4–8 weeks · route Sub-Q or intranasal (reported)
+20. Half-life: ~23 h claimed
+21. Most people take: No human dose studied. Community 50–200 mcg/day Sub-Q or intranasal, 4–8 week runs.
+
+## What people report
+22. Used for mood, motivation and focus, often intranasal or Sub-Q, stacked with Semax or Selank.
+23. Liked / worked: Fast antidepressant effect in mice
+24. Liked / worked: More selective and longer-acting than spadin
+25. What worked: In mice, antidepressant effect in 4 days and longer-lasting than spadin.
+26. Went wrong / did not work: No human trials
+27. Went wrong / did not work: Epilepsy and stroke risk of TREK-1 blockade untested
+28. What went wrong: No human studies; epilepsy and stroke links of TREK-1 never tested.
+29. Most reported: Calmer, lifted mood
+30. Most reported: Better focus and motivation
+31. Most reported: Some report nothing
+32. Most reported: Headache or overstimulation in some
+
+## What has been tested
+33. Mood: Antidepressant behaviour (animal)
+34. Neural plasticity: Hippocampal neurogenesis (animal)
+35. Neural protection: Channel selectivity, hERG safety (cell)
+36. Mouse studies only: antidepressant behaviour within days and new neuron growth in the hippocampus.
+37. What it helps: All evidence is from mice and cells, mostly from one French group. In mice it acted as an antidepressant within four days and lasted longer than spadin. No human trial exists. Users take it for mood, motivation and focus, usually alone or inside cognitive blends with Semax, Selank and Pinealon.
+38. Trial: none. Spadin analog tested only in rodents for depression; no human trial registered. (checked 2026-10-23) [S1] (inferred)
+
+## Who shouldn't take it
+39. People with a history of seizures: Blocks TREK-1; TREK-1 loss makes mice seizure-prone. (inferred)
+40. People on SSRIs, SNRIs or MAOIs: Antidepressant-like action; stacking untested. (inferred)
+
+## Synergies (paired with)
+41. NA Semax Amidate: NA Semax Amidate is assumed to raise BDNF and dopamine turnover, while PE-22-28 lifts serotonin neuron firing through TREK-1. People pair them for mood plus drive, and they are sold pre-mixed as Semax + Selank + PE-22-28 + Pinealon. The combination has not been tested.
+42. NA Selank Amidate: NA Selank Amidate is used for calm without sedation, while PE-22-28 targets low mood through serotonin neurons. The pairing aims at mood and anxiety from two angles, and they are sold pre-mixed as Semax + Selank + PE-22-28 + Pinealon. It is user logic, not trial data.
+43. Pinealon: Pinealon is claimed to protect neurons and support sleep, while PE-22-28 works on mood through TREK-1. People add it for a broader brain-aging angle, and they are sold pre-mixed as Semax + Selank + PE-22-28 + Pinealon. The blend itself has never been tested.
+44. Semax: Semax is reported to raise BDNF and dopamine and serotonin turnover in rodents, while PE-22-28 drives serotonin neuron firing and fast neurogenesis in mice. People stack them for mood, focus and motivation. Both rest on animal work, and the pair has not been tested together.
+45. Selank: Selank is used for anxiety and slows breakdown of calming enkephalins, while PE-22-28 targets low mood and motivation. The stack covers anxious and flat mood from separate mechanisms. This is user logic, not trial data, and the pair has not been tested together.
+
+## Where it comes from
+46. A 7-amino-acid shortened version of spadin, a natural peptide that blocks the TREK-1 potassium channel in neurons.
+47. First studied for: Designed in France (Mazella/Borsotto group) as a fast-acting antidepressant lead.
+48. Name story: PE is the propeptide cut off sortilin; the numbers are residues 22-28 of it. Spadin covers residues 12-28, so PE-22-28 is simply spadin's last seven amino acids, the "mini-spadin". [S2] (inferred)
+49. 2006: Spadin found as the TREK-1-blocking piece of the sortilin propeptide
+50. 2017: PE-22-28 published: shorter, stronger, longer-lasting in mice
+51. 2020s: Picked up by nootropic users and sold as a research peptide
+52. Today: Inside IllumiNeuro-type cognitive blends; still mouse-only
+
+## Deep read (as of 2026-10)
+
+### Where it came from, and who is behind every result [lab]
+53. The story starts with a receptor protein rather than a drug. Sortilin, also called neurotensin receptor 3, is made with a short leading piece, a propeptide, that is cut off as the protein matures. In 2010 a group at the Institute of Molecular and Cellular Pharmacology near Nice showed that a 17-residue stretch of that propeptide, which they named spadin, blocked the TREK-1 potassium channel and behaved like an antidepressant in mice [1] (verified). The idea behind it came from the same group's 2006 finding that mice lacking TREK-1 entirely were resistant to depression-like behaviour across several tests [2] (verified).
+54. PE-22-28 came next, in 2017. The group watched spadin break down in mouse blood, saw that almost all of it was gone within 30 minutes, and designed a shorter seven-residue peptide, GVSWGLR, based on the fragments that survived [3] (verified). The product sold today is that seven-residue molecule.
+55. What is missing from the story is a second laboratory. Every primary result on spadin and its short analogues found in this review traces to the same French academic network, funded by national research agencies, with authors declaring no commercial conflicts [3] (verified). One of the authors held an industrial doctoral fellowship of the French CIFRE type, which by design pairs a student with a company, but no company is named as a developer (reported). Independent replication, which is the normal check on a single group's findings, has not appeared in print as far as could be found (inferred from searches; PubMed itself was not reachable for this review).
+
+### What the two famous numbers actually mean [cells]
+56. Two figures travel with this peptide: a potency about 400 times higher than spadin, and a roughly 23-hour half-life. Both come from the 2017 paper, and both say less than they appear to.
+57. The potency is real but specific. In human TREK-1 channels expressed in cultured kidney cells and measured by patch clamp, the concentration that blocked half the current was 0.12 nanomolar for PE-22-28 against 40 to 60 nanomolar for spadin [3] (verified, in cells). That is a measure of how tightly it acts on one channel in a dish. It says nothing about how much reaches the brain after an injection or a nasal spray.
+58. The 23 hours is not a half-life. No one has measured the peptide in blood or tissue over time. What the paper measured was how long the behavioural effect in mice lasted after one dose, and it reported half-effect times of 14, 17, 21 and 23 hours across four analogues, against about 6 hours for spadin [3] (verified). The 23-hour figure belongs to a modified analogue, not necessarily to the plain sequence in a vial. There is no pharmacokinetic data for PE-22-28 in any species: no absorption, distribution, clearance or brain penetration figures (verified as absent).
+59. The mouse doses are worth knowing for scale, not as guidance. Behavioural effects were seen at 3 to 4 micrograms per kilogram by intraperitoneal injection, and in one four-day arm at 1 milligram per kilogram by stomach tube [3] (verified). The paper's own figure caption and main text disagree on one of those doses. There is no established human dose, and no study has tried to derive one.
+
+### Mechanism, one step at a time, with the model each step came from [mixed]
+60. Step one, the target. TREK-1 is a background potassium channel: when it is open, potassium leaks out and the neuron is harder to fire. Mice bred without it showed less despair-like behaviour, and their serotonin neurons in the brainstem fired more [2] (verified, in animals). That knockout result is the whole rationale. It shows that removing the channel from birth changes behaviour; it does not by itself show that blocking it in an adult does the same thing safely.
+61. Step two, selectivity. At 100 nanomolar, roughly a thousand times its blocking concentration, PE-22-28 did not change currents through the closest relatives TREK-2 and TRAAK, nor through TRESK or TASK-1. At 10 micromolar the analogues did not change the cardiac hERG current, the channel most often behind drug-induced rhythm problems [3] (verified, in cells). That is a clean panel for five channels. It is not a broad screen, and no receptor or enzyme panel was reported.
+62. Step three, behaviour. In male C57BL/6J mice, single doses shortened immobility in the forced swim test, and four days of dosing shortened the delay to eat in a novel environment, a test that usually needs weeks of a conventional antidepressant [3] (verified, in animals). Only male mice of one strain were used.
+63. Step four, new neurons and synapses. Four days of dosing increased markers of new neuron formation in the hippocampus, and in cultured mouse cortical neurons the analogues raised PSD-95, a scaffold protein of excitatory synapses [3] (verified, in animals and cells). The speed is the interesting part, since conventional antidepressants take weeks to do this in mice. The size and durability of the effect beyond the short window studied is unknown.
+
+### Safety: the channel does other jobs [animals]
+64. There are no toxicology studies of PE-22-28: no acute, no repeat-dose, no genotoxicity, no reproductive studies, in any species (verified as absent from the primary paper and the patent). The patent text describes the peptides as lacking side effects, but reports no measured toxicity to back that [4] (verified).
+65. The more important point is biological. TREK-1 is not a depression switch; it is part of how neurons protect themselves. In the group's own 2004 work, mice lacking TREK-1 were more vulnerable to seizures and to brain damage from reduced blood flow, and less sensitive to some general anaesthetics [5] (verified, in animals). A drug that blocks the channel is, in principle, pushing in the same direction as that knockout. The 2017 paper cites earlier spadin work reporting no harmful effects on pain, ischaemia or the heart, and states the authors could expect the analogues to behave similarly [3]; that is an expectation for this molecule, not a test of it (reported).
+66. So the honest summary is not that it looked safe, but that the specific questions its own biology raises, seizure threshold, stroke outcome and interaction with anaesthesia, have not been asked of this peptide (inferred).
+
+### Product reality and the human record [people]
+67. There is no human study of any kind: no trial, no case series, no pharmacokinetic measurement (verified as absent from the literature found; trial registries could not be opened directly for this review). Intranasal use, which is common in practice, has never been tested in any species. The patent lists intravenous, intraperitoneal and oral routes as possibilities, and its examples used injection into the abdomen of mice only [4] (verified).
+68. The patent family is also a reminder that the molecule in commerce is not the one the inventors chose to protect. The US claims cover an alanine-substituted version, AVSWGLR, and its biotinylated form, not the native GVSWGLR sequence [4] (verified). In the 2017 paper that modified version gave the strongest neurogenesis signal [3]. The commercial product is therefore the unprotected, cheaper-to-copy sibling of the lead candidate (inferred).
+69. A seven-residue peptide containing tryptophan is vulnerable to oxidation and light, and spadin itself was shown to be cut apart in blood within half an hour [3]. No stability data for the short analogue in solution, in a vial or in a nasal spray has been published (verified as absent).
+
+### Where the law stands, and open questions [mixed]
+70. Not approved anywhere, not in any registered clinical programme found, and not nominated for or reviewed under the US compounding lists (verified as of October 2026). It is not named on the 2026 WADA Prohibited List, which means it falls under the catch-all S0 class for pharmacological substances with no government approval for human use, prohibited at all times [6] (inferred from the class wording).
+71. Does blocking TREK-1 in an adult human change mood at all? No blocker of this channel has been tested in people for mood.
+72. How much reaches the brain, by any route? Without a single pharmacokinetic measurement, the dose question cannot even be framed.
+73. Does it lower seizure threshold or worsen stroke outcome? The knockout biology says those are the right questions; nobody has asked them of this molecule.
+74. Does anyone outside the original group get the same results? One independent replication of the four-day neurogenesis and behavioural effects would change the weight of the whole file.
+
+Deep read references:
+[1] Mazella et al., PLoS Biology, spadin, a sortilin-derived peptide targeting TREK-1, 2010 · https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1000355
+[2] Heurteaux et al., Nature Neuroscience, TREK-1 deletion gives a depression-resistant phenotype, 2006 · https://www.nature.com/articles/nn1749
+[3] Djillani et al., Frontiers in Pharmacology, shortened spadin analogs with better TREK-1 inhibition and stability, 2017 · https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2017.00643/full
+[4] US Patent 11,220,527, peptides derived from the NTSR3 propeptide for treating depression, 2022 · https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11220527
+[5] Heurteaux et al., EMBO Journal, TREK-1 in neuroprotection and general anesthesia, 2004 · https://pmc.ncbi.nlm.nih.gov/articles/PMC449762
+[6] WADA, 2026 Prohibited List, 2026 · https://www.wada-ama.org/en/prohibited-list
+
+## Sources
+[S1] Trial
+[S2] Spadin datasheet, Propeptide (12-28) (Phoenix Pharmaceuticals via Funakoshi) · https://www.funakoshi.co.jp/domestic/data/datasheet/PPE/049-73.pdf
+[S3] Djillani et al. 2017, Frontiers in Pharmacology · https://www.frontiersin.org/articles/10.3389/fphar.2017.00643/full
+[S4] Peptide-DB: PE-22-28 · https://peptide-db.com/peptides/pe-22-28

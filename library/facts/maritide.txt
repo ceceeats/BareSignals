@@ -1,0 +1,105 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# MariTide
+Page: https://baresignals.co/library/#/p/maritide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: Maridebart cafraglutide, AMG 133, Mari-Tide
+2. Origin: Lab-designed: antibody carrying two GLP-1 peptides
+3. Legal and approval status: Investigational as of Oct 2026, not approved anywhere. Phase 3 MARITIME-1 and -2 (72 wk, obesity) ongoing with readouts expected 2027; CV, HF, sleep apnea, SWITCH and extension studies enrolling (Amgen, Aug 2026). Not named on the WADA list.
+
+## Summary
+4. MariTide is Amgen's antibody-peptide conjugate: an antibody that blocks the GIP receptor, carrying two GLP-1 agonist peptides. It is being developed as a monthly or less frequent weight-loss shot, with the antibody body giving it weeks-long action. Phase 2 showed up to 16% average weight loss at a year. Vomiting was heavy until a slower start was introduced, and a disputed bone density signal is under question.
+5. Punch line: Amgen's monthly weight-loss shot: a GIP-blocking antibody carrying two GLP-1 peptides. Phase 2 reached about 16%.
+6. Used for: Obesity, type 2 diabetes
+
+## Roles (what it is used for, strongest first)
+7. Appetite & satiety: Monthly hunger suppression
+8. Glucose & insulin: HbA1c down 1.2–1.6 points
+9. Fat metabolism: Up to ~20% weight loss
+10. Heart & vessels: CV and heart failure trials
+11. Sleep & rhythms (backed only by animal or user reports): Sleep apnea trials running
+12. Bone & cartilage (backed only by animal or user reports): Bone density question, disputed
+
+## How it works
+13. Quiets hunger · GLP-1 receptor agonism (two peptides) · role Appetite & satiety
+   Two GLP-1 analogue peptides fused onto the antibody activate GLP-1 receptors in the brain's appetite centres. Hunger drops and the stomach slows. This drove most of the weight loss seen in the Phase 2 human trial.
+14. Blocks GIP signalling · Anti-GIPR antagonist antibody · role Fat metabolism
+   The antibody part blocks the GIP receptor rather than activating it, the opposite of tirzepatide. Animal work and human genetics both linked lower GIP signalling to less weight gain. Why blocking and activating GIP both help weight loss is still debated.
+15. Lowers blood sugar · GLP-1R on beta cells · role Glucose & insulin
+   GLP-1 receptors on pancreatic beta cells raise insulin when glucose is high. In the type 2 diabetes group of the Phase 2 human trial, HbA1c improved alongside weight loss. The glucose-dependent action keeps the risk of lows small.
+16. Antibody body gives weeks-long life · IgG, FcRn recycling · role Appetite & satiety
+   The drug is built on a human IgG antibody, which the body recycles through the FcRn receptor instead of breaking down. That gives a half-life of about three weeks. It allows monthly or even less frequent dosing, which held weight loss in the year-two extension.
+17. Mechanism overview: MariTide is a bispecific antibody-peptide conjugate. A fully human monoclonal antibody antagonises the GIP receptor, and two GLP-1 analogue peptides fused to it by amino-acid linkers activate the GLP-1 receptor. GLP-1 agonism cuts appetite, slows the stomach and raises glucose-dependent insulin. Blocking GIPR, rather than activating it like tirzepatide, also reduced weight in animal and human genetics work; why both approaches work is still debated. The antibody frame gives a half-life of about three weeks, allowing monthly or less frequent dosing.
+
+## Dosage (community reported unless tagged)
+18. Typical: Phase 3: 21 → 35 → 70 mg escalation to target dose · every 4 weeks; 8–12 weeks being tested · cycle Trial only (52–72 wk) · route Sub-Q (verified)
+19. Half-life: ~21 days (phase 1, reported)
+20. Dose note: Phase 3 target doses are not public. No community dosing exists.
+21. Most people take: Trial only. Phase 2 used 140–420 mg every 4 weeks or 420 mg every 8 weeks; phase 3 starts at 21 mg and steps to 35 then 70 mg over 8 weeks before a target dose. Maintenance at monthly or quarterly intervals is under study.
+22. Phase 2: 140–420 mg · every 4 wk (420 mg also every 8 wk) · 52 wk · Sub-Q · for 592 adults with obesity ± T2D [S1] (verified)
+23. Phase 3 escalation: 21 → 35 → 70 mg · stepped over 8 wk, then target dose · 72 wk · Sub-Q · for MARITIME-1 and -2 [S2] (verified)
+24. Maintenance: lower monthly or quarterly · every 4–12 wk · year two · Sub-Q · for phase 2 part 2; SWITCH from sema/tirz [S3] [S4] (reported)
+
+## What people report
+25. No meaningful grey-market use: it is a large antibody that cannot be made as a cheap synthetic peptide.
+26. Liked / worked: Up to 16.2% loss at 52 wk (ITT), ~20% on treatment
+27. Liked / worked: HbA1c down 1.2–1.6 points
+28. Liked / worked: Loss held a second year on fewer doses
+29. Liked / worked: Dose escalation cut GI dropouts
+30. What worked: Up to 16.2% weight loss at 52 weeks (about 20% in people who stayed on drug) without diabetes, up to 12.3% with diabetes; HbA1c fell 1.2–1.6 points. Most kept the loss a further year on lower monthly or quarterly doses.
+31. Went wrong / did not work: Vomiting 43–92% across phase 2 arms
+32. Went wrong / did not work: 12–27% quit for GI effects without escalation
+33. Went wrong / did not work: Phase 2 headline judged underwhelming by investors
+34. Went wrong / did not work: Bone density signal raised, then denied
+35. What went wrong: Vomiting in 43–92% of phase 2 arms; 12–27% quit for GI effects when started at full dose. A leaked phase 1 figure showed about 4% bone density loss at 420 mg, which Amgen says is not linked to the drug.
+36. Most reported: Not available outside trials
+37. Most reported: Monthly dosing is the draw
+
+## What has been tested
+38. Fat metabolism: Obesity, phase 1 and 52-wk phase 2 (human)
+39. Glucose & insulin: Type 2 diabetes cohort (human)
+40. Heart & vessels: CV and HF outcome trials (ongoing) (human)
+41. Sleep & rhythms: Obstructive sleep apnea trials (ongoing) (human)
+42. Phase 1 (Nature Metabolism 2024), a 592-person 52-week phase 2 (NEJM 2025) plus a year-two maintenance extension; the phase 3 MARITIME program has nine studies running.
+43. What it helps: Phase 2 showed up to 16% average weight loss at a year, about 20% in people who stayed on drug, and 12% in type 2 diabetes with better HbA1c. Most kept the weight off for a further year on lower monthly or quarterly doses. Vomiting was the main problem until a slower start was introduced. It is being tested in heart disease, heart failure and sleep apnea; there is no grey-market use.
+44. Trial: active · Phase 3 · heart disease with obesity · NCT07037433 · Amgen. Amgen's monthly shot is in a large MARITIME Phase 3 program, including a cardiovascular outcomes trial recruiting through 2028. (checked 2026-10-23) [S5] (verified)
+
+## Who shouldn't take it
+45. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (inferred)
+46. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (inferred)
+47. People who struggle with vomiting at first dose: High first-dose vomiting rates in phase 2. (reported)
+
+## Synergies (paired with)
+48. Semaglutide: Semaglutide is a weekly GLP-1 agonist, while MariTide adds GIP receptor blocking and lasts weeks. They hit the same GLP-1 target, so they are alternatives, not a stack. Combining them has not been tested.
+49. Tirzepatide: Tirzepatide activates the GIP receptor and MariTide blocks it, while both activate GLP-1. They are compared as rival approaches to the same goal. Using them together makes little pharmacological sense and has not been tested.
+
+## Where it comes from
+50. Amgen's antibody-peptide conjugate: an antibody that blocks the GIP receptor, carrying two GLP-1 agonist peptides. The antibody body lets it last weeks, so dosing is monthly or less.
+51. First studied for: Obesity, with and without type 2 diabetes.
+52. Name story: The INN pairs two stems: -bart, the 2021 stem for engineered full-length antibodies, and cafraglutide, carrying -glutide for GLP-1 analogues. MariTide is Amgen's own nickname; the meaning of 'Mari' is not explained publicly. [S6] (inferred)
+53. Feb 2024: Phase 1 in Nature Metabolism: loss held up to 150 days after last dose
+54. Nov 2024: Leaked bone density figure; shares drop 7%; phase 2 topline ~20% disappoints investors
+55. Jun 2025: NEJM phase 2; vomiting forces slower phase 3 escalation
+56. 2025: MARITIME phase 3 launched
+57. Jan 2026: Year-two data: loss maintained on monthly or quarterly doses
+58. Today: Nine phase 3 studies; first readouts expected 2027
+
+## Sources
+[S1] AJMC: monthly MariTide phase 2, NEJM · https://www.ajmc.com/view/once-monthly-maridebart-cafraglutide-shows-up-to-16-weight-loss
+[S2] Fierce: Amgen slows phase 3 dosing after vomiting · https://www.fiercebiotech.com/biotech/amgen-adjusts-phase-3-dosing-plan-lead-obesity-candidate-maritide-after-high
+[S3] Amgen: MariTide year-two maintenance (Jan 2026) · https://finviz.com/news/276480/amgen-reports-maritide-weight-loss-holds-up-with-fewer-doses
+[S4] TIKR: MariTide SWITCH study · https://www.tikr.com/blog/amgen-stock-erased-a-17-drawdown-a-maritide-switch-study-explains-why
+[S5] NCT07037433 · https://dashboard.datalookout.com/trial/NCT07037433
+[S6] Nomenclature of monoclonal antibodies (Wikipedia) · https://en.wikipedia.org/wiki/Nomenclature_of_monoclonal_antibodies
+[S7] AMG 133 phase 1, Nature Metabolism 2024 (abstract) · https://busqueda.bvsalud.org/portal/resource/es/mdl-38316982
+[S8] Amgen Q2 2026 earnings release (SEC) · https://www.sec.gov/Archives/edgar/data/0000318154/000031815426000124/amgn-20260630earningsrelea.htm
+[S9] Clinical Trials Arena: MariTide bone density concern · https://www.clinicaltrialsarena.com/news/amgen-speaks-out-about-bone-density-concerns-with-obesity-drug/
+[S10] MARITIME-1 (ClinicalTrials.gov NCT06858839) · https://clinicaltrials.gov/study/NCT06858839
+[S11] MariTide research (Peptide Protocol Wiki) · https://www.peptideprotocolwiki.com/peptides/maritide/research

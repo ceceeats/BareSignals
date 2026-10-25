@@ -1,0 +1,157 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Liraglutide
+Page: https://baresignals.co/library/#/p/liraglutide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: Victoza, Saxenda, Xultophy (with insulin degludec), NN2211, lira
+2. Origin: Lab-modified natural chain
+3. Sequence: HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG (31 amino acids). GLP-1(7-37) with K34R; C16 palmitic acid on K26 via a glutamic acid spacer (not shown)
+4. Shown with an FDA approved badge
+5. Legal and approval status: FDA-approved (Victoza 2010, Saxenda 2014) with generics: first generic Victoza Dec 2024 (Hikma), first generic Saxenda Aug 2025 (Teva), more since (e.g. Biocon Feb 2026). Approved worldwide. Grey-market vials are not the approved product. WADA does not ban it.
+
+## Summary
+6. Liraglutide is Novo Nordisk's first long-acting GLP-1 analogue, a modified hormone with a fatty-acid tail that binds albumin. It is an approved drug for type 2 diabetes (Victoza) and obesity (Saxenda), quieting hunger, slowing stomach emptying and raising insulin. The SCALE trial showed about 8 kg average loss over 56 weeks. It is weaker than later weekly drugs, needs daily injections, and carries a boxed warning for rodent thyroid tumors.
+7. Punch line: The original daily GLP-1, sold as Saxenda and Victoza. Now generic, the budget pick; weaker than weekly shots.
+8. Used for: Weight loss, type 2 diabetes
+
+## Roles (what it is used for, strongest first)
+9. Appetite & satiety: Cuts hunger, slows stomach
+10. Glucose & insulin: Lowers blood sugar
+11. Heart & vessels: Fewer CV deaths (LEADER)
+12. Fat metabolism: About 5–8% weight loss
+13. Neural protection (backed only by animal or user reports): Studied in Alzheimer's, mixed
+
+## How it works
+14. Quiets hunger in the brain · GLP-1 receptor, hypothalamus · role Appetite & satiety
+   Liraglutide activates GLP-1 receptors in the hypothalamus and brainstem, the regions that set hunger and fullness. People feel full sooner and think about food less. In the large SCALE human trials this produced steady, moderate weight loss over a year.
+15. Slows stomach emptying · GLP-1 receptor, gut · role Appetite & satiety
+   GLP-1 receptors along the gut and its nerves slow the rate the stomach empties into the intestine. Food stays longer, which adds to fullness and flattens the rise in blood sugar after meals. It is also behind the early nausea users report.
+16. Raises insulin and cuts glucagon when glucose is high · GLP-1R, beta and alpha cells · role Glucose & insulin
+   On pancreatic beta cells it raises insulin, and on alpha cells it cuts glucagon, but only when blood glucose is high. That glucose dependence is why low blood sugar is uncommon on its own. In LEADER, severe hypoglycaemia was actually less frequent on drug than placebo.
+17. Fatty tail rides albumin · C16 acylation, albumin binding · role Glucose & insulin
+   A C16 fatty acid attached through a small spacer makes the molecule cluster under the skin and grip albumin in the blood. This slows absorption and shields it from the DPP-4 enzyme and kidney clearance. A half-life of minutes becomes about 13 hours, enough for daily dosing.
+18. Lowers CV event risk in diabetes · CV outcomes, LEADER · role Heart & vessels
+   In the LEADER human trial in high-risk type 2 diabetes, fewer people on liraglutide had a heart attack, stroke or cardiovascular death than on placebo. Cardiovascular and overall deaths also fell. The benefit was shown in people with diabetes and existing risk, not in healthy users.
+19. Mechanism overview: Liraglutide is GLP-1(7-37) with lysine 34 swapped for arginine and a C16 palmitic acid attached to lysine 26 through a glutamic acid spacer. The fatty acid makes it self-associate under the skin and bind albumin, which slows absorption and shields it from DPP-4 and kidney clearance, giving a half-life of about 13 hours. It activates GLP-1 receptors in the hypothalamus and brainstem to cut hunger, in the gut to slow emptying, and on beta and alpha cells to raise insulin and cut glucagon only when glucose is high.
+
+## Dosage (community reported unless tagged)
+20. Typical: 0.6–1.8 mg (diabetes); 3 mg (obesity) · once daily · cycle Ongoing · route Sub-Q (verified)
+21. Half-life: ~13 hours
+22. Dose note: Label maximum is 3 mg daily for weight and 1.8 mg for diabetes.
+23. Most people take: Label: start 0.6 mg daily, add 0.6 mg each week to 3 mg for obesity (Saxenda) or 1.2–1.8 mg for diabetes (Victoza). Stop Saxenda if under 4% loss by week 16. Users often hold 1.2–1.8 mg for weight.
+24. Obesity (label): 3 mg · 1× daily · ongoing; 0.6 mg start, +0.6 mg weekly · Sub-Q · for Saxenda and generic users; adults and teens 12+ [S1] (verified)
+25. Diabetes (label): 1.2–1.8 mg · 1× daily · ongoing; 0.6 mg for 1 wk first · Sub-Q · for Victoza; adults and children 10+ [S2] [S3] (verified)
+26. Low maintenance: 1.2–1.8 mg · 1× daily · ongoing · Sub-Q · for users wanting fewer side effects and lower cost [S4] (reported)
+
+## What people report
+27. Now cheap as a generic, so used as a budget GLP-1, often held at 1.2–1.8 mg. Users report nausea in the first weeks and 5–10% loss, consistent with trials.
+28. Liked / worked: 8.4 kg vs 2.8 kg loss at 56 weeks (SCALE)
+29. Liked / worked: 13% fewer major CV events in diabetes
+30. Liked / worked: Lower CV and all-cause death in LEADER
+31. Liked / worked: Now generic and cheap
+32. What worked: About 8 kg average loss versus 2.8 kg on placebo at 56 weeks (SCALE); fewer heart attacks, strokes and CV deaths in high-risk diabetes (LEADER, HR 0.87). Weaker than semaglutide and tirzepatide.
+33. Went wrong / did not work: Nausea, vomiting, diarrhea
+34. Went wrong / did not work: Gallbladder disease, rare pancreatitis
+35. Went wrong / did not work: Higher resting heart rate
+36. Went wrong / did not work: Weight regain on stopping
+37. Went wrong / did not work: Daily injections
+38. What went wrong: Nausea, vomiting, diarrhea; gallbladder disease and rare pancreatitis; raised resting heart rate; regain on stopping. Boxed warning for rodent thyroid C-cell tumors. Daily injections.
+39. Most reported: Nausea in the first 2–4 weeks
+40. Most reported: 5–10% weight loss
+41. Most reported: Many stay at 1.2–1.8 mg
+42. Most reported: Used as a budget GLP-1
+
+## What has been tested
+43. Fat metabolism: Obesity, SCALE program (human)
+44. Glucose & insulin: Type 2 diabetes, LEAD program (human)
+45. Heart & vessels: CV outcomes, LEADER (human)
+46. Neural protection: Alzheimer's and Parkinson's pilot trials (human)
+47. Large programs: LEADER cardiovascular outcome trial (9,340 people, 3.8 years) and the SCALE obesity trials (SCALE Obesity, 3,731 people, 56 weeks), plus pediatric trials.
+48. What it helps: SCALE showed about 8 kg average loss versus 2.8 kg on placebo over 56 weeks at 3 mg, and LEADER showed fewer heart attacks, strokes and cardiovascular deaths in high-risk type 2 diabetes. It is weaker than the weekly drugs that followed, but generics made it the cheapest GLP-1 option. Users report nausea early and modest, steady loss; daily injections are the main complaint.
+49. Trial: active · Phase 1 · stomach emptying before surgery · NCT07225816 · Novo Nordisk. Approved since 2010 and now generic; Novo is still recruiting a study on leftover stomach food in GLP-1 users before anesthesia. (checked 2026-10-23) [S5] (verified)
+
+## Who shouldn't take it
+50. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (verified)
+51. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (verified)
+52. People with depression or suicidal thoughts: Saxenda label: avoid with history of suicide attempts or active suicidal ideation. (verified)
+
+## Synergies (paired with)
+53. Semaglutide: Both act on the same GLP-1 receptor, so they are alternatives more than a stack. Semaglutide is weekly and gave far more weight loss in the head-to-head STEP 8 trial. People switch from one to the other; combining them has not been tested.
+54. Metformin: Metformin lowers sugar output from the liver, while liraglutide works on insulin, glucagon and appetite. They are commonly used together in type 2 diabetes and many LEADER participants took both. The add-on use is clinical routine, though this library has no separate data on the pair.
+
+## Where it comes from
+55. Novo Nordisk's first long-acting GLP-1 analogue, developed under Lotte Bjerre Knudsen: one amino-acid swap plus a fatty-acid tail that binds albumin, stretching minutes into about 13 hours. The parent of semaglutide.
+56. First studied for: Type 2 diabetes (Victoza, US 2010), then obesity at 3 mg (Saxenda).
+57. Name story: The -glutide ending is the INN stem for GLP-1 analogues; 'lira' has no published meaning. Novo's team under Lotte Bjerre Knudsen made it by adding a fatty acid and spacer to GLP-1 so it would bind albumin. [S6] (inferred)
+58. 2009–2010: Approved for type 2 diabetes in the EU and US (Victoza)
+59. Dec 2014: Approved for obesity at 3 mg (Saxenda)
+60. 2016–2017: LEADER: fewer CV deaths; CV indication added 2017
+61. 2019–2020: Pediatric approvals (T2D 10+, obesity 12+)
+62. Dec 2024 – Aug 2025: First US generics of Victoza, then Saxenda
+63. Today: Overtaken by semaglutide and tirzepatide; the low-cost option
+
+## Deep read (as of 2026-10)
+
+### Why this one has a different kind of evidence file [people]
+64. Almost everything else in this library is held up by animal work and inference. Liraglutide is the opposite case: it has been through full regulatory review twice, carries a boxed warning, and has a cardiovascular outcome trial with nearly ten thousand participants. The useful work here is not defending it, it is reading its own trials closely, because the gap between what they measured and how it is used is wide.
+65. The weight programme was a set of 56-week placebo-controlled trials. In the largest, 3,731 adults with overweight or obesity and a weight-related condition, the placebo-subtracted weight change was minus 5.4% (95% CI minus 5.8 to minus 4.95, p<0.0001). In 846 adults who also had type 2 diabetes it was minus 4.0% (95% CI minus 4.8 to minus 3.1), and in a 422-person maintenance trial minus 6.1% (95% CI minus 7.5 to minus 4.6) [1] (verified). The odds of losing at least 10% of body weight were roughly four to seven times placebo depending on the trial [1].
+66. Note which population those numbers come from: people with a weight-related condition, enrolled with a lifestyle programme, in trials that lasted just over a year. The commonly quoted 8% figure is total weight change including the placebo arm's own loss; the drug's contribution is the placebo-subtracted figure above (inferred from the trial reporting).
+
+### The cardiovascular trial, read as a trial rather than a headline [people]
+67. LEADER randomised 9,340 adults with type 2 diabetes to liraglutide or placebo and followed them a median of 3.8 years [2] (verified). The population was deliberately high-risk: 72.4% already had cardiovascular disease, 81.3% had cardiovascular disease or chronic kidney disease stage 3 or worse, mean HbA1c was 8.7% and mean diabetes duration 12.8 years [2].
+68. The composite of cardiovascular death, non-fatal heart attack and non-fatal stroke occurred in 13.0% on drug against 14.9% on placebo, hazard ratio 0.87 (95% CI 0.78 to 0.97), superiority p=0.01 [2]. Cardiovascular death fell from 6.0% to 4.7%, hazard ratio 0.78 (0.66 to 0.93), p=0.007, and death from any cause from 9.6% to 8.2%, hazard ratio 0.85 (0.74 to 0.97), p=0.02 [2]. A kidney composite fell from 7.2% to 5.7%, hazard ratio 0.78 (0.67 to 0.92), p=0.003 [2] (verified). Stroke alone did not reach significance, hazard ratio 0.89 (0.72 to 1.11), p=0.30 [2].
+69. The number needed to treat is the honest translation: 66 people treated for three years to prevent one primary outcome event, and 98 to prevent one death [2] (verified). The HbA1c difference was 0.40 percentage points and the weight difference 2.3 kilograms at 36 months [2], so this is not a trial where the benefit can be attributed to large weight loss.
+70. Two limits travel with it. The population was high-risk, so the result does not transfer to a healthy person using the drug cosmetically, and the trial itself says so. And exploratory outcomes were not corrected for multiple comparisons [2] (verified). The trial was funded by the manufacturer with NIH grant support [2].
+
+### What the safety file actually contains [people]
+71. The boxed warning is about rodent tumours, and its wording is careful in a way that is worth reading rather than paraphrasing: liraglutide causes dose-dependent and treatment-duration-dependent thyroid C-cell tumours at clinically relevant exposures in both sexes of rats and mice, and whether it does so in humans is unknown, because the human relevance of those rodent tumours has not been determined. It is contraindicated with a personal or family history of medullary thyroid carcinoma or with multiple endocrine neoplasia type 2, and routine calcitonin monitoring or thyroid ultrasound is described as of uncertain value for early detection [3] (verified). In LEADER, there were no cases of medullary thyroid carcinoma on drug and one on placebo [2].
+72. In LEADER the imbalances that did appear were elsewhere. Acute gallstone disease occurred in 3.1% on drug against 1.9% on placebo, p<0.001 [2] (verified), and the label notes gallbladder disease was more common than placebo even after accounting for weight loss [3]. Acute pancreatitis was slightly less frequent on drug, 18 cases against 23, p=0.44 [2], which is the opposite of the common assumption. Pancreatic cancer went the other way, 13 cases against 5, p=0.06 [2] (verified) a difference that did not reach significance and has never been resolved.
+73. Severe hypoglycaemia was less frequent on drug, 2.4% against 3.3% [2], which reflects the glucose-dependent mechanism, though the label still warns about the combination with sulfonylureas or insulin [3].
+74. Resting heart rate rises by about 2 to 3 beats per minute on average, and the label says to stop if the increase is sustained [3] (verified). Severe gastrointestinal reactions occurred in 4.8% against 1.4% on placebo [3]. Suicidal ideation was reported in 0.3% (9 of 3,384) on drug against 0.1% (2 of 1,941) on placebo, with one attempt in an adult and one death by suicide in a 125-patient paediatric trial; the label states there is insufficient information to establish a causal relationship, and advises against use with prior attempts or active ideation [3] (verified). Post-marketing acute kidney injury has followed dehydration from vomiting and diarrhoea [3]. Because it slows stomach emptying, there are rare aspiration reports under anaesthesia or deep sedation [3].
+75. Discontinuation for adverse events in LEADER was 9.5% against 7.3%, p<0.001 [2]; in the weight trials 6.4% stopped for gastrointestinal problems alone, with nausea in 40% and vomiting in 15% [1] (verified).
+
+### The head-to-head that explains why it lost its market [people]
+76. One trial compared it directly with weekly semaglutide, and it is the single most informative study for anyone choosing between them. STEP 8 randomised 338 adults 3:1:3:1 across semaglutide 2.4 mg, placebo, liraglutide 3.0 mg and placebo, at 19 US sites, for 68 weeks [4] (verified).
+77. At 68 weeks, mean weight change was minus 15.8% on semaglutide, minus 6.4% on liraglutide and minus 1.9% on pooled placebo. At least 10% loss was reached by 70.9%, 25.6% and 15.4%; at least 15% by 55.6%, 12.0% and 6.4%; at least 20% by 38.5%, 6.0% and 2.6% [4] (verified).
+78. Tolerability split in an interesting direction. Gastrointestinal events were almost identical, 84.1% on semaglutide against 82.7% on liraglutide, but discontinuation for adverse events was 3.2% against 12.6% [4] (verified). The daily injection was not better tolerated despite the smaller effect; four times as many people stopped it.
+79. Two caveats belong with this. The comparison between the two active drugs was open-label, since randomisation to semaglutide or liraglutide was not masked, and only each drug against its own placebo was blinded [4] (verified). And the trial was funded by the company that makes both, with several authors employed by or financially tied to it, including one who had advised on liraglutide's own development [4] (verified). The result is still the best direct evidence available, and it is consistent with what happened commercially.
+
+### Product reality, and why the generics change the question [mixed]
+80. This is one of the few entries where a legitimate, characterised product exists and is now cheap. US generic versions of the diabetes presentation arrived in December 2024 and of the weight presentation in August 2025, with more since (verified as stated in the card's own sourcing; manufacturer announcement pages were used rather than a regulatory database, which could not be opened for this review).
+81. That matters because the usual argument for grey-market material, that the approved product is unaffordable or unavailable, is weakest here. A generic pen is a known quantity: a defined salt, a defined concentration, a sterile filled device, a lot number, and a recall mechanism. A vial of powder sold for research carries none of those, and nothing about the molecule being well studied transfers to a batch nobody has tested (inferred).
+82. The molecule itself is unusually robust compared with most peptides in this library: a C16 fatty acid on lysine 26 through a glutamic acid spacer makes it self-associate under the skin and bind albumin, which is what turns a GLP-1 half-life of minutes into about 13 hours [3]. That same self-association is why concentration, pH and excipients are not cosmetic details in a formulation.
+
+### Where the law stands, and open questions [mixed]
+83. Approved in the US and widely internationally, for type 2 diabetes and separately for weight management, with paediatric indications and a cardiovascular risk-reduction indication added on the strength of LEADER [2,3] (verified). It is not named on the 2026 WADA Prohibited List, and as a government-approved medicine it does not fall into the catch-all class for non-approved substances either, so on the published text it is not prohibited in sport [5] (inferred from the class definitions).
+84. Does the cardiovascular benefit exist in people without diabetes or established disease? LEADER answered the high-risk question only, and nobody has run the low-risk version.
+85. What was the pancreatic cancer imbalance? Thirteen cases against five, p=0.06, in a 3.8-year trial is the kind of signal that is neither dismissible nor interpretable without longer follow-up [2].
+86. Does the rodent thyroid tumour mechanism apply to humans? The label says the relevance is undetermined, and a decade and a half of use has not settled it.
+87. What happens after stopping? The weight trials ran about a year on treatment, and durability is the question the whole class still answers poorly.
+88. Why does a drug with a quarter of the effect get stopped four times as often? STEP 8 found that pattern and did not explain it; daily injection burden and slower titration tolerance are both plausible and untested (speculated).
+
+Deep read references:
+[1] Oregon P&T drug review, liraglutide 3.0 mg for weight management, 56-week trial results, 2016 · https://www.orpdl.org/durm/meetings/meetingdocs/2016_03_31/archives/2016_03_31_Liraglutide_SaxendaAbbrevDrugRevew_ARCHIVE.pdf
+[2] Marso et al., New England Journal of Medicine, LEADER, liraglutide and cardiovascular outcomes in type 2 diabetes, 2016 · https://lshtm-eprints-repo-prod.lshtm-eprints.cdl.cosector.com/2551429/1/nejmoa1603827.pdf
+[3] Novo Nordisk, Saxenda (liraglutide) boxed warning and important safety information, 2026 · https://www.novocare.com/content/experience-fragments/NovoCare/sf/isi/hcp_isi_saxenda.content.html
+[4] Rubino et al., JAMA, STEP 8, semaglutide 2.4 mg versus liraglutide 3.0 mg for weight loss, 2022 · https://www.gwern.net/doc/longevity/glp/semaglutide/2022-rubino.pdf
+[5] WADA, 2026 Prohibited List, 2026 · https://www.wada-ama.org/en/prohibited-list
+
+## Sources
+[S1] Saxenda dosing (Novo Nordisk) · https://www.novomedlink.com:443/obesity/products/treatments/saxenda/dosing-administration/saxenda-dosing.html
+[S2] Liraglutide (Peptide Protocol Wiki) · https://www.peptideprotocolwiki.com/peptides/liraglutide
+[S3] Hikma: first generic Victoza (Dec 2024) · https://www.hikma.com/news/hikma-receives-fda-approval-and-launches-the-generic-version-of-victoza-liraglutide-in-the-us/
+[S4] Liraglutide community (Peptide Protocol Wiki) · https://www.peptideprotocolwiki.com/peptides/liraglutide/community
+[S5] NCT07225816 · https://plaintrial.com/trial/NCT07225816
+[S6] Lotte Bjerre Knudsen (Wikipedia) · https://en.wikipedia.org/wiki/Lotte_Bjerre_Knudsen
+[S7] Victoza FDA approval history (Drugs.com) · https://www.drugs.com/history/victoza.html
+[S8] ACC: LEADER trial summary · https://www.acc.org/Latest-in-Cardiology/Clinical-Trials/2016/06/13/14/24/LEADER
+[S9] SCALE: 3.0 mg liraglutide, NEJM 2015 · https://asoi.info/publication/a-randomized-controlled-trial-of-3-0-mg-of-liraglutide-in-weight-management/
+[S10] Epocrates: FDA approves Teva generic Saxenda · https://www.epocrates.com/online/article/fda-oks-first-generic-glp-1-injection-for-weight-loss
+[S11] Biocon liraglutide FDA approval (Feb 2026) · https://www.pearceip.law/2026/02/24/biocons-generic-liraglutide-injection-fda-approved/

@@ -1,0 +1,90 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# ARA-290
+Page: https://baresignals.co/library/#/p/ara-290
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: cibinetide (INN/USAN), ARA290, pHBSP, pyroglutamate helix B surface peptide
+2. Origin: Lab-designed
+3. Sequence: EQLERALNSS (10 amino acids). Starts with pyroglutamate, shown as E
+4. Legal and approval status: Investigational; no approval. Research chemical on the grey market.
+
+## Summary
+5. ARA-290 (cibinetide) is an 11-amino-acid peptide that copies the tissue-protective part of erythropoietin (EPO) without its blood-making effect. It was studied for neuropathic pain and nerve damage, where it is thought to calm inflammation and protect small nerve fibres. Phase 2 trials showed modest benefit, no Phase 3 followed, and it remains unapproved.
+6. Punch line: EPO's tissue-protective piece, minus the blood-making. Phase 2 showed small nerve fibre regrowth and less pain.
+7. Used for: Small fibre nerve pain
+
+## Roles (what it is used for, strongest first)
+8. Neural protection: Repairs small nerve fibres
+9. Tissue repair: Tissue protection from EPO
+10. Inflammatory signaling: Calms inflammation
+11. Pain & sensory: Less nerve pain in trials
+
+## How it works
+12. Protects tissue without making blood · Innate repair receptor · role Tissue repair
+   ARA-290 binds the innate repair receptor, the tissue-protective receptor that erythropoietin also uses, but not the EPO receptor pair that drives red cell production. So it carries EPO's protective signal without making blood. Phase 2 trials found no rise in red cells.
+13. Calms inflammation around nerves · EPOR/CD131 complex · role Inflammatory signaling
+   The innate repair receptor is a complex of the EPO receptor with CD131, and activating it dampens inflammatory signalling around injured nerves. Calmer surroundings give damaged nerve fibres a better chance to recover. This is the proposed route to its effects in neuropathy.
+14. Regrows small nerve fibres in cornea (trials) · Corneal nerve fibre density · role Neural protection
+   Small nerve fibres in the cornea can be counted under a microscope and serve as a window on small-fibre nerve health elsewhere. In Phase 2 trials in sarcoidosis and diabetic neuropathy, ARA-290 increased corneal nerve fibre density, a sign of nerve regrowth.
+15. Eases neuropathic pain in small trials · IRR-mediated analgesia · role Pain & sensory
+   Through the innate repair receptor, ARA-290 reduces neuropathic pain signalling from damaged small fibres. In Phase 2 trials in sarcoidosis and diabetic neuropathy, people reported less pain. Benefits were modest, and no confirmatory Phase 3 followed.
+16. Mechanism overview: ARA-290, or cibinetide, is an 11-amino-acid peptide copying the tissue-protective face of erythropoietin. It binds the innate repair receptor, a complex of the EPO receptor with CD131, rather than the EPO receptor dimer that drives red cell production. So it protects tissue without making blood. Activation dampens inflammation around injured nerves, supports regrowth of small nerve fibres, and reduces neuropathic pain signalling.
+
+## Dosage (community reported unless tagged)
+17. Typical: 2–4 mg · daily · cycle 28-day cycles · route Sub-Q (reported)
+18. Half-life: ~11 minutes
+19. Dose note: In the trial, 8 mg a day did no better than 4 mg.
+20. Most people take: 2-4mg/day SC · 28-day cycles.
+21. Trial standard: 4 mg · 1× daily · 28 days · Sub-Q · for small-fiber neuropathy, sarcoidosis [S1] [S2] (reported)
+22. Low: 1–2 mg · 1× daily · 4–8 wk · Sub-Q · for general neuroprotection [S3] [S2] (reported)
+23. Trial high: 8 mg · 1× daily · 28 days · Sub-Q · for dose-ranging arm only [S2] (reported)
+
+## What people report
+24. Reported for nerve pain and recovery; small user base.
+25. Liked / worked: Less neuropathic pain in Phase 2
+26. Liked / worked: Signs of nerve fibre recovery
+27. Liked / worked: No rise in red cells
+28. What worked: Phase 2 signals for neuropathic pain relief and nerve repair, with a clean blood-count profile.
+29. Went wrong / did not work: No confirmatory Phase 3
+30. Went wrong / did not work: Benefits modest
+31. What went wrong: Development stalled before a confirmatory Phase 3; benefits are modest and unconfirmed at scale.
+32. Most reported: Nerve pain and recovery
+33. Most reported: Small user base
+
+## What has been tested
+34. Pain & sensory: Sarcoidosis small-fibre neuropathy (trial)
+35. Pain & sensory: Diabetic neuropathy (trial)
+36. Tissue repair: Nerve fibre regrowth (trial)
+37. Human Phase 2 trials in sarcoidosis neuropathy and diabetes reported reduced pain and signs of nerve-fibre recovery, without raising red cells.
+38. What it helps: Phase 2 trials in sarcoidosis small-fibre neuropathy and diabetic neuropathy showed less neuropathic pain and increased corneal nerve fibre density, a sign of nerve recovery, without raising red cells. Benefits were modest and no confirmatory Phase 3 followed. A small user base reports it for nerve pain and recovery.
+39. Trial: none · Phase 2 · diabetic macular oedema · ISRCTN16962255 · Belfast Health and Social Care Trust. Its last trial, for diabetic eye swelling in Belfast, was terminated; earlier Phase 2s in sarcoidosis nerve pain finished around 2016. (checked 2026-10-23) [S4] (reported)
+
+## Who shouldn't take it
+40. People with active or recent cancer: EPO-derived; EPO raises tumour progression risk, though ARA-290 does not raise red cells. (inferred)
+
+## Synergies (paired with)
+41. BPC-157: ARA-290 works on nerve inflammation and small-fibre regrowth through the innate repair receptor, while BPC-157 grows blood vessels and draws repair cells into injured tissue. People pair them for nerve and tissue injury recovery, but the pair has not been tested together.
+
+## Where it comes from
+42. Also called cibinetide, an 11-amino-acid peptide copying the tissue-protective part of erythropoietin (EPO) without the blood-making part, developed by Araim.
+43. First studied for: Neuropathic pain and tissue protection, especially diabetic neuropathy and sarcoidosis-related small-fibre neuropathy.
+44. Name story: ARA-290 is a code from its developer, Araim Pharmaceuticals; the official name is cibinetide. It copies the outward-facing 'helix B' of erythropoietin, which protects tissue without raising red blood cells, hence its lab name pHBSP: pyroglutamate helix B surface peptide. [S5] (verified)
+45. 2000s: EPO's tissue-protective piece isolated as cibinetide
+46. 2010s: Phase 2 trials in sarcoidosis and diabetic neuropathy
+47. Today: Stalled nerve-pain peptide; grey-market only
+
+## Sources
+[S1] PeptideProtocolWiki: ARA-290 dosing · https://www.peptideprotocolwiki.com/peptides/ara-290/dosing
+[S2] Outliyr: ARA-290 report · https://outliyr.com/reports/ara-290
+[S3] PeptideProtocolWiki: ARA-290 community · https://www.peptideprotocolwiki.com/peptides/ara-290/community
+[S4] ISRCTN16962255 · https://www.isrctn.com/ISRCTN16962255
+[S5] Cibinetide (Wikipedia) · https://en.wikipedia.org/wiki/Cibinetide
+[S6] ARA 290 sarcoidosis trial (ClinicalTrials.gov) · https://clinicaltrials.gov/study/NCT02039687
+[S7] ARA 290 in sarcoidosis neuropathy (PMC) · https://pmc.ncbi.nlm.nih.gov/articles/PMC3883966/

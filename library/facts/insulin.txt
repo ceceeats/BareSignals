@@ -1,0 +1,79 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Insulin
+Page: https://baresignals.co/library/#/p/insulin
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: proinsulin hormone, human insulin, regular insulin, isletin (historic)
+2. Origin: Made by the body
+3. Sequence: FVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAEDLQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN (86 amino acids). Shown as proinsulin, the single chain the body first makes. Two cuts remove the middle; the B chain (first 30) and A chain (last 21) stay, joined by two bridges between C pairs
+4. Legal and approval status: Approved worldwide. A reference molecule in this encyclopedia.
+
+## Summary
+5. Insulin is a hormone made by the body that controls blood sugar. It moves glucose from the blood into cells, stops the liver releasing more, and tells the body to store fat. It is the life-saving treatment for type 1 diabetes, but misuse for muscle building can cause fatal hypoglycemia.
+6. Punch line: The body's master storage hormone: pulls sugar into cells and signals fat storage. Life-saving in type 1 diabetes.
+7. Used for: Blood sugar control in diabetes
+
+## Roles (what it is used for, strongest first)
+8. Glucose & insulin: Moves sugar out of the blood into cells
+9. Cellular energy: Lets cells take in fuel
+10. Fat metabolism: Tells the body to store fat
+
+## How it works
+11. Pulls glucose into muscle and fat · Insulin receptor, GLUT4 · role Glucose & insulin
+   Insulin binds the insulin receptor, a tyrosine kinase, which switches on the PI3K and Akt chain inside the cell. Akt sends GLUT4 glucose transporters to the surface of muscle and fat cells, so sugar moves out of the blood and into tissue. This is textbook physiology, confirmed by a century of human use.
+12. Stops the liver releasing glucose · Hepatic insulin signalling · role Glucose & insulin
+   In the liver, the same insulin signal shuts down the making and release of new glucose. Between meals the liver is the main source of blood sugar, so turning it off is a large part of how insulin lowers glucose. In type 1 diabetes, losing this brake is why sugar runs high even when fasting.
+13. Stores fat, blocks fat breakdown · Lipogenesis, lipolysis block · role Fat metabolism
+   In fat tissue, insulin blocks hormone-sensitive lipase, the enzyme that frees stored fat, and pushes cells to build and store fat instead. The body shifts from burning its reserves to filling them. This is why steady high insulin favours fat storage, a well-established effect in human physiology.
+14. Fills muscle and liver glycogen stores · Glycogen synthase · role Cellular energy
+   Insulin activates glycogen synthase, the enzyme that links glucose into glycogen, the stored form of sugar in muscle and liver. Those stores fill after meals and are drawn on during exercise and fasting. Misusing insulin to drive this refill for muscle building risks hypoglycemia, which can be fatal.
+15. Mechanism overview: Insulin binds the insulin receptor, a tyrosine kinase on muscle, fat and liver cells. The receptor phosphorylates IRS proteins, which switch on PI3K and Akt. In muscle and fat, Akt moves GLUT4 transporters to the cell surface, so glucose floods in. In the liver, the same signal shuts down glucose output and activates glycogen synthase to store sugar. In fat tissue it blocks hormone-sensitive lipase and drives fat storage. The net result: blood glucose falls fast, and the body shifts from burning stores to filling them.
+
+## Dosage (community reported unless tagged)
+16. Typical: 0.4–1 U/kg/day · basal plus meals · cycle ongoing · route Sub-Q, IV (verified)
+17. Half-life: ~5 min IV
+
+## What people report
+18. Listed here as a reference hormone, not a Bare Signals product.
+19. Liked / worked: Life-saving in type 1 diabetes
+20. Liked / worked: A century of refined analogues
+21. What worked: Life-saving, foundational diabetes therapy.
+22. Went wrong / did not work: Hypoglycemia is the central danger
+23. Went wrong / did not work: Muscle-building misuse can be fatal
+24. What went wrong: Hypoglycemia is the central danger; misuse for muscle-building is dangerous and sometimes fatal.
+25. Most reported: Reference hormone, not a product
+
+## What has been tested
+26. Glucose & insulin: Type 1 diabetes (human)
+27. Glucose & insulin: Type 2 diabetes (human)
+28. Glucose & insulin: Many long and fast analogues (human)
+29. A century of clinical use and refinement across many analogues.
+30. What it helps: Insulin is the life-saving treatment for type 1 diabetes, where the body makes none, and a mainstay in advanced type 2 diabetes. A century of refined fast and long analogues lets people match both meals and baseline needs. It sits in this library as a reference hormone. Misuse for muscle building shows its edge: hypoglycemia can be fatal.
+31. Trial: active · Phase 1 · intranasal insulin after spinal cord injury · NCT07384052 · HealthPartners Institute. Approved since the 1920s and still in constant trials; one recruiting study tests an insulin nasal spray in spinal cord injury. (checked 2026-10-23) [S1] (reported)
+
+## Who shouldn't take it
+32. People on beta-blockers: Can hide warning signs of low blood sugar. (verified)
+33. People with low potassium: Insulin drives potassium into cells; arrhythmia risk. (verified)
+34. People taking pioglitazone: Fluid retention and heart failure with insulin. (verified)
+35. People with hypoglycemia unawareness: Without shakes or sweating as a warning, a low can progress to collapse. (verified)
+
+## Where it comes from
+36. The first protein ever sequenced (1955) and the first hormone injected to save a life (1922); in 1982 the first medicine made by engineered bacteria.
+37. First studied for: Type 1 diabetes, and later type 2.
+38. Name story: From Latin insula, island, for the pancreatic islets that make it. Belgian Jean de Meyer coined the word in 1909, over a decade before Banting's team isolated the hormone, which they briefly called "isletin". [S2] (verified)
+39. 1922: First hormone injected to save a life
+40. 1955: First protein ever sequenced
+41. 1982: First medicine made by engineered bacteria
+42. Today: Foundational diabetes therapy; a reference hormone here
+
+## Sources
+[S1] NCT07384052 · https://clinicaltrials.gov/study/NCT07384052
+[S2] EVS Translations: insulin, a word first used 100 years ago · https://evs-translations.com/blog/insulin/
+[S3] Insulin (medication) · https://en.wikipedia.org/wiki/Insulin_(medication)

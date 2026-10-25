@@ -1,0 +1,76 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Glucagon
+Page: https://baresignals.co/library/#/p/glucagon
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: reference, GlucaGen, Gvoke, Baqsimi, hyperglycemic-glycogenolytic factor (HGF, historic)
+2. Origin: Made by the body (reference)
+3. Sequence: HSQGTFTSDYSKYLDSRRAQDFVQWLMNT (29 amino acids)
+4. Legal and approval status: Approved (emergency kits). Reference molecule here.
+
+## Summary
+5. Glucagon is a pancreatic hormone that raises blood sugar, acting as insulin's opposite. It is the approved emergency rescue for severe hypoglycemia, and in combination drugs like retatrutide its arm adds energy expenditure and liver fat loss. On its own it raises blood sugar and is not a weight drug. This is a reference entry with no user reports.
+6. Punch line: Insulin's opposite: frees stored fuel to raise blood sugar. Emergency hypo rescue; retatrutide's fat-burning arm.
+7. Used for: Severe low blood sugar rescue
+
+## Roles (what it is used for, strongest first)
+8. Glucose & insulin: Raises blood sugar
+9. Cellular energy: Releases stored fuel
+10. Fat metabolism: Burns fat between meals
+
+## How it works
+11. Tells the liver to release stored sugar · Glucagon receptor, liver · role Glucose & insulin
+   Glucagon binds the glucagon receptor, found mainly on liver cells, when blood sugar falls. The liver responds by releasing glucose into the blood within minutes. This is why it is the approved emergency rescue for severe hypoglycemia, backed by long clinical use.
+12. Breaks down glycogen, makes new glucose · cAMP, PKA · role Glucose & insulin
+   The receptor raises cAMP, which switches on the enzyme PKA (protein kinase A). PKA turns on glycogen breakdown and gluconeogenesis, the making of new glucose from non-sugar sources. Together these give a fast release of stored sugar and a slower ongoing supply.
+13. Raises fat burning and energy spend · Glucagon receptor · role Fat metabolism
+   Glucagon receptor signalling raises whole-body energy expenditure and fat burning. On its own it also raises blood sugar, so it is not a weight drug. In combination agonists such as retatrutide, this arm adds energy spend while the GLP-1 arm offsets the glucose rise.
+14. Drives liver fat burning and ketones · Hepatic beta-oxidation · role Cellular energy
+   In the liver, glucagon increases fatty acid oxidation (hepatic beta-oxidation), burning fat for fuel and producing ketones. This is the basis for the liver fat loss attributed to the glucagon arm of newer combination drugs, which carry the trial evidence.
+15. Mechanism overview: Glucagon is a 29 amino acid hormone from pancreatic alpha cells, released when glucose falls. It binds the glucagon receptor, mainly on liver cells, raising cAMP and activating PKA. PKA switches on glycogen breakdown and gluconeogenesis, so the liver releases glucose within minutes. It also increases liver fatty acid oxidation and ketone production, and raises whole-body energy expenditure. In combination agonists the glucagon arm adds that energy spend and liver fat burning, while the GLP-1 arm offsets its glucose-raising effect.
+
+## Dosage (community reported unless tagged)
+16. Typical: 1 mg · once, may repeat · cycle rescue only · route IM, Sub-Q, IV, Nasal (verified)
+17. Half-life: ~8–18 min
+
+## What people report
+18. A reference entry.
+19. Liked / worked: Approved emergency hypoglycemia rescue
+20. Liked / worked: Adds energy spend to combination agonists
+21. What worked: Approved hypoglycemia rescue; adds fat-burning/energy-expenditure to combination agonists.
+22. Went wrong / did not work: Raises blood sugar alone; not a weight drug by itself
+23. What went wrong: On its own it raises blood sugar, so it is a reference, not a weight drug alone.
+24. Most reported: A reference entry; no user reports here
+
+## What has been tested
+25. Glucose & insulin: Severe hypoglycemia rescue (human)
+26. Cellular energy: Glucagon arm in combination agonists (trial)
+27. Long clinical use as emergency hypoglycemia treatment; the glucagon arm is now built into multi-agonist weight drugs.
+28. What it helps: Glucagon is the approved emergency rescue for severe hypoglycemia. In newer combination drugs such as retatrutide, its arm adds energy expenditure and liver fat loss. On its own it raises blood sugar and is not a weight drug. This is a reference entry with no user reports.
+29. Trial: active · Phase 4 · preventing exercise low blood sugar in type 1 diabetes · 2025-523996-45-00 · Steno Diabetes Center Copenhagen. Approved rescue drug, now being tested in tiny doses to prevent rather than treat lows; recruiting in Denmark since April 2026. (checked 2026-10-23) [S1] (verified)
+
+## Who shouldn't take it
+30. People with pheochromocytoma: Glucagon can release a surge of adrenaline and spike blood pressure; label contraindication. (verified)
+31. People with insulinoma: An initial rise is followed by rebound low blood sugar; label contraindication. (verified)
+32. People starving, with adrenal insufficiency or chronic lows: No liver glycogen to release, so it may not work in an emergency. (verified)
+
+## Where it comes from
+33. Named in 1923 from 'glucose agonist': the hormone that raises blood sugar, insulin's opposite, from the same pancreas.
+34. First studied for: Rescuing severe hypoglycemia.
+35. Name story: Coined in the early 1920s by Charles Kimball and John Murlin from "glucose agonist", for a pancreatic factor that pushed blood sugar up while everyone else was chasing the one that brought it down. [S2] (verified)
+36. 1923: Named from 'glucose agonist'; the pancreas hormone that raises blood sugar
+37. Decades: Standard emergency rescue for severe low blood sugar
+38. 2020s: Its receptor arm built into multi-agonist weight drugs
+39. Today: Approved rescue kit; a reference molecule for the glucagon arm
+
+## Sources
+[S1] 2025-523996-45-00 · https://ctis.eu/trial/2025-523996-45-00
+[S2] EASD e-Learning: 100 years of glucagon · https://easd-elearning.eu/news/376/100-years-of-glucagon.html
+[S3] Glucagon (medication) · https://en.wikipedia.org/wiki/Glucagon_(medication)

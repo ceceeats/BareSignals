@@ -1,0 +1,80 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Adipotide
+Page: https://baresignals.co/library/#/p/adipotide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: ftpp prohibitin, FTPP (fat-targeted proapoptotic peptide), prohibitin-TP01, prohibitin-targeting peptide 1, CKGGRAKDC-GG-D(KLAKLAK)2
+2. Origin: Lab-designed
+3. Sequence: CKGGRAKDCGGKLAKLAKKLAKLAK (25 amino acids). Ring closed between the two C at the start; the KLAKLAK half is made of D amino acids
+4. Legal and approval status: Never approved; no active clinical program known. Research chemical only.
+
+## Summary
+5. Adipotide is a lab-designed pro-apoptotic peptide that targets prohibitin on the blood vessels feeding fat tissue. It was designed at MD Anderson to starve fat by cutting its supply rather than suppress appetite. It produced fast fat loss in obese mice and monkeys, but kidney toxicity stalled development, no human results were published, and it remains a research chemical.
+6. Punch line: Kills the blood vessels feeding fat rather than curbing appetite. Rapid monkey fat loss; kidney risk widely cited.
+7. Used for: fat loss, insulin sensitivity
+
+## Roles (what it is used for, strongest first)
+8. Fat metabolism: Starves fat of its blood supply
+9. Glucose & insulin: Better insulin response in monkeys
+
+## How it works
+10. Homes to blood vessels feeding white fat · Prohibitin, ANXA2 · role Fat metabolism
+   One end of adipotide is a homing sequence that binds prohibitin and annexin A2, proteins on the cells lining the blood vessels that feed white fat. This lets it gather on those vessels rather than on vessels elsewhere. The targeting was shown in mouse and monkey studies.
+11. Triggers death of those vessel cells · Pro-apoptotic KLAKLAK · role Fat metabolism
+   The other end, a KLAKLAK sequence, is taken into the cell and disrupts mitochondrial membranes. Damaged mitochondria trigger apoptosis, programmed cell death, so the vessel cells die. This is shown in animal studies.
+12. Fat shrinks once its supply is cut · Adipose vessel pruning · role Fat metabolism
+   With their blood supply pruned, fat cells lose oxygen and nutrients and the tissue shrinks. Obese mice and monkeys lost fat fast. A human Phase 1 began but never published results.
+13. Improves insulin response in obese monkeys · Insulin sensitivity · role Glucose & insulin
+   In obese monkeys insulin worked better after treatment, so blood sugar was handled with less insulin. Whether this is a direct effect or a result of the fat loss is not clear. It has not been shown in people.
+14. Injures kidney tubules at higher doses · Renal proximal tubule · role Organ function
+   The same death payload injures cells in the kidney's proximal tubules, the part that reabsorbs filtered fluid and nutrients. In monkeys this damage appeared at higher exposure and stalled development. It is the main reason grey-market use is rare and cautious.
+15. Mechanism overview: Adipotide is a two-part peptide. One end homes to prohibitin and annexin A2 on the endothelial cells lining vessels that feed white fat. The other end, a KLAKLAK sequence, disrupts mitochondrial membranes once inside and triggers apoptosis. Killing the vessels starves the fat tissue, which shrinks. The same apoptotic payload injures kidney proximal tubule cells at higher doses, which is its main toxicity.
+
+## Dosage (community reported unless tagged)
+16. Typical: 0.1–0.5 mg/kg · Every 2-3 days · cycle Short cycles only · route Sub-Q (reported)
+17. Half-life: Unknown
+18. Most people take: 0.1-0.5mg/kg every few days (animal dosing, human unknown) · Short cycles only.
+
+## What people report
+19. Grey-market use is rare and cautious; the kidney signal is widely cited.
+20. Liked / worked: Fast fat loss in obese monkeys
+21. Liked / worked: Better insulin sensitivity in monkeys
+22. What worked: In obese monkeys, fast fat loss and improved insulin sensitivity.
+23. Went wrong / did not work: Kidney toxicity in monkeys
+24. Went wrong / did not work: No published human data
+25. What went wrong: Kidney toxicity appeared in the monkey work, which stalled development. No published human efficacy or safety data.
+26. Most reported: Rare, cautious grey-market use
+27. Most reported: Kidney risk widely cited
+
+## What has been tested
+28. Fat metabolism: Obesity (mouse)
+29. Fat metabolism: Obesity (monkey)
+30. Glucose & insulin: Insulin sensitivity (monkey)
+31. Fat metabolism: Obese men with prostate cancer (trial)
+32. Mouse and monkey studies showed rapid fat loss. A first human Phase 1 started in 2012 in obese men with prostate cancer; no results were ever published.
+33. What it helps: In obese mice and monkeys it produced fast fat loss and better insulin sensitivity. A human Phase 1 in obese men with prostate cancer began, but no results were published. Kidney toxicity in monkeys stalled development. Grey-market use is rare and cautious, with the kidney signal widely cited.
+34. Trial: none · Phase 1 · obese men with prostate cancer · NCT01262664 · Arrowhead Research. Its only human trial started in 2011 in obese prostate cancer patients and was dropped by Arrowhead after kidney toxicity seen in monkeys. (checked 2026-10-23) [S1] (reported)
+
+## Who shouldn't take it
+35. People with kidney disease or on NSAIDs: Caused kidney tubule damage and dehydration in monkeys. (reported)
+36. People prone to dehydration: Dehydration was a key toxicity in primate work. (reported)
+
+## Where it comes from
+37. A pro-apoptotic peptide (FTPP) that targets prohibitin on the blood vessels feeding fat tissue, designed by a team at MD Anderson to starve fat rather than suppress appetite.
+38. First studied for: Obesity, by killing the vasculature of white fat.
+39. Name story: Adipose + peptide. Its front half (CKGGRAKDC) is a vascular 'ZIP code' that homes to prohibitin on blood vessels feeding fat; the back half, KLAKLAK repeats, punches holes in mitochondria. Starve the vessel, starve the fat. Tested in obese monkeys at MD Anderson, 2011. [S2] (verified)
+40. 2000s: Designed at MD Anderson to starve fat of its blood supply
+41. 2011: Obese monkeys lose fat fast
+42. 2012: Phase 1 in obese men with prostate cancer; never published
+43. Today: Stalled fat-killer known for its kidney signal
+
+## Sources
+[S1] NCT01262664 · https://clinicaltrials.gov/study/NCT01262664
+[S2] MD Anderson: Obese monkeys lose weight on drug that attacks blood supply of fat cells (2011) · https://www.mdanderson.org/newsroom/obese-monkeys-lose-weight-on-drug-that-attacks-blood-supply-of-f.h00-158676579.html

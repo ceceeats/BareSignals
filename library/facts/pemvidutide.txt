@@ -1,0 +1,108 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Pemvidutide
+Page: https://baresignals.co/library/#/p/pemvidutide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: ALT-801, SP-1373
+2. Origin: Lab-modified natural chain
+3. Legal and approval status: Investigational, not approved anywhere: Phase 3 PERFORMA in MASH F2–F3 began Aug 2026 (52-week data expected 2029); FDA Breakthrough Therapy and Fast Track for MASH, Fast Track for AUD; ALD Phase 2 RESTORE readout 2H 2027. As an unapproved drug it falls under WADA S0 (inferred).
+
+## Summary
+4. Pemvidutide is Altimmune's balanced GLP-1 and glucagon dual agonist, a modified peptide given weekly. It is developed for fatty liver disease (MASH) and obesity, with the glucagon half burning liver fat and the GLP-1 half cutting appetite. In Phase 2, MASH resolved in 59% on drug versus 19% on placebo at 24 weeks, though the fibrosis biopsy endpoint missed. Nausea and vomiting drive dropouts.
+5. Punch line: Liver-first weekly GLP-1 and glucagon dual agonist. MASH resolved in 59% at 24 weeks; Breakthrough status.
+6. Used for: MASH, obesity, alcohol use disorder
+
+## Roles (what it is used for, strongest first)
+7. Organ function: Clears fat from the liver
+8. Fat metabolism: Weight and liver fat loss
+9. Reward & urges: Fewer heavy drinking days
+10. Appetite & satiety: Lower hunger via GLP-1
+11. Heart & vessels (backed only by animal or user reports): Lower LDL and triglycerides
+12. Inflammatory signaling (backed only by animal or user reports): Resolves liver inflammation (MASH)
+
+## How it works
+13. Glucagon side burns fat inside the liver · Glucagon receptor, hepatocytes · role Organ function
+   The glucagon side activates glucagon receptors on liver cells, raising fat burning and lowering new fat production in the liver. Liver fat falls faster than body weight as a result. In the IMPACT human trial, liver fat about halved and MASH resolved more often than on placebo.
+14. GLP-1 side quiets hunger · GLP-1 receptor, brain · role Appetite & satiety
+   The GLP-1 side activates GLP-1 receptors in the hypothalamus and brainstem, quieting hunger. It also offsets glucagon's pull on blood sugar. In the MOMENTUM human trial this produced weight loss that continued through 48 weeks.
+15. Lipid tail rides albumin for weekly dosing · EuPort domain, albumin binding · role Fat metabolism
+   A lipid domain called EuPort binds albumin in the blood, which slows absorption and clearance. The drug stays active long enough for one injection a week. This is a design feature rather than a separate effect on the body.
+16. Dampens craving and reward circuits · Mesolimbic GLP-1R · role Reward & urges
+   GLP-1 receptors in mesolimbic reward circuits appear to dull the pull of alcohol and other rewards. In the RECLAIM human trial, people with alcohol use disorder had fewer heavy drinking days. The exact brain mechanism in people is inferred from the GLP-1 class.
+17. Lowers blood fats · Hepatic lipid metabolism · role Heart & vessels
+   Glucagon receptor signalling changes how the liver handles fat, cutting fat production and sending out less. In early human trials LDL, triglycerides and apoB fell. These are blood markers; effects on heart events have not been studied.
+18. Mechanism overview: Pemvidutide is a 1:1 balanced dual agonist of the GLP-1 and glucagon receptors, with a lipid EuPort domain that binds albumin and slows absorption for weekly dosing. Glucagon receptor signalling in hepatocytes raises fat oxidation and lowers fat synthesis in the liver, which is why liver fat falls faster than body weight. GLP-1 receptor signalling in the hypothalamus and brainstem cuts hunger and, in mesolimbic circuits, appears to blunt alcohol reward. The GLP-1 half also offsets the glucose-raising pull of glucagon.
+
+## Dosage (community reported unless tagged)
+19. Typical: 1.2–2.4 mg · once weekly · cycle Ongoing (trials 24–48 weeks) · route Sub-Q (verified)
+20. Half-life: ~100 hours (reported)
+21. Dose note: No community dosing exists to report; all figures are trial doses. Early trials started at full dose, but Phase 3 added titration for tolerability.
+22. Most people take: Trials used 1.2 or 1.8 mg weekly Sub-Q for MASH, up to 2.4 mg for obesity and AUD; Phase 3 titrates monthly from 1.2 mg to 1.8 or 2.4 mg. No oral form.
+23. MASH trial: 1.2–1.8 mg · 1× weekly · 24–48 wk · Sub-Q · for IMPACT Phase 2b, MASH with fibrosis [S1] [S2] (verified)
+24. Obesity / AUD trial: 2.4 mg · 1× weekly · 24–48 wk · Sub-Q · for MOMENTUM obesity, RECLAIM alcohol use disorder [S3] [S4] (verified)
+25. Phase 3 titration: 1.2 → 1.8 or 2.4 mg · 1× weekly, step up monthly · 52 wk+ · Sub-Q · for PERFORMA, MASH F2–F3 [S5] (verified)
+
+## What people report
+26. No real community use is documented; interest comes from trial readouts, mainly the liver data and the claim that it needs little or no dose titration.
+27. Liked / worked: MASH resolution 59% vs 19% placebo at 24 weeks
+28. Liked / worked: Liver fat down 45–55% at 48 weeks
+29. Liked / worked: Up to 15.6% weight loss at 48 weeks
+30. Liked / worked: Fewer heavy drinking days in AUD
+31. Liked / worked: Breakthrough Therapy status for MASH
+32. What worked: MASH resolution in 59% (1.2 mg) vs 19% placebo at 24 weeks, liver fat down about 45 to 55% at 48 weeks, up to 15.6% weight loss at 48 weeks in obesity, and fewer heavy drinking days in AUD.
+33. Went wrong / did not work: Biopsy fibrosis endpoint missed at 24 weeks
+34. Went wrong / did not work: Nausea, vomiting, constipation
+35. Went wrong / did not work: ~19% quit high doses in obesity trial
+36. Went wrong / did not work: One hyponatremia SAE possibly drug-related (RECLAIM)
+37. What went wrong: The 24-week biopsy fibrosis endpoint missed significance (32 to 35% vs 26% placebo) and the stock fell about 59% that day; nausea, vomiting and constipation are common and 1.8 to 2.4 mg obesity doses had ~19% discontinuation for side effects.
+38. Most reported: Little or no community use documented
+39. Most reported: Interest centres on liver data
+40. Most reported: Claimed lower need for titration
+41. Most reported: Weight loss seen as modest vs tirzepatide
+
+## What has been tested
+42. Organ function: MASH resolution and liver fat, IMPACT (human)
+43. Fat metabolism: Weight loss in obesity, MOMENTUM (human)
+44. Reward & urges: Heavy drinking days in AUD, RECLAIM (human)
+45. Heart & vessels: LDL, triglycerides, apoB in Phase 1 (human)
+46. Phase 2b IMPACT in 212 biopsy-confirmed MASH patients (published in The Lancet), Phase 2 MOMENTUM in obesity, and Phase 2 RECLAIM in alcohol use disorder.
+47. What it helps: In IMPACT, MASH resolved in 59% on 1.2 mg vs 19% on placebo at 24 weeks, liver fat fell about half by 48 weeks and non-invasive fibrosis markers improved, though the 24-week biopsy fibrosis endpoint missed. MOMENTUM showed up to 15.6% weight loss at 48 weeks, and RECLAIM cut heavy drinking days in alcohol use disorder. Interest is mainly from people with fatty liver; GI effects drive dropouts at higher doses.
+48. Trial: active · Phase 3 · MASH liver disease · Altimmune. Phase 3 PERFORMA in MASH started mid 2026, and the alcohol liver disease Phase 2 finished enrolling in July 2026. (checked 2026-10-23) [S6] (reported)
+
+## Who shouldn't take it
+49. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (inferred)
+50. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (inferred)
+51. People with arrhythmia or a fast resting pulse: The glucagon part of the drug pushes resting heart rate up. (inferred)
+
+## Where it comes from
+52. Altimmune's balanced 1:1 GLP-1/glucagon dual agonist, bought in 2019 with Spitfire Pharma; the glucagon half works directly on the liver while the GLP-1 half cuts appetite.
+53. First studied for: MASH (fatty liver inflammation) and obesity; later alcohol use disorder and alcohol-related liver disease.
+54. Name story: It began as SP-1373 at Spitfire Pharma and became ALT-801 when Altimmune bought Spitfire in 2019. The "-dutide" ending is shared with other dual GLP-1/glucagon agonists such as survodutide and mazdutide. [S7] (verified)
+55. 2019: Altimmune buys Spitfire Pharma and its SP-1373, renamed ALT-801
+56. 2022: Phase 1: up to 10% weight loss in 12 weeks, big liver fat drops
+57. Dec 2023: MOMENTUM: 15.6% weight loss at 48 weeks, ~19% quit on high doses
+58. Jun 2025: IMPACT: MASH resolution hit, fibrosis biopsy missed; stock fell ~59%
+59. Jul 2026: RECLAIM: fewer heavy drinking days in alcohol use disorder
+60. Aug 2026: Phase 3 PERFORMA in MASH begins
+
+## Sources
+[S1] Fierce: mixed IMPACT 24-week results · https://www.fiercebiotech.com/biotech/altimmunes-stock-sinks-mixed-phase-2-mash-results-glp-1-drug
+[S2] IMPACT 48-week topline (SEC 8-K, Dec 2025) · https://www.sec.gov/Archives/edgar/data/0001326190/000110465925122724/tm2533869d1_ex99-1.htm
+[S3] Bariatric News: MOMENTUM 48-week · https://bariatricnews.net/post/pemvidutide-achieves-15-6-weight-loss-at-48-weeks
+[S4] RECLAIM Phase 2 AUD topline (Jul 2026) · https://www.biospace.com/press-releases/altimmune-announces-positive-topline-results-from-reclaim-phase-2-trial-of-pemvidutide-in-alcohol-use-disorder
+[S5] Altimmune: PERFORMA Phase 3 started (Aug 2026) · https://www.biospace.com/press-releases/altimmune-initiates-performa-phase-3-trial-of-pemvidutide-in-patients-with-mash
+[S6] Trial · https://www.sec.gov/Archives/edgar/data/0001326190/000132619026000049/alt-20260812xex99d1.htm
+[S7] Altimmune acquires Spitfire Pharma (SEC 8-K, 2019) · https://www.sec.gov/Archives/edgar/data/1326190/000119312519190926/d774516dex991.htm
+[S8] Altimmune Q2 2026 update (SEC 8-K) · https://www.sec.gov/Archives/edgar/data/0001326190/000132619026000049/alt-20260812xex99d1.htm
+[S9] Altimmune Q1 2026 update (SEC 8-K) · https://www.sec.gov/Archives/edgar/data/0001326190/000132619026000037/alt-20260513xex99d1.htm
+[S10] Houston Methodist: IMPACT in The Lancet · https://www.houstonmethodist.org/leading-medicine-blog/articles/2026/aug/impact-trial-suggests-mash-may-be-treatable-far-earlier-than-previously-possible/
+[S11] The Hospitalist: Phase 1 pemvidutide (2022) · https://community.the-hospitalist.org/content/pemvidutide-promising-fatty-liver-disease
+[S12] Peptide Protocol Wiki: pemvidutide dosing · https://www.peptideprotocolwiki.com/peptides/pemvidutide/dosing
+[S13] Peptide Protocol Wiki: pemvidutide community · https://www.peptideprotocolwiki.com/peptides/pemvidutide/community

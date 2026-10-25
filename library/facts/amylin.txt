@@ -1,0 +1,82 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Amylin
+Page: https://baresignals.co/library/#/p/amylin
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: iapp reference, IAPP, islet amyloid polypeptide, diabetes-associated peptide (DAP), insulinoma amyloid peptide
+2. Origin: Made by the body (reference)
+3. Sequence: KCNTATCATQRLANFLVHSSNNFGAILSSTNVGSNTY (37 amino acids). Ring closed between the two C; amide end
+4. Legal and approval status: Reference molecule (pramlintide is the approved analogue).
+
+## Summary
+5. Amylin is a natural hormone released with insulin that slows the stomach and curbs how much is eaten. It is the template behind cagrilintide and the approved add-on pramlintide, which carry its fullness pathway. The native hormone is too unstable to use as a drug, so this is a reference entry with no user reports.
+6. Punch line: The pancreas's second fullness hormone, released with insulin; slows the stomach. Template for cagrilintide.
+7. Used for: Pramlintide analog: mealtime glucose
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Fullness signal from the pancreas
+9. Glucose & insulin: Slows sugar after meals
+10. Digestive & gut: Slows the stomach
+
+## How it works
+11. Released with insulin after a meal · Beta cells, co-secreted · role Glucose & insulin
+   Amylin is made in pancreatic beta cells and released together with insulin after a meal. The two work as a pair: insulin moves glucose into tissue, while amylin slows how fast new glucose arrives. Human amylin clumps into amyloid fibrils, so drugs use stable analogues.
+12. Slows the stomach, curbs intake · Amylin receptor, hindbrain · role Appetite & satiety
+   Amylin receptors, built from the calcitonin receptor plus a RAMP partner protein, sit mostly in the hindbrain. Activating them slows stomach emptying and reduces how much is eaten. Analogues carry the human evidence: cagrilintide produces weight loss in obesity trials.
+13. Holds back glucagon after meals · Amylin receptor · role Glucose & insulin
+   Through amylin receptor signalling, it suppresses the glucagon surge that normally follows a meal. The liver releases less sugar while food is absorbed, so the post-meal glucose rise is gentler. Pramlintide, an analogue, is approved as a mealtime add-on in diabetes on this basis.
+14. Signals fullness to the brainstem · Area postrema · role Digestive & gut
+   The area postrema, a brainstem region outside the blood-brain barrier, is amylin's main site of action. Signalling there registers fullness, so meals end sooner and are smaller. This is the central mechanism behind the amylin analogue drugs.
+15. Mechanism overview: Amylin is a 37 amino acid hormone co-secreted with insulin from pancreatic beta cells after meals. It binds amylin receptors, built from the calcitonin receptor plus a RAMP partner, mostly in the area postrema of the brainstem. There it signals fullness, slows gastric emptying and suppresses post-meal glucagon. The result is smaller meals and a gentler post-meal glucose rise. Human amylin clumps into amyloid fibrils, so it cannot be used directly; pramlintide and cagrilintide are stable analogues.
+
+## Dosage (community reported unless tagged)
+16. Typical: 15–120 mcg · before major meals · cycle ongoing · route Sub-Q (verified)
+17. Half-life: ~48 min
+18. Type 1 (pramlintide): 15–60 mcg · before each major meal · ongoing; +15 mcg steps · Sub-Q · for type 1 diabetes with mealtime insulin cut 50% [S1] (verified)
+19. Type 2 (pramlintide): 60–120 mcg · before each major meal · ongoing · Sub-Q · for insulin-using type 2 diabetes [S1] (verified)
+20. Obesity trial: 120–360 mcg · 2–3× daily before meals · 16 wk · Sub-Q · for non-diabetic obesity (trial only) [S2] [S3] (reported)
+
+## What people report
+21. A reference entry.
+22. Liked / worked: Defines the amylin pathway now used for weight loss
+23. Liked / worked: Pramlintide approved for diabetes
+24. What worked: Defines the amylin pathway now used for weight loss.
+25. Went wrong / did not work: Native amylin clumps; too unstable to use directly
+26. What went wrong: Native amylin aggregates and is too unstable to use directly.
+27. Most reported: A reference entry; no user reports here
+
+## What has been tested
+28. Glucose & insulin: Pramlintide in diabetes (trial)
+29. Appetite & satiety: Cagrilintide for weight (trial)
+30. Pramlintide (an amylin analogue) is approved for diabetes; cagrilintide carries the modern evidence.
+31. What it helps: Native amylin is too unstable to use. Its analogues carry the pathway: pramlintide is approved as an add-on in diabetes, and cagrilintide produces weight loss in obesity trials, alone and with semaglutide. This is a reference entry defining the mechanism behind those drugs, with no user reports.
+32. Trial: none. Native human amylin clumps into amyloid so it was never developed; analogs pramlintide and cagrilintide carry the clinical work. (checked 2026-10-23) [S4] (inferred)
+
+## Who shouldn't take it
+33. Insulin users with hypoglycaemia unawareness: Pramlintide has a boxed warning for severe insulin-induced lows. (verified)
+34. People with gastroparesis or severe slow digestion: Pramlintide is contraindicated in gastroparesis. (verified)
+35. People on drugs that slow the gut (anticholinergics): Label advises against combining with drugs that slow GI motility. (verified)
+
+## Where it comes from
+36. Found in 1987 in the amyloid clumps of a diabetic pancreas, released with insulin to slow the stomach and curb intake.
+37. First studied for: The natural hormone behind cagrilintide and pramlintide.
+38. Name story: First published in 1987 as 'diabetes-associated peptide', pulled from the amyloid plaques clogging pancreases of type 2 diabetics. It was renamed amylin, from amyloid, and is also called IAPP: islet amyloid polypeptide. [S5] (verified)
+39. 1987: Found in the amyloid clumps of a diabetic pancreas
+40. 2005: Pramlintide, a stable analogue, approved for diabetes
+41. 2020s: Cagrilintide carries the amylin pathway into weight loss
+42. Today: The natural hormone behind pramlintide and cagrilintide
+
+## Sources
+[S1] Symlin prescribing info · https://www.drugs.com/pro/symlin.html
+[S2] Amylin Pharma obesity study release · https://www.biospace.com/amylin-pharmaceuticals-inc-release-pramlintide-obesity-study-results-positive
+[S3] Pramlintide community · https://www.peptideprotocolwiki.com/peptides/pramlintide/community
+[S4] Trial · https://link.springer.com/article/10.1007/BF00401050
+[S5] Cooper et al. 1987, PNAS: Purification and characterization of a peptide from amyloid-rich pancreases of type 2 diabetic patients · https://research.manchester.ac.uk/en/publications/purification-and-characterization-of-a-peptide-from-amyloid-rich-/
+[S6] Pramlintide · https://en.wikipedia.org/wiki/Pramlintide

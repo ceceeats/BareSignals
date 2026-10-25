@@ -1,0 +1,154 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Mazdutide
+Page: https://baresignals.co/library/#/p/mazdutide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: LY3305677, IBI362, Xinermei, 玛仕度肽 (Chinese INN)
+2. Origin: Lab-modified natural chain
+3. Sequence: HAQGTFTSDYSKYLDEKKAKEFVEWLLEGGPSSG (34 amino acids). Position 2 is Aib, shown as A; Oxyntomodulin-style chain; K20 carries a C20 diacid via AEEA-AEEA-gGlu linker; C-terminal amide
+4. Legal and approval status: Approved in China (NMPA) as Xinermei for weight management (Jun 2025) and type 2 diabetes (Sep 2025); 9 mg dose under NMPA review since Nov 2025, no approval found as of 22 Oct 2026. Not FDA-approved; no US filing announced. WADA does not list it (approved in China, so S0 does not apply; inferred).
+
+## Summary
+5. Mazdutide is Lilly's dual agonist of the GLP-1 and glucagon receptors, mimicking oxyntomodulin, developed in China by Innovent. It quiets hunger and also pushes the liver to burn fat, and is approved in China for weight management and type 2 diabetes. It is not FDA-approved, GI side effects are heavy at 9 mg, and there is almost no data outside Chinese populations.
+6. Punch line: GLP-1 and glucagon dual, approved in China. Seen as the cheaper retatrutide; beat semaglutide head to head.
+7. Used for: Weight loss, type 2 diabetes
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Cuts hunger like GLP-1 drugs
+9. Fat metabolism: Up to ~20% weight loss
+10. Glucose & insulin: Beat semaglutide on HbA1c
+11. Organ function: Liver fat down 60–80%
+12. Heart & vessels (backed only by animal or user reports): Heart rate rises on titration
+13. Digestive & gut (backed only by animal or user reports): Vomiting and nausea at 9 mg
+
+## How it works
+14. Quiets hunger and slows the stomach · GLP-1 receptor · role Appetite & satiety
+   Mazdutide switches on the GLP-1 receptor in the brainstem and hypothalamus, the same target as semaglutide. That lowers hunger and slows how fast the stomach empties, so meals feel larger for longer. The weight loss this drives has been shown in Chinese Phase 3 trials in people.
+15. Pushes the liver to burn fat · Glucagon receptor · role Organ function
+   The second half of the molecule activates the glucagon receptor, which sits mostly on liver cells. Glucagon tells the liver to burn stored fat instead of keeping it. In GLORY-1, liver fat fell far more than on placebo, which fits this action, though weight loss explains part of it.
+16. Raises energy use · Glucagon receptor · role Fat metabolism
+   Glucagon receptor signalling also raises the body's resting energy use, a known effect of the hormone. This is the reason the design adds a glucagon arm to a GLP-1 drug. The trials measured the outcomes in people, not energy expenditure directly, so this step is inferred from receptor pharmacology.
+17. Raises insulin when glucose is high · GLP-1R, beta cells · role Glucose & insulin
+   On pancreatic beta cells, GLP-1 receptor activation raises insulin only when blood glucose is high, which keeps the risk of lows small. This offsets the glucose-raising pull of the glucagon arm. In the DREAMS trials HbA1c fell further than on dulaglutide and semaglutide in people with type 2 diabetes.
+18. Fatty tail rides albumin for weekly dosing · C20 diacid acylation · role Fat metabolism
+   A C20 fatty diacid on lysine 20 binds albumin, the main carrier protein in blood. That shields the peptide from kidney clearance and breakdown, and an Aib swap at position 2 blocks the DPP-4 enzyme. Together they stretch the half-life to several days, which is what allows once-weekly injections.
+19. Mechanism overview: Mazdutide is a 34-residue oxyntomodulin analogue with Aib at position 2 to block DPP-4 and a C20 fatty diacid on lysine 20 that binds albumin, giving a half-life of several days. It activates the GLP-1 receptor (GLP-1R) and the glucagon receptor (GCGR) with roughly balanced binding. GLP-1R action cuts appetite and slows gastric emptying and raises glucose-dependent insulin; GCGR action raises hepatic fat oxidation and energy expenditure, which shows up as large drops in liver fat.
+
+## Dosage (community reported unless tagged)
+20. Typical: 4–6 mg (9 mg under review) · once weekly · cycle Ongoing; step up every 4 weeks · route Sub-Q (verified)
+21. Half-life: ~4–6 days (reported)
+22. Most people take: Weekly Sub-Q pen, 4 or 6 mg maintenance in China; GLORY-2 stepped 3 mg every 4 weeks to 9 mg. No oral form.
+
+## What people report
+23. Grey-market buyers outside China treat it as a cheaper glucagon dual agonist alongside retatrutide; detailed first-hand reports are scarce.
+24. Liked / worked: 14.8% weight loss on 6 mg at 48 weeks
+25. Liked / worked: Up to ~20% on 9 mg at 60 weeks
+26. Liked / worked: Beat semaglutide 1 mg in DREAMS-3
+27. Liked / worked: Liver fat down 60–80%
+28. What worked: 14.8% weight loss on 6 mg at 48 weeks (GLORY-1) and up to 18.6–20.1% on 9 mg at 60 weeks (GLORY-2); beat semaglutide 1 mg on weight (10.3% vs 6%) and HbA1c in DREAMS-3. Liver fat fell 60–80%.
+29. Went wrong / did not work: Vomiting 53% on 9 mg
+30. Went wrong / did not work: Heart rate up during titration
+31. Went wrong / did not work: No cardiovascular-outcome data
+32. Went wrong / did not work: Almost no non-Chinese data
+33. What went wrong: Heavy GI load at 9 mg (vomiting 53%, nausea 47%, diarrhea 39% in GLORY-2); heart rate up ~7 bpm during titration. No cardiovascular-outcome data and almost no data outside Chinese populations.
+34. Most reported: Seen as a cheaper retatrutide alternative
+35. Most reported: GI upset on titration
+36. Most reported: Few detailed first-hand reports
+
+## What has been tested
+37. Fat metabolism: Obesity, GLORY-1 and GLORY-2 (human)
+38. Glucose & insulin: Type 2 diabetes, DREAMS-1 to -3 (human)
+39. Organ function: Liver fat in obesity (substudies) (human)
+40. A full Chinese Phase 3 program: GLORY-1 and GLORY-2 in obesity, DREAMS-1, -2 and -3 in type 2 diabetes, including head-to-head against semaglutide. Lilly runs a smaller US Phase 2.
+41. What it helps: Chinese Phase 3 trials showed 12–15% weight loss at 4–6 mg and up to about 20% at 9 mg, plus better HbA1c than semaglutide 1 mg in DREAMS-3. Liver fat, waist, blood pressure, lipids and uric acid also improved. GI effects are heavy at 9 mg and heart rate rises during titration. Outside China people use it as a dual agonist for weight and fatty liver.
+42. Trial: active · Phase 3 · fatty liver in obesity · NCT06884293 · Innovent Biologics. Approved in China in 2025 as Xinermei; a Phase 3 head to head against semaglutide in fatty liver is still running. (checked 2026-10-23) [S1] (verified)
+
+## Who shouldn't take it
+43. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (inferred)
+44. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (inferred)
+45. People with arrhythmia or a fast resting pulse: The glucagon part of the drug pushes resting heart rate up. (reported)
+
+## Synergies (paired with)
+46. Cagrilintide: Cagrilintide adds amylin signalling, a separate fullness pathway in the brainstem, while mazdutide works through GLP-1 and glucagon receptors. People pair them to stack appetite control from two routes and keep the liver-fat effect, but the pair itself has not been tested together.
+47. Tirzepatide: Both are dual incretin drugs aimed at the same goal: tirzepatide pairs GLP-1 with GIP, mazdutide pairs GLP-1 with glucagon. They overlap heavily at the GLP-1 receptor, so they are usually compared or swapped rather than stacked. The combination has not been tested.
+
+## Where it comes from
+48. Lilly's oxyntomodulin-mimicking GLP-1/glucagon dual agonist, developed in China by Innovent under licence and the first drug of its class approved anywhere.
+49. First studied for: Chronic weight management and type 2 diabetes in Chinese adults.
+50. Name story: Built on oxyntomodulin, a gut hormone that naturally hits both the GLP-1 and glucagon receptors. Lilly's LY3305677 was licensed to Innovent as IBI362 and approved in China in June 2025, the first GLP-1/glucagon dual agonist on the market. [S2] (verified)
+51. 2019: Lilly licenses China rights to Innovent
+52. Jun 2025: China approves it for weight management (Xinermei)
+53. Sep 2025: China approves it for type 2 diabetes
+54. Oct 2025: DREAMS-3: beats semaglutide on weight and HbA1c
+55. Nov 2025: 9 mg dose filed after GLORY-2
+56. Jun 2026: GLORY-2 in JAMA; 9 mg brings heavy GI effects
+
+## Deep read (as of 2026-10)
+
+### Where it came from, and why it reached China first [people]
+57. The molecule was designed at Lilly under the code LY3305677 and built on oxyntomodulin, a gut hormone that already touches both the GLP-1 and glucagon receptors [8] (verified). Lilly then licensed the China rights to Innovent, which ran it as IBI362. That split is the key to reading the record: nearly all of the published human data, every phase 3 trial so far and the only approval come from the Chinese programme, while Lilly has run a smaller parallel set of US studies at higher doses [5,6] (verified).
+58. The order of events is unusual for a drug of this class. Most incretin drugs are approved first in the US or Europe and then elsewhere. This one was approved in China in June 2025, before any US phase 3 had read out, which makes it the first marketed GLP-1/glucagon dual agonist anywhere [8] (verified). Anyone outside China using it is using a drug that has an approval, just not in their jurisdiction.
+
+### Mechanism, and the trade the glucagon half makes [mixed]
+59. The GLP-1 half does what the class is known for: less hunger, slower stomach emptying, more insulin when glucose is high. The glucagon half is the interesting one, because on its face it should push the wrong way. Glucagon raises blood glucose by releasing it from the liver. The design bet is that, paired with GLP-1, the glucose-raising effect is cancelled out while the other glucagon effects survive: more fat burned in the liver and higher energy expenditure (inferred from the receptor pharmacology; the human trials measured the outcomes, not the energy expenditure directly).
+60. The outcome that best supports the bet is liver fat. In GLORY-1, among people who started with a fatty liver, liver fat fell by about 63% on 4 mg and 73% on 6 mg at 48 weeks, against an 8% rise on placebo; in those starting above 10% liver fat it fell by about 66% and 80% [1] (verified). Weight loss alone does reduce liver fat, so this cannot be credited wholly to the glucagon arm, but the size of the drop relative to the weight lost is what the glucagon hypothesis predicts (inferred).
+61. The glucose side also held. In type 2 diabetes the drug lowered HbA1c more than both dulaglutide and semaglutide in head-to-head trials [3,4], which is the clearest human evidence that the glucagon component does not undo glycaemic control at these doses (verified).
+
+### The human record, trial by trial [people]
+62. Phase 2 in Chinese adults with obesity: 248 people, 3, 4.5 or 6 mg against placebo for 24 weeks. Weight fell 6.7%, 10.4% and 11.3% against 1.0% on placebo, with no treatment discontinuations for adverse events reported [7] (reported, from the sponsor's summary of the paper).
+63. GLORY-1, the phase 3 that supported approval: 610 Chinese adults, 4 or 6 mg weekly against placebo for 48 weeks. Weight fell 12.1% and 14.8% against 0.5% on placebo (efficacy estimand); counting everyone randomised regardless of adherence, 11.0% and 14.0% [1] (verified). Half of the 6 mg group lost at least 15%. Baseline weight averaged 87 kg, lighter than most Western obesity trials, which matters when comparing percentages across programmes (inferred).
+64. GLORY-2, the higher dose: 9 mg weekly, reached by 3 mg steps every four weeks, for 60 weeks. Weight fell 16.7% against 1.5% on placebo, and 10.7% in the subgroup with diabetes [2] (verified). That is the dose now under review in China.
+65. Diabetes: DREAMS-1 enrolled 320 people on diet and exercise alone; HbA1c fell 1.58 and 2.02 points on 4 and 6 mg against 0.25 on placebo at 24 weeks [3]. DREAMS-2 enrolled 731 on metformin-based therapy against dulaglutide 1.5 mg; HbA1c fell 1.61 and 1.66 against 1.36, and weight 6.6% and 8.5% against 2.8% [3] (reported, sponsor release of the Nature papers). DREAMS-3 put 6 mg against semaglutide 1 mg in 349 people with diabetes and obesity: HbA1c down 2.03 against 1.84 points, weight down 10.3% against 6.0% at 32 weeks [4] (reported).
+66. The US data are smaller and push the dose much higher. A Lilly phase 1 took 32 people to a 16 mg target over 20 weeks and reported 20 to 21% weight loss with no serious adverse events [6] (verified). The US phase 2, published in August 2026, randomised 179 people to 3 to 6, 10 or 16 mg; at 32 weeks weight fell 7.3%, 15.6% and 18.1% against 0.9% on placebo [5] (reported). So the Chinese label doses sit at the low end of what the molecule has been pushed to.
+
+### What the body does with it [people]
+67. The C20 fatty diacid binds albumin, which is what stretches dosing to once a week [8]. The phase 1 papers report human pharmacokinetics, but the full texts could not be opened for this review, so the half-life on the card stays tagged as reported rather than verified here.
+68. The practically important kinetic fact is about titration, not half-life. Every programme escalates in steps of roughly four weeks, and the adverse event curves peak during those steps and fall after [2,3] (verified). The GLORY-2 heart rate data show the same shape: a mean rise peaking at about 7 beats per minute during titration and settling to about 2.6 by week 60 [2] (verified).
+
+### Safety: what has been measured, and what the higher doses cost [people]
+69. At 4 to 6 mg the profile looks like the GLP-1 class: nausea, diarrhoea and vomiting, mostly mild to moderate and concentrated in titration, no severe hypoglycaemia in the diabetes trials, and grade 1 to 2 hypoglycaemia similar to dulaglutide [1,3] (verified).
+70. The higher doses change the picture. At 9 mg in GLORY-2, vomiting was reported in 53%, nausea in 47% and diarrhoea in 39% [2] (verified). In the US phase 2, discontinuation for adverse events reached 20% at 16 mg, mostly gastrointestinal [5] (reported). The pattern is consistent across both programmes: weight loss keeps rising with dose, and so does the share of people who cannot tolerate it.
+71. What has not been looked at yet: no cardiovascular outcome trial has reported, no trial longer than about 60 weeks has published, and none has been run in a non-Asian population at the approved doses. The glucagon component's long-term effects on lean mass, amino acid handling and heart rhythm in humans remain open (inferred from what is absent in the published record).
+
+### Who produced the evidence [people]
+72. Every trial summarised above was sponsored by Innovent or Lilly, and several numbers here come from company releases rather than the papers themselves [3,4,7]. That is normal for a drug in development, and the main results did pass peer review at NEJM, JAMA, Nature and Lancet Diabetes and Endocrinology [1,2,3,5]. No independent trial exists yet.
+
+### Where the law stands, October 2026 [people]
+73. Approved in China for chronic weight management (June 2025) and for type 2 diabetes (September 2025), at 4 and 6 mg; the 9 mg dose was filed in November 2025 and no approval had been found as of late October 2026 [2,8]. Not approved by the FDA or EMA, and no US submission has been announced.
+74. In sport, GLP-1 and glucagon receptor agonists are not on the WADA Prohibited List, and because the drug has a government approval in China the non-approved substances clause does not apply (inferred from the list's wording).
+
+### Open questions [mixed]
+75. Does the glucagon arm add anything beyond more weight loss? The liver fat numbers suggest it does, but no trial has compared it against a pure GLP-1 drug at matched weight loss.
+76. Where is the tolerable ceiling? Chinese labels stop at 6 mg, China is reviewing 9 mg, and US studies went to 16 mg with one in five stopping.
+77. Do the results hold outside China? The US phase 2 suggests yes at higher doses, but no phase 3 has run in a Western population.
+78. What happens to heart rate, lean mass and cardiovascular events over years rather than months? None of these has an outcome trial yet.
+
+Deep read references:
+[1] GLORY-1 investigators, N Engl J Med 2025, once-weekly mazdutide in Chinese adults with obesity or overweight (sponsor summary), 2025 · https://www.biospace.com/press-releases/phase-3-clinical-study-of-mazdutide-in-chinese-adults-with-overweight-or-obesity-glory-1-published-in-the-new-england-journal-of-medicine-nejm
+[2] Gao et al., JAMA 2026, GLORY-2: mazdutide 9 mg in adults with obesity (report), 2026 · https://www.drugtopics.com/view/mazdutide-shows-weight-reductions-for-patients-with-obesity
+[3] Innovent, DREAMS-1 and DREAMS-2 published in Nature (sponsor release), 2025 · https://www.utusan.com.my/pr-newswire-en/2025/12/nature-two-phase-3-clinical-results-of-mazdutide-glp-1-gcg-dual-receptor-agonist-in-chinese-adults-with-type-2-diabetes-have-been-back-to-back-published-in-nature/
+[4] HCPLive, DREAMS-3: mazdutide versus semaglutide in type 2 diabetes with obesity, 2025 · https://www.hcplive.com/view/mazdutide-demonstrates-superiority-to-semaglutide-in-type-2-diabetes-and-obesity
+[5] Lilly US phase 2 (NCT06124807), Lancet Diabetes Endocrinol 2026, 3 to 16 mg in obesity (report), 2026 · https://pharmacally.com/?p=21931
+[6] Bhattachar et al., Diabetes Obes Metab 2025, high-dose phase 1 trial to 16 mg, 2025 · https://doi.org/10.1111/dom.70040
+[7] Innovent, phase 2 full results in Chinese adults with obesity, Nature Communications (sponsor release), 2023 · https://www.biospace.com/innovent-announces-publication-of-mazdutide-ibi362-phase-2-full-results-in-chinese-patients-with-overweight-or-obesity-in-nature-communications
+[8] Wikipedia, Mazdutide (structure, CAS, approval history with primary citations), 2026 · https://en.wikipedia.org/wiki/Mazdutide
+
+## Sources
+[S1] NCT06884293 · https://tundraspace.com/directory/studies/nct06884293
+[S2] Mazdutide (Wikipedia) · https://en.wikipedia.org/wiki/Mazdutide
+[S3] Innovent: NMPA approval for weight management (Jun 2025) · https://www.biospace.com/press-releases/innovent-announces-mazdutide-first-dual-gcg-glp-1-receptor-agonist-received-approval-from-chinas-nmpa-for-chronic-weight-management
+[S4] Innovent: NMPA approval for type 2 diabetes (Sep 2025) · https://www.biospace.com/press-releases/innovent-announces-mazdutide-received-approval-from-chinas-nmpa-for-glycemic-control-in-adults-with-type-2-diabetes
+[S5] Fierce Pharma: China approval, GLORY-1 · https://www.fiercepharma.com/pharma/china-approval-lilly-and-innovents-mazdutide-breaks-new-class-glp-1-obesity-drugs
+[S6] Innovent: 9 mg application accepted (Nov 2025) · https://www.prnewswire.com/news-releases/mazdutide-9mg-supplementary-application-accepted-for-review-by-chinas-nmpa-potentially-offering-a-novel-drug-option-for-moderate-to-severe-obese-population-302625421.html
+[S7] Drug Topics: GLORY-2 in JAMA · https://www.drugtopics.com/view/mazdutide-shows-weight-reductions-for-patients-with-obesity
+[S8] HCPLive: DREAMS-3 vs semaglutide · https://www.hcplive.com/view/mazdutide-demonstrates-superiority-to-semaglutide-in-type-2-diabetes-and-obesity
+[S9] Drugs: Mazdutide first approval (Xinermei) · https://www.springermedizin.de/mazdutide-first-approval/51513040
+[S10] Peptide Protocol Wiki: mazdutide dosing · https://www.peptideprotocolwiki.com/peptides/mazdutide/dosing
+[S11] NovoPro: mazdutide sequence · https://novopro.cn/p/mazdutide-ibi-362-ly-3305677--319838.html

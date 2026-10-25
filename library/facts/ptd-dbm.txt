@@ -1,0 +1,94 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# PTD-DBM
+Page: https://baresignals.co/library/#/p/ptd-dbm
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: CXXC5-Dvl competitor peptide, CXXC5 inhibitor peptide, protein transduction domain-fused Dishevelled binding motif
+2. Origin: Lab-designed
+3. Sequence: RRRRRRRRGGGGRKTGHQICKFRKC (25 amino acids). Eight-arginine cell-entry tag (PTD), GGGG linker, then the Dishevelled-binding motif (DBM); free cysteines
+4. Legal and approval status: Not approved anywhere and no registered human trial as of Oct 2026; sold in Korea as a cosmetic 'hair booster' ingredient since July 2026 (reported); not named on the WADA list, falls under S0 non-approved substances (inferred).
+
+## Summary
+5. PTD-DBM is a lab-designed peptide from Yonsei University that pairs a cell-entry tag with a decoy motif blocking CXXC5, a brake on hair-building Wnt signalling. It was studied for wound healing and hair regrowth, and grew new follicles in bald mice. No human trial exists, and the few detailed forum reports describe no regrowth.
+6. Punch line: Korean peptide that releases a brake on Wnt hair signalling. Regrew follicles in bald mice; users saw none.
+7. Used for: Hair loss, wound and scar healing
+
+## Roles (what it is used for, strongest first)
+8. Hair: New follicles in mice
+9. Tissue repair: Faster wound closure in mice
+10. Skin & aesthetics: Less scarring in mice
+
+## How it works
+11. Arginine tag carries it into cells · Protein transduction domain (R8) · role Skin & aesthetics
+   PTD-DBM starts with eight arginines, a protein transduction domain that drags the peptide across cell membranes. That lets it reach its target inside skin and follicle cells when applied to the skin. The delivery has been shown in mouse skin and cell work.
+12. Blocks CXXC5 from grabbing Dishevelled · CXXC5-Dvl PDZ interaction · role Hair
+   CXXC5 is a brake protein that binds the PDZ domain of Dishevelled (Dvl), a relay in the Wnt pathway. PTD-DBM carries a Dvl-binding motif that competes for that site. In cell studies this pulls CXXC5 off Dvl, and balding human scalp carries more CXXC5.
+13. Lets the hair-building signal run again · Wnt/beta-catenin · role Hair
+   With the CXXC5 brake released, Wnt/beta-catenin signalling runs again. Beta-catenin rises and switches on genes that build and regenerate hair follicles. In bald mice topical PTD-DBM grew new follicles, but no human trial exists.
+14. Speeds skin closure with more collagen · Beta-catenin, alpha-SMA, collagen I · role Tissue repair
+   The same Wnt/beta-catenin rise drives wound repair genes, including alpha-SMA and collagen I. In mice, wounds closed faster with more collagen, and scars were smaller with valproic acid alongside. This comes almost entirely from one Korean group.
+15. Mechanism overview: PTD-DBM is a 25-residue peptide: eight arginines that carry it across cell membranes, a glycine linker, and a Dishevelled-binding motif. CXXC5 is a feedback brake on Wnt/beta-catenin signalling; it binds the PDZ domain of Dishevelled (Dvl) and stops the signal that builds and regenerates hair follicles and closes wounds. Balding human scalp carries more CXXC5, and DHT raises it in dermal papilla cells. PTD-DBM competes for that Dvl site, releasing the brake rather than forcing the pathway on, so beta-catenin rises and follicle and collagen genes switch back on.
+
+## Dosage (community reported unless tagged)
+16. Typical: No human dose (animal only) · Daily in reports · cycle Months in forum reports · route Topical (reported)
+17. Half-life: Unknown
+18. Most people take: No trial dose. Mice got topical PTD-DBM on bare skin for 28 days. Forum users apply it topically after microneedling, one up to ~20 mg/day for 5 months with no result; oral versions are sold, unsupported.
+
+## What people report
+19. Small hair-loss community following since 2017; topical and microneedling use, mostly null results; doubts it penetrates skin at ~3 kDa.
+20. Liked / worked: New follicles in bald mice
+21. Liked / worked: Stronger with valproic acid or wounding
+22. Liked / worked: Faster wound healing in mice
+23. What worked: In mice, new follicles and faster regrowth, strongest with valproic acid or wounding; faster, less scarred wound closure.
+24. Went wrong / did not work: No human trials
+25. Went wrong / did not work: Almost all data from one lab
+26. Went wrong / did not work: Forum users report no regrowth
+27. What went wrong: No human trial; forum self-experimenters report no regrowth after months of topical use.
+28. Most reported: Topical use after microneedling
+29. Most reported: No results after ~5 months (one user)
+30. Most reported: No side effects reported
+31. Most reported: Doubts it crosses skin at ~3 kDa
+
+## What has been tested
+32. Hair: Hair regrowth and new follicles (animal)
+33. Tissue repair: Skin wound healing (animal)
+34. Skin & aesthetics: Scar reduction with valproic acid patch (animal)
+35. Hair: CXXC5 high in balding scalp cells (cell)
+36. Mouse and cell work only, almost all from the Choi lab; topical on shaved mouse skin for 28 days, alone and with valproic acid.
+37. What it helps: Evidence is mouse and cell work from the Yonsei group. Topical PTD-DBM grew new follicles in bald mice and sped wound healing, with stronger effects alongside valproic acid or wounding. No human trial exists. People with pattern hair loss try it topically with microneedling, sometimes with minoxidil-style stacks; the few detailed forum reports describe no regrowth and no side effects.
+38. Trial: none. Hair regrowth and wound data are from mice; no human trial registered. (checked 2026-10-23) [S1] (inferred)
+
+## Who shouldn't take it
+39. People with basal cell or skin cancer history: Activates Wnt signalling, implicated in skin tumours. (inferred)
+
+## Synergies (paired with)
+40. GHK-Cu: GHK-Cu works on collagen, matrix remodelling and dermal papilla cells, while PTD-DBM restarts Wnt/beta-catenin signalling in follicles. People pair them topically, often with microneedling, for hair and scars from two angles. The pairing is user logic, not trial data.
+41. AHK-Cu: AHK-Cu targets dermal papilla cells, follicle blood supply and cell survival, while PTD-DBM releases the CXXC5 brake on Wnt. Both aim at thinning hair by different routes. Neither has human regrowth trials, and the pair has not been tested together.
+42. Thymulin: Thymulin calms inflammatory cytokines in models, while PTD-DBM pushes follicle regrowth through Wnt. The logic is that a quieter scalp may suit regrowth, used cautiously for inflamed or autoimmune-linked hair loss. There are no data on the pair.
+
+## Where it comes from
+43. Designed in Choi Kang-yell's Yonsei University lab: a cell-entry tag fused to a decoy motif that stops CXXC5 from braking Wnt signalling.
+44. First studied for: Skin wound healing in mice (2015), then hair regrowth and wound-induced hair neogenesis (2017).
+45. Name story: Two parts named in the label: PTD = Protein Transduction Domain (the cell-entry tail) fused to DBM = Dishevelled Binding Motif. From Kang-Yell Choi's lab at Yonsei University. [S2] (verified)
+46. 2015: Choi lab shows CXXC5 slows skin wound healing; PTD-DBM speeds it in mice
+47. 2017: J Invest Dermatol: hair regrowth and new follicles in mice, best with valproic acid
+48. 2020: Forum group buys; users report no regrowth after months
+49. 2023: Hydrogel patch with valproic acid reduces scarring in mice
+50. July 2026: Korean cosmetic hair booster with PTD-DBM launched (reported)
+
+## Sources
+[S1] Trial · https://pubmed.ncbi.nlm.nih.gov/36831222/
+[S2] PTD-DBM (Wikipedia) · https://en.wikipedia.org/wiki/PTD-DBM
+[S3] Wikipedia: PTD-DBM · https://en.wikipedia.org/wiki/PTD-DBM
+[S4] Superpower: PTD-DBM guide · https://superpower.com/guides/peptides/ptd-dbm
+[S5] ScienceAlert: CXXC5 hair regrowth in mice (2017) · https://www.sciencealert.com/new-cure-hair-loss-baldness-cxxc5-valproic-acid-wound-induced-neogenesis
+[S6] Korea Herald: Yonsei PTD-DBM announcement (2017) · https://www.koreaherald.com/article/1510736
+[S7] HairLossCure2020: CK Regeon products (2026 update) · https://www.hairlosscure2020.com/category/ck-regeon/
+[S8] HairLossTalk: user self-experiment thread · https://hairlosstalk.com/interact/threads/south-korean-scientists-has-developed-a-new-type-of-biochemical-material-to-prevent-hair-loss.109920/page-37

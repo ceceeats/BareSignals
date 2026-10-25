@@ -1,0 +1,73 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# GLP-1
+Page: https://baresignals.co/library/#/p/glp-1
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: glucagon-like peptide reference, glucagon-like peptide-1, GLP-1(7-36) amide, GLP-1(7-37), proglucagon 78-107
+2. Origin: Made by the body (reference)
+3. Sequence: HAEGTFTSDVSSYLEGQAAKEFIAWLVKGR (30 amino acids). GLP-1 (7–36); the body also makes a 37 version
+4. Legal and approval status: Reference molecule.
+
+## Summary
+5. GLP-1 is the gut's own fullness hormone, released minutes after a meal and gone in about two. The whole weight-loss drug class, including exenatide, semaglutide, tirzepatide and retatrutide, is an attempt to imitate or extend its signal for appetite and blood sugar control. The native hormone is not used as a drug because it lasts only minutes, so this is a reference entry with no user reports.
+6. Punch line: The gut's fullness hormone, gone in about two minutes. Semaglutide and its class are built to outlast it.
+
+## Roles (what it is used for, strongest first)
+7. Appetite & satiety: The gut's fullness signal
+8. Glucose & insulin: Releases insulin after meals
+9. Heart & vessels: The class protects the heart
+
+## How it works
+10. Boosts insulin after meals · GLP-1 receptor, pancreas · role Glucose & insulin
+   GLP-1 binds the GLP-1 receptor on pancreatic beta cells, which raises cAMP inside the cell. This amplifies insulin release only when glucose is already high, so on its own it rarely pushes blood sugar too low. This glucose dependence is well established in human physiology.
+11. Quiets hunger in the brain · GLP-1 receptor · role Appetite & satiety
+   GLP-1 receptors in the hypothalamus and brainstem, the brain's appetite centres, turn down hunger signalling when activated. People eat less and feel full sooner. The native hormone is too short-lived to use this way; the long-acting drugs built on it carry the human trial evidence.
+12. Slows stomach emptying · GLP-1 receptor, vagal · role Appetite & satiety
+   Through vagal nerve signalling from the gut, GLP-1 slows how fast the stomach passes food into the intestine. Sugar from a meal enters the blood more gradually and fullness lasts longer. This also explains the nausea seen with the drugs in this class.
+13. Holds back glucagon · Alpha cell suppression · role Glucose & insulin
+   GLP-1 suppresses glucagon release from pancreatic alpha cells after meals. Less glucagon means the liver puts out less sugar while food is being absorbed, so post-meal glucose stays lower. It works alongside the insulin boost to flatten the glucose curve.
+14. Gone in about two minutes · Cut by DPP-4 · role Glucose & insulin
+   The enzyme DPP-4 (dipeptidyl peptidase-4) cuts native GLP-1 within about two minutes of release. That is why the hormone itself is not used as a drug. Every medicine in this class, from exenatide to semaglutide, is engineered to resist this cut.
+15. Mechanism overview: GLP-1 is a gut hormone released by intestinal L-cells after a meal. It binds GLP-1 receptors, which raise cAMP. On pancreatic beta cells this amplifies insulin release only when glucose is high, which is why it rarely causes hypoglycemia alone. It suppresses glucagon from alpha cells, slows stomach emptying through vagal signalling, and acts on the hypothalamus and brainstem to cut hunger. Native GLP-1 is cleaved by DPP-4 within about two minutes, so every drug in this class is engineered to resist that.
+
+## Dosage (community reported unless tagged)
+16. Typical:
+
+## What people report
+17. A reference entry, not a product.
+18. Liked / worked: Defines the pathway the drugs use
+19. What worked: As a reference, it defines the pathway.
+20. Went wrong / did not work: Too short-lived to be a drug itself
+21. What went wrong: The native hormone is too short-lived to be a drug itself.
+22. Most reported: Reference entry, not a product
+
+## What has been tested
+23. Appetite & satiety: Template for appetite drugs (human)
+24. Glucose & insulin: Template for glucose drugs (human)
+25. Studied as the template; the drugs (semaglutide, etc.) carry the trial evidence.
+26. What it helps: Native GLP-1 is not used as a drug because it lasts only minutes. Its value is as the template: the appetite and glucose drugs in this class, from exenatide to semaglutide, tirzepatide and retatrutide, copy or extend its signal. This is a reference entry with no user reports.
+27. Trial: active · Not applicable · GLP-1 infusion effects on organ glucose uptake · NCT07398300 · Rigshospitalet. Native GLP-1 lasts about 2 minutes in blood, so it is used only as an IV research tool, here with total body PET in Copenhagen. (checked 2026-10-23) [S1] (reported)
+
+## Who shouldn't take it
+28. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (verified)
+29. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (verified)
+30. People with gastroparesis or severe slow digestion: GLP-1 drugs slow the stomach further; labels advise against use in severe GI disease. (verified)
+
+## Where it comes from
+31. The gut's own fullness signal, released minutes after a meal and gone in about two. Every GLP-1 drug is an attempt to make it last.
+32. First studied for: The natural hormone the whole weight-loss drug class imitates.
+33. Name story: "Glucagon-like" because it's cut from the same precursor as glucagon (proglucagon) and resembles it. The active hormone carries odd labels, GLP-1(7-36) amide or (7-37), because it's a trimmed version of a longer 1-37 peptide first read off the gene. [S2] (verified)
+34. 1980s: Identified as a gut hormone released after meals
+35. 2005 to 2021: Long-acting drugs follow, from exenatide to semaglutide
+36. Today: The template the whole weight-loss drug class imitates
+
+## Sources
+[S1] NCT07398300 · https://clinicaltrials.gov/study/NCT07398300
+[S2] Wikipedia: Glucagon-like peptide-1 · https://en.wikipedia.org/wiki/Glucagon-like_peptide-1

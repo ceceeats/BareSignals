@@ -1,0 +1,144 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Survodutide
+Page: https://baresignals.co/library/#/p/survodutide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: BI 456906
+2. Origin: Lab-modified natural chain
+3. Sequence: HAQGTFTSDYSKYLDERAAKDFIKWLESA (29 amino acids). Position 2 is Ac4c (aminocyclobutane carboxylic acid), shown as A; Glucagon-based chain; K24 carries a C18 diacid via gGlu and Gly-Ser linker; C-terminal amide
+4. Legal and approval status: Investigational as of 22 Oct 2026: Phase 3 SYNCHRONIZE-1 and -2 read out (Apr and Oct 2026), CVOT results expected late 2026, LIVERAGE MASH trials ongoing; FDA Breakthrough (MASH) but no filing announced. Not approved anywhere; WADA S0 (non-approved substance) applies (inferred).
+
+## Summary
+5. Survodutide is Boehringer Ingelheim's weekly dual agonist of the glucagon and GLP-1 receptors, licensed from Zealand Pharma. It cuts appetite while telling the liver to burn fat, so interest centres on obesity and fatty liver (MASH). Phase 3 trials showed up to 16.6% weight loss, but GI side effects drove dropouts, and it is not yet approved.
+6. Punch line: Weekly glucagon and GLP-1 dual aimed squarely at fatty liver. Phase 3 reached about 16.6% weight loss.
+7. Used for: Weight loss, liver fat, MASH
+
+## Roles (what it is used for, strongest first)
+8. Fat metabolism: Burns fat, shrinks visceral fat
+9. Organ function: Clears liver fat, MASH resolution
+10. Appetite & satiety: Cuts hunger via GLP-1
+11. Glucose & insulin: Lowers HbA1c in diabetes
+12. Cellular energy (backed only by animal or user reports): Glucagon raises energy burn
+13. Digestive & gut (backed only by animal or user reports): Nausea and vomiting on titration
+
+## How it works
+14. Quiets hunger and slows the stomach · GLP-1 receptor · role Appetite & satiety
+   Survodutide activates the GLP-1 receptor in the brain and gut. That lowers hunger and slows stomach emptying, so people eat less. The resulting weight loss has been shown in the Phase 3 SYNCHRONIZE trials in people.
+15. Tells the liver to burn stored fat · Glucagon receptor, hepatic · role Organ function
+   Its glucagon receptor arm acts mainly on liver cells and tells them to burn stored fat. In a 48-week biopsy trial in MASH, liver fat and liver inflammation fell far more than on placebo. Fibrosis, the endpoint tied to liver outcomes, moved much less.
+16. Raises energy spending · Glucagon receptor · role Cellular energy
+   Glucagon receptor signalling raises resting energy use, a known effect of the hormone. That is the reason a glucagon arm was added on purpose. In people this step is inferred from receptor pharmacology, since trials measured weight and liver fat, not energy spending directly.
+17. Lowers glucose despite glucagon arm · GLP-1R insulin effect · role Glucose & insulin
+   Glucagon alone would raise blood glucose, but the GLP-1 arm boosts insulin when glucose is high and overrides that pull. In SYNCHRONIZE-2, HbA1c fell clearly against placebo in people with type 2 diabetes. So the glucagon arm does not undo glucose control at trial doses.
+18. Fatty tail rides albumin for weekly dosing · C18 diacid acylation · role Fat metabolism
+   A C18 fatty diacid binds albumin, the main carrier protein in blood, which slows clearance. An Ac4c swap at position 2 protects it from the DPP-4 enzyme. Together they allow once-weekly injections.
+19. Mechanism overview: Survodutide is a 29-residue glucagon-derived peptide with an Ac4c swap at position 2 for DPP-4 resistance and a C18 fatty diacid that binds albumin for weekly dosing. It activates both the glucagon receptor (GCGR) and the GLP-1 receptor (GLP-1R) at sub-nanomolar potency. The GLP-1 arm cuts hunger in the brain, slows stomach emptying and boosts glucose-dependent insulin. The glucagon arm acts mainly on the liver, raising fat oxidation and energy expenditure, which is why liver fat drops further than weight loss alone would predict.
+
+## Dosage (community reported unless tagged)
+20. Typical: 0.6–6.0 mg (trial) · once weekly · cycle Ongoing; slow titration over ~20 weeks · route Sub-Q (verified)
+21. Half-life: ~6–7 days (est.)
+22. Most people take: Trial only: weekly Sub-Q, stepped up from 0.6 mg to 3.6 or 6.0 mg maintenance in Phase 3. No oral form.
+
+## What people report
+23. Few genuine first-hand reports; grey-market interest centres on liver fat and comparison with retatrutide.
+24. Liked / worked: Up to 16.6% weight loss at 76 weeks
+25. Liked / worked: Visceral and liver fat fall preferentially
+26. Liked / worked: HbA1c down up to 1.21% in T2D
+27. Liked / worked: MASH resolution in Phase 2
+28. What worked: Up to 16.6% weight loss at 76 weeks without diabetes (SYNCHRONIZE-1) and up to 13.1% with diabetes (SYNCHRONIZE-2); MRI showed visceral and liver fat falling preferentially. Phase 2 MASH resolution in 47% vs 14% on placebo.
+29. Went wrong / did not work: 18% quit for GI effects in SYNCHRONIZE-2
+30. Went wrong / did not work: Nausea, vomiting, diarrhea, constipation
+31. Went wrong / did not work: Small heart-rate rise
+32. Went wrong / did not work: Weight regain after stopping (Phase 2)
+33. What went wrong: GI side effects drove 18% to quit vs 1.2% on placebo in SYNCHRONIZE-2, mostly during a rigid dose escalation. Small heart-rate rise and transient lipase/amylase increases.
+34. Most reported: Interest for liver fat over pure weight loss
+35. Most reported: Compared unfavourably with retatrutide on raw weight loss
+36. Most reported: Few genuine first-hand reports
+
+## What has been tested
+37. Fat metabolism: Obesity, SYNCHRONIZE-1 (human)
+38. Glucose & insulin: Obesity with T2D, SYNCHRONIZE-2 (human)
+39. Organ function: MASH with fibrosis, Phase 2 and LIVERAGE (human)
+40. Phase 2 in obesity (COURAGE) and MASH, then the Phase 3 SYNCHRONIZE program in obesity with and without type 2 diabetes, plus LIVERAGE trials in MASH and cirrhosis.
+41. What it helps: Phase 3 SYNCHRONIZE-1 showed up to 16.6% weight loss at 76 weeks in obesity, and SYNCHRONIZE-2 up to 13.1% in obesity with type 2 diabetes, with HbA1c and waist falling. Phase 2 MASH data showed resolution in nearly half of patients, earning FDA Breakthrough status. GI side effects and dropout are the main weakness. People look at it mostly for fatty liver and visceral fat.
+42. Trial: active · Phase 3 · obesity and heart safety · NCT06077864 · Boehringer Ingelheim. Phase 3 SYNCHRONIZE readouts arrived in 2026 and new trials (SYNCHRONIZE-START, type 2 diabetes) are still enrolling. (checked 2026-10-23) [S1] (reported)
+
+## Who shouldn't take it
+43. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (inferred)
+44. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (inferred)
+45. People with arrhythmia or a fast resting pulse: Glucagon component raised heart rate in trials. (reported)
+
+## Synergies (paired with)
+46. Cagrilintide: Cagrilintide adds amylin fullness signalling in the brainstem, while survodutide brings GLP-1 appetite control plus a liver-directed glucagon arm. People pair them to stack appetite routes while keeping the liver-fat effect. The pair itself has not been tested together.
+47. MOTS-c: MOTS-c activates AMPK and mimics exercise on muscle glucose uptake in mice, while survodutide drives weight and liver fat loss in human trials. People add it hoping to protect metabolic fitness during weight loss. The pairing is user logic, not trial data.
+
+## Where it comes from
+48. Boehringer Ingelheim's weekly glucagon/GLP-1 dual agonist, licensed from Zealand Pharma: a glucagon backbone tuned to also hit the GLP-1 receptor, with a C18 fatty tail for weekly dosing.
+49. First studied for: Obesity and MASH (fatty liver disease with inflammation and fibrosis).
+50. Name story: Co-invented by Zealand Pharma and Boehringer Ingelheim (code BI 456906). Its chain opens almost exactly like glucagon, not GLP-1. Fellow glucagon/GLP-1 dual agonists cotadutide, mazdutide and pemvidutide share the same '-dutide' ending. [S2] (inferred)
+51. 2011: Zealand Pharma and Boehringer partner on glucagon/GLP-1 dual agonists
+52. 2023: Phase 2 COURAGE: ~15% weight loss at 46 weeks; Phase 3 starts
+53. Sep 2024: FDA Breakthrough Therapy for MASH
+54. Apr 2026: SYNCHRONIZE-1: up to 16.6% weight loss at 76 weeks
+55. Oct 2026: SYNCHRONIZE-2: up to 13.1% in T2D; 18% quit for GI effects
+
+## Deep read (as of 2026-10)
+
+### Why a glucagon arm was added on purpose [lab]
+56. Glucagon is the hormone that raises blood sugar, so putting a glucagon agonist in a diabetes drug looks like a contradiction. The logic is that glucagon does two other things as well: it tells the liver to burn stored fat, and it raises resting energy expenditure. Pair it with a GLP-1 agonist strong enough to override the glucose-raising effect, and in principle you get GLP-1 appetite suppression plus a liver-directed fat-burning signal that GLP-1 alone does not have (verified as the stated design rationale).
+57. That is the mechanistic bet, and the trials below are what it bought. The clearest evidence it is a real second mechanism rather than marketing is the liver data: liver fat fell much further than the weight loss alone would predict, and histology changed in a 48-week biopsy trial [1] (verified, in people).
+58. The cost of the bet shows up in the tolerability columns of every trial, and in the fact that the glucagon arm has no long-term human safety precedent. No glucagon receptor agonist has ever been approved for chronic use in people (inferred).
+
+### The liver trial, which is the most interesting dataset [people]
+59. A 48-week phase 2 trial randomised 293 adults with biopsy-confirmed MASH to 2.4, 4.8 or 6.0 mg weekly or placebo, with biopsies at the end [1] (verified).
+60. Histological improvement in MASH without worsening fibrosis reached 47%, 62% and 43% across the three doses against 14% on placebo [1]. Fibrosis improved by at least one stage in 34%, 36% and 34% against 22% on placebo [1]. At least a 30% reduction in liver fat by MRI was reached by 63%, 67% and 57% against 14% [1] (verified).
+61. Two features of that table deserve attention. First, the response was not dose-ordered: the middle dose did best on the primary endpoint and the highest dose did worst, which is what tolerability-driven dropout tends to look like rather than a clean dose-response. Second, fibrosis, the endpoint that actually predicts liver outcomes, moved much less than the inflammation and fat endpoints did, and placebo moved too. A 34% versus 22% difference on fibrosis is a far weaker result than 62% versus 14% on MASH activity, and it is the fibrosis number that matters for whether livers fail (inferred).
+62. Gastrointestinal effects in that trial were heavy: nausea 66% against 23%, diarrhoea 49% against 23%, vomiting 41% against 4%, with serious adverse events similar at 8% against 7% [1] (verified).
+
+### The two phase 3 obesity trials, and the two sets of numbers each reports [people]
+63. SYNCHRONIZE-1 ran 76 weeks across 116 sites in 14 countries, randomising 725 adults with obesity, or overweight with a complication, and no diabetes, 1:1:1 to weekly 3.6 mg, 6.0 mg or placebo, all with lifestyle counselling. Mean age was 47, mean BMI 37.9, mean weight 108.8 kg [2] (verified).
+64. At 76 weeks, mean weight change was minus 12% on 3.6 mg, minus 13% on 6.0 mg and minus 5% on placebo, with at least 5% loss in 73%, 72% and 46% respectively, p at or below 0.0001 for both doses [2] (verified). Note that the higher dose added almost nothing over the lower one, and that the placebo arm lost 5% on lifestyle counselling alone.
+65. SYNCHRONIZE-2 enrolled 752 adults with type 2 diabetes and a BMI of at least 27, same doses, same 76 weeks [3]. Here the reporting difference matters more than the result. Under the treatment-regimen estimand, which counts everyone as randomised including those who stopped, weight change was minus 8.2% and minus 9.8% against minus 3.9% on placebo. Under the efficacy estimand, which asks what happens in people who stay on treatment, the same trial reads minus 10.4% and minus 13.1% against minus 3.1% [3] (verified). Both are correct; the first describes a treatment decision, the second describes a drug. The larger figure is the one that circulates.
+66. HbA1c fell 0.9 and 0.8 percentage points against 0.2 on placebo, at least 5% weight loss was reached by 57.6% and 64.5% against 35.1%, and hsCRP, a general inflammation marker, fell about half against 17% [3] (verified). Weight loss in people with diabetes was smaller than in those without, which is the usual pattern for this class.
+67. Both trials were funded by the manufacturer, published in a major journal and presented at a diabetes meeting [2,3] (verified). One caution for anyone chasing the primary sources: the trial report and its own reference list carry different DOIs for the same paper, so citation details should be checked at the journal [3] (verified as an inconsistency in the reporting).
+
+### Tolerability, in the numbers that decide whether people stay on it [people]
+68. In SYNCHRONIZE-1, gastrointestinal adverse events affected 81% on 3.6 mg and 90% on 6.0 mg against 48% on placebo, mostly mild to moderate, with no deaths [2] (verified).
+69. SYNCHRONIZE-2 reported the discontinuation figure that the obesity trial's summary did not: gastrointestinal events alone caused 18% of the 3.6 mg arm and 17.9% of the 6.0 mg arm to stop, against 1.2% on placebo [3] (verified). Roughly one person in six left the trial because of side effects, at both doses. That is high for this class and consistent with the dual mechanism: the glucagon arm does not reduce nausea, and the dose that maximised liver histology in phase 2 was not the top dose.
+70. Serious adverse events were 9.2% and 8.4% against 10.8% on placebo, so no excess there. There was one case of severe hypoglycaemia, in the lower-dose arm, and two major adverse cardiovascular events, both in the lower-dose arm; one case of acute pancreatitis occurred on placebo [3] (verified).
+71. What has not been published is the thing the glucagon arm most warrants: a cardiovascular outcome trial. Glucagon agonism raises energy expenditure and heart rate is a known concern across this class, and the definitive trial has not reported (verified as pending; registry pages could not be opened directly for this review).
+
+### Product reality, and what an investigational compound means here [mixed]
+72. This is a molecule with no approved product anywhere, which makes its position unlike liraglutide's and unlike BPC-157's. There is no approved label, no pharmacopoeial monograph, no reference standard in general circulation, and no generic. Everything in the trials above was manufactured, filled and titrated under a sponsor's control, over a titration schedule of roughly twenty weeks [2,3].
+73. A powder sold under this name is therefore not a cheaper version of a known product; there is no known product. Nothing in the evidence above transfers to a vial nobody has characterised, and a 29-residue acylated peptide with a fatty diacid tail has formulation requirements, including concentration-dependent self-association, that are part of how the trial material behaved (inferred).
+74. The structural detail that makes weekly dosing possible is the same one that makes it a formulation-sensitive molecule: an aminocyclobutane carboxylic acid substitution at position 2 protects it from the DPP-4 enzyme, and a C18 fatty diacid binds albumin to slow clearance (verified as described in the card's structural sourcing).
+
+### Where the law stands, and open questions [mixed]
+75. Investigational everywhere as of October 2026. Phase 3 obesity and diabetes trials have reported, a breakthrough designation exists for the liver indication, liver outcome trials continue, and no regulatory filing has been announced [2,3] (verified). It is not named on the 2026 WADA Prohibited List; as a substance without government approval for human therapeutic use it falls in the catch-all class prohibited at all times [4] (inferred from the class wording).
+76. Does the fibrosis signal hold up? The phase 2 liver trial moved inflammation strongly and fibrosis weakly, and fibrosis is the endpoint tied to real liver outcomes.
+77. Is the glucagon arm safe for years? Raising energy expenditure through the glucagon receptor has no long-term human precedent, and the cardiovascular outcome data are not yet public.
+78. Why does the top dose underperform? In the liver trial the middle dose won, and in the obesity trials 6.0 mg added almost nothing over 3.6 mg while worsening tolerability.
+79. How much of the effect survives real-world use rather than trial conditions? With one in six stopping for gastrointestinal effects inside a supervised trial, the gap between the two estimands in SYNCHRONIZE-2 is a preview of that question [3].
+80. Does it beat the dual and triple incretin drugs already approved? No head-to-head trial against tirzepatide or semaglutide has been reported, which leaves cross-trial comparison, the least reliable kind.
+
+Deep read references:
+[1] Sanyal et al., New England Journal of Medicine, phase 2 randomized trial of survodutide in MASH and fibrosis (summary of results), 2024 · https://gutsandgrowth.com/2024/06/25/survodutide-dual-glucagon-receptor-glp-1-receptor-agonist-for-mash-phase-ii-trial/
+[2] American College of Cardiology, SYNCHRONIZE-1 trial summary, survodutide in adults with obesity, 2026 · https://www.acc.org/latest-in-cardiology/journal-scans/2026/06/15/17/15/synchronize-1
+[3] Healio, SYNCHRONIZE-2 results presented at the European Association for the Study of Diabetes meeting, 2026 · https://www.healio.com/news/endocrinology/20261001/survodutide-induces-impressive-amount-of-weight-loss-in-type-2-diabetes-and-obesity
+[4] WADA, 2026 Prohibited List, 2026 · https://www.wada-ama.org/en/prohibited-list
+
+## Sources
+[S1] NCT06077864 · https://clinicaltrials.gov/study/NCT07855900
+[S2] Zealand Pharma: survodutide GLP-1/glucagon dual agonist · https://www.zealandpharma.com/glp1glucagon-dualacting-agonist
+[S3] Boehringer: SYNCHRONIZE-2 results (Oct 2026) · https://news.europawire.eu/boehringer-ingelheim-reports-phase-iii-synchronize-2-data-showing-survodutide-weight-reduction-and-glycemic-improvements-in-adults-with-obesity-and-type-2-diabetes/eu-press-release/2026/10/02/12/50/03/181700/
+[S4] AJMC: SYNCHRONIZE-2, up to 13.1% in T2D · https://www.ajmc.com/view/dual-agonist-survodutide-delivers-up-to-13-1-weight-loss-in-t2d
+[S5] PharmaTimes: SYNCHRONIZE-1, 16.6% weight loss · https://pharmatimes.com/news/survodutide-delivers-16-6-weight-loss-in-major-phase-3-obesity-trial/
+[S6] ConsultantLive: SYNCHRONIZE-1 design and doses · https://www.consultantlive.com/view/synchronize-1-survodutide-achieves-significant-weight-loss-versus-placebo
+[S7] Peptide Protocol Wiki: survodutide dosing · https://www.peptideprotocolwiki.com/peptides/survodutide/dosing

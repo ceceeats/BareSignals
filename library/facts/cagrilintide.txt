@@ -1,0 +1,131 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Cagrilintide
+Page: https://baresignals.co/library/#/p/cagrilintide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: cagri amylin cagrisema, AM833, NN9838, GLXC-26801, CagriSema (with semaglutide)
+2. Origin: Lab-modified natural chain
+3. Sequence: KCNTATCATQRLAEFLRHSSNNFGPILPPTNVGSNTP (37 amino acids). Fatty acid chain on the N end, a bridge joining the two C, amide end; none shown
+4. Legal and approval status: Not approved. Novo Nordisk filed CagriSema with the FDA in December 2025; no decision yet.
+
+## Summary
+5. Cagrilintide is Novo Nordisk's lab-modified, once-weekly version of amylin, the fullness hormone released alongside insulin. It is used mainly for obesity, signalling fullness in the brainstem and slowing stomach emptying, and it is paired with semaglutide as CagriSema. It is not approved, and grey-market users mostly run it in a semaglutide stack; GI side effects are common and CagriSema fell short of tirzepatide in one head-to-head trial.
+6. Punch line: Weekly long-acting amylin, the fullness hormone. Paired with semaglutide as CagriSema: about 23% weight lost.
+7. Used for: Weight loss, often with semaglutide
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Amylin signal for fullness
+9. Glucose & insulin: Slows sugar after meals
+10. Reward & urges: Curbs urge to eat
+
+## How it works
+11. Signals fullness in the brainstem · Amylin receptors · role Appetite & satiety
+   Cagrilintide activates amylin receptors, which are calcitonin receptors paired with RAMP proteins, in the area postrema and brainstem. These sites signal fullness, so meals end sooner. Alone it produced weight loss in obesity trials in people.
+12. Slows stomach emptying · Amylin receptors · role Appetite & satiety
+   Amylin receptor activation also slows the rate the stomach empties into the gut. Food stays longer, which adds to fullness and softens blood sugar spikes after meals. The same effect drives the high nausea and vomiting rates seen in human trials.
+13. Holds back glucagon after meals · AMY receptors, alpha cells · role Glucose & insulin
+   Amylin normally holds back glucagon release from the pancreatic alpha cells after meals. Cagrilintide mimics this, so the liver releases less glucose when it is not needed. This mirrors the role of the natural amylin co-released with insulin.
+14. Adds to GLP-1 effect when paired · With semaglutide · role Appetite & satiety
+   Amylin reaches satiety circuits partly distinct from those of GLP-1, so the two add up. Paired with semaglutide as CagriSema, REDEFINE 1 reached 22.7% weight loss at 68 weeks in people. That trial did not isolate how much cagrilintide itself contributed.
+15. Dampens food reward signalling · Hindbrain, mesolimbic · role Reward & urges
+   Amylin signalling in the hindbrain feeds into mesolimbic reward pathways that drive food seeking. Lowering that signal reduces the drive to eat for pleasure as well as hunger. This reward effect comes mainly from animal studies of amylin, not direct human measurement.
+16. Mechanism overview: Cagrilintide is a long-acting analogue of amylin, the hormone co-released with insulin. It activates amylin receptors, which are calcitonin receptors paired with RAMP proteins, and the calcitonin receptor itself. In the area postrema and brainstem these receptors signal fullness, so meals end sooner. It also slows gastric emptying and suppresses glucagon after meals. Because amylin acts on circuits partly distinct from GLP-1, the two add together: paired with semaglutide it gives more weight loss than either alone. A fatty acid chain binds albumin for once-weekly dosing.
+
+## Dosage (community reported unless tagged)
+17. Typical: 1–4.5 mg · once weekly · cycle Continuous, similar to sema · route Sub-Q (reported)
+18. Half-life: ~7 days
+19. Most people take: 1-2.5mg/week → titrate to 2.5-4.5mg/week · Continuous, similar to sema.
+20. Common: 1.7–2.4 mg · 1× weekly · after 16 wk titration (0.25→0.5→1→1.7→2.4) · Sub-Q · for stack with reta or sema, copying REDEFINE [S1] [S2] (reported)
+21. Low add-on: 0.25–1 mg/wk · 1× weekly, or 0.25 mg 2–3× weekly · ongoing · Sub-Q · for appetite add-on to a GLP-1; mood-sensitive users [S3] [S4] (reported)
+22. Trial top: 4.5 mg · 1× weekly · 26 wk (Phase 2) · Sub-Q · for monotherapy users chasing trial max [S2] [S4] (reported)
+
+## What people report
+23. Grey-market use is usually as part of a sema+cagri stack.
+24. Liked / worked: Solid weight loss on its own
+25. Liked / worked: Additive with semaglutide
+26. Liked / worked: 22.7% weight loss at 68 weeks as CagriSema
+27. What worked: Solid weight loss alone and additive with semaglutide; amylin slows gastric emptying and curbs intake.
+28. Went wrong / did not work: GI side effects
+29. Went wrong / did not work: Weaker alone than dual agonists
+30. Went wrong / did not work: Missed matching tirzepatide head to head (reported)
+31. What went wrong: GI side effects; weaker alone than the dual agonists; CagriSema fell short of tirzepatide in a direct comparison.
+32. Most reported: Mostly used in a sema plus cagri stack
+
+## What has been tested
+33. Fat metabolism: Obesity, alone (trial)
+34. Fat metabolism: Obesity with semaglutide, REDEFINE 1 (trial)
+35. Fat metabolism: CagriSema vs tirzepatide, REDEFINE 4 (trial)
+36. Phase 2 on its own, and Phase 3 as CagriSema (with semaglutide): REDEFINE 1 gave 22.7% weight loss at 68 weeks; REDEFINE 4 missed its goal of matching tirzepatide head to head (reported).
+37. What it helps: Trial data. Alone, it produced solid weight loss in obesity. Combined with semaglutide as CagriSema, REDEFINE 1 reached 22.7% weight loss at 68 weeks. Against tirzepatide head to head in REDEFINE 4, it reportedly fell short. Grey-market users mostly run it in a semaglutide plus cagrilintide stack for appetite and weight, with the usual GI side effects.
+38. Trial: active · Phase 3 · obesity, cagrilintide alone · NCT07220642 · Novo Nordisk. Now in its own Phase 3 program as a standalone drug after showing 11.8% weight loss on its own in REDEFINE 1. (checked 2026-10-23) [S5] (reported)
+
+## Who shouldn't take it
+39. Insulin or sulfonylurea users: Amylin analogues add to insulin; pramlintide carries a boxed warning for severe low blood sugar. (inferred)
+40. People with gastroparesis or severe slow digestion: Amylin slows the stomach further; pramlintide is contraindicated in gastroparesis. (inferred)
+41. Anyone booked for surgery, endoscopy or sedation: Delayed gastric emptying raises aspiration risk under anaesthesia. (inferred)
+
+## Synergies (paired with)
+42. Semaglutide: Semaglutide cuts hunger through the GLP-1 receptor, while cagrilintide adds fullness through amylin circuits that are partly separate. Together as CagriSema they gave more weight loss than either typically does alone. This pair has been tested in human trials, though it missed matching tirzepatide head to head.
+
+## Where it comes from
+43. Novo Nordisk rebuilt amylin, the fullness hormone the pancreas releases alongside insulin, into a once-weekly form.
+44. First studied for: Obesity, mainly as the amylin half of the CagriSema combination.
+45. Name story: The '-lintide' ending echoes pramlintide, the first amylin drug. 'CagriSema' is simply cagrilintide plus semaglutide in one shot. [S6] (verified)
+46. 2020s: Once-weekly amylin analogue tested alone in Phase 2
+47. 2025: REDEFINE 1: CagriSema gives 22.7% weight loss at 68 weeks
+48. Dec 2025: CagriSema filed with the FDA
+49. Today: Mainly seen as the amylin half of CagriSema; not approved
+
+## Deep read (as of 2026-10)
+
+### What the pivotal trial measured, and what it did not include [people]
+50. REDEFINE 1 randomised 3,417 adults with obesity, or overweight plus at least one related condition, and without type 2 diabetes, to the combination product or placebo, dosed weekly for 68 weeks under double-blind conditions [1] (verified).
+51. Weight reduction at 68 weeks was 22.7% against 2.3% on placebo under the estimand that assumes adherence, and 20.4% against 3.0% under the estimand that counts everyone regardless of adherence [1]. That gap between the two figures, roughly 2 percentage points, is the cost of real-world adherence and is usually the more honest number to carry forward.
+52. The detail that matters for reading this compound on its own: the published pivotal release reports the combination against placebo and does not report separate single-agent arms for the amylin analogue alone or the established incretin alone [1] (verified). So the trial establishes what the pair does. It does not quantify, in that trial, how much the amylin half contributed.
+53. That is the central evidence problem for this entry. This compound is nearly always studied and used as half of a pair, and the pivotal evidence is for the pair. Its solo Phase 2 work exists but is far smaller, and no large trial has isolated its independent contribution at the doses used in combination (verified as absent).
+54. Tolerability: gastrointestinal events in 79.6% against 39.9% on placebo, with nausea 55% against 12.6%, constipation 30.7% against 11.6% and vomiting 26.1% against 4.1%. Discontinuation for adverse events was 6% against 3.7% [1] (verified). A nausea rate above half is high for this class.
+
+### The head-to-head that did not go as expected [people]
+55. REDEFINE 4 compared the combination directly against the leading dual-receptor drug: 809 adults with obesity and at least one related condition, no diabetes, 84 weeks, open-label [2] (reported).
+56. Weight loss came in at 20.2% against 23.6% under the treatment-regimen estimand, and 23.0% against 25.5% under the efficacy estimand. Non-inferiority was not demonstrated [2] (reported). Since non-inferiority failed, no superiority test for the comparator was formally reported, so the correct statement is that the combination did not prove itself as good as the comparator, rather than that the comparator was proven better.
+57. The timing is worth noting for anyone tracking the regulatory story. The marketing application was filed in December 2025, before these head-to-head results were released in February 2026, and the filing rests on the placebo-controlled trials rather than on the comparison [2] (reported).
+58. This is a useful corrective to a common assumption. Adding a second mechanism does not automatically beat a well-optimised dual-receptor molecule. Two targets chosen well can outperform two targets combined, and the arithmetic of mechanisms is not additive in practice (inferred).
+
+### Why the amylin pathway is a reasonable bet anyway [mixed]
+59. The pharmacological case for this target does not rest on the head-to-head result, and it is worth separating the two.
+60. Amylin signalling reaches satiety circuits in the hindbrain that are partly distinct from the incretin circuits, which is the mechanistic basis for expecting additive effects rather than overlapping ones. In the placebo-controlled trial, the pair did produce more weight loss than the established incretin alone achieves in its own trials, which is consistent with genuine addition even though cross-trial comparison is weak evidence (inferred).
+61. There is also a precedent with a cautionary edge. The first amylin-based drug reached approval years earlier for use alongside insulin, and it carries a boxed warning for severe hypoglycaemia in that setting and is contraindicated in gastroparesis (verified, as reflected in the card's cautions). That history is the best available guide to what this receptor family does when pushed, and it points at the stomach and at glucose control rather than at anything exotic.
+62. The practical consequence of the mechanism is that gastric emptying slows, and the pivotal trial's nausea and vomiting rates are consistent with that. For a compound whose action is partly to make meals end sooner, gastrointestinal effects are not a side issue; they are the mechanism being felt (inferred).
+
+### Where approval stands, October 2026 [people]
+63. The combination product's marketing application was filed in December 2025 and, as of late October 2026, had not been approved. The developer guided toward a decision in the final quarter of 2026, with no public decision date identified [2] (reported).
+64. The single agent is not separately filed or approved anywhere. Anyone encountering it outside a trial is encountering an unapproved compound whose pivotal evidence belongs to a two-drug product it was studied inside (verified).
+65. That has a specific consequence for interpretation. Reported effects from combination use cannot be attributed to this compound, and the trial that would settle its independent contribution at combination doses has not been run (inferred).
+
+### Open questions [mixed]
+66. What does this compound do on its own at the doses used in the combination? The pivotal programme did not isolate it, which leaves its independent effect size genuinely unknown.
+67. Why did the head-to-head fail non-inferiority when the placebo-controlled result looked so strong? Population, open-label design, titration and dose optimisation are all candidates, and none has been established.
+68. Does the amylin pathway add anything that matters beyond weight, such as a different pattern of regain or a different effect on muscle? Untested.
+69. How does a nausea rate above half interact with long-term adherence? The two estimands in the pivotal trial already show adherence costing about 2 percentage points of effect over 68 weeks.
+70. Does the insulin interaction seen with the earlier amylin drug carry over? The mechanism suggests caution with glucose-lowering treatment, and no trial has characterised it for this molecule.
+71. If approved, does the combination earn a place against an already-superior single molecule? That is now a commercial and clinical question rather than a pharmacological one.
+
+Deep read references:
+[1] Novo Nordisk, REDEFINE 1 results published in NEJM (Garvey et al.), 2025 · https://www.prnewswire.com/news-releases/cagrisema-2-4-mg--2-4-mg-demonstrated-22-7-mean-weight-reduction-in-adults-with-overweight-or-obesity-in-redefine-1--published-in-nejm-302487770.html
+[2] Remy Research, REDEFINE 4 head-to-head results and filing status, 2026 · https://remyresearch.com/research/cagrisema-vs-tirzepatide
+
+## Sources
+[S1] Reta + cagri stack guide · https://thepeptidecatalog.com/articles/retatrutide-cagrilintide-stack-dosing-guide
+[S2] Cagrilintide dosing · https://www.peptideprotocolwiki.com/peptides/cagrilintide/dosing
+[S3] New cagrilintide studies (H. Williams) · https://huntershealthhacks.beehiiv.com/p/new-cagrilintide-studies-out-79070e625a312fd4
+[S4] Cagrilintide quick start · https://www.peptidedosingprotocols.com/protocol/cagrilintide
+[S5] NCT07220642 · https://dashboard.datalookout.com/trial/NCT07220642
+[S6] Cagrilintide (Wikipedia) · https://en.wikipedia.org/wiki/Cagrilintide
+[S7] Cagrilintide · https://en.wikipedia.org/wiki/Cagrilintide

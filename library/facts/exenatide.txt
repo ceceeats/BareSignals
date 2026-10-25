@@ -1,0 +1,87 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Exenatide
+Page: https://baresignals.co/library/#/p/exenatide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: exendin-4 gila monster reference, exendin-4, AC2993, Byetta, Bydureon, Bydureon BCise, exenatide LAR
+2. Origin: Made by a body: the Gila monster’s
+3. Sequence: HGEGTFTSDLSKQMEEEAVRLFIEWLKNGGPSSGAPPPS (39 amino acids). Amide end
+4. Legal and approval status: Approved. Byetta and Bydureon were discontinued in the US in 2024; a generic exenatide was approved in November 2024. Reference molecule here.
+
+## Summary
+5. Exenatide is a GLP-1 drug based on a lizard version of the hormone, which lasts far longer in the body than the human one. It was the first GLP-1 drug, approved in 2005 for type 2 diabetes, giving better glucose control and modest weight loss. It is weaker and shorter acting than modern agents, causes typical GI side effects, and is largely superseded.
+6. Punch line: The first GLP-1 drug, approved 2005, copied from Gila monster saliva. Proved the hormone could be a medicine.
+7. Used for: Type 2 diabetes glucose control
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Longer fullness signal
+9. Glucose & insulin: Releases insulin after meals
+10. Heart & vessels: Studied for heart outcomes
+
+## How it works
+11. Boosts insulin when sugar is high · GLP-1 receptor, pancreas · role Glucose & insulin
+   Exenatide activates the same GLP-1 receptor on pancreatic beta cells as the native hormone. Insulin release rises only when glucose is high, which limits low blood sugar when used alone. Phase 3 trials in type 2 diabetes confirmed better glucose control and led to approval.
+12. Slows the stomach · GLP-1 receptor, gut · role Appetite & satiety
+   Acting on GLP-1 receptors in the gut and its nerve signalling, exenatide slows stomach emptying. Food and sugar reach the blood more slowly, and fullness lasts longer. This also drives the nausea and GI side effects typical of the class.
+13. Quiets hunger in the brain · GLP-1 receptor · role Appetite & satiety
+   GLP-1 receptors in the brain's appetite centres turn down hunger when activated. In diabetes trials this showed up as modest weight loss alongside glucose control. It is weaker on appetite than modern agents such as semaglutide.
+14. Holds back glucagon after meals · Alpha cell suppression · role Glucose & insulin
+   Exenatide suppresses glucagon from pancreatic alpha cells after meals. With less glucagon, the liver releases less sugar while a meal is absorbed. This adds to the insulin effect to lower post-meal glucose in people with type 2 diabetes.
+15. Resists breakdown, unlike GLP-1 · DPP-4 resistant · role Glucose & insulin
+   A glycine at position 2, where human GLP-1 has alanine, stops the enzyme DPP-4 from cutting it. Its half-life stretches from minutes to a few hours. That change made exenatide, a copy of a Gila monster peptide, the first working GLP-1 drug.
+16. Mechanism overview: Exenatide is a synthetic copy of exendin-4, a peptide from Gila monster saliva that shares about half its sequence with human GLP-1. It activates the same GLP-1 receptor, boosting glucose-dependent insulin release, suppressing glucagon, slowing gastric emptying and reducing hunger. The key difference is a glycine at position 2 instead of alanine, which makes it resistant to DPP-4. That stretches its half-life from minutes to a few hours, enough to make the first GLP-1 drug.
+
+## Dosage (community reported unless tagged)
+17. Typical: 5–10 mcg · twice daily · cycle ongoing · route Sub-Q (verified)
+18. Half-life: ~2.4 hours
+19. Start (Byetta): 5 mcg · 2× daily, ≤60 min before AM and PM meals · first month · Sub-Q · for type 2 diabetes [S1] (verified)
+20. Maintenance (Byetta): 10 mcg · 2× daily before meals · ongoing · Sub-Q · for type 2 diabetes [S1] [S2] (verified)
+21. Weekly (Bydureon BCise): 2 mg · 1× weekly · ongoing · Sub-Q · for type 2 diabetes, weekly preference [S3] (reported)
+
+## What people report
+22. A reference entry, historically important.
+23. Liked / worked: Approved diabetes therapy
+24. Liked / worked: Proved a GLP-1 analogue could be a drug
+25. What worked: Approved diabetes therapy; the class pioneer.
+26. Went wrong / did not work: Weaker and shorter acting than modern agents
+27. Went wrong / did not work: GI side effects
+28. Went wrong / did not work: Largely superseded
+29. What went wrong: Weaker and shorter than modern agents; GI side effects; largely superseded.
+30. Most reported: A reference entry, historically important
+
+## What has been tested
+31. Glucose & insulin: Type 2 diabetes, Phase 3 (trial)
+32. Appetite & satiety: Weight change in diabetes trials (trial)
+33. Phase 3 diabetes trials; the original proof that a GLP-1 analogue could work as a drug.
+34. What it helps: Phase 3 trials in type 2 diabetes led to approval, with modest weight loss alongside better glucose control. It proved a GLP-1 analogue could work as a drug. It is weaker and shorter acting than modern agents, causes the typical GI side effects, and is largely superseded. This is a reference entry kept for its history.
+35. Trial: active · Phase 3 · brain satiety responses in children with obesity · NCT04520490 · University of Washington. Approved diabetes drug derived from Gila monster venom; its big Parkinson's Phase 3 failed in 2025. (checked 2026-10-23) [S4] (reported)
+
+## Who shouldn't take it
+36. People with severe kidney disease: Cleared by the kidneys; label advises against use below CrCl 30. (verified)
+37. People with a history of low platelets: Label warns of drug-induced immune thrombocytopenia. (verified)
+38. Personal or family history of MTC or MEN2: Extended-release form carries the boxed C-cell tumour warning. (verified)
+39. Anyone booked for surgery, endoscopy or sedation: Slowed stomach emptying; aspiration risk under anaesthesia. (verified)
+
+## Where it comes from
+40. Found in 1992 by John Eng in Gila monster saliva; the lizard's version of GLP-1 lasts far longer than ours. The first GLP-1 drug, 2005.
+41. First studied for: Type 2 diabetes (Byetta/Bydureon).
+42. Name story: A synthetic copy of exendin-4, isolated from Gila monster venom in 1992. "Exendin" fuses exocrine and endocrine: secreted by a venom gland, yet acting like a gut hormone. It became the first GLP-1 drug, Byetta, in 2005. [S5] (verified)
+43. 1992: Found by John Eng in Gila monster saliva; a long-lasting GLP-1 cousin
+44. 2005: Approved for type 2 diabetes; the first GLP-1 drug
+45. 2024: Brand versions discontinued in the US; a generic approved in November
+46. Today: The class pioneer; a reference molecule, largely superseded
+
+## Sources
+[S1] Byetta dosage (label text) · https://www.drugs.com/dosage/byetta.html
+[S2] Exenatide community · https://www.peptideprotocolwiki.com/peptides/exenatide/community
+[S3] Exenatide community (quotes label) · https://www.peptideprotocolwiki.com/peptides/exenatide/community
+[S4] NCT04520490 · https://www.drugpatentwatch.com/p/clinical-trials/profile/drugname/BYDUREON+PEN
+[S5] Drucker Lab: Exenatide · https://glucagon.com/exenatide
+[S6] Exenatide · https://en.wikipedia.org/wiki/Exenatide

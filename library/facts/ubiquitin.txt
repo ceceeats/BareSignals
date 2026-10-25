@@ -1,0 +1,69 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Ubiquitin
+Page: https://baresignals.co/library/#/p/ubiquitin
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: protein reference, UBIP, polypeptide beta-1, APF-1
+2. Origin: Made by the body (reference)
+3. Sequence: MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG (76 amino acids)
+4. Legal and approval status: Reference molecule.
+
+## Summary
+5. Ubiquitin is a small protein made by nearly every cell, almost unchanged across species, that tags other proteins for recycling, work that won the 2004 Nobel Prize. It is a fundamental cell signalling molecule rather than a therapeutic and is not used as an injectable. Its clinical relevance is indirect, through drug targets such as proteasome blockers. This is a reference entry with no user reports.
+6. Punch line: The cell's recycling tag, nearly identical in every species. Marks damaged proteins for disposal; Nobel Prize 2004.
+
+## Roles (what it is used for, strongest first)
+7. Cellular protection: Tags damaged proteins for recycling
+8. Organ function: Keeps every cell clean
+9. DNA & telomeres: Directs DNA repair
+10. Immunity: Runs immune signalling
+
+## How it works
+11. Tags worn proteins for shredding · Ubiquitin-proteasome system · role Cellular protection
+   Ubiquitin is attached to worn or unneeded proteins, and K48-linked chains of it send them to the proteasome, the cell's protein shredder. This keeps damaged and misfolded proteins from building up. It is one of the best-mapped systems in cell biology, though not a drug itself.
+12. Chains of tags route proteins to fates · E1, E2, E3 ligases · role Cellular protection
+   An enzyme cascade attaches ubiquitin: E1 activates it, E2 carries it, and one of hundreds of E3 ligases picks the target protein. The linkage type of the chain sets the fate, destruction or signalling. This fine control is shown across a vast cell and biochemistry literature.
+13. Marks DNA damage sites for repair · Histone ubiquitination · role DNA & telomeres
+   Ubiquitin added to histones, the proteins DNA wraps around, flags sites of DNA damage. The mark recruits repair proteins to the break. This is established in cell studies and is part of how cells keep their genome intact.
+14. Switches on immune alarm signalling · K63 chains, NF-kB · role Immunity
+   K63-linked ubiquitin chains do not trigger destruction; they act as scaffolds that assemble signalling complexes. One key output is activation of NF-kB, the master switch for immune and inflammatory genes. This is mapped in cell studies.
+15. Clears damaged organelles · Mitophagy, PINK1/Parkin · role Organ function
+   When mitochondria are damaged, PINK1 builds up on their surface and recruits Parkin, which coats them with ubiquitin. The tag marks the organelle for mitophagy, its removal and recycling. This quality-control pathway is well shown in cell studies.
+16. Mechanism overview: Ubiquitin is a 76 amino acid protein found in every eukaryotic cell. An enzyme cascade of E1 activators, E2 conjugators and E3 ligases attaches it to lysines on target proteins. The chain type sets the fate: K48-linked chains send proteins to the proteasome for destruction, while K63-linked chains act as scaffolds for NF-kB immune signalling and DNA repair. Ubiquitin on histones marks DNA damage sites. PINK1 and Parkin use it to tag damaged mitochondria for removal. Hundreds of E3 ligases give fine control over which proteins survive.
+
+## Dosage (community reported unless tagged)
+17. Typical:
+
+## What people report
+18. A reference entry, included to show the scale of peptide/protein signaling.
+19. Liked / worked: Central to how cells clear proteins
+20. Liked / worked: Drug targets sit around it, like proteasome blockers
+21. What worked: Central to how cells dispose of proteins; drug targets sit around it.
+22. Went wrong / did not work: Not used as an injectable therapeutic
+23. What went wrong: Not used as an injectable therapeutic.
+24. Most reported: A reference entry; shows the scale of protein signalling
+
+## What has been tested
+25. DNA & telomeres: Protein disposal and cell signalling (cell)
+26. Vast basic-science literature on the ubiquitin-proteasome system; not a drug.
+27. What it helps: Ubiquitin is not used as an injectable therapeutic. Its clinical weight comes indirectly: drug targets sit around the system, such as the proteasome blockers. It is a reference entry that shows the scale of protein signalling inside cells, and it has no user reports.
+28. Trial: none. No human trial uses ubiquitin as a treatment; it is studied as a biomarker and drug target only. (checked 2026-10-23) [S1] (inferred)
+
+## Where it comes from
+29. Named for being everywhere: nearly every cell makes it, almost unchanged. Tagging proteins for recycling won the 2004 Nobel Prize.
+30. First studied for: A fundamental cellular protein, not a therapeutic.
+31. Name story: Named in 1975 as 'ubiquitous immunopoietic polypeptide' because it turned up in every cell. It was first fished out of calf-thymus extracts as thymosin 'polypeptide beta-1'; its real job, tagging proteins for destruction, won the 2004 Nobel. [S2] (verified)
+32. 1970s: Named for being everywhere; nearly unchanged across life
+33. 2004: Nobel Prize for showing it tags proteins for disposal
+34. Today: A core cell protein and reference molecule; not a drug
+
+## Sources
+[S1] Trial
+[S2] Ubiquitin (Wikipedia) · https://en.wikipedia.org/wiki/Ubiquitin

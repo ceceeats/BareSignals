@@ -1,0 +1,151 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Orforglipron
+Page: https://baresignals.co/library/#/p/orforglipron
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: Foundayo, LY3502970, OWL833, LY-3502970
+2. Origin: Not a peptide: small molecule
+3. Shown with an FDA approved badge
+4. Legal and approval status: FDA-approved as Foundayo for chronic weight management on 1 Apr 2026; type 2 diabetes submission pending at FDA. UK approval Aug 2026 (reported); EMA CHMP positive opinion for obesity and T2D on 16 Oct 2026, EU decision pending. Not compoundable; WADA does not ban GLP-1 agonists.
+
+## Summary
+5. Orforglipron is a small-molecule, non-peptide GLP-1 receptor agonist taken as a pill. It quiets hunger, slows the stomach and raises insulin when glucose is high, and it is FDA-approved for chronic weight management. It causes less weight loss than injectable semaglutide or tirzepatide, GI effects are common, and it cannot be compounded.
+6. Punch line: Non-peptide GLP-1 pill. No fasting rules; milder than shots, often used to keep weight off after them.
+7. Used for: Weight loss, type 2 diabetes
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Quiets hunger, in pill form
+9. Glucose & insulin: Beat oral semaglutide on HbA1c
+10. Fat metabolism: About 12% weight loss
+11. Reward & urges: GLP-1 craving dampening (class)
+12. Heart & vessels (backed only by animal or user reports): CV safety shown in ACHIEVE-4
+13. Digestive & gut (backed only by animal or user reports): Nausea, constipation common
+
+## How it works
+14. Switches on the GLP-1 receptor from a pill · Non-peptide GLP-1R agonist · role Appetite & satiety
+   Orforglipron is a small molecule, not a peptide, that sits in a pocket of the GLP-1 receptor different from where the natural hormone binds. It still switches the receptor on, leaning toward G-protein signalling. Because it survives digestion it works as a daily pill, as shown in Phase 3 trials in people.
+15. Quiets hunger and slows the stomach · GLP-1R, hypothalamus and gut · role Appetite & satiety
+   Through GLP-1 receptors in the hypothalamus and brainstem it lowers hunger, and in the gut it slows stomach emptying. People eat less without trying to. In ATTAIN-1 this produced clear weight loss against placebo over 72 weeks in adults without diabetes.
+16. Raises insulin when glucose is high · GLP-1R, beta cells · role Glucose & insulin
+   On pancreatic beta cells it raises insulin release only when glucose is high, the standard GLP-1 effect. That lowers blood sugar with little risk of lows on its own. In the ACHIEVE trials HbA1c fell further than on oral semaglutide in people with type 2 diabetes.
+17. Cleared by the liver over ~1.5 days · CYP3A4 metabolism · role Glucose & insulin
+   The liver breaks it down mainly through the enzyme CYP3A4, and most leaves in the faeces. A half-life of one to two days suits daily dosing. The practical cost is drug interactions: strong CYP3A4 blockers raise its levels and strong inducers cut them, a new issue for this class.
+18. Dampens food reward (class effect) · Mesolimbic GLP-1R · role Reward & urges
+   GLP-1 receptors in the brain's reward circuit, the mesolimbic system, damp the pull of food and other rewards. This is a class effect seen with injectable GLP-1 drugs and in animal work. It has not been measured for orforglipron specifically, so it is inferred from the class.
+19. Mechanism overview: Orforglipron is a non-peptide small molecule that binds the GLP-1 receptor (GLP-1R) and activates it like the native hormone, but survives digestion and absorbs without the fasting rules oral semaglutide needs. It acts in the hypothalamus and brainstem to cut hunger, in the gut to slow emptying, and on pancreatic beta cells to raise insulin only when glucose is high. It is cleared by the liver through CYP3A4 with a half-life of about one to two days, which suits daily dosing.
+
+## Dosage (community reported unless tagged)
+20. Typical: 0.8–17.2 mg tablet · once daily · cycle Ongoing; step up every 30+ days · route Oral (verified)
+21. Half-life: 29–49 hours
+22. Most people take: Oral tablet daily, any time, with or without food: 0.8 → 2.5 → 5.5 mg, then 9, 14.5 or 17.2 mg. Trial capsules were 1–36 mg (36 mg capsule = 17.2 mg tablet).
+
+## What people report
+23. Mostly anticipatory chatter before approval; since launch, users note oral convenience and GI upset. It cannot be compounded, so cheap copies are research-chemical powders.
+24. Liked / worked: 12.4% weight loss on top dose
+25. Liked / worked: Beat oral semaglutide on HbA1c and weight
+26. Liked / worked: No food or water timing rules
+27. Liked / worked: CV safety supported
+28. What worked: 12.4% weight loss on the top dose at 72 weeks (ATTAIN-1); in diabetes it beat oral semaglutide on HbA1c (−2.2% vs −1.4%) and weight (9.2% vs 5.3%). ACHIEVE-4 supported cardiovascular safety.
+29. Went wrong / did not work: Less weight loss than injectables
+30. Went wrong / did not work: Nausea, constipation, diarrhea, vomiting
+31. Went wrong / did not work: ~10% quit on top dose
+32. Went wrong / did not work: Boxed thyroid tumor warning
+33. What went wrong: Less weight loss than injectable semaglutide or tirzepatide; GI effects in most users and about 10% quitting on the top dose. Boxed thyroid C-cell tumor warning like the class.
+34. Most reported: Oral convenience praised
+35. Most reported: GI upset on titration
+36. Most reported: Used to maintain weight after injectables
+37. Most reported: Cannot be compounded
+
+## What has been tested
+38. Fat metabolism: Obesity, ATTAIN-1 and -2 (human)
+39. Glucose & insulin: Type 2 diabetes, ACHIEVE program (human)
+40. Heart & vessels: CV safety vs insulin glargine, ACHIEVE-4 (human)
+41. Phase 3 ATTAIN (obesity) and ACHIEVE (type 2 diabetes) programs, including head-to-heads against oral semaglutide and dapagliflozin and a cardiovascular safety trial against insulin glargine (ACHIEVE-4).
+42. What it helps: ATTAIN-1 showed 12.4% weight loss on the top dose at 72 weeks, and the ACHIEVE program showed HbA1c and weight beating oral semaglutide and dapagliflozin in type 2 diabetes. ACHIEVE-4 supported cardiovascular safety. People use it to avoid injections or to hold weight after stopping an injectable. GI effects and lower peak weight loss than injectables are the trade-offs.
+43. Trial: active · Phase 3 · peripheral artery disease · NCT07223593 · Eli Lilly. FDA approved as Foundayo on 1 April 2026, the first oral non peptide GLP-1 pill; Lilly is still recruiting Phase 3 trials in new uses. (checked 2026-10-23) [S1] (verified)
+
+## Who shouldn't take it
+44. Personal or family history of MTC or MEN2: GLP-1 agonist class carries the C-cell tumour warning. (reported)
+45. Anyone booked for surgery, endoscopy or sedation: Slows stomach emptying; aspiration risk under anaesthesia. (reported)
+46. People relying on the contraceptive pill: Delayed gastric emptying can lower pill absorption. (inferred)
+
+## Synergies (paired with)
+47. Tirzepatide: Tirzepatide is a weekly injection hitting GIP and GLP-1 receptors with larger weight loss; orforglipron is a daily pill on GLP-1 alone. People use the pill to hold weight after stopping the injection rather than together. Taking both at once has not been tested.
+48. Semaglutide: Both act on the same GLP-1 receptor, semaglutide as a peptide injection or tablet and orforglipron as a small-molecule pill. They duplicate each other, so the logic is switching, not stacking. ACHIEVE-3 compared them head to head, but no trial tested them together.
+
+## Where it comes from
+49. A small-molecule GLP-1 agonist discovered by Chugai and licensed to Lilly in 2018: a pill that hits the GLP-1 receptor without being a peptide, so no injection and no fasting rules.
+50. First studied for: Obesity (approved), then type 2 diabetes.
+51. Name story: Discovered by Chugai in Japan and licensed to Lilly in 2018. The "-glipron" ending is shared by other non-peptide GLP-1 pills (danuglipron, lotiglipron), not the "-glutide" of injectable peptides. US approval came April 2026 as Foundayo. [S2] (inferred)
+52. 2018: Lilly licenses it from Chugai
+53. Aug 2025: ATTAIN-1: 12.4% weight loss at 72 weeks
+54. Feb 2026: ACHIEVE-3 beats oral semaglutide in T2D
+55. Apr 2026: FDA approves Foundayo for obesity
+56. Oct 2026: EMA committee backs it for obesity and T2D
+
+## Deep read (as of 2026-10)
+
+### Not a peptide, and why that changes everything downstream [lab]
+57. Orforglipron is a small molecule, not a peptide, which is why it survives the gut. A 2020 cryo-EM structure of the human GLP-1 receptor bound to it (then coded LY3502970) shows it sitting in a pocket in the upper part of the receptor, touching the extracellular domain and several helices, rather than where the natural hormone binds [1] (verified).
+58. Two consequences follow from that binding mode. It is a partial agonist biased toward G-protein signalling over beta-arrestin recruitment, which may matter for tolerability and receptor desensitisation, though that link is not proven in people [1] (verified for the bias; inferred for its meaning). And it depends on a tryptophan found only in primate receptors, so it barely acts on rodent receptors [1] (verified).
+
+### What that species quirk did to the safety file [animals]
+59. Injectable GLP-1 drugs carry a boxed warning because they caused thyroid C-cell tumours in rodents. Orforglipron produced no tumours in a two-year rat study or a 26-week transgenic mouse study, but the label explains why that is not reassurance: the drug is not pharmacologically active in rats or mice [2] (verified). The tumour test could not have shown a receptor-driven effect. The label keeps the class boxed warning and the contraindication in medullary thyroid cancer and MEN 2, with human relevance undetermined [2] (verified).
+60. This is an unusual position for an approved drug: the standard rodent safety model was blind to its main mechanism, so long-term human surveillance carries more of the weight than usual (inferred). Developmental studies used monkeys and rabbits; rabbit malformations appeared only at about 14 times clinical exposure [2] (verified).
+
+### What the body does with it [people]
+61. Bioavailability is about 77% at the 0.8 mg dose, peak levels come 4 to 8 hours after a dose, half-life is about 29 to 49 hours, and about 87% leaves in faeces, under 1% in urine; metabolism runs mainly through the liver enzyme CYP3A4 [2] (verified). Food has no clinically relevant effect at approved strengths [2].
+62. That CYP3A4 dependence is the practical part. Clarithromycin raised exposure about 3.5-fold, so with strong CYP3A4 inhibitors the maximum dose is 9 mg; carbamazepine cut exposure 82% and efavirenz 61%, so strong inducers are to be avoided [2] (verified). It also raised simvastatin acid exposure 2 to 2.5-fold, capping simvastatin at 20 mg, and the label asks for a non-oral or backup contraceptive for 30 days after starting and after every dose step [2] (verified). These interactions are a new problem for the class: injectable peptides largely avoid them (inferred).
+
+### The human record [people]
+63. Obesity. ATTAIN-1 randomised 3,127 adults without diabetes for 72 weeks. Mean weight change was minus 7.5%, 8.4% and 11.2% at the three trial doses against minus 2.1% on placebo; at the top dose 55% lost at least 10% and 19% at least 20% [3] (verified). Discontinuation for adverse events was 5 to 10% against 3% [3]. On treatment, the figure rises to about 12.4% [7].
+64. Early type 2 diabetes. ACHIEVE-1 gave it alone to 559 people for 40 weeks; HbA1c fell about 1.2 to 1.5 points from a baseline of 8.0%, against 0.4 on placebo [4] (reported, from a trade summary of the paper).
+65. Head to head. ACHIEVE-3 compared it with oral semaglutide in 1,698 people on metformin for 52 weeks, open-label. At the top doses HbA1c fell 2.2 against 1.4 points and weight 9.2% against 5.3%, but discontinuation for adverse events was roughly double, 9.7% against 4.9% [5] (verified). Better effect, worse tolerability, both real.
+66. Heart. ACHIEVE-4 randomised 2,749 people with type 2 diabetes and raised cardiovascular risk against insulin glargine, open-label. Major cardiovascular events had a hazard ratio of 0.84 (95% CI 0.59 to 1.20), meeting the non-inferiority margin of 1.8 but not showing superiority [6] (verified). All-cause death was lower (hazard ratio 0.43), but that analysis was not protected against chance across multiple tests [6], so it is a signal, not a finding. A dedicated outcomes trial in obesity is ongoing [6].
+
+### Side effects in numbers [people]
+67. From the label, at the 5.5, 9 and 17.2 mg tablets against placebo: nausea 26, 34 and 35% against 10%; vomiting 13, 21 and 24% against 4%; constipation 20, 27 and 24% against 9%; diarrhoea 21, 23 and 25% against 11%. Overall, 8% stopped for adverse reactions against 3%, mostly gastrointestinal [2] (verified).
+68. Class warnings apply: pancreatitis, gallbladder disease, kidney injury from dehydration, hypoglycaemia with insulin or sulfonylureas, worsening diabetic retinopathy, and aspiration risk under anaesthesia [2] (verified).
+
+### Who produced the evidence [people]
+69. Discovered by a Japanese company and licensed in 2018 to the current US developer (reported), which ran and reported every phase 3 trial cited here [3,5,6] (verified). The trials are large, registered and published in major journals, which is a different tier of evidence from anything else in this library. Some of the most quoted figures, such as ACHIEVE-4's mortality result and the on-treatment weight figure, come first from company releases, so the peer-reviewed versions are the ones to check (inferred).
+
+### Where the law stands, October 2026 [people]
+70. US: approved on 1 April 2026 for chronic weight management, label revised July 2026 [2,7] (verified). EU: the CHMP adopted a positive opinion at its 12 to 15 October 2026 meeting for weight management and type 2 diabetes; the European Commission decision follows [8] (verified).
+71. Sport: GLP-1 agonists are not named anywhere on the 2026 Prohibited List, and as an approved drug it falls outside the catch-all non-approved class [9] (verified for the list contents; inferred for its application).
+
+### Open questions [mixed]
+72. Is the thyroid warning relevant to a drug rodents cannot respond to? Only human follow-up can say.
+73. Does the mortality signal in ACHIEVE-4 hold in a trial designed to test it?
+74. How much of the tolerability gap against oral semaglutide is dose escalation speed, and how much is the molecule?
+75. What happens to weight after stopping a daily pill, compared with weekly injections? Not yet reported.
+
+Deep read references:
+[1] Kawai et al., PNAS, structural basis for GLP-1 receptor activation by LY3502970 (PDB 6XOX), 2020 · https://rcsb.org/structure/6xox
+[2] FDA, Foundayo (orforglipron) prescribing information, revised July 2026, 2026 · https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220934s003lbl.pdf
+[3] Wharton et al., N Engl J Med, ATTAIN-1 (ACC journal scan), 2025 · https://www.acc.org/latest-in-cardiology/journal-scans/2025/09/24/16/48/attain-1
+[4] Rosenstock et al., N Engl J Med, ACHIEVE-1 in early type 2 diabetes (HCPLive summary), 2025 · https://www.hcplive.com/view/achieve-1-oral-glp-1-agonist-orforglipron-shows-strong-hba1c-weight-reductions
+[5] Eli Lilly, ACHIEVE-3 results against oral semaglutide, 2026 · https://investor.lilly.com/node/53961
+[6] Eli Lilly, ACHIEVE-4 cardiovascular safety results, 2026 · https://investor.lilly.com/node/54996
+[7] Eli Lilly, FDA approval of Foundayo for weight management, 2026 · https://investor.lilly.com/node/54076
+[8] chemXplore, CHMP October 2026 meeting highlights, 2026 · https://chemxplore.com/news/chmp-meeting-highlights-october-2026
+[9] WADA, 2026 Prohibited List (hosted copy), 2025 · https://www.asiarugby.com/wp-content/uploads/2026/06/2026list_en_final_clean_september_2025.pdf
+
+## Sources
+[S1] NCT07223593 · https://plaintrial.com/trial/NCT07223593
+[S2] Orforglipron (Wikipedia) · https://en.wikipedia.org/wiki/Orforglipron
+[S3] Drugs.com: Foundayo approval history · https://www.drugs.com/history/foundayo.html
+[S4] Lilly Medical: why approved doses differ from trial doses · https://medical.lilly.com/us/products/answers/why-are-the-approved-doses-of-foundayo-orforglipron-different-from-the-doses-studied-in-clinical-trials-367128
+[S5] Lilly Medical: Foundayo metabolism and half-life · https://medical.lilly.com/us/products/answers/how-is-foundayo-orforglipron-metabolized-and-eliminated-367491
+[S6] PharmExec: CHMP backs Foundayo (Oct 2026) · https://www.pharmexec.com/view/ema-panel-backs-lilly-foundayo-obesity-type-2-diabetes-europe
+[S7] TCTMD: ATTAIN-1, 12.4% weight loss · https://www.tctmd.com/news/oral-glp-1-drug-yields-12-weight-loss-nondiabetic-patients-obesity
+[S8] Lilly: ACHIEVE-3 beats oral semaglutide · https://investor.lilly.com/node/53961
+[S9] Wikipedia: Orforglipron · https://en.wikipedia.org/wiki/Orforglipron
+[S10] The Dose: orforglipron cannot be compounded · https://buttondown.com/the-dose/archive/peptides-20260309/

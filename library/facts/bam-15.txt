@@ -1,0 +1,150 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# BAM-15
+Page: https://baresignals.co/library/#/p/bam-15
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: BAM15, N5,N6-bis(2-fluorophenyl)-[1,2,5]oxadiazolo[3,4-b]pyrazine-5,6-diamine, CAS 210302-17-3
+2. Origin: Not a peptide: small molecule
+3. Legal and approval status: Preclinical as of 22 Oct 2026: no human trials, not approved anywhere. WADA S0 (non-approved substance) applies (inferred).
+
+## Summary
+4. BAM-15 is not a peptide but a small-molecule mitochondrial uncoupler that lets protons leak so cells burn fuel as heat. It was designed to avoid the overheating that made DNP dangerous, and in obese mice it reversed fat gain and insulin resistance. It has never been tested in humans, so dose, safety and effect are unknown.
+5. Punch line: Mitochondrial uncoupler built as a safer DNP. Burns fuel as heat; reversed obesity in mice, untested in humans.
+6. Used for: Fat loss, insulin sensitivity
+
+## Roles (what it is used for, strongest first)
+7. Cellular energy: Burns fuel as heat in mitochondria
+8. Fat metabolism: Reversed fat gain in mice
+9. Glucose & insulin: Better insulin sensitivity in mice
+10. Organ function: Less liver and kidney fat
+11. Muscle & performance (backed only by animal or user reports): Muscle benefits in aged mice
+12. Inflammatory signaling (backed only by animal or user reports): Calmer inflammation in injury models
+
+## How it works
+13. Lets protons leak across the mitochondrial membrane · Protonophore, inner mitochondrial membrane · role Cellular energy
+   BAM-15 is a protonophore, a weak acid that carries protons across the inner mitochondrial membrane and around ATP synthase. The energy in that proton gradient is lost as heat instead of becoming ATP. Unlike DNP and FCCP, it does not depolarise the outer cell membrane, shown in cell studies.
+14. Cells burn more fat to keep up · Raised fatty acid oxidation · role Fat metabolism
+   With less ATP made per unit of fuel, cells burn more fuel to keep up, especially fat. In mice a single oral dose raised fat oxidation, and oxygen use rose without more movement or less eating. This is animal work only.
+15. Turns on energy-sensing switches · AMPK and PGC-1α activation · role Cellular energy
+   The energy shortfall switches on AMPK, the cell's fuel sensor, and PGC-1α, a master regulator of mitochondrial genes. These shift cells toward burning more and building mitochondria. The evidence comes from cell and mouse studies.
+16. Better insulin action in muscle and liver · Lower HOMA-IR in mice · role Glucose & insulin
+   In obese mice BAM-15 reversed insulin resistance, lowered fasting glucose and insulin, and returned liver fat to normal. Clamp studies showed muscle and fat taking up more glucose. No human data exist on any of this.
+17. Mechanism overview: BAM-15 is a lipophilic weak acid that shuttles protons across the inner mitochondrial membrane, bypassing ATP synthase. The proton gradient is spent as heat instead of ATP, so cells raise substrate oxidation, especially fat, to keep energy levels up. The resulting energy stress activates AMPK and PGC-1α. Unlike DNP and FCCP it does not depolarise the plasma membrane, which may explain why mice showed no rise in body temperature at effective doses.
+
+## Dosage (community reported unless tagged)
+18. Typical: No human dose (animal only); 25–50 mg reported · once or twice daily (reported) · cycle 4–8 weeks (reported) · route Oral (reported)
+19. Half-life: ~1.7–3 hours (mice)
+20. Most people take: No human dose exists. Community: oral 25–50 mg daily with meals, 4–8 weeks; mouse doses do not scale by body weight.
+
+## What people report
+21. Sold as a research-chemical powder or capsule; users report oral doses of 25–50 mg a day and watch for warmth, sweating and racing heart.
+22. Liked / worked: Reversed obesity in mice
+23. Liked / worked: Liver fat down ~75% in mice
+24. Liked / worked: No body temperature rise in mice
+25. Liked / worked: No food intake drop needed
+26. What worked: In obese mice it reversed fat gain and insulin resistance and cut liver fat about 75%, without lowering food intake, lean mass or body temperature.
+27. Went wrong / did not work: No human trials
+28. Went wrong / did not work: Very short half-life
+29. Went wrong / did not work: Uncharacterised heart risk
+30. Went wrong / did not work: Mouse doses don't scale to humans
+31. What went wrong: Never dosed in humans in a registered trial; short half-life in mice (~2–3 hours); the uncoupler class carries uncharacterised heart and overheating risk.
+32. Most reported: Warmth and sweating
+33. Most reported: Stacked with GLP-1s for fat loss
+34. Most reported: Purity of powders unknown
+35. Most reported: Few detailed first-hand reports
+
+## What has been tested
+36. Fat metabolism: Diet-induced obesity (animal)
+37. Glucose & insulin: Insulin resistance (animal)
+38. Organ function: Liver fat and kidney injury (animal)
+39. Cellular energy: Cell viability up to 100 µM (cell)
+40. Mouse and cell studies only, from several independent labs; no registered human trial.
+41. What it helps: Evidence is mouse and cell work. In obese mice, BAM-15 reversed fat gain and insulin resistance, cut liver fat and lowered fasting glucose and insulin without eating less. No human data exist on dose, safety or effect. Users take it orally for fat loss, often beside GLP-1 drugs, and watch for overheating, sweating and racing heart.
+42. Trial: none. Still preclinical; mouse studies only, with no human trial registered anywhere. (checked 2026-10-23) [S1] (inferred)
+
+## Who shouldn't take it
+43. People exercising or living in heat: Uncouplers like DNP cause fatal overheating. (inferred)
+44. People on thyroid hormone or stimulants: Metabolic rate already raised; heat load stacks. (inferred)
+45. People with eating disorders: Fast fat-burning drugs of this class have a history of compulsive overdosing. (inferred)
+
+## Synergies (paired with)
+46. Semaglutide: Semaglutide cuts how much people eat, while BAM-15 raises how much energy cells burn, so users pair them to attack both sides of energy balance. BAM-15 has no human data, and the pair has not been tested together.
+47. Tirzepatide: Tirzepatide lowers intake and improves insulin action through GIP and GLP-1 receptors, and BAM-15 adds raised fuel burning in mitochondria. The logic is complementary, but it is user logic, not trial data, and BAM-15 is untested in people.
+48. MOTS-c: MOTS-c mimics exercise through AMPK, and BAM-15 creates an energy shortfall that also switches AMPK on, so both push cells toward burning fat. Both rest on mouse data, and the pair has not been tested together.
+49. SLU-PP-332: SLU-PP-332 builds more mitochondria and shifts muscle to fat burning, while BAM-15 makes those mitochondria burn fuel less efficiently, so more is used. They are sold pre-mixed as SLU-PP-332 + BAM-15 oral, but the pair has only been reasoned about, not tested.
+
+## Where it comes from
+50. A mitochondrial uncoupler that lets protons leak back across the inner membrane so cells burn fuel as heat, designed to avoid the runaway overheating that made DNP lethal.
+51. First studied for: Lab tool, then a candidate for obesity, fatty liver and insulin resistance in mice.
+52. 2013: First described as a mitochondria-selective uncoupler
+53. 2020: Mouse studies: reverses obesity and insulin resistance (Nat Commun, EMBO Mol Med)
+54. 2020s: Kidney and aged-muscle benefits in mice
+55. Today: Still no human trial; sold as a research chemical
+
+## Deep read (as of 2026-10)
+
+### The problem it was designed to solve [cells]
+56. Uncoupling has an unhappy history. In the 1930s doctors prescribed 2,4-dinitrophenol for weight loss; it worked, and it was abandoned after cataracts appeared in a share of patients and deaths followed. US regulators declared it unfit for human consumption in 1938. The mechanism of the harm is the same as the mechanism of the benefit: energy leaves as heat instead of becoming ATP, so metabolic rate rises, and at higher doses body temperature runs away and death typically follows cardiac arrest [1] (verified).
+57. The design brief for this compound was therefore narrow: uncouple mitochondria without the off-target effects that make DNP and the laboratory uncoupler FCCP dangerous. A 2013 screen identified it as a protonophore that carries protons into the mitochondrial matrix bypassing ATP synthase, and the key reported difference was that it does not depolarise the plasma membrane. Against FCCP, described as similarly potent, it produced a higher maximum respiration rate in cultured cells and was less toxic to them [2] (verified, cells). The same paper reported that it was active in living mice and protected them dose-dependently from acute kidney injury caused by interrupted blood flow [2] (verified, animals).
+58. That is the whole safety argument in outline, and it is a comparative one: safer than a compound that killed people, in cells and in mice. It is not a demonstration of safety in humans, and no human study exists.
+
+### The main obesity study, in its own numbers [animals]
+59. The 2020 paper is the source of nearly everything quoted about this compound, and the details matter because they are often dropped. Male mice, in two designs: prevention, with the compound mixed into a western diet at 0.05, 0.10 or 0.15% by weight for eight days; and reversal, four weeks of western diet to make the mice obese, then five weeks of treatment at 0.10% [3] (verified).
+60. Prevention: the lowest dose prevented more than half of fat gain and the two higher doses prevented it entirely, with food intake and lean mass unchanged, glucose tolerance preserved and fasting glucose and insulin lower [3] (verified, animals).
+61. Reversal: treated mice ended about 15% lighter than diet controls, the difference almost entirely fat, with lean mass and food intake unchanged. Faecal fat excretion did not change, which rules out the simplest alternative explanation that the compound was blocking fat absorption. Liver triglycerides returned to the level of mice on ordinary chow. Glucose intolerance and high insulin reversed within three weeks, and clamp studies showed more glucose taken up by muscle and fat and better suppression of fatty acid release [3] (verified, animals).
+62. On energy use: a single oral dose raised fat oxidation by 51%, and oxygen consumption rose about 15% during the animals' active phase, with the respiratory exchange ratio falling and locomotor activity unchanged [3] (verified). So the weight loss came from burning more, not moving more or eating less, which is what the mechanism predicts.
+63. The temperature question, which is the one that matters given DNP: body temperature did not change up to 200 mg per kg by mouth [3] (verified, mice, acute). That is the single most important number in the compound's file.
+
+### What the body does with it, and why mouse doses do not transfer [animals]
+64. In mice, oral bioavailability was about 67%, a 10 mg per kg oral dose reached a peak blood concentration of about 8.2 micromolar, the half-life was about 1.7 hours, and distribution was mainly to the liver [3] (verified).
+65. Two of those numbers constrain everything. A 1.7-hour half-life means exposure is brief and spiky from a single dose, which is why the mouse studies delivered it continuously in food rather than as discrete doses [3] (inferred from the study design). And liver-weighted distribution means the liver sees far more than other tissues, which fits the liver fat and insulin results and makes the liver the organ to watch (inferred).
+66. The authors themselves named the short half-life and low solubility as limitations for development [3] (verified as their stated view). Nothing in the record describes human pharmacokinetics, human bioavailability, or what a human tablet or capsule would need to look like. There is no established human dose, and mouse diet-admixture doses cannot be converted into one.
+
+### The other animal findings [animals]
+67. Kidney: protection against acute ischaemia-reperfusion injury in mice, dose-dependent, in the original 2013 paper [2] (verified).
+68. Ageing muscle: a 2022 study in aged obese mice, reported in a cachexia and sarcopenia journal, found over 20% fat loss alongside roughly 8% more muscle mass and about 40% more strength, with the animals more physically active; the press account gave no doses or duration, and reduced inflammation and mitochondrial turnover were described without figures [4] (reported). Gaining muscle while losing fat is unusual enough to deserve independent confirmation before it is treated as established.
+69. A 2025 preprint reports improved skeletal muscle function and mitochondrial respiration in a sarcopenia model [5] (reported; a preprint has not been peer reviewed, and it is cited here as such).
+
+### Safety: what was measured, and the shape of what was not [animals]
+70. The 2020 study ran a reasonable panel for a mouse study: no change in body temperature, ALT, AST, glutamate dehydrogenase, creatine kinase or creatinine; triglycerides fell; blood urea nitrogen rose about 22% but stayed within the normal range; no ketosis. Liver glutathione rose and oxidised lipids and inflammatory eicosanoids fell [3] (verified, mice, up to about five to six weeks).
+71. What is absent is everything a drug needs before people take it: no study beyond a few weeks in any species, no genotoxicity, no reproductive or developmental work, no carcinogenicity study, no second species, no eye examinations in a drug class whose predecessor caused cataracts, and no human trial of any kind (verified as absent from the published record).
+72. The cataract point is worth stating plainly rather than leaving implied. DNP's human harms included cataracts at doses below the lethal range [1]. No published work on this compound reports lens examination. That is not evidence of a problem; it is an untested question in exactly the place the class's history points (inferred).
+73. One structural caution: the therapeutic margin for an uncoupler is the gap between burning more fuel and overheating. In mice that gap looked wide, with no temperature change at twenty times the energy-expenditure dose [3]. Nobody knows what it is in a human, and a short half-life cuts both ways, limiting accumulation but making exposure sensitive to dose and formulation (inferred).
+
+### Who produced the evidence [lab]
+74. The compound comes from an academic network spanning Virginia Tech, the University of Virginia, UNSW Sydney, the University of Sydney and the Garvan Institute, with a company among the author affiliations on the 2020 paper [3] (verified). The ageing muscle work came from a separate US group [4], which is the closest thing to independent corroboration in the file.
+75. There is no clinical programme. Commentary following the mouse work described progress toward a possible clinical path as slow, with no human data [6] (reported). Six years after the main paper, that is still the position.
+
+### Where the law stands, October 2026 [people]
+76. Preclinical. No approval anywhere, no registered human trial found, no investigational new drug programme announced. Material sold under this name is a research chemical, and it is a small molecule rather than a peptide despite where it is usually shelved.
+77. In sport it is not named on the WADA Prohibited List; as a substance with no approval for human therapeutic use it falls under S0, prohibited at all times, and metabolic modulators are separately addressed as a class (inferred from the list's wording).
+
+### Open questions [mixed]
+78. What is the therapeutic margin in a human? This is the whole question for an uncoupler, and the only data are mouse body temperatures.
+79. Does the eye tolerate it? The class's defining human harm has not been looked for in this compound.
+80. Can muscle really be gained while fat is lost? One study reports it; it needs replication before it is repeated as fact.
+81. What happens past six weeks, and in a second species? Nothing longer or wider has been published.
+82. How would a human dose even be set, given 1.7-hour kinetics, poor solubility and liver-weighted distribution? The authors flagged these as development problems, and they have not been solved in public.
+
+Deep read references:
+[1] ATSDR, Toxicological Profile for Dinitrophenols, chapter on public health and 1930s weight-loss use, 1995 · https://www.atsdr.cdc.gov/toxprofiles/tp64-c1.pdf
+[2] Kenwood et al., Mol Metab 2013, identification of a novel mitochondrial uncoupler without plasma membrane depolarisation (abstract via Bioblast), 2013 · https://bioblast.at/index.php/Kenwood_2013_Mol_Metab
+[3] Alexopoulos et al., Nat Commun 2020, mitochondrial uncoupler BAM15 reverses diet-induced obesity and insulin resistance in mice, 2020 · https://par.nsf.gov/servlets/purl/10203598
+[4] AZoLifeSciences, report of Dantas et al., J Cachexia Sarcopenia Muscle 2022, uncoupler prevents sarcopenic obesity in elderly mice, 2022 · https://www.azolifesciences.com/news/20220407/A-mitochondrial-uncoupler-prevents-sarcopenic-obesity-in-elderly-mice.aspx
+[5] Preprint (bioRxiv 2025), mitochondrial uncoupler BAM15 improves skeletal muscle function and mitochondrial respiration in sarcopenia (not peer reviewed), 2025 · https://www.biorxiv.org/content/10.1101/2025.10.30.685477.full.pdf
+[6] Fight Aging, more on the safe mitochondrial uncoupling compound BAM15, 2022 · https://www.fightaging.org/?p=49911
+
+## Sources
+[S1] Trial
+[S2] EMBO Mol Med: BAM15 protects against obesity (2020) · https://link.springer.com/article/10.15252/emmm.202012088
+[S3] Outliyr: BAM15 report · https://outliyr.com/reports/bam15
+[S4] Outliyr: BAM15 index · https://outliyr.com/health-optimization-index/bam15
+[S5] Peptide-DB: BAM-15 · https://peptide-db.com/peptides/bam-15
+[S6] Pharmacy Times: BAM15 obesity study · https://www.pharmacytimes.com/view/study-finds-bam15-as-potential-treatment-for-obesity

@@ -1,0 +1,139 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Eloralintide
+Page: https://baresignals.co/library/#/p/eloralintide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: LY3841136
+2. Origin: Lab-modified natural chain
+3. Sequence: CNTATCATGKLAEFLVRSSNNFGPKLPPTEVGSNTY (36 amino acids). X (ornithine) shown as K; Amylin-based; N-terminal gGlu cap; alpha-methyl-Phe and N-methyl-Asn swaps; Cys bridge; Lys carries a C20 diacid via gGlu-gGlu; C-terminal amide
+4. Legal and approval status: Investigational as of 22 Oct 2026: Phase 3 ENLIGHTEN program recruiting since 2026, results expected around 2028. Not approved anywhere; WADA S0 (non-approved substance) applies (inferred).
+
+## Summary
+5. Eloralintide is Lilly's once-weekly amylin analogue, tilted toward the amylin-1 receptor. It is thought to signal fullness and slow stomach emptying, and is being developed for obesity alone or alongside tirzepatide. A 48-week Phase 2 trial showed up to 20.1% weight loss, but it is unapproved and Phase 3 results are expected around 2028.
+6. Punch line: Lilly's weekly amylin shot, working through fullness rather than GLP-1. Phase 2 hit about 20% weight loss.
+7. Used for: Weight loss
+
+## Roles (what it is used for, strongest first)
+8. Appetite & satiety: Fullness via amylin receptors
+9. Fat metabolism: Up to 20% weight loss
+10. Glucose & insulin: Slows post-meal glucose rise
+11. Digestive & gut: Slows stomach emptying
+12. Cellular energy (backed only by animal or user reports): Fatigue on higher doses
+13. Hair (backed only by animal or user reports): Hair loss at 9 mg
+14. Heart & vessels (backed only by animal or user reports): Slow heart rate signal
+
+## How it works
+15. Signals fullness to the brainstem · Amylin-1 receptor (CTR + RAMP1) · role Appetite & satiety
+   Eloralintide activates the amylin-1 receptor, a calcitonin receptor paired with RAMP1, about 12-fold more than the plain calcitonin receptor. Amylin signalling in the area postrema and brainstem produces a sense of fullness. In the Phase 2 trial this drove up to 20.1% weight loss at 9 mg.
+16. Slows stomach emptying · Amylin receptor, vagal · role Digestive & gut
+   Amylin receptor signalling, partly through the vagus nerve, slows how fast the stomach empties into the gut. Food stays longer, fullness lasts longer and sugar enters the blood more slowly. It also explains much of the nausea, which was the most common side effect in trials.
+17. Blunts glucagon after meals · Amylin receptor, pancreas · role Glucose & insulin
+   After meals, amylin action on the pancreas holds back glucagon, the hormone that tells the liver to release sugar. Lower glucagon means a smaller blood sugar rise. HbA1c fell in every active trial arm even though no one had diabetes.
+18. Fatty tail rides albumin for weekly dosing · C20 diacid acylation · role Fat metabolism
+   A C20 fatty diacid chain on the molecule binds albumin, the main protein in blood. Bound to albumin, it is shielded from breakdown and kidney clearance, so it lasts long enough for weekly dosing. No human half-life has been published.
+19. Mechanism overview: Eloralintide is a 36-residue amylin analogue with non-natural residues (ornithine, alpha-methyl-Phe, N-methyl-Asn) for stability and a C20 fatty diacid that binds albumin for weekly dosing. It preferentially activates the amylin-1 receptor, a calcitonin receptor paired with RAMP1, about 12-fold over the plain calcitonin receptor. Amylin signalling in the area postrema and brainstem produces fullness, slows gastric emptying and blunts post-meal glucagon. In rats it caused less conditioned taste aversion than cagrilintide.
+
+## Dosage (community reported unless tagged)
+20. Typical: 1–9 mg (trial) · once weekly · cycle Ongoing; 3 → 6 → 9 mg escalation best tolerated · route Sub-Q (verified)
+21. Half-life: Not published
+22. Most people take: Trial only: weekly Sub-Q 1, 3, 6 or 9 mg; slow 3/6/9 mg escalation had GI rates near placebo. No oral form.
+
+## What people report
+23. Almost no genuine first-hand reports; research-chemical listings exist, and interest centres on amylin as a gentler GLP-1 alternative or add-on.
+24. Liked / worked: Up to 20.1% weight loss at 48 weeks
+25. Liked / worked: 82% lost 10% or more on 9 mg
+26. Liked / worked: Low doses near placebo for GI effects
+27. Liked / worked: Weight still falling at 48 weeks
+28. What worked: Up to 20.1% weight loss at 48 weeks on 9 mg, still falling at trial end; 82% on 9 mg lost at least 10%. Lower doses were close to placebo for GI effects.
+29. Went wrong / did not work: Fatigue ~43% on 9 mg
+30. Went wrong / did not work: Nausea dose-related
+31. Went wrong / did not work: Hair loss 11% on 9 mg
+32. Went wrong / did not work: Slow heart rate 11% on 6 mg
+33. What went wrong: Dose-related nausea and fatigue (fatigue ~43% on 9 mg), hair loss in 11% on 9 mg and a slow heart rate in 11% on 6 mg in small arms; long-term safety unknown.
+34. Most reported: Seen as a gentler GLP-1 alternative
+35. Most reported: Interest in stacking with tirzepatide
+36. Most reported: Almost no first-hand reports
+
+## What has been tested
+37. Fat metabolism: Obesity without diabetes, Phase 2 (human)
+38. Glucose & insulin: Obesity with T2D, ENLIGHTEN-2 (human)
+39. Appetite & satiety: Taste aversion vs cagrilintide (animal)
+40. Phase 1 and a 48-week Phase 2 in 263 adults (The Lancet, 2025); Phase 3 ENLIGHTEN trials began 2026, including type 2 diabetes and tirzepatide combinations.
+41. What it helps: A 48-week Phase 2 trial showed up to 20.1% weight loss on 9 mg, with GI effects near placebo on low doses and slow escalation. Fatigue, nausea and small signals for hair loss and slow heart rate need Phase 3 clarity. People look at it as a gentler alternative or add-on to GLP-1 drugs.
+42. Trial: active · Phase 3 · obesity · NCT07321886 · Eli Lilly. Lilly's amylin shot moved to Phase 3 in February 2026 and is recruiting across US sites. (checked 2026-10-23) [S1] (verified)
+
+## Who shouldn't take it
+43. Insulin or sulfonylurea users: Amylin analogues add to insulin; severe lows risk. (inferred)
+44. Anyone booked for surgery, endoscopy or sedation: Delayed gastric emptying; aspiration risk. (inferred)
+
+## Synergies (paired with)
+45. Tirzepatide: Tirzepatide quiets hunger through GLP-1 and GIP receptors, while eloralintide adds fullness through the separate amylin pathway in the brainstem. The two-pathway logic is being tested in a Phase 2 trial in type 2 diabetes, but results are not yet published.
+46. Retatrutide: Retatrutide works on GLP-1, GIP and glucagon receptors to cut hunger and burn liver fat, and eloralintide adds amylin-driven fullness. People eye the pair for maximum weight loss, but the pairing is user logic, not trial data, and both are investigational.
+
+## Where it comes from
+47. Lilly's once-weekly amylin analogue, engineered to favour the amylin-1 receptor over the calcitonin receptor, with a C20 fatty tail for weekly dosing.
+48. First studied for: Obesity, alone or alongside tirzepatide.
+49. Name story: Eli Lilly's weekly amylin drug, coded LY3841136 before it got a real name. The "-lintide" ending is the naming stem for amylin analogues, shared with pramlintide and cagrilintide; amylin is the hormone beta cells release alongside insulin. [S2] (verified)
+50. 2024: Phase 1: 2.6–11.3% weight loss at 12 weeks
+51. Nov 2025: Phase 2: up to 20.1% at 48 weeks (Lancet)
+52. 2026: Phase 3 ENLIGHTEN trials start
+53. Today: Hair loss and slow heart rate signals in small arms unexplained
+
+## Deep read (as of 2026-10)
+
+### Why a selective amylin drug, and what that choice is betting on [mixed]
+54. Amylin is a hormone released from the same beta cells as insulin. Its receptors are not a single protein: they are the calcitonin receptor paired with one of three accessory proteins called RAMPs, and the calcitonin receptor alone is a separate target again. The first long-acting amylin drug in the current wave, cagrilintide, hits amylin and calcitonin receptors more or less equally. Eloralintide was built to do the opposite, favouring the amylin receptors over the plain calcitonin receptor [1] (verified that selectivity was the design aim).
+55. The discovery work tested the molecule in cells carrying rat or human amylin-1, amylin-3 or calcitonin receptors, then in rats and monkeys, before moving to people [1] (verified). The bet behind selectivity is that fullness and slower stomach emptying come mostly from the amylin receptors in the brainstem, while some of the nausea and taste aversion come from broader calcitonin receptor activation (inferred; the rat taste-aversion comparison on the card is the main published support, and nobody has shown the same separation in humans).
+56. Whether the bet pays off clinically is still open. Nausea was the single most common adverse event in the phase 2 trial [3], so selectivity did not remove the class's main side effect; what the trial suggests is that it can be managed by dosing speed (see below).
+
+### The human record [people]
+57. Phase 1, about 100 people over 12 weeks of weekly multiple ascending doses: weight fell between 2.6% and 11.3% depending on dose, with diarrhoea in about 10% and fewer reporting nausea or vomiting [2,4] (reported). For a 12-week study that is a steep curve, comparable to early data for the incretin drugs.
+58. Phase 2, 263 adults with obesity or overweight and no diabetes, 48 weeks, seven arms: placebo, fixed 1, 3, 6 or 9 mg, and two escalation schemes (6 then 9 mg; 3 then 6 then 9 mg). Baseline weight averaged 109 kg and 78% of participants were women [3,5] (verified).
+59. Weight change on the efficacy estimand was 9.5% on 1 mg, 12.4% on 3 mg, 17.6% on 6 mg, 20.1% on 9 mg, 19.9% on 6 then 9, and 16.4% on 3 then 6 then 9, against 0.4% on placebo [3,5] (verified). Counting everyone regardless of whether they stayed on treatment, the 9 mg figure falls to 17.5% and placebo rises to 2.3% [3]. At 9 mg, 57% lost at least 20% of body weight and 19% lost at least 30% [3].
+60. Body composition was measured: 60 to 70% of the weight lost was fat [3] (reported). HbA1c fell in every active arm against placebo even though nobody had diabetes, and fasting glucose, HDL and triglycerides improved significantly in the 9 mg and escalation arms [3] (reported). The primary endpoint was not adjusted for multiple comparisons across seven arms [5], which is normal for a dose-finding study but means individual arm differences should be read as estimates.
+
+### Safety: the dose-speed finding, and the signals that need checking [people]
+61. Overall adverse events were almost identical between drug and placebo, 81% against 79%, and serious adverse events were 5.3% against 5.4% with no deaths [3] (verified). That near-match partly reflects how often placebo groups report symptoms in a year-long trial, so the per-symptom picture is more informative.
+62. Nausea (33%) and fatigue (27%) were the most common events across the pooled drug arms [3]. Gastrointestinal events clustered in the 6 mg, 9 mg and 6 then 9 arms; the slow 3 then 6 then 9 escalation had rates close to placebo and still produced 16% weight loss [3,5] (verified). That is the most practically useful finding in the trial: speed of escalation, not final dose, drove most of the stomach trouble.
+63. Fatigue is the less familiar signal. It is not a prominent effect of the incretin drugs, it was common here, and all four severe gastrointestinal events were reported alongside fatigue [3] (reported). Why an amylin agonist would cause tiredness has not been explained in anything published.
+64. The card's mentions of hair loss at 9 mg and a slower heart rate could not be confirmed in the trial reports accessible for this review; neither appears in the sponsor's release or the conference coverage [3,5]. They may sit in the full paper's supplementary tables, which could not be opened. They are flagged here as unconfirmed rather than repeated.
+
+### What the body does with it [people]
+65. The C20 fatty diacid lets it ride on albumin for once-weekly dosing. No human half-life has been published in a source accessible for this review, and the sponsor has not stated one; the phase 1 paper is the place it would appear [2]. Nothing is known publicly about how it is cleared or whether kidney or liver impairment changes exposure.
+
+### Who produced the evidence [people]
+66. Every study, from receptor assays to phase 2, was designed and funded by the developer [1,2,3]. The phase 2 paper went through peer review at The Lancet [5]. No independent trial exists, which is the normal state for a drug at this stage and also means the safety picture rests on about 360 treated people in total.
+
+### Where the law stands, October 2026 [people]
+67. Investigational everywhere. The phase 3 programme, named ENLIGHTEN, opened in 2026: trials in obesity without diabetes, obesity with type 2 diabetes, and obstructive sleep apnoea, the last planning 800 participants for up to 64 weeks of treatment against placebo [6] (verified). A separate phase 2 is testing it alone and with tirzepatide in people with type 2 diabetes [5].
+68. In sport it falls under WADA's S0 class for substances with no regulatory approval, prohibited at all times (inferred from the class definition; it is not named on the list).
+
+### Open questions [mixed]
+69. Does amylin selectivity matter in humans, or does the escalation schedule explain the tolerability on its own?
+70. Why fatigue? It was common, it tracked with the severe events, and no mechanism has been proposed.
+71. What do the full safety tables show on heart rate and hair? Phase 3, with thousands of participants, will settle whether those are real signals.
+72. How does it combine with an incretin drug? The rationale is two separate fullness pathways; the combination trial is where that gets tested.
+
+Deep read references:
+[1] Lilly investigators, 2025, eloralintide (LY3841136), a novel amylin receptor agonist: from discovery to clinical proof of concept, 2025 · https://pubmed.ncbi.nlm.nih.gov/41109426/
+[2] Lilly investigators, 2026, eloralintide, a selective long-acting amylin receptor agonist: phase 1 proof of concept, 2026 · https://pubmed.ncbi.nlm.nih.gov/41559929/
+[3] Healio, report of Billings et al., Lancet 2025, eloralintide phase 2 (ObesityWeek presentation), 2025 · https://www.healio.com/news/endocrinology/20251210/novel-amylin-receptor-agonist-induces-clinically-meaningful-weight-loss
+[4] Fierce Biotech, eloralintide phase 1 data ahead of ADA 2025, 2025 · https://www.fiercebiotech.com/biotech/eli-lillys-phase-1-amylin-data-impress-analysts-pairing-11-weight-loss-tolerable-profile
+[5] Eli Lilly, eloralintide phase 2 results release, Nov 2025 (paper: Billings et al., Lancet 2025, doi 10.1016/S0140-6736(25)02155-5), 2025 · https://investor.lilly.com/node/53246
+[6] EU Clinical Trials Information System, ENLIGHTEN-3: eloralintide in obstructive sleep apnoea and obesity, 2026 · https://www.ctis.eu/trial/2025-523769-11-00
+
+## Sources
+[S1] NCT07321886 · https://plaintrial.com/trial/NCT07321886
+[S2] Lilly: eloralintide Phase 2 release (Nov 2025) · https://investor.lilly.com/node/53246
+[S3] Lilly: eloralintide Phase 2 results (Nov 2025) · https://investor.lilly.com/node/53246
+[S4] EU CTIS: ENLIGHTEN-2 Phase 3 · https://www.ctis.eu/trial/2025-523658-15-00
+[S5] Outliyr: Eloralintide report · https://outliyr.com/reports/eloralintide
+[S6] Healio: amylin agonist Phase 2 safety · https://www.healio.com/news/endocrinology/20251210/novel-amylin-receptor-agonist-induces-clinically-meaningful-weight-loss
+[S7] Peptide Protocol Wiki: eloralintide risks · https://www.peptideprotocolwiki.com/peptides/eloralintide/risks

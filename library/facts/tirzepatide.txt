@@ -1,0 +1,148 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Tirzepatide
+Page: https://baresignals.co/library/#/p/tirzepatide
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: LY3298176, Mounjaro, Zepbound
+2. Origin: Lab-designed
+3. Sequence: YAEGTFTSDYSIALDKIAQKAFVQWLIAGGPSSGAPPPS (39 amino acids). Positions 2 and 13 are Aib, shown as A; fatty acid chain on K20 and amide end not shown
+4. Shown with an FDA approved badge
+5. Legal and approval status: FDA-approved (Mounjaro, Zepbound) and widely approved. Catalog vials are not the approved product. Not WADA-banned.
+
+## Summary
+6. Tirzepatide is Eli Lilly's lab-designed dual GIP/GLP-1 agonist, a single chain that works both receptors. It is used for type 2 diabetes, obesity and obstructive sleep apnea. Trials show 20 to 22% weight loss at the top dose, and users often report a stronger effect than semaglutide, with similar GI issues and regain after stopping.
+7. Punch line: Mounjaro and Zepbound. Weekly GIP plus GLP-1 shot; about 20% weight loss at top dose, beyond semaglutide.
+8. Used for: Weight loss, diabetes, sleep apnoea
+
+## Roles (what it is used for, strongest first)
+9. Appetite & satiety: Strong appetite control
+10. Glucose & insulin: Lowers blood sugar and A1c
+11. Sleep & rhythms: Approved for sleep apnea
+12. Pain & sensory: Joint pain studied
+13. Heart & vessels (backed only by animal or user reports): Heart outcomes under study
+14. Reward & urges (backed only by animal or user reports): Fewer cravings reported
+
+## How it works
+15. Boosts insulin when glucose is high · GIP and GLP-1 receptors · role Glucose & insulin
+   Tirzepatide activates both GIP and GLP-1 receptors on pancreatic beta cells, with stronger action at GIP. Both boost insulin only when glucose is high. The SURPASS trials showed strong A1c reductions in type 2 diabetes.
+16. Quiets hunger, slows the stomach · GLP-1 receptor · role Appetite & satiety
+   Through the GLP-1 receptor it cuts hunger in the brain's appetite centres and slows stomach emptying. People eat less and feel full longer. SURMOUNT showed 20 to 22% weight loss at the top dose, and a head-to-head trial beat semaglutide on weight.
+17. Improves how fat tissue stores and burns fat · GIP receptor, adipose · role Fat metabolism
+   GIP receptors on fat tissue improve how fat cells store fat and release it for burning. This adds a second route to the GLP-1 effect and helps explain the larger weight loss. The weight results are human; how much this fat tissue effect contributes is less clear.
+18. Eases sleep apnoea through weight loss · OSA, FDA label 2024 · role Sleep & rhythms
+   Obstructive sleep apnoea (OSA) is driven heavily by excess weight around the airway. Tirzepatide improved OSA in a dedicated trial, and the FDA added it to the label in 2024. The benefit comes through weight loss, not a direct action on the airway.
+19. Dampens food reward and cravings · Central GLP-1R, GIPR · role Reward & urges
+   Both GLP-1 and GIP receptors sit in brain reward circuits that drive cravings. Activating them dampens the pull of food reward. Users report fewer cravings, often more than on semaglutide; the circuit detail comes mainly from animal work.
+20. Fatty tail rides albumin for weekly dosing · C20 diacid, albumin · role Glucose & insulin
+   A C20 fatty diacid chain binds albumin, the main blood protein, which slows clearance and keeps the peptide circulating for days. This allows once-weekly dosing. It is the same strategy semaglutide uses, with a slightly longer fatty chain.
+21. Mechanism overview: Tirzepatide is a single 39 amino acid peptide that activates both GIP and GLP-1 receptors, with stronger action at GIP. GLP-1 receptor signalling cuts hunger, slows the stomach and boosts insulin when glucose is high. GIP receptor signalling adds insulin release and acts on fat tissue to improve how it stores and burns fat. Both act on brain reward circuits that drive cravings. A C20 fatty diacid binds albumin for weekly dosing. The dual action explains why it outperforms semaglutide on weight and A1c.
+
+## Dosage (community reported unless tagged)
+22. Typical: 2.5–15 mg · once weekly · cycle Similar to sema · route Sub-Q (verified)
+23. Half-life: ~5 days
+24. Dose note: Label maximum 15 mg weekly. About three in four real-world users stay under 10 mg.
+25. Most people take: 2.5mg/week → titrate to 5-15mg/week · Similar to sema. 3-6 months continuous, reassess.
+26. Common: 5–10 mg · 1× weekly · ongoing; 2.5 mg start, +2.5 mg every 4 wk · Sub-Q · for most real-world users stop below 10 mg [S1] [S2] (reported)
+27. Label max: 12.5–15 mg · 1× weekly (some split 2×) · ongoing, ≥20 wk to reach · Sub-Q · for full escalation, higher BMI or diabetes [S3] [S2] (reported)
+28. Microdose: 0.25–1.25 mg · 1× weekly, or 2.5 mg/wk split 2–3× · ongoing; one public case 12 wk · Sub-Q · for longevity and maintenance crowd [S4] [S5] [S6] (reported)
+
+## What people report
+29. Heavily used grey-market and compounded. Users report stronger effect than semaglutide for many, with the same GI titration issues.
+30. Liked / worked: About 20 to 22% weight loss at top dose
+31. Liked / worked: Strong A1c reduction
+32. Liked / worked: Sleep apnea improved
+33. What worked: Around 20-22% body-weight loss at the top dose, strong A1c reduction, and improvement in sleep apnea, which is why the catalog stripe carries Sleep.
+34. Went wrong / did not work: Class GI side effects
+35. Went wrong / did not work: Rodent thyroid tumor warning applies
+36. Went wrong / did not work: Regain on stopping
+37. What went wrong: Same GI side-effect profile as the class; the rodent thyroid-tumor warning applies; regain on stopping.
+38. Most reported: Stronger than semaglutide for many
+39. Most reported: Same GI issues on titration
+
+## What has been tested
+40. Glucose & insulin: Type 2 diabetes, SURPASS (trial)
+41. Fat metabolism: Obesity, SURMOUNT (trial)
+42. Sleep & rhythms: Obstructive sleep apnea (trial)
+43. The SURPASS (diabetes) and SURMOUNT (obesity) programs; SURMOUNT reported some of the largest weight loss of any approved drug, and a trial in obstructive sleep apnea led to an added indication.
+44. What it helps: SURMOUNT trials showed 20 to 22% weight loss at the top dose in obesity. SURPASS showed strong A1c reductions in type 2 diabetes. It also improved obstructive sleep apnea, which is now on its label. Users report a stronger effect than semaglutide for many, with the same GI issues on titration and regain after stopping.
+45. Trial: active · Phase 3 · obesity heart and death outcomes · NCT05556512 · Eli Lilly. Approved as Mounjaro and Zepbound; SURMOUNT-MMO is testing whether it cuts deaths and heart events. (checked 2026-10-23) [S7] (inferred)
+
+## Who shouldn't take it
+46. People relying on the contraceptive pill: Slower gastric emptying lowers pill absorption; label advises backup contraception for 4 weeks after start and each dose step. (verified)
+47. Personal or family history of MTC or MEN2: Causes thyroid C-cell tumours in rodents; boxed warning and contraindication on the label. (verified)
+48. Anyone booked for surgery, endoscopy or sedation: Food can stay in the stomach for days and be inhaled into the lungs under anaesthesia. (verified)
+49. People with diabetic retinopathy: Label flags diabetic retinopathy complications in people with a history of it. (verified)
+
+## Synergies (paired with)
+50. AOD-9604: Tirzepatide cuts appetite and improves glucose handling, while AOD-9604, a growth hormone fragment, is claimed to boost fat breakdown without affecting blood sugar. People add it hoping for extra fat loss. AOD-9604's fat claims rest mainly on rodent data, and the pair has not been tested together.
+51. L-Carnitine: Tirzepatide lowers food intake, while L-carnitine shuttles fatty acids into mitochondria for burning. People pair them to support fat use and training energy during weight loss. Muscle uptake of carnitine needs insulin, and the pairing is user logic, not trial data.
+
+## Where it comes from
+52. Eli Lilly's dual GIP/GLP-1 agonist: one chain works two receptors. The first of its kind, approved in 2022.
+53. First studied for: Type 2 diabetes (Mounjaro), then obesity (Zepbound).
+54. Name story: Built on the GIP hormone's backbone with GLP-1 activity added, so its name skips the '-glutide' ending of semaglutide and liraglutide. Lilly's code was LY3298176; dual incretins like it get nicknamed 'twincretins'. [S8] (inferred)
+55. 2022: First dual GIP/GLP-1 drug, approved for diabetes as Mounjaro
+56. 2023: Approved for obesity as Zepbound
+57. 2024: Sleep apnea added as an indication
+58. Today: Top approved weight-loss drug; heavy compounded and grey-market use
+
+## Deep read (as of 2026-10)
+
+### The head-to-head trial, because this is the only pair in the class directly compared [people]
+59. Most drug comparisons are inferred by lining up separate trials, which is unreliable because populations and designs differ. Here there is a real head-to-head, and it is the most useful single piece of evidence about this compound.
+60. SURMOUNT-5 randomised 751 adults one-to-one, in the US and Puerto Rico, to maximum tolerated doses of either drug, for 72 weeks, with both groups receiving diet and activity counselling. Participants had obesity, or overweight with at least one of hypertension, dyslipidaemia, obstructive sleep apnoea or cardiovascular disease, and no diabetes [1] (verified).
+61. Average weight loss at 72 weeks was 20.2% against 13.7%, a 47% greater relative reduction [1]. The threshold figures matter more for a decision: at least 20% of body weight lost by 48.4% against 27.3%, and at least 25% lost by 31.6% against 16.1% [1] (verified). Waist circumference fell 18.4 centimetres against 13.0.
+62. Two design caveats belong with those numbers. The trial was open-label, meaning everyone knew which drug they were taking, which can influence reported outcomes and adherence. And it was not powered to compare safety and tolerability, so the discontinuation figures, 6.1% against 8.0%, are descriptive rather than a finding [1] (verified).
+63. The honest summary: on weight, superiority is established in a direct comparison. On everything else, the trial was not built to adjudicate.
+
+### What the sleep apnoea trials measured, and why it was a stronger result than the weight data [people]
+64. The sleep apnoea programme deserves attention because it used a hard, machine-measured endpoint rather than a scale reading.
+65. Two parallel 52-week randomised, double-blind, placebo-controlled trials enrolled 469 adults with moderate-to-severe obstructive sleep apnoea and obesity: one in people unable or unwilling to use positive airway pressure therapy, the other in people already using it [2] (verified).
+66. The apnoea-hypopnoea index, the count of breathing interruptions per hour, fell by 27.4 events per hour against 4.8 on placebo in the first trial, and by 30.4 against 6.0 in the second [2]. Weight loss was about 18% and 20% respectively, and systolic blood pressure fell 9.6 and 7.6 points [2] (verified).
+67. That is a large effect on an objective measure, in both the treated and untreated-by-device populations, and it is the basis for the sleep indication. It also illustrates something general about this drug class: the downstream benefits of substantial weight loss are often easier to demonstrate cleanly than weight loss itself, because they are measured by instruments rather than reported.
+
+### The cardiovascular trial, and the result people get backwards [people]
+68. This is the most misreported trial in the compound's record, so the design matters.
+69. SURPASS-CVOT randomised 13,165 adults with type 2 diabetes and established atherosclerotic cardiovascular disease, 6,586 to this drug titrated up to 15 mg weekly and 6,579 to dulaglutide 1.5 mg weekly, with median follow-up around four years [3] (verified). Mean age 64, mean HbA1c 8%, mean diabetes duration 15 years.
+70. Critically, the comparator was not placebo. It was another drug in the same family already shown to reduce cardiovascular events. The trial was designed to test non-inferiority, with a margin of 1.05 [3].
+71. The composite of cardiovascular death, heart attack or stroke occurred in 12% against 13%, hazard ratio 0.92. Non-inferiority was met. Superiority was not: the superiority test did not reach significance [3] (verified).
+72. So the correct reading is that this drug is at least as protective as an established comparator, in a population already on good cardiovascular care, and was not shown to be better. Headlines describing it as beating the comparator on cardiovascular protection overstate a non-significant trend. Headlines describing it as failing a cardiovascular trial understate a met non-inferiority endpoint against an active drug, which is a harder bar than placebo (verified). The authors noted the absence of a placebo group, limited global diversity and some between-group imbalances as limitations [3].
+
+### Where the approved product and the catalog vial diverge [people]
+73. This molecule has been tested about as thoroughly as a metabolic drug can be: diabetes and obesity programmes, a sleep apnoea programme, a four-year cardiovascular outcome trial in over 13,000 people, and a direct head-to-head [1,2,3]. The evidence question is largely settled. The supply question is entirely separate and untouched by any of it.
+74. The documented failure mode across this drug class in non-pen supply is dosing error rather than pharmacology. Regulators described reports of patients receiving five to twenty times the intended dose from multi-dose vials, clinicians miscalculating conversions between milligrams, units and millilitres, and patients supplied with syringes far larger than the prescribed volume, with consequences including dehydration, gallstones and acute pancreatitis [4] (verified). None of those events are properties of the drug.
+75. Enforcement has tracked the same problem: warning letters went to online peptide vendors in August 2026 and to a compounder over products in this class and its telehealth prescribing practices in September 2026 [5] (verified).
+76. The useful distinction for anyone comparing sources: with this compound the molecule is well characterised and the container is not. That is the inverse of the situation for the repair peptides in this catalog, and it calls for a different kind of caution (inferred).
+
+### Open questions [mixed]
+77. Does the cardiovascular benefit extend beyond diabetes with established disease? The four-year trial was run in that specific population against an active comparator, and says nothing directly about lower-risk people.
+78. Would a placebo-controlled cardiovascular trial have shown superiority? Non-inferiority against an effective drug leaves the absolute size of the benefit unquantified.
+79. How much of the sleep apnoea effect is weight loss and how much is anything else? The trials were not designed to separate those, and the distinction matters for whether the benefit persists if weight returns.
+80. What does the head-to-head weight advantage mean for an individual? A 6.5 percentage point average difference in an open-label trial does not predict which drug suits a given person, and tolerability was not formally compared.
+81. What happens to body composition at 20% or more weight loss, and does resistance training change the answer? Widely discussed, poorly quantified across doses.
+82. For grey-market and compounded supply specifically: what is the real distribution of concentration accuracy? The adverse-event pattern points squarely at this, and it is answerable by testing rather than by trials.
+
+Deep read references:
+[1] Eli Lilly, SURMOUNT-5 complete results, head-to-head against semaglutide, published in NEJM, 2025 · https://www.drugs.com/clinical_trials/zepbound-tirzepatide-showed-superior-weight-loss-over-wegovy-semaglutide-complete-surmount-5-22029.html
+[2] American Diabetes Association, SURMOUNT-OSA results in obstructive sleep apnoea, 2024 · https://diabetes.org/sites/default/files/2024-06/ADA_SURMOUNT-OSAPressRelease_Final.pdf
+[3] American College of Cardiology journal scan, SURPASS-CVOT (Nicholls et al., NEJM 2025), 2026 · https://www.acc.org/latest-in-cardiology/journal-scans/2026/01/07/14/20/surpass-cvot
+[4] The Hospitalist, compounded GLP-1 dosing errors and hospitalisations, reporting the FDA alert, 2024 · https://blogs.the-hospitalist.org/content/compounded-semaglutide-overdoses-tied-hospitalizations
+[5] Holland and Knight, peptides at a crossroads, HHS and FDA actions and enforcement, 2026 · https://www.hklaw.com/en/insights/publications/2026/10/peptides-at-a-crossroads-what-wellness-providers-need-to-know
+
+## Sources
+[S1] Ro: microdosing GLP-1s · https://ro.co/weight-loss/microdosing-glp-1s-semaglutide-tirzepatide-ozempic/
+[S2] Tirzepatide community protocols · https://www.peptideprotocolwiki.com/peptides/tirzepatide/community
+[S3] Tirzepatide max dose explained · https://www.doctronic.ai/blog/maximum-dose-of-tirzepatide-explained
+[S4] Bryan Johnson microdosing Zepbound · https://qz.com/bryan-johnson-microdosing-zepbound-1851725716
+[S5] Tirzepatide microdosing guide · https://glp3planner.com/resources/tirzepatide-microdosing-guide
+[S6] CED Clinic: tirzepatide microdosing · https://cedclinic.com/tirzepatide-microdosing-evidence-safety-clinical-insights/
+[S7] NCT05556512 · https://clinicaltrials.gov/study/NCT05556512
+[S8] Tirzepatide (Wikipedia) · https://en.wikipedia.org/wiki/Tirzepatide
+[S9] Zepbound FDA label · https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/217806s042lbl.pdf

@@ -1,0 +1,81 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# Glycerin Acetic Acid Water
+Page: https://baresignals.co/library/#/p/glycerin-acetic-acid-water
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: GAC
+2. Origin: Sterile mixing water, not a peptide
+3. Class: water
+4. Legal and approval status: Sold as a mixing liquid for freeze-dried peptides. Not taken on its own.
+
+## Summary
+5. Punch line: Sterile water with acetic acid and glycerin. The acid dissolves stubborn peptides; the glycerin stabilizes the mix.
+
+## Roles (what it is used for, strongest first)
+6. Mixing water: A sterile water based liquid containing a small amount of acetic acid and glycerin. The acid helps certain peptides dissolve and the glycerin is added as a stabilizing and thickening agent.
+
+## How it works
+
+## Water
+7. Made of: Sterile water, balance
+8. Made of: Acetic acid, not stated on label; dilute, likely in the 0.5 to 1% range (unverified)
+9. Made of: Glycerin (glycerol), not stated on label (unverified)
+10. pH: Not published. If the acetic acid content is around 0.6%, the pH would be roughly 2.9 to 3, calculated from acetic acid's pKa of 4.76. Glycerin is neutral and does not change pH meaningfully.
+11. When used: Peptides that dissolve poorly or clump in plain or bacteriostatic water and do better in mild acid, the same group as acetic acid water (for example AOD-9604 and HGH fragment 176-191).
+12. When used: Glycerin is used in protein and peptide formulation as a co-solvent that can reduce clumping (aggregation) of hydrophobic molecules, which is the likely reason it is included.
+13. When used: Only when the peptide's own instructions or supplier call for an acidic diluent. It is not a general purpose replacement for bacteriostatic water.
+14. not_for: Peptides that are acid sensitive or that the supplier says to dissolve in neutral water or bacteriostatic water.
+15. not_for: Situations requiring a preservative for many punctures over weeks, unless the product's certificate of analysis states a preservative is present.
+16. not_for: Anyone sensitive to acidic injections, since low pH liquids are more likely to sting.
+17. not_for: Any use where the exact composition matters and the certificate of analysis is unavailable. The concentrations are not standardized across makers.
+18. storage: Unopened: cool, dry place away from light, within the printed expiry date. Refrigeration (2 to 8°C) is a reasonable default if no instructions are given.
+19. storage: After first puncture: no published standard exists for this liquid. Treat as preservative-free unless stated otherwise: refrigerate and use within a short period. The USP 28-day multi-dose limit applies only to vials with a preservative and should be treated as an upper bound.
+20. storage: Once a peptide is dissolved in it, follow the peptide's own storage rules, usually refrigerated at 2 to 8°C.
+21. storage: Do not freeze unless the label allows it.
+22. how: Confirm the label, expiry date and clarity. Write the date of first puncture on the vial.
+23. how: Wipe the stopper with an alcohol swab and let it dry before every entry. Use a new sterile needle and syringe each time.
+24. how: Draw slowly. The glycerin makes the liquid slightly thicker than water, so it may draw and push a little more slowly.
+25. how: Add it gently down the inside wall of the peptide vial and swirl, do not shake.
+26. how: If the peptide does not fully dissolve, let it rest in the refrigerator before deciding it has failed.
+27. watch: Cloudiness, haze or color change: discard.
+28. watch: Floating particles or strands: discard.
+29. watch: A noticeable vinegar smell is expected. Any other odor is not.
+30. watch: Stinging or burning at the injection site is more likely with acidic liquids; persistent redness, swelling or heat is a warning sign.
+31. watch: A gel or clumps forming after mixing suggests the peptide has aggregated.
+32. facts: Glycerin (glycerol, C3H8O3) is one of the oldest protein stabilizers in biochemistry labs. Research on plant proteins showed it prevents acid-induced clumping in proportion to how much it shields water-repelling surfaces.
+33. facts: Acetic acid is the same acid in vinegar. Glacial acetic acid is the pure, water-free form, named for the ice-like crystals it forms just below room temperature (16.6°C).
+34. facts: Unlike bacteriostatic water, there is no official pharmacopeia monograph for a 'glycerin plus acetic acid' reconstitution water, so composition varies by maker.
+35. tile: Acetic acid + glycerin
+36. tile: pH about 3 · recipe varies
+37. cells: In it, acid + glycerin
+38. cells: pH, about 3
+39. cells: Opened, short, fridge
+40. cells: Route, Mixing only
+
+## Dosage (community reported unless tagged)
+41. Typical:
+
+## What people report
+
+## What has been tested
+
+## Synergies (paired with)
+42. AOD-9604: The mild acid keeps AOD-9604 dissolved, and glycerin is added to reduce clumping further. It is purely a mixing choice and has no part in the fragment's claimed fat loss or cartilage effects.
+43. HGH frag 176–191: For HGH frag 176-191, the acid helps it dissolve and the glycerin is added to cut clumping. This is about keeping the solution clear, not about the fragment's fat loss action.
+
+## Where it comes from
+
+## Sources
+[S1] Acetic acid: properties, pKa 4.76, glacial form (Wikipedia, chemistry summary) · https://en.wikipedia.org/wiki/Acetic_acid
+[S2] Glycerol (propane-1,2,3-triol), PubChemLite CID 753 · https://pubchemlite.lcsb.uni.lu/e/compound/753
+[S3] Sahu and Prakash 2008, Mechanism of prevention of aggregation of proteins: a case study of alpha-globulin in glycerol, Int J Food Properties 11(3):613-623 · https://repository.ias.ac.in/38685
+[S4] Peptide handling and storage guide from a peptide maker · https://www.bachem.com/knowledge-center/handling-and-storage-guidelines-for-peptides/
+[S5] Peptide solubility guidelines from a peptide maker · https://www.genscript.com/gsfiles/techfiles/peptide_solubility_guidelines.pdf
+[S6] CDC: Preventing Unsafe Injection Practices (multi-dose vial 28-day rule, USP ) · https://www.cdc.gov/injection-safety/hcp/clinical-safety

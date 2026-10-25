@@ -1,0 +1,111 @@
+BARE SIGNALS LIBRARY · PLAIN-TEXT FACTS
+Live Library version v68, exported 2026-10-25. 142 entries.
+This is a text copy of https://baresignals.co/library/ for fact checking. The site itself is built by JavaScript, so readers that do not run scripts see nothing there.
+Doses are what people report using (community data), not medical advice and not label doses unless marked.
+Tags in brackets: verified = primary source read; reported = from user reports, aggregators or secondary sources; inferred = reasoned from related evidence; logged = from Bare Signals research logs; speculated = unproven idea.
+Every claim is numbered. When checking, quote the entry name and claim number.
+
+# PNC-27
+Page: https://baresignals.co/library/#/p/pnc-27
+Checked against Library v68, exported 2026-10-25
+
+## Identity
+1. Also called: PNC27, p53-penetratin peptide, p53(12-26)-penetratin
+2. Origin: Lab-designed: p53 fragment fused to a cell-entry sequence
+3. Sequence: PPLSQETFSDLWKLLKKWKMRRNQFWVKVQRG (32 amino acids). p53 residues 12 to 26 (the HDM-2 grip) followed by a 17-residue cell-entry tail the lab calls the membrane residency peptide, a reversed penetratin-like sequence; linear, 32 aa
+4. Legal and approval status: Not approved anywhere and no trial on ClinicalTrials.gov as of 23 Oct 2026. FDA warned patients not to use it on 10 Jan 2017 after finding Variovorax paradoxus in an inhaled sample, then Ralstonia insidiosa in a second sample (27 Mar 2017). In 2021 an Alabama man pleaded guilty to conspiracy for making PNC-27 suppositories in his kitchen and selling them to patients and a Mexican clinic. Not named on the WADA list; falls under S0 (inferred).
+
+## Summary
+5. PNC-27 is a lab-designed peptide made from a piece of p53 fused to a cell-entry sequence, built at SUNY Downstate. It is thought to punch holes in cancer cells that display HDM-2 on their surface, and it kills cancer cells in dishes and some mouse models. No human trial exists, and the FDA warned in 2017 about contaminated products sold to patients.
+6. Punch line: A p53 fragment with a cell-entry tag that punctures HDM-2 cancer cells in culture. No proven human benefit.
+7. Used for: Cancer, experimental
+
+## Roles (what it is used for, strongest first)
+8. Cancer biology: Bursts cancer cells that carry HDM-2 on their surface
+
+## How it works
+9. Grabs HDM-2 sitting on cancer-cell surfaces · Membrane HDM-2 (MDM2), p53-binding region · role Cancer biology
+   PNC-27 carries the stretch of p53 that grips HDM-2 (human MDM2). Many cancer cells display HDM-2 in their outer membrane, which normal cells mostly do not. That gives the peptide a cancer-cell target, and normal cells forced to carry membrane HDM-2 became sensitive in cell studies.
+10. Pairs up into pores so the cell bursts · Transmembrane pore, necrosis (poptosis) · role Cancer biology
+   Once bound to membrane HDM-2, the complexes pair up and form pores through the cell membrane. The cell leaks and bursts by necrosis rather than the orderly death of apoptosis. The lab calls this poptosis, and it has been shown in cancer cell lines and fresh tumour cells from two patients.
+11. Also gets inside and damages the cell's power plants · Mitochondrial membrane disruption · role Cancer biology
+   A 2024 paper reports a second route: the peptide also gets inside cancer cells and breaks the membranes of mitochondria, the cell's energy plants. Damaged mitochondria push the cell further toward death. This comes from cell studies only.
+12. Works even where p53 is lost · p53-independent killing · role Cancer biology
+   Because killing runs through membrane pores rather than switching on p53 itself, it does not need working p53. It killed p53-null cancer cells in culture, which matters since many tumours lose p53. Mouse data are limited, and no human trial has ever been run.
+13. Mechanism overview: PNC-27 joins residues 12 to 26 of p53, the region that binds HDM-2 (human MDM2), to a 17-residue cell-entry sequence the lab calls the membrane residency peptide. Many cancer cells, unlike normal cells, display HDM-2 in their outer membrane. PNC-27 binds that membrane HDM-2 in the same helix shape p53 uses, the complexes pair into transmembrane pores, and the cell bursts by necrosis rather than apoptosis, so it works even in p53-null cells. Normal cells forced to carry membrane HDM-2 become sensitive, which supports the target. A 2024 paper adds a second route: the peptide enters cancer cells and breaks mitochondrial membranes. The authors call the whole process poptosis.
+
+## Dosage (community reported unless tagged)
+14. Typical: No human dose established; vendor sheets list 100–500 mcg · Daily to 3× weekly (vendor sheets) · cycle 8–12 weeks (vendor sheets) · route Sub-Q; nebulised, IV, suppository sold by clinics (reported)
+15. Half-life: Unknown in humans
+16. Most people take: No human dose exists. The numbers in circulation come from vendor sheets, not user logs: 200 to 300 mcg Sub-Q three times a week, or 100 to 500 mcg daily for 8 to 12 weeks. Clinics have sold nebulised, IV and suppository forms at undisclosed doses. For scale, the AML mouse study used 40 mg/kg a day by injection into the belly.
+
+## What people report
+17. Real-world use is almost entirely cancer patients buying through alternative clinics or online, as nebulised solution, IV solution and vaginal or rectal suppositories. Public user accounts are few: aggregators log 2 to 3 reports with no outcome data, a 2026 blog comment describes a husband with stage 4 lymphoma on 20-day cycles reporting unspecified results, and a 2025 pet-owner blog injected it near a dog's tumour with no measured result. The only medical case report is a 2017 abstract of massive GI bleeding during experimental use, cause unconfirmed.
+18. Liked / worked: Kills HDM-2-positive cancer cells in culture within hours
+19. Liked / worked: Spares matching normal cells in culture
+20. Liked / worked: Works without functional p53
+21. Liked / worked: Modestly longer survival in AML mice (independent lab)
+22. What worked: In dishes it kills cancer cells within hours while sparing matching normal cells, and it works whether p53 is normal, mutant or missing. In mice, PNC-28 destroyed pancreatic tumours placed in the belly, and PNC-27 lengthened AML survival (median 54 vs about 41 days) and cut leukaemia stem cells. Ketone salts lowered the dose needed in cell work.
+23. Went wrong / did not work: No human trial or human dose
+24. Went wrong / did not work: Animal gains modest; distant tumours only slowed
+25. Went wrong / did not work: Clinic products contaminated or made non-sterile
+26. What went wrong: No human trial, no human dose finding, no human drug levels. Mouse survival gains in AML were modest, not cures. Tumours at a distance from the injection site were slowed rather than cleared. Products sold to patients were contaminated or made in non-sterile conditions.
+27. Most reported: Sold to patients via overseas clinics and online
+28. Most reported: Nebulised, IV, suppository and Sub-Q forms
+29. Most reported: Case of massive GI bleeding reported
+30. Most reported: No documented human benefit
+
+## What has been tested
+31. Cancer biology: Pancreatic, breast, leukaemia, AML, colon, ovarian, cervical cancer cells (cell)
+32. Cancer biology: Fresh ovarian cancer cells from 2 patients (ex vivo) (cell)
+33. Cancer biology: AML mice and human AML grafts; colon tumour nodules; PNC-28 pancreatic tumours (animal)
+34. Cell studies in pancreatic, breast, leukaemia (K562 and three AML lines), colon, ovarian (including cells taken fresh from two patients) and cervical cancer. Animal work: PNC-28 in mice with rat pancreatic tumours (2006); PNC-27 in mice with colon tumour nodules (2021); and an independent City of Hope and Zhejiang group testing PNC-27 in mouse and human-derived AML (2019). No human trial has ever been registered.
+35. What it helps: All efficacy data are from cells, fresh tumour cells from two patients, and a few mouse studies. PNC-27 kills pancreatic, breast, leukaemia, colon, ovarian and cervical cancer cells while sparing matching normal cells. In mice, an independent AML study found longer survival but not cure. No human trial has been run or registered. It has been sold directly to cancer patients outside the US as inhaled, IV and suppository products, which the FDA warned against in 2017 after finding bacterial contamination; a US maker of kitchen-made suppositories pleaded guilty in 2021. The community record holds no documented benefit and one reported case of severe GI bleeding.
+36. Trial: none. No PNC-27 or PNC-28 study registered on ClinicalTrials.gov (independent search reported 4 Aug 2026; direct registry query not possible here). The Pincus lab bio has said trials are coming since the 2000s, and its 2024 crowdfunding was suspended. (checked 2026-10-23) [S1]
+
+## Who shouldn't take it
+37. People with cancer using it instead of treatment: FDA warned cancer patients not to use PNC-27 products. (verified)
+
+## Where it comes from
+38. Designed in Matthew Pincus's lab at SUNY Downstate in Brooklyn. In 2001 the group fused short pieces of p53, the protein that normally guards cells against cancer, to a cell-entry sequence, hoping to restore p53 function. Instead the peptides killed cancer cells outright. The 12 to 26 version became PNC-27; a shorter 17 to 26 version became PNC-28.
+39. First studied for: Killing cancer cells regardless of their p53 status, first breast cancer cells (2003), then pancreatic cancer in mice using PNC-28 (2006).
+40. Name story: The peptide is a chimera: p53 residues 12 to 26, the bit that grips HDM-2, welded to a cell-entry tail related to penetratin from the fruit-fly Antennapedia gene, whose mutation grows legs where antennae should be. [S2] (verified)
+41. 2001: PNAS: p53 12 to 26 fused to a cell-entry sequence kills cancer cells, even without p53
+42. 2003: Oncogene: kills breast cancer cells by necrosis, not apoptosis
+43. 2006: Sister peptide PNC-28 destroys pancreatic tumours in mice
+44. 2010: PNAS: target found, HDM-2 sitting in the cancer-cell membrane
+45. 2015: Kills ovarian cancer cells taken fresh from patients
+46. Jan 2017: FDA warns patients after bacteria found in an inhaled product; second species found in March
+47. Oct 2017: Case abstract: massive GI bleeding during experimental use
+48. 2019: Independent group: lengthens survival in AML mice and cuts leukaemia stem cells
+49. 2020–2021: Alabama man indicted, then pleads guilty, over kitchen-made PNC-27 suppositories sold to patients and a Mexican clinic
+50. 2021: Colon tumour nodules die in mice
+51. 2022–2024: Pore structure imaged; mitochondrial damage added; lab crowdfunding suspended
+52. 2025: Kills cervical cancer cells; ketone salts boost the effect
+53. Oct 2026: Still preclinical, no registered trial; sold online as a research peptide
+
+## Sources
+[S1] Trial
+[S2] Anticancer peptide PNC-27 adopts an HDM-2-binding conformation (Drexel record) · https://researchdiscovery.drexel.edu/esploro/outputs/journalArticle/Anticancer-peptide-PNC-27-adopts-an-HDM-2-binding/991019323773404721
+[S3] FDA: warns cancer patients not to use PNC-27 (2017) · https://www.fda.gov/drugs/drug-safety-and-availability/fda-warns-cancer-patients-not-use-pnc-27-products-treatment
+[S4] DOJ: Birmingham man indicted over PNC-27 products (2020) · https://www.justice.gov/usao-ndal/pr/birmingham-man-indicted-conspiracy-and-fraud-charges-making-unapproved-drug-products
+[S5] DOJ: guilty plea, kitchen-made PNC-27 suppositories (2021) · https://www.justice.gov/usao-ndal/pr/birmingham-man-pleads-guilty-conspiracy-making-unapproved-drug-products-his-kitchen-and
+[S6] Aguon et al. 2017: PNC-27 and massive GI hemorrhage (abstract record) · https://link.springer.com/article/10.1007/s40278-018-43308-1
+[S7] Kanovsky et al. 2001, PNAS: first p53-penetratin peptides (PMID 11606716) · https://researchconnect.suny.edu/en/publications/peptides-from-the-amino-terminal-mdm-2-binding-domain-of-p53-desi/
+[S8] Do et al. 2003, Oncogene: necrosis in breast cancer cells · https://stacks.cdc.gov/view/cdc/190213
+[S9] Michl et al. 2006, Int J Cancer: PNC-28 in pancreatic tumours in mice · https://stacks.cdc.gov/view/cdc/192136
+[S10] Sarafraz-Yazdi et al. 2010, PNAS: membrane HDM-2 target (PMID 20080680) · https://researchdiscovery.drexel.edu/esploro/outputs/journalArticle/Anticancer-peptide-PNC-27-adopts-an-HDM-2-binding/991019323773404721
+[S11] Sarafraz-Yazdi et al. 2015: fresh patient ovarian cancer cells (PMID 26663795) · https://vivo.weill.cornell.edu/display/pubid26663795
+[S12] Wang et al. 2019, Leukemia: PNC-27 in AML mice (PMID 31337857) · https://pmc.ncbi.nlm.nih.gov/articles/PMC7951797
+[S13] Thadi et al. 2021, Anticancer Res: colon cancer cells and mice · https://ar.iiarjournals.org/content/41/1/27
+[S14] Sarafraz-Yazdi et al. 2022, Biomedicines: pore structure (PMID 35625682) · https://researchconnect.suny.edu/en/publications/pnc-27-a-chimeric-p53-penetratin-peptide-binds-to-hdm-2-in-a-p53-/
+[S15] Miller et al. 2023, Biomedicines: ketone bodies boost PNC-27 · https://doaj.org/article/b379fc706f9745df8ae1d84fe6abb45d
+[S16] Krzesaj et al. 2024: mitochondrial disruption (PMID 38802154) · https://vivo.weill.cornell.edu/display/pubid38802154
+[S17] Pincus et al. 2024, Biomedicines: poptosis review · https://doaj.org/article/2df602e9301c461080066e667f7f8d4c
+[S18] Krzesaj et al. 2025: cervical cancer cells (PMID 40750238) · https://vivo.weill.cornell.edu/display/pubid40750238
+[S19] Miller et al. 2025, Med Res Arch: cervical cancer plus ketones · https://esmed.org/MRA/index.php/mra/article/view/6471
+[S20] Feinman 2023: the PNC-27 story (co-author's blog) · https://richardfeinman.substack.com/p/brilliant-ideas-serendipity-and-dumb
+[S21] Feinman 2024: crowdfunding suspended · https://richardfeinman.substack.com/p/the-big-picture-on-our-experimentcom
+[S22] Peptide Protocol Wiki: PNC-27 community · https://www.peptideprotocolwiki.com/peptides/pnc27/community
+[S23] Pruski 2026: research review with reader comments · https://derekpruski.substack.com/p/pnc-27-the-cancer-peptide-what-the
+[S24] The Ruby Protocol 2025: PNC-27 used in a dog (owner blog) · https://therubyprotocol.substack.com/p/pnc-27-peptides-in-the-ruby-protocol
