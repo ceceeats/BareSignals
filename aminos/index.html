@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V68 (25 Oct 2026): stripes in the sticker ratio, power first (power role widest on the left, then smaller in the sticker ratio 49 : 25 : 15 : 11, colours unchanged). V67 kept at /aminos/v67/. -->
 <!-- Aminos V67 (25 Oct 2026): blends show no mg anywhere (no vial total, no per-part amount, no amounts in the blend line); the bar still shows each part's share. V66 kept at /aminos/v66/. -->
 <!-- Aminos V66 (25 Oct 2026): peptide search ranks names first via /search.js (starts with, then a word in the name, then other names; types and families from 3 letters); one letter shows only names starting with it. V65 kept at /aminos/v65/. -->
 <!-- Aminos V65 (25 Oct 2026): laptop timeline back to the open V62 layout (laptop shows everything; only phone gets compacted). Phone card from V64 unchanged. V64 kept at /aminos/v64/. -->
@@ -471,7 +472,7 @@ h1{font-size:23px}
 .snote{font-size:12px;color:var(--ink-soft);margin:2px 0 12px}
 #pname{align-items:stretch;flex-wrap:nowrap}
 #pname .pnt{flex:1 1 auto}
-.pst{display:flex;flex:0 0 clamp(96px,34%,230px);border-left:1.5px solid var(--ink);min-height:100%}
+.pst{display:flex;flex-direction:row-reverse;flex:0 0 clamp(96px,34%,230px);border-left:1.5px solid var(--ink);min-height:100%}
 .pst>span{display:flex;min-width:0}
 .pst .sc1{flex:16 1 0;flex-direction:column}
 .pst .sc1.wide{flex:42 1 0}
@@ -1265,7 +1266,7 @@ details.found .fmore{margin-top:4px;float:none;display:inline-block;margin-botto
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V67</small></h1>
+    <h1>From Gene to Peptide<small>V68</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1488,7 +1489,7 @@ const A=[
 ["V","Val","Valine",117.15,"GUU GUC GUA GUG","np","E","CH(CH₃)₂",[["Muscle","Branched-chain, burned in muscle"],["Energy","Nitrogen balance"],["Repair","Tissue repair"]]],
 ["U","Sec","Selenocysteine",168.05,"UGA, recoded","sp","N","CH₂SeH",[["Protection","Antioxidant enzymes (GPx)"],["Endocrine","Activates thyroid hormone"],["Immunity","Selenoprotein immune function"]]]
 ];
-const WT=[10,7,5,3.5],H2O=18.015;
+const WT=[49,25,15,11],H2O=18.015;
 const $=s=>document.querySelector(s);
 const VOL={"G": 60.1, "A": 88.6, "S": 89.0, "C": 108.5, "D": 111.1, "P": 112.7, "N": 114.1, "T": 116.1, "E": 138.4, "V": 140.0, "Q": 143.8, "H": 153.2, "M": 162.9, "I": 166.7, "L": 166.7, "K": 168.6, "R": 173.4, "F": 189.9, "Y": 193.6, "W": 227.8},SHP={"G": "A single hydrogen: the smallest of all. It lets the chain bend almost any way, a hinge.", "A": "Small and compact, one carbon. It slips easily into helices.", "S": "Small, with an OH tip that grabs water.", "C": "Small, with a sulfur tip that can bond to another cysteine and lock two parts of a chain together.", "D": "A short arm ending in a negative acid group.", "P": "A ring that loops back onto its own backbone, so the chain cannot rotate there. It locks a kink, the stiffest link.", "N": "A short arm ending in an amide that pairs with water.", "T": "Small and branched, with an OH tip.", "E": "A medium arm ending in a negative acid group.", "V": "Branched like a Y. Oily, so it hides inside folds.", "Q": "A medium arm ending in an amide.", "H": "A small ring that can flip between charged and neutral, which makes it useful in enzyme pockets.", "M": "A long, bendy arm with sulfur in the middle.", "I": "Branched twice. Oily and bulky, it packs the core of folded proteins.", "L": "Branched at the tip. Oily, and a favourite of helices.", "K": "A long, flexible arm ending in a positive charge.", "R": "A long arm ending in a forked positive head that holds charge strongly.", "F": "A flat six-carbon ring. Oily; it stacks against other rings.", "Y": "A flat ring with an OH tip. It can carry phosphate signals.", "W": "A double ring, the largest side chain. Rare in proteins, often sitting at membrane edges.", "U": "Like cysteine, but with selenium in place of sulfur. About the same size."};
 function shapeKey(){const el=document.getElementById("shkey");if(!el)return;el.innerHTML=`<p class="lab">The shapes</p><div class="shk">${SHFAM.map(f=>`<div><span class="shi">${f[2].map(L=>shapeIcon(L,34,.62)).join("")}</span><b>${f[0]}</b><em>${f[1]}</em></div>`).join("")}</div><p class="shn">Size is the real side-chain size. Forks mark branches; a yellow dot sulfur, a white dot OH, an orange dot selenium. A teaching shorthand: the families and sizes are real chemistry, the drawings are not real 3D shapes, and a few letters sit between families.</p>`}
