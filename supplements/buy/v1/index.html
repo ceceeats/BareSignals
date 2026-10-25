@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="googlebot" content="noindex,nofollow">
+<title>Buying Supplements · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Buying Supplements v1 (25 Oct 2026): first version. How to find good vitamins and good suppliers: seals and what each tests, label failure data, where to buy (marketplaces, Indonesia BPOM, iHerb), per-supplement form and brand evidence with failures, ingredient makers, numbered sources. Every claim carries a confidence tag. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;--ok:#3E7A3A;
+--display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 var(--body)}
+a{color:inherit}
+.wrap{max-width:calc(var(--bs-w,1240px) / var(--k,1));margin:0 auto;padding:18px max(calc(var(--bs-pad,16px) / var(--k,1)),env(safe-area-inset-right,0px)) 44px max(calc(var(--bs-pad,16px) / var(--k,1)),env(safe-area-inset-left,0px));zoom:var(--k,1)}
+.lab{font:500 8.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0}
+h1{font:700 22px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 11px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:13.5px;color:var(--soft);max-width:72ch}
+h2{font:700 17px/1.1 var(--display);margin:22px 0 8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+h2 span{font:500 8.5px var(--mono);letter-spacing:.1em;color:var(--soft);text-transform:uppercase}
+p{margin:0 0 6px}
+.box{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:9px 11px}
+.key{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--soft);margin:0 0 12px}
+.c{display:inline-block;font:600 8.5px/1 var(--mono);letter-spacing:.06em;padding:2px 4px;border:1px solid currentColor;vertical-align:1px;margin-left:3px;white-space:nowrap}
+.c.v{color:var(--ok)}.c.r{color:#9A6A00}.c.i{color:var(--soft)}
+sup a{font:600 9px var(--mono);color:var(--accent);text-decoration:none;margin-left:1px}sup+sup a::before{content:","}
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:8px}
+.rules .box b{display:block;font:700 14px/1.15 var(--display);margin-bottom:3px}
+.rules .box{font-size:13px}
+.rules .n{font:600 8.5px var(--mono);color:var(--accent);letter-spacing:.1em}
+/* seals table */
+.tw{overflow-x:auto;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:620px}
+th,td{border-bottom:1px solid var(--rule);padding:6px 8px;text-align:left;vertical-align:top}
+th{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);background:var(--paper)}
+td.y{font:600 12px var(--mono);color:var(--ok);text-align:center}td.n{font:600 12px var(--mono);color:var(--soft);text-align:center}
+td:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+/* evidence numbers */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px}
+.nums .box{font-size:12.5px}
+.nums .big{display:block;font:700 20px/1 var(--display);color:var(--flag);margin-bottom:3px}
+.nums .what{font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:3px}
+/* picker */
+.pick{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.pick button{appearance:none;background:var(--chip);border:1.5px solid var(--accent);color:var(--accent);font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-radius:0;cursor:pointer}
+.pick button[aria-pressed=true]{border-width:2.5px;padding:5px 7px;color:var(--ink);border-color:var(--accent)}
+.vc{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:1000px){.vc{grid-template-columns:1.1fr 1fr}}
+.vh{font:700 19px/1.1 var(--display);margin:0 0 4px}
+.sub{font:500 8.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:8px 0 4px;display:block}
+.buy{border-color:var(--ok)}.buy .sub{color:var(--ok)}
+.skip{border-color:#7A1A1A}.skip .sub{color:#7A1A1A}
+ul{margin:0;padding-left:16px}li{margin:0 0 4px;font-size:13px}
+.brand{border-top:1px solid var(--rule);padding:6px 0 5px;font-size:13px}
+.brand:first-of-type{border-top:0}
+.brand b{font:700 13.5px var(--display)}
+.brand .neg{display:block;color:#7A1A1A;font-size:12.5px;margin-top:2px}
+.brand .neg.clean{color:var(--soft)}.brand .neg::before{content:"Against: ";font:600 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:8px}
+.src{font:400 11px/1.4 var(--mono);color:var(--soft);padding-left:22px}
+.src li{font-size:11px;margin-bottom:3px;word-break:break-word}
+.src a{color:var(--ink)}@media(min-width:700px){.src{columns:2;column-gap:24px}}@media(min-width:1100px){.src{columns:3}}.src li{break-inside:avoid}
+.foot{margin-top:18px;font:500 8.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+@media(max-width:600px){h2{margin-top:18px}.nums .big{font-size:18px}}
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+<main class="wrap">
+<p class="lab">Supplements · guide</p>
+<h1>How to buy good vitamins <small>v1</small></h1>
+<p class="lede">Supplements are not checked by anyone before they go on sale. Labels are often wrong, and the cheapest products are the ones most often under-dosed. This is how to tell a good product from a bad one, and what the evidence says about the brands people trust.</p>
+<div class="key"><span><span class="c v">VERIFIED</span> primary source: certifier, regulator, study, published lab result</span><span><span class="c r">REPORTED</span> journalism, trade press, brand claim</span><span><span class="c i">INFERRED</span> our reading of the evidence</span><span>Findings dated 25 Oct 2026</span></div>
+
+<h2>The short version</h2>
+<div class="rules">
+<div class="box"><span class="n">01</span><b>A seal beats a promise</b>"Third party tested" and "made in a GMP facility" are self-declared. Look for a seal you can look up: USP, NSF, Informed, BSCG, IFOS for fish oil. <span class="c i">INFERRED</span></div>
+<div class="box"><span class="n">02</span><b>Buy the form, not the name</b>Magnesium glycinate cut with oxide, "1,000 mg fish oil" with 300 mg omega-3, milk thistle at half its silymarin claim. Read the active amount per serving. <span class="c v">VERIFIED</span><sup><a href="#s14">14</a></sup><sup><a href="#s20">20</a></sup></div>
+<div class="box"><span class="n">03</span><b>Avoid marketplace sellers</b>Brand site or an authorised shop. Unknown Amazon brands failed badly in astaxanthin and ubiquinol tests. <span class="c v">VERIFIED</span><sup><a href="#s15">15</a></sup> <span class="c r">REPORTED</span><sup><a href="#s16">16</a></sup></div>
+<div class="box"><span class="n">04</span><b>Match the lot number</b>Good brands give a test certificate per lot. IFOS posts every fish oil lot online. No lot, no expiry date, no sale. <span class="c v">VERIFIED</span><sup><a href="#s5">5</a></sup></div>
+<div class="box"><span class="n">05</span><b>Big names fail too</b>Almost every major brand below has a recall, warning letter or failed test on record. A seal on this product counts more than the brand's reputation. <span class="c i">INFERRED</span></div>
+<div class="box"><span class="n">06</span><b>In Indonesia, check BPOM</b>Search the number on cekbpom.pom.go.id. Supplements carry SD, SI or SL plus 9 digits. Make sure the maker shown matches the pack. <span class="c r">REPORTED</span><sup><a href="#s18">18</a></sup></div>
+</div>
+
+<h2>What each seal actually tests <span>tap and scroll sideways on phone</span></h2>
+<div class="tw"><table>
+<tr><th>Seal</th><th>Label dose</th><th>Heavy metals, microbes</th><th>Banned drugs</th><th>Every batch</th><th>Factory audit</th><th>Note</th></tr>
+<tr><td>USP Verified</td><td class="y">yes</td><td class="y">yes</td><td class="n">no</td><td class="n">re-tests</td><td class="y">yes</td><td>Also checks the pill dissolves. Re-buys off the shelf. <span class="c v">V</span><sup><a href="#s1">1</a></sup></td></tr>
+<tr><td>NSF/ANSI 173</td><td class="y">yes</td><td class="y">yes</td><td class="n">no</td><td class="n">re-tests</td><td class="y">yearly</td><td>Includes pesticides and mould toxins. <span class="c v">V</span><sup><a href="#s2">2</a></sup></td></tr>
+<tr><td>NSF Certified for Sport</td><td class="y">yes</td><td class="y">yes</td><td class="y">295+</td><td class="n">re-tests</td><td class="y">yes</td><td>Sits on top of 173, so it covers both. <span class="c v">V</span><sup><a href="#s2">2</a></sup></td></tr>
+<tr><td>Informed Sport</td><td class="n">no</td><td class="n">no</td><td class="y">285+</td><td class="y">yes</td><td class="y">yes</td><td>Informed Choice tests 12+ retail samples a year, not every batch. <span class="c v">V</span><sup><a href="#s3">3</a></sup></td></tr>
+<tr><td>BSCG Drug Free</td><td class="n">no</td><td class="n">no</td><td class="y">450+</td><td class="y">yes</td><td class="n">no</td><td>Also screens prescription drugs. Its Quality seal is separate. <span class="c v">V</span><sup><a href="#s4">4</a></sup></td></tr>
+<tr><td>IFOS (fish oil)</td><td class="y">EPA, DHA</td><td class="y">yes</td><td class="n">no</td><td class="y">per lot</td><td class="n">no</td><td>Publishes the full result for each lot, freshness included. <span class="c v">V</span><sup><a href="#s5">5</a></sup></td></tr>
+<tr><td>Labdoor</td><td class="y">yes</td><td class="y">yes</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td>Buys at retail, refuses brand samples, free results. A grade, not a seal. <span class="c v">V</span><sup><a href="#s6">6</a></sup></td></tr>
+<tr><td>ConsumerLab</td><td class="y">yes</td><td class="y">yes</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td>"Approved via CL program" means the brand paid to be tested. Samples still bought independently. <span class="c v">V</span><sup><a href="#s7">7</a></sup></td></tr>
+<tr><td>"GMP" on the label</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">self</td><td>A legal minimum (21 CFR 111) for process and records. Says nothing about the product. <span class="c r">R</span><sup><a href="#s8">8</a></sup></td></tr>
+</table></div>
+
+<h2>How often labels are wrong</h2>
+<div class="nums">
+<div class="box"><span class="what">Fish oil, New Zealand 2015</span><span class="big">3 of 32</span>met their labelled EPA+DHA. 50% were over the freshness limit (TOTOX). <span class="c v">VERIFIED</span><sup><a href="#s9">9</a></sup></div>
+<div class="box"><span class="what">Fish oil, North America 2015</span><span class="big">50%</span>of 171 products from 49 brands broke at least one oxidation limit. An industry check in 2020 found most unflavoured oils passed. <span class="c v">VERIFIED</span><sup><a href="#s10">10</a></sup> <span class="c r">REPORTED</span><sup><a href="#s11">11</a></sup></div>
+<div class="box"><span class="what">Milk thistle 2016</span><span class="big">8 of 10</span>failed. Products claiming 80% silymarin held 52 to 60%. <span class="c v">VERIFIED</span><sup><a href="#s20">20</a></sup></div>
+<div class="box"><span class="what">Astaxanthin on Amazon 2023</span><span class="big">14 of 22</span>failed; 13 had under 1 mg, four had none at all. Tested by a competitor brand. <span class="c v">VERIFIED</span><sup><a href="#s15">15</a></sup></div>
+<div class="box"><span class="what">Ubiquinol on Amazon 2025 to 2026</span><span class="big">24</span>products held only trace ubiquinol. Funded by the ingredient maker; brands not named. <span class="c r">REPORTED</span><sup><a href="#s16">16</a></sup></div>
+<div class="box"><span class="what">B vitamins 2024</span><span class="big">5 of 26</span>failed; one had 14% of its B12, another over twice its folic acid. <span class="c v">VERIFIED</span><sup><a href="#s19">19</a></sup></div>
+<div class="box"><span class="what">Melatonin gummies 2023</span><span class="big">22 of 25</span>were off label, from 74% to 347%. <span class="c r">REPORTED</span><sup><a href="#s12">12</a></sup></div>
+<div class="box"><span class="what">Hidden drugs, FDA 2007 to 2016</span><span class="big">776</span>products from 146 companies contained hidden drugs, mostly sex, weight loss and muscle products. <span class="c r">REPORTED</span><sup><a href="#s13">13</a></sup></div>
+</div>
+
+<h2>Where to buy</h2>
+<div class="two">
+<div class="box"><b>Marketplaces</b>
+<ul><li>Amazon long pooled identical stock from many sellers, so a fake could ship under a real listing. It said in Sept 2025 it would stop; not confirmed fully gone. <span class="c r">REPORTED</span><sup><a href="#s17">17</a></sup></li>
+<li>Recalled lots were still being delivered through Amazon months after a recall. <span class="c v">VERIFIED</span><sup><a href="#s21">21</a></sup></li>
+<li>Buy from the brand, its official store, or a shop the brand lists. Skip "sold by" third parties. <span class="c i">INFERRED</span></li></ul></div>
+<div class="box"><b>Indonesia</b>
+<ul><li>Supplement numbers: SD (made locally), SI (imported), SL (licensed), then 9 digits. MD and ML are food, TR and TI traditional medicine. <span class="c r">REPORTED</span><sup><a href="#s18">18</a></sup></li>
+<li>Check on cekbpom.pom.go.id or scan the 2D code in the BPOM Mobile app. Codes get copied, so the maker name must match. Report fakes to HaloBPOM 1500533. <span class="c r">REPORTED</span><sup><a href="#s18">18</a></sup></li>
+<li>Unregistered imports are allowed for personal use in small amounts, not for resale. <span class="c r">REPORTED</span><sup><a href="#s22">22</a></sup></li>
+<li>iHerb ships here: max 5 supplement items per order, duty above USD 3, some couriers include tax. <span class="c v">VERIFIED</span><sup><a href="#s23">23</a></sup></li></ul></div>
+</div>
+
+<h2>By supplement <span>form to buy, brands with evidence, and what counts against them</span></h2>
+<div class="pick" id="pick" role="group" aria-label="Pick a supplement"></div>
+<div id="vc" class="vc"></div>
+
+<h2>Ingredient makers worth seeing on a label</h2>
+<div class="box"><ul>
+<li><b>Kaneka QH</b>: patented ubiquinol, with its own quality seal. <span class="c r">REPORTED</span><sup><a href="#s16">16</a></sup></li>
+<li><b>AstaReal</b> (Sweden, USA) and <b>BioAstin</b> (Cyanotech, Hawaii): algae astaxanthin grown under control. <span class="c r">REPORTED</span></li>
+<li><b>Albion TRAACS</b>: fully reacted magnesium bisglycinate chelate, no loose oxide. <span class="c r">REPORTED</span></li>
+<li><b>Quatrefolic</b> or <b>Magnafolate</b>: patented methylfolate salts. Stability claims are the makers' own. <span class="c r">REPORTED</span></li>
+<li><b>Indena Siliphos</b>: milk thistle silybin bound to phospholipid; absorption data comes from Indena. <span class="c r">REPORTED</span></li>
+<li><b>Epax, KD Pharma, AlaskOmega</b>: concentrated fish oils, triglyceride or ethyl ester. <span class="c r">REPORTED</span></li>
+<li><b>AjiPure</b> (Ajinomoto): fermented pharmaceutical grade glycine. <span class="c r">REPORTED</span></li>
+</ul></div>
+
+<h2>Sources</h2>
+<ol class="src">
+<li id="s1"><a href="https://usp.org/node/11126">USP Verified mark</a></li>
+<li id="s2"><a href="https://www.nsf.org/ie/en/nutrition-wellness/product-and-ingredient-certification">NSF product certification</a></li>
+<li id="s3"><a href="https://sport.wetestyoutrust.com/sport-vs-choice">Informed Sport vs Informed Choice</a></li>
+<li id="s4"><a href="https://www.bscg.org/certified-drug-free-dietary-supplements">BSCG Certified Drug Free</a></li>
+<li id="s5"><a href="https://www.sgs.com/en/services/international-fish-oil-standards-ifos-product-certification">IFOS certification (SGS Nutrasource)</a></li>
+<li id="s6"><a href="https://labdoor.com/about/testing">Labdoor testing method</a></li>
+<li id="s7"><a href="https://consumerlab.com/quality-certification-program">ConsumerLab certification program</a></li>
+<li id="s8"><a href="https://thefdalawblog.com/fda_law_blog_hyman_phelps/2007/07/fda-publishes-f.html">FDA dietary supplement GMP rule, 2007</a></li>
+<li id="s9"><a href="https://link.springer.com/10.1038/srep07928">Albert et al., Sci Rep 2015</a></li>
+<li id="s10"><a href="https://www.cambridge.org/core/product/EC656B7DAEF93BD39D043683CE8E20EA">Jackowski et al., J Nutr Sci 2015</a></li>
+<li id="s11"><a href="https://www.nutraingredients.com/Article/2020/02/05/GOED-analysis-supports-quality-levels-for-majority-of-US-omega-3-supplements/">GOED analysis, 2020</a></li>
+<li id="s12"><a href="https://abc7news.com/melatonin-gummies-may-not-contain-what-they-claim-lab-analysis-shows/13189108/">Melatonin gummies, JAMA 2023 (news)</a></li>
+<li id="s13"><a href="https://www.healio.com/family-medicine/practice-management/news/online/%7B77d1956d-c0a7-4a9b-ad49-46f89579224d%7D/despite-fda-warnings-many-dietary-supplements-with-unapproved-pharmaceutical-ingredients-still-sold">Tucker et al., JAMA Netw Open 2018 (news)</a></li>
+<li id="s14"><a href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/">NIH magnesium fact sheet</a></li>
+<li id="s15"><a href="https://www.nowfoods.com/quality-safety/nows-testing-results-astaxanthin-products-august-2023">NOW astaxanthin testing, 2023</a></li>
+<li id="s16"><a href="https://www.nutritionaloutlook.com/view/kaneka-nutrients-ubiquinol-authenticity-testing-results">Kaneka ubiquinol testing, 2026</a></li>
+<li id="s17"><a href="https://www.geekwire.com/2025/after-years-of-backlash-amazon-finally-ends-a-practice-that-many-sellers-have-long-loathed/">Amazon ends commingling, 2025</a></li>
+<li id="s18"><a href="https://izin.co.id/indonesia-business-tips/2025/06/02/cara-cek-bpom/">Cara cek BPOM</a></li>
+<li id="s19"><a href="https://www.consumerlab.com/news/not-all-b-vitamins-contain-what-they-claim/10-17-2024">ConsumerLab B vitamins, 2024</a></li>
+<li id="s20"><a href="https://consumerlab.com/news/most-milk-thistle-fails-cl-tests/07-05-2016">ConsumerLab milk thistle, 2016</a></li>
+<li id="s21"><a href="https://consumerlab.com/recalls/14810/now-recall-of-phosphatidylserine-prompted-by-consumerlab-findings">Recalled lots still shipping, 2024</a></li>
+<li id="s22"><a href="https://www.hukumonline.com/klinik/a/bisakah-menjual-obat-impor-tanpa-izin-edar-lt6423ddb764ae7/">Selling imports without izin edar</a></li>
+<li id="s23"><a href="https://www.iherb.com/shipping/id">iHerb shipping to Indonesia</a></li>
+<li id="s24"><a href="https://www.consumerreports.org/health/supplements/whats-in-your-fish-oil-pill-a3143803643/">Consumer Reports fish oil, 2025</a></li>
+<li id="s25"><a href="https://www.tga.gov.au/news/safety-alerts/health-supplements-containing-vitamin-b6-can-cause-peripheral-neuropathy">TGA vitamin B6 warning</a></li>
+<li id="s26"><a href="https://www.cdc.gov/folic-acid/data-research/mthfr/index.html">CDC on MTHFR and folic acid</a></li>
+<li id="s27"><a href="https://www.ncbi.nlm.nih.gov/books/NBK548817/">LiverTox: milk thistle</a></li>
+<li id="s28"><a href="https://www.efsa.europa.eu/bg/efsajournal/pub/5993">EFSA astaxanthin opinion, 2020</a></li>
+<li id="s29"><a href="https://www.consumerlab.com/answers/_/glycine-for-sleep/">ConsumerLab glycine, 2025</a></li>
+<li id="s30"><a href="https://www.consumerlab.com/reviews/coq10-supplements-review/coq10/">ConsumerLab CoQ10 review, 2026</a></li>
+</ol>
+<p class="foot">Buying Supplements v1 · 25 Oct 2026 · not medical advice · <a href="/supplements/">all supplements</a></p>
+</main>
+<script>
+const V=[
+{k:'omega',n:'Omega-3',buy:['EPA+DHA per serving, not "fish oil" mg. Most people want 250 mg to 1 g EPA+DHA a day.','Triglyceride or re-esterified triglyceride form; one short study absorbed it better than ethyl ester. <span class="c r">REPORTED</span>','An IFOS lot report you can match to your bottle. <span class="c v">VERIFIED</span><sup><a href="#s5">5</a></sup>'],
+skip:['Flavoured oils hide rancid smell and skew the freshness test. <span class="c r">REPORTED</span><sup><a href="#s11">11</a></sup>','Warm storage; keep it cool and dark. <span class="c i">INFERRED</span>'],
+br:[['Sports Research (AlaskOmega)','IFOS lot passed: TOTOX 5.2, 532 mg EPA+DHA vs 475 mg labelled. <span class="c v">VERIFIED</span>','No recalls found'],
+['Carlson Maximum Omega','IFOS lot passed at 114% of label; ConsumerLab approved (paid program). <span class="c v">VERIFIED</span>','No recalls found'],
+['Life Extension Super Omega-3','IFOS 5 star on an older lot; ConsumerLab approved 2026. <span class="c v">VERIFIED</span>','FDA warning letter for drug claims, 2017'],
+['Nordic Naturals','Long IFOS history, but no current IFOS, NSF or USP listing found for Ultimate Omega. <span class="c r">REPORTED</span>','Told to drop freshness claims (2011); recalls of a baby D3 lot (2024) and kids gummies (2025)'],
+['Nature Made, Kirkland','USP verified fish oils. <span class="c r">REPORTED</span>','Consumer Reports 2025: Kirkland 1000 mg and Nature Made Burp-Less over the oxidation limit<sup><a href="#s24">24</a></sup>']]},
+{k:'mag',n:'Magnesium glycinate',buy:['Elemental magnesium on the label: 2,000 mg of chelate gives about 200 mg magnesium. <span class="c v">VERIFIED</span><sup><a href="#s14">14</a></sup>','Albion TRAACS bisglycinate chelate. <span class="c r">REPORTED</span>','Supplement upper limit is 350 mg a day. <span class="c v">VERIFIED</span><sup><a href="#s14">14</a></sup>'],
+skip:['"Buffered" glycinate: blended with magnesium oxide. Read the small print under the name. <span class="c v">VERIFIED</span>','2 of 10 products tested in 2024 seemed to hold a different form than labelled. <span class="c v">VERIFIED</span>'],
+br:[['Thorne Magnesium Bisglycinate','NSF Certified for Sport, 200 mg per scoop. <span class="c v">VERIFIED</span>','Class II recall of Captomer, 2014'],
+['Doctor\'s Best High Absorption','Albion TRAACS, no oxide. Tested by ConsumerLab 2024, result paywalled. <span class="c v">VERIFIED</span>','Red yeast rice recall for hidden lovastatin (2014); glucosamine label settlement (2022)'],
+['Pure Encapsulations','Tested by ConsumerLab 2024, result paywalled. <span class="c r">REPORTED</span>','FDA manufacturing warning letter (2011); an advocate\'s lab found lead traces, method unclear (2025)']]},
+{k:'coq',n:'CoQ10 ubiquinol',buy:['Kaneka QH named on the label. <span class="c i">INFERRED</span>','Take with a fatty meal; ubiquinol raises blood levels more than plain CoQ10. <span class="c v">VERIFIED</span><sup><a href="#s30">30</a></sup>'],
+skip:['Unknown Amazon brands: 24 tested with only trace ubiquinol. <span class="c r">REPORTED</span><sup><a href="#s16">16</a></sup>'],
+br:[['NOW Ubiquinol','Kaneka QH; accredited in-house labs. <span class="c r">REPORTED</span>','FDA warning letter (2005); low-potency recall of another product (2023)'],
+['Life Extension Super Ubiquinol','ConsumerLab approved 2024. <span class="c v">VERIFIED</span>','FDA warning letter for drug claims, 2017'],
+['Jarrow QH-Absorb','Delivered its label in ConsumerLab 2024. <span class="c v">VERIFIED</span>','Ginkgo recall for low potency, 2005'],
+['Doctor\'s Best, Qunol, Kirkland','Also passed ConsumerLab\'s 2024 round. <span class="c v">VERIFIED</span>','See Doctor\'s Best and Kirkland above']]},
+{k:'asta',n:'Astaxanthin',buy:['Natural, from Haematococcus pluvialis algae. In the EU only this form is allowed in supplements, up to 8 mg a day. <span class="c v">VERIFIED</span><sup><a href="#s28">28</a></sup>','A named source: AstaReal, BioAstin or AstaPure. <span class="c i">INFERRED</span>','Softgel in oil, taken with food. <span class="c i">INFERRED</span>'],
+skip:['Cheap marketplace brands: 13 of 22 had under 1 mg. <span class="c v">VERIFIED</span><sup><a href="#s15">15</a></sup>','Synthetic astaxanthin is approved for fish feed, not EU supplements. <span class="c r">REPORTED</span>'],
+br:[['BioAstin (Cyanotech)','Grown in Hawaii; in ConsumerLab 2021 and 2026 rounds. <span class="c r">REPORTED</span>','None found'],
+['Doctor\'s Best (AstaReal)','Tested by ConsumerLab 2021. <span class="c v">VERIFIED</span>','See magnesium above'],
+['NOW Astaxanthin','Passed its own test at 12 mg (self tested). <span class="c v">VERIFIED</span>','See CoQ10 above'],
+['Sports Research 12 mg','Icelandic algae (Astalif); "third party tested" without a named lab. <span class="c v">VERIFIED</span>','None found']]},
+{k:'gly',n:'Glycine',buy:['Plain powder. ConsumerLab found all 10 products close to label, so cheap is fine here. <span class="c v">VERIFIED</span><sup><a href="#s29">29</a></sup>','3 g at bedtime is the sleep trial dose; most of those trials were funded by Ajinomoto. <span class="c v">VERIFIED</span><sup><a href="#s29">29</a></sup>'],
+skip:['Capsules: 3 g means 4 to 6 of them. <span class="c i">INFERRED</span>'],
+br:[['Swanson AjiPure','Ajinomoto pharmaceutical grade glycine. <span class="c v">VERIFIED</span>','None found'],
+['Thorne Glycine','Listed as NSF certified by a retailer; confirm on nsf.org. <span class="c r">REPORTED</span>','See magnesium above'],
+['NOW, BulkSupplements, Double Wood, Nutricost','All in ConsumerLab\'s 2025 test, products close to label. <span class="c v">VERIFIED</span>','See CoQ10 above for NOW']]},
+{k:'b',n:'Vitamin B complex',buy:['B6 at or under 10 to 12 mg a day. The EU upper limit is 12 mg; Australia warns above 10 mg after 250 nerve damage reports. <span class="c v">VERIFIED</span><sup><a href="#s25">25</a></sup>','Methylfolate is a fine choice, but folic acid is not dangerous for MTHFR carriers. <span class="c v">VERIFIED</span><sup><a href="#s26">26</a></sup>'],
+skip:['"B-50" and "B-100" products with 50 to 100 mg B6, unless a doctor wants that dose. <span class="c i">INFERRED</span>','Paying extra for "MTHFR safe" claims. <span class="c i">INFERRED</span>'],
+br:[['Thorne B-Complex #6','NSF Certified for Sport; methylfolate and methyl B12. <span class="c v">VERIFIED</span>','100 mg B6 per serving, about 8 times the EU upper limit'],
+['Nature Made Super B Complex','USP verified. <span class="c r">REPORTED</span>','Gummy recall over testing gaps, 2016'],
+['Solgar B-Complex "100"','ConsumerLab approved (paid program), 2024. <span class="c v">VERIFIED</span>','High B6 by name; check the label']]},
+{k:'milk',n:'Milk thistle',buy:['Extract standardised to 70 to 80% silymarin, or Siliphos phytosome. <span class="c r">REPORTED</span>','A brand that shows a lot test for silymarin content. <span class="c i">INFERRED</span>'],
+skip:['Trusting "80%" on the label: 8 of 10 failed, holding 52 to 60%. <span class="c v">VERIFIED</span><sup><a href="#s20">20</a></sup>','Liver injury fears are not backed by LiverTox, which rates it an unlikely cause. The risk is a weak product. <span class="c v">VERIFIED</span><sup><a href="#s27">27</a></sup>'],
+br:[['Thorne Milk Thistle Phytosome','Siliphos from Indena. <span class="c v">VERIFIED</span>','See magnesium above'],
+['Jarrow Milk Thistle 150 mg','80% silymarin per label; was in the 2016 test where most failed (which ones is paywalled). <span class="c v">VERIFIED</span>','See CoQ10 above'],
+['Nature\'s Way Thisilyn','80% silymarin; in-house testing, no named third party. <span class="c v">VERIFIED</span>','None found']]}];
+const pick=document.getElementById('pick'),vc=document.getElementById('vc');
+function show(k){const v=V.find(x=>x.k===k)||V[0];
+ [...pick.children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===v.k));
+ vc.innerHTML=`<div class="box buy"><p class="vh">${v.n}</p><span class="sub">Buy</span><ul>${v.buy.map(x=>`<li>${x}</li>`).join('')}</ul><span class="sub" style="color:#7A1A1A">Skip</span><ul>${v.skip.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+ <div class="box"><span class="sub" style="margin-top:0">Brands with evidence</span>${v.br.map(b=>`<div class="brand"><b>${b[0]}</b><br>${b[1]}<span class="neg${/^(No|None)/.test(b[2])?' clean':''}">${b[2]}</span></div>`).join('')}</div>`;
+ try{history.replaceState(null,'','#'+v.k)}catch(e){}}
+pick.innerHTML=V.map(v=>`<button type="button" data-k="${v.k}">${v.n}</button>`).join('');
+pick.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(b.dataset.k)});
+show(location.hash.slice(1));
+addEventListener('bs-text',e=>{const k=e.detail&&e.detail.k;if(k)document.querySelector('.wrap').style.setProperty('--k',k)});
+</script>
+</body>
+</html>
