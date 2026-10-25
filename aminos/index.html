@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V63 (25 Oct 2026): laptop discovery timeline folds into one closed line; phone amino card puts Structure and Size side by side. V62 kept at /aminos/v62/. -->
 <!-- Aminos V62 (25 Oct 2026): compact 21-tile amino grid with family key; tap opens the card. V61 kept at /aminos/v61/. -->
 <!-- Aminos V61 (24 Oct 2026): Popular chips at Synergies chip size. V60 kept at /aminos/v60/. -->
 <!-- Aminos V60 (24 Oct 2026): compact build header on phone; tour chips in the Library Synergies style; role legend as filled Library role tags. V59 kept at /aminos/v59/. -->
@@ -1200,6 +1201,26 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 #pop .ch5 .rx{font-size:10px}
 #pop,.pop5{gap:4px!important}
 
+/* V63: closed timeline line; phone card structure + size side by side */
+details.found{padding:0!important;border-top:1.5px solid var(--ink)!important}
+details.found>summary{display:block}
+details.found .shin{padding:0 12px 12px}
+details.found ol{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+details.found .fmore{margin-top:4px;float:none;display:inline-block;margin-bottom:6px}
+@media (max-width:899px){
+#cardwrap .acard .acb{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+#cardwrap .acard .acs{grid-column:1/-1;border-right:0!important}
+#cardwrap .acard .astc,#cardwrap .acard .aszc{grid-column:auto;padding:8px 9px 9px}
+#cardwrap .acard .astc{border-right:1px solid var(--rule)!important}
+#cardwrap .acard .astr svg{max-width:150px}
+#cardwrap .acard .aszc .szsh svg{display:none}
+#cardwrap .acard .aszc .szsh{margin:0 0 4px}
+#cardwrap .acard .aszc .szh{display:block}#cardwrap .acard .aszc .szh span{display:block;font:400 10.5px/1.3 var(--body)!important}
+#cardwrap .acard .aszc .szl{font-size:8px}
+#cardwrap .acard .astc .note{font-size:10px!important}
+#cardwrap .acard .aszc .szt{font-size:10.5px!important}
+}
+@media (max-width:330px){#cardwrap .acard .acb{grid-template-columns:1fr!important}#cardwrap .acard .astc{border-right:0!important}}
 /* V62: compact amino grid */
 .alib.amini{gap:8px}
 .alib.amini .akey{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
@@ -1225,7 +1246,7 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V62</small></h1>
+    <h1>From Gene to Peptide<small>V63</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1278,12 +1299,12 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <span><span class="sg" style="color:var(--accent)"><b>▸</b></span>Start signal</span>
       <span><span class="sg" style="color:var(--accent)"><b>B</b></span>Branched-chain (BCAA)</span>
     </div>
-    <div class="found">
-      <p class="lab">When each letter was found</p>
+    <details class="found shtab">
+      <summary>When each letter was found<span>1806 to 1974 · 21 dates</span></summary><div class="shin">
       <button type="button" class="fmore" onclick="this.closest('.found').classList.toggle('open');this.textContent=this.closest('.found').classList.contains('open')?'Hide the name stories ↑':'Where the names come from ↓'">Where the names come from ↓</button>
       <p class="fl">Asparagine came first, from asparagus juice in 1806. It took 129 years to find all twenty; the twenty-first only turned up in 1974.</p>
-      <ol><li><b>1806</b><strong>Asparagine</strong><span>the first ever found, crystallised from asparagus juice</span></li><li><b>1810</b><strong>Cysteine</strong><span>found as cystine, in a bladder stone</span></li><li><b>1819</b><strong>Leucine</strong><span>from cheese; Greek leukos, white, for its crystals</span></li><li><b>1820</b><strong>Glycine</strong><span>boiled out of gelatin; Greek glykys, sweet, for its taste</span></li><li><b>1827</b><strong>Aspartic acid</strong><span>split off asparagine, its close cousin</span></li><li><b>1846</b><strong>Tyrosine</strong><span>from cheese; Greek tyros, cheese</span></li><li><b>1850</b><strong>Alanine</strong><span>made in a lab before anyone found it in protein</span></li><li><b>1865</b><strong>Serine</strong><span>from silk; Latin sericum, silk</span></li><li><b>1866</b><strong>Glutamic acid</strong><span>from wheat gluten</span></li><li><b>1879</b><strong>Phenylalanine</strong><span>from lupin seedlings</span></li><li><b>1883</b><strong>Glutamine</strong><span>from beet juice</span></li><li><b>1886</b><strong>Arginine</strong><span>from lupin seedlings; Greek argyros, silver, for its shiny salts</span></li><li><b>1889</b><strong>Lysine</strong><span>from milk protein; Greek lysis, loosening</span></li><li><b>1896</b><strong>Histidine</strong><span>from fish sperm protein; Greek histos, tissue</span></li><li><b>1901</b><strong>Valine</strong><span>named after valerian, the root of the sleep herb</span></li><li><b>1901</b><strong>Proline</strong><span>from milk protein, the year it was shown in protein</span></li><li><b>1901</b><strong>Tryptophan</strong><span>from milk protein; named after trypsin, the enzyme that freed it</span></li><li><b>1904</b><strong>Isoleucine</strong><span>from sugar beet molasses, a twin of leucine</span></li><li><b>1922</b><strong>Methionine</strong><span>from milk protein; the start signal of every gene</span></li><li><b>1935</b><strong>Threonine</strong><span>the last of the twenty; named after the sugar threose</span></li><li><b>1974</b><strong>Selenocysteine</strong><span>the 21st, carrying selenium, read from a stop codon</span></li></ol>
-    </div>
+      <ol><li><b>1806</b><strong>Asparagine</strong><span>the first ever found, crystallised from asparagus juice</span></li><li><b>1810</b><strong>Cysteine</strong><span>found as cystine, in a bladder stone</span></li><li><b>1819</b><strong>Leucine</strong><span>from cheese; Greek leukos, white, for its crystals</span></li><li><b>1820</b><strong>Glycine</strong><span>boiled out of gelatin; Greek glykys, sweet, for its taste</span></li><li><b>1827</b><strong>Aspartic acid</strong><span>split off asparagine, its close cousin</span></li><li><b>1846</b><strong>Tyrosine</strong><span>from cheese; Greek tyros, cheese</span></li><li><b>1850</b><strong>Alanine</strong><span>made in a lab before anyone found it in protein</span></li><li><b>1865</b><strong>Serine</strong><span>from silk; Latin sericum, silk</span></li><li><b>1866</b><strong>Glutamic acid</strong><span>from wheat gluten</span></li><li><b>1879</b><strong>Phenylalanine</strong><span>from lupin seedlings</span></li><li><b>1883</b><strong>Glutamine</strong><span>from beet juice</span></li><li><b>1886</b><strong>Arginine</strong><span>from lupin seedlings; Greek argyros, silver, for its shiny salts</span></li><li><b>1889</b><strong>Lysine</strong><span>from milk protein; Greek lysis, loosening</span></li><li><b>1896</b><strong>Histidine</strong><span>from fish sperm protein; Greek histos, tissue</span></li><li><b>1901</b><strong>Valine</strong><span>named after valerian, the root of the sleep herb</span></li><li><b>1901</b><strong>Proline</strong><span>from milk protein, the year it was shown in protein</span></li><li><b>1901</b><strong>Tryptophan</strong><span>from milk protein; named after trypsin, the enzyme that freed it</span></li><li><b>1904</b><strong>Isoleucine</strong><span>from sugar beet molasses, a twin of leucine</span></li><li><b>1922</b><strong>Methionine</strong><span>from milk protein; the start signal of every gene</span></li><li><b>1935</b><strong>Threonine</strong><span>the last of the twenty; named after the sugar threose</span></li><li><b>1974</b><strong>Selenocysteine</strong><span>the 21st, carrying selenium, read from a stop codon</span></li></ol></div>
+    </details>
   </section>
 
   </div>
@@ -1345,9 +1366,10 @@ button.blpt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </section>
 
   <details class="log">
-    <summary class="lab" style="cursor:pointer">Version log · 62 versions</summary>
+    <summary class="lab" style="cursor:pointer">Version log · 63 versions</summary>
     <p style="margin:6px 0 10px"><b>Built over 62 rounds of edits by Cece, 21 to 25 October 2026.</b> Every version below was a new round of her notes; old versions are kept, not overwritten.</p>
-    <p><b>V62:</b> the amino acid library shrinks to one compact grid of 21 small tiles, the way the Library shows its stickers: shape, name, three-letter code, weight and colour stripe, ordered by family, with a one-line family key above. Tap a tile to open its full card, with its role colours shown as proportions. The intro is shorter. <a href="/aminos/v61/">V61 kept here</a>.</p>
+    <p><b>V63:</b> on laptops, When each letter was found folds into one closed line, like The shapes: tap it to open the timeline. On phones the amino card is shorter: Structure and Size and shape sit side by side, and the repeated shape icon drops out of the size box since the header already shows it. <a href="/aminos/v62/">V62 kept here</a>.</p>
+    <p style="margin-top:6px"><b>V62:</b> the amino acid library shrinks to one compact grid of 21 small tiles, the way the Library shows its stickers: shape, name, three-letter code, weight and colour stripe, ordered by family, with a one-line family key above. Tap a tile to open its full card, with its role colours shown as proportions. The intro is shorter. <a href="/aminos/v61/">V61 kept here</a>.</p>
     <p><b>V61:</b> the Popular and Show all chips are smaller, the same size as the Synergies chips in the Library and the stack chips in Protocol. <a href="/aminos/v60/">V60 kept here</a>.</p>
     <p><b>V60:</b> the top of Build a peptide is shorter on phones: the example chips look like the Synergies chips in the Library (a colour square and the name, small, in one swipeable row), the Next example button and the one-line description are smaller, and the roles under the example are filled role tags, the way the Library labels them. <a href="/aminos/v59/">V59 kept here</a>.</p>
     <p><b>V59:</b> Part one becomes The amino acid library: the table is gone, and the 21 are grouped by shape into six families (oily, rings, water-loving, negative, positive, the odd one), each a profile tile in the Library sticker style with its weight, essential badge, size, one line on what it does, filled role tags, codons, the year it was found and its colour stripe. The amino card follows the Library card: smaller type, filled role tags, the shape on graph paper, and four blocks (what it is for, facts, structure, size and shape). For every peptide cut from a protein, the map of where its links come from now sits right under the chain in the same shapes and colours, and hovering one lights up the other. On laptops each chain carries its role tags inside the graph paper. 53 entries join from the Library (167 in all): 11 buildable peptides, 8 with unpublished sequences, 3 big proteins, 11 non-peptides, 2 mixtures and all 18 blends, each blend showing its share of the vial and a card per part. <a href="/aminos/v58/">V58 kept here</a>.</p>
