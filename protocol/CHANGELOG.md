@@ -2,7 +2,19 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
-## v27 (25 Oct 2026)
+## v30 (25 Oct 2026)
+- Goal templates replaced by Popular stacks, the names people use online: Wolverine, GLOW, KLOW, Looksmax, Beauty, Grow (muscle), Lean, High energy, Smarter (IllumiNeuro), Calm focus, Sleep better, Longevity, Gut reset, Immunity, Date night. Sources: Outliyr's stack list, peptide-db's IllumiNeuro page, Wolverine and GLOW write-ups (Oct 2026).
+- Tap a stack to add it, tap again to remove it. A preview card opens under the list: each peptide with time, route, how often, food, dose (D) and syringe units, plus how many blood tests come before day one.
+- Stacks with a factory blend (Wolverine, GLOW, KLOW, Grow's CJC + Ipa, IllumiNeuro) show a 1 VIAL badge and a One vial / Separate switch.
+- Each stack sets its own times and food (GH peptides at bedtime fasted, IllumiNeuro mornings fasted, Date night as needed).
+- Small warning beside the list: names people use online, not prescriptions.
+- Example is now Jane Doe ♀ (fictional), shown in the same symbol rows.
+- A ♀ / ♂ tag can be set beside the name (saved in the link) and shows on the keepsake header.
+- Symbols everywhere on the page: the sticker set (BAC drop, green D for dose, orange syringe for units, mixed-on calendar, expiry bin, use-within jar), food symbols (fasted, before, with, after) and a red blood-test drop. A "What the symbols mean" legend sits under the example and under the protocol header. Units now read U, like the stickers.
+- IllumiNeuro shows by its short name.
+- Built on v29 (the other session's power-first stripes), kept. v28: name-first compound search. v29: power-first stripes.
+
+## v27 (25 Oct 2026) at /protocol/v27/
 - Example protocol card at the top while the stack is empty: a fictional person (Noor, not a real stack), three peptides on their recommended starts, with Start from this example.
 - Goal templates under step one: Recovery, Gut, Fat loss, Energy, Sleep and GH, Calm and focus, Skin, Longevity, Immunity. One tap adds the set on recommended doses.
 - What to expect: a vertical timeline in the protocol (and the printout) with what people report and roughly when, plus last doses and blood tests. First draft from common community reports, to be replaced by Library research.
