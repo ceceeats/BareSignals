@@ -7,7 +7,7 @@
 <title>Bare Signals</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Home v20 (24 Oct 2026): one content width with the site bar (nav v11): main uses the shared 1240px box with 24px side padding on laptop (16px on phone), so the header line meets the wordmark and the A buttons; progress buttons get ink instead of the browser default black. v19 kept at /home/v19/. Home v19 (23 Oct 2026): Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. v18 kept at /home/v18/. Home v18 (23 Oct 2026): hooked to nav v10: laptop has five text steps (0.88 to 1.45, default the large A 1.15, saved as bs-text-w), phone keeps three; Home applies the number nav sends (detail.k) to the screens and reads the laptop setting at load. v17 kept at /home/v17/. Home v17 (23 Oct 2026): hooked to nav v9: the text size control (small A / A / large A) moved from the page header to the site bar's wordmark line (the bar stays on screen); Home listens to bs-text and scales the screens as before; the big BARE SIGNALS title is now for screen readers only since the bar already carries the wordmark, the tagline leads; page height reads the bar's reserved space (--bsnav-h0); the gallery highlight in the bar still follows the slide and, when the phone bar is compact, scrolls into view; text size clicks no longer stop the gallery. v16 kept at /home/v16/. Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
+/* Home v21 (25 Oct 2026): tagline in quotation marks and centred with the compound count under it; each screen carries its own floating orange Open button (the screen reads as a page preview), caption keeps title and line only; Dosage, Blood Work (GHK-Cu and its blends), Aminos and Calculator screens are real phone screenshots of those pages (/home/shots/*.webp) that scroll slowly while shown; Protocol shows a one-week view of GHK-Cu daily, BPC-157 5 on 2 off, TB-500 twice weekly (Mon, Thu) and Tirzepatide weekly on Monday. v20 kept at /home/v20/. Home v20 (24 Oct 2026): one content width with the site bar (nav v11): main uses the shared 1240px box with 24px side padding on laptop (16px on phone), so the header line meets the wordmark and the A buttons; progress buttons get ink instead of the browser default black. v19 kept at /home/v19/. Home v19 (23 Oct 2026): Tag text now picks whichever of three inks reads best on each colour: the usual ink on pale tags, a deeper ink (#1F2550) on mid tones like Cellular protection, DNA, Fat, Muscle, Aging and Cancer, cream on dark tags. Fixes dark-on-dark labels. v18 kept at /home/v18/. Home v18 (23 Oct 2026): hooked to nav v10: laptop has five text steps (0.88 to 1.45, default the large A 1.15, saved as bs-text-w), phone keeps three; Home applies the number nav sends (detail.k) to the screens and reads the laptop setting at load. v17 kept at /home/v17/. Home v17 (23 Oct 2026): hooked to nav v9: the text size control (small A / A / large A) moved from the page header to the site bar's wordmark line (the bar stays on screen); Home listens to bs-text and scales the screens as before; the big BARE SIGNALS title is now for screen readers only since the bar already carries the wordmark, the tagline leads; page height reads the bar's reserved space (--bsnav-h0); the gallery highlight in the bar still follows the slide and, when the phone bar is compact, scrolls into view; text size clicks no longer stop the gallery. v16 kept at /home/v16/. Home v16 (23 Oct 2026): gallery highlight in the top bar is orange (tint + ink, orange underline), not blue; top bar links always navigate (capture click handler stops the gallery first); "Open …" button under each screen is solid orange; Library screen is now a moving mini Library (rotating search, sort row on Popular, roles bar folded to colour squares, Option A dose stickers 3 across, slow looping auto-scroll, live data); Dosage cards half size, two per row; Type Rule v1 on every screen (tags, chips and labels at 8.5px mono, one title size) plus the three-step text size control (bs-text). v15 kept at /home/v15/. Home v15 (23 Oct 2026): every gallery screen filled with what that page really shows: Library card adds How it works, synergies, name story; Dosage the top three doses people take and a third compound; Blood Work the markers it moves (aim and warning numbers), while-on tests and red flags; Supplements each pairing's role tag, why and usual dose; Aminos the letters it is built from and their roles; Made what a lab result should list; Calculator a dose table at the same mix and handling steps; Protocol the stack's merged tests and supplements. Same design. v14 kept at /home/v14/. Home v14: one screen, no long scroll. A gallery swipes itself through every page, same size and format each time: Library card, Dosage, Blood Work, Supplements, the Aminos string, Made, Calculator, Protocol. The top bar lights up the page being shown. One compound runs through the whole loop, a new one each loop. Tagline only; ticking compound count. v13 kept at /home/v13/. */
 :root{--paper:#FFFFE2;--ink:#3E4A80;--soft:#6B76A8;--accent:#DB6830;--act:#FFE3CF;--rule:#E3E0BF;--chip:#FFFFF4}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-text-size-adjust:100%}
@@ -277,12 +277,32 @@ main{max-width:var(--bs-w,1240px);margin:0 auto;padding:12px max(var(--bs-pad,16
 }
 @media (max-height:700px){.hd .tag{font-size:13.5px}.cap b{font-size:19px}.cap p{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.sl{transition:none}.prog button.run i{animation:none}.hd .ev i,.am .bb,.am .bd{animation:none}}
+/* v21: centred quote, floating Open button, screenshot screens, one-week protocol */
+.hd{flex-direction:column;align-items:center;text-align:center;gap:6px}
+.hd>div{width:100%}
+.hd .hdr{display:flex;justify-content:center}
+.openf{position:absolute;right:12px;bottom:14px;z-index:3;font:700 10.5px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;padding:11px 12px;background:#DB6830;color:#fff;border:1.5px solid #B9531F;box-shadow:3px 3px 0 rgba(62,74,128,.28);white-space:nowrap;transition:opacity .3s,transform .3s}
+.sl:not(.on) .openf{opacity:0;transform:translateY(6px)}
+.sl.on:hover .openf{background:#B9531F}
+.cap{grid-template-columns:1fr}
+.cap a{display:none}
+.scr.shot{padding:10px 10px 0}
+.scr.shot .body{background:var(--paper);border:1px solid var(--rule)}
+.scr.shot .body::after{height:40px}
+.ss{display:block;width:100%;height:auto;will-change:transform}
+.wk7{display:grid;grid-template-columns:84px repeat(7,1fr);gap:3px;align-items:center;font-size:11px}
+.wk7 .h{font:500 8.5px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);text-align:center;letter-spacing:.04em}
+.wk7 .n{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:3px}
+.wk7 i{display:grid;place-items:center;height:18px;border:1px solid var(--ink);font:600 8px "JetBrains Mono",monospace;font-style:normal}
+.wk7 i.off{background:transparent;border-color:var(--rule)}
+.wkn{font:500 9px "JetBrains Mono",ui-monospace,Menlo,monospace;color:var(--soft);margin:5px 0 0;letter-spacing:.03em}
+.pr .kv b{white-space:nowrap}
 </style>
 <script src="/nav.js" defer></script>
 </head>
 <body><main>
 <header class="hd">
-  <div><h1>BARE SIGNALS</h1><p class="tag">I bare my notes for those who can benefit from it.</p></div>
+  <div><h1>BARE SIGNALS</h1><p class="tag">“I bare my notes for those who can benefit from it.”</p></div>
   <div class="hdr"><span class="ev mono"><i>▲</i> Ever evolving · <b id="ncount">…</b> compounds</span></div>
 </header>
 <div class="gal" id="gal" aria-roledescription="carousel" aria-label="Every page, one at a time"></div>
@@ -441,7 +461,7 @@ loadData(function(){
     ['/protocol/','Protocol','Build a stack, see what overlaps and what to test.','Build a protocol']
   ];
   var fi=0,cur=0,timer=null,paused=RM,DUR=5200,o=null,started=false;
-  var durOf=function(k){return k===0?9000:DUR};
+  var durOf=function(k){return k===0||k===1||k===2||k===4||k===6||k===7?9000:DUR};
   HOME.stop=function(){clearTimeout(timer);paused=true};
 
   function bar(a,b){return '<div class="bar"><span>'+a+'</span><span>'+b+'</span></div>'}
@@ -500,21 +520,27 @@ loadData(function(){
   function stackSupps(rows){var seen={},out=[];rows.forEach(function(x){((BW.sup||{})[x.slug]||[]).forEach(function(s){if(!seen[s[0]]){seen[s[0]]=1;out.push(s)}})});if(!out.length)return '';
     return '<span class="lbl">Supplements for the stack</span><div class="tchips">'+out.slice(0,6).map(function(s){return '<span><u style="background:'+s[2]+'"></u>'+esc(s[1])+'</span>'}).join('')+'</div>'}
   function weeks(c){var m=String(c||'').match(/(\d+)\s*(?:–|-|to)?\s*(\d+)?\s*w/i);return m?Math.min(8,+(m[2]||m[1])):8}
-  function sProtocol(o){var p=partner(o),rows=[o,p].filter(Boolean),c=(BW.comps||{})[o.slug];
-    var hd='<span></span>'+[1,2,3,4,5,6,7,8].map(function(w){return '<span class="h">W'+w+'</span>'}).join('');
-    var rw=rows.map(function(x){var n=weeks(x.dose&&x.dose.cycle),cc=col(x.primary);return '<span class="n">'+esc(x.name)+'</span>'+[1,2,3,4,5,6,7,8].map(function(w){return '<i style="background:'+(w<=n?cc:'transparent')+'"></i>'}).join('')}).join('');
-    return '<div class="scr pr">'+bar('Protocol','your stack')+'<div class="body"><h4>'+rows.map(function(x){return esc(x.name)}).join(' + ')+'</h4><span class="lbl">Your weeks</span><div class="wk">'+hd+rw+'</div>'+
-      '<span class="lbl">The doses</span><div class="kv">'+rows.map(function(x){return '<b>'+esc(x.name)+'</b><span>'+esc((x.dose||{}).dose||'')+' · '+esc((x.dose||{}).freq||'')+'</span>'}).join('')+'</div>'+
-      (c?'<span class="lbl">What to test</span><div class="kv"><b>How often</b><span>'+esc(c.freq||'')+'</span></div>':'')+
-      stackTests(rows)+stackSupps(rows)+
-      '<div class="acts2"><span>Save as PDF</span><span>Copy for my AI</span></div></div></div>'}
-
+  /* v21: a fixed four-compound stack shown as one week, so people see which day each one is taken */
+  var WEEK=[['ghk-cu','1 mg','Daily',[1,1,1,1,1,1,1]],['bpc-157','250 mcg','5 on, 2 off',[1,1,1,1,1,0,0]],['tb-500-frag-17-23','2 mg','2x weekly · Mon, Thu',[1,0,0,1,0,0,0]],['tirzepatide','2.5 mg','Once weekly · Mon',[1,0,0,0,0,0,0]]];
+  function sProtocol(){var rows=WEEK.map(function(w){var x=BY(w[0]);return x?{o:x,d:w[1],f:w[2],on:w[3]}:null}).filter(Boolean),os=rows.map(function(r){return r.o});
+    var hd='<span></span>'+['M','T','W','T','F','S','S'].map(function(d){return '<span class="h">'+d+'</span>'}).join('');
+    var rw=rows.map(function(r){var cc=col(r.o.primary),fg=txt(cc);return '<span class="n">'+esc(r.o.name.replace(/ frag 17–23/,''))+'</span>'+r.on.map(function(v){return v?'<i style="background:'+cc+';color:'+fg+'">✓</i>':'<i class="off"></i>'}).join('')}).join('');
+    return '<div class="scr pr">'+bar('Protocol','your stack')+'<div class="body"><div class="ss" style="padding-bottom:46px"><h4>'+os.map(function(x){return esc(x.name.replace(/ frag 17–23/,''))}).join(' + ')+'</h4><span class="lbl">Your week</span><div class="wk7">'+hd+rw+'</div><p class="wkn">Repeats every week · starts at the lowest common dose</p>'+
+      '<span class="lbl">The doses</span><div class="kv">'+rows.map(function(r){return '<b>'+esc(r.o.name.replace(/ frag 17–23/,''))+'</b><span>'+esc(r.d)+' · '+esc(r.f)+'</span>'}).join('')+'</div>'+
+      '<span class="lbl">What to test</span>'+stackTests(os)+stackSupps(os)+
+      '<div class="acts2"><span>Save as PDF</span><span>Copy for my AI</span></div></div></div></div>'}
+  function sShot(k,title,sub){return '<div class="scr shot">'+bar(title,sub)+'<div class="body"><img class="ss" src="/home/shots/'+k+'.webp" alt="The '+title+' page on a phone" decoding="async"></div></div>'}
+  var SHOT={1:1,2:1,4:1,6:1};
+  function shotScroll(){[].forEach.call($('#gal').querySelectorAll('.ss'),function(im){im.style.transition='none';im.style.transform=''});
+    var sl=$('#gal').children[cur],im=sl&&sl.querySelector('.ss');if(!im||RM||paused&&false)return;
+    var run=function(){var bd=im.parentNode,dist=Math.min(im.offsetHeight-bd.clientHeight,bd.clientHeight*2.4);if(dist<=0)return;
+      setTimeout(function(){if($('#gal').children[cur]!==sl)return;im.style.transition='transform '+Math.max(3000,durOf(cur)-1800)+'ms cubic-bezier(.45,0,.55,1)';im.style.transform='translateY(-'+dist+'px)'},900)};
+    if(im.tagName!=='IMG'||im.complete&&im.naturalHeight)run();else im.addEventListener('load',run,{once:true})}
   function build(){
     o=FEAT[fi%FEAT.length];
-    var c=calc(o);
-    var html=[sLibrary(),sDosage(o),sBlood(o),sSupps(o),sAminos(o),sMade(),c.html.replace(/<div class="bar">.*?<\/div>/,function(m){return m+'<div class="body">'}).replace(/<\/div>$/,'</div></div>'),sProtocol(o)];
-    var hrefs=['/library/','/dosage/?only='+encodeURIComponent(o.slug),'/blood/','/supplements/','/aminos/','/made/',c.href,'/protocol/'];
-    $('#gal').innerHTML=html.map(function(h,i){return '<a class="sl" data-i="'+i+'" href="'+hrefs[i]+'" aria-label="'+PAGES[i][1]+'">'+h+'</a>'}).join('');
+    var html=[sLibrary(),sShot('dosage','Dosage','side by side'),sShot('blood','Blood Work','GHK-Cu'),sSupps(o),sShot('aminos','Aminos','gene to peptide'),sMade(),sShot('calculator','Calculator','Draw Line'),sProtocol()];
+    var hrefs=['/library/','/dosage/','/blood/','/supplements/','/aminos/','/made/','/draw/','/protocol/'];
+    $('#gal').innerHTML=html.map(function(h,i){return '<a class="sl" data-i="'+i+'" href="'+hrefs[i]+'" aria-label="'+PAGES[i][1]+'">'+h.replace(/<\/div>$/,'<span class="openf" data-open="'+PAGES[i][1]+'">'+PAGES[i][3]+' →</span></div>')+'</a>'}).join('');
     PAGES.forEach(function(p,i){p[4]=hrefs[i]});
     box=document.getElementById('hstring');
   }
@@ -525,7 +551,7 @@ loadData(function(){
     var wrap=i>=8;cur=(i+8)%8;
     if(wrap&&!user){fi++;build()}
     place();navHL();
-    var p=PAGES[cur];$('#cap').innerHTML='<b>'+p[1]+'</b><p>'+p[2]+'</p><a href="'+(p[4]||p[0])+'" data-open="'+p[1]+'">'+p[3]+' →</a>';
+    var p=PAGES[cur];$('#cap').innerHTML='<b>'+p[1]+'</b><p>'+p[2]+'</p>';shotScroll();
     $('#prog').innerHTML=PAGES.map(function(q,k){return '<button type="button" data-k="'+k+'" aria-label="'+q[1]+'" class="'+(k<cur?'done':k===cur&&!paused?'run':k===cur?'done':'')+'" style="--dur:'+durOf(k)+'ms"><i></i></button>'}).join('');
     if(cur===4&&box&&o.seq)draw({o:o,note:'',np:null});else LV=null;
     if(cur===0){if(!LS.on){LS.on=true;LS.t0=performance.now()+1300}}else{LS.on=false;var lg=document.getElementById('lbgr');if(lg)lg.style.transform=''}

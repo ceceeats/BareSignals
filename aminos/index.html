@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V66 (25 Oct 2026): peptide search ranks names first via /search.js (starts with, then a word in the name, then other names; types and families from 3 letters); one letter shows only names starting with it. V65 kept at /aminos/v65/. -->
 <!-- Aminos V65 (25 Oct 2026): laptop timeline back to the open V62 layout (laptop shows everything; only phone gets compacted). Phone card from V64 unchanged. V64 kept at /aminos/v64/. -->
 <!-- Aminos V64 (25 Oct 2026): phone amino card puts What it’s for and Facts side by side; facts read label over value. V63 kept at /aminos/v63/. -->
 <!-- Aminos V63 (25 Oct 2026): laptop discovery timeline folds into one closed line; phone amino card puts Structure and Size side by side. V62 kept at /aminos/v62/. -->
@@ -114,6 +115,7 @@
 @media (max-width:899px){.shk{grid-template-columns:repeat(2,minmax(0,1fr))}.shk .shi svg{width:26px;height:26px}.tile .gsh{width:44%;bottom:8px;right:3px}}
 </style>
 <script src="/nav.js" defer></script>
+<script src="/search.js"></script>
 </head>
 <body>
 <title>Aminos · Bare Signals</title>
@@ -1262,7 +1264,7 @@ details.found .fmore{margin-top:4px;float:none;display:inline-block;margin-botto
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V65</small></h1>
+    <h1>From Gene to Peptide<small>V66</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -2105,8 +2107,8 @@ function renderPop(){
   pop.innerHTML=html}
 let hl=-1,shown=[];
 function renderList(){
-  const q=$("#q").value.trim().toLowerCase().replace(/[\s\-–]/g,"");
-  shown=P.map((p,i)=>i).filter(i=>{if(!q)return true;const o=(ORI[P[i][0]]||["syn"])[0];return (P[i][0]+" "+(P[i][5]||"")+" "+OT[o][0]+" "+(SHORT[o]||"")+(o==="np"?" not a peptide nonpeptide":"")+(o==="bl"?" blend stack mix vial":"")+(o==="unp"?" unpublished secret":"")+(o==="prot"?" antibody protein":"")+(o==="syn"?" lab made synthetic":"")).toLowerCase().replace(/[\s\-–]/g,"").includes(q)}).sort((a,b)=>P[a][0].localeCompare(P[b][0]));
+  const raw=$("#q").value.trim(),q=raw.toLowerCase().replace(/[\s\-–]/g,""),RK={};
+  shown=P.map((p,i)=>i).filter(i=>{if(!q)return true;const r=BS_SEARCH.rank(P[i][0],P[i][5]||"","",raw);if(r>0){RK[i]=r;return true}if(q.length<3)return false;const o=(ORI[P[i][0]]||["syn"])[0];return (P[i][0]+" "+(P[i][5]||"")+" "+OT[o][0]+" "+(SHORT[o]||"")+(o==="np"?" not a peptide nonpeptide":"")+(o==="bl"?" blend stack mix vial":"")+(o==="unp"?" unpublished secret":"")+(o==="prot"?" antibody protein":"")+(o==="syn"?" lab made synthetic":"")).toLowerCase().replace(/[\s\-–]/g,"").includes(q)}).filter((i,_,A)=>!q||(RK[i]||0)>=BS_SEARCH.best(A.map(j=>RK[j]||0))).sort((a,b)=>(q?(RK[b]||0)-(RK[a]||0):0)||P[a][0].localeCompare(P[b][0]));
   let last="",h="";
   shown.forEach((i,k)=>{const L=/[0-9]/.test(P[i][0][0])?"#":P[i][0][0].toUpperCase();if(!q&&L!==last){h+=`<div class="let">${L}</div>`;last=L}h+=pk(i).replace('class="pk"',`class="pk${k===hl?" hl":""}"`)});
   $("#plist").innerHTML=shown.length?h:`<p class="empty" style="border:0">No match. Try another name.</p>`;
