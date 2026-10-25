@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Aminos V67 (25 Oct 2026): blends show no mg anywhere (no vial total, no per-part amount, no amounts in the blend line); the bar still shows each part's share. V66 kept at /aminos/v66/. -->
 <!-- Aminos V66 (25 Oct 2026): peptide search ranks names first via /search.js (starts with, then a word in the name, then other names; types and families from 3 letters); one letter shows only names starting with it. V65 kept at /aminos/v65/. -->
 <!-- Aminos V65 (25 Oct 2026): laptop timeline back to the open V62 layout (laptop shows everything; only phone gets compacted). Phone card from V64 unchanged. V64 kept at /aminos/v64/. -->
 <!-- Aminos V64 (25 Oct 2026): phone amino card puts What it’s for and Facts side by side; facts read label over value. V63 kept at /aminos/v63/. -->
@@ -1264,7 +1265,7 @@ details.found .fmore{margin-top:4px;float:none;display:inline-block;margin-botto
   <div class="top">
   <header>
     <div class="hrow"><p class="lab">Aminos</p></div>
-    <h1>From Gene to Peptide<small>V66</small></h1>
+    <h1>From Gene to Peptide<small>V67</small></h1>
     <p class="lede" style="margin-top:8px">Twenty-one bare amino acids. Chained in the right order, they become peptides and proteins: bare signals that tell the body what to do. A walk in three parts: the letters, the build, the fold.</p>
   </header>
 
@@ -1784,8 +1785,10 @@ function soupSVG(){const W=320,H=118;let r=7,seed=11;const rnd=()=>{seed=(seed*1
     pts.forEach(p=>{const c=col(Math.floor(rnd()*20));out+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${r}" fill="${c}" stroke="#3E4A80" stroke-width="1.4"/>`})});
   return `<div class="soup"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Loose amino acids and short peptide chains">${lines}${out}</svg></div>`}
 const WHY={"NAD+": "Built from two nucleotides, the units of DNA and RNA, not from amino acids.", "MK-677": "Two amino acid pieces are joined like a peptide, but the rest is a lab ring system, so chemists class it as a small molecule.", "SLU-PP-332": "No amino acids: carbon rings linked through nitrogens.", "Cerebrolysin": "Real peptide pieces, but thousands of different ones mixed with loose amino acids, so there is no single sequence.", "5-Amino-1MQ": "A small fused-ring molecule with no amino acids.", "Bromantane": "A carbon cage and a ring, with no amino acids.", "Creatine": "Pieces of three amino acids fused into one small molecule, without a single peptide bond.", "Methylene blue": "A dye made of three fused rings, with no amino acids."};
+/* V67: blends carry no amounts in their line */
+const noAmt=t=>String(t||"").replace(/\s*\(\s*\d[^)]*\b(?:mg|mcg|IU)\s*\)/g,"").replace(/,?\s*\d[\d\s.+:\/]*\s*(?:mg|mcg|IU)\b/g,"").replace(/\s+([.,;])/g,"$1").replace(/,\./g,".");
 function madeOf(p){const el=$("#madeof");if(!el)return;const m=p&&!p[1]&&MADE[p[0]];if(!m){el.innerHTML="";el.hidden=true;return}
-  const head=`<p class="lab">What it’s made of</p><div class="mk"><b>${m.k}</b><span>${m.f}</span><span><i>·</i> ${m.w}</span></div>`;
+  const head=`<p class="lab">What it’s made of</p><div class="mk"><b>${m.k}</b><span>${m.f}</span>${m.blend?"":`<span><i>·</i> ${m.w}</span>`}</div>`;
   const body=m.blend?blendBox(m):m.ghost?ghostRow(m.ghost):m.soup?soupSVG():`<div class="parts">${m.parts.map(x=>`<div class="pt${x[3]===1||x[4]?" on":""}">${partIcon(x[0],x[3]&&x[3]!==1?x[3]:"")}<strong>${x[1]}</strong>${x[2]?`<em>${x[2]}</em>`:""}</div>`).join("")}</div>`;
   const why=m.why||WHY[p[0]]||"";const ot0=(ORI[p[0]]||[])[0],wt=ot0==="mix"||ot0==="bl"?"Why it’s not one peptide":ot0==="unp"?"Why there’s no chain to build":ot0==="prot"?"Why it’s not built here":"Why it’s not a peptide";el.innerHTML=head+body+(why?`<div class="whynot"><i class="ptr" aria-hidden="true"></i><b>${wt}</b><span>${why}</span></div>`:"")+`<p class="mtxt">${m.t}</p>`;el.hidden=false}
 document.addEventListener("click",e=>{const b=e.target.closest("#madeof [data-go]");if(!b)return;pick(+b.dataset.go,true)});
@@ -1797,7 +1800,7 @@ function origin(p){const el=$("#origin");if(!el)return;{const under=!!(p&&p[1]),
   else if(o[2]){const g=o[2],big=g.len>60,rows=g.len>100?4:g.len>30?2:1,per=Math.ceil(g.len/rows);let d="";for(let i=1;i<=g.len;i++){d+=i>=g.a&&i<=g.b?(big?`<i class="on dt" data-k="${i-g.a}" style="background:${dotC(sq[i-g.a])}" title="${sq[i-g.a]}"></i>`:cell(sq[i-g.a],i-g.a)):`<i class="off"></i>`}
     map=`<p class="omh">Cut from ${g.n}: links ${g.a} to ${g.b} of ${g.len}</p><div class="omap2${big?" bigp":""}" style="--per:${per}">${d}</div><p class="ocap2">The coloured ${big?"dots":"shapes"} are the ${g.b-g.a+1} links of the chain above, in the same colours. Faded dots are the rest of ${g.n}.</p>`}
   if(ob){ob.innerHTML=map;ob.hidden=!map||!sq}
-  el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[1]}</span></div>`;el.hidden=false;madeOf(p)}
+  el.innerHTML=`<div class="otag ${o[0]}"><b>${t[0]}</b><span>${o[0]==="bl"?noAmt(o[1]):o[1]}</span></div>`;el.hidden=false;madeOf(p)}
 function omapLink(){const ob=$("#omapbox"),st=$("#string");if(!ob||!st)return;const hot=(k,on)=>{st.querySelectorAll(".bd.hot2").forEach(n=>n.classList.remove("hot2"));ob.querySelectorAll("i.hot2").forEach(n=>n.classList.remove("hot2"));if(!on)return;const b=st.querySelector('.bd[data-i="'+k+'"]'),c=ob.querySelector('i[data-k="'+k+'"]');if(b)b.classList.add("hot2");if(c)c.classList.add("hot2")};
   ob.addEventListener("pointerover",e=>{const c=e.target.closest("i[data-k]");hot(c?+c.dataset.k:-1,!!c)});ob.addEventListener("pointerleave",()=>hot(-1,false));
   st.addEventListener("pointerover",e=>{const g=e.target.closest(".bd");hot(g?+g.dataset.i:-1,!!g)});st.addEventListener("pointerleave",()=>hot(-1,false))}
@@ -1926,7 +1929,7 @@ function show(i,scroll){
 /* V58: blends, unpublished chains and the origin map beside the chain */
 const blendBox=m=>{const tot=m.blend.reduce((t,p)=>t+(typeof p[1]==="number"?p[1]:0),0),col=n=>{const q=n&&P.find(x=>x[0]===n);return q&&PAL[q[2]]?PAL[q[2]][1]:"#E8E6C8"};
   const mini=n=>{const q=n&&P.find(x=>x[0]===n);if(!q)return `<span class="blnp">not in this walk</span>`;if(!q[1]){const t=(ORI[q[0]]||[])[0];return `<span class="blnp">${t==="mix"?"peptide mix":t==="unp"?"sequence secret":"not a peptide"}</span>`}const sq=q[1].length>43?q[1].slice(0,43):q[1];return `<span class="blc">${sq.split("").map(L=>`<i style="background:${dotC(L)}"></i>`).join("")}${q[1].length>43?"<em>…</em>":""}</span><span class="bln">${q[1].length} links</span>`};
-  return `<div class="blnd">${tot?`<div class="blbar">${m.blend.map(p=>`<i style="flex-grow:${p[1]||1};background:${col(p[0])}"></i>`).join("")}</div>`:""}<div class="blp">${m.blend.map(p=>{const q=p[0]?P.findIndex(x=>x[0]===p[0]):-1;const go=q>=0;return `<${go?`button type="button" data-go="${q}"`:"div"} class="blpt"><span class="blh"><i class="sq" style="background:${col(p[0])}"></i><b>${p[2]}</b>${p[1]!=null?`<em>${p[1]} ${m.unit==="mg"?"mg":""}</em>`:""}</span><span class="blr">${p[3]}</span>${mini(p[0])}</${go?"button":"div"}>`}).join("")}</div></div>`};
+  return `<div class="blnd">${tot?`<div class="blbar">${m.blend.map(p=>`<i style="flex-grow:${p[1]||1};background:${col(p[0])}"></i>`).join("")}</div>`:""}<div class="blp">${m.blend.map(p=>{const q=p[0]?P.findIndex(x=>x[0]===p[0]):-1;const go=q>=0;return `<${go?`button type="button" data-go="${q}"`:"div"} class="blpt"><span class="blh"><i class="sq" style="background:${col(p[0])}"></i><b>${p[2]}</b></span><span class="blr">${p[3]}</span>${mini(p[0])}</${go?"button":"div"}>`}).join("")}</div></div>`};
 const ghostRow=n=>`<div class="ghr">${Array.from({length:n},()=>`<i>?</i>`).join("")}</div>`;
 
 function placeTags(){const st=$("#string");if(!st)return;let t=st.querySelector(".ctags");if(t)t.remove();
