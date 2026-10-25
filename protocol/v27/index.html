@@ -675,8 +675,9 @@ button.rtg.chx b,.syn b{font:700 11px/1 var(--body);opacity:.8}
 .today ul{list-style:none;margin:0;padding:0}
 .today li{display:flex;align-items:center;gap:6px;font:600 13px/1.35 var(--body);padding:1px 0}
 .today li .mst{width:12px;height:12px;display:flex;flex:none}
-.today li span{font:500 11px var(--mono);color:var(--ink-soft);margin-left:auto;white-space:nowrap}
-.today li span em{font-style:normal;color:var(--accent)}
+.today ul li{display:flex!important;justify-content:flex-start!important;text-align:left}
+.today li span.tdz{font:500 11px var(--mono);color:var(--ink-soft);margin-left:auto;white-space:nowrap}
+.today li span.tdz em{font-style:normal;color:var(--accent)}
 .today .tev{padding:5px 10px;border-top:1px solid var(--rule);font:500 11px var(--mono);color:var(--accent)}
 .today .tev .bl{color:var(--redt)}
 .today .tz{padding:8px 10px;font:400 13px var(--body);color:var(--ink-soft)}
@@ -1386,7 +1387,7 @@ function todayHTML(m){const day=addD(TODAY,tdOff),lab=tdOff?'Tomorrow':'Today';
  const slots={};todo.forEach(o=>{const k=o.x.time||'ANY';(slots[k]=slots[k]||[]).push(o)});
  const order=TIMES.map(t=>t[0]).concat(['ANY']).filter(k=>slots[k]);
  const prn=m.items.filter(o=>!o.plan&&o.x.f==='PRN');
- const li=o=>{const x=o.x,dt=drawText(x),n=o.days[day]?o.days[day].n:1;return `<li title="${esc(o.i.name)}">${mini(o.i)}${esc(short(o.i.name))}<span>${n>1?n+'× ':''}${esc(x.dose)}${dt?` <em>${esc(dt)}</em>`:''}</span></li>`};
+ const li=o=>{const x=o.x,dt=drawText(x),n=o.days[day]?o.days[day].n:1;return `<li title="${esc(o.i.name)}">${mini(o.i)}${esc(short(o.i.name))}<span class="tdz">${n>1?n+'× ':''}${esc(x.dose)}${dt?` <em>${esc(dt)}</em>`:''}</span></li>`};
  const ev=[];todo.forEach(o=>{const r=o.days[day];if(r.ve)ev.push('last dose in this '+vialWord(o.x,1)+': '+short(o.i.name));if(r.rs)ev.push('restock '+short(o.i.name));if(r.last)ev.push('last day of '+short(o.i.name))});
  const bl=m.blood[day];
  return `<div class="today"><div class="tdh"><b>${lab}</b><span>${esc(sub)}</span><button type="button" id="tday">${tdOff?'← Today':'Tomorrow →'}</button></div>
