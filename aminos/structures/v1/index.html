@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Structures · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="/nav.js" defer></script>
+<style>
+/* Structures v1 (25 Oct 2026): the non-peptides of the Library (small molecules, coenzymes, vitamins, blend ingredients) drawn from their 2D structure, moving like the Aminos chains. Same structures as the Library cards (/library/v52/mol.js). */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--k:1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#FFFFE2}}
+:root[data-theme="dark"]{--paper:#FFFFE2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:14px 16px 40px}
+h1{font:700 calc(24px*var(--k))/1.1 'Bricolage Grotesque',sans-serif;margin:0}
+.lede{margin:6px 0 12px;font-size:calc(13.5px*var(--k));line-height:1.45;color:var(--ink-soft)}
+.key{display:flex;flex-wrap:wrap;gap:6px 12px;margin:0 0 14px;font:500 calc(10px*var(--k)) 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
+.key span{display:inline-flex;align-items:center;gap:5px}.key i{width:11px;height:11px;border-radius:50%;border:1px solid var(--ink);display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:700px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1100px){.grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.t{all:unset;cursor:pointer;display:flex;flex-direction:column;border:1.5px solid var(--ink);background:var(--chip)}
+.t svg{display:block;width:100%;height:auto;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:16px 16px}
+.t .tx{border-top:1.5px solid var(--ink);padding:5px 7px 7px}
+.t b{display:block;font:700 calc(13.5px*var(--k))/1.15 'Bricolage Grotesque',sans-serif}
+.t small{display:block;font:500 calc(9px*var(--k)) 'JetBrains Mono',monospace;color:var(--ink-soft);margin-top:2px}
+.t[aria-pressed="true"]{outline:2.5px solid var(--accent);outline-offset:1px}
+h2{font:500 calc(10.5px*var(--k)) 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:20px 0 8px}
+.big{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 14px}
+.big svg{display:block;width:100%;height:auto;max-height:340px;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:20px 20px}
+.big .tx{border-top:1.5px solid var(--ink);padding:8px 10px 10px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.big .tx b{font:700 calc(18px*var(--k)) 'Bricolage Grotesque',sans-serif}
+.big .tx span{font:500 calc(10.5px*var(--k)) 'JetBrains Mono',monospace;color:var(--ink-soft)}
+.big .tx a{margin-left:auto;font:600 calc(11px*var(--k)) 'JetBrains Mono',monospace;color:var(--paper);background:var(--accent);padding:5px 9px;text-decoration:none}
+svg line{stroke:#3E4A80;stroke-linecap:round}svg line.ar{stroke-dasharray:2 2;opacity:.8}
+svg circle.c{fill:#3E4A80}svg .ha circle{stroke:#3E4A80;stroke-width:.9}svg text{font:600 8px 'JetBrains Mono',monospace;text-anchor:middle}
+.msw{transform-box:view-box;transform-origin:50% 50%;animation:msw 9s ease-in-out infinite alternate}
+.t:nth-child(3n) .msw{animation-duration:11s}.t:nth-child(3n+1) .msw{animation-delay:-4s}
+@keyframes msw{from{transform:rotate(-6deg) scale(.96)}to{transform:rotate(6deg) scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.msw{animation:none}}
+.note{font-size:calc(11.5px*var(--k));color:var(--ink-soft);line-height:1.45;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Structures</h1>
+<p class="lede">The compounds in the Library that are not chains of amino acids, drawn atom by atom. Carbons are the small dots where lines meet; hydrogens are left out. Tap one to see it bigger.</p>
+<div class="key" id="key"></div>
+<div id="big"></div>
+<h2>In the Library</h2><div class="grid" id="g1"></div>
+<h2>Inside blends</h2><div class="grid" id="g2"></div>
+<p class="note">Layouts are computed from each molecule's published structure (SMILES), so angles are approximate, not crystal structures. Peptides live on the Aminos page as chains.</p>
+</div>
+<script src="/library/v52/data.js"></script>
+<script src="/library/v52/mol.js"></script>
+<script>
+const MOL=window.BS_MOL||{},D=window.BS_DATA||[];
+const ECOL={N:'#5271FF',O:'#FF5050',S:'#FFDE59',P:'#FFA51F',Cl:'#79A54D',F:'#79A54D',Br:'#924C1C',Co:'#CC007E',I:'#B493E8'};
+const ENAME={N:'Nitrogen',O:'Oxygen',S:'Sulfur',P:'Phosphorus',Cl:'Chlorine',F:'Fluorine',Br:'Bromine',Co:'Cobalt'};
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const fgOn=h=>lum(h)>.35?'#3E4A80':'#FFFFE2';
+const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function molSVG(m,W,H,mx){const xs=m.a.map(a=>a[1]),ys=m.a.map(a=>a[2]);const a0=Math.min(...xs),a1=Math.max(...xs),b0=Math.min(...ys),b1=Math.max(...ys);
+  const sc=Math.min((W-2*mx)/((a1-a0)||1),(H-2*mx)/((b1-b0)||1),28);const X=x=>W/2+(x-(a0+a1)/2)*sc,Y=y=>H/2+(y-(b0+b1)/2)*sc;
+  const r=Math.max(3.2,Math.min(8,sc*.34)),sw=Math.max(.9,Math.min(1.8,sc*.08));let s='';
+  m.b.forEach(([i,j,o])=>{const A=m.a[i],B=m.a[j],x1=X(A[1]),y1=Y(A[2]),x2=X(B[1]),y2=Y(B[2]);s+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+    if(o>=2){const dx=y2-y1,dy=x1-x2,l=Math.hypot(dx,dy)||1,k=sw*2.2/l;s+=`<line class="${o===1.5?'ar':''}" x1="${(x1+dx*k).toFixed(1)}" y1="${(y1+dy*k).toFixed(1)}" x2="${(x2+dx*k).toFixed(1)}" y2="${(y2+dy*k).toFixed(1)}"/>`}});
+  let at='';m.a.forEach(([e,x,y])=>{if(e==='C')at+=`<circle class="c" cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="${(sw*1.1).toFixed(1)}"/>`;else{const c=ECOL[e]||'#C2DCFF';at+=`<g class="ha"><circle cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="${r.toFixed(1)}" fill="${c}"/>${r>=4.6?`<text x="${X(x).toFixed(1)}" y="${(Y(y)+r*.42).toFixed(1)}" font-size="${(r*1.15).toFixed(1)}" fill="${fgOn(c)}">${e}</text>`:''}</g>`}});
+  return `<svg viewBox="0 0 ${W} ${H}" role="img"><g class="msw" style="stroke-width:${sw.toFixed(2)}">${s}${at}</g></svg>`}
+const EXTRA={riboflavin:['Riboflavin (B2)','Lemon Bottle'],lecithin:['Lecithin (a phosphatidylcholine)','Lemon Bottle'],methionine:['Methionine','Lipo-C, MIC + B12'],inositol:['Inositol','Lipo-C, MIC + B12'],choline:['Choline','Lipo-C, MIC + B12'],thiamine:['Thiamine (B1)','Lipo-C'],dexpanthenol:['Dexpanthenol (B5)','Lipo-C'],noopept:['Noopept','nootropic'],cgp:['cGP (cyclic glycine-proline)','IGF-1 fragment']};
+const lib=D.filter(o=>MOL[o.slug]).map(o=>({k:o.slug,n:o.name,s:(o.dose&&o.dose.use)||o.fn||'',lib:true}));
+const ext=Object.keys(MOL).filter(k=>!D.some(o=>o.slug===k)).map(k=>({k,n:(EXTRA[k]||[k])[0],s:'In '+((EXTRA[k]||[,''])[1]||'')}));
+const tile=x=>`<button class="t" data-k="${x.k}" aria-pressed="false">${molSVG(MOL[x.k],160,110,10)}<span class="tx"><b>${esc(x.n)}</b><small>${MOL[x.k].a.length} atoms · ${esc(x.s)}</small></span></button>`;
+document.getElementById('g1').innerHTML=lib.map(tile).join('');document.getElementById('g2').innerHTML=ext.map(tile).join('');
+const used=new Set();Object.values(MOL).forEach(m=>m.a.forEach(a=>{if(a[0]!=='C')used.add(a[0])}));
+document.getElementById('key').innerHTML='<span><i style="background:#3E4A80;width:6px;height:6px"></i>Carbon</span>'+[...used].filter(e=>ENAME[e]).map(e=>`<span><i style="background:${ECOL[e]}"></i>${ENAME[e]}</span>`).join('');
+function show(k){const x=lib.concat(ext).find(y=>y.k===k);if(!x)return;document.querySelectorAll('.t').forEach(t=>t.setAttribute('aria-pressed',t.dataset.k===k));
+  document.getElementById('big').innerHTML=`<div class="big">${molSVG(MOL[k],420,260,22)}<div class="tx"><b>${esc(x.n)}</b><span>${MOL[k].a.length} heavy atoms · ${esc(x.s)}</span>${x.lib?`<a href="/library/#/${k}">Open in the Library →</a>`:''}</div></div>`;
+  history.replaceState(null,'','#'+k);scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{const t=e.target.closest('.t');if(t)show(t.dataset.k)});
+show(location.hash.slice(1)||'nadplus');
+</script>
+</body>
+</html>
