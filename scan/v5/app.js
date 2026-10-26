@@ -1,5 +1,5 @@
-/* Bare Signals Scan v5 (26 Oct 2026): back to the compact list. Each protocol line: name, code, blue Vial size (tap to change), ghost day squares and sun/moon in the empty right side (light up when tapped), dose chips with a ghost "+ more doses", syringe icon by the units, "+ Add details" (start date, food timing, note, blood check) with an OK tick that folds it back into one quiet summary line. "Not logged yet" removed. Blood drop per compound once blood checks are switched on. Starting-dose chips moved off the vial card. Reconstitute full width again. Stripes now strongest role widest on the left (49/25/15/11 ratio like the Library). v4 kept at /scan/v4/.
-   Bare Signals Scan v4 (26 Oct 2026): blue action colour (no orange on this page), Read full page as a small blue link above the stripe, dashed "In my protocol" box replaced by soft starting-dose chips with a ghost "+ more dosages" line, Reconstitute (calculator icon) and Add to my protocol side by side and smaller, scanner reads the centre of the frame at full resolution and zooms in for small vial QRs. v3 kept at /scan/v3/.
+/* Bare Signals Scan v5 (26 Oct 2026): back to the compact list. Each protocol line: name, code, blue Vial size (tap to change), ghost day squares and sun/moon in the empty right side (light up when tapped), dose chips with a ghost "+ more doses", syringe icon by the units, "+ Add details" (start date, food timing, note, blood check) with an OK tick that folds it back into one quiet summary line. "Not logged yet" removed. Blood drop per compound once blood checks are switched on. Starting-dose chips moved off the vial card. Reconstitute full width again. Stripes now strongest role widest on the left (49/25/15/11 ratio like the Library). v3 and v4 were previews only and are folded in here; v2 kept at /scan/v2/.
+   Bare Signals Scan v4 (26 Oct 2026): blue action colour (no orange on this page), Read full page as a small blue link above the stripe, dashed "In my protocol" box replaced by soft starting-dose chips with a ghost "+ more dosages" line, Reconstitute (calculator icon) and Add to my protocol side by side and smaller, scanner reads the centre of the frame at full resolution and zooms in for small vial QRs. v3 (preview only).
    Bare Signals Scan v3 (26 Oct 2026): titrated compounds (GLP-1 family) get a step-up dose ladder in My protocol and the mix card, first-time start step marked, an own-dose box, and timing picks (Morning/Night, Fasted/Before food/After food) saved per item and in Copy list. v2 kept at /scan/v2/.
    Bare Signals Scan v2.4 (25 Oct 2026): real syringe icon (needle, barrel with ticks, flange, plunger, thumb press) for the injection stamp and the draw sticker, replacing the pen-like line. Scan v2 (24 Oct 2026): community doses only (built into data.js), a peptide diary on this phone (ask first; log now or earlier, dose, other stack doses taken, note), My diary view with copy and CSV. v1 kept at /scan/v1/.
    Scan v1 (24 Oct 2026). Opened by a vial QR: baresignals.co/S/<CODE>.
@@ -12,7 +12,7 @@
 const DATA=window.BS_SCAN||{items:{},pal:{}},IT=DATA.items,PAL=DATA.pal,CODES=window.BS_CODES||{},ALIAS=window.BS_CODE_ALIAS||{};
 const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>Array.from((r||document).querySelectorAll(s));
 const app=$('#app');
-const BASE=/^\/pre\//.test(location.pathname)?'/pre/':'/S/';
+const BASE='/S/';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const track=(n,t)=>{try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
 const LKEY='bs-scan-v1';
@@ -494,7 +494,7 @@ function shot(r){const x=X,m=M;const el=document.createElement('div');el.classNa
 
 /* ---------- camera: scan another ---------- */
 let camEl=null,stream=null,raf=0,det=null,busy=false;
-function loadJsQR(){return window.jsQR?Promise.resolve():new Promise((ok,no)=>{const s=document.createElement('script');s.src='/scan/v4/jsqr.js';s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
+function loadJsQR(){return window.jsQR?Promise.resolve():new Promise((ok,no)=>{const s=document.createElement('script');s.src='/scan/v5/jsqr.js';s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
 async function makeDetector(){try{if('BarcodeDetector' in window){const f=await window.BarcodeDetector.getSupportedFormats();if(f.indexOf('qr_code')>=0)return new window.BarcodeDetector({formats:['qr_code']})}}catch(e){}return null}
 function closeCam(){cancelAnimationFrame(raf);raf=0;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}if(camEl){camEl.remove();camEl=null}document.documentElement.style.overflow=''}
 function hit(text){
