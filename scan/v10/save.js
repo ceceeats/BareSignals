@@ -36,11 +36,13 @@ function R(ops,x,y,w,h,fill,stroke,lw,dash){ops.push({k:'r',x,y,w,h,fill,stroke,
 function Ln(ops,x1,y1,x2,y2,col,lw,dash){ops.push({k:'l',x1,y1,x2,y2,c:col,lw:lw||1,dash})}
 
 /* page 1 heading: small, the protocol is the point */
-function headerBlock(M,m,w,k){const n=m.items.length;
+function headerBlock(M,m,w,k,forImage){const n=m.items.length;
  const sub=m.date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+' · '+n+(n===1?' compound':' compounds');
- const ti=wrap(M,m.title,'h',17*k,w-M.w(sub,'r',8.5*k)-10);const h=10+ti.length*19*k+6;
+ const ti=wrap(M,m.title,'h',17*k,w-M.w(sub,'r',8.5*k)-10);const h=10+ti.length*19*k+6+(m.link?14:0);
  return {h,draw(o,x,y){T(o,x,y+7,'BARE SIGNALS · MY PROTOCOL','mb',6.8,C.draw);ti.forEach((l,j)=>T(o,x,y+10+15*k+j*19*k,l,'h',17*k,C.ink));
-  T(o,x+w-M.w(sub,'r',8.5*k),y+10+15*k,sub,'r',8.5*k,C.soft)}}}
+  T(o,x+w-M.w(sub,'r',8.5*k),y+10+15*k,sub,'r',8.5*k,C.soft);
+  if(m.link){const yy=y+10+15*k+(ti.length-1)*19*k+14,lead=forImage?'Edit it any time: ':'Edit it any time on the website: ',t=forImage?'baresignals.co/protocol':'open your protocol →';
+   T(o,x,yy,lead,'r',8*k,C.soft);const lx=x+M.w(lead,'r',8*k);T(o,lx,yy,t,'b',8*k,C.water);Ln(o,lx,yy+2,lx+M.w(t,'b',8*k),yy+2,C.water,.6);if(!forImage)o.push({k:'a',x:lx,y:yy-9,w:M.w(t,'b',8*k),h:12,url:m.link})}}}}
 
 /* the protocol table: every value in its own column */
 function tableRows(M,m,w,k){const S=w/324;
@@ -84,12 +86,12 @@ function weekParts(M,m,w,k){const wide=w>400,lab=wide?200:w-7*23;const bs=wide?2
  GROUPS.forEach(([key,label,ic])=>{const its=m.items.map((it,i)=>[it,i]).filter(([it])=>(it.tmA||'')===key);if(!its.length)return;
   rows.push({h:17,keepNext:true,draw(o,x,y){icon(o,ic,x,y+4,10,C.draw);T(o,x+14,y+12,label,'mb',7.6,C.draw);Ln(o,x+18+M.w(label,'mb',7.6),y+9,x+w,y+9,C.rule,.6)}});
   its.forEach(([it,i])=>{const col=it.col[0]?it.col[0][0]:C.rule;const on=new Set(it.dy||[]);
-   const amt=[it.dose,it.draw&&it.rk==='inj'?it.draw:''].filter(Boolean).join(' · ');
    const tag=[it.times>1?it.times+'× a day':'',it.tmB?it.tmB.toLowerCase():'',it.rk==='nasal'?'nasal':it.rk==='oral'?'by mouth':''].filter(Boolean).join(' · ');
    rows.push({h:rh,draw(o,x,y){const nm=wrap(M,(i+1)+'  '+it.n,'b',9*k,lab-8)[0];T(o,x,y+10,nm,'b',9*k,C.ink);
      icon(o,it.rk==='nasal'?'nasal':it.rk==='oral'?'oral':'inj',x,y+13.5,9,C.ink);
-     const a=wrap(M,amt,'b',8.2*k,lab-20)[0]||'';T(o,x+12,y+21*k,a,'b',8.2*k,it.set?C.dose:C.soft);
-     if(tag){const tx=x+12+M.w(a,'b',8.2*k)+5,room=lab-8-(tx-x);const t=wrap(M,'· '+tag,'r',7.6*k,Math.max(20,room))[0];if(M.w(t,'r',7.6*k)<=room)T(o,tx,y+21*k,t,'r',7.6*k,C.soft)}
+     const a=wrap(M,it.dose,'b',8.2*k,lab-20)[0]||'';T(o,x+12,y+21*k,a,'b',8.2*k,it.set?C.dose:C.soft);let ax=x+12+M.w(a,'b',8.2*k);
+     if(it.draw&&it.rk==='inj'){const dt=' · '+it.draw;T(o,ax,y+21*k,dt,'b',8.2*k,C.draw);ax+=M.w(dt,'b',8.2*k)}
+     if(tag){const tx=ax+5,room=lab-8-(tx-x);const t=wrap(M,'· '+tag,'r',7.6*k,Math.max(20,room))[0];if(M.w(t,'r',7.6*k)<=room)T(o,tx,y+21*k,t,'r',7.6*k,C.soft)}
      DAYS.forEach((d,j)=>{const bx=x+lab+j*step+(step-bs)/2,by=y+(rh-bs)/2-1;
       if(on.has(j)){R(o,bx,by,bs,bs,col,C.ink,.8);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,onCol(col));if(it.times>1)T(o,bx+bs-5.5,by+6,String(it.times),'mb',5.5,onCol(col))}
       else{R(o,bx,by,bs,bs,C.chip,C.rule,.8);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.rule)}});
@@ -121,7 +123,7 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  const room=()=>bottom-y;
  const put=b=>{if(b.h>room()&&y>top)newPage();b.draw(pg.ops,x0,y);y+=b.h};
  /* 1. your week first: what you take, when, how much */
- put(headerBlock(M,m,full,k));y+=6;
+ put(headerBlock(M,m,full,k,forImage));y+=6;
  const wk=sectionHead(M,'YOUR WEEK','Coloured squares are the days you take it. Morning, night or anytime, with how much to draw.',C.ink,full,k);put(wk);
  const P=weekParts(M,m,full,k);put(P.head);
  P.rows.forEach((r,ri)=>{const need=r.h+(r.keepNext&&P.rows[ri+1]?P.rows[ri+1].h:0);if(need>room()){newPage();put(P.head)}r.draw(pg.ops,x0,y);y+=r.h});

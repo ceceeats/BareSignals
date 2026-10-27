@@ -26,6 +26,8 @@ const LQ={CRB:{ml:10,mg:30},LPC:{ml:10},MIC:{ml:10}};
 /* v10: stock vial sizes (vials.js). A line starts on the stock size the old default matched, else the smallest stock size */
 const VS=window.BS_VIALS||{};
 /* Cece approved 28 Oct 2026: Glutathione IM/Sub-Q 200 to 600 mg, 2 to 3x a week (scan data still had the oral dose) */
+/* Cece 28 Oct 2026: BPC-157 starts on 5 days on, 2 days off (weekends off); people can still tap the days to change it */
+if(IT.BPC){IT.BPC.f='5on2';IT.BPC.d=Object.assign({},IT.BPC.d,{freq:'5 days on, 2 off'})}
 if(IT.GSH){const g=IT.GSH;g.st='200 mg';g.f='3W';g.rt='inj';g.ch=['200 mg','400 mg','600 mg'];g.d=Object.assign({},g.d,{dose:'200–600 mg',freq:'2–3× weekly',route:'IM or Sub-Q'})}
 function defVial(x){const u=VS[x.c];if(!u||!u.length)return x.vm||0;return u.indexOf(x.vm)>=0?x.vm:u[0]}
 const isIU=x=>/IU/.test(x.st||'')||x.c==='HCG'||x.c==='HMG';
