@@ -443,6 +443,7 @@ function listHTML(){
  ${items.length?`<label class="who"><span>Name</span><input data-name value="${esc(L.name||'')}" placeholder="whose protocol" maxlength="40" autocomplete="given-name"></label>`:''}
  ${items.length?items.map((it,ix)=>itemHTML(it,ix,IT[it.c])).join('')
   :`<p class="empty">Nothing here yet. Tap <b>Add to my protocol</b> on any vial you scan and it builds up here, on this phone only.</p>`}
+  ${items.length?warnings(items).map(t=>`<p class="gw10"><b>Gentle warning</b> ${esc(t)}</p>`).join(''):''}
   ${addAnyHTML()}
  ${items.length?supHTML(items):''}
  ${items.length?` <p class="side">Saved on this phone only. Nothing is sent anywhere. <button class="lnk lb" data-go="clear">Clear the list</button></p>`:''}
@@ -633,26 +634,41 @@ app.addEventListener('contextmenu',e=>{if(e.target.closest('#list .li'))e.preven
 addEventListener('keydown',e=>{if(e.key==='Escape'&&HOLD)holdEnd(true)});
 
 /* ---------- v10: save your protocol (save.js builds the files) ---------- */
+/* v10 month view: doses in one vial, cycle length in days (low end; 0 = ongoing), start day */
+function perVial(it,x){const p=parseDose(it.dose);if(!p)return 0;const m={kind:p.u==='U'?'units':p.u==='IU'?'iu':p.u==='mL'?'liquid':'mass',vial:+it.vm||defVial(x),water:+it.vw||x.vw||2,dose:p.v,unit:p.u,syr:100};
+ if(m.kind==='mass'&&!(m.vial>0))return 0;const r=calc(m,x);return r.ok&&r.per>0?r.per:0}
+function cycDays(x){const c=String(x.d&&x.d.cycle||'').trim();if(!c||/ongoing|as needed|continuous|^after/i.test(c))return 0;
+ const m=c.match(/([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(days?|d\b|wk|weeks?|mo|months?)/i);if(!m)return 0;const n=+m[1],u=m[2].toLowerCase();return Math.round(u[0]==='d'?n:u[0]==='w'?n*7:n*30)}
+/* gentle warnings: two or more compounds pushing the same way. Read from each compound's own role line,
+   so ones that raise hunger (MK-677, GHRP-2, GHRP-6) or blood sugar (Glucagon), and mouse-only claims, never count */
+function warnings(items){const xs=items.map(it=>IT[it.c]);const has=(x,r)=>x.p===r||(x.r||[]).indexOf(r)>=0;
+ const app=xs.filter(x=>has(x,'Appetite')&&!/raise|strong hunger/i.test((x.ds||{}).Appetite||'')).map(x=>x.n);
+ const glu=xs.filter(x=>has(x,'Glucose')&&!/raise|mice|monkeys|claims/i.test((x.ds||{}).Glucose||'')).map(x=>x.n);
+ const say=(n,what)=>n.slice(0,-1).join(', ')+' and '+n[n.length-1]+(n.length>2?' all ':' both ')+what+'.';const out=[];
+ if(app.length>1&&glu.length>1&&app.join()===glu.join())out.push(say(app,'lower appetite and blood sugar'));
+ else{if(app.length>1)out.push(say(app,'lower appetite'));if(glu.length>1)out.push(say(glu,'lower blood sugar'))}
+ return out}
 function exportModel(){const items=L.items.filter(i=>IT[i.c]);const Z=BWREADY?bwLists(items):{b:[],s:[]};
  return {title:L.name?L.name+'’s protocol':'My protocol',date:new Date(),
   items:items.map(it=>{const x=IT[it.c];const d=itemDraw(it);const vm=+it.vm||defVial(x);const tm=it.tm||{};const dd=daysOf(it);
    const vial=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL vial${LQ[x.c].mg?' ('+LQ[x.c].mg+' mg)':''}, no water`:canMix(x)&&!x.kind?(vm>0?`Vial ${nf(vm,2)} ${isIU(x)?'IU':'mg'} + ${nf(+it.vw||x.vw||2,2)} mL water`:'Vial size not set'):'';
    const mx=canMix(x)&&!x.kind,mixA=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL`:mx?(vm>0?`${nf(vm,2)} ${isIU(x)?'IU':'mg'} vial`:'Set vial size'):x.rt==='oral'?'Capsule, no mixing':x.rt==='topical'?'On the skin':'',
     mixB=LQ[x.c]?'no water':mx&&vm>0?`+ ${nf(+it.vw||x.vw||2,2)} mL BAC`:'';
-   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,tmA:/AM/.test(tm.a||'')?'AM':/PM/.test(tm.a||'')?'PM':'',tmB:tm.b||'',rk:mx?(x.rt==='nasal'?'nasal':'inj'):x.rt==='oral'?'oral':x.rt==='topical'?'topical':x.rt==='nasal'?'nasal':'inj',
+   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,per:perVial(it,x),cyc:cycDays(x),start:it.sd?new Date(it.sd+'T12:00').getTime():0,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,tmA:/AM/.test(tm.a||'')?'AM':/PM/.test(tm.a||'')?'PM':'',tmB:tm.b||'',rk:mx?(x.rt==='nasal'?'nasal':'inj'):x.rt==='oral'?'oral':x.rt==='topical'?'topical':x.rt==='nasal'?'nasal':'inj',
     days:dd.length===7?'Every day':dd.length?dd.map(k=>DL[k]).join(', '):'',time:[tm.a?String(tm.a).replace(/^[^A-Za-z]+/,''):'',tm.b||''].filter(Boolean).join(' · '),
     vial,cycle:cycTxt(x,it),start:it.sd?fdShort(new Date(it.sd+'T12:00').getTime()):'',note:it.nt||'',route:(x.d&&x.d.route)||''}}),
   link:location.origin+protoLink(),
+  warn:warnings(items),
   blood:Z.b.map(([id,o])=>({n:o.n,w:o.w})),supp:Z.s.map(([id,o])=>({n:o.n,w:o.w}))}}
 function openSave(){const old=$('.sheet10');if(old)old.remove();
  const el=document.createElement('div');el.className='sheet10';el.setAttribute('role','dialog');el.setAttribute('aria-label','Save your protocol');
  el.innerHTML=`<div class="pane"><div class="ph"><h2>Save your protocol</h2><button class="x" data-close>Close</button></div>
- <p class="lede">Every file has your compounds, your blood work and supplement lists to copy, and a last page you can hand to your AI.</p>
+ <p class="lede">Your summary protocol: your week, two months ahead, every dose and mix, blood work and supplements, and an easy copy-paste page.</p>
  <div class="sv10">
  <button data-sv="phone">${SVG.phone}<b>Phone PDF</b><span>Pages the size of your screen. Easy to read without zooming.</span></button>
  <button data-sv="img">${SVG.img}<b>Pictures</b><span>PNG, one per page. Saves to your photos.</span></button>
  <button data-sv="paper">${SVG.paper}<b>Paper PDF</b><span>A4 pages for printing or a laptop.</span></button>
- <button data-sv="ai">${SVG.ai}<b>Copy for your AI</b><span>Plain text with tracking rules, for ChatGPT or Claude.</span></button>
+ <button data-sv="ai">${SVG.ai}<b>Easy copy-paste</b><span>Your whole protocol as plain text, for your notes or your AI.</span></button>
  </div></div>`;
  document.body.appendChild(el);
  el.addEventListener('click',async e=>{if(e.target===el||e.target.closest('[data-close]'))return el.remove();

@@ -39,7 +39,7 @@ function Ln(ops,x1,y1,x2,y2,col,lw,dash){ops.push({k:'l',x1,y1,x2,y2,c:col,lw:lw
 function headerBlock(M,m,w,k,forImage){const n=m.items.length;
  const sub=m.date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+' · '+n+(n===1?' compound':' compounds');
  const ti=wrap(M,m.title,'h',17*k,w-M.w(sub,'r',8.5*k)-10);const h=10+ti.length*19*k+6+(m.link?14:0);
- return {h,draw(o,x,y){T(o,x,y+7,'BARE SIGNALS · MY PROTOCOL','mb',6.8,C.draw);ti.forEach((l,j)=>T(o,x,y+10+15*k+j*19*k,l,'h',17*k,C.ink));
+ return {h,draw(o,x,y){T(o,x,y+7,'BARE SIGNALS · SUMMARY PROTOCOL','mb',6.8,C.draw);ti.forEach((l,j)=>T(o,x,y+10+15*k+j*19*k,l,'h',17*k,C.ink));
   T(o,x+w-M.w(sub,'r',8.5*k),y+10+15*k,sub,'r',8.5*k,C.soft);
   if(m.link){const yy=y+10+15*k+(ti.length-1)*19*k+14,lead=forImage?'Edit it any time: ':'Edit it any time on the website: ',t=forImage?'baresignals.co/protocol':'open your protocol →';
    T(o,x,yy,lead,'r',8*k,C.soft);const lx=x+M.w(lead,'r',8*k);T(o,lx,yy,t,'b',8*k,C.water);Ln(o,lx,yy+2,lx+M.w(t,'b',8*k),yy+2,C.water,.6);if(!forImage)o.push({k:'a',x:lx,y:yy-9,w:M.w(t,'b',8*k),h:12,url:m.link})}}}}
@@ -101,6 +101,38 @@ function weekParts(M,m,w,k){const wide=w>400,lab=wide?200:w-7*23;const bs=wide?2
  const foot={h:24,draw(o,x,y){icon(o,'inj',x,y+8,10,C.draw);T(o,x+14,y+16,'Needles a day','mb',7,C.draw);DAYS.forEach((d,j)=>{const t=String(per[j]);const cx=x+lab+j*step+step/2;T(o,cx-M.w(t,'mb',11*k)/2,y+17,t,'mb',11*k,per[j]?C.draw:C.rule)})}};
  return {head,rows,foot}}
 
+/* two months ahead, as weeks 1-4 and 5-8 from the start week. Each compound keeps its own slot in every day
+   (1-5 top row, 6-10 bottom): its colour while the first vial covers it, amber once they need to buy more, a red square on the last day of its cycle. */
+const AMBER='#E8A33A';
+function monthPlan(m){const day0=new Date(m.date);day0.setHours(0,0,0,0);const mon=new Date(day0);mon.setDate(mon.getDate()-((mon.getDay()+6)%7));
+ const endD=new Date(mon);endD.setDate(endD.getDate()+55);const map={};
+ m.items.forEach((it,ix)=>{const col=it.col[0]?it.col[0][0]:C.rule;const s=new Date(it.start||day0);s.setHours(0,0,0,0);const dy=new Set(it.dy||[]);let n=0;
+  for(let d=new Date(s),i=0;d<=endD;d.setDate(d.getDate()+1),i++){if(it.cyc&&i>=it.cyc)break;
+   const key=d.toDateString();let st=null;
+   if(dy.has((d.getDay()+6)%7)){const before=n;n+=it.times||1;st=it.per&&before>0&&Math.floor((before-1)/it.per)<Math.floor((n-1)/it.per)?'buy':'ok'}
+   if(it.cyc&&i===it.cyc-1)st='stop';
+   if(st)(map[key]=map[key]||{})[ix]={col,st}}});
+ return {map,day0,mon}}
+function monthBlock(M,m,plan,w,k,wk0,label){const cw=w/7,big=cw>40,ch=big?40:34,n=m.items.length,per=5;
+ const start=new Date(plan.mon);start.setDate(start.getDate()+wk0*7);const end=new Date(start);end.setDate(end.getDate()+27);
+ const fd=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});const range=fd(start)+' – '+fd(end);const h=18+12+4*ch;
+ return {h,draw(o,x,yy){T(o,x,yy+11,label,'h',11*k,C.ink);T(o,x+M.w(label,'h',11*k)+6,yy+11,range.toUpperCase(),'mb',6.6,C.soft);
+  DAYS.forEach((d,j)=>T(o,x+j*cw+3,yy+26,d,'mb',6.4,C.soft));const top=yy+30;
+  for(let i=0;i<28;i++){const dt=new Date(start);dt.setDate(dt.getDate()+i);const r=Math.floor(i/7),c=i%7,cx=x+c*cw,cy=top+r*ch;
+   const past=dt<plan.day0,isStart=dt.getTime()===plan.day0.getTime();
+   R(o,cx+.5,cy+.5,cw-1,ch-1,past?C.paper:C.chip,C.rule,.6);
+   const lab=dt.getDate()===1||i===0?fd(dt):String(dt.getDate());T(o,cx+3,cy+8,lab,isStart?'mb':'m',6.4,isStart?C.draw:past?C.rule:C.soft);
+   const D=plan.map[dt.toDateString()]||{};const ds=big?5.6:4.4,gap=(cw-6)/per;
+   for(let ix=0;ix<Math.min(n,10);ix++){const q=D[ix];if(!q)continue;const px=cx+3+(ix%per)*gap+gap/2,py=cy+15+Math.floor(ix/per)*(ds+3.4)+ds/2;
+    if(q.st==='stop')R(o,px-ds/2,py-ds/2,ds,ds,C.flag);else if(q.st==='buy')Ci(o,px,py,ds/2,AMBER,'#B9741A',.5);else Ci(o,px,py,ds/2,q.col,C.ink,.4)}}}}}
+function monthKey(M,m,w,k){const chips=m.items.map((it,i)=>[(i+1)+' '+it.n,it.col[0]?it.col[0][0]:C.rule]);const fs=7.4*k;
+ const lines=[[]];let cur=0;chips.forEach(c=>{const ww=M.w(c[0],'r',fs)+16;if(cur+ww>w&&lines[lines.length-1].length){lines.push([]);cur=0}lines[lines.length-1].push(c);cur+=ww});
+ const h=lines.length*12+46;
+ return {h,draw(o,x,y){lines.forEach((ln,li)=>{let xx=x;ln.forEach(([t,c])=>{Ci(o,xx+3,y+li*12+5,2.6,c,C.ink,.4);T(o,xx+8,y+li*12+7.5,t,'r',fs,C.ink);xx+=M.w(t,'r',fs)+16})});
+  let ly=y+lines.length*12+10;const items=[['dot','A dose'],['buy','New vial needed: buy before this'],['stop','Stop: end of the cycle']];let xx=x;
+  items.forEach(([s,t])=>{if(s==='stop')R(o,xx,ly-4,5,5,C.flag);else if(s==='buy')Ci(o,xx+2.5,ly-1.5,2.6,AMBER,'#B9741A',.5);else Ci(o,xx+2.5,ly-1.5,2.6,C.soft,C.ink,.4);T(o,xx+9,ly+1,t,'r',7.2*k,C.soft);xx+=M.w(t,'r',7.2*k)+20;if(xx>x+w-80){xx=x;ly+=11}});
+  wrap(M,'Each day shows compounds 1 to 5 on the top row, 6 to 10 below, from today or the start date you set.','r',7*k,w).forEach((l,j)=>T(o,x,ly+13+j*9.5,l,'r',7*k,C.soft))}}}
+
 function sectionHead(M,title,sentence,col,w,k){const sl=sentence?wrap(M,sentence,'r',8.6*k,w):[];const h=17+sl.length*11*k+(sl.length?3:0);
  return {h,draw(o,x,y){R(o,x,y+3,9,9,col);T(o,x+14,y+11,title,'mb',8.4,col);sl.forEach((l,j)=>T(o,x,y+24+j*11*k,l,'r',8.6*k,C.soft))}}}
 
@@ -128,6 +160,15 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  const P=weekParts(M,m,full,k);put(P.head);
  P.rows.forEach((r,ri)=>{const need=r.h+(r.keepNext&&P.rows[ri+1]?P.rows[ri+1].h:0);if(need>room()){newPage();put(P.head)}r.draw(pg.ops,x0,y);y+=r.h});
  if(P.foot.h>room())newPage();P.foot.draw(pg.ops,x0,y);y+=P.foot.h;
+ /* gentle warnings right under the week */
+ (m.warn||[]).forEach(t=>{const L=wrap(M,t,'r',8.4*k,full-110);const h=L.length*11*k+12;if(h>room())newPage();y+=6;
+  R(pg.ops,x0,y,full,h,'#FFF6E5');R(pg.ops,x0,y,3,h,AMBER);T(pg.ops,x0+9,y+10.5,'GENTLE WARNING','mb',6.6,'#B9741A');L.forEach((l,j)=>T(pg.ops,x0+92,y+10.5+j*11*k,l,'r',8.4*k,C.ink));y+=h});
+ /* two months ahead */
+ {const plan=monthPlan(m),d0=plan.day0,ym=[[d0.getFullYear(),d0.getMonth()],[d0.getFullYear(),d0.getMonth()+1]].map(([yy,mm])=>[new Date(yy,mm,1).getFullYear(),new Date(yy,mm,1).getMonth()]);
+  const head=sectionHead(M,'TWO MONTHS AHEAD',null,C.ink,full,k);
+  if(fmt==='phone'){newPage();put(head);[0,4].forEach((w0,i)=>{const b=monthBlock(M,m,plan,full,k,w0,i?'Weeks 5–8':'Weeks 1–4');if(b.h>room())newPage();b.draw(pg.ops,x0,y);y+=b.h+8});const kk=monthKey(M,m,full,k);if(kk.h>room())newPage();kk.draw(pg.ops,x0,y);y+=kk.h}
+  else{const hw=(full-16)/2,bs=[0,4].map((w0,i)=>monthBlock(M,m,plan,hw,k,w0,i?'Weeks 5–8':'Weeks 1–4'));const kk=monthKey(M,m,full,k);const need=head.h+Math.max(bs[0].h,bs[1].h)+kk.h+20;
+   if(need>room())newPage();else y+=14;put(head);bs.forEach((b,i)=>b.draw(pg.ops,x0+i*(hw+16),y));y+=Math.max(bs[0].h,bs[1].h)+8;kk.draw(pg.ops,x0,y);y+=kk.h}}
  /* 2. the details (dose, how often, draw, mix) with blood work and supplements right under.
     Phone: its own page. Paper: the table is never split; if it won't fit under the week, the two lists fill that space first. */
  const doTable=()=>{
@@ -153,11 +194,11 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  else if(tbH+16<=room()){y+=16;doTable();doLists()}
  else{doLists();newPage();doTable()}
  /* 4. for your AI */
- const ah=sectionHead(M,'FOR YOUR AI','Paste this into ChatGPT or Claude, or send it this whole file. The rules for keeping track are written in.',C.water,full,k);
+ const ah=sectionHead(M,'EASY COPY-PASTE','Keep it in your notes, or send this file to your AI to remember.',C.water,full,k);
  y+=14;if(ah.h+100>room())newPage();ah.draw(pg.ops,x0,y);y+=ah.h+2;
  {const pad=9,lh=(fmt==='paper'?9.2:10.6)*k,fs=(fmt==='paper'?7.1:7.8)*k;const L=[];aiText(m).split('\n').forEach(t=>wrap(M,t,'m',fs,full-pad*2).forEach(x=>L.push(x)));let i=0,first=true;
   while(i<L.length){let n=Math.floor((room()-pad*2-14)/lh);if(n<3){newPage();continue}let l2=lh;const left=L.length-i;if(left>n&&left-n<=5){const t=(room()-pad*2-14)/left;if(t>=lh*.85){l2=t;n=left}}
-   const part=L.slice(i,i+n),h=pad*2+12+part.length*l2;R(pg.ops,x0,y,full,h,C.white,C.ink,1,[3,2]);T(pg.ops,x0+pad,y+pad+6,first?'COPY FOR YOUR AI':'COPY FOR YOUR AI (continued)','mb',6.6,C.draw);
+   const part=L.slice(i,i+n),h=pad*2+12+part.length*l2;R(pg.ops,x0,y,full,h,C.white,C.ink,1,[3,2]);T(pg.ops,x0+pad,y+pad+6,first?'COPY THIS':'COPY THIS (continued)','mb',6.6,C.draw);
    part.forEach((t,j)=>T(pg.ops,x0+pad,y+pad+16+j*l2,t,'m',fs,C.ink));y+=h;i+=n;first=false;if(i<L.length)newPage()}}
  /* footers: just the name and the page */
  pages.forEach((p,i)=>{const fy=H-F.bot+18;Ln(p.ops,x0,fy-11,W-x0,fy-11,C.rule,.8);T(p.ops,x0,fy,'Bare Signals','mb',7,C.soft);const n=(i+1)+' / '+pages.length;T(p.ops,W-x0-M.w(n,'mb',7),fy,n,'mb',7,C.soft)});

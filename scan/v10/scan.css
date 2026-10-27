@@ -461,3 +461,5 @@ body.dragging #list .li:not(.lift){opacity:.82}
 .li .vrow:has(.vseg){align-items:center;gap:7px}
 .vseg i{padding:5px 4px 4px 5px}
 .vseg button{padding:5px 5px 4px}
+.gw10{margin:10px 0 0;padding:7px 9px;border-left:3px solid #E8A33A;background:#FFF6E5;font:500 .82rem/1.35 var(--body);color:var(--ink)}
+.gw10 b{font:700 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#B9741A;margin-right:6px}
