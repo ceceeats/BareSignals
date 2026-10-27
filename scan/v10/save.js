@@ -62,21 +62,42 @@ function tableRows(M,m,w,k){const S=w/324;
    Ln(o,x,y+r.h,x+w,y+r.h,C.rule,.8)}}));
  return {head,blocks}}
 
-/* the week: the same day blocks as the screen, one row per compound, needles counted per day */
+/* the week: one row per compound in its own colour, grouped by when you take it (morning, night, anytime) */
 const DAYS=['M','T','W','T','F','S','S'];
-const shot=it=>!/oral|capsule|tablet|nasal|topical|cream|serum/i.test(it.route||'');
-function weekBlock(M,m,w,k,from,to){const items=m.items.slice(from,to);const wide=w>400,lab=wide?190:w-7*24;const bs=wide?21:19,step=(w-lab)/7,rh=(wide?27:27)*k;
+const shot=it=>it.rk==='inj';
+function lum(h){const n=parseInt(h.slice(1),16);return (0.299*(n>>16&255)+0.587*(n>>8&255)+0.114*(n&255))/255}
+const onCol=h=>lum(h)>0.6?C.ink:C.white;
+function Ci(ops,x,y,r,fill,stroke,lw){ops.push({k:'c',x,y,r,fill,stroke,lw:lw||1})}
+function Pg(ops,pts,fill,stroke,lw){ops.push({k:'p',pts,fill,stroke,lw:lw||1})}
+/* small route and time symbols, drawn as shapes so they work in the PDF and the pictures */
+function icon(o,kind,x,y,s,col,bg){const c=col||C.ink;
+ if(kind==='inj'){const cy=y+s/2;Ln(o,x,cy,x+s*.22,cy,c,.9);R(o,x+s*.22,cy-s*.17,s*.5,s*.34,null,c,.9);Ln(o,x+s*.36,cy-s*.17,x+s*.36,cy-s*.04,c,.6);Ln(o,x+s*.5,cy-s*.17,x+s*.5,cy-s*.04,c,.6);Ln(o,x+s*.72,cy,x+s*.92,cy,c,.9);Ln(o,x+s*.92,cy-s*.22,x+s*.92,cy+s*.22,c,1.1)}
+ else if(kind==='nasal'){Pg(o,[[x+s*.38,y],[x+s*.62,y],[x+s*.62,y+s*.3],[x+s*.8,y+s*.95],[x+s*.2,y+s*.95],[x+s*.38,y+s*.3]],null,c,.9)}
+ else if(kind==='oral'){const cy=y+s/2;R(o,x,cy-s*.2,s*.5,s*.4,c);R(o,x+s*.5,cy-s*.2,s*.5,s*.4,C.white,c,.9);R(o,x,cy-s*.2,s,s*.4,null,c,.9)}
+ else if(kind==='sun'){const cx=x+s/2,cy=y+s/2;Ci(o,cx,cy,s*.2,c);for(let i=0;i<8;i++){const a=i*Math.PI/4;Ln(o,cx+Math.cos(a)*s*.32,cy+Math.sin(a)*s*.32,cx+Math.cos(a)*s*.47,cy+Math.sin(a)*s*.47,c,.9)}}
+ else if(kind==='moon'){const cx=x+s/2,cy=y+s/2;Ci(o,cx,cy,s*.42,c);Ci(o,cx+s*.2,cy-s*.12,s*.36,bg||C.paper)}
+ else if(kind==='any'){const cx=x+s/2,cy=y+s/2;Ci(o,cx,cy,s*.42,null,c,.9);Ln(o,cx,cy,cx,cy-s*.28,c,.9);Ln(o,cx,cy,cx+s*.2,cy,c,.9)}}
+const GROUPS=[['AM','MORNING','sun'],['PM','NIGHT','moon'],['','ANYTIME','any']];
+function weekParts(M,m,w,k){const wide=w>400,lab=wide?200:w-7*23;const bs=wide?21:18,step=(w-lab)/7,rh=27*k;
+ const head={h:14,draw(o,x,y){DAYS.forEach((d,j)=>{const cx=x+lab+j*step+step/2;T(o,cx-M.w(d,'mb',7.5)/2,y+10,d,'mb',7.5,C.soft)})}};
+ const rows=[];
+ GROUPS.forEach(([key,label,ic])=>{const its=m.items.map((it,i)=>[it,i]).filter(([it])=>(it.tmA||'')===key);if(!its.length)return;
+  rows.push({h:17,keepNext:true,draw(o,x,y){icon(o,ic,x,y+4,10,C.draw);T(o,x+14,y+12,label,'mb',7.6,C.draw);Ln(o,x+18+M.w(label,'mb',7.6),y+9,x+w,y+9,C.rule,.6)}});
+  its.forEach(([it,i])=>{const col=it.col[0]?it.col[0][0]:C.rule;const on=new Set(it.dy||[]);
+   const amt=[it.dose,it.draw&&it.rk==='inj'?it.draw:''].filter(Boolean).join(' · ');
+   const tag=[it.times>1?it.times+'× a day':'',it.tmB?it.tmB.toLowerCase():'',it.rk==='nasal'?'nasal':it.rk==='oral'?'by mouth':''].filter(Boolean).join(' · ');
+   rows.push({h:rh,draw(o,x,y){const nm=wrap(M,(i+1)+'  '+it.n,'b',9*k,lab-8)[0];T(o,x,y+10,nm,'b',9*k,C.ink);
+     icon(o,it.rk==='nasal'?'nasal':it.rk==='oral'?'oral':'inj',x,y+13.5,9,C.ink);
+     const a=wrap(M,amt,'b',8.2*k,lab-20)[0]||'';T(o,x+12,y+21*k,a,'b',8.2*k,it.set?C.dose:C.soft);
+     if(tag){const tx=x+12+M.w(a,'b',8.2*k)+5,room=lab-8-(tx-x);const t=wrap(M,'· '+tag,'r',7.6*k,Math.max(20,room))[0];if(M.w(t,'r',7.6*k)<=room)T(o,tx,y+21*k,t,'r',7.6*k,C.soft)}
+     DAYS.forEach((d,j)=>{const bx=x+lab+j*step+(step-bs)/2,by=y+(rh-bs)/2-1;
+      if(on.has(j)){R(o,bx,by,bs,bs,col,C.ink,.8);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,onCol(col));if(it.times>1)T(o,bx+bs-5.5,by+6,String(it.times),'mb',5.5,onCol(col))}
+      else{R(o,bx,by,bs,bs,C.chip,C.rule,.8);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.rule)}});
+     if(!on.size)T(o,x+lab+4,y+15,'as needed','r',8*k,C.soft);
+     Ln(o,x,y+rh-.5,x+w,y+rh-.5,C.rule,.5)}})})});
  const per=[0,0,0,0,0,0,0];m.items.forEach(it=>{if(!shot(it))return;(it.dy||[]).forEach(d=>{per[d]+=it.times||1})});
- const h=18+items.length*rh+(to>=m.items.length?rh+4:0);
- return {h,draw(o,x,y){DAYS.forEach((d,j)=>{const cx=x+lab+j*step+(step-bs)/2;T(o,cx+bs/2-M.w(d,'mb',7.5)/2,y+11,d,'mb',7.5,C.soft)});
-  let yy=y+18;items.forEach((it,ii)=>{const i=from+ii;const col=it.col[0]?it.col[0][0]:C.rule;
-   R(o,x,yy+4,8,8,col,C.ink,.8);const nm=wrap(M,(i+1)+'  '+it.n,'b',9*k,lab-14)[0];T(o,x+13,yy+11,nm,'b',9*k,C.ink);
-   T(o,x+13,yy+21*k,wrap(M,[it.dose,it.times>1?it.times+'× a day':'',shot(it)?'':it.route.split(/[ ,(]/)[0]].filter(Boolean).join(' · '),'r',7.6*k,lab-14)[0],'r',7.6*k,C.soft);
-   const on=new Set(it.dy||[]);
-   DAYS.forEach((d,j)=>{const bx=x+lab+j*step+(step-bs)/2,by=yy+2;if(on.has(j)){R(o,bx,by,bs,bs,C.ink);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.cream);if(it.times>1)T(o,bx+bs-6,by+6.5,String(it.times),'mb',5.5,C.cream)}else{R(o,bx,by,bs,bs,C.chip,C.rule,1);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.rule)}});
-   if(!on.size)T(o,x+lab+4,yy+15,'as needed','r',8*k,C.soft);
-   Ln(o,x,yy+rh-1,x+w,yy+rh-1,C.rule,.6);yy+=rh});
-  if(to>=m.items.length){T(o,x,yy+15,'Needles a day','mb',7,C.draw);DAYS.forEach((d,j)=>{const t=String(per[j]);const cx=x+lab+j*step+step/2;T(o,cx-M.w(t,'mb',11*k)/2,yy+16,t,'mb',11*k,per[j]?C.draw:C.rule)})}}}}
+ const foot={h:24,draw(o,x,y){icon(o,'inj',x,y+8,10,C.draw);T(o,x+14,y+16,'Needles a day','mb',7,C.draw);DAYS.forEach((d,j)=>{const t=String(per[j]);const cx=x+lab+j*step+step/2;T(o,cx-M.w(t,'mb',11*k)/2,y+17,t,'mb',11*k,per[j]?C.draw:C.rule)})}};
+ return {head,rows,foot}}
 
 function sectionHead(M,title,sentence,col,w,k){const sl=sentence?wrap(M,sentence,'r',8.6*k,w):[];const h=17+sl.length*11*k+(sl.length?3:0);
  return {h,draw(o,x,y){R(o,x,y+3,9,9,col);T(o,x+14,y+11,title,'mb',8.4,col);sl.forEach((l,j)=>T(o,x,y+24+j*11*k,l,'r',8.6*k,C.soft))}}}
@@ -99,16 +120,20 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  const pages=[];let pg,y;const newPage=()=>{pg={ops:[]};pages.push(pg);y=top};newPage();
  const room=()=>bottom-y;
  const put=b=>{if(b.h>room()&&y>top)newPage();b.draw(pg.ops,x0,y);y+=b.h};
- /* 1. the protocol: what you inject */
- put(headerBlock(M,m,full,k));y+=8;
+ /* 1. your week first: what you take, when, how much */
+ put(headerBlock(M,m,full,k));y+=6;
+ const wk=sectionHead(M,'YOUR WEEK','Coloured squares are the days you take it. Morning, night or anytime, with how much to draw.',C.ink,full,k);put(wk);
+ const P=weekParts(M,m,full,k);put(P.head);
+ P.rows.forEach((r,ri)=>{const need=r.h+(r.keepNext&&P.rows[ri+1]?P.rows[ri+1].h:0);if(need>room()){newPage();put(P.head)}r.draw(pg.ops,x0,y);y+=r.h});
+ if(P.foot.h>room())newPage();P.foot.draw(pg.ops,x0,y);y+=P.foot.h;
+ /* 2. the details (dose, how often, draw, mix) with blood work and supplements right under.
+    Phone: its own page. Paper: the table is never split; if it won't fit under the week, the two lists fill that space first. */
+ const doTable=()=>{
+ put(sectionHead(M,'MY PROTOCOL',null,C.ink,full,k));
  const tb=tableRows(M,m,full,k);put(tb.head);
  tb.blocks.forEach(b=>{if(b.h>room()){newPage();put(tb.head)}b.draw(pg.ops,x0,y);y+=b.h});
- /* 2. the week, on its own page on the phone (10 compounds to a page) */
- const wk=sectionHead(M,'YOUR WEEK','Dark squares are the days you take it, Monday to Sunday.',C.ink,full,k);
- if(fmt==='phone')newPage();else{y+=16;}
- for(let i=0;i<m.items.length;i+=10){const b=weekBlock(M,m,full,k,i,Math.min(i+10,m.items.length));
-  if(wk.h+b.h>room()&&y>top)newPage();if(i===0){wk.draw(pg.ops,x0,y);y+=wk.h+4}b.draw(pg.ops,x0,y);y+=b.h+8}
- /* 3. blood work and supplements: one paragraph each, ready to highlight and send; one link to the full plan */
+ };
+ const doLists=()=>{  /* blood work and supplements: one paragraph each, ready to highlight and send; one link to the full plan */
  const para=(head,label,text,link)=>{const pad=9,fs=9*k,lh=12.5*k;const L=wrap(M,text,'r',fs,full-pad*2);
   let i=0,first=true;y+=14;if(head.h+60>room())newPage();head.draw(pg.ops,x0,y);y+=head.h+2;
   while(i<L.length){let n=Math.floor((room()-pad*2-14-(link?18:0))/lh);if(n<2){newPage();continue}
@@ -120,10 +145,15 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  if(m.blood.length)para(sectionHead(M,'BLOOD WORK',null,C.blood,full,k),'COPY THIS LIST · '+m.blood.length+' TESTS',m.blood.map(b=>b.n).join(', ')+'.',
   {lead:'When to test each one:',label:'open your full plan',short:'baresignals.co/blood',url:m.link||'https://baresignals.co/blood/'});
  if(m.supp.length)para(sectionHead(M,'SUPPLEMENTS',null,C.supp,full,k),'COPY THIS LIST · '+m.supp.length,m.supp.map(b=>b.n).join(', ')+'.');
+ };
+ const tbH=17+16+tableRows(M,m,full,k).blocks.reduce((a,b)=>a+b.h,0);
+ if(fmt==='phone'){newPage();doTable();doLists()}
+ else if(tbH+16<=room()){y+=16;doTable();doLists()}
+ else{doLists();newPage();doTable()}
  /* 4. for your AI */
  const ah=sectionHead(M,'FOR YOUR AI','Paste this into ChatGPT or Claude, or send it this whole file. The rules for keeping track are written in.',C.water,full,k);
  y+=14;if(ah.h+100>room())newPage();ah.draw(pg.ops,x0,y);y+=ah.h+2;
- {const pad=9,lh=10.6*k,fs=7.8*k;const L=[];aiText(m).split('\n').forEach(t=>wrap(M,t,'m',fs,full-pad*2).forEach(x=>L.push(x)));let i=0,first=true;
+ {const pad=9,lh=(fmt==='paper'?9.2:10.6)*k,fs=(fmt==='paper'?7.1:7.8)*k;const L=[];aiText(m).split('\n').forEach(t=>wrap(M,t,'m',fs,full-pad*2).forEach(x=>L.push(x)));let i=0,first=true;
   while(i<L.length){let n=Math.floor((room()-pad*2-14)/lh);if(n<3){newPage();continue}let l2=lh;const left=L.length-i;if(left>n&&left-n<=5){const t=(room()-pad*2-14)/left;if(t>=lh*.85){l2=t;n=left}}
    const part=L.slice(i,i+n),h=pad*2+12+part.length*l2;R(pg.ops,x0,y,full,h,C.white,C.ink,1,[3,2]);T(pg.ops,x0+pad,y+pad+6,first?'COPY FOR YOUR AI':'COPY FOR YOUR AI (continued)','mb',6.6,C.draw);
    part.forEach((t,j)=>T(pg.ops,x0+pad,y+pad+16+j*l2,t,'m',fs,C.ink));y+=h;i+=n;first=false;if(i<L.length)newPage()}}
@@ -140,6 +170,8 @@ function toPDF(L,title){const {pages,W,H}=L;const objs=[];const add=s=>{objs.pus
  const pagesId=objs.length+1;add('');const kids=[];
  pages.forEach(p=>{let s=`${hex(C.paper)} rg 0 0 ${W.toFixed(2)} ${H.toFixed(2)} re f\n`;
   p.ops.forEach(o=>{if(o.k==='r'){const y=H-o.y-o.h;if(o.fill)s+=`${hex(o.fill)} rg ${o.x.toFixed(2)} ${y.toFixed(2)} ${o.w.toFixed(2)} ${o.h.toFixed(2)} re f\n`;if(o.stroke)s+=`${o.dash?'['+o.dash.join(' ')+'] 0 d ':''}${hex(o.stroke)} RG ${o.lw} w ${o.x.toFixed(2)} ${y.toFixed(2)} ${o.w.toFixed(2)} ${o.h.toFixed(2)} re S${o.dash?' [] 0 d':''}\n`}
+   else if(o.k==='c'){const K=.5523*o.r,cx=o.x,cy=H-o.y,r=o.r;const path=`${(cx+r).toFixed(2)} ${cy.toFixed(2)} m ${(cx+r).toFixed(2)} ${(cy+K).toFixed(2)} ${(cx+K).toFixed(2)} ${(cy+r).toFixed(2)} ${cx.toFixed(2)} ${(cy+r).toFixed(2)} c ${(cx-K).toFixed(2)} ${(cy+r).toFixed(2)} ${(cx-r).toFixed(2)} ${(cy+K).toFixed(2)} ${(cx-r).toFixed(2)} ${cy.toFixed(2)} c ${(cx-r).toFixed(2)} ${(cy-K).toFixed(2)} ${(cx-K).toFixed(2)} ${(cy-r).toFixed(2)} ${cx.toFixed(2)} ${(cy-r).toFixed(2)} c ${(cx+K).toFixed(2)} ${(cy-r).toFixed(2)} ${(cx+r).toFixed(2)} ${(cy-K).toFixed(2)} ${(cx+r).toFixed(2)} ${cy.toFixed(2)} c`;if(o.fill)s+=`${hex(o.fill)} rg ${path} f\n`;if(o.stroke)s+=`${hex(o.stroke)} RG ${o.lw} w ${path} S\n`}
+   else if(o.k==='p'){const path=o.pts.map((q,i)=>`${q[0].toFixed(2)} ${(H-q[1]).toFixed(2)} ${i?'l':'m'}`).join(' ')+' h';if(o.fill)s+=`${hex(o.fill)} rg ${path} f\n`;if(o.stroke)s+=`${hex(o.stroke)} RG ${o.lw} w ${path} S\n`}
    else if(o.k==='l')s+=`${o.dash?'['+o.dash.join(' ')+'] 0 d ':''}${hex(o.c)} RG ${o.lw} w ${o.x1.toFixed(2)} ${(H-o.y1).toFixed(2)} m ${o.x2.toFixed(2)} ${(H-o.y2).toFixed(2)} l S${o.dash?' [] 0 d':''}\n`;
    else if(o.k==='t'&&o.t!=='')s+=`BT /${PF[o.f]} ${o.s.toFixed(2)} Tf ${hex(o.c)} rg ${o.x.toFixed(2)} ${(H-o.y).toFixed(2)} Td ${pstr(o.t)} Tj ET\n`});
   const cid=add(`<< /Length ${s.length} >>\nstream\n${s}endstream`);
@@ -157,6 +189,8 @@ async function fontsReady(){try{await Promise.all(['500 12px "Hanken Grotesk"','
 function toPNGs(L,S){const {pages,W,H}=L;return Promise.all(pages.map(p=>new Promise(res=>{const cv=document.createElement('canvas');cv.width=Math.round(W*S);cv.height=Math.round(H*S);const cx=cv.getContext('2d');cx.scale(S,S);
  cx.fillStyle=C.paper;cx.fillRect(0,0,W,H);cx.textBaseline='alphabetic';
  p.ops.forEach(o=>{if(o.k==='r'){if(o.fill){cx.fillStyle=o.fill;cx.fillRect(o.x,o.y,o.w,o.h)}if(o.stroke){cx.setLineDash(o.dash||[]);cx.strokeStyle=o.stroke;cx.lineWidth=o.lw;cx.strokeRect(o.x,o.y,o.w,o.h);cx.setLineDash([])}}
+  else if(o.k==='c'){cx.beginPath();cx.arc(o.x,o.y,o.r,0,Math.PI*2);if(o.fill){cx.fillStyle=o.fill;cx.fill()}if(o.stroke){cx.strokeStyle=o.stroke;cx.lineWidth=o.lw;cx.stroke()}}
+  else if(o.k==='p'){cx.beginPath();o.pts.forEach((q,i)=>i?cx.lineTo(q[0],q[1]):cx.moveTo(q[0],q[1]));cx.closePath();if(o.fill){cx.fillStyle=o.fill;cx.fill()}if(o.stroke){cx.strokeStyle=o.stroke;cx.lineWidth=o.lw;cx.stroke()}}
   else if(o.k==='l'){cx.setLineDash(o.dash||[]);cx.strokeStyle=o.c;cx.lineWidth=o.lw;cx.beginPath();cx.moveTo(o.x1,o.y1);cx.lineTo(o.x2,o.y2);cx.stroke();cx.setLineDash([])}
   else if(o.k==='t'){cx.font=cfont(o.f,o.s);cx.fillStyle=o.c;cx.fillText(o.t,o.x,o.y)}});
  cv.toBlob(b=>res(b),'image/png')}))) }

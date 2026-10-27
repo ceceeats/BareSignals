@@ -17,6 +17,9 @@
    Your own list is backed up first; open /scan/test10/#restore to put it back. */
 (function(){
   const KEY='bs-scan-v1',BAK='bs-scan-v1-backup-test10';
+  /* v10 mock time picks (Cece, 28 Oct): NAD+ morning; Retatrutide morning after food; Selank anytime;
+     BPC-157 + TB-500 every other day. Added to show the other groups: BPC-157 morning fasted, Glutathione and HCG at night. */
+  const MOCK={NAD:{tm:{a:'☀ AM'}},RTA:{tm:{a:'☀ AM',b:'After food'}},BTB:{f:'EOD',dy:[0,2,4,6]},BPC:{tm:{a:'☀ AM',b:'Fasted'}},GSH:{tm:{a:'☾ PM'}},HCG:{tm:{a:'☾ PM'}}};
   const CODES=['RTA','BPC','GSH','NAD','CRB','HCG','MK','SLK','BTB','LMB'];
   const m=document.getElementById('m');
   try{
@@ -32,7 +35,7 @@
     /* ?v=10 opens the v10 preview with the stock vial sizes; plain link keeps v9 */
     const V10=/[?&]v=10\b/.test(location.search),VS=V10?(window.BS_VIALS||{}):{};
     const dv=(c,x)=>{const u=VS[c];return u&&u.length?(u.indexOf(x.vm)>=0?x.vm:u[0]):(x.vm||'')};
-    const items=CODES.filter(c=>IT[c]).map((c,i)=>{const x=IT[c];const g=V10&&c==='GSH';return {c,dose:g?'200 mg':(x.st||''),f:g?'3W':(x.f||'D'),vm:dv(c,x),vw:x.vw||'',added:now-(CODES.length-i)*60000,taken:[]}});
+    const items=CODES.filter(c=>IT[c]).map((c,i)=>{const x=IT[c];const g=V10&&c==='GSH';const mk=V10?(MOCK[c]||{}):{};return {c,dose:g?'200 mg':(x.st||''),f:mk.f||(g?'3W':(x.f||'D')),dy:mk.dy,tm:mk.tm,vm:dv(c,x),vw:x.vw||'',added:now-(CODES.length-i)*60000,taken:[]}});
     localStorage.setItem(KEY,JSON.stringify({items,log:[],consent:old.consent===undefined?null:old.consent}));
     location.replace(V10?'/scan/v10/?c='+CODES[CODES.length-1]+'#list':'/S/'+CODES[CODES.length-1]+'/#list');
   }catch(e){m.textContent='This browser blocked saving ('+e.message+'). Try in Safari or Chrome, not a private tab.'}

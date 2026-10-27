@@ -637,7 +637,7 @@ function exportModel(){const items=L.items.filter(i=>IT[i.c]);const Z=BWREADY?bw
    const vial=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL vial${LQ[x.c].mg?' ('+LQ[x.c].mg+' mg)':''}, no water`:canMix(x)&&!x.kind?(vm>0?`Vial ${nf(vm,2)} ${isIU(x)?'IU':'mg'} + ${nf(+it.vw||x.vw||2,2)} mL water`:'Vial size not set'):'';
    const mx=canMix(x)&&!x.kind,mixA=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL`:mx?(vm>0?`${nf(vm,2)} ${isIU(x)?'IU':'mg'} vial`:'Set vial size'):x.rt==='oral'?'Capsule, no mixing':x.rt==='topical'?'On the skin':'',
     mixB=LQ[x.c]?'no water':mx&&vm>0?`+ ${nf(+it.vw||x.vw||2,2)} mL BAC`:'';
-   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,
+   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,tmA:/AM/.test(tm.a||'')?'AM':/PM/.test(tm.a||'')?'PM':'',tmB:tm.b||'',rk:mx?(x.rt==='nasal'?'nasal':'inj'):x.rt==='oral'?'oral':x.rt==='topical'?'topical':x.rt==='nasal'?'nasal':'inj',
     days:dd.length===7?'Every day':dd.length?dd.map(k=>DL[k]).join(', '):'',time:[tm.a?String(tm.a).replace(/^[^A-Za-z]+/,''):'',tm.b||''].filter(Boolean).join(' · '),
     vial,cycle:cycTxt(x,it),start:it.sd?fdShort(new Date(it.sd+'T12:00').getTime()):'',note:it.nt||'',route:(x.d&&x.d.route)||''}}),
   link:location.origin+protoLink(),
