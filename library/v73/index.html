@@ -1686,6 +1686,8 @@ body.tstuck .sbar .vsw button{width:26px}
 /* ===== v73: roles bar removed (people found the colour line confusing; roles stay reachable by search and Group by Roles); search sits closer to the title ===== */
 #rbar,body.tstuck .rbar{display:none!important}
 #toolsph{margin:2px 0 2px}
+.pgi{width:52px;height:auto;flex:none;align-self:center}
+@media (min-width:900px){.pgi{width:60px}}
 </style>
 <link rel="stylesheet" href="p65.css">
 <link rel="stylesheet" href="p67.css">
@@ -1697,7 +1699,11 @@ body.tstuck .sbar .vsw button{width:26px}
  <div id="listv">
   <div class="left">
     <div class="top">
-      <div><h1>Peptide and Compound Library<small>V73</small></h1></div>
+      <div><h1>Library<small>V73</small></h1></div><svg class="pgi" viewBox="0 0 64 44" role="img" aria-label="Library"><g stroke="#3E4A80" stroke-width="2">
+<rect x="3" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="3" y="33" width="10" height="8" fill="#E1DE62"/><rect x="13" y="33" width="7" height="8" fill="#FF5050"/>
+<rect x="23.5" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="23.5" y="33" width="10" height="8" fill="#99ACFF"/><rect x="33.5" y="33" width="7" height="8" fill="#AACC96"/>
+<rect x="44" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="44" y="33" width="10" height="8" fill="#FFA51F"/><rect x="54" y="33" width="7" height="8" fill="#B493E8"/></g>
+<g fill="#3E4A80"><rect x="6.5" y="8" width="9" height="3"/><rect x="27" y="8" width="7" height="3"/><rect x="47.5" y="8" width="10" height="3"/><rect x="6.5" y="14" width="6" height="2" opacity=".5"/><rect x="27" y="14" width="9" height="2" opacity=".5"/><rect x="47.5" y="14" width="6" height="2" opacity=".5"/></g></svg>
     </div>
     <div id="toolsph"><div class="tools" id="tools">
     <div class="trow"><div class="qw"><input id="q" type="search" placeholder="Search a feeling, a goal or a name" aria-label="Search compounds" autocomplete="off"><span class="count qc" id="count"></span></div></div>
