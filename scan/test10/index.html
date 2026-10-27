@@ -6,6 +6,7 @@
 <title>Scan test 10 · Bare Signals</title>
 <style>body{margin:0;background:#FFFFE2;color:#3E4A80;font:15px/1.45 system-ui,sans-serif;padding:24px 16px}a{color:#3E4A80;font-weight:600}</style>
 <script src="/scan/v9/data.js"></script>
+<script src="/scan/v10/vials.js"></script>
 </head><body>
 <p id="m">Loading 10 test scans…</p>
 <script>
@@ -28,9 +29,12 @@
     if(cur&&!localStorage.getItem(BAK))localStorage.setItem(BAK,cur);
     const old=JSON.parse(cur||'null')||{};
     const IT=(window.BS_SCAN||{}).items||{};const now=Date.now();
-    const items=CODES.filter(c=>IT[c]).map((c,i)=>{const x=IT[c];return {c,dose:x.st||'',f:x.f||'D',vm:x.vm||'',vw:x.vw||'',added:now-(CODES.length-i)*60000,taken:[]}});
+    /* ?v=10 opens the v10 preview with the stock vial sizes; plain link keeps v9 */
+    const V10=/[?&]v=10\b/.test(location.search),VS=V10?(window.BS_VIALS||{}):{};
+    const dv=(c,x)=>{const u=VS[c];return u&&u.length?(u.indexOf(x.vm)>=0?x.vm:u[0]):(x.vm||'')};
+    const items=CODES.filter(c=>IT[c]).map((c,i)=>{const x=IT[c];const g=V10&&c==='GSH';return {c,dose:g?'200 mg':(x.st||''),f:g?'3W':(x.f||'D'),vm:dv(c,x),vw:x.vw||'',added:now-(CODES.length-i)*60000,taken:[]}});
     localStorage.setItem(KEY,JSON.stringify({items,log:[],consent:old.consent===undefined?null:old.consent}));
-    location.replace('/S/'+CODES[CODES.length-1]+'/#list');
+    location.replace(V10?'/scan/v10/?c='+CODES[CODES.length-1]+'#list':'/S/'+CODES[CODES.length-1]+'/#list');
   }catch(e){m.textContent='This browser blocked saving ('+e.message+'). Try in Safari or Chrome, not a private tab.'}
 })();
 </script>
