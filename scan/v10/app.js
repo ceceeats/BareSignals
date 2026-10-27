@@ -635,9 +635,12 @@ function exportModel(){const items=L.items.filter(i=>IT[i.c]);const Z=BWREADY?bw
  return {title:L.name?L.name+'’s protocol':'My protocol',date:new Date(),
   items:items.map(it=>{const x=IT[it.c];const d=itemDraw(it);const vm=+it.vm||defVial(x);const tm=it.tm||{};const dd=daysOf(it);
    const vial=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL vial${LQ[x.c].mg?' ('+LQ[x.c].mg+' mg)':''}, no water`:canMix(x)&&!x.kind?(vm>0?`Vial ${nf(vm,2)} ${isIU(x)?'IU':'mg'} + ${nf(+it.vw||x.vw||2,2)} mL water`:'Vial size not set'):'';
-   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',
+   const mx=canMix(x)&&!x.kind,mixA=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL`:mx?(vm>0?`${nf(vm,2)} ${isIU(x)?'IU':'mg'} vial`:'Set vial size'):x.rt==='oral'?'Capsule, no mixing':x.rt==='topical'?'On the skin':'',
+    mixB=LQ[x.c]?'no water':mx&&vm>0?`+ ${nf(+it.vw||x.vw||2,2)} mL BAC`:'';
+   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,
     days:dd.length===7?'Every day':dd.length?dd.map(k=>DL[k]).join(', '):'',time:[tm.a?String(tm.a).replace(/^[^A-Za-z]+/,''):'',tm.b||''].filter(Boolean).join(' · '),
     vial,cycle:cycTxt(x,it),start:it.sd?fdShort(new Date(it.sd+'T12:00').getTime()):'',note:it.nt||'',route:(x.d&&x.d.route)||''}}),
+  link:location.origin+protoLink(),
   blood:Z.b.map(([id,o])=>({n:o.n,w:o.w})),supp:Z.s.map(([id,o])=>({n:o.n,w:o.w}))}}
 function openSave(){const old=$('.sheet10');if(old)old.remove();
  const el=document.createElement('div');el.className='sheet10';el.setAttribute('role','dialog');el.setAttribute('aria-label','Save your protocol');

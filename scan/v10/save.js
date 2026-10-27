@@ -26,7 +26,7 @@ function wrap(M,t,f,s,maxW){t=M.clean(t);const out=[];String(t).split('\n').forE
 
 /* ---------- formats ---------- */
 const FMT={
- phone:{W:360,H:780,m:18,top:20,bot:34,cols:1,gap:10,k:1},
+ phone:{W:360,H:780,m:16,top:18,bot:30,cols:1,gap:10,k:1},
  paper:{W:595.28,H:841.89,m:34,top:34,bot:40,cols:2,gap:14,k:1.06}
 };
 
@@ -35,46 +35,51 @@ function T(ops,x,y,t,f,s,col){ops.push({k:'t',x,y,t,f,s,c:col})}
 function R(ops,x,y,w,h,fill,stroke,lw,dash){ops.push({k:'r',x,y,w,h,fill,stroke,lw:lw||1,dash})}
 function Ln(ops,x1,y1,x2,y2,col,lw,dash){ops.push({k:'l',x1,y1,x2,y2,c:col,lw:lw||1,dash})}
 
-function headerBlock(M,m,w,k){const ti=wrap(M,m.title,'h',22*k,w);const n=m.items.length;
+/* page 1 heading: small, the protocol is the point */
+function headerBlock(M,m,w,k){const n=m.items.length;
  const sub=m.date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+' · '+n+(n===1?' compound':' compounds');
- const h=12+ti.length*25*k+16+12;
- return {h,draw(o,x,y){T(o,x,y+8,'BARE SIGNALS · MY PROTOCOL','mb',7.5,C.draw);let yy=y+12+20*k;ti.forEach(l=>{T(o,x,yy,l,'h',22*k,C.ink);yy+=25*k});
-  T(o,x,yy-5,sub,'r',10*k,C.soft);
-  const band=m.items.map(i=>i.col[0]?i.col[0][0]:C.rule);const bw=w/Math.max(1,band.length);band.forEach((c,i)=>R(o,x+i*bw,yy+3,bw,6,c));R(o,x,yy+3,w,6,null,C.ink,1)}}}
+ const ti=wrap(M,m.title,'h',17*k,w-M.w(sub,'r',8.5*k)-10);const h=10+ti.length*19*k+6;
+ return {h,draw(o,x,y){T(o,x,y+7,'BARE SIGNALS · MY PROTOCOL','mb',6.8,C.draw);ti.forEach((l,j)=>T(o,x,y+10+15*k+j*19*k,l,'h',17*k,C.ink));
+  T(o,x+w-M.w(sub,'r',8.5*k),y+10+15*k,sub,'r',8.5*k,C.soft)}}}
 
-function glanceBlock(M,m,w,k){const rows=m.items.map((it,i)=>{const right=[it.dose,it.freq].filter(Boolean).join(' · ');const nameW=w-26-M.w(right,'b',9.5*k)-8;
-  const one=M.w(it.n,'b',10*k)<=nameW;return {it,i,right,one,h:one?17*k:29*k}});
- const h=16+rows.reduce((a,r)=>a+r.h,0)+4;
- return {h,draw(o,x,y){T(o,x,y+9,'AT A GLANCE','mb',7.5,C.soft);let yy=y+16;
-  rows.forEach(r=>{Ln(o,x,yy,x+w,yy,C.rule,.8);const c=r.it.col[0]?r.it.col[0][0]:C.rule;R(o,x,yy+4*k,9,9,c,C.ink,.8);
-   T(o,x+14,yy+11.5*k,String(r.i+1),'mb',7,C.soft);T(o,x+26,yy+12*k,r.it.n,'b',10*k,C.ink);
-   const rx=x+w-M.w(r.right,'b',9.5*k);T(o,r.one?rx:x+26,r.one?yy+12*k:yy+24*k,r.right,'b',9.5*k,r.it.set?C.dose:C.soft);yy+=r.h});
-  Ln(o,x,yy,x+w,yy,C.rule,.8)}}}
+/* the protocol table: every value in its own column */
+function tableRows(M,m,w,k){const S=w/324;
+ const cols=[['#',16],['COMPOUND',86],['DOSE',50],['HOW OFTEN',62],['DRAW',38],['MIX',72]].map(([h,cw])=>[h,cw*S]);
+ const fs=8.6*k,lh=10.6*k,pad=5;
+ const cell=(i,t,f)=>wrap(M,t,f,fs,cols[i][1]-6);
+ const rows=m.items.map((it,i)=>{const c=[
+   [String(i+1)],cell(1,it.n,'b'),cell(2,it.dose,'b'),
+   [].concat(cell(3,it.freq,'r'),it.time?cell(3,it.time,'r'):[]),
+   cell(4,it.draw||'—','b'),
+   it.mixA?[].concat(cell(5,it.mixA,'r'),it.mixB?cell(5,it.mixB,'r'):[]):['—']];
+  const h=Math.max(...c.map(x=>x.length))*lh+pad*2;return {it,i,c,h}});
+ const head={h:16,draw(o,x,y){let xx=x;cols.forEach(([t,cw])=>{T(o,xx+3,y+11,t,'mb',6.4,C.soft);xx+=cw});Ln(o,x,y+16,x+w,y+16,C.ink,1)}};
+ const blocks=rows.map(r=>({h:r.h,draw(o,x,y){let xx=x;
+   const col=r.it.col[0]?r.it.col[0][0]:C.rule;R(o,x,y,3,r.h,col);
+   r.c.forEach((lines,ci)=>{const cw=cols[ci][1];
+    const f=ci===0?'mb':ci===1||ci===2||ci===4?'b':'r';const color=ci===0?C.soft:ci===2?(r.it.set?C.dose:C.soft):ci===4?C.draw:C.ink;
+    lines.forEach((t,j)=>T(o,xx+(ci===0?6:3),y+pad+8*k+j*lh,t,ci===3&&j>0?'r':f,ci===3&&j>0?7.8*k:fs,ci===3&&j>0?C.soft:ci===5&&j>0?C.water:color));xx+=cw});
+   Ln(o,x,y+r.h,x+w,y+r.h,C.rule,.8)}}));
+ return {head,blocks}}
 
-function cardBlock(M,it,i,w,k){const pad=10,iw=w-pad*2;const nameL=wrap(M,it.n,'h',13.5*k,iw-30-M.w(it.c,'mb',7.5));
- /* dose line as runs */
- const runs=[[it.dose,'b',13*k,it.set?C.dose:C.soft]];if(it.draw)runs.push(['  '+it.draw,'b',12*k,C.draw]);if(it.freq)runs.push(['  '+it.freq,'r',10.5*k,C.ink]);
- const det=[['WHEN',[it.days,it.time].filter(Boolean).join(' · ')],['VIAL',it.vial],['CYCLE',(it.cycle||'').replace(/^Cycle /,'')],['START',it.start],['ROUTE',it.route],['NOTE',it.note]].filter(r=>r[1]);
- const lw=40,vw=iw-lw;const detL=det.map(([l,v])=>[l,wrap(M,v,'r',9.5*k,vw)]);
- const doseL=(()=>{const lines=[[]];let cur=0;runs.forEach(([t,f,s,c])=>{const ww=M.w(t,f,s);if(cur+ww>iw-18&&lines[lines.length-1].length){lines.push([]);cur=0;t=t.replace(/^ +/,'')}lines[lines.length-1].push([t,f,s,c]);cur+=M.w(t,f,s)});return lines})();
- const h=5+pad+nameL.length*16*k+4+doseL.length*17*k+4+detL.reduce((a,d)=>a+d[1].length*12.5*k+3,0)+pad-2;
- return {h,keep:true,draw(o,x,y){R(o,x,y,w,h,C.chip,C.ink,1);const bw=it.col.reduce((a,c)=>a+c[1],0)||1;let sx=x;it.col.forEach(([c,wt])=>{const ww=w*wt/bw;R(o,sx,y,ww,5,c);sx+=ww});Ln(o,x,y+5,x+w,y+5,C.ink,1);
-  let yy=y+5+pad+11*k;R(o,x+pad,yy-9.5*k,16,12*k,C.ink);T(o,x+pad+(i+1>9?2:4.6),yy-.5,String(i+1),'mb',8,C.white);
-  nameL.forEach((l,j)=>{T(o,x+pad+22,yy+j*16*k,l,'h',13.5*k,C.ink)});T(o,x+w-pad-M.w(it.c,'mb',7.5),yy-1,it.c,'mb',7.5,C.soft);
-  yy+=(nameL.length-1)*16*k+8+13*k;
-  doseL.forEach((line,j)=>{let xx=x+pad;if(j===0){R(o,xx,yy-10*k,13,13*k,C.dose);T(o,xx+3.2,yy-.5,'D','mb',9,C.cream);xx+=18}else xx+=18;line.forEach(([t,f,s,c])=>{T(o,xx,yy,t,f,s,c);xx+=M.w(t,f,s)});yy+=17*k});
-  yy+=1;detL.forEach(([l,lines])=>{T(o,x+pad,yy,l,'mb',6.8,C.soft);lines.forEach((t,j)=>T(o,x+pad+lw,yy+j*12.5*k,t,'r',9.5*k,C.ink));yy+=lines.length*12.5*k+3})}}}
+/* the week: the same day blocks as the screen, one row per compound, needles counted per day */
+const DAYS=['M','T','W','T','F','S','S'];
+const shot=it=>!/oral|capsule|tablet|nasal|topical|cream|serum/i.test(it.route||'');
+function weekBlock(M,m,w,k,from,to){const items=m.items.slice(from,to);const wide=w>400,lab=wide?190:w-7*24;const bs=wide?21:19,step=(w-lab)/7,rh=(wide?27:27)*k;
+ const per=[0,0,0,0,0,0,0];m.items.forEach(it=>{if(!shot(it))return;(it.dy||[]).forEach(d=>{per[d]+=it.times||1})});
+ const h=18+items.length*rh+(to>=m.items.length?rh+4:0);
+ return {h,draw(o,x,y){DAYS.forEach((d,j)=>{const cx=x+lab+j*step+(step-bs)/2;T(o,cx+bs/2-M.w(d,'mb',7.5)/2,y+11,d,'mb',7.5,C.soft)});
+  let yy=y+18;items.forEach((it,ii)=>{const i=from+ii;const col=it.col[0]?it.col[0][0]:C.rule;
+   R(o,x,yy+4,8,8,col,C.ink,.8);const nm=wrap(M,(i+1)+'  '+it.n,'b',9*k,lab-14)[0];T(o,x+13,yy+11,nm,'b',9*k,C.ink);
+   T(o,x+13,yy+21*k,wrap(M,[it.dose,it.times>1?it.times+'× a day':'',shot(it)?'':it.route.split(/[ ,(]/)[0]].filter(Boolean).join(' · '),'r',7.6*k,lab-14)[0],'r',7.6*k,C.soft);
+   const on=new Set(it.dy||[]);
+   DAYS.forEach((d,j)=>{const bx=x+lab+j*step+(step-bs)/2,by=yy+2;if(on.has(j)){R(o,bx,by,bs,bs,C.ink);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.cream);if(it.times>1)T(o,bx+bs-6,by+6.5,String(it.times),'mb',5.5,C.cream)}else{R(o,bx,by,bs,bs,C.chip,C.rule,1);T(o,bx+bs/2-M.w(d,'mb',8)/2,by+bs/2+3,d,'mb',8,C.rule)}});
+   if(!on.size)T(o,x+lab+4,yy+15,'as needed','r',8*k,C.soft);
+   Ln(o,x,yy+rh-1,x+w,yy+rh-1,C.rule,.6);yy+=rh});
+  if(to>=m.items.length){T(o,x,yy+15,'Needles a day','mb',7,C.draw);DAYS.forEach((d,j)=>{const t=String(per[j]);const cx=x+lab+j*step+step/2;T(o,cx-M.w(t,'mb',11*k)/2,yy+16,t,'mb',11*k,per[j]?C.draw:C.rule)})}}}}
 
-function sectionHead(M,title,sentence,col,w,k){const sl=wrap(M,sentence,'r',9.5*k,w);const h=24+sl.length*12.5*k+4;
- return {h,keepNext:true,draw(o,x,y){R(o,x,y+4,10,10,col);T(o,x+16,y+13,title,'mb',9,col);sl.forEach((l,j)=>T(o,x,y+28+j*12.5*k,l,'r',9.5*k,C.soft))}}}
-function listRow(M,r,col,w,k){const nl=wrap(M,r.n,'b',10*k,w-16);const fl=r.w&&r.w.length?wrap(M,'for '+r.w.join(', '),'r',8.5*k,w-16):[];const h=nl.length*13*k+fl.length*11*k+6;
- return {h,draw(o,x,y){R(o,x,y+3.5,8,8,col);nl.forEach((l,j)=>T(o,x+15,y+11*k+j*13*k,l,'b',10*k,C.ink));fl.forEach((l,j)=>T(o,x+15,y+11*k+nl.length*13*k+j*11*k-2,l,'r',8.5*k,C.soft))}}}
-/* a copy box: label + mono lines; split into pieces that fit (continued) */
-function copyPieces(M,label,lines,w,avail,full,k){const lh=11.5*k,pad=9;const L=[];lines.forEach(t=>wrap(M,t,'m',8.4*k,w-pad*2).forEach(x=>L.push(x)));
- const pieces=[];let i=0,first=true;while(i<L.length){const room=Math.max(3,Math.floor(((first?avail:full)-pad*2-16)/lh));const part=L.slice(i,i+room);
-  const lab=first?label:label+' (continued)';const h=pad*2+14+part.length*lh;
-  pieces.push({h,draw(o,x,y){R(o,x,y,w,h,C.white,C.ink,1,[3,2]);T(o,x+pad,y+pad+7,lab,'mb',7,C.draw);part.forEach((t,j)=>T(o,x+pad,y+pad+19+j*lh,t,'m',8.4*k,C.ink))}});i+=room;first=false}
- return pieces}
+function sectionHead(M,title,sentence,col,w,k){const sl=sentence?wrap(M,sentence,'r',8.6*k,w):[];const h=17+sl.length*11*k+(sl.length?3:0);
+ return {h,draw(o,x,y){R(o,x,y+3,9,9,col);T(o,x+14,y+11,title,'mb',8.4,col);sl.forEach((l,j)=>T(o,x,y+24+j*11*k,l,'r',8.6*k,C.soft))}}}
 
 /* ---------- the AI text (also on its own as Copy for your AI) ---------- */
 function aiText(m){const d=m.date.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
@@ -84,48 +89,46 @@ function aiText(m){const d=m.date.toLocaleDateString('en-GB',{day:'numeric',mont
  '3. Each week, show what I took, what I missed and what’s coming up.',
  '4. Remind me about the blood tests below: before I start, then as listed.',
  '5. If something sounds unsafe, say so and tell me to check with a doctor. This is not medical advice.','','COMPOUNDS'];
- m.items.forEach((it,i)=>{L.push((i+1)+'. '+it.n+' ('+it.c+'): '+[it.dose,it.freq+(it.days&&it.days!=='Every day'?' ('+it.days+')':''),it.time,it.vial&&it.vial+(it.draw?', draw '+it.draw:''),it.cycle,it.start&&'starts '+it.start,it.note&&'note: '+it.note].filter(Boolean).join('. ')+'.')});
- if(m.blood.length){L.push('');L.push('BLOOD WORK: '+m.blood.map(b=>b.n).join('; '))}
- if(m.supp.length){L.push('');L.push('SUPPLEMENTS: '+m.supp.map(b=>b.n).join('; '))}
+ m.items.forEach((it,i)=>{L.push((i+1)+'. '+it.n+': '+[it.dose,it.freq+(it.days&&it.days!=='Every day'?' ('+it.days+')':''),it.time,it.mixA&&[it.mixA,it.mixB].filter(Boolean).join(' ')+(it.draw?', draw '+it.draw:''),it.cycle,it.start&&'starts '+it.start,it.note&&'note: '+it.note].filter(Boolean).join('. ')+'.')});
+ if(m.blood.length){L.push('');L.push('BLOOD WORK: '+m.blood.map(b=>b.n).join(', ')+'.')}
+ if(m.supp.length){L.push('');L.push('SUPPLEMENTS: '+m.supp.map(b=>b.n).join(', ')+'.')}
  return L.join('\n')}
 
 /* ---------- page layout ---------- */
-function layout(M,fmt,m){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full=W-F.m*2,cw=F.cols>1?(full-F.gap)/2:full,top=F.top,bottom=H-F.bot;
+function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full=W-F.m*2,top=F.top,bottom=H-F.bot;
  const pages=[];let pg,y;const newPage=()=>{pg={ops:[]};pages.push(pg);y=top};newPage();
  const room=()=>bottom-y;
- const put=(b,x,w)=>{b.draw(pg.ops,x,y);y+=b.h+F.gap};
- const putFull=b=>{if(b.h>room()&&y>top)newPage();put(b,x0,full)};
- /* cards: one column on the phone; on paper, each card goes to the shorter column (no holes) */
- const cards=(list)=>{if(F.cols===1){list.forEach(b=>putFull(b));return}
-  let cy=[y,y];list.forEach(b=>{let c=cy[0]<=cy[1]?0:1;if(cy[c]+b.h>bottom){c=1-c;if(cy[c]+b.h>bottom){newPage();cy=[top,top];c=0}}b.draw(pg.ops,x0+c*(cw+F.gap),cy[c]);cy[c]+=b.h+F.gap});y=Math.max(cy[0],cy[1])};
- const rows=(head,list,copyLabel,copyLines)=>{const hb=head;const first=list[0];
-  if(hb.h+(first?first.h:0)>room()&&y>top)newPage();put(hb,x0,full);y-=F.gap-4;
-  if(F.cols===1)list.forEach(b=>{if(b.h>room())newPage();b.draw(pg.ops,x0,y);y+=b.h});
-  else{let cy=[y,y];list.forEach(b=>{let c=cy[0]<=cy[1]?0:1;if(cy[c]+b.h>bottom){c=1-c;if(cy[c]+b.h>bottom){newPage();cy=[top,top];c=0}}b.draw(pg.ops,x0+c*(cw+F.gap),cy[c]);cy[c]+=b.h});y=Math.max(cy[0],cy[1])}
-  y+=6;copyPieces(M,copyLabel,copyLines,full,room(),bottom-top,k).forEach((p,j)=>{if(p.h>room())newPage();put(p,x0,full)})};
- putFull(headerBlock(M,m,full,k));
- putFull(glanceBlock(M,m,full,k));
- cards(m.items.map((it,i)=>cardBlock(M,it,i,cw,k)));
- /* lists and the AI block flow down the columns (two on paper, one on the phone), in reading order, no half-empty pages */
- const num={};m.items.forEach((it,i)=>{num[it.n]=i+1});
- const lines=arr=>arr.map(r=>r.n+(r.w&&r.w.length?'  · for '+r.w.map(n=>num[n]).filter(Boolean).sort((a,b)=>a-b).join(', '):''));
- const fw=F.cols>1?cw:full,colX=c=>x0+c*(cw+F.gap);let col=0,flowTop=y,fy=y;
- const nextCol=()=>{col++;if(col>=F.cols){newPage();col=0;flowTop=top;fy=top}else fy=flowTop};
- const flow=(head,label,text)=>{
-  if(head.h+70>bottom-fy&&fy>flowTop)nextCol();head.draw(pg.ops,colX(col),fy);fy+=head.h+2;
-  const pad=9,lh0=11.5*k,over=pad*2+16;const L=[];text.forEach(t=>wrap(M,t,'m',8.4*k,fw-pad*2).forEach(x=>L.push(x)));
-  let i=0,first=true;
-  while(i<L.length){let room=bottom-fy;let n=Math.floor((room-over)/lh0);if(n<3){nextCol();continue}
-   let lh=lh0;const left=L.length-i;
-   if(left>n&&left-n<=5){const lh2=(room-over)/left;if(lh2>=lh0*.84){lh=lh2;n=left}}
-   const part=L.slice(i,i+n),lab=first?label:label+' (continued)',h=over+part.length*lh,X=colX(col),Y=fy;
-   R(pg.ops,X,Y,fw,h,C.white,C.ink,1,[3,2]);T(pg.ops,X+pad,Y+pad+7,lab,'mb',7,C.draw);part.forEach((t,j)=>T(pg.ops,X+pad,Y+pad+19+j*lh,t,'m',8.4*k,C.ink));
-   fy+=h+F.gap;i+=n;first=false;if(i<L.length)nextCol()}};
- if(m.blood.length)flow(sectionHead(M,'BLOOD WORK','Tests to do before you start, so later results have something to compare to. The numbers are your cards. Not medical advice.',C.blood,fw,k),'BLOOD WORK · '+m.blood.length+' TESTS',lines(m.blood));
- if(m.supp.length)flow(sectionHead(M,'SUPPLEMENTS','What people take alongside these compounds. The numbers are your cards.',C.supp,fw,k),'SUPPLEMENTS · '+m.supp.length,lines(m.supp));
- flow(sectionHead(M,'FOR YOUR AI','Paste this into ChatGPT or Claude, or send it this whole file. The rules for keeping track are already written in.',C.water,fw,k),'COPY FOR YOUR AI',aiText(m).split('\n'));
- /* footers */
- pages.forEach((p,i)=>{const fy=H-F.bot+18;Ln(p.ops,x0,fy-11,W-x0,fy-11,C.rule,.8);T(p.ops,x0,fy,'Bare Signals · baresignals.co','mb',7,C.soft);const n=(i+1)+' / '+pages.length;T(p.ops,W-x0-M.w(n,'mb',7),fy,n,'mb',7,C.soft)});
+ const put=b=>{if(b.h>room()&&y>top)newPage();b.draw(pg.ops,x0,y);y+=b.h};
+ /* 1. the protocol: what you inject */
+ put(headerBlock(M,m,full,k));y+=8;
+ const tb=tableRows(M,m,full,k);put(tb.head);
+ tb.blocks.forEach(b=>{if(b.h>room()){newPage();put(tb.head)}b.draw(pg.ops,x0,y);y+=b.h});
+ /* 2. the week, on its own page on the phone (10 compounds to a page) */
+ const wk=sectionHead(M,'YOUR WEEK','Dark squares are the days you take it, Monday to Sunday.',C.ink,full,k);
+ if(fmt==='phone')newPage();else{y+=16;}
+ for(let i=0;i<m.items.length;i+=10){const b=weekBlock(M,m,full,k,i,Math.min(i+10,m.items.length));
+  if(wk.h+b.h>room()&&y>top)newPage();if(i===0){wk.draw(pg.ops,x0,y);y+=wk.h+4}b.draw(pg.ops,x0,y);y+=b.h+8}
+ /* 3. blood work and supplements: one paragraph each, ready to highlight and send; one link to the full plan */
+ const para=(head,label,text,link)=>{const pad=9,fs=9*k,lh=12.5*k;const L=wrap(M,text,'r',fs,full-pad*2);
+  let i=0,first=true;y+=14;if(head.h+60>room())newPage();head.draw(pg.ops,x0,y);y+=head.h+2;
+  while(i<L.length){let n=Math.floor((room()-pad*2-14-(link?18:0))/lh);if(n<2){newPage();continue}
+   const part=L.slice(i,i+n),h=pad*2+12+part.length*lh,X=x0,Y=y;
+   R(pg.ops,X,Y,full,h,C.white,C.ink,1,[3,2]);T(pg.ops,X+pad,Y+pad+6,first?label:label+' (continued)','mb',6.6,C.draw);
+   part.forEach((t,j)=>T(pg.ops,X+pad,Y+pad+17+j*lh,t,'r',fs,C.ink));y+=h;i+=n;first=false;if(i<L.length)newPage()}
+  if(link){const t=forImage?link.short:link.label;y+=4;T(pg.ops,x0,y+9,link.lead,'r',8.4*k,C.soft);const lx=x0+M.w(link.lead,'r',8.4*k)+4;
+   T(pg.ops,lx,y+9,t,'b',8.4*k,C.water);Ln(pg.ops,lx,y+11,lx+M.w(t,'b',8.4*k),y+11,C.water,.7);if(!forImage)pg.ops.push({k:'a',x:lx,y:y,w:M.w(t,'b',8.4*k),h:12,url:link.url});y+=14}};
+ if(m.blood.length)para(sectionHead(M,'BLOOD WORK',null,C.blood,full,k),'COPY THIS LIST · '+m.blood.length+' TESTS',m.blood.map(b=>b.n).join(', ')+'.',
+  {lead:'When to test each one:',label:'open your full plan',short:'baresignals.co/blood',url:m.link||'https://baresignals.co/blood/'});
+ if(m.supp.length)para(sectionHead(M,'SUPPLEMENTS',null,C.supp,full,k),'COPY THIS LIST · '+m.supp.length,m.supp.map(b=>b.n).join(', ')+'.');
+ /* 4. for your AI */
+ const ah=sectionHead(M,'FOR YOUR AI','Paste this into ChatGPT or Claude, or send it this whole file. The rules for keeping track are written in.',C.water,full,k);
+ y+=14;if(ah.h+100>room())newPage();ah.draw(pg.ops,x0,y);y+=ah.h+2;
+ {const pad=9,lh=10.6*k,fs=7.8*k;const L=[];aiText(m).split('\n').forEach(t=>wrap(M,t,'m',fs,full-pad*2).forEach(x=>L.push(x)));let i=0,first=true;
+  while(i<L.length){let n=Math.floor((room()-pad*2-14)/lh);if(n<3){newPage();continue}let l2=lh;const left=L.length-i;if(left>n&&left-n<=5){const t=(room()-pad*2-14)/left;if(t>=lh*.85){l2=t;n=left}}
+   const part=L.slice(i,i+n),h=pad*2+12+part.length*l2;R(pg.ops,x0,y,full,h,C.white,C.ink,1,[3,2]);T(pg.ops,x0+pad,y+pad+6,first?'COPY FOR YOUR AI':'COPY FOR YOUR AI (continued)','mb',6.6,C.draw);
+   part.forEach((t,j)=>T(pg.ops,x0+pad,y+pad+16+j*l2,t,'m',fs,C.ink));y+=h;i+=n;first=false;if(i<L.length)newPage()}}
+ /* footers: just the name and the page */
+ pages.forEach((p,i)=>{const fy=H-F.bot+18;Ln(p.ops,x0,fy-11,W-x0,fy-11,C.rule,.8);T(p.ops,x0,fy,'Bare Signals','mb',7,C.soft);const n=(i+1)+' / '+pages.length;T(p.ops,W-x0-M.w(n,'mb',7),fy,n,'mb',7,C.soft)});
  return {pages,W,H}}
 
 /* ---------- PDF writer ---------- */
@@ -140,7 +143,8 @@ function toPDF(L,title){const {pages,W,H}=L;const objs=[];const add=s=>{objs.pus
    else if(o.k==='l')s+=`${o.dash?'['+o.dash.join(' ')+'] 0 d ':''}${hex(o.c)} RG ${o.lw} w ${o.x1.toFixed(2)} ${(H-o.y1).toFixed(2)} m ${o.x2.toFixed(2)} ${(H-o.y2).toFixed(2)} l S${o.dash?' [] 0 d':''}\n`;
    else if(o.k==='t'&&o.t!=='')s+=`BT /${PF[o.f]} ${o.s.toFixed(2)} Tf ${hex(o.c)} rg ${o.x.toFixed(2)} ${(H-o.y).toFixed(2)} Td ${pstr(o.t)} Tj ET\n`});
   const cid=add(`<< /Length ${s.length} >>\nstream\n${s}endstream`);
-  kids.push(add(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${W.toFixed(2)} ${H.toFixed(2)}] /Resources << /Font << /F1 ${fonts[0]} 0 R /F2 ${fonts[1]} 0 R /F3 ${fonts[2]} 0 R /F4 ${fonts[3]} 0 R >> >> /Contents ${cid} 0 R >>`))});
+  const an=p.ops.filter(o=>o.k==='a').map(o=>add(`<< /Type /Annot /Subtype /Link /Rect [${o.x.toFixed(2)} ${(H-o.y-o.h).toFixed(2)} ${(o.x+o.w).toFixed(2)} ${(H-o.y).toFixed(2)}] /Border [0 0 0] /A << /S /URI /URI ${pstr(o.url)} >> >>`));
+  kids.push(add(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${W.toFixed(2)} ${H.toFixed(2)}] /Resources << /Font << /F1 ${fonts[0]} 0 R /F2 ${fonts[1]} 0 R /F3 ${fonts[2]} 0 R /F4 ${fonts[3]} 0 R >> >> /Contents ${cid} 0 R${an.length?' /Annots ['+an.map(a=>a+' 0 R').join(' ')+']':''} >>`))});
  objs[pagesId-1]=`<< /Type /Pages /Kids [${kids.map(k=>k+' 0 R').join(' ')}] /Count ${kids.length} >>`;
  const info=add(`<< /Title ${pstr(title)} /Producer (Bare Signals) >>`);const cat=add(`<< /Type /Catalog /Pages ${pagesId} 0 R >>`);
  let out='%PDF-1.4\n%âãÏÓ\n';const off=[];objs.forEach((o,i)=>{off.push(out.length);out+=`${i+1} 0 obj\n${o}\nendobj\n`});
@@ -171,7 +175,7 @@ function readyTap(files,what){const pane=document.querySelector('.sheet10 .pane'
 async function run(kind,m){const name=(m.title.replace(/[’']/g,'').replace(/[^A-Za-z0-9 ]+/g,' ').trim()||'Protocol')+' '+stamp();
  if(kind==='phone'||kind==='paper'){const L=layout(pdfMeasure(),kind,m);const blob=toPDF(L,m.title);
   return deliver([new File([blob],'Bare Signals '+name+(kind==='phone'?' phone':' A4')+'.pdf',{type:'application/pdf'})],kind==='phone'?'Phone PDF':'Paper PDF')}
- if(kind==='img'){await fontsReady();const L=layout(canvasMeasure(),'phone',m);const blobs=await toPNGs(L,3);
+ if(kind==='img'){await fontsReady();const L=layout(canvasMeasure(),'phone',m,true);const blobs=await toPNGs(L,3);
   return deliver(blobs.map((b,i)=>new File([b],`Bare Signals ${name} ${i+1} of ${blobs.length}.png`,{type:'image/png'})),blobs.length>1?blobs.length+' pictures':'Picture')}}
 window.BSSave={run,aiText,_layout:layout,_toPDF:toPDF,_toPNGs:toPNGs,_pdfMeasure:pdfMeasure,_canvasMeasure:canvasMeasure,_fontsReady:fontsReady};
 })();
