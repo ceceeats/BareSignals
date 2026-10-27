@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Scan test 10 · Bare Signals</title>
+<style>body{margin:0;background:#FFFFE2;color:#3E4A80;font:15px/1.45 system-ui,sans-serif;padding:24px 16px}a{color:#3E4A80;font-weight:600}</style>
+<script src="/scan/v9/data.js"></script>
+</head><body>
+<p id="m">Loading 10 test scans…</p>
+<script>
+/* Scan test 10 (28 Oct 2026): pretends a person scanned 10 vials in a row with no
+   edits, so the My protocol list can be judged for navigation. Picked for range:
+   weekly mg, daily mcg, big-volume powders, a ready-made liquid in mL, IU units,
+   an oral capsule, a nasal spray, a blend, and one with no common dose.
+   Your own list is backed up first; open /scan/test10/#restore to put it back. */
+(function(){
+  const KEY='bs-scan-v1',BAK='bs-scan-v1-backup-test10';
+  const CODES=['RTA','BPC','GSH','NAD','CRB','HCG','MK','SLK','BTB','LMB'];
+  const m=document.getElementById('m');
+  try{
+    if(location.hash==='#restore'){
+      const b=localStorage.getItem(BAK);
+      if(b){localStorage.setItem(KEY,b);localStorage.removeItem(BAK);m.innerHTML='Your own list is back. <a href="/S/RTA/#list">Open My protocol</a>'}
+      else m.textContent='No backup on this phone, nothing to restore.';
+      return}
+    const cur=localStorage.getItem(KEY);
+    if(cur&&!localStorage.getItem(BAK))localStorage.setItem(BAK,cur);
+    const old=JSON.parse(cur||'null')||{};
+    const IT=(window.BS_SCAN||{}).items||{};const now=Date.now();
+    const items=CODES.filter(c=>IT[c]).map((c,i)=>{const x=IT[c];return {c,dose:x.st||'',f:x.f||'D',vm:x.vm||'',vw:x.vw||'',added:now-(CODES.length-i)*60000,taken:[]}});
+    localStorage.setItem(KEY,JSON.stringify({items,log:[],consent:old.consent===undefined?null:old.consent}));
+    location.replace('/S/'+CODES[CODES.length-1]+'/#list');
+  }catch(e){m.textContent='This browser blocked saving ('+e.message+'). Try in Safari or Chrome, not a private tab.'}
+})();
+</script>
+</body></html>
