@@ -2,6 +2,9 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v32 (27 Oct 2026)
+- 27 Oct 2026: every stripe gives the main role about 70%; the other roles share the last 30%, fading in the old 25 : 15 : 11 order. A role that is the main role of a blend part shares the 70% (Wolverine-style blends keep two big blocks). Previous version kept.
+
 ## v31 (25 Oct 2026)
 - Example is now a swipe row of 7 fictional people, the next card peeking in from the right, with dots under it: Jane Doe 34 (healing a shoulder strain), Marco 41 (more energy), Priya 29 (focus, nasal only), Tom 52 (better sleep), Ken 63 (longevity), Lea 38 (immunity), Sam 26 (just testing, one peptide). Each card: name, sex, age, goal, length, reason, a note, each peptide with dose (D), syringe units (orange), route, how often, fasted, then a schedule: "Her day" by time, or "His week" Mon to Sun with the route mark on each dose day. Start from this on every card.
 - Popular stacks are cards that lead with what's inside (BPC + TB-500 + GHK-Cu), the nickname under it (GLOW · skin, healing, collagen). Tapping a card only opens its preview; Add to my stack, Remove and Close sit inside the preview, so nothing gets stuck on. Cards in your stack show ✓ in stack. 6 shown, Show 9 more. New dashed "+ Your own mix" card jumps to the search.

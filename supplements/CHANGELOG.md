@@ -3,6 +3,9 @@
 /supplements/ always opens the newest version. Older versions stay live at their own path.
 Source: the Honest Menu sheet of the protocol (supplement columns and phase-wide stacks only). The personal example sheet is never used.
 
+## v22 (27 Oct 2026)
+- 27 Oct 2026: every stripe gives the main role about 70%; the other roles share the last 30%, fading in the old 25 : 15 : 11 order. A role that is the main role of a blend part shares the 70% (Wolverine-style blends keep two big blocks). Previous version kept.
+
 ## v21 (25 Oct 2026) at /supplements/v21/
 - Blood tests tab also reads the researched rows from Blood Work v27 (/blood/v27/supp.js): IGF-1 now shows on Protein and Zinc (raises) and on Vitamin D3 and K2, L-Arginine, Creatine and Green Tea Extract (= no clear effect). New "=" mark in the tab key. v20 kept.
 

@@ -2,6 +2,9 @@
 
 /blood/ always opens the newest version. Older versions stay live at their own path.
 
+## v28 (27 Oct 2026)
+- 27 Oct 2026: every stripe gives the main role about 70%; the other roles share the last 30%, fading in the old 25 : 15 : 11 order. A role that is the main role of a blend part shares the 70% (Wolverine-style blends keep two big blocks). Previous version kept.
+
 ## v27 (25 Oct 2026) at /blood/v27/
 - Fix: the open card now sits under the site bar instead of sliding over it, and the page behind gets a near-solid cream wash. On laptop, rows like Sugar & energy and Fasting Insulin used to peek out half covered beside the card.
 - "Test this if you take" gets a key for the marks it shows (◎ shows if it is working, orange dot watch for safety, three dots danger), so the circles are explained.

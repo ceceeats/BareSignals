@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Home v23 (27 Oct 2026): stripes give the main role about 70%, the rest share 30%. v22 kept at /home/v22/. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -405,7 +406,8 @@ loadData(function(){
   var TAG=function(k){var c=col(k);return '<span class="rtg" style="background:'+c+';color:'+txt(c)+'">'+esc((PAL[k]||{}).label||k)+'</span>'};
   var aa=function(o){return o.seq&&o.seq.length?o.seq.length+'<br>AA':''};
   /* v22: stripes power first: the strongest role widest on the left, then 49 : 25 : 15 : 11 like the stickers */
-  var band=function(o,h){var b=o.sticker&&o.sticker.blocks,W={},L;if(b){[[b.wide,49],[b.mid,25],[b.lt,15],[b.lb,11]].forEach(function(x){if(x[0])W[x[0]]=(W[x[0]]||0)+x[1]});L=Object.keys(W).map(function(k){return [k,W[k]]}).sort(function(x,y){return y[1]-x[1]})}else L=(o.roles||[]).slice(0,4).map(function(k,i){return [k,[49,25,15,11][i]]});return L.map(function(x){return '<u style="flex:'+x[1]+';background:'+col(x[0])+'"></u>'}).join('')};
+  var bs70=function(L){L=L.slice().sort(function(a,b){return b[1]-a[1]});if(L.length<2)return L;var mx=L[0][1],A=[],B=[],ha=0,hb=0;L.forEach(function(x){if(x[1]>=mx*.9){A.push(x);ha+=x[1]}else{B.push(x);hb+=x[1]}});if(!B.length)return L;return A.map(function(x){return[x[0],70*x[1]/ha]}).concat(B.map(function(x){return[x[0],30*x[1]/hb]}))};/* 27 Oct 2026: main role about 70% of every stripe, the rest share 30%; roles that are a main role of a blend part share the 70% */
+  var band=function(o,h){var b=o.sticker&&o.sticker.blocks,W={},L;if(b){[[b.wide,49],[b.mid,25],[b.lt,15],[b.lb,11]].forEach(function(x){if(x[0])W[x[0]]=(W[x[0]]||0)+x[1]});L=Object.keys(W).map(function(k){return [k,W[k]]}).sort(function(x,y){return y[1]-x[1]})}else L=(o.roles||[]).slice(0,4).map(function(k,i){return [k,[49,25,15,11][i]]});L=bs70(L);return L.map(function(x){return '<u style="flex:'+x[1]+';background:'+col(x[0])+'"></u>'}).join('')};
   var tile=function(o){return '<a class="tile" href="'+lib(o)+'"><span class="in"><b>'+esc(o.name)+'<small>'+aa(o)+'</small></b><span>'+esc(o.fn||'')+'</span></span><span class="sb">'+band(o)+'</span></a>'};
   var SIX=['bpc-157','ghk-cu','semaglutide','retatrutide','semax','nad'].map(function(s){return BY(s)||D.filter(function(o){return o.slug.indexOf(s)===0})[0]}).filter(Boolean);
   var FILL=['tb-500-frag-17-23','kpv','tirzepatide','selank','mots-c','epitalon'].map(BY).filter(Boolean);
