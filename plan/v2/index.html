@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- Plan v2 (28 Oct 2026, preview; v1 kept): the Protocol tab is the vial page's My protocol (Scan v11 in plan mode), so scanning a vial and planning on the site build the same list, saved on the same phone; What's your stack? is a Guide-style picker (search, sort, role tags with counts, chips). The old Protocol page stays at /protocol/.
+     Plan v1 (28 Oct 2026): one page for planning. Tabs Protocol, Dosage, Calculator, Blood; each tab loads that page as it is (its own nav hidden), so nothing is lost and every tool keeps working. Links inside a tab to another Plan tool switch tabs; links to the Library, Guide or Curious open the full page. /plan/#dosage, /plan/#calculator?n=BPC-157&dose=250&u=mcg, /plan/#blood open a tab directly. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Plan · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{--ink:#3E4A80;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--tabh:44px}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);overflow:hidden}
+body{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.pt{position:fixed;left:0;right:0;top:var(--bsnav-h,0px);z-index:50;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.pti{max-width:var(--bs-w,1240px);margin:0 auto;padding:6px var(--bs-pad,16px);display:flex;align-items:center;gap:10px}
+.pti h1{margin:0;font:700 17px/1 "Bricolage Grotesque",system-ui,sans-serif;display:flex;align-items:center;gap:6px;flex:none}
+.pti h1 svg{width:18px;height:18px}
+.tabs{display:flex;border:1.5px solid var(--ink);background:var(--chip);margin-left:auto;min-width:0;flex:0 1 auto}
+.tabs button{appearance:none;-webkit-appearance:none;margin:0;border:0;border-right:1.5px solid var(--ink);background:none;color:var(--ink);font:500 10.5px/1 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;border-radius:0}
+.tabs button:last-child{border-right:0}
+.tabs button svg{width:13px;height:13px;flex:none}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.tabs button:focus-visible{outline:2px solid #DB6830;outline-offset:-3px}
+.fr{position:fixed;left:0;right:0;bottom:0;top:calc(var(--bsnav-h,0px) + var(--tabh));}
+.fr iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:var(--paper);visibility:hidden}
+.fr iframe.on{visibility:visible}
+.ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;pointer-events:none}
+@media (max-width:620px){.pti{gap:8px}.pti h1{display:none}.tabs{margin-left:0;flex:1 1 auto}.tabs button{flex:1 1 0;justify-content:center;padding:8px 2px;font-size:10px;letter-spacing:.03em;gap:4px}}
+@media (max-width:360px){.tabs button svg{display:none}}
+</style>
+</head><body>
+<div class="pt" id="pt"><div class="pti">
+ <h1><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3.5" width="16" height="14" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.6"/><path d="M2 7.5h16" stroke="#3E4A80" stroke-width="1.6"/><rect x="5" y="10" width="3" height="3" fill="#E1DE62"/><rect x="9" y="10" width="3" height="3" fill="#99ACFF"/><rect x="13" y="10" width="2.5" height="3" fill="#FF99D8"/></svg>Plan</h1>
+ <div class="tabs" role="tablist" aria-label="Plan tools" id="tabs"></div>
+</div></div>
+<div class="fr" id="fr"><div class="ld" id="ld">Loading</div></div>
+<script src="/nav.js" defer></script>
+<script>
+(function(){
+const TABS=[
+ ['protocol','Protocol','/scan/v11/?plan#list','<svg viewBox="0 0 14 14"><rect x="1.5" y="2.5" width="11" height="10" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 5.5h11M4.5 1v3M9.5 1v3" stroke="currentColor" stroke-width="1.4"/></svg>'],
+ ['dosage','Dosage','/dosage/','<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"/></svg>'],
+ ['calculator','Calculator','/draw/','<svg viewBox="0 0 14 14"><rect x="2" y="1.5" width="10" height="11" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 4h6M4.5 7h1M8.5 7h1M4.5 9.5h1M8.5 9.5h1" stroke="currentColor" stroke-width="1.4"/></svg>'],
+ ['blood','Blood','/blood/','<svg viewBox="0 0 14 14"><path d="M7 1.5C5 4.5 3.2 6.6 3.2 8.7a3.8 3.8 0 007.6 0C10.8 6.6 9 4.5 7 1.5z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>']];
+/* which tab an address belongs to */
+const OWN=[[/^\/protocol\//,'protocol'],[/^\/scan\//,'protocol'],[/^\/dosage\//,'dosage'],[/^\/(draw|nasal)\//,'calculator'],[/^\/blood\//,'blood']];
+const ownerOf=p=>{const m=OWN.find(x=>x[0].test(p));return m?m[1]:null};
+const $=s=>document.querySelector(s),fr=$('#fr'),FR={};let cur=null;
+const tsave=k=>{try{localStorage.setItem('bs-plan-tab',k)}catch(e){}},tget=()=>{try{return localStorage.getItem('bs-plan-tab')}catch(e){return null}};
+$('#tabs').innerHTML=TABS.map(t=>`<button type="button" role="tab" data-t="${t[0]}" aria-selected="false" aria-controls="f-${t[0]}">${t[3]}<span>${t[1]}</span></button>`).join('');
+/* keep the frame below the tab bar whatever height it ends up */
+const fit=()=>document.documentElement.style.setProperty('--tabh',$('#pt').offsetHeight+'px');
+addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe($('#pt'));fit();
+function hook(f){let d;try{d=f.contentDocument}catch(e){return}if(!d||d.__bsplan)return;d.__bsplan=1;
+  const st=d.createElement('style');st.textContent='.bsn,.bsn-sp{display:none!important}';(d.head||d.documentElement).appendChild(st);
+  d.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a||e.defaultPrevented)return;
+    if(a.target&&a.target!=='_self')return;if(e.metaKey||e.ctrlKey||e.shiftKey)return;
+    let u;try{u=new URL(a.getAttribute('href'),d.location.href)}catch(er){return}
+    if(u.origin!==location.origin)return;
+    const own=ownerOf(u.pathname);
+    if(own&&own===cur){if(u.pathname===d.location.pathname)return;return}
+    e.preventDefault();
+    if(own)open(own,u.pathname+u.search+u.hash);else location.href=u.href});
+  /* keep the address bar showing which tab and where inside it */
+  try{f.contentWindow.addEventListener('hashchange',()=>{if(f.dataset.t===cur)mark()})}catch(e){}
+}
+function frame(k,src){let f=FR[k];
+  if(!f){f=document.createElement('iframe');f.id='f-'+k;f.dataset.t=k;f.title=TABS.find(t=>t[0]===k)[1];f.setAttribute('role','tabpanel');
+    f.addEventListener('load',()=>{d0=1;hook(f);$('#ld').hidden=true;if(k===cur)mark()});FR[k]=f;fr.appendChild(f);f.src=src||TABS.find(t=>t[0]===k)[2]}
+  else if(src){let now='';try{now=f.contentWindow.location.pathname+f.contentWindow.location.search+f.contentWindow.location.hash}catch(e){}if(now!==src)f.src=src}
+  return f}
+let d0=0;
+function mark(){const f=FR[cur];let h='';try{h=f.contentWindow.location.hash.replace(/^#/,'')}catch(e){}
+  const q=(()=>{try{return f.contentWindow.location.search}catch(e){return ''}})();
+  history.replaceState(null,'','#'+cur+(h?'/'+h:'')+(cur==='calculator'&&q?q:''));
+  document.title=TABS.find(t=>t[0]===cur)[1]+' · Plan · Bare Signals'}
+function open(k,src){if(!TABS.some(t=>t[0]===k))k='protocol';
+  const f=frame(k,src);cur=k;tsave(k);
+  Object.values(FR).forEach(x=>x.classList.toggle('on',x===f));
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.t===k)));
+  $('#ld').hidden=!!d0&&true;mark();if(window.bsTrack)window.bsTrack('plan-tab:'+k,'Plan tab '+k)}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-t]');if(!b)return;if(b.dataset.t===cur){const f=FR[cur];if(f)try{f.contentWindow.scrollTo({top:0,behavior:'smooth'})}catch(er){}return}open(b.dataset.t)});
+/* start: #tab, #tab/inner-hash, #calculator?n=..., or ?n=... from old calculator links */
+function start(){const h=location.hash.replace(/^#/,'');let k=h.split(/[/?]/)[0],src=null;
+  if(TABS.some(t=>t[0]===k)){const rest=h.slice(k.length),base=TABS.find(t=>t[0]===k)[2];
+    const qi=rest.indexOf('?'),inner=(qi<0?rest:rest.slice(0,qi)).replace(/^\//,''),qs=qi<0?location.search:rest.slice(qi);
+    if(inner||qs)src=base+(qs||'')+(inner?'#'+inner:'')}
+  else{k=location.search?'calculator':(tget()||'protocol');if(location.search)src='/draw/'+location.search}
+  open(k,src)}
+start();
+})();
+</script>
+</body></html>
