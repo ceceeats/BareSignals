@@ -1,4 +1,4 @@
-<!doctype html><!-- Home v38 = Body v44 (28 Oct 2026). Home v37 (Body v43) kept at /home/v37/, v36 at /home/v36/, v35 at /home/v35/. -->
+<!doctype html><!-- Home v39 = Body v45 (28 Oct 2026). Home v38 (Body v44) kept at /home/v38/, v37 at /home/v37/, v36 at /home/v36/. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Bare Signals</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
@@ -76,6 +76,7 @@
 .app{height:calc(100svh - var(--bsnav-h0,0px))!important}
 .stage{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .xray{-webkit-tap-highlight-color:transparent}
+@media (max-width:899px){.app,.app.carding{grid-template-rows:auto minmax(0,67fr) minmax(0,33fr)!important}}
 </style>
 </head><body>
 
@@ -89,6 +90,7 @@
 <!-- Body v23 (28 Oct 2026; v22 kept): peptide name back to a small readable title (half size), top corner only lists the roles that have no label on the body, kept inside the left gutter so it never covers the body; muscles always muscle red with fibre lines whatever the role, thigh drawn as three heads (vastus lateralis, rectus femoris, vastus medialis). -->
 <!-- Body v24 (28 Oct 2026; v23 kept, live as Home v31): every role of a peptide now has its own labelled point on the body with what it does there (e.g. BPC-157 pain and inflammation, GHK-Cu hair at the head), so the corner only shows the name; summary floats as text in the emptier bottom corner of the body view and Read more opens it in place, no covering card; each dot sits on the copy of a paired part that is on its label side; skin lights the whole body outline and its dot touches the arm outline; brain on the body gets its midline and folds; breast drawn as gland lobes radiating to the nipple in fat, fading softly upward to the 2nd rib with an axillary tail, only the lower curve outlined. -->
 <!-- Body v25 (28 Oct 2026; v24 kept): summary headed "<name> summary"; Read more opens a frosted reading panel over the lower part of the diagram while the body moves up and keeps its labels; Full page expands inside the same panel (what it does, how it works, tested in, dose) with a small Library link; smoother pan and zoom (one update per frame, labels hidden while moving, body cannot be dragged off, + and - glide), Reset view glides back to the peptide view; zoom controls as small icons (magnifier +, magnifier −, reset frame) stacked under F/M; Random button in the bottom corner (7 in 10 from the 20 most popular peptides, 3 in 10 from the peptides that light parts few others touch, no repeats in the last 8). -->
+<!-- Body v45 (28 Oct 2026; v44 kept): on phones the diagram box takes two thirds of the screen height (was 60%), reaching down to where the search bar used to start, so the body is bigger. -->
 <!-- Body v44 (28 Oct 2026; v43 kept): brain-only peptides open on a head view (head to waist, a bit bigger, head right under the name block); every other peptide and the start view show the whole body down to the feet. -->
 <!-- Body v43 (28 Oct 2026; v42 kept): iPhone-style gestures: one finger drags the body (8 px before it counts as a drag), a fling keeps gliding and slows, two fingers pinch and move the body together, tapping a part lights it without zooming the view, double tap zooms in 2x on the spot and double tap again returns, labels stay visible while dragging, no text selection or callout on long press. -->
 <!-- Body v42 (28 Oct 2026; v41 kept): brain-only peptides zoom near the head again (the head sits right under the name block instead of the view sliding down to the feet). -->
