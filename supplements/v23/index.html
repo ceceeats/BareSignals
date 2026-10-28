@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Supplements · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Supplements v21 (25 Oct 2026): Blood tests tab also reads the researched rows from Blood Work v27 (IGF-1 so far: Protein and Zinc raise it; Vitamin D, L-Arginine, Creatine and Green Tea show no clear effect), via /blood/v27/supp.js. v20 kept at /supplements/v20/. Supplements v20 (25 Oct 2026): stripes power first (power role widest on the left, then smaller in the sticker ratio 49 : 25 : 15 : 11, colours unchanged). v19 kept at /supplements/v19/. Supplements v19 (25 Oct 2026): search ranks names first via /search.js (starts with, then a word in the name, then other names, then the rest from 3 letters), results shown as one Best matches list; one letter shows only names starting with it. v18 kept at /supplements/v18/. Supplements v18 (24 Oct 2026): one content width with the site bar (nav v11): .wrap uses the shared 1240px box with 24px side padding on laptop (16px on phone), divided by the page zoom so the title meets the wordmark and the right edge (side card included) meets the A buttons at every text size; scroll-fade masks use ink instead of #000. v17 kept at /supplements/v17/. */
+/* role tag: role name inside its colour block, same as Library and Home */
+.rtg{display:inline-block;font:500 10px/1.15 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid #3E4A80;white-space:nowrap;font-style:normal;vertical-align:middle}
+.rtg.s{font-size:8.5px;padding:2px 4px;border-width:1px}
+.roles .rtg,.kr .rtg{margin-right:4px}
+.roles button{display:block!important}
+.roles button em{display:block;margin-top:3px}
+.kr{grid-template-columns:minmax(0,1fr) auto!important}
+.kr .rtg{justify-self:start;white-space:normal}
+.kr>.rtg{grid-column:1;grid-row:1}
+.kr>em{grid-column:2;grid-row:1;align-self:center}
+.kr>span:not(.rtg){grid-column:1/-1;grid-row:2;text-align:left}
+
+/* Supplements v16 (23 Oct 2026): category word as big as the name; colour group chips (multi-select) next to search; Library-style card (What it does in plain words + filled role tags, Who shouldn't take it, then dose and who it's for); tabs for the full reading; advice colours (buy green, skip dark red, tips purple, warnings red on pink); compact one-line blood tests; dose numbers orange; laptop 3-4 cards per row and the open reading takes over half the width. v15 kept.
+   Supplements v15 (23 Oct 2026): hooked to nav v10 (laptop has five text steps, default the large A 1.15, up to 1.45; the page applies the number nav sends, bs-text detail.k, and reads bs-text-w on laptop at load). v14 kept.
+   Supplements v14 (23 Oct 2026): hooked to nav v9: the text-size strip at the very top is gone (the A A A control lives on the site bar's wordmark line); the page listens to bs-text and sets --k on .wrap as before; the laptop side card sticks just under the site bar and fits the screen at every size; names and card titles grow by less at large. v13 kept.
+   Supplements v13 (23 Oct 2026): three-step text size (bs-text) at the top, portrait tiles two per row on phone and more columns on laptop, Type Rule v1 (8.5px mono caps tags and labels) across the page. v12 kept. Supplements v9 (23 Oct 2026): phone fix, "Who it's for" tags wrap inside the card on narrow phones instead of running past the border. v8 kept. Supplements v8: built on v7. Sort like the Library (Groups, Roles, Evidence, A to Z); "label" is now "role" everywhere. "For you" is a button that opens a grouped panel (Sex, Life stage, Pregnancy, Diet, Training, Approval, Evidence) instead of a long scroll row. FDA tick and Rx tick badges (strict rule, see data.js) with an Approval section on each card. Carnosine moved here from the Library; oral cards link to injectable Library entries (B12, L-carnitine, NAD+). TB-500 links to fragment 17-23. v7: blood tests on cards. v1 to v7 kept. */
+:root{--paper:#FFFFE2;--ink:#3E4A80;--ink-soft:#6B76A8;--rule:#E3E0BF;--chip:#FFFFF4;--accent:#DB6830;--flag:#C02626;--ok:#3E7A3A;
+ --display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:calc(var(--bs-w,1240px) / var(--k,1));margin:0 auto;padding:18px max(calc(var(--bs-pad,16px) / var(--k,1)),env(safe-area-inset-right,0px)) 44px max(calc(var(--bs-pad,16px) / var(--k,1)),env(safe-area-inset-left,0px))}
+.lab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.olab{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font:700 26px/1.05 var(--display);margin:2px 0 6px}
+h1 small{font:500 12px var(--mono);color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.lede{margin:0 0 10px;font-size:14px;color:var(--ink-soft);max-width:70ch}
+.caution{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);padding:8px 12px;margin:0 0 14px;font-size:12.5px;line-height:1.4;max-width:900px}
+.caution b{font:700 12px var(--display)}
+
+/* search: animated placeholder, keyword row, For row */
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.qw{position:relative;flex:1 1 260px;max-width:640px}
+#q{width:100%;font:500 15px var(--body);color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:9px 64px 9px 10px;border-radius:0;-webkit-appearance:none;appearance:none}
+#q::placeholder{color:transparent}
+.ph{position:absolute;left:11px;right:66px;top:50%;transform:translateY(-50%);font:500 15px var(--body);color:var(--ink-soft);pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph b{font-weight:600;color:var(--ink)}
+.ph i{display:inline-block;width:1.5px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#count{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:500 10px var(--mono);letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;pointer-events:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink)}
+.seg button{font:500 12px var(--body);color:var(--ink);background:transparent;border:0;border-right:1.5px solid var(--ink);padding:8px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.rowx{display:flex;align-items:center;gap:6px;margin:0 0 7px;min-width:0}
+.fyw{margin:0 0 9px;border:1.5px solid var(--ink);background:var(--chip)}
+.fyb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;width:100%;padding:8px 10px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.fyb em{font-style:normal;letter-spacing:.04em;color:var(--accent);text-transform:none;font:500 12px var(--body)}
+.fyb i{margin-left:auto;font:500 16px/1 var(--body);font-style:normal}
+.fyb[aria-expanded="true"]{border-bottom:1.5px solid var(--rule)}
+.fyp{padding:8px 10px 10px;display:grid;gap:8px}
+.fyg{display:grid;grid-template-columns:78px 1fr;gap:6px;align-items:start}
+.fyg>span{font:500 9px/2.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.fyg>div{display:flex;flex-wrap:wrap;gap:5px}
+.fyc{font:500 12px/1 var(--body);color:var(--ink);background:var(--paper);border:1.2px solid var(--ink);padding:6px 8px;cursor:pointer;border-radius:0}
+.fyc em{font-style:normal;opacity:.6;margin-left:4px}
+.fyc[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.fyx{justify-self:start;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);text-decoration:underline;cursor:pointer;padding:0}
+@media (max-width:420px){.fyg{grid-template-columns:1fr}.fyg>span{line-height:1.2}}
+.bdg{font:700 8.5px/1 var(--mono);letter-spacing:.06em;padding:3px 5px;background:#E00000;color:#fff;border:1px solid #E00000;white-space:nowrap}
+.bdg.ab{background:transparent;color:#E00000}
+.tl[aria-pressed="true"] .bdg{background:transparent;border-color:var(--paper);color:var(--paper)}
+.apr p{margin:0 0 5px;font-size:13.5px;line-height:1.42}
+.apr small{display:block;font:500 9.5px var(--mono);color:var(--ink-soft);letter-spacing:.04em}
+.rowx>span{flex:none;font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);width:30px}
+.scr{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:1px 2px 3px 1px;flex:1;min-width:0;mask-image:linear-gradient(90deg,#3E4A80 88%,transparent);-webkit-mask-image:linear-gradient(90deg,#3E4A80 88%,transparent)}
+.scr::-webkit-scrollbar{display:none}
+.kw{flex:none;font:500 12px/1 var(--body);color:var(--ink);background:var(--chip);border:1.2px solid var(--ink);padding:6px 9px;cursor:pointer;white-space:nowrap;border-radius:0}
+.kw.f{font:500 10.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 8px}
+.kw[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.kw em{font-style:normal;opacity:.6;margin-left:4px}
+@media (hover:hover){.kw:hover{background:var(--paper)}.kw[aria-pressed="true"]:hover{background:var(--ink)}}
+.act{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 10px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.lc{font:500 11px/1.2 var(--mono);border:1.2px solid var(--ink);padding:3px 7px;cursor:pointer;border-radius:0;background:var(--chip);color:var(--ink)}
+
+/* layout */
+#lay{display:block}
+#aside{display:none}
+@media (min-width:900px){
+ #lay{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:18px;align-items:start}
+ #aside{display:block;position:sticky;top:calc((var(--bsnav-h,0px) + 12px) / var(--k,1));max-height:calc((100vh - var(--bsnav-h,0px) - 24px) / var(--k,1));overflow-y:auto;overscroll-behavior:contain;padding:0 4px 4px 0}
+}
+.hint{border:1.5px dashed var(--ink-soft);padding:14px;font-size:13px;color:var(--ink-soft)}
+.hint b{display:block;font:700 15px var(--display);color:var(--ink);margin-bottom:2px}
+
+/* tiles: landscape */
+.grid{display:grid;gap:10px 10px;grid-template-columns:minmax(0,1fr);padding:2px 3px 6px 0}
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}}
+.ghead{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:10px 0 0}
+.ghead i{width:13px;height:13px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.ghead em{font:500 10.5px var(--mono);font-style:normal;color:var(--ink-soft)}
+.ghead:first-child{padding-top:2px}
+.tl{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;min-width:0;min-height:138px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule);-webkit-tap-highlight-color:transparent}
+.tl .in{padding:8px 10px 7px;display:flex;flex-direction:column;gap:3px;flex:1;min-height:0}
+.tl .hd{display:flex;align-items:flex-start;gap:8px}
+.tl .nm{font:700 calc(17px*var(--hk,1))/1.08 var(--display);letter-spacing:-.005em;flex:1;min-width:0}
+.tl .nm small{font:500 8.5px var(--mono);letter-spacing:.08em;color:var(--accent);margin-left:6px;vertical-align:2px}
+.tl .cn{flex:none;display:flex;flex-direction:column;align-items:flex-end;font:500 7.5px/1 var(--mono);letter-spacing:.04em;color:var(--accent);margin-top:1px}
+.tl .cn b{font:700 12px/1 var(--display)}
+.tl .fnl{font:400 12.5px/1.32 var(--body);color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl .dz{margin-top:auto;padding-top:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font:500 11px/1.25 var(--mono);color:var(--ink)}
+.tl .dz b{font:700 13.5px/1.1 var(--display)}
+.tl .dz .fq{color:var(--ink-soft)}
+.tl .tg{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.ev,.pt{font:500 8.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border:1px solid var(--ink);white-space:nowrap}
+.ev.Strong{background:var(--ink);color:var(--paper)}
+.ev.Moderate{background:transparent}
+.ev.Limited,.ev.Emerging,.ev.Traditional{border-style:dashed;color:var(--ink-soft);border-color:var(--ink-soft)}
+.pt{border-color:var(--rule);background:var(--paper);color:var(--ink)}
+.pt.av{border-color:var(--flag);color:var(--flag)}
+.tl .band{position:relative;height:18px;border-top:1.5px solid var(--ink);flex:none;overflow:hidden}
+.band i{position:absolute;display:block;top:0;bottom:0}
+@media (hover:hover){.tl:hover{background:var(--paper)}}
+.tl[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--accent)}
+.tl[aria-pressed="true"] .fnl,.tl[aria-pressed="true"] .cn,.tl[aria-pressed="true"] .cn b,.tl[aria-pressed="true"] .dz,.tl[aria-pressed="true"] .dz .fq,.tl[aria-pressed="true"] .nm small{color:var(--paper)}
+.tl[aria-pressed="true"] .ev,.tl[aria-pressed="true"] .pt{border-color:var(--paper);color:var(--paper);background:transparent}
+.grid.dim .tl:not([aria-pressed="true"]){opacity:.42}
+
+/* card */
+#cw{grid-column:1/-1;min-width:0;margin:2px 0 6px}
+.cnav{display:flex;justify-content:flex-end;gap:2px;margin:0 0 4px}
+.cnav button{all:unset;cursor:pointer;width:36px;height:32px;display:grid;place-items:center;font:500 21px/1 var(--body);color:var(--ink)}
+.cnav button:disabled{opacity:.3;cursor:default}
+.card{border:1.5px solid var(--ink);background:var(--chip);box-shadow:3px 3px 0 var(--rule)}
+.chd{padding:12px 14px 10px}
+.chd h2{font:700 calc(24px*var(--hk,1))/1.04 var(--display);margin:0 0 5px;letter-spacing:-.01em}
+.chd .meta{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font:500 10.5px/1.45 var(--mono);color:var(--ink-soft)}
+.chd .meta b{font-weight:500;color:var(--accent)}
+.chd .fl{font:600 15px/1.35 var(--body);margin:8px 0 0}
+.sec{padding:10px 14px}
+.sec+.sec{border-top:1px dotted var(--rule)}
+.sec h3{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 7px}
+.sec h3 span{color:var(--ink-soft);letter-spacing:.06em;margin-left:8px;text-transform:none}
+.para{margin:0;font-size:14px;line-height:1.5}
+.evw{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft)}
+.glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1.5px solid var(--ink)}
+.glance>div{padding:6px 9px 7px;min-width:0}
+.glance>div+div{border-left:1.5px solid var(--ink)}
+.glance span{display:block;font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.glance b{display:block;font:700 17px/1.2 var(--display);overflow-wrap:anywhere}
+.dt{width:100%;border-collapse:collapse;font-size:13px;line-height:1.35}
+.dt td{padding:6px 0;border-bottom:1px dotted var(--rule);vertical-align:top}
+.dt tr:last-child td{border-bottom:0}
+.dt td:first-child{width:38%;padding-right:10px;font:500 10px/1.35 var(--mono);letter-spacing:.03em;color:var(--ink-soft);text-transform:uppercase}
+.dt b{font-weight:600}
+.dt .q{display:block;color:var(--ink-soft);font-size:12px;margin-top:1px}
+.rt{font:500 8.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink-soft);color:var(--ink-soft);padding:2px 4px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.rt.cl{border-color:var(--flag);color:var(--flag)}
+sup.c{font:500 8.5px var(--mono);color:var(--ink-soft);margin-left:3px;vertical-align:4px}
+sup.c a{text-decoration:none;color:var(--accent)}
+.dt tr.pr td{background:#F6F3D4}
+.dt tr.pr td:first-child{color:var(--ink);padding-left:6px}
+.pfl{display:block;color:var(--flag);font-size:12px;margin-top:3px;font-weight:500}
+.cband{position:relative;height:30px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.roles button{all:unset;cursor:pointer;display:grid;grid-template-columns:13px 1fr;gap:0 9px;align-items:baseline;padding:2px 0;font-size:13.5px;line-height:1.35}
+.roles button i{width:13px;height:13px;display:block;transform:translateY(2px);box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.roles button b{font-weight:700}
+.roles button em{font-style:normal;color:var(--ink-soft)}
+.roles button small{font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:6px}
+.res2{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:520px){.res2{grid-template-columns:1fr 1fr}}
+.res2 h4{font:500 9.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 5px;display:flex;gap:6px;align-items:center}
+.res2 h4 i{font-style:normal;width:16px;height:16px;display:grid;place-items:center;font:700 11px/1 var(--body);border:1.2px solid currentColor}
+.res2 .g h4{color:var(--ok)}.res2 .x h4{color:var(--flag)}
+.res2 ul,.lst{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.res2 li{font-size:13px;line-height:1.38}
+.res2 li b{font-weight:700}
+.res2 li span{color:var(--ink-soft)}
+.lst li{font-size:13px;line-height:1.4;padding-left:14px;position:relative}
+.lst li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;background:var(--ink)}
+.lst.w li::before{background:var(--flag)}
+.lst.n li::before{background:var(--accent)}
+.lst li b{font:500 10px var(--mono);color:var(--accent);margin-right:5px}
+.one{margin:0;font-size:13.5px;color:var(--accent);font-weight:500}
+.who{display:grid;gap:6px}
+.who>div{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.who>div>span{flex:none;width:62px;font:500 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.who .pt{font-size:9.5px;padding:4px 6px;white-space:normal;line-height:1.25;max-width:100%;overflow-wrap:anywhere}
+.who>div{min-width:0}
+.pt.sf{border-color:var(--ok);color:var(--ok)}
+.pt.nd{border-style:dashed;color:var(--ink-soft);border-color:var(--ink-soft)}
+.syn{display:flex;flex-wrap:wrap;gap:6px}
+.syn a,.syn button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:1.2px solid var(--ink);padding:3px 8px 3px 4px;font:500 12.5px var(--body);background:var(--chip)}
+.syn i{width:12px;height:12px;display:block;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.syn button{border-style:dashed}
+.snote{margin:7px 0 0;font-size:12px;color:var(--ink-soft)}
+.dlink{margin:8px 0 2px}
+.dlink a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
+.phl p{margin:0 0 3px;font-size:13px}
+.refs ol{margin:0;padding-left:20px;display:grid;gap:4px;font-size:12.5px;line-height:1.35}
+.refs li{scroll-margin-top:60px}
+.refs li.hl{background:#F6F3D4}
+.refs li em{font:500 9px var(--mono);color:var(--ink-soft);margin-left:4px;font-style:normal}
+.cft{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 14px;border-top:1.5px solid var(--rule);font:500 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.cft b{color:var(--accent);font-weight:500}
+
+/* key */
+.key{margin-top:22px;border:1.5px solid var(--ink);background:var(--chip);box-shadow:2px 2px 0 var(--rule)}
+.key>p{margin:0;padding:8px 12px;border-bottom:1.5px solid var(--rule)}
+.kg{display:grid;grid-template-columns:1fr}
+.kr{display:grid;grid-template-columns:14px 1fr auto;gap:2px 9px;padding:8px 12px;border:0;border-bottom:1px dotted var(--rule);align-items:start;background:transparent;color:var(--ink);text-align:left;cursor:pointer;width:100%}
+.kr:last-child{border-bottom:0}
+@media (hover:hover){.kr:hover{background:#F2F0CC}}
+.kr[aria-pressed="true"]{background:#F2F0CC;box-shadow:inset 3px 0 0 var(--ink)}
+.kr i{display:block;width:14px;height:14px;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.kr b{font:700 13px/1.2 var(--display)}
+.kr em{font:500 11px var(--mono);font-style:normal;color:var(--ink-soft)}
+.kr span{grid-column:2/4;font:500 9.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:700px){.kg{grid-template-columns:1fr 1fr}.kr{border-right:1px dotted var(--rule)}}
+.foot{margin-top:18px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot b{color:var(--accent);font-weight:500}
+@media (prefers-reduced-motion:no-preference){.card{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
+@media (prefers-reduced-motion:reduce){.ph i{animation:none}}
+/* v7 blood tests */
+.bts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.btk{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);box-shadow:inset 5px 0 0 var(--c);padding:7px 8px 7px 12px}
+.btk:hover{border-color:var(--ink)}
+.btk b{font:600 14px/1.2 var(--body)}
+.btk span{font-size:12px;color:var(--ink-soft);line-height:1.3}
+.btk .tb{font:700 8.5px/1.3 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;padding:0 4px;border:1.2px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
+.btk .tb.sp{color:#C02626;border-color:#C02626}
+
+/* ===== v13: Type Rule v1 + portrait tiles + text size ===== */
+:root{--tag:500 8.5px/1.1 var(--mono)}
+body{font-size:13.5px;line-height:1.5}
+.wrap{padding-top:12px;zoom:var(--k,1);--hk:calc((1 + .4 * (var(--k,1) - 1)) / var(--k,1))}
+
+/* T-tag: every tag, badge, chip and small label */
+.lab,.olab,.sec h3,.glance span,.dt td:first-child,.rowx>span,.fyb,.fyg>span,.fyx,#count,.act,.res2 h4,.who>div>span,.roles button small,.tl .nm small,h1 small{font:var(--tag);letter-spacing:.08em;text-transform:uppercase}
+.rtg,.rtg.s,.bdg,.ev,.pt,.who .pt,.rt,.lc,.btk .tb,.kw,.kw.f,.fyc,.seg button{font:var(--tag);letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;border-width:1px;line-height:1.1}
+.who .pt{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+.kw,.fyc,.seg button{padding:6px 7px}
+.lc{padding:4px 6px}
+.lst li b{font:var(--tag);letter-spacing:.06em;margin-right:6px}
+.fyb em{font:var(--tag);letter-spacing:.06em;color:var(--accent)}
+.fyb i{font-size:14px}
+.sec h3 span{letter-spacing:.04em;text-transform:none;margin-left:6px;font-size:9px}
+.res2 h4 i{width:13px;height:13px;font-size:9px}
+/* T-foot */
+.ghead em,.kr em,.refs li em,.apr small,.cft,.foot{font:500 9px/1.35 var(--mono);letter-spacing:.06em;color:var(--ink-soft)}
+.snote,.dt .q,.refs ol,.evw{font-size:10.5px;line-height:1.4;color:var(--ink-soft)}
+.refs ol{color:var(--ink)}
+/* T-small / T-body */
+.lede,.caution,.hint,.res2 li,.lst li,.phl p,.syn a,.syn button,.dt,.roles button,.btk span,.pfl{font-size:12px;line-height:1.35}
+.kr span{font:400 11.5px/1.35 var(--body);letter-spacing:0;text-transform:none}
+.caution b{font-size:12px}
+.para,.apr p,.one{font-size:13.5px;line-height:1.5}
+.chd .fl{font:600 13.5px/1.4 var(--body)}
+#q,.ph{font-size:14px}
+#q{padding:8px 56px 8px 10px}
+/* T-num, T-title, T-page */
+.glance b,.dt b,.btk b{font:600 12.5px/1.3 var(--body)}
+h1{font:700 calc(22px*var(--hk,1))/1.05 var(--display)}
+.chd h2{font:700 17px/1.1 var(--display);letter-spacing:0}
+.hint b{font-size:15px}
+.card .meta{gap:4px 6px}
+/* tiles: portrait, two per row on phone, more on laptop */
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}}
+@media (max-width:599px){.tl .fnl{-webkit-line-clamp:2}}
+.ghead{padding:8px 0 0}
+.tl{min-height:168px}
+.tl .in{padding:7px 8px 6px;gap:4px}
+.tl .hd{gap:5px}
+.tl .nm{font:700 15px/1.1 var(--display);overflow-wrap:anywhere;hyphens:auto}
+.tl .nm small{display:inline-block;margin-left:4px;vertical-align:1px;color:var(--accent)}
+.tl .cn{font:var(--tag);letter-spacing:.06em}
+.tl .cn b{font:600 12.5px/1 var(--body)}
+.tl .fnl{font:400 11.5px/1.32 var(--body);-webkit-line-clamp:3}
+.tl .dz{display:block;padding-top:3px;font:500 9px/1.3 var(--mono);letter-spacing:.02em}
+.tl .dz b{display:block;font:600 12.5px/1.2 var(--body)}
+.tl .tg{gap:3px;margin-top:1px}
+.tl .band{height:12px}
+
+/* ===== v16: Library-style card, group chips, tabs, advice colours ===== */
+:root{--w-a:#FF5050;--w-t:#FFEEEE;--w-h:#9E1B32;--b-a:#79A54D;--b-t:#EEF5E6;--b-h:#4F7A2A;--x-a:#9E1B32;--x-t:#F8E6E9;--a-a:#B493E8;--a-t:#F3EEFC;--a-h:#6A4FB0;--o-t:#F9D9C2}
+/* group chips: multi-select, in each group's colour */
+.cats{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:5px;align-items:center;min-width:0}
+.cc{font:var(--tag);letter-spacing:.07em;text-transform:uppercase;padding:5px 6px;border:1px solid var(--ink);cursor:pointer;border-radius:0;white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+.cc em{font-style:normal;opacity:.7}
+.cc[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px;box-shadow:2px 2px 0 var(--accent)}
+.cc[aria-pressed="true"]::before{content:"\2713"}
+.cats.on .cc[aria-pressed="false"]{opacity:.45}
+@media (hover:hover){.cats.on .cc[aria-pressed="false"]:hover{opacity:.8}}
+.ccx{font:var(--tag);letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);text-decoration:underline;cursor:pointer;padding:4px 2px}
+@media (max-width:599px){.cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:3px 3px 4px;mask-image:linear-gradient(90deg,#3E4A80 90%,transparent);-webkit-mask-image:linear-gradient(90deg,#3E4A80 90%,transparent)}.cats::-webkit-scrollbar{display:none}.cc{flex:none}}
+/* group headings as big as the tile names */
+.ghead{gap:7px;padding:12px 0 1px}
+.ghead i{width:14px;height:14px;flex:none}
+.ghead .gn{font:700 calc(15px*var(--hk,1))/1.1 var(--display);color:var(--ink)}
+.ghead em{font:500 9px var(--mono)}
+/* tiles: 3 or 4 per row on laptop (3 next to an open card), dose numbers orange */
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(max(148px,calc((100% - 25px)/4)),1fr))}}
+.tl .dz b{color:var(--accent)}
+.tl[aria-pressed="true"] .dz b{color:#FFC59E}
+/* layout: no side column until a card opens; then the reading takes a bit over half */
+@media (min-width:900px){
+ #lay{grid-template-columns:minmax(0,1fr)}
+ #aside{display:none}
+ #lay.open{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:16px}
+ #lay.open #aside{display:block}
+ #lay.open .kg{grid-template-columns:1fr}
+}
+/* card head */
+.chd{padding:12px 14px 10px}
+.chd .nmr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px}
+.chd h2,.chd .catw{font:700 calc(17px*var(--hk2,1))/1.12 var(--display);margin:0}
+.chd .catw{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft)}
+.chd .catw i{width:.75em;height:.75em;flex:none;box-shadow:inset 0 0 0 1px rgba(62,74,128,.3)}
+.chd .meta{margin-top:6px}
+.chd .fl{margin:7px 0 0}
+.wrap{--hk2:calc((1 + .55 * (var(--k,1) - 1)) / var(--k,1))}
+/* glance: dose, how often, who it's for */
+.gl3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1.5px solid var(--ink);margin-top:9px}
+.gl3>div{padding:6px 9px 7px;min-width:0}
+.gl3>div+div{border-left:1.5px solid var(--ink)}
+.gl3>div.wf{grid-column:1/-1;border-left:0;border-top:1.5px solid var(--ink)}
+.gl3 span.k{display:block;font:var(--tag);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.gl3 b{display:block;font:600 12.5px/1.3 var(--body);overflow-wrap:anywhere}
+.gl3 b.ac{color:var(--accent)}
+.gl3 .wt{display:flex;flex-wrap:wrap;gap:3px}
+@media (min-width:1000px){#lay.open .gl3{grid-template-columns:minmax(0,1fr) minmax(0,.8fr) minmax(0,1.25fr)}#lay.open .gl3>div.wf{grid-column:auto;border-top:0;border-left:1.5px solid var(--ink)}}
+/* What it does */
+.wid .para{margin:0 0 7px}
+.rtags{display:flex;flex-wrap:wrap;gap:4px}
+.rtags button{all:unset;cursor:pointer;display:inline-flex}
+.rtags button[aria-pressed="true"] .rtg{outline:2px solid var(--accent);outline-offset:1px}
+.proto{margin:7px 0 0;font-size:12px;line-height:1.38;color:var(--ink-soft)}
+.proto b{font:var(--tag);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:5px}
+/* advice boxes (SEMANTIC_COLOURS v1) */
+.bx{border-left:1.5px solid var(--ba);background:var(--bt);padding:7px 10px 8px;margin:8px 0 0;min-width:0}
+.bx:first-child{margin-top:0}
+.bx>.bl{font:var(--tag);letter-spacing:.08em;text-transform:uppercase;color:var(--bh);margin:0 0 5px;display:flex;align-items:center;gap:5px}
+.bx>.bl i{font:700 10px/1 var(--body);font-style:normal}
+.bx p{margin:0;font-size:12px;line-height:1.4}
+.bx p+p{margin-top:4px}
+.bx ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.bx li{font-size:12px;line-height:1.38;padding-left:12px;position:relative}
+.bx li::before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;background:var(--ba)}
+.bx li b{font-weight:600}
+.bx li span{color:var(--ink-soft)}
+.bx .sl{font:var(--tag);letter-spacing:.08em;text-transform:uppercase;color:var(--bh);margin:8px 0 4px}
+.bx.warn{--ba:var(--w-a);--bt:var(--w-t);--bh:var(--w-h)}
+.bx.buy{--ba:var(--b-a);--bt:var(--b-t);--bh:var(--b-h)}
+.bx.skip{--ba:var(--x-a);--bt:var(--x-t);--bh:var(--x-a)}
+.bx.tip{--ba:var(--a-a);--bt:var(--a-t);--bh:var(--a-h)}
+.bx.wnot li b{color:var(--w-h)}
+.bx .pt{background:var(--chip)}
+.bx2{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:8px}
+.bx2 .bx{margin:0}
+@media (min-width:520px){.bx2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:900px){#lay.open .bx2{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:1200px){#lay.open .bx2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sec.wn{padding-top:0}
+/* tabs */
+.tabs{display:flex;gap:0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);overflow-x:auto;scrollbar-width:none;background:var(--paper)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{all:unset;box-sizing:border-box;cursor:pointer;flex:1 0 auto;text-align:center;font:var(--tag);letter-spacing:.07em;text-transform:uppercase;padding:9px 9px 8px;border-right:1px solid var(--rule);white-space:nowrap;color:var(--ink)}
+.tabs button:last-child{border-right:0}
+.tabs button em{font-style:normal;margin-left:4px;color:var(--ink-soft)}
+.tabs button em.r{color:var(--w-h)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.tabs button[aria-selected="true"] em{color:var(--paper)}
+@media (hover:hover){.tabs button[aria-selected="false"]:hover{background:var(--chip)}}
+.tp{padding:10px 14px 12px}
+.tp>h3,.tp .h3{font:var(--tag);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:12px 0 6px}
+.tp>h3:first-child{margin-top:0}
+.tp h3 span{color:var(--ink-soft);letter-spacing:.04em;text-transform:none;margin-left:6px;font:400 9px var(--mono)}
+.tp .para{margin:0}
+/* dose table: numbers to act on in orange, protocol row on the orange tint */
+.dt b.ac{color:var(--accent)}
+.dt tr.pr td{background:var(--o-t)}
+.dt tr.pr td:first-child{color:var(--accent);padding-left:6px}
+.dt tr.pr td:last-child{padding-right:6px}
+.dt td:first-child{width:34%}
+/* blood tests: one line of compact chips */
+.btl{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding:1px 1px 4px}
+.btc{flex:none;display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--ink);box-shadow:inset 4px 0 0 var(--c);padding:3px 6px 3px 9px;font:var(--tag);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.btc i{font-style:normal;color:var(--ink-soft)}
+.btc i.sp{color:var(--w-h)}
+@media (hover:hover){.btc:hover{background:var(--chip);border-color:var(--accent)}}
+.btn2{margin:5px 0 0;font:500 9px/1.35 var(--mono);letter-spacing:.04em;color:var(--ink-soft)}
+.tp .lst li{font-size:12px}
+.tp .refs ol{font-size:10.5px}
+.evl{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;margin:0}
+.evl span:last-child{font-size:12px;color:var(--ink-soft);line-height:1.38;flex:1 1 200px}
+.card .cband{height:10px}
+.tp .apr p{font-size:12.5px;line-height:1.4}
+.bx2{align-items:start}.bx2>.bx:only-child{grid-column:1/-1}
+.tp .dt td{padding:5px 0}.tp .dt .q{display:inline;margin-left:6px}.tp .dt .q::before{content:'\00B7 ';}
+.tabs{position:sticky;top:calc(var(--bsnav-h,0px) / var(--k,1));z-index:3}
+@media (min-width:900px){#aside .tabs{top:0}}
+/* text-size safety at 1.45 on laptop */
+.card{min-width:0;overflow-wrap:anywhere}
+</style>
+<script src="/nav.js" defer></script>
+<script src="/search.js"></script>
+<style>/* Supplements v23 (28 Oct 2026): same page as v22, kept apart from the Library on purpose; only adds the Library's Peptides | Supplements switch beside the title so both feel like one place. v22 kept. */
+.tw23{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tw23 h1{margin-right:auto}
+.tsw{display:flex;border:1.5px solid #3E4A80;background:#FFFFF4;flex:none}
+.tsw a{display:flex;align-items:center;gap:6px;padding:8px 10px;border-right:1.5px solid #3E4A80;color:#3E4A80;text-decoration:none;font:500 10.5px/1 "JetBrains Mono",monospace;letter-spacing:.05em;text-transform:uppercase}
+.tsw a:last-child{border-right:0}.tsw a svg{width:14px;height:14px;flex:none}
+.tsw a[aria-current="page"]{background:#3E4A80;color:#FFFFE2}
+@media (max-width:640px){.tsw a{padding:7px 7px;font-size:9.5px;letter-spacing:.03em;gap:4px}}
+@media (max-width:370px){.tsw a svg{display:none}}</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="tw23"><h1>Supplements<small>V20</small></h1><div class="tsw" role="group" aria-label="Show"><a href="/library/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"/></svg><span>Peptides</span></a><a href="/supplements/" aria-current="page"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="6" width="13" height="6" rx="3" transform="rotate(-35 9 9)"/><path d="M7.3 5.2l3.4 7.6" transform="rotate(-35 9 9)"/></svg><span>Supplements</span></a></div></div>
+  <p class="lede">What to take alongside each peptide, how much, and what the science says. Stripes are the same 30 roles as the Library. Tap one to open its card.</p>
+  <div class="caution"><b>Reference, not a prescription.</b> Doses are what guidelines, trials and the protocol use, each with its source. Not medical advice. Supplements interact with medication and with each other, so check with a clinician first.</div>
+  <div class="ctl"><div class="qw"><input id="q" type="search" placeholder="Search" aria-label="Search supplements, peptides, goals or who it is for" autocomplete="off" enterkeyhint="search"><span class="ph" id="ph" aria-hidden="true"></span><span id="count"></span></div><div class="seg" id="view"></div><div class="cats" id="cats" role="group" aria-label="Filter by group"></div></div>
+  <div class="rowx"><span>Try</span><div class="scr" id="kws"></div></div>
+  <div class="fyw"><button type="button" class="fyb" id="fyb" aria-expanded="false" aria-controls="fyp"><span>For you</span><em id="fys">Everyone</em><i aria-hidden="true">+</i></button><div class="fyp" id="fyp" hidden></div></div>
+  <div class="act" id="act" hidden></div>
+  <div id="lay">
+    <div>
+      <div class="grid" id="grid"></div>
+      <div class="key"><p class="lab">Roles · same colors as the Library · tap one to filter</p><div class="kg" id="key"></div></div>
+    </div>
+    <aside id="aside" aria-label="Supplement card"><div class="hint" id="hint"><b>Tap a supplement</b>Its card opens here: the short version, every dose with its source, what form to buy, warnings, and who it is for.</div></aside>
+  </div>
+  <section id="cw" aria-label="Supplement card" hidden></section>
+  <p class="foot">Collected by <b>Bare Signals</b> · protocol from the Honest Menu · research pass 22 Oct 2026</p>
+</div>
+<script src="/blood/v27/supp.js"></script>
+<script src="/supplements/v16/data.js"></script>
+<script>function bsFg(h){var n=parseInt(String(h||'#FFFFE2').slice(1),16),f=function(c){c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)},l=.2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255),cr=function(a){return (Math.max(a,l)+.05)/(Math.min(a,l)+.05)};return cr(.0748)>=4.5?'#3E4A80':cr(.0219)>=cr(.9827)?'#1F2550':'#FFFFE2'}
+
+(function(){
+const S=window.SUPP,CATS=window.SUPP_CATS,CATC=window.SUPP_CATC||{},PH=window.SUPP_PH,PAL=window.SUPP_PAL,LINK=window.SUPP_LINK||{};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const norm=x=>String(x).toLowerCase().replace(/[\s\-–()'’.,\/+&:]/g,'');
+const HEX=Object.fromEntries(PAL.map(p=>[p[0],p[2]])),LONG=Object.fromEntries(PAL.map(p=>[p[0],p[1]])),MEAN=Object.fromEntries(PAL.map(p=>[p[0],p[3]]));
+const KEYS=PAL.map(p=>p[0]);
+const RM=matchMedia('(prefers-reduced-motion: reduce)'),WIDE=matchMedia('(min-width:900px)');
+const RTAG=(k,c)=>HEX[k]?`<span class="rtg${c?' '+c:''}" style="background:${HEX[k]};color:${bsFg(HEX[k])}">${esc(LONG[k])}</span>`:'';
+const lum=h=>{const n=parseInt(h.slice(1),16),f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(n>>16&255)+.7152*f(n>>8&255)+.0722*f(n&255)};
+const CF={V:'verified',R:'reported',I:'inferred',S:'speculated'};
+/* optional research fields kept from v4 */
+const EXTRA=[['mech','How it works'],['forms_note','Forms and timing']];
+const idOf=n=>n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const tg=o=>o.tags||{sex:'Both',life:[],diet:[],activity:[],meds:[]};
+/* who-it-is-for filters */
+const has=(o,k,v)=>(tg(o)[k]||[]).includes(v);
+const FOR=[
+ ['Sex',[['Women',o=>tg(o).sex==='Women'],['Men',o=>tg(o).sex==='Men']]],
+ ['Life stage',[['Childbearing age',o=>has(o,'life','Childbearing age')],['Breastfeeding',o=>has(o,'life','Breastfeeding')],['Menopause',o=>has(o,'life','Menopause')],['50+',o=>has(o,'life','50+')],['65+',o=>has(o,'life','65+')]]],
+ ['Pregnancy',[['Pregnancy safe',o=>has(o,'life','Pregnancy: Safe')],['Avoid in pregnancy',o=>has(o,'life','Pregnancy: Avoid')]]],
+ ['Diet',[['Vegan',o=>has(o,'diet','Vegan')]]],
+ ['Training',[['Strength training',o=>has(o,'activity','Strength training')],['Endurance',o=>has(o,'activity','Endurance')]]],
+ ['Approval',[['FDA approved',o=>o.appr&&o.appr.badge==='fda'],['Approved outside the US',o=>o.appr&&o.appr.badge==='rx']]],
+ ['Evidence',[['Strong evidence',o=>o.evidence&&o.evidence.tier==='Strong']]]
+];
+const FORF=Object.fromEntries(FOR.flatMap(g=>g[1]));
+const KW=['sleep','energy','focus','stress','collagen','skin','joints','gut','liver','heart','blood sugar','muscle','immune','pregnancy','vegan','kidney','BPC-157','GHK-Cu','Semax','GLP-1','new'];
+S.forEach(o=>{
+  o.id=idOf(o.n);o.lab=o.lab||[];o.w=o.w||[];
+  const t=tg(o),phs=(o.ph||[]).map(c=>PH[c]?PH[c].n:'').join(' ');
+  o._h=norm([o.n,o.s,(o.aka||[]).join(' '),o.cat,o.does,o.body,(o.whoNot||[]).map(w=>w.t+' '+(w.why||'')).join(' '),o.dose,o.dn,o.note,o.w.join(' '),phs,o.lab.map(k=>LONG[k]).join(' '),o.benefits,o.tileDose,
+    (o.forms?[...o.forms.best,...o.forms.avoid].map(f=>f.f).join(' '):''),(o.warn||[]).join(' '),(o.interactions||[]).join(' '),
+    t.sex==='Both'?'':t.sex,(t.life||[]).join(' '),(t.diet||[]).join(' '),(t.activity||[]).join(' '),(t.meds||[]).join(' '),o.added?'new':'',o.appr?[o.appr.us,o.appr.outside,o.appr.badge==='fda'?'fda approved medicine':o.appr.badge==='rx'?'approved medicine outside us rx':''].join(' '):''].join(' '));
+});
+const BYID=Object.fromEntries(S.map(o=>[o.id,o]));
+const COUNT=Object.fromEntries(KEYS.map(k=>[k,S.filter(o=>o.lab.includes(k)).length]));
+var bs70=function(L){L=L.slice().sort(function(a,b){return b[1]-a[1]});if(L.length<2)return L;var mx=L[0][1],A=[],B=[],ha=0,hb=0;L.forEach(function(x){if(x[1]>=mx*.9){A.push(x);ha+=x[1]}else{B.push(x);hb+=x[1]}});if(!B.length)return L;return A.map(function(x){return[x[0],70*x[1]/ha]}).concat(B.map(function(x){return[x[0],30*x[1]/hb]}))};/* 27 Oct 2026: main role about 70% of every stripe, the rest share 30%; roles that are a main role of a blend part share the 70% */
+const RW=[49,25,15,11,8];
+function stripes(o){
+  const L=bs70(o.lab.map((k,i)=>[k,RW[Math.min(i,RW.length-1)]])),T=L.reduce((a,x)=>a+x[1],0);
+  let l=0;return L.map(([k,w])=>{const pct=w/T*100,h=`<i style="left:${l.toFixed(3)}%;width:${(pct+.05).toFixed(3)}%;background:${HEX[k]}" title="${esc(LONG[k])}"></i>`;l+=pct;return h}).join('');
+}
+let view='group',q='',lf='',ff='',cur=null,L=[];const cf=new Set();
+const fyOpen=v=>{$('#fyp').hidden=!v;$('#fyb').setAttribute('aria-expanded',String(v));$('#fyb i').textContent=v?'\u2212':'+'};
+/* the short who-it-is-for tags on a tile */
+const apb=o=>{const b=o.appr&&o.appr.badge;return b==='fda'?'<span class="bdg" title="An FDA-approved medicine of this substance exists">FDA \u2713</span>':b==='rx'?'<span class="bdg ab" title="Approved as a medicine outside the US">Rx \u2713</span>':''};
+function tileTags(o){
+  const t=tg(o),out=[];
+  if(t.sex&&t.sex!=='Both')out.push(['',t.sex]);
+  const short={'Strength training':'Training','Childbearing age':'Pre-pregnancy'};
+  [...(t.life||[]).filter(x=>!x.startsWith('Pregnancy')&&x!=='Under 18: avoid'),...(t.diet||[]),...(t.activity||[])].slice(0,3).forEach(x=>out.push(['',short[x]||x]));
+  if((t.life||[]).includes('Pregnancy: Avoid'))out.push(['av','Not in pregnancy']);
+  return out.map(([c,x])=>`<span class="pt ${c}">${esc(x)}</span>`).join('');
+}
+function tile(o){
+  const n=o.w.length,ev=o.evidence&&o.evidence.tier;
+  return `<button type="button" class="tl" data-id="${o.id}" aria-pressed="${cur===o.id}" aria-label="${esc(o.n)}. ${esc(o.tileDose||'')}. ${esc(o.s)}"><span class="in">`+
+   `<span class="hd"><span class="nm">${esc(o.n)}${o.added?'<small>NEW</small>':''}</span>${n?`<span class="cn"><b>${n}</b>PEP</span>`:''}</span>`+
+   `<span class="fnl">${esc(o.s)}</span>`+
+   (o.tileDose?`<span class="dz"><b>${esc(o.tileDose)}</b>${o.tileFreq?`<span class="fq">${esc(o.tileFreq)}</span>`:''}</span>`:'')+
+   `<span class="tg">${apb(o)}${ev?`<span class="ev ${ev}">${ev}</span>`:''}${tileTags(o)}</span>`+
+   `</span><span class="band" aria-hidden="true">${stripes(o)}</span></button>`;
+}
+function pepChip(p){
+  const k=LINK[p];
+  return k?`<a href="/library/#/${esc(k[0])}" title="Open ${esc(p)} in the Library"><i style="background:${HEX[k[1]]||'#FFFFF4'}"></i>${esc(p)}</a>`:`<button type="button" data-q="${esc(p)}" title="Not in the Library yet"><i style="background:#FFFFF4"></i>${esc(p)}</button>`;
+}
+const cite=(o,r)=>r.src!=null&&o.refs&&o.refs[r.src]?`<sup class="c" title="${CF[r.c]||''}"><a href="#" data-ref="${r.src}">${r.src+1}</a>${r.c?' '+r.c:''}</sup>`:(r.c?`<sup class="c" title="${CF[r.c]||''}">${r.c}</sup>`:'');
+/* v16: who it's for as compact tags (glance), meds go to Interactions */
+function whoTags(o){
+  const t=tg(o),out=[`<span class="pt">${esc(t.sex||'Both')}</span>`];
+  (t.life||[]).forEach(x=>{const c=x==='Pregnancy: Safe'?'sf':x==='Pregnancy: Avoid'||x==='Under 18: avoid'?'av':x.startsWith('Pregnancy: Not')?'nd':'';out.push(`<span class="pt ${c}">${esc(x)}</span>`)});
+  [...(t.diet||[]),...(t.activity||[])].forEach(x=>out.push(`<span class="pt">${esc(x)}</span>`));
+  return `<span class="wt">${out.join('')}</span>`;
+}
+const BX=(cls,label,body,icon)=>`<div class="bx ${cls}"><p class="bl">${icon?`<i aria-hidden="true">${icon}</i>`:''}${label}</p>${body}</div>`;
+const UL=a=>`<ul>${a.join('')}</ul>`;
+/* optional field whoNot=[{t,why}] in data.js: who shouldn't take it (Warning style), right after What it does */
+function whoNotBox(o){const W=(o.whoNot||[]).filter(x=>x&&x.t);return W.length?`<section class="sec wn">${BX('warn wnot','Who shouldn’t take it',UL(W.map(x=>`<li><b>${esc(x.t)}</b>${x.why?` <span>${esc(x.why)}</span>`:''}</li>`)),'!')}</section>`:''}
+const BT=o=>(window.BW_SUPP||{})[o.id]||[];
+const REFROW=r=>/upper limit|plateau|clinical|^IV|\bIV\b/i.test(r.k)||/^(IV|IM)/i.test(r.route||'');
+function doseTable(o){
+  let h='';
+  if(o.dose||o.dn)h+=`<tr class="pr"><td>Bare Signals protocol</td><td><b class="ac">${esc(o.dose||'See note')}</b></td></tr>`;
+  (o.doses||[]).forEach(r=>{
+    const clin=/clinical/i.test(r.k)||/^(IV|IM)/i.test(r.route||'');
+    h+=`<tr><td>${esc(r.k)}</td><td><b${REFROW(r)?'':' class="ac"'}>${esc(r.amt)}</b>${r.route&&r.route!=='Oral'?`<span class="rt${clin?' cl':''}">${esc(r.route)}</span>`:''}${cite(o,r)}${r.freq?`<span class="q">${esc(r.freq)}</span>`:''}</td></tr>`;
+  });
+  return h?`<table class="dt">${h}</table>`:'';
+}
+function tabList(o){
+  const F=o.forms||{best:[],avoid:[]},t=tg(o),nw=(o.warn||[]).length+(o.interactions||[]).length+(t.meds||[]).length,bt=BT(o).length;
+  return [
+    ['ben','Benefits',''],
+    ['dose','Dose & forms',''],
+    ['res','Research',(o.refs||[]).length?(o.refs.length+''):''],
+    nw?['int','Interactions',nw+'']:null,
+    bt?['bt','Blood tests',bt+'']:null,
+    (o.w.length||(o.lib||[]).length||(o.ph||[]).length)?['go','Goes with',o.w.length?o.w.length+'':'']:null
+  ].filter(Boolean);
+}
+function tabBody(o,k){
+  const F=o.forms||{best:[],avoid:[]},ev=o.evidence||{},t=tg(o);
+  if(k==='ben')return `<p class="para">${nl(o.benefits||o.s)}</p>`;
+  if(k==='dose'){
+    const tips=[];if(o.dn)tips.push(`<p>${esc(o.dn)}</p>`);if(o.note)tips.push(`<p>${nl(o.note)}</p>`);
+    const rt=(o.routes||[]).length>1?o.routes:[];
+    return `<h3>Doses<span>small number = source · V verified, R reported, I inferred</span></h3>${doseTable(o)}`+
+     (o.pflag?`<div class="bx2">${BX('warn','Dose watch',`<p>${esc(o.pflag)}</p>`,'!')}</div>`:'')+
+     (tips.length||rt.length?`<div class="bx2">${tips.length?BX('tip','How to take',tips.join('')):''}${rt.length?BX('tip','Ways it is taken',UL(rt.map(r=>`<li><b>${esc(r.r)}</b> <span>${esc(r.note)}</span></li>`))):''}</div>`:'')+
+     ((F.best.length||F.avoid.length||(o.buy||[]).length)?`<h3>What form to buy</h3><div class="bx2">`+
+       ((F.best.length||(o.buy||[]).length)?BX('buy','Buy',(F.best.length?UL(F.best.map(f=>`<li><b>${esc(f.f)}</b> <span>${esc(f.why)}</span></li>`)):'')+((o.buy||[]).length?`<p class="sl">Check the label</p>${UL(o.buy.map(x=>`<li>${esc(x)}</li>`))}`:''),'✓'):'')+
+       (F.avoid.length?BX('skip','Skip',UL(F.avoid.map(f=>`<li><b>${esc(f.f)}</b> <span>${esc(f.why)}</span></li>`)),'✕'):'')+`</div>`:'');
+  }
+  if(k==='res')return (ev.tier?`<h3>Evidence</h3><p class="evl"><span class="ev ${ev.tier}">${esc(ev.tier)}</span><span>${esc(ev.why||'')}</span></p>`:'')+
+     (o.appr?`<h3>Approved as a medicine?</h3><div class="apr"><p>${esc(o.appr.us)}</p>${o.appr.outside?`<p>Outside the US: ${esc(o.appr.outside)}</p>`:''}${o.appr.note?`<p><small>${esc(o.appr.note)}</small></p>`:''}${o.appr.src?`<p><small><a href="${esc(o.appr.src)}" target="_blank" rel="noopener">Source</a> · ${CF[o.appr.c]||''}</small></p>`:''}</div>`:'')+
+     ((o.new||[]).length?`<h3>New findings</h3><ul class="lst n">${o.new.map(r=>`<li><b>${esc(r.d)}</b>${esc(r.t)}${cite(o,r)}</li>`).join('')}</ul>`:'')+
+     ((o.refs||[]).length?`<h3>Sources</h3><div class="refs"><ol>${o.refs.map((r,j)=>`<li id="r-${j}"><a href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.t)}</a><em>${CF[r.c]||''}</em></li>`).join('')}</ol></div>`:'');
+  if(k==='int')return `<div class="bx2" style="margin-top:0">`+
+     ((o.warn||[]).length?BX('warn','Warnings',UL(o.warn.map(x=>`<li>${esc(x)}</li>`)),'!'):'')+
+     ((o.interactions||[]).length?BX('warn','Interactions',UL(o.interactions.map(x=>`<li>${esc(x)}</li>`)),'!'):'')+`</div>`+
+     ((t.meds||[]).length?`<div class="bx2">${BX('warn','Check first if you take',`<p>${t.meds.map(x=>`<span class="pt av">${esc(x)}</span>`).join(' ')}</p>`,'!')}</div>`:'');
+  if(k==='bt'){const B=BT(o);return `<div class="btl">${B.map(x=>`<a class="btc" href="/blood/#/t/${x[0]}" style="--c:${x[2]}" title="${esc(x[1]+': '+x[3])}">${esc(x[1])}<i>${/raises/.test(x[3])?'↑':/lowers/.test(x[3])?'↓':/no clear/.test(x[3])?'=':esc(x[3].replace(/^used /,''))}</i>${x[4]==='specialty'?'<i class="sp">$$$</i>':x[4]==='ask'?'<i>ask lab</i>':''}</a>`).join('')}</div><p class="btn2">↑ raises · ↓ lowers · = no clear effect · tap a test for its numbers on Blood Work</p>`}
+  if(k==='go'){const own=o.sup||[],phaseOnly=o.w.filter(p=>!own.includes(p)),ph=(o.ph||[]).filter(c=>PH[c]);
+    return (o.w.length?`${own.length?`<div class="syn">${own.map(pepChip).join('')}</div>`:''}${phaseOnly.length?`${own.length?'<p class="snote">Also runs alongside, as part of the phase-wide stack:</p>':''}<div class="syn"${own.length?' style="margin-top:6px"':''}>${phaseOnly.map(pepChip).join('')}</div>`:''}${(()=>{const sl=o.w.map(p=>LINK[p]&&LINK[p][0]).filter(Boolean);return sl.length?`<p class="dlink"><a href="/dosage/?only=${[...new Set(sl)].join(',')}&from=${encodeURIComponent(o.n)}">See their doses side by side →</a></p>`:''})()}<p class="snote">Solid boxes open the peptide in the Library. Dashed ones are not in the Library yet.</p>`:'')+
+     ((o.lib||[]).length?`<h3>In the Library</h3><div class="syn">${o.lib.map(x=>`<a href="/library/#/${esc(x.slug)}" title="${esc(x.why)}"><i style="background:${HEX[x.p]||'#FFFFF4'}"></i>${esc(x.n)}</a>`).join('')}</div><p class="snote">${o.lib.map(x=>esc(x.why)).join('. ')}.</p>`:'')+
+     (ph.length?`<h3>Phase-wide in</h3><div class="phl">${ph.map(c=>`<p>${esc(PH[c].n)}</p>`).join('')}</div>`:'');}
+  return '';
+}
+let tab='ben';
+function tabsHTML(o){
+  const T=tabList(o);if(!T.some(x=>x[0]===tab))tab='ben';
+  return `<div class="tabs" role="tablist" aria-label="Full reading">${T.map(([k,l,n])=>`<button type="button" role="tab" id="tb-${k}" data-tab="${k}" aria-controls="tp-${k}" aria-selected="${tab===k}" tabindex="${tab===k?0:-1}">${esc(l)}${n?`<em${k==='int'?' class="r"':''}>${n}</em>`:''}</button>`).join('')}</div>`+
+   T.map(([k])=>`<div class="tp" role="tabpanel" id="tp-${k}" aria-labelledby="tb-${k}"${tab===k?'':' hidden'}>${tabBody(o,k)}</div>`).join('');
+}
+function cardHTML(o){
+  const i=L.findIndex(x=>x.id===o.id),ev=o.evidence||{};
+  return `<div class="cnav"><button type="button" data-nav="-1" aria-label="Previous" ${i<=0?'disabled':''}>&#8249;</button><button type="button" data-nav="1" aria-label="Next" ${i<0||i>=L.length-1?'disabled':''}>&#8250;</button><button type="button" data-close aria-label="Close">&times;</button></div>`+
+  `<article class="card"><div class="chd"><div class="nmr"><h2>${esc(o.n)}</h2><span class="catw"><i style="background:${CATC[o.cat]||'#FFFFF4'}"></i>${esc(o.cat)}</span></div>`+
+  `<div class="meta">${apb(o)}${ev.tier?`<span class="ev ${ev.tier}">${esc(ev.tier)} evidence</span>`:''}${o.added?`<span class="ev">New in ${esc(o.added)}</span>`:''}${(o.aka||[]).length?`<span>Also: ${esc(o.aka.join(', '))}</span>`:''}</div><p class="fl">${esc(o.s)}</p>`+
+  `<div class="gl3"><div><span class="k">Typical dose</span><b class="ac">${esc(o.tileDose||o.dose||'See doses')}</b></div><div><span class="k">How often</span><b>${esc(o.tileFreq||'Daily')}</b></div><div class="wf"><span class="k">Who it's for</span>${whoTags(o)}</div></div></div>`+
+  `<div class="cband band" aria-hidden="true">${stripes(o)}</div>`+
+  `<section class="sec wid"><h3>What it does<span>tap a role to filter</span></h3><p class="para">${esc(o.body||o.does)}</p><div class="rtags">${o.lab.map(k=>`<button type="button" data-l="${k}" aria-pressed="${lf===k}" title="${esc(MEAN[k])}">${RTAG(k)}</button>`).join('')}</div>${o.body&&o.does?`<p class="proto"><b>In the protocol</b>${esc(o.does)}</p>`:''}</section>`+
+  whoNotBox(o)+
+  tabsHTML(o)+
+  `<div class="cft"><span>Data collected by <b>Bare Signals</b></span><span>Research pass 22 Oct 2026 · approval check 23 Oct 2026</span></div></article>`;
+}
+function render(){
+  const qq=norm(q),fp=ff?FORF[ff]:null;
+  const RK={};L=S.filter(o=>(!cf.size||cf.has(o.cat))&&(!qq||(RK[o.n]=BS_SEARCH.rank(o.n,[o.s,(o.aka||[]).join(', ')].join(', '),o._h,q))>0)&&(!lf||o.lab.includes(lf))&&(!fp||fp(o)));
+  const EVO=['Strong','Moderate','Limited','Emerging','Traditional'];
+  const GK=o=>qq?'Best matches':view==='group'?o.cat:view==='role'?o.lab[0]:view==='ev'?((o.evidence||{}).tier||'Not rated'):o.n[0].toUpperCase();
+  if(view==='role')L=KEYS.flatMap(k=>L.filter(o=>o.lab[0]===k));
+  else if(view==='ev')L=[...EVO,'Not rated'].flatMap(t=>L.filter(o=>((o.evidence||{}).tier||'Not rated')===t));
+  else if(view==='az')L=[...L].sort((a,b)=>a.n.localeCompare(b.n));
+  if(qq){const mb=BS_SEARCH.best(L.map(o=>RK[o.n]));L=L.filter(o=>RK[o.n]>=mb).sort((a,b)=>RK[b.n]-RK[a.n])}
+  $('#count').textContent=L.length+'/'+S.length;
+  let h='',last=null;
+  L.forEach(o=>{
+    const g=GK(o);
+    if(g!==last){last=g;const n=L.filter(x=>GK(x)===g).length;
+      h+=`<div class="ghead">${!qq&&view==='role'?RTAG(g):!qq&&view==='group'?`<i style="background:${CATC[g]||'#FFFFF4'}"></i><span class="gn">${esc(g)}</span>`:`<span class="olab">${esc(!qq&&view==='ev'?g+' evidence':g)}</span>`}<em>${n}</em></div>`}
+    h+=tile(o);
+  });
+  const cw=$('#cw');document.querySelector('.wrap').appendChild(cw);
+  $('#grid').innerHTML=h||'<p class="lede" style="grid-column:1/-1">Nothing matches. Try one of the keywords above.</p>';
+  $('#view').innerHTML=[['group','Groups'],['role','Roles'],['ev','Evidence'],['az','A to Z']].map(([k,l])=>`<button type="button" data-v="${k}" aria-pressed="${view===k}">${l}</button>`).join('');
+  $('#key').innerHTML=KEYS.filter(k=>COUNT[k]).map(k=>`<button type="button" class="kr" data-k="${k}" aria-pressed="${lf===k}">${RTAG(k)}<em>${COUNT[k]}</em><span>${esc(MEAN[k])}</span></button>`).join('');
+  $('#fyp').innerHTML=FOR.map(([g,items])=>{const c=items.map(([k,f])=>{const n=S.filter(f).length;return n?`<button type="button" class="fyc" data-for="${esc(k)}" aria-pressed="${ff===k}">${esc(k)}<em>${n}</em></button>`:''}).join('');return c?`<div class="fyg"><span>${esc(g)}</span><div>${c}</div></div>`:''}).join('')+(ff?'<button type="button" class="fyx" data-clear="f">Show everyone</button>':'');
+  $('#fys').textContent=ff||'Everyone';
+  const cats=$('#cats');cats.classList.toggle('on',cf.size>0);
+  cats.innerHTML=CATS.filter(c=>S.some(o=>o.cat===c)).map(c=>{const hx=CATC[c]||'#FFFFF4';return `<button type="button" class="cc" data-cat="${esc(c)}" aria-pressed="${cf.has(c)}" style="background:${hx};color:${bsFg(hx)}">${esc(c)}<em>${S.filter(o=>o.cat===c).length}</em></button>`}).join('')+(cf.size?'<button type="button" class="ccx" data-clear="c">All groups</button>':'');
+  $('#kws').innerHTML=KW.map(k=>`<button type="button" class="kw" data-kw="${esc(k)}" aria-pressed="${norm(q)===norm(k)}">${esc(k)}</button>`).join('');
+  const act=$('#act'),bits=[];
+  if(lf)bits.push(`<button type="button" class="lc rtg" data-clear="l" style="background:${HEX[lf]};color:${bsFg(HEX[lf])}">${esc(LONG[lf])} &times;</button>`);
+  if(ff)bits.push(`<button type="button" class="lc" data-clear="f">For: ${esc(ff)} &times;</button>`);
+  if(cf.size)bits.push(`<button type="button" class="lc" data-clear="c">${cf.size===1?esc([...cf][0]):cf.size+' groups'} &times;</button>`);
+  if(bits.length){act.hidden=false;act.innerHTML='Showing '+bits.join(' ')}else{act.hidden=true;act.innerHTML=''}
+  phShow();
+  if(cur&&BYID[cur]){$('#cw').innerHTML=cardHTML(BYID[cur]);placeCard(false)}
+}
+/* typing placeholder that cycles example searches */
+let phI=0,phC=0,phDel=false,phT=null;
+const PHW=['sleep','collagen','BPC-157','pregnancy','liver','vegan','focus','blood sugar','creatine','50+'];
+function phShow(){$('#ph').hidden=!!q||document.activeElement===$('#q')}
+function phTick(){
+  const w=PHW[phI%PHW.length];
+  if(RM.matches){$('#ph').innerHTML='Search, e.g. <b>sleep</b>';return}
+  if(!phDel){phC++;if(phC>w.length){phDel=true;phT=setTimeout(phTick,1300);return}}
+  else{phC--;if(phC<0){phDel=false;phC=0;phI++;phT=setTimeout(phTick,250);return}}
+  $('#ph').innerHTML=`Search <b>${esc(w.slice(0,phC))}</b><i></i>`;
+  phT=setTimeout(phTick,phDel?40:85);
+}
+function setTab(k,focus){
+  const cw=$('#cw');if(!cw.querySelector('#tp-'+k))return;tab=k;
+  cw.querySelectorAll('[role=tab]').forEach(b=>{const on=b.dataset.tab===k;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;if(on&&focus)b.focus()});
+  cw.querySelectorAll('[role=tabpanel]').forEach(p=>p.hidden=p.id!=='tp-'+k);
+  const bar=cw.querySelector('.tabs');
+  if(bar&&!focus){
+    if(WIDE.matches){const a=$('#aside'),nh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bsnav-h'))||0,ar=a.getBoundingClientRect();if(ar.top>nh+16)scrollBy({top:ar.top-nh-12,behavior:RM.matches?'auto':'smooth'});let y=0;for(let n=bar;n&&n!==a;n=n.offsetParent)y+=n.offsetTop;if(a.scrollTop<y-2)a.scrollTo({top:y,behavior:RM.matches?'auto':'smooth'})}
+    else{const nh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bsnav-h'))||0,t=bar.parentNode.querySelector('#tp-'+k).getBoundingClientRect().top,bt=bar.getBoundingClientRect();if(t>innerHeight*.5||bt.top>nh+2)scrollBy({top:bt.top-nh,behavior:RM.matches?'auto':'smooth'})}
+  }
+  const sel=cw.querySelector('#tb-'+k);if(sel&&sel.scrollIntoView&&sel.parentNode.scrollWidth>sel.parentNode.clientWidth)sel.parentNode.scrollLeft=sel.offsetLeft-20;
+}
+function placeCard(scroll){
+  const cw=$('#cw'),grid=$('#grid'),t=grid.querySelector(`.tl[data-id="${cur}"]`);
+  document.querySelectorAll('.tl').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.id===cur)));
+  $('#lay').classList.toggle('open',!!cur&&WIDE.matches);
+  if(!cur){cw.hidden=true;$('#hint').hidden=false;grid.classList.remove('dim');return}
+  cw.hidden=false;
+  if(WIDE.matches){$('#hint').hidden=true;$('#aside').appendChild(cw);grid.classList.remove('dim');$('#aside').scrollTop=0;return}
+  grid.classList.toggle('dim',!!t);
+  if(!t){grid.appendChild(cw);return}
+  let endTile=t;const top=t.offsetTop;
+  for(let n=t.nextElementSibling;n;n=n.nextElementSibling){if(!n.classList.contains('tl')||n.offsetTop!==top)break;endTile=n}
+  endTile.after(cw);
+  if(scroll)t.scrollIntoView({block:'start',behavior:RM.matches?'auto':'smooth'});
+}
+function openCard(id,scroll){
+  const o=BYID[id];if(!o)return;
+  cur=id;$('#cw').innerHTML=cardHTML(o);placeCard(scroll);
+  history.replaceState(null,'','#/'+id);document.title=o.n+' · Bare Signals Supplements';
+}
+function closeCard(){
+  cur=null;$('#cw').innerHTML='';document.querySelector('.wrap').appendChild($('#cw'));placeCard(false);
+  history.replaceState(null,'','#/');document.title='Supplements · Bare Signals';
+}
+const toSearch=()=>$('#q').scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tl');
+  if(t){if(cur===t.dataset.id)closeCard();else openCard(t.dataset.id,true);return}
+  const nv=e.target.closest('[data-nav]');
+  if(nv){const i=L.findIndex(x=>x.id===cur),n=L[i+Number(nv.dataset.nav)];if(n)openCard(n.id,true);return}
+  if(e.target.closest('[data-close]')){closeCard();return}
+  const rf=e.target.closest('[data-ref]');
+  if(rf){e.preventDefault();setTab('res',false);const li=$('#cw #r-'+rf.dataset.ref);if(li){li.scrollIntoView({block:'center',behavior:RM.matches?'auto':'smooth'});li.classList.add('hl');setTimeout(()=>li.classList.remove('hl'),1600)}return}
+  const v=e.target.closest('[data-v]');if(v){view=v.dataset.v;render();return}
+  const cl=e.target.closest('[data-clear]');if(cl){if(cl.dataset.clear==='l')lf='';else if(cl.dataset.clear==='c')cf.clear();else ff='';render();return}
+  const cc=e.target.closest('[data-cat]');if(cc){const c=cc.dataset.cat;cf.has(c)?cf.delete(c):cf.add(c);if(cur&&BYID[cur]&&!cf.has(BYID[cur].cat)&&cf.size)closeCard();render();return}
+  const tb=e.target.closest('[data-tab]');if(tb){setTab(tb.dataset.tab,false);return}
+  const kw=e.target.closest('[data-kw]');if(kw){q=norm(q)===norm(kw.dataset.kw)?'':kw.dataset.kw;$('#q').value=q;closeCard();render();return}
+  const fr=e.target.closest('[data-for]');if(fr){ff=ff===fr.dataset.for?'':fr.dataset.for;closeCard();fyOpen(false);render();return}
+  if(e.target.closest('#fyb')){fyOpen($('#fyp').hidden);return}
+  const k=e.target.closest('[data-k],[data-l]');
+  if(k){const key=k.dataset.k||k.dataset.l;lf=lf===key?'':key;render();if(!k.dataset.l||!WIDE.matches)toSearch();return}
+  const pq=e.target.closest('.syn [data-q]');
+  if(pq){q=pq.dataset.q;$('#q').value=q;closeCard();render();toSearch();return}
+});
+$('#q').addEventListener('input',e=>{q=e.target.value;render()});
+$('#q').addEventListener('focus',phShow);$('#q').addEventListener('blur',phShow);
+document.addEventListener('keydown',e=>{
+  if(!cur||e.target===$('#q'))return;
+  if(e.target.matches&&e.target.matches('[role=tab]')&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){const T=[...e.target.parentNode.children],i=T.indexOf(e.target),n=T[(i+(e.key==='ArrowRight'?1:-1)+T.length)%T.length];setTab(n.dataset.tab,true);e.preventDefault();return}
+  if(e.key==='Escape')closeCard();
+  else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const i=L.findIndex(x=>x.id===cur),n=L[i+(e.key==='ArrowRight'?1:-1)];if(n)openCard(n.id,true)}
+});
+let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;if(cur)placeCard(false)});
+WIDE.addEventListener('change',()=>{if(cur)placeCard(false)});
+function route(){const m=location.hash.match(/^#\/(.+)$/),id=m&&decodeURIComponent(m[1]);if(id&&BYID[id]){if(id!==cur)openCard(id,true)}else if(cur&&location.hash!=='#/')closeCard()}
+addEventListener('hashchange',route);
+/* text size: shared site setting bs-text s|m|l */
+const TK={s:.88,m:1,l:1.15};
+/* v14: the control lives in the site bar (nav v9); it dispatches bs-text {key,k} */
+/* v15: nav v10 sends {key,k,wide}; apply k (laptop goes to 1.45). Fallback read: laptop bs-text-w (default l), phone bs-text (default m) */
+function setT(k){k=+k||1;document.querySelector('.wrap').style.setProperty('--k',k);if(cur)placeCard(false)}
+function TK0(){if(window.BS_TEXT)return BS_TEXT.get().k;const w=matchMedia('(min-width:1000px)').matches,K={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let v;try{v=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}return K[v]||(w?1.15:1)}
+addEventListener('bs-text',e=>setT(e.detail&&e.detail.k));
+setT(TK0());
+render();route();phTick();
+})();
+</script>
+</body>
+</html>
