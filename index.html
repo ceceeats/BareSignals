@@ -20,6 +20,81 @@
 <!-- Body v28 (28 Oct 2026; v27 kept): role stripe moved from under the punch line to under the bottom button; one bottom button "Read more" opens the card, the card's "Read deeper" opens the Library full page (top Read more removed); an organ lit by two roles keeps the first role's colour (Larazotide gut lining stays gut green, not inflammation red); small intestine coils looser and thinner so each loop reads. -->
 <!-- Body v27 (28 Oct 2026; v26 kept): MT-1 and MT-2 tan the whole skin (bronze glow and fill); Bone & cartilage tags in white text; small intestine redrawn as packed coils that fill the colon frame and reach the pelvis, tubes keep their role colour; new textbook cell (membrane bilayer, receptors, nucleus with envelope, pores, nucleolus, chromosomes with telomere caps, rough ER with ribosomes, smooth ER, Golgi with vesicles, mitochondria with cristae, lysosomes, peroxisomes, centrosome, cytoskeleton), cell fills more of the view and its labels split both sides with dots on the near edge; labels never pushed above the top edge; brain side view floats beside the head with no box (tap opens the side view); zoom icons moved to the bottom right above Random; start pop-up closes on any tap. -->
 <!-- Body v26 (28 Oct 2026; v25 kept): start pop-up "Pick a random peptide"; top corner shows the peptide as a copy of its list chip, its one-line punch line (Library v60 punch.js), its role stripe (main role 70%) and Read more; brain and cell squares move under it; bottom corner only holds "Read the full card", which opens the Library-style card as a pop-up with Read deeper to the Library full page; "<name> summary" heading removed; on phones, brain parts fold into one Brain label with part chips so labels stop stacking down one side. -->
+<style>
+/* v26: top block (chip copy, one-line what it does, stripe, read more), full card pop-up, start pop-up */
+.ctags.v26{max-width:none;gap:5px}
+.ctags .nchip{display:inline-flex;align-self:flex-start;gap:6px;align-items:center;font:500 13px/1 var(--body);color:var(--ink);padding:6px 9px 6px 7px;border:1px solid var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--chip);white-space:nowrap}
+.ctags .pl{margin:0;font:500 12px/1.36 var(--body);color:var(--ink);text-shadow:0 0 3px var(--chip),0 0 3px var(--chip)}
+.ctags .rs{display:flex;height:6px;width:100%}
+.ctags .rs i{display:block}
+.ctags .rmt{all:unset;cursor:pointer;align-self:flex-start;font:500 9px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--act);text-decoration:underline;padding:2px 0}
+.csum.v26b .fc{all:unset;cursor:pointer;display:inline-flex;gap:6px;align-items:center;font:500 9.5px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--act);border:1px solid var(--act);background:var(--chip);padding:7px 9px}
+.bscard-bg{position:fixed;inset:0;z-index:50;background:rgba(62,74,128,.28);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:14px}
+.bscard{width:min(560px,100%);max-height:min(86svh,820px);overflow:auto;overscroll-behavior:contain;background:var(--chip);border:1px solid var(--ink);color:var(--ink);font:13.5px/1.45 var(--body);-webkit-overflow-scrolling:touch}
+.bscard .st{display:flex;height:9px;position:sticky;top:0;z-index:2}
+.bscard .hd{position:sticky;top:9px;z-index:1;background:var(--chip);padding:10px 14px 8px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start}
+.bscard h3{margin:0;font:700 20px/1.1 var(--display);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.bscard .x{all:unset;cursor:pointer;font:500 9px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--act);border:1px solid var(--act);padding:5px 7px}
+.bscard .pn{grid-column:1/-1;margin:0;font-size:13px;color:var(--soft)}
+.bscard .bd{padding:10px 14px 14px}
+.bscard .dc{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin:0 0 12px}
+.bscard .dc div{flex:1 1 auto;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 8px;min-width:0}
+.bscard .dc span{display:block;font:500 8.5px/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft)}
+.bscard .dc b{font:600 12.5px/1.3 var(--body);color:var(--act)}
+.bscard h4{margin:12px 0 5px;font:500 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.bscard ul,.bscard ol{margin:0;padding:0;list-style:none;display:grid;gap:5px}
+.bscard ol{counter-reset:n}.bscard ol li{counter-increment:n;padding-left:20px;position:relative}.bscard ol li:before{content:counter(n);position:absolute;left:0;top:1px;font:500 10px/1.4 var(--mono);color:var(--soft)}
+.bscard .tag{display:inline-block;font:500 8.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 5px;margin-right:6px;vertical-align:1px}
+.bscard small{color:var(--soft);font-size:11.5px}
+.bscard .ft{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px solid var(--rule)}
+.bscard .ft a{color:#3E6FC9;text-decoration:underline;font-weight:600;white-space:nowrap}
+.bscard .ft .fine{font-size:10.5px;color:var(--soft)}
+@media (max-width:899px){.ctags .pl{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.bmini,.cmini{width:min(24vw,96px)!important}}
+.csum.v26b .fc{white-space:nowrap}
+.bsintro{position:absolute;z-index:6;left:50%;top:42%;transform:translate(-50%,-50%);width:min(280px,82%);background:var(--chip);border:1px solid var(--ink);padding:14px 14px 12px;text-align:center;box-shadow:0 6px 24px rgba(62,74,128,.18)}
+.bsintro p{margin:0 0 10px;font:500 13.5px/1.4 var(--body);color:var(--ink)}
+.bsintro .go{all:unset;cursor:pointer;display:inline-block;font:500 10px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--chip);background:var(--act);padding:9px 12px}
+.bsintro .no{all:unset;cursor:pointer;display:block;margin:9px auto 0;font:500 9px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);text-decoration:underline}
+#cell .bil,.cmini .bil{fill:none;stroke:#7E8FD6;stroke-width:.9;opacity:.6;vector-effect:non-scaling-stroke}
+#cell .cytsk,.cmini .cytsk{fill:none;stroke:#E2C9D4;stroke-width:.6;opacity:.55;vector-effect:non-scaling-stroke}
+#cell .smer,.cmini .smer{fill:none;stroke:#E0B9C9;stroke-width:3;stroke-linecap:round;opacity:.55}
+#cell .nenv,.cmini .nenv{fill:none;stroke:#5C8FD0;stroke-width:1;opacity:.55;vector-effect:non-scaling-stroke}
+#cell .pore,.cmini .pore{fill:none;stroke:#FFF8F0;stroke-width:4;stroke-linecap:round}
+#cell .chrom,.cmini .chrom{fill:none;stroke:#3E4A80;stroke-width:.8;opacity:.28;vector-effect:non-scaling-stroke}
+#cell .dna,.cmini .dna{fill:none;stroke:#3E4A80;stroke-width:3.2;stroke-linecap:round;opacity:.5}
+#cell .golgi2,.cmini .golgi2{fill:none;stroke:#F2B36B;stroke-width:3.2;stroke-linecap:round;opacity:.8}
+#cell .vesic,.cmini .vesic{fill:#F7D3A4;stroke:#E2A55E;stroke-width:.6}
+#cell .ribo,.cmini .ribo{fill:#8E5A86;opacity:.55}
+#cell .cent,.cmini .cent{fill:none;stroke:#8E7BB8;stroke-width:3;stroke-linecap:round;opacity:.7}
+#cell .mitin,.cmini .mitin{fill:none;stroke:#5E8A33;stroke-width:.7;opacity:.6;vector-effect:non-scaling-stroke}
+#cell .perox,.cmini .perox{fill:#C9D98C;opacity:.7}
+#cell .film[data-k=telomere]{fill-opacity:.9;stroke-width:.6}
+.bmini.float{border:0!important;background:transparent!important;overflow:visible!important;aspect-ratio:auto!important;transition:opacity .35s;width:176px!important;height:166px}
+.bmini.float .bm-go{display:none!important}
+@media (max-width:899px){.bmini.float{width:118px!important;height:112px}}
+.stage:has(.xray.moving) .bmini.float,.stage:has(.xray.lit:not(.show)) .bmini.float{opacity:0}
+#zctl.fl{position:absolute;right:6px;bottom:40px;z-index:3;display:flex!important;flex-direction:column;gap:3px}
+.stage:has(.csum.open) #zctl.fl{display:none!important}
+svg.xray.lit.tanning .film.skin.on{fill:url(#tang)!important;fill-opacity:.85!important}
+svg.xray.tanning:has(.film.skin.on) .skinglow{stroke:#C98A45!important;opacity:.95!important;stroke-width:16!important}
+svg.xray.tanning:has(.film.skin.on) .skinline{stroke:#B27205!important;opacity:1!important}
+.csum.v26b{display:flex;flex-direction:column;align-items:stretch;gap:5px}
+.csum.v26b .fc{align-self:flex-start}
+.csum .rs2{display:flex;height:7px;width:100%}.csum .rs2 i{display:block}
+.ctags .nhead{display:inline-flex;flex-direction:column;align-self:flex-start}
+.ctags .nhead .rs{height:5px;width:100%}
+.ctags .nhead .nchip{border-top:0}
+.ctags .rmt[data-card]{text-decoration:underline}
+.bscard .chain{display:block;max-width:100%;height:auto;margin:2px 0 4px}
+.bscard .xl{margin:0;font-size:11.5px;color:var(--soft)}
+.bscard a{color:#3E6FC9;text-decoration:underline}
+.bscard .xg{gap:7px}
+.bscard .xg li{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.bscard .xlab{font:500 9px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-right:2px}
+.bscard .xs{display:inline-flex;gap:5px;align-items:center;border:1px solid var(--rule);padding:4px 7px 4px 5px;font-size:12px;text-decoration:none;color:var(--ink)}
+.bscard .xs .sq{width:9px;height:9px}
+
+</style>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
