@@ -635,7 +635,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&HOLD)holdEnd(true)});
 
 /* ---------- v10: save your protocol (save.js builds the files) ---------- */
 /* v10 month view: doses in one vial, cycle length in days (low end; 0 = ongoing), start day */
-function perVial(it,x){const p=parseDose(it.dose);if(!p)return 0;const m={kind:p.u==='U'?'units':p.u==='IU'?'iu':p.u==='mL'?'liquid':'mass',vial:+it.vm||defVial(x),water:+it.vw||x.vw||2,dose:p.v,unit:p.u,syr:100};
+function perVial(it,x){if(!(canMix(x)||LQ[x.c]))return 0;const p=parseDose(it.dose);if(!p)return 0;const m={kind:p.u==='U'?'units':p.u==='IU'?'iu':p.u==='mL'?'liquid':'mass',vial:+it.vm||defVial(x),water:+it.vw||x.vw||2,dose:p.v,unit:p.u,syr:100};
  if(m.kind==='mass'&&!(m.vial>0))return 0;const r=calc(m,x);return r.ok&&r.per>0?r.per:0}
 /* rest after the cycle, from the cycle text ("20 days, 1–2 mo off"); a weekly "5 on/2 off" is not a rest. Selank from its Russian label (repeat after 1–3 weeks) */
 function restOf(x){if(x.c==='SLK')return '1–3 wk';const t=String(x.d&&x.d.cycle||'');if(/\d\s*on\s*\/\s*\d\s*off/i.test(t))return '';
@@ -645,12 +645,29 @@ function cycDays(x){const c=String(x.d&&x.d.cycle||'').trim();if(!c||/ongoing|as
  const m=c.match(/([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(days?|d\b|wk|weeks?|mo|months?)/i);if(!m)return 0;const n=+m[1],u=m[2].toLowerCase();return Math.round(u[0]==='d'?n:u[0]==='w'?n*7:n*30)}
 /* gentle warnings: two or more compounds pushing the same way. Read from each compound's own role line,
    so ones that raise hunger (MK-677, GHRP-2, GHRP-6) or blood sugar (Glucagon), and mouse-only claims, never count */
-function warnings(items){const xs=items.map(it=>IT[it.c]);const has=(x,r)=>x.p===r||(x.r||[]).indexOf(r)>=0;
- const app=xs.filter(x=>has(x,'Appetite')&&!/raise|strong hunger/i.test((x.ds||{}).Appetite||'')).map(x=>x.n);
- const glu=xs.filter(x=>has(x,'Glucose')&&!/raise|mice|monkeys|claims/i.test((x.ds||{}).Glucose||'')).map(x=>x.n);
- const say=(n,what)=>n.slice(0,-1).join(', ')+' and '+n[n.length-1]+(n.length>2?' all ':' both ')+what+'.';const out=[];
- if(app.length>1&&glu.length>1&&app.join()===glu.join())out.push(say(app,'lower appetite and blood sugar'));
- else{if(app.length>1)out.push(say(app,'lower appetite'));if(glu.length>1)out.push(say(glu,'lower blood sugar'))}
+const CLS={
+ glp:['SEM','TRZ','RTA','LIR','EXN','GLP','MAZ','SRV','ORF','RTC','AMC','MAR','PEM','EFO','UBT','VK27','BRN','ECN'],
+ ghrh:['CJC','CJD','SRM','TES','CJI','TSI','TIC'],
+ ghrelin:['IPA','GP2','GP6','HEX','MK','CJI','TSI','TIC'],
+ gh:['HGH'],
+ mc:['MT2','MT1','P141']};
+function warnings(items){const xs=items.map(it=>IT[it.c]);const has=(x,r)=>x.p===r||(x.r||[]).indexOf(r)>=0;const out=[];
+ const say=(n,what)=>n.slice(0,-1).join(', ')+' and '+n[n.length-1]+(n.length>2?' all ':' both ')+what+'.';
+ const of=k=>xs.filter(x=>CLS[k].indexOf(x.c)>=0).map(x=>x.n);
+ /* doubled up: same drug class twice */
+ const glp=of('glp'),ghrh=of('ghrh'),ghr=of('ghrelin'),mc=of('mc'),gh=of('gh');
+ if(glp.length>1)out.push(say(glp,'work on GLP-1. That is the same pathway twice: nausea and low blood sugar add up, and most people use one'));
+ if(xs.some(x=>x.c==='INS')){const low=xs.filter(x=>x.c!=='INS'&&(CLS.glp.indexOf(x.c)>=0||has(x,'Glucose')&&!/raise|mice|monkeys|claims/i.test((x.ds||{}).Glucose||''))).map(x=>x.n);if(low.length)out.push('Insulin with '+low.join(', ')+': both lower blood sugar. Watch closely for lows.')}
+ if(ghrh.length>1)out.push(say(ghrh,'are GHRH analogues. Same receptor, so doubling up adds little'));
+ if(ghr.length>1)out.push(say(ghr,'push the ghrelin receptor. Hunger, water retention and blood sugar rise more when stacked'));
+ if(gh.length&&(ghrh.length||ghr.length))out.push('Growth hormone with '+ghrh.concat(ghr).filter((v,i,a)=>a.indexOf(v)===i).join(', ')+': growth hormone on top of something that raises it. Water retention, joint aches and blood sugar stack.');
+ if(mc.length>1)out.push(say(mc,'act on melanocortin receptors. Nausea, flushing and blood pressure changes add up'));
+ /* gentle overlaps, skipped when the GLP-1 warning already covers them */
+ if(glp.length<2){
+  const app=xs.filter(x=>has(x,'Appetite')&&!/raise|strong hunger/i.test((x.ds||{}).Appetite||'')).map(x=>x.n);
+  const glu=xs.filter(x=>has(x,'Glucose')&&!/raise|mice|monkeys|claims/i.test((x.ds||{}).Glucose||'')).map(x=>x.n);
+  if(app.length>1&&glu.length>1&&app.join()===glu.join())out.push(say(app,'lower appetite and blood sugar'));
+  else{if(app.length>1)out.push(say(app,'lower appetite'));if(glu.length>1&&!xs.some(x=>x.c==='INS'))out.push(say(glu,'lower blood sugar'))}}
  return out}
 function exportModel(){const items=L.items.filter(i=>IT[i.c]);const Z=BWREADY?bwLists(items):{b:[],s:[]};
  return {title:L.name?L.name+'’s protocol':'My protocol',date:new Date(),

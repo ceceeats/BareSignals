@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Stack tests · Bare Signals</title>
+<style>body{margin:0;background:#FFFFE2;color:#3E4A80;font:15px/1.45 system-ui,sans-serif;padding:20px 16px}h1{font-size:20px;margin:0 0 4px}p{margin:0 0 14px;color:#6B76A8;font-size:13px}a{display:block;border:1.5px solid #3E4A80;background:#FFFFF4;padding:10px 12px;margin:0 0 8px;color:#3E4A80;text-decoration:none}a b{display:block}a span{font-size:12px;color:#6B76A8}</style>
+<script src="/scan/v9/data.js"></script>
+<script src="/scan/v10/vials.js"></script>
+</head><body>
+<h1>Stack tests</h1><p>Tap one: it saves your own list first, loads the stack into the v10 preview and opens My protocol. <b>Restore my list</b> at the bottom.</p>
+<div id="L"></div>
+<script>
+/* Stack tests (28 Oct 2026): popular stacks, rare runs and one heavy user with two clashes, each with its own schedule
+   (weekly, twice a week, every other day, 5 on / 2 off, twice or three times a day, as needed) and time picks. */
+const AM='☀ AM',PM='☾ PM';
+const S={
+ wolverine:['Wolverine: injury repair',[['BPC',{f:'5on2',tm:{a:AM}}],['TB4',{f:'2W',dy:[0,3],tm:{a:PM}}]]],
+ glpfat:['Fat loss, GLP-1 with helpers',[['SEM',{f:'1W',dy:[6],tm:{a:AM,b:'After food'}}],['CAG',{f:'1W',dy:[6]}],['AOD',{f:'5on2',tm:{a:AM,b:'Fasted'}}],['MOT',{f:'3W'}]]],
+ ghnight:['Growth hormone before bed',[['CJI',{f:'5on2',tm:{a:PM,b:'Fasted'}}],['MK',{f:'D',tm:{a:PM}}],['DSIP',{f:'EOD',dy:[0,2,4,6],tm:{a:PM}}]]],
+ glow:['Skin and hair (GLOW)',[['GLOW',{f:'D',tm:{a:AM}}],['GHK',{f:'3W',tm:{a:PM}}],['SN8',{f:'D2'}],['COL',{f:'D',tm:{a:AM,b:'Before food'}}]]],
+ klow:['Recovery and gut (KLOW)',[['KLOW',{f:'D',tm:{a:AM}}],['TA1',{f:'2W',dy:[1,4]}],['LRZ',{f:'D3',tm:{b:'Before food'}}]]],
+ brain:['Focus and calm',[['SMX',{f:'D2',tm:{a:AM}}],['SLK',{f:'D3'}],['PNL',{f:'5on2',tm:{a:PM}}],['DHX',{f:'PRN',dy:[]}]]],
+ longevity:['Longevity run (rare mix)',[['EPI',{f:'D',tm:{a:PM}}],['NAD',{f:'2W',dy:[0,3],tm:{a:AM}}],['MOT',{f:'1W',dy:[2]}],['SS31',{f:'5on2',tm:{a:AM}}],['HMN',{f:'3W'}],['FOXO',{f:'EOD',dy:[0,2,4,6]}]]],
+ recomp:['Recomp for women',[['TES',{f:'5on2',tm:{a:PM,b:'Fasted'}}],['IPA',{f:'5on2',tm:{a:PM,b:'Fasted'}}],['AOD',{f:'D',tm:{a:AM,b:'Fasted'}}]]],
+ libido:['Libido and mood',[['P141',{f:'PRN',dy:[]}],['KSP',{f:'2W',dy:[2,5]}],['OXT',{f:'PRN',dy:[]}]]],
+ immune:['Immune season',[['TA1',{f:'2W',dy:[0,3],tm:{a:AM}}],['KPV',{f:'D2'}],['LL37',{f:'EOD',dy:[0,2,4,6]}],['THM',{f:'D',tm:{a:AM}}]]],
+ hormone:['Fertility and hormones',[['HCG',{f:'2W',dy:[0,3],tm:{a:PM}}],['HMG',{f:'1W',dy:[3]}],['GND',{f:'5on2',tm:{a:AM}}],['KSP',{f:'EOD',dy:[1,3,5]}]]],
+ bioreg:['Bioregulator course (10 days)',[['CRG',{f:'D',tm:{a:AM}}],['CTG',{f:'D',tm:{a:AM}}],['VSG',{f:'D'}],['CHL',{f:'D'}],['PNL',{f:'D',tm:{a:PM}}]]],
+ rarebrain:['Rare cognition',[['CRB',{f:'5on2',tm:{a:AM}}],['DHX',{f:'PRN',dy:[]}],['P21',{f:'D',tm:{a:AM}}],['ADX',{f:'3W'}],['9ME',{f:'D',tm:{a:AM}}]]],
+ vitamins:['Injectable vitamins and fat',[['LPC',{f:'2W',dy:[0,3],tm:{a:AM}}],['MIC',{f:'1W',dy:[0]}],['B12',{f:'1W',dy:[3]}],['LCN',{f:'3W',tm:{a:AM}}],['LMB',{f:'D'}]]],
+ heavy:['Heavy user, 10 compounds, two clashes',[['RTA',{f:'1W',dy:[0],tm:{a:AM,b:'After food'}}],['SEM',{f:'1W',dy:[3],tm:{a:AM}}],['MK',{f:'D',tm:{a:PM}}],['GP6',{f:'D2',tm:{b:'Fasted'}}],['BPC',{f:'5on2',tm:{a:AM}}],['TB4',{f:'2W',dy:[1,4]}],['GHK',{f:'3W',tm:{a:PM}}],['NAD',{f:'3W',tm:{a:AM}}],['SLK',{f:'D3'}],['P141',{f:'PRN',dy:[]}]]]
+};
+const KEY='bs-scan-v1',BAK='bs-scan-v1-backup-test10',L=document.getElementById('L');
+const IT=(window.BS_SCAN||{}).items||{},VS=window.BS_VIALS||{};
+const DD={D:[0,1,2,3,4,5,6],D2:[0,1,2,3,4,5,6],D3:[0,1,2,3,4,5,6],EOD:[0,2,4,6],'5on2':[0,1,2,3,4],'3W':[0,2,4],'2W':[0,3],'1W':[0],PRN:[]};
+function load(k){const sc=S[k];try{const cur=localStorage.getItem(KEY);if(cur&&!localStorage.getItem(BAK))localStorage.setItem(BAK,cur);const old=JSON.parse(cur||'null')||{};const now=Date.now();
+ const items=sc[1].filter(([c])=>IT[c]).map(([c,o],i)=>{const x=IT[c],u=VS[c];const vm=u&&u.length?(u.indexOf(x.vm)>=0?x.vm:u[0]):(x.vm||'');const g=c==='GSH';
+  return {c,dose:g?'200 mg':(x.st||''),f:o.f||x.f||'D',dy:o.dy||DD[o.f||x.f||'D'],tm:o.tm||{},vm,vw:x.vw||'',added:now-(20-i)*60000,taken:[]}});
+ localStorage.setItem(KEY,JSON.stringify({items,log:[],consent:old.consent===undefined?null:old.consent}));location.href='/scan/v10/?c='+items[0].c+'#list'}catch(e){alert('This browser blocked saving: '+e.message)}}
+Object.keys(S).forEach(k=>{const a=document.createElement('a');a.href='#';a.innerHTML=`<b>${S[k][0]}</b><span>${S[k][1].map(([c])=>IT[c]?IT[c].n:c).join(' · ')}</span>`;a.onclick=e=>{e.preventDefault();load(k)};L.appendChild(a)});
+const r=document.createElement('a');r.href='/scan/test10/#restore';r.innerHTML='<b>Restore my list</b><span>Puts back the list you had before testing</span>';L.appendChild(r);
+if(location.hash.length>1&&S[location.hash.slice(1)])load(location.hash.slice(1));
+</script>
+</body></html>
