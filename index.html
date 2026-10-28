@@ -1,4 +1,4 @@
-<!doctype html><!-- Home v36 = Body v42 (28 Oct 2026). Home v35 (Body v41) kept at /home/v35/, v34 at /home/v34/, v33 at /home/v33/. -->
+<!doctype html><!-- Home v37 = Body v43 (28 Oct 2026). Home v36 (Body v42) kept at /home/v36/, v35 at /home/v35/, v34 at /home/v34/. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Bare Signals</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
@@ -74,6 +74,8 @@
 .nleg{top:32px!important;padding:3px 5px!important;gap:2px!important}
 .xray{touch-action:none!important}
 .app{height:calc(100svh - var(--bsnav-h0,0px))!important}
+.stage{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.xray{-webkit-tap-highlight-color:transparent}
 </style>
 </head><body>
 
@@ -87,6 +89,7 @@
 <!-- Body v23 (28 Oct 2026; v22 kept): peptide name back to a small readable title (half size), top corner only lists the roles that have no label on the body, kept inside the left gutter so it never covers the body; muscles always muscle red with fibre lines whatever the role, thigh drawn as three heads (vastus lateralis, rectus femoris, vastus medialis). -->
 <!-- Body v24 (28 Oct 2026; v23 kept, live as Home v31): every role of a peptide now has its own labelled point on the body with what it does there (e.g. BPC-157 pain and inflammation, GHK-Cu hair at the head), so the corner only shows the name; summary floats as text in the emptier bottom corner of the body view and Read more opens it in place, no covering card; each dot sits on the copy of a paired part that is on its label side; skin lights the whole body outline and its dot touches the arm outline; brain on the body gets its midline and folds; breast drawn as gland lobes radiating to the nipple in fat, fading softly upward to the 2nd rib with an axillary tail, only the lower curve outlined. -->
 <!-- Body v25 (28 Oct 2026; v24 kept): summary headed "<name> summary"; Read more opens a frosted reading panel over the lower part of the diagram while the body moves up and keeps its labels; Full page expands inside the same panel (what it does, how it works, tested in, dose) with a small Library link; smoother pan and zoom (one update per frame, labels hidden while moving, body cannot be dragged off, + and - glide), Reset view glides back to the peptide view; zoom controls as small icons (magnifier +, magnifier −, reset frame) stacked under F/M; Random button in the bottom corner (7 in 10 from the 20 most popular peptides, 3 in 10 from the peptides that light parts few others touch, no repeats in the last 8). -->
+<!-- Body v43 (28 Oct 2026; v42 kept): iPhone-style gestures: one finger drags the body (8 px before it counts as a drag), a fling keeps gliding and slows, two fingers pinch and move the body together, tapping a part lights it without zooming the view, double tap zooms in 2x on the spot and double tap again returns, labels stay visible while dragging, no text selection or callout on long press. -->
 <!-- Body v42 (28 Oct 2026; v41 kept): brain-only peptides zoom near the head again (the head sits right under the name block instead of the view sliding down to the feet). -->
 <!-- Body v41 (28 Oct 2026; v40 kept): the diagram box never grows taller than the screen (the + text size no longer stretches it), text size is not remembered after a refresh and any old saved size is cleared, and a one-finger up or down swipe on the body scrolls the page; the + and - buttons change only the text size, the body stays the same size (pinch to zoom the body) (the body only drags when zoomed in by pinching). -->
 <!-- Body v40 (28 Oct 2026; v39 kept): wound close-up circle smaller (phone 88 px, laptop 118 px) and zoomed in closer on the cut; nerve key (spinal cord, nerves, autonomic) moved up right under F/M and made tighter, so the body and labels have more room. -->
@@ -901,7 +904,7 @@ const CELLNAME={mito:"Mitochondria",nucleus:"Nucleus & DNA",membrane:"Cell membr
 $("cmini").onclick=()=>{st.view="cell";render();};
 function render(){showSvg();ctags();mini();const s=svgOf(),list=litFor(),on=light(list);
  $("nleg").hidden=!(s.classList.contains("nerving"));
- const tgt=st.view!=="body"?VB0[s.id]:sumFrame(s);zoomTo(s,tgt);
+ const tgt=st.view!=="body"?VB0[s.id]:(st.keepView?curVB(s):sumFrame(s));st.keepView=false;zoomTo(s,tgt);
  $("z-out").hidden=st.view!=="body"||tgt===VB0[s.id];
  $("cap").textContent=(st.comp?"":st.part!=null?PARTS[st.part][0]:st.role?P[st.role][0]:"Tap the body or a peptide")+(st.view==="head"?" · brain":st.view==="cell"?" · inside a cell":"");
  $("cap").hidden=!!st.comp&&st.view==="body";ctags();csum();fitTags();setTimeout(()=>drawTags(s),1100);}
@@ -956,9 +959,9 @@ $("csum").addEventListener("click",e=>{if(e.target.closest("a"))return;if(e.targ
 function clearTop(s,t){const ct=$("ctags");if(!ct||ct.hidden||st.view!=="body")return t;const sr=s.getBoundingClientRect(),cr=ct.getBoundingClientRect();if(!cr.width)return t;
  let [x,y,w,h]=t;const kk=Math.max(w/Math.max(1,sr.width),h/Math.max(1,sr.height)),vx=x+w/2-sr.width*kk/2,vy=y+h/2-sr.height*kk/2;
  const bx1=vx+(cr.right-sr.left+6)*kk,by1=vy+(cr.bottom-sr.top+6)*kk;
- for(let it=0;it<3;it++){const ex=extAt(s,vy,by1);if(!ex||ex[0]>bx1)break;const ys=[];for(let yy=VB0[s.id][1];yy<by1+400;yy+=6){const e=extAt(s,yy,yy+1);if(e&&e[0]<bx1&&yy>=vy-1)ys.push(yy);}
+ for(let it=0;it<3;it++){const AN=JSON.parse(s.dataset.anch||"{}"),ny=AN.neck?AN.neck[1]:by1,ex=extAt(s,vy,Math.min(by1,ny));if(!ex||ex[0]>bx1-12*kk)break;const ys=[];for(let yy=VB0[s.id][1];yy<by1+400;yy+=6){const e=extAt(s,yy,yy+1);if(e&&e[0]<bx1&&yy>=vy-1)ys.push(yy);}
   const topBody=(()=>{for(let yy=VB0[s.id][1];yy<VB0[s.id][1]+VB0[s.id][3];yy+=4){if(extAt(s,yy,yy+1))return yy;}return vy;})();
-  const need=by1-Math.max(topBody,vy);if(need<=0)break;if(h<VB0[s.id][3]*.8){y=topBody-(by1-vy)-6*kk-(h/2-sr.height*kk/2);break;}const bb=VB0[s.id][1]+VB0[s.id][3],visB=vy+sr.height*kk,room=Math.max(0,visB-bb);if(need<=room){y-=need;break;}const ar=w/h,nh=h+need-room+12,nw=nh*ar,cx=x+w/2;w=nw;h=nh;x=cx-w/2;y=bb-h+8;break;}
+  const need=by1-Math.max(topBody,vy);if(need<=0)break;if(h<VB0[s.id][3]*.8){y=topBody-(by1-vy)-6*kk-(h/2-sr.height*kk/2);break;}const bb=VB0[s.id][1]+VB0[s.id][3],visB=vy+sr.height*kk,room=Math.max(0,visB-bb);if(need<=room){y-=need;break;}const ar=w/h,nh=h+(need-room)*.5+12,nw=nh*ar,cx=x+w/2;w=nw;h=nh;x=cx-w/2;y=bb-h+8;break;}
  return [x,y,w,h];}
 let TS=1;try{localStorage.removeItem("bs-guide-ts");}catch(_){}
 {const q=(location.search.match(/[?&]ts=([\d.]+)/)||[])[1];if(q)TS=+q;}
@@ -1038,7 +1041,7 @@ let zt;function retag(s){clearTimeout(zt);zt=setTimeout(()=>{drawTags(s);s.class
 let pend=null,raf=0;
 function clampVB(s,v){const b0=VB0[s.id];let [x,y,w,h]=v;const mx=w*.45,my=h*.45;
  x=Math.min(Math.max(x,b0[0]-mx),b0[0]+b0[2]-w+mx);y=Math.min(Math.max(y,b0[1]-my),b0[1]+b0[3]-h+my);return [x,y,w,h];}
-function setVB(s,v){pend=clampVB(s,v);if(!s.classList.contains("moving")){s.classList.add("moving");s.classList.remove("show");}
+function setVB(s,v){pend=clampVB(s,v);if(!s.classList.contains("moving")){s.classList.add("moving");}
  if(!raf)raf=requestAnimationFrame(()=>{raf=0;if(pend)s.setAttribute("viewBox",pend.join(" "));$("z-out").hidden=false;retag(s);});}
 function curVB(s){return pend&&raf?pend:vbOf(s);}
 function zoomBy(f,cx,cy,anim){const s=svgOf();const [x,y,w,h]=curVB(s),b0=VB0[s.id];let nw=Math.min(b0[2]*1.4,Math.max(b0[2]*.12,w*f));const nh=nw*h/w;
@@ -1046,16 +1049,36 @@ function zoomBy(f,cx,cy,anim){const s=svgOf();const [x,y,w,h]=curVB(s),b0=VB0[s.
  if(anim){zoomTo(s,clampVB(s,t),380);$("z-out").hidden=false;return;}setVB(s,t);}
 const TSL=[1,1.25,1.5];function tallApp(){return;const a=document.querySelector(".app");if(!a)return;a.style.height=TS>1?`calc((100svh - var(--bsnav-h0,0px))*${Math.pow(TS,1.7).toFixed(3)})`:"";}tallApp();function setTS(d){const i=Math.max(0,Math.min(2,TSL.indexOf(TS)+d));if(TSL[i]===TS)return;TS=TSL[i];tallApp();const s=svgOf();drawTags(s);$("z-in").setAttribute("aria-disabled",TS>=1.5);$("z-mi").setAttribute("aria-disabled",TS<=1);}
 $("z-in").onclick=()=>setTS(1);if(0)$("z-mi").onclick=()=>setTS(-1);if(0)$("z-mi").onclick=()=>{const s=svgOf(),on=s.__on||[],home=st.view==="body"&&on.length?frame(s,on):VB0[s.id],w=curVB(s)[2];if(w/.7>=home[2]*.98)zoomTo(s,home,500);else zoomBy(1/.7,null,null,true);};
-(function(){const stage=$("stage"),pts=new Map();let last=null,pd=null,moved=0;
+/* v43 gestures, iPhone style: one finger drags the body, two fingers pinch and move it together, a tap picks the part under the finger without moving the view, a double tap zooms in on that spot (double tap again returns), a fling keeps gliding for a moment */
+(function(){const stage=$("stage"),pts=new Map();let mode=null,start=null,moved=0,pinch=null,lastTap=0,lastTapXY=null,tapTimer=null,vel=[0,0],lastT=0,glide=0;
  const toSvg=(s,cx,cy)=>{const r=s.getBoundingClientRect(),V=vis(s);return [V.x+(cx-r.left)*V.k,V.y+(cy-r.top)*V.k];};
  stage.addEventListener("wheel",e=>{if(!e.target.closest(".xray"))return;e.preventDefault();const s=svgOf(),p=toSvg(s,e.clientX,e.clientY);zoomBy(Math.exp(Math.max(-.25,Math.min(.25,e.deltaY*.0018))),p[0],p[1]);},{passive:false});
- stage.addEventListener("pointerdown",e=>{if(!e.target.closest(".xray"))return;pts.set(e.pointerId,[e.clientX,e.clientY]);last=[e.clientX,e.clientY];moved=0;if(pts.size===2){const [a,b]=[...pts.values()];pd=Math.hypot(a[0]-b[0],a[1]-b[1]);}});
- addEventListener("pointermove",e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,[e.clientX,e.clientY]);const s=svgOf();
-  if(pts.size===2&&pd){const [a,b]=[...pts.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]);const m=toSvg(s,(a[0]+b[0])/2,(a[1]+b[1])/2);zoomBy(pd/d,m[0],m[1]);pd=d;return;}
-  if(pts.size===1&&last){const ddx=e.clientX-last[0],ddy=e.clientY-last[1];moved+=Math.abs(ddx)+Math.abs(ddy);if(moved<5)return;
-   const V=vis(s),[x,y,w,h]=curVB(s);last=[e.clientX,e.clientY];setVB(s,[x-ddx*V.k,y-ddy*V.k,w,h]);}});
- let t0=0;stage.addEventListener("pointerdown",()=>{t0=performance.now();},true);
- const up=e=>{if(pts.has(e.pointerId)&&pts.size===1&&moved<5&&performance.now()-t0<600&&e.type==="pointerup")tapBody(e.clientX,e.clientY);pts.delete(e.pointerId);if(pts.size<2)pd=null;if(!pts.size)last=null;};addEventListener("pointerup",up);addEventListener("pointercancel",up);})();
+ const pinchState=()=>{const [a,b]=[...pts.values()];return {d:Math.max(1,Math.hypot(a[0]-b[0],a[1]-b[1])),m:[(a[0]+b[0])/2,(a[1]+b[1])/2]};};
+ stage.addEventListener("pointerdown",e=>{if(!e.target.closest(".xray")||e.target.closest(".tapin"))return;cancelAnimationFrame(glide);
+  pts.set(e.pointerId,[e.clientX,e.clientY]);try{e.target.setPointerCapture&&e.target.setPointerCapture(e.pointerId);}catch(_){}
+  if(pts.size===1){mode="one";start=[e.clientX,e.clientY];moved=0;vel=[0,0];lastT=performance.now();}
+  else if(pts.size===2){mode="two";pinch=pinchState();moved=99;}});
+ addEventListener("pointermove",e=>{if(!pts.has(e.pointerId))return;const prev=pts.get(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);const s=svgOf();
+  if(mode==="two"&&pts.size===2){const n=pinchState(),V=vis(s),[x,y,w,h]=curVB(s);
+   // move with the fingers' midpoint, then scale around it
+   const dx=(n.m[0]-pinch.m[0])*V.k,dy=(n.m[1]-pinch.m[1])*V.k;let v=[x-dx,y-dy,w,h];
+   const f=pinch.d/n.d,b0=VB0[s.id],nw=Math.min(b0[2]*1.4,Math.max(b0[2]*.12,w*f)),nh=nw*h/w,c=toSvg(s,n.m[0],n.m[1]);c[0]-=dx;c[1]-=dy;
+   v=[c[0]-(c[0]-v[0])*nw/w,c[1]-(c[1]-v[1])*nh/h,nw,nh];setVB(s,v);pinch=n;return;}
+  if(mode==="one"&&pts.size===1){const ddx=e.clientX-prev[0],ddy=e.clientY-prev[1];moved=Math.max(moved,Math.hypot(e.clientX-start[0],e.clientY-start[1]));if(moved<8)return;
+   const now=performance.now(),dt=Math.max(1,now-lastT);vel=[ddx/dt,ddy/dt];lastT=now;
+   const V=vis(s),[x,y,w,h]=curVB(s);setVB(s,[x-ddx*V.k,y-ddy*V.k,w,h]);}});
+ const end=e=>{if(!pts.has(e.pointerId))return;pts.delete(e.pointerId);const s=svgOf();
+  if(mode==="two"){if(pts.size===1){mode="one";const p=[...pts.values()][0];start=p;moved=99;}else if(!pts.size)mode=null;return;}
+  if(mode!=="one"||pts.size)return;mode=null;
+  if(moved<8&&e.type==="pointerup"){const now=performance.now(),xy=[e.clientX,e.clientY];
+   if(now-lastTap<450&&lastTapXY&&Math.hypot(xy[0]-lastTapXY[0],xy[1]-lastTapXY[1])<30){clearTimeout(tapTimer);lastTap=0;
+    // double tap: zoom in 2x on the spot, or back to the full view if already zoomed
+    const home=s.__home||VB0[s.id],w=curVB(s)[2];if(w<home[2]*.8)zoomTo(s,home,350);else{const p=toSvg(s,xy[0],xy[1]);zoomBy(.5,p[0],p[1],true);}return;}
+   lastTap=now;lastTapXY=xy;tapTimer=setTimeout(()=>tapBody(xy[0],xy[1]),450);return;}
+  // fling: keep gliding a little, slowing down
+  if(performance.now()-lastT<80&&Math.hypot(vel[0],vel[1])>.4){let [vx,vy]=vel.map(v=>Math.max(-1.2,Math.min(1.2,v))*.6),t=performance.now();const step=()=>{const n=performance.now(),dt=n-t;t=n;vx*=Math.pow(.88,dt/16);vy*=Math.pow(.88,dt/16);if(Math.hypot(vx,vy)<.02)return;const V=vis(s),[x,y,w,h]=curVB(s);setVB(s,[x-vx*dt*V.k,y-vy*dt*V.k,w,h]);glide=requestAnimationFrame(step);};glide=requestAnimationFrame(step);}};
+ addEventListener("pointerup",end);addEventListener("pointercancel",end);
+ stage.addEventListener("gesturestart",e=>e.preventDefault());stage.addEventListener("dblclick",e=>{if(e.target.closest(".xray"))e.preventDefault();});})();
 /* v31: tapping the body picks the part under the finger */
 const KP={};PARTS.forEach(([n,ks],i)=>ks.forEach(k=>{if(KP[k]==null)KP[k]=i;}));
 const LOWK=["muscles","bones","fat","nerves","vessels","aorta","lymph","marrow","cartilage","joints","tendons","breast","skin","melano"];
@@ -1063,7 +1086,7 @@ function tapBody(x,y){if(st.view!=="body")return;const s=svgOf();if(s.id!=="fem"
  const hits=document.elementsFromPoint(x,y).filter(e=>e.classList&&e.classList.contains("film")&&e.closest("#"+s.id)&&!e.classList.contains("groove")&&!e.classList.contains("spotc")&&KP[e.dataset.k]!=null);
  if(!hits.length)return;let h=hits.find(e=>!LOWK.includes(e.dataset.k));if(!h)for(const k of LOWK){h=hits.find(e=>e.dataset.k===k);if(h)break;}
  const i=KP[h.dataset.k];const bi=$("bsintro");if(bi)bi.remove();
- st.part=i;st.role=null;st.comp=null;st.focus=null;st.view="body";compStrip();card();render();
+ st.part=i;st.role=null;st.comp=null;st.focus=null;st.view="body";st.keepView=true;compStrip();card();render();
  const b=document.querySelector(`#parts .sys[data-i="${i}"]`);if(b)b.scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"});}
 $("undo").onclick=()=>{const c=HIST.pop();if(!c)return;UNDOING=true;st.role=null;st.part=null;openComp(c);UNDOING=false;$("undo").hidden=!HIST.length;const b=document.querySelector(`#list .cchip[data-s="${c.s}"]`);if(b)b.scrollIntoView({block:"nearest",behavior:"smooth"});};
 $("z-in").onclick=()=>setTS(1);$("z-mi").onclick=()=>setTS(-1);
