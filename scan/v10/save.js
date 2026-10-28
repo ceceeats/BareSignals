@@ -105,7 +105,7 @@ function weekParts(M,m,w,k){const wide=w>400,lab=wide?200:w-7*23;const bs=wide?2
    (1-5 top row, 6-10 bottom): its colour while the first vial covers it, amber once they need to buy more, a red square on the last day of its cycle. */
 const AMBER='#E8A33A';
 function monthPlan(m){const day0=new Date(m.date);day0.setHours(0,0,0,0);const mon=new Date(day0);mon.setDate(mon.getDate()-((mon.getDay()+6)%7));
- const endD=new Date(mon);endD.setDate(endD.getDate()+55);const map={};
+ const endD=new Date(mon);endD.setDate(endD.getDate()+76);const map={};
  m.items.forEach((it,ix)=>{const col=it.col[0]?it.col[0][0]:C.rule;const s=new Date(it.start||day0);s.setHours(0,0,0,0);const dy=new Set(it.dy||[]);let n=0;
   for(let d=new Date(s),i=0;d<=endD;d.setDate(d.getDate()+1),i++){if(it.cyc&&i>=it.cyc)break;
    const key=d.toDateString();let st=null;
@@ -125,13 +125,45 @@ function monthBlock(M,m,plan,w,k,wk0,label){const cw=w/7,big=cw>40,ch=big?40:34,
    const D=plan.map[dt.toDateString()]||{};const ds=big?5.6:4.4,gap=(cw-6)/per;
    for(let ix=0;ix<Math.min(n,10);ix++){const q=D[ix];if(!q)continue;const px=cx+3+(ix%per)*gap+gap/2,py=cy+15+Math.floor(ix/per)*(ds+3.4)+ds/2;
     if(q.st==='stop')R(o,px-ds/2,py-ds/2,ds,ds,C.flag);else if(q.st==='buy')Ci(o,px,py,ds/2,AMBER,'#B9741A',.5);else Ci(o,px,py,ds/2,q.col,C.ink,.4)}}}}}
-function monthKey(M,m,w,k){const chips=m.items.map((it,i)=>[(i+1)+' '+it.n,it.col[0]?it.col[0][0]:C.rule]);const fs=7.4*k;
+/* Option A, calendar: five weeks to a page, every day lists its vial codes as coloured tags (zoom in for detail).
+   Tag in the compound's colour = a dose; amber tag = this dose opens a new vial; red tag = last day of the cycle. */
+function calBlock(M,m,plan,w,k,wk0,label,avail){const cw=w/7,n=m.items.length;const perRow=2,rowsT=Math.ceil(Math.min(n,12)/perRow);
+ const start=new Date(plan.mon);start.setDate(start.getDate()+wk0*7);const end=new Date(start);end.setDate(end.getDate()+34);
+ const fd=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+ const ch=Math.max(46,Math.min(110,(avail-34)/5));const th=Math.min(13,(ch-13)/rowsT-1.4),fs=Math.min(7.6,th*.68);const h=18+12+5*ch;
+ return {h,draw(o,x,yy){T(o,x,yy+11,label,'h',11*k,C.ink);T(o,x+M.w(label,'h',11*k)+6,yy+11,(fd(start)+' – '+fd(end)).toUpperCase(),'mb',6.6,C.soft);
+  DAYS.forEach((d,j)=>T(o,x+j*cw+3,yy+26,d,'mb',6.4,C.soft));const top=yy+30;
+  for(let i=0;i<35;i++){const dt=new Date(start);dt.setDate(dt.getDate()+i);const r=Math.floor(i/7),c=i%7,cx=x+c*cw,cy=top+r*ch;
+   const past=dt<plan.day0,isStart=dt.getTime()===plan.day0.getTime();
+   R(o,cx+.5,cy+.5,cw-1,ch-1,past?C.paper:(c>4?'#FBF8E4':C.chip),C.rule,.6);
+   const lab=dt.getDate()===1||i===0?fd(dt):String(dt.getDate());T(o,cx+3,cy+8.5,lab,isStart?'mb':'m',6.6,isStart?C.draw:past?C.rule:C.soft);
+   const D=plan.map[dt.toDateString()]||{};const tw=(cw-6-2)/perRow;let s=0;
+   for(let ix=0;ix<n;ix++){const q=D[ix];if(!q)continue;const it=m.items[ix];const tx=cx+3+(s%perRow)*(tw+2),ty=cy+12+Math.floor(s/perRow)*(th+1.4);s++;
+    const fill=q.st==='stop'?C.flag:q.st==='buy'?AMBER:q.col,tc=q.st==='stop'?C.white:q.st==='buy'?C.ink:onCol(q.col);
+    R(o,tx,ty,tw,th,fill,C.ink,.35);const t=it.c;T(o,tx+tw/2-M.w(t,'mb',fs)/2,ty+th/2+fs*.36,t,'mb',fs,tc)}}}}}
+/* Option B, tracker: one row per compound, one column per day, 30 days to a strip, two strips to a page */
+function trackBlock(M,m,plan,w,k,d0,label){const n=m.items.length,lab=Math.min(110,w*.32),nd=30,cw=(w-lab)/nd,rh=17*k;
+ const start=new Date(plan.day0);start.setDate(start.getDate()+d0);const end=new Date(start);end.setDate(end.getDate()+nd-1);
+ const fd=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});const h=18+20+n*rh+2;
+ return {h,draw(o,x,yy){T(o,x,yy+11,label,'h',11*k,C.ink);T(o,x+M.w(label,'h',11*k)+6,yy+11,(fd(start)+' – '+fd(end)).toUpperCase(),'mb',6.6,C.soft);
+  const top=yy+38;
+  for(let j=0;j<nd;j++){const dt=new Date(start);dt.setDate(dt.getDate()+j);const cx=x+lab+j*cw,wd=(dt.getDay()+6)%7;
+   if(wd>4)R(o,cx,top-2,cw,n*rh+2,'#F6F1D2');
+   const t=dt.getDate()===1?dt.toLocaleDateString('en-GB',{month:'short'}):String(dt.getDate());if(wd===0||dt.getDate()===1||j===0)T(o,cx+1,top-12,t,dt.getDate()===1?'mb':'m',6,dt.getDate()===1?C.draw:C.soft);
+   T(o,cx+cw/2-M.w(DAYS[wd],'m',5)/2,top-4,DAYS[wd],'m',5,C.rule);if(wd===0&&j)Ln(o,cx,top-2,cx,top+n*rh,C.rule,.6)}
+  m.items.forEach((it,ix)=>{const ry=top+ix*rh;const col=it.col[0]?it.col[0][0]:C.rule;
+   T(o,x,ry+rh*.62,wrap(M,(ix+1)+' '+it.n,'b',7.6*k,lab-6)[0],'b',7.6*k,C.ink);
+   for(let j=0;j<nd;j++){const dt=new Date(start);dt.setDate(dt.getDate()+j);const q=(plan.map[dt.toDateString()]||{})[ix];if(!q)continue;
+    const s=Math.min(cw-1.6,rh-5),cx=x+lab+j*cw+(cw-s)/2,cy=ry+(rh-s)/2;
+    R(o,cx,cy,s,s,q.st==='stop'?C.flag:q.st==='buy'?AMBER:col,C.ink,.35)}
+   Ln(o,x,ry+rh,x+w,ry+rh,C.rule,.4)})}}}
+function monthKey(M,m,w,k,style){const chips=m.items.map((it,i)=>[(style==='cal'?it.c+' ':(i+1)+' ')+it.n,it.col[0]?it.col[0][0]:C.rule]);const fs=7.4*k;
  const lines=[[]];let cur=0;chips.forEach(c=>{const ww=M.w(c[0],'r',fs)+16;if(cur+ww>w&&lines[lines.length-1].length){lines.push([]);cur=0}lines[lines.length-1].push(c);cur+=ww});
  const h=lines.length*12+46;
  return {h,draw(o,x,y){lines.forEach((ln,li)=>{let xx=x;ln.forEach(([t,c])=>{Ci(o,xx+3,y+li*12+5,2.6,c,C.ink,.4);T(o,xx+8,y+li*12+7.5,t,'r',fs,C.ink);xx+=M.w(t,'r',fs)+16})});
   let ly=y+lines.length*12+10;const items=[['dot','A dose'],['buy','New vial needed: buy before this'],['stop','Stop: end of the cycle']];let xx=x;
   items.forEach(([s,t])=>{if(s==='stop')R(o,xx,ly-4,5,5,C.flag);else if(s==='buy')Ci(o,xx+2.5,ly-1.5,2.6,AMBER,'#B9741A',.5);else Ci(o,xx+2.5,ly-1.5,2.6,C.soft,C.ink,.4);T(o,xx+9,ly+1,t,'r',7.2*k,C.soft);xx+=M.w(t,'r',7.2*k)+20;if(xx>x+w-80){xx=x;ly+=11}});
-  wrap(M,'Each day shows compounds 1 to 5 on the top row, 6 to 10 below, from today or the start date you set.','r',7*k,w).forEach((l,j)=>T(o,x,ly+13+j*9.5,l,'r',7*k,C.soft))}}}
+  wrap(M,style==='cal'?'Each tag is the code on your vial. Zoom in to read a day. Counted from today or the start date you set.':style==='track'?'One row per compound, one column per day. Shaded columns are weekends. Counted from today or the start date you set.':'Each day shows compounds 1 to 5 on the top row, 6 to 10 below, from today or the start date you set.','r',7*k,w).forEach((l,j)=>T(o,x,ly+13+j*9.5,l,'r',7*k,C.soft))}}}
 
 function sectionHead(M,title,sentence,col,w,k){const sl=sentence?wrap(M,sentence,'r',8.6*k,w):[];const h=17+sl.length*11*k+(sl.length?3:0);
  return {h,draw(o,x,y){R(o,x,y+3,9,9,col);T(o,x+14,y+11,title,'mb',8.4,col);sl.forEach((l,j)=>T(o,x,y+24+j*11*k,l,'r',8.6*k,C.soft))}}}
@@ -163,12 +195,15 @@ function layout(M,fmt,m,forImage){const F=FMT[fmt],k=F.k,W=F.W,H=F.H,x0=F.m,full
  /* gentle warnings right under the week */
  (m.warn||[]).forEach(t=>{const L=wrap(M,t,'r',8.4*k,full-110);const h=L.length*11*k+12;if(h>room())newPage();y+=6;
   R(pg.ops,x0,y,full,h,'#FFF6E5');R(pg.ops,x0,y,3,h,AMBER);T(pg.ops,x0+9,y+10.5,'GENTLE WARNING','mb',6.6,'#B9741A');L.forEach((l,j)=>T(pg.ops,x0+92,y+10.5+j*11*k,l,'r',8.4*k,C.ink));y+=h});
- /* two months ahead */
- {const plan=monthPlan(m),d0=plan.day0,ym=[[d0.getFullYear(),d0.getMonth()],[d0.getFullYear(),d0.getMonth()+1]].map(([yy,mm])=>[new Date(yy,mm,1).getFullYear(),new Date(yy,mm,1).getMonth()]);
-  const head=sectionHead(M,'TWO MONTHS AHEAD',null,C.ink,full,k);
-  if(fmt==='phone'){newPage();put(head);[0,4].forEach((w0,i)=>{const b=monthBlock(M,m,plan,full,k,w0,i?'Weeks 5–8':'Weeks 1–4');if(b.h>room())newPage();b.draw(pg.ops,x0,y);y+=b.h+8});const kk=monthKey(M,m,full,k);if(kk.h>room())newPage();kk.draw(pg.ops,x0,y);y+=kk.h}
-  else{const hw=(full-16)/2,bs=[0,4].map((w0,i)=>monthBlock(M,m,plan,hw,k,w0,i?'Weeks 5–8':'Weeks 1–4'));const kk=monthKey(M,m,full,k);const need=head.h+Math.max(bs[0].h,bs[1].h)+kk.h+20;
-   if(need>room())newPage();else y+=14;put(head);bs.forEach((b,i)=>b.draw(pg.ops,x0+i*(hw+16),y));y+=Math.max(bs[0].h,bs[1].h)+8;kk.draw(pg.ops,x0,y);y+=kk.h}}
+ /* two months ahead: 'cal' = calendar with vial codes (one page per five weeks), 'track' = rows per compound (two 30-day strips), 'dots' = the compact grid */
+ {const plan=monthPlan(m),style=m.monthStyle||'cal',kk=()=>monthKey(M,m,full,k,style);
+  if(style==='cal'){[0,5].forEach((w0,i)=>{if(fmt==='phone'||i===0)newPage();else y+=14;const head=sectionHead(M,i?'WEEKS 6–10':'YOUR NEXT TWO MONTHS',null,C.ink,full,k);put(head);
+    const key=kk();const b=calBlock(M,m,plan,full,k,w0,i?'Weeks 6–10':'Weeks 1–5',room()-key.h-10);b.draw(pg.ops,x0,y);y+=b.h+8;key.draw(pg.ops,x0,y);y+=key.h})}
+  else if(style==='track'){newPage();put(sectionHead(M,'YOUR NEXT TWO MONTHS',null,C.ink,full,k));[0,30].forEach((d0,i)=>{const b=trackBlock(M,m,plan,full,k,d0,i?'Days 31–60':'Days 1–30');if(b.h>room())newPage();b.draw(pg.ops,x0,y);y+=b.h+10});const key=kk();if(key.h>room())newPage();key.draw(pg.ops,x0,y);y+=key.h}
+  else{const head=sectionHead(M,'TWO MONTHS AHEAD',null,C.ink,full,k);
+   if(fmt==='phone'){newPage();put(head);[0,4].forEach((w0,i)=>{const b=monthBlock(M,m,plan,full,k,w0,i?'Weeks 5–8':'Weeks 1–4');if(b.h>room())newPage();b.draw(pg.ops,x0,y);y+=b.h+8});const key=kk();if(key.h>room())newPage();key.draw(pg.ops,x0,y);y+=key.h}
+   else{const hw=(full-16)/2,bs=[0,4].map((w0,i)=>monthBlock(M,m,plan,hw,k,w0,i?'Weeks 5–8':'Weeks 1–4'));const key=kk();const need=head.h+Math.max(bs[0].h,bs[1].h)+key.h+20;
+    if(need>room())newPage();else y+=14;put(head);bs.forEach((b,i)=>b.draw(pg.ops,x0+i*(hw+16),y));y+=Math.max(bs[0].h,bs[1].h)+8;key.draw(pg.ops,x0,y);y+=key.h}}}
  /* 2. the details (dose, how often, draw, mix) with blood work and supplements right under.
     Phone: its own page. Paper: the table is never split; if it won't fit under the week, the two lists fill that space first. */
  const doTable=()=>{
