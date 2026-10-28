@@ -637,6 +637,10 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&HOLD)holdEnd(true)});
 /* v10 month view: doses in one vial, cycle length in days (low end; 0 = ongoing), start day */
 function perVial(it,x){const p=parseDose(it.dose);if(!p)return 0;const m={kind:p.u==='U'?'units':p.u==='IU'?'iu':p.u==='mL'?'liquid':'mass',vial:+it.vm||defVial(x),water:+it.vw||x.vw||2,dose:p.v,unit:p.u,syr:100};
  if(m.kind==='mass'&&!(m.vial>0))return 0;const r=calc(m,x);return r.ok&&r.per>0?r.per:0}
+/* rest after the cycle, from the cycle text ("20 days, 1–2 mo off"); a weekly "5 on/2 off" is not a rest. Selank from its Russian label (repeat after 1–3 weeks) */
+function restOf(x){if(x.c==='SLK')return '1–3 wk';const t=String(x.d&&x.d.cycle||'');if(/\d\s*on\s*\/\s*\d\s*off/i.test(t))return '';
+ const m=t.match(/([\d.]+(?:\s*[–-]\s*[\d.]+)?\+?)\s*(days?|wk|weeks?|mo|months?)?\s*off/i);if(!m)return '';
+ let u=m[2]||(t.match(/\d\s*(days?|wk|weeks?|mo|months?)/i)||[])[1]||'';u=u.replace(/weeks?/i,'wk').replace(/months?/i,'mo').replace(/^days?$/i,'days');return (m[1].replace(/\s+/g,'')+' '+u).trim()}
 function cycDays(x){const c=String(x.d&&x.d.cycle||'').trim();if(!c||/ongoing|as needed|continuous|^after/i.test(c))return 0;
  const m=c.match(/([\d.]+)\s*(?:[–-]\s*[\d.]+)?\s*(days?|d\b|wk|weeks?|mo|months?)/i);if(!m)return 0;const n=+m[1],u=m[2].toLowerCase();return Math.round(u[0]==='d'?n:u[0]==='w'?n*7:n*30)}
 /* gentle warnings: two or more compounds pushing the same way. Read from each compound's own role line,
@@ -654,7 +658,7 @@ function exportModel(){const items=L.items.filter(i=>IT[i.c]);const Z=BWREADY?bw
    const vial=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL vial${LQ[x.c].mg?' ('+LQ[x.c].mg+' mg)':''}, no water`:canMix(x)&&!x.kind?(vm>0?`Vial ${nf(vm,2)} ${isIU(x)?'IU':'mg'} + ${nf(+it.vw||x.vw||2,2)} mL water`:'Vial size not set'):'';
    const mx=canMix(x)&&!x.kind,mixA=LQ[x.c]?`Ready-made ${LQ[x.c].ml} mL`:mx?(vm>0?`${nf(vm,2)} ${isIU(x)?'IU':'mg'} vial`:'Set vial size'):x.rt==='oral'?'Capsule, no mixing':x.rt==='topical'?'On the skin':'',
     mixB=LQ[x.c]?'no water':mx&&vm>0?`+ ${nf(+it.vw||x.vw||2,2)} mL BAC`:'';
-   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,per:perVial(it,x),cyc:cycDays(x),start:it.sd?new Date(it.sd+'T12:00').getTime():0,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,tmA:/AM/.test(tm.a||'')?'AM':/PM/.test(tm.a||'')?'PM':'',tmB:tm.b||'',rk:mx?(x.rt==='nasal'?'nasal':'inj'):x.rt==='oral'?'oral':x.rt==='topical'?'topical':x.rt==='nasal'?'nasal':'inj',
+   return {n:x.n,c:x.c,col:weights(x).map(w=>[col(w[0]),w[1]]),dose:it.dose||'Dose not set',set:!!it.dose,draw:d,freq:FL[it.f]||'',mixA,mixB,per:perVial(it,x),cyc:cycDays(x),rest:restOf(x),start:it.sd?new Date(it.sd+'T12:00').getTime():0,dy:dd,times:it.f==='D3'?3:it.f==='D2'?2:1,tmA:/AM/.test(tm.a||'')?'AM':/PM/.test(tm.a||'')?'PM':'',tmB:tm.b||'',rk:mx?(x.rt==='nasal'?'nasal':'inj'):x.rt==='oral'?'oral':x.rt==='topical'?'topical':x.rt==='nasal'?'nasal':'inj',
     days:dd.length===7?'Every day':dd.length?dd.map(k=>DL[k]).join(', '):'',time:[tm.a?String(tm.a).replace(/^[^A-Za-z]+/,''):'',tm.b||''].filter(Boolean).join(' · '),
     vial,cycle:cycTxt(x,it),start:it.sd?fdShort(new Date(it.sd+'T12:00').getTime()):'',note:it.nt||'',route:(x.d&&x.d.route)||''}}),
   link:location.origin+protoLink(),

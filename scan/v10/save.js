@@ -132,7 +132,7 @@ function mix(h,a){const n=parseInt(h.slice(1),16),r=n>>16&255,g=n>>8&255,b=n&255
 const tagName=n=>/ \+ /.test(n)?n.split(' + ').map(p=>p.replace(/-\d+$/,'').replace(/ \(.*\)$/,'')).join(' + '):n;
 function trim(M,t,f,fs,w){if(M.w(t,f,fs)<=w)return t;let s=t;while(s.length>3&&M.w(s+'…',f,fs)>w)s=s.slice(0,-1);return s+'…'}
 function drawTag(o,M,x,y,w,h,name,q,fs){const pad=2.2,ty=y+h/2+fs*.36;name=tagName(name);
- if(q.st==='stop'){R(o,x,y,w,h,'#FDECEC',C.flag,1.2);T(o,x+pad,ty,trim(M,name,'b',fs,w-pad*2),'b',fs,C.flag);return}
+ if(q.st==='stop'){R(o,x,y,w,h,C.white,C.rule,.6);const r=Math.min(h*.34,3);Ci(o,x,y+h/2,r,C.white,C.flag,1.1);T(o,x+pad+r*.7,ty,trim(M,name,'b',fs,w-pad*2-r*.7),'b',fs,C.ink);return}
  if(q.st==='buy'){R(o,x,y,w,h,mix(q.col,.62),C.soft,.5,[1.4,1]);T(o,x+pad,ty,trim(M,name,'b',fs,w-pad*2),'b',fs,C.soft);return}
  R(o,x,y,w,h,q.col,C.ink,.35);T(o,x+pad,ty,trim(M,name,'b',fs,w-pad*2),'b',fs,onCol(q.col))}
 function calBlock(M,m,plan,w,k,wk0,label,avail){const cw=w/7,n=m.items.length;
@@ -162,15 +162,16 @@ function trackBlock(M,m,plan,w,k,d0,label){const n=m.items.length,lab=Math.min(1
    T(o,x,ry+rh*.62,wrap(M,(ix+1)+' '+it.n,'b',7.6*k,lab-6)[0],'b',7.6*k,C.ink);
    for(let j=0;j<nd;j++){const dt=new Date(start);dt.setDate(dt.getDate()+j);const q=(plan.map[dt.toDateString()]||{})[ix];if(!q)continue;
     const s=Math.min(cw-1.6,rh-5),cx=x+lab+j*cw+(cw-s)/2,cy=ry+(rh-s)/2;
-    if(q.st==='stop'){R(o,cx,cy,s,s,C.white,C.flag,1);Ln(o,cx+1.2,cy+1.2,cx+s-1.2,cy+s-1.2,C.flag,.8)}else if(q.st==='buy')R(o,cx,cy,s,s,mix(col,.62),C.soft,.5,[1.2,.8]);else R(o,cx,cy,s,s,col,C.ink,.35)}
+    if(q.st==='stop'){Ci(o,cx+s/2,cy+s/2,s/2-.4,C.white,C.flag,1)}else if(q.st==='buy')R(o,cx,cy,s,s,mix(col,.62),C.soft,.5,[1.2,.8]);else R(o,cx,cy,s,s,col,C.ink,.35)}
    Ln(o,x,ry+rh,x+w,ry+rh,C.rule,.4)})}}}
 function monthKey(M,m,w,k,style){const chips=style==='cal'?[]:m.items.map((it,i)=>[(i+1)+' '+it.n,it.col[0]?it.col[0][0]:C.rule]);const fs=7.4*k;
  const lines=[[]];let cur=0;chips.forEach(c=>{const ww=M.w(c[0],'r',fs)+16;if(cur+ww>w&&lines[lines.length-1].length){lines.push([]);cur=0}lines[lines.length-1].push(c);cur+=ww});
- const h=lines.length*12+46;
+ const h=lines.length*12+60;
  return {h,draw(o,x,y){lines.forEach((ln,li)=>{let xx=x;ln.forEach(([t,c])=>{Ci(o,xx+3,y+li*12+5,2.6,c,C.ink,.4);T(o,xx+8,y+li*12+7.5,t,'r',fs,C.ink);xx+=M.w(t,'r',fs)+16})});
-  let ly=y+(chips.length?lines.length*12+10:6);const sw=[['dot','A dose'],['buy','Faded: new vial from this dose, buy before'],['stop','Red outline: cycle ends']];let xx=x;
-  sw.forEach(([st,t])=>{const c='#E1DE62';if(st==='stop'){R(o,xx,ly-6,22,8,'#FDECEC',C.flag,1.2)}else if(st==='buy')R(o,xx,ly-6,22,8,mix(c,.62),C.soft,.5,[1.4,1]);else R(o,xx,ly-6,22,8,c,C.ink,.35);
+  let ly=y+(chips.length?lines.length*12+10:6);const sw=[['dot','A dose'],['buy','Faded: new vial from this dose, buy before'],['stop','Cycle ends, then rest']];let xx=x;
+  sw.forEach(([st,t])=>{const c='#E1DE62';if(st==='stop'){R(o,xx,ly-6,22,8,C.white,C.rule,.6);Ci(o,xx,ly-2,2.8,C.white,C.flag,1.1)}else if(st==='buy')R(o,xx,ly-6,22,8,mix(c,.62),C.soft,.5,[1.4,1]);else R(o,xx,ly-6,22,8,c,C.ink,.35);
    T(o,xx+27,ly,t,'r',7.2*k,C.soft);xx+=27+M.w(t,'r',7.2*k)+14;if(xx>x+w-110){xx=x;ly+=13}});
+  {const rs=m.items.filter(it=>it.cyc&&it.rest).map(it=>tagName(it.n)+' '+it.rest);if(rs.length){ly+=13;wrap(M,'Rest after the cycle: '+rs.join(' · '),'r',7.2*k,w).forEach((l,j)=>{T(o,x,ly+j*9.5,l,'r',7.2*k,C.ink)});ly+=(wrap(M,'Rest after the cycle: '+rs.join(' · '),'r',7.2*k,w).length-1)*9.5}}
   wrap(M,style==='cal'?'Zoom in to read a day. Counted from today or the start date you set.':style==='track'?'One row per compound, one column per day. Shaded columns are weekends. Counted from today or the start date you set.':'Each day shows compounds 1 to 5 on the top row, 6 to 10 below, from today or the start date you set.','r',7*k,w).forEach((l,j)=>T(o,x,ly+13+j*9.5,l,'r',7*k,C.soft))}}}
 
 function sectionHead(M,title,sentence,col,w,k){const sl=sentence?wrap(M,sentence,'r',8.6*k,w):[];const h=17+sl.length*11*k+(sl.length?3:0);
