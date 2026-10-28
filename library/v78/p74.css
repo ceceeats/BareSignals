@@ -1,0 +1,64 @@
+/* Library v74 (27 Oct 2026, built on v73): Key takeaway box on every card and
+   every full page (what it is, legal status, what people want it for, one
+   honest evidence line) and an FAQ section on full pages. v73 kept. */
+
+/* ---------- key takeaway ---------- */
+.kt{border:1.5px solid var(--ink);border-left:5px solid var(--accent);background:var(--chip);padding:9px 12px 10px;margin:0}
+.kt .ktt{display:flex;align-items:baseline;gap:7px;margin:0 0 6px;font:600 calc(11px*var(--k)) var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.kt .ktt em{font:500 calc(8.5px*var(--k)) var(--mono);letter-spacing:.07em;font-style:normal;color:var(--ink-soft)}
+.kt dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:10px;row-gap:5px;align-items:baseline}
+.kt dt{font:600 calc(9.5px*var(--k))/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.kt dd{margin:0;font-size:calc(13px*var(--k));line-height:1.42}
+.kt dd b{font-weight:600;color:var(--accent)}
+.kt .kl{display:inline-flex;align-items:center;gap:4px}
+.kt .kl i{width:8px;height:8px;flex:none;background:var(--kc,var(--rule));box-shadow:inset 0 0 0 1px rgba(62,74,128,.25)}
+.kt-ev dd{color:var(--ink)}
+/* on the card the box sits flush under the colour strip */
+.card .kt{border-top:0;margin:0}
+/* phone: labels above their line, nothing indented, no column gutter left empty */
+@media (max-width:599px){
+  .kt{padding:8px 10px 9px}
+  .kt dl{grid-template-columns:minmax(0,1fr);row-gap:7px}
+  .kt dt{line-height:1.3;margin-bottom:1px}
+  .kt dd{font-size:calc(12.5px*var(--k))}
+  .kt .ktt{margin-bottom:5px}
+}
+/* big text: labels stop competing with the lines they label */
+.big-text .kt dt{font-size:calc(9px*var(--k))}
+
+/* takeaway inside the full-page hero column */
+.hd65 .kt{margin-top:8px}
+@media (min-width:900px){.hd65 .kt{margin-top:10px}}
+
+/* ---------- FAQ ---------- */
+.faq{margin:0}
+.faq .fqi{border-top:1px dashed var(--rule);padding:8px 0 0;margin:8px 0 0;break-inside:avoid}
+.faq .fqi:first-child{border-top:0;padding-top:0;margin-top:0}
+.faq .fqq{margin:0 0 3px;font:600 calc(13.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.faq .fqa{margin:0;font-size:calc(12.5px*var(--k));line-height:1.45;color:var(--ink)}
+@media (min-width:900px){
+  .faq{columns:2;column-gap:22px}
+  .faq .fqi{break-inside:avoid;-webkit-column-break-inside:avoid}
+}
+@media (min-width:1180px){.faq{column-gap:26px}}
+/* questions are buttons at every width; the laptop just never folds them */
+.faq .fqq{display:flex;align-items:flex-start;gap:7px;width:100%;text-align:left;background:none;border:0;padding:0;color:inherit;font:600 calc(13.5px*var(--k))/1.3 var(--display)}
+@media (min-width:900px){.faq .fqq{cursor:default}.faq .fqa.fq-c{display:block}}
+/* phone: tap to open, so the list of questions stays scannable */
+@media (max-width:899px){
+  .faq .fqq{cursor:pointer;min-height:26px;align-items:center}
+  .faq .fqq::after{content:"+";margin-left:auto;font:500 calc(15px*var(--k)) var(--mono);color:var(--accent);line-height:1}
+  .faq .fqq[aria-expanded="true"]::after{content:"–"}
+  .faq .fqa{margin-top:4px}
+  .faq .fqa.fq-c{display:none}
+}
+/* two columns, split by measured height so neither ends short (faqBal) */
+.faq.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:22px;align-items:start;columns:auto}
+.faq.split .fqcol{min-width:0}
+.faq.split .fqcol .fqi:first-child{border-top:0;padding-top:0;margin-top:0}
+@media (min-width:1180px){.faq.split{column-gap:26px}}
+/* the FAQ row runs the full page width; its own two columns do the splitting */
+@media (min-width:900px){.fp65 .r65.r6{--nc:1}}
+/* mixing water pages sit outside the fp65 grid: give the box the same rhythm */
+.phero+.kt,.kt+.ptop{margin-top:0}
+#pagev>.kt{margin:0 0 14px}
