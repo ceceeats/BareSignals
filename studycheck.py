@@ -6,6 +6,7 @@ and lists where the Library or a home label disagrees with a checked study:
   NOROLE   study tests an area the Library 'Tested so far' list does not show
   UNDER    Library says a weaker kind of evidence than the study we found
   OVER     Library says stronger evidence than every study we have for that area (look for the trial or lower the claim)
+  SAMETRIAL a % the Library gives for a named trial that the checked study of that trial does not contain (often two analyses: everyone who started vs people who stayed on drug)
   NUMBER   a % in a home label tied to a checked study that the study does not contain
 Writes studycheck.txt; nothing is changed.
 RULES before acting on any flag (Cece, 29 Oct 2026):
@@ -56,6 +57,14 @@ for slug, xs in by.items():
         if lv==4 and best==3: best=4
         if lv > best: out[slug].append(f"OVER     {role}: Library says {'/'.join(t[2] for t in rows)} ('{rows[0][1]}'), best checked study is {[x['type'] for x in xs2]}")
     have = set().union(*(pct(x.get("f","")+" "+x.get("t","")) for x in xs))
+    p = PAGE.get(slug, {})
+    for fld in ("worked","helps"):
+        for sen in re.split(r"(?<=[.;])\s+", p.get(fld,"") or ""):
+            for x in xs:
+                names = {w for w in re.findall(r"\b[A-Z][A-Z0-9]{3,}(?:-\d)?\b", x["t"])}
+                if names and any(n in sen for n in names):
+                    miss = pct(sen) - pct(x.get("f","")+" "+x.get("t",""))
+                    if miss: out[slug].append(f"SAMETRIAL Library '{fld}' says {sorted(miss)}% for {'/'.join(sorted(names))}, checked study has {sorted(pct(x.get('f','')))}: \"{sen[:140]}\"")
     h = HOME.get(slug)
     if h:
         for o in h.get("o") or []:
