@@ -1,12 +1,15 @@
-{"_why":"Checked by hand: the Library row is right, the checker can't match it by words. Keys: slug|role (OVER) or slug|study url",
- "thymosin-beta-4|Protection":"IV safety row = Ruff 2010 phase 1, 40 healthy volunteers (PubMed 20536472); no body label for it",
- "5-amino-1mq|Energy":"same paper (Neelakantan 2017) has the obese-mouse data",
- "bpc-157|Gut":"colitis enema trial row says results never published; no PubMed or registry record",
- "aod-9604|Fat":"obesity trials only in company reports; row says so",
- "adipotide|Fat":"phase 1 NCT01262664, 4 men, terminated; row says so",
- "kisspeptin-10|https://pubmed.ncbi.nlm.nih.gov/21632807/":"= 'LH and testosterone rise'",
- "slu-pp-332|https://pubmed.ncbi.nlm.nih.gov/36988910/":"= 'Running endurance'",
- "somatropin-hgh|https://pubmed.ncbi.nlm.nih.gov/2355952/":"= 'Anti-aging in older adults'",
- "melanotan-1|https://pubmed.ncbi.nlm.nih.gov/26132941/":"= 'Light tolerance in EPP'",
- "dihexa|https://pubmed.ncbi.nlm.nih.gov/23055539/":"= 'Memory in impaired rats'",
- "pt-141|https://pubmed.ncbi.nlm.nih.gov/31599840/":"= 'Female HSDD, Phase 3' (trial)"}
+{
+ "_why": "Checked by hand: the Library row is right, the checker can't match it by words. Keys: slug|role (OVER) or slug|study url",
+ "thymosin-beta-4|Protection": "IV safety row = Ruff 2010 phase 1, 40 healthy volunteers (PubMed 20536472); no body label for it",
+ "5-amino-1mq|Energy": "same paper (Neelakantan 2017) has the obese-mouse data",
+ "bpc-157|Gut": "colitis enema trial row says results never published; no PubMed or registry record",
+ "aod-9604|Fat": "obesity trials only in company reports; row says so",
+ "adipotide|Fat": "phase 1 NCT01262664, 4 men, terminated; row says so",
+ "kisspeptin-10|https://pubmed.ncbi.nlm.nih.gov/21632807/": "= 'LH and testosterone rise'",
+ "slu-pp-332|https://pubmed.ncbi.nlm.nih.gov/36988910/": "= 'Running endurance'",
+ "somatropin-hgh|https://pubmed.ncbi.nlm.nih.gov/2355952/": "= 'Anti-aging in older adults'",
+ "melanotan-1|https://pubmed.ncbi.nlm.nih.gov/26132941/": "= 'Light tolerance in EPP'",
+ "dihexa|https://pubmed.ncbi.nlm.nih.gov/23055539/": "= 'Memory in impaired rats'",
+ "pt-141|https://pubmed.ncbi.nlm.nih.gov/31599840/": "= 'Female HSDD, Phase 3' (trial)",
+ "tesamorelin|https://pubmed.ncbi.nlm.nih.gov/18057338/": "= 'HIV lipodystrophy' (trial)"
+}
