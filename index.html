@@ -1,4 +1,4 @@
-<!doctype html><!-- Home v45 = Body v54 (29 Oct 2026): study line in a soft blue-violet link colour. Home v44 (Body v53) kept at /home/v44/. Body v53 (29 Oct 2026): folded phone brain box no longer borrows one part's study line. Home v43 (Body v52) kept at /home/v43/. Body v52: each body label with a checked study (studies.json) shows a tiny underlined evidence line under its name and the whole label opens the study; no study, no line. Home v42 (Body v49) kept at /home/v42/. Earlier: Home v42 = Body v49 (29 Oct 2026). Home v41 (Body v47) kept at /home/v41/, v40 at /home/v40/, v39 at /home/v39/. -->
+<!doctype html><!-- Home v47 = Body v56 (29 Oct 2026): tapping a label with a study opens a small study card (what the page claims, who was studied, what it found, evidence level, source name) with the link at the bottom; zoom buttons tighter above F/M. Home v46 (Body v55) kept at /home/v46/. Body v55 (29 Oct 2026): summary text smaller and shown in full, summary box as wide as the body allows; zoom + and - centred right above F/M. Home v45 (Body v54) kept at /home/v45/. Body v54 (29 Oct 2026): study line in a soft blue-violet link colour. Home v44 (Body v53) kept at /home/v44/. Body v53 (29 Oct 2026): folded phone brain box no longer borrows one part's study line. Home v43 (Body v52) kept at /home/v43/. Body v52: each body label with a checked study (studies.json) shows a tiny underlined evidence line under its name and the whole label opens the study; no study, no line. Home v42 (Body v49) kept at /home/v42/. Earlier: Home v42 = Body v49 (29 Oct 2026). Home v41 (Body v47) kept at /home/v41/, v40 at /home/v40/, v39 at /home/v39/. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Bare Signals</title><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
@@ -58,7 +58,7 @@
 .xray.lit .orgs .film.on:not(.main):not(.nerve):not(.vline):not(.strk):not(.groove):not(.fatlob){stroke-opacity:.9;stroke-width:1.15}
 .details .dl.ear{stroke:#DDBFCB;stroke-width:1.1}
 .bmini .bm-tap{display:none!important}
-.tagl .tapin{pointer-events:auto;cursor:pointer}.tagl .lb.lk{pointer-events:auto;cursor:pointer}.tagl .lb.lk:hover .lbt{filter:brightness(.94)}
+.tagl .tapin{pointer-events:auto;cursor:pointer}.stpop{position:absolute;z-index:8;left:8px;right:8px;bottom:8px;max-height:72%;overflow:auto;background:var(--chip);border:1px solid var(--ink);box-shadow:0 6px 24px rgba(62,74,128,.22);padding:12px 13px 11px;color:var(--ink);font:400 12.5px/1.42 var(--body)}.stpop[hidden]{display:none}@media (min-width:900px){.stpop{left:auto;right:16px;bottom:16px;width:380px}}.stpop .sph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}.stpop .sph b{font:500 12px/1.25 var(--mono);letter-spacing:.07em;text-transform:uppercase}.stpop .spx{all:unset;cursor:pointer;font:500 10px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--act);padding:3px 0;white-space:nowrap}.stpop .spc{margin:0 0 4px;color:#5A6390;font-size:11.5px}.stpop .sps{border-top:1px solid rgba(62,74,128,.18);padding-top:8px;margin-top:8px}.stpop .spm{font:500 9.5px/1.45 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#6A6BC2}.stpop .spw{text-transform:none;letter-spacing:0;font-family:var(--body);font-size:11px;color:#5A6390}.stpop .spf{margin:4px 0}.stpop .spn{margin:0 0 7px;font-size:11px;color:#5A6390}.stpop .spl{font:500 10px/1 var(--mono);letter-spacing:.06em;color:#6A6BC2;text-decoration:underline;text-underline-offset:3px}.tagl .lb.lk{pointer-events:auto;cursor:pointer}.tagl .lb.lk:hover .lbt{filter:brightness(.94)}
 .xray.lit .orgs .film[data-k=si].on,.xray.lit .orgs .film[data-k=si].on.main{stroke-width:.7!important;stroke-opacity:.8!important;filter:none!important}
 .zb.ico{border:0!important;background:transparent!important;box-shadow:none!important}
 .zb.ico svg{width:17px;height:17px}
@@ -80,7 +80,7 @@
 .fl .segfl{order:5;margin-top:4px;align-self:flex-end}
 .nleg{top:6px!important}
 .fl{right:4px!important;align-items:flex-end!important}
-.fl .zb.ico{padding:2px 0!important;justify-content:flex-end!important}
+.fl .zb.ico{padding:0!important;height:20px;justify-content:center!important;align-self:stretch}#zctl.fl{align-items:flex-end;gap:4px}.fl .segfl{margin-top:0!important}
 #undo{font-size:24px!important;line-height:1!important;padding:2px 6px!important;font-weight:700!important}
 #rnd{display:inline-flex!important;align-items:center;gap:5px}
 #rnd .rsym{font-size:17px;line-height:1;display:inline-block;transform:translateY(-1px)}
@@ -142,7 +142,7 @@ svg.xray.lit .orgs .film.nerve[data-n="Spinal cord"][data-k].on{stroke:#3B8580!i
 /* v26: top block (chip copy, one-line what it does, stripe, read more), full card pop-up, start pop-up */
 .ctags.v26{max-width:none;gap:5px}
 .ctags .nchip{display:inline-flex;align-self:flex-start;gap:6px;align-items:center;font:500 13px/1 var(--body);color:var(--ink);padding:6px 9px 6px 7px;border:1px solid var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--chip);white-space:nowrap}
-.ctags .pl{margin:0;font:500 12px/1.36 var(--body);color:var(--ink);text-shadow:0 0 3px var(--chip),0 0 3px var(--chip)}
+.ctags .pl{margin:0;font:500 11.5px/1.36 var(--body);color:var(--ink);text-shadow:0 0 3px var(--chip),0 0 3px var(--chip)}
 .ctags .rs{display:flex;height:6px;width:100%}
 .ctags .rs i{display:block}
 .ctags .rmt{all:unset;cursor:pointer;align-self:flex-start;font:500 9px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--act);text-decoration:underline;padding:2px 0}
@@ -167,7 +167,7 @@ svg.xray.lit .orgs .film.nerve[data-n="Spinal cord"][data-k].on{stroke:#3B8580!i
 .bscard .ft{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px solid var(--rule)}
 .bscard .ft a{color:#3E6FC9;text-decoration:underline;font-weight:600;white-space:nowrap}
 .bscard .ft .fine{font-size:10.5px;color:var(--soft)}
-@media (max-width:899px){.ctags .pl{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.bmini,.cmini{width:min(24vw,96px)!important}}
+@media (max-width:899px){.ctags .pl{font-size:10.5px;line-height:1.32;display:block;-webkit-line-clamp:unset;overflow:visible}.bmini,.cmini{width:min(24vw,96px)!important}}
 .csum.v26b .fc{white-space:nowrap}
 .bsintro{position:absolute;z-index:6;left:50%;top:42%;transform:translate(-50%,-50%);width:min(280px,82%);background:var(--chip);border:1px solid var(--ink);padding:14px 14px 12px;text-align:center;box-shadow:0 6px 24px rgba(62,74,128,.18)}
 .bsintro p{margin:0 0 10px;font:500 13.5px/1.4 var(--body);color:var(--ink)}
@@ -620,9 +620,15 @@ const PAL=[["Appetite","Appetite & satiety","#DDD0F6"],["Glucose","Glucose & ins
 const P={};PAL.forEach(([k,l,c])=>P[k]=[l,c]);
 const BASE=/baresignals\.co$/.test(location.hostname)?"":"https://baresignals.co";
 const STAG={P3:["PHASE 3 TRIAL","#1F3D8F","#FFFFFF"],P2:["PHASE 2 TRIAL","#3A5FC8","#FFFFFF"],P1:["PHASE 1 TRIAL","#6F8FE6","#FFFFFF"],HUMAN:["HUMAN STUDY","#B3C7F5","#1D2B5C"],ANIMAL:["ANIMAL","#8C8C8C","#FFFFFF"],LAB:["LAB","#C4C4C4","#2B2B2B"],USERS:["USERS","#F28C28","#FFFFFF"]};
-let STUD={};
+let STUD={},STUDA={},LBS=[];
 {const sb=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?"":BASE;
- fetch(sb+"/studies.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(a=>{(a||[]).forEach(x=>{if(x&&x.slug)STUD[x.slug+"|"+x.r+"|"+x.at]=x;});try{const s=svgOf();if(s&&s.__list&&s.__list.length)drawTags(s);}catch(_){}}).catch(()=>{});}
+ fetch(sb+"/studies.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(a=>{(a||[]).forEach(x=>{if(x&&x.slug){const k=x.slug+"|"+x.r+"|"+x.at;if(!STUD[k])STUD[k]=x;(STUDA[k]=STUDA[k]||[]).push(x);}});try{const s=svgOf();if(s&&s.__list&&s.__list.length)drawTags(s);}catch(_){}}).catch(()=>{});}
+function srcName(u){let m;if((m=u.match(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)/)))return "PubMed "+m[1];if((m=u.match(/clinicaltrials\.gov\/study\/(NCT\d+)/)))return "ClinicalTrials.gov "+m[1];if((m=u.match(/articles\/(PMC\d+)/)))return "PMC "+m[1];if(/doi\.org/.test(u))return "Journal paper (DOI)";if(/rxiv/.test(u))return "Preprint, not peer reviewed";return "Source";}
+let stPopClosedAt=0;function stPopOpen(){const p=document.getElementById("stpop");return !!(p&&!p.hidden)||performance.now()-stPopClosedAt<450;}
+function studyPop(i){let p=document.getElementById("stpop");if(!p){p=document.createElement("div");p.id="stpop";p.className="stpop";p.hidden=true;p.setAttribute("role","dialog");p.addEventListener("click",e=>{if(e.target.closest(".spx"))studyPop(-1);});(document.querySelector(".stage")||document.body).appendChild(p);document.addEventListener("keydown",e=>{if(e.key==="Escape")studyPop(-1);});document.addEventListener("pointerdown",e=>{const q=document.getElementById("stpop");if(q&&!q.hidden&&!e.target.closest("#stpop")&&!(e.target.closest&&e.target.closest(".lb.lk"))){q.hidden=true;q.innerHTML="";stPopClosedAt=performance.now();}},true);}
+ const L=LBS[i];if(!L){p.hidden=true;p.innerHTML="";return;}
+ p.innerHTML=`<div class="sph"><b>${esc(L.L)}</b><button type="button" class="spx" aria-label="Close">Close ×</button></div>${L.note?`<p class="spc">On this page: ${esc(L.note)}</p>`:""}`+L.sts.map(z=>`<div class="sps"><div class="spm">${esc((STAG[z.type]||[""])[0])}${z.who?` · <span class="spw">${esc(z.who)}</span>`:""}</div>${z.f?`<p class="spf">${esc(z.f)}</p>`:""}<p class="spn">${esc(z.t||"")}</p><a class="spl" href="${esc(z.url)}" target="_blank" rel="noopener">${esc(srcName(z.url))} ↗</a></div>`).join("");
+ p.hidden=false;p.scrollTop=0;}
 function studyOf(mm){const c=st.comp;if(!c||!mm||!mm.role)return null;let x=STUD[c.s+"|"+mm.role+"|"+(mm.label||"")];
  if(!x){const o=(c.o||[]).filter(e=>e.r===mm.role&&e.k===mm.k);if(o.length===1)x=STUD[c.s+"|"+o[0].r+"|"+o[0].at];}
  return x&&STAG[x.type]&&okUrl(x.url)?x:null;}
@@ -809,7 +815,7 @@ function miniAnchor(s,mm,V){const bm=$("bmini");if(!bm||bm.hidden||bm.style.visi
  let cx=0,cy=0;P.forEach(p=>{cx+=p[0];cy+=p[1];});cx/=P.length;cy/=P.length;if(mm.k==="brain"){const b=e.getBBox();cy=b.y+b.height*.3;}
  P.sort((a,b)=>Math.hypot(a[0]-cx,a[1]-cy)-Math.hypot(b[0]-cx,b[1]-cy));const m=e.getScreenCTM();if(!m)return null;const q=new DOMPoint(P[0][0],P[0][1]).matrixTransform(m),sr=s.getBoundingClientRect();
  return [V.x+(q.x-sr.left)*V.k,V.y+(q.y-sr.top)*V.k];}
-function drawTags(s){{const h=s.__home||VB0[s.id];s.classList.toggle("zoomed",st.view==="body"&&s.viewBox.baseVal.width<h[2]*.97);}placeBrain();VIEWB=vis(s);const t=s.querySelector(".tagl"),g=s.querySelector(".mags");t.innerHTML="";g.innerHTML="";
+function drawTags(s){LBS=[];{const h=s.__home||VB0[s.id];s.classList.toggle("zoomed",st.view==="body"&&s.viewBox.baseVal.width<h[2]*.97);}placeBrain();VIEWB=vis(s);const t=s.querySelector(".tagl"),g=s.querySelector(".mags");t.innerHTML="";g.innerHTML="";
  const list=s.__list||[];if(!list.length)return;
  const V=vis(s),k=V.k,ph=isPhone(),TZ=tsGrow(s),fs=(ph?8.6:10)*k*TZ,ns=(ph?8.4:9.6)*k*TZ,lh=ns*1.3,pad=fs*.55,gapB=5*k,m=4*k,vg=4*k;
  const notes=(!!st.comp||st.part!=null)&&!s.classList.contains("sumopen");const top=V.y+30*k,bot=(()=>{let b=V.y+V.h*(s.classList.contains("sumopen")?.56:1)-4*k;const cs=$("csum");if(cs&&!cs.hidden&&!cs.classList.contains("open")){const sr=s.getBoundingClientRect(),r=cs.getBoundingClientRect();b=Math.min(b,V.y+(r.top-sr.top)*V.k-6*k);}return b;})(),OB=obstacles(s,V);
@@ -895,7 +901,7 @@ function drawTags(s){{const h=s.__home||VB0[s.id];s.classList.toggle("zoomed",st
  t.innerHTML=placed.map(({r,M,y0,side,x0,x1,w})=>{const col=(P[r.role]||["","#E3E0BF"])[1],th=M.tl.length*fs*1.35+pad*.6,ey=y0+Math.min(th/2,fs*1.1);
   const lx=side<0?x1:x0;
   let h=(r.xd||[]).map(p=>`<line x1="${p[0]}" y1="${p[1]}" x2="${lx}" y2="${ey}" stroke="#3E4A80" stroke-width="${.8*k}" stroke-opacity=".55"/><circle cx="${p[0]}" cy="${p[1]}" r="${2.8*k}" fill="${col}" stroke="#3E4A80" stroke-width="${.8*k}"/>`).join("")+`<line x1="${r.ax}" y1="${r.ay}" x2="${lx}" y2="${ey}" stroke="#3E4A80" stroke-width="${.8*k}" stroke-opacity=".8"/><circle cx="${r.ax}" cy="${r.ay}" r="${2.8*k}" fill="${col}" stroke="#3E4A80" stroke-width="${.8*k}"/>`;
-  const lk=r.stu&&okUrl(r.stu.url);h+=`<g class="lb${lk?" lk":""}"${lk?` data-u="${esc(r.stu.url)}" role="link" aria-label="${esc((r.stu.t||"Study")+" ("+M.sg[0].toLowerCase()+")")}"`:""}>`;if(lk)h+=`<rect class="lbhit" x="${x0}" y="${y0}" width="${x1-x0}" height="${M.h}" fill="transparent" pointer-events="all"/>`;const bx=side<0?x1-Math.min(w,M.tw):x0;h+=`<rect class="lbt" x="${bx}" y="${y0}" width="${Math.min(w,M.tw)}" height="${th}" fill="${col}" stroke="#3E4A80" stroke-width="${.6*k}" stroke-opacity=".3"/>`;
+  const lk=r.stu&&okUrl(r.stu.url);if(lk)LBS.push({L:r.L,note:(r.mm&&r.mm.note)||r.note||"",sts:(STUDA[r.stu.slug+"|"+r.stu.r+"|"+r.stu.at]||[r.stu]).filter(z=>okUrl(z.url))});h+=`<g class="lb${lk?" lk":""}"${lk?` data-i="${LBS.length-1}" data-u="${esc(r.stu.url)}" role="link" aria-label="${esc((r.stu.t||"Study")+" ("+M.sg[0].toLowerCase()+")")}"`:""}>`;if(lk)h+=`<rect class="lbhit" x="${x0}" y="${y0}" width="${x1-x0}" height="${M.h}" fill="transparent" pointer-events="all"/>`;const bx=side<0?x1-Math.min(w,M.tw):x0;h+=`<rect class="lbt" x="${bx}" y="${y0}" width="${Math.min(w,M.tw)}" height="${th}" fill="${col}" stroke="#3E4A80" stroke-width="${.6*k}" stroke-opacity=".3"/>`;
   h+=`<text font-family="JetBrains Mono,monospace" font-size="${fs}" letter-spacing="${.25*k}" fill="${tc(col)}">${M.tl.map((x,i)=>`<tspan x="${bx+pad}" y="${y0+pad*.3+fs*(1.02+i*1.35)}">${esc(x)}</tspan>`).join("")}</text>`;
   if(M.sg){const ty=y0+th+M.tf*1.12;h+=`<text x="${side<0?x1:x0+pad*.2}" y="${ty}" text-anchor="${side<0?"end":"start"}" font-family="JetBrains Mono,monospace" font-size="${M.tf}" letter-spacing="${.25*k}" fill="#6A6BC2" text-decoration="underline">${M.sg[0]}</text>`;}if(M.ch&&M.ch.length){const cy=y0+th+(M.tgH||0)+2.5*k,rowW={};M.ch.forEach(c=>{rowW[c.dy]=Math.max(rowW[c.dy]||0,c.dx+c.w);});
    h+=M.ch.map(c=>{const cx0=side<0?x1-rowW[c.dy]+c.dx:x0+c.dx,cc=(P[c.role]||["","#E3E0BF"])[1];return `<rect x="${cx0}" y="${cy+c.dy}" width="${c.w}" height="${c.rh}" fill="${cc}" stroke="#3E4A80" stroke-width="${.5*k}" stroke-opacity=".3"/><text x="${cx0+c.cp}" y="${cy+c.dy+c.rh*.72}" font-family="JetBrains Mono,monospace" font-size="${c.cf}" letter-spacing="${.2*k}" fill="${tc(cc)}">${esc(c.L.toUpperCase())}</text>`;}).join("");}
@@ -948,7 +954,7 @@ function render(){showSvg();ctags();mini();const s=svgOf(),list=litFor(),on=ligh
  $("cap").textContent=(st.comp?"":st.part!=null?PARTS[st.part][0]:st.role?P[st.role][0]:"Pick a peptide below")+(st.view==="head"?" · brain":st.view==="cell"?" · inside a cell":"");
  $("cap").hidden=!!st.comp&&st.view==="body";ctags();csum();fitTags();setTimeout(()=>drawTags(s),1100);}
 function fitTags(){const el=$("ctags");if(el.hidden)return;const s=svgOf(),sr=s.getBoundingClientRect(),V=vis(s);const ex=extAt(s,V.y,V.y+V.h*.35);
- const left=ex?(ex[0]-V.x)/V.k:sr.width*.3;el.style.maxWidth=Math.max(120,left-14)+"px";el.style.width=Math.max(120,left-14)+"px";placeMinis();}
+ let left=ex?(ex[0]-V.x)/V.k:sr.width*.3;for(let i=0;i<2;i++){const w=Math.max(120,left-14);el.style.maxWidth=w+"px";el.style.width=w+"px";const b=el.getBoundingClientRect(),e2=extAt(s,V.y,V.y+(b.bottom-sr.top+6)*V.k);if(!e2)break;left=Math.max(left,(e2[0]-V.x)/V.k);}placeMinis();}
 function ctags(){const el=$("ctags"),c=st.comp;if(!c||st.view!=="body"){el.hidden=true;el.innerHTML="";return;}el.hidden=false;
  const shown=new Set((svgOf().__list||[]).map(m=>m.role));const rs=[...c.r,...c.x].filter(r=>P[r]&&(!shown.has(r)||st.focus===r));
  el.classList.add("v26");const sq=(P[c.p]||P[c.r[0]]||["","#ccc"])[1];
@@ -1109,7 +1115,7 @@ $("z-in").onclick=()=>setTS(1);if(0)$("z-mi").onclick=()=>setTS(-1);if(0)$("z-mi
  const end=e=>{if(!pts.has(e.pointerId))return;pts.delete(e.pointerId);const s=svgOf();
   if(mode==="two"){if(pts.size>2){const keep=[...pts.entries()].slice(-2);pts.clear();keep.forEach(([k,v])=>pts.set(k,v));}if(pts.size===1){mode="one";const p=[...pts.values()][0];start=p;moved=99;}else if(!pts.size)mode=null;return;}
   if(mode!=="one"||pts.size)return;mode=null;
-  if(moved<8&&e.type==="pointerup"){const now=performance.now(),xy=[e.clientX,e.clientY];{const hit=document.elementsFromPoint(xy[0],xy[1]).map(x=>x.closest&&x.closest(".lb.lk")).find(Boolean);if(hit&&okUrl(hit.dataset.u)){clearTimeout(tapTimer);lastTap=0;window.open(hit.dataset.u,"_blank","noopener");return;}}
+  if(moved<8&&e.type==="pointerup"){const now=performance.now(),xy=[e.clientX,e.clientY];{const hit=document.elementsFromPoint(xy[0],xy[1]).map(x=>x.closest&&x.closest(".lb.lk")).find(Boolean);if(hit&&okUrl(hit.dataset.u)){clearTimeout(tapTimer);lastTap=0;studyPop(+hit.dataset.i);return;}if(stPopOpen()){studyPop(-1);return;}}
    if(now-lastTap<450&&lastTapXY&&Math.hypot(xy[0]-lastTapXY[0],xy[1]-lastTapXY[1])<30){clearTimeout(tapTimer);lastTap=0;
     // double tap: zoom in 2x on the spot, or back to the full view if already zoomed
     const home=s.__home||VB0[s.id],w=curVB(s)[2];if(w<home[2]*.8)zoomTo(s,home,350);else{const p=toSvg(s,xy[0],xy[1]);zoomBy(.5,p[0],p[1],true);}return;}
