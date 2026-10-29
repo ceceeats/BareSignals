@@ -6,8 +6,15 @@ and lists where the Library or a home label disagrees with a checked study:
   NOROLE   study tests an area the Library 'Tested so far' list does not show
   UNDER    Library says a weaker kind of evidence than the study we found
   OVER     Library says stronger evidence than every study we have for that area (look for the trial or lower the claim)
-  NUMBER   a % in the Library or the home label that no checked study for that compound contains
-Writes studycheck.txt; nothing is changed."""
+  NUMBER   a % in a home label tied to a checked study that the study does not contain
+Writes studycheck.txt; nothing is changed.
+RULES before acting on any flag (Cece, 29 Oct 2026):
+  - Open the compound's Log first (link printed with each flag, from the Bare Signals Index Tracker).
+    The Log says where every Library line came from and which pool: App data, Reddit, Other forums, Research.
+  - Community numbers and doses (reported, from users) are a different pool from trial numbers and doses.
+    Never change one to match the other. A flag only means "trace the source", never "replace".
+  - Change a line only after checking all its sources; research against research, anecdotal against anecdotal.
+  - Every change goes into the Log as a dated entry and into a new Library and Home version."""
 import json, re, subprocess, pathlib, sys, collections
 R = pathlib.Path(__file__).resolve().parent
 libv = sorted((p for p in (R/"library").glob("v*") if p.name[1:].isdigit()), key=lambda p:int(p.name[1:]))[-1]
@@ -49,19 +56,16 @@ for slug, xs in by.items():
         if lv==4 and best==3: best=4
         if lv > best: out[slug].append(f"OVER     {role}: Library says {'/'.join(t[2] for t in rows)} ('{rows[0][1]}'), best checked study is {[x['type'] for x in xs2]}")
     have = set().union(*(pct(x.get("f","")+" "+x.get("t","")) for x in xs))
-    p = PAGE.get(slug, {})
-    for fld in ("worked","helps"):
-        miss = pct(p.get(fld,"")) - have
-        if miss and have: out[slug].append(f"NUMBER   Library '{fld}' has {sorted(miss)}% not in checked studies {sorted(have)}")
     h = HOME.get(slug)
     if h:
         for o in h.get("o") or []:
             if any(x["r"]==o.get("r") and x["at"]==o.get("at") for x in xs):
                 miss = pct(o.get("note","")) - have
                 if miss: out[slug].append(f"NUMBER   home label {o.get('at')}: '{o.get('note')}' has {sorted(miss)}% not in its checked study")
+LOGS = json.load(open(R/"studycheck_logs.json")) if (R/"studycheck_logs.json").exists() else {}
 rank = {c["slug"]:c.get("rank") or 999 for c in LIB.values()}
 lines = [f"Studies x Library check · {len(ST)} studies · Library {libv.name} · {sum(map(len,out.values()))} flags\n"]
 for slug in sorted(out, key=lambda s: rank.get(s,999)):
-    lines.append(f"{slug} (rank {rank.get(slug,'-')})"); lines += ["  "+l for l in out[slug]]
+    lines.append(f"{slug} (rank {rank.get(slug,'-')}) · Log: {LOGS.get(slug,'no log yet')}"); lines += ["  "+l for l in out[slug]]
 (R/"studycheck.txt").write_text("\n".join(lines)+"\n")
 print(lines[0]); print(collections.Counter(l.split()[0] for v in out.values() for l in v))
