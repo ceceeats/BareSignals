@@ -336,6 +336,46 @@
     "LL-37 Lungs and Airway lining: only reviews found, no primary study matching the wording; left untagged."
    ],
    "left": "about 198 labels without a study"
+  },
+  {
+   "round": 7,
+   "time": "18:30",
+   "version": "Home v76 (v75 kept)",
+   "added": [
+    {
+     "compound": "Kisspeptin-10",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "HUMAN · George 2011: kisspeptin-10 raised LH 3× in 30 min and testosterone on infusion, healthy men",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/21632807/",
+     "community": "Too thin: no user posted LH numbers; 1 forum user had LH 'still zero' (with gonadorelin)."
+    },
+    {
+     "compound": "Kisspeptin-10",
+     "label": "Limbic areas",
+     "before": "No study tag",
+     "after": "HUMAN · Mills 2023: kisspeptin-54 changed sexual brain activity on fMRI and raised arousal in 32 men (not KP-10)",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/36735255/",
+     "community": "Partly: PeptiRank 8 of 15 entries mention better libido; 0 of 3 forum users."
+    },
+    {
+     "compound": "MT-2",
+     "label": "Brain (arousal)",
+     "before": "No study tag",
+     "after": "HUMAN · Wessells 1998: 8 of 10 men had erections vs placebo",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/9679884/",
+     "community": "Agrees: libido top benefit at PeptIQ; erections in 3 of 20 WebMD reviews and 4 of 11 forum users."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "MT-2 Moles: the community strongly reports mole darkening, but the only research found is a 2019 review lumping melanotan with chemo and immunosuppressants (41% of 179 cases) — no MT-2-specific count; left untagged.",
+    "MT-2 Hypothalamus (appetite): WebMD 0 of 20 report less appetite (1 more); forums 2 of 11. Trial noted lower appetite only as a side effect; left untagged.",
+    "Kisspeptin-10 Limbic tag is a kisspeptin-54 study (the Log already notes this).",
+    "IGF-1 LR3: no human study for its labels; community thin (blood-sugar drops named, not counted). One forum poster said he was 17 — excluded from any card.",
+    "Oxytocin: Uterus, Breast, Pituitary are standard physiology; Amygdala community split (11 helped, 8 nothing of 28)."
+   ],
+   "left": "about 195 labels without a study"
   }
  ]
 }
