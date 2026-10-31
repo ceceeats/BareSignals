@@ -433,6 +433,46 @@
     "Display bug (already there before today): on phone, HGH frag 176-191's merged fat label shows only the 'Fat cells' note; the 'Local fat' note ('Users inject it into stubborn fat areas…') doesn't show. Same family as the folded Brain label bug."
    ],
    "left": "about 190 labels without a study"
+  },
+  {
+   "round": 9,
+   "time": "20:20",
+   "version": "Home v78 (v77 kept)",
+   "added": [
+    {
+     "compound": "AHK-Cu",
+     "label": "Hair follicles",
+     "before": "No study tag",
+     "after": "LAB · Pyo 2007: lengthened human hair follicles in the lab",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/17703734/",
+     "community": "Mostly no: 4 of 6 HairLossTalk users saw no benefit or worse; 1 regrowth with other treatments."
+    },
+    {
+     "compound": "AHK-Cu",
+     "label": "Follicle cells",
+     "before": "No study tag",
+     "after": "LAB · Pyo 2007: fewer papilla cells died (not significant), survival signals up",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/17703734/",
+     "community": "Can't test."
+    },
+    {
+     "compound": "Survodutide",
+     "label": "Pancreas",
+     "before": "No study tag",
+     "after": "PHASE 2 · Blüher 2023: 413 adults with type 2 diabetes, HbA1c down up to 1.71 points",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/38095657/",
+     "community": "Thin: PeptideMap 'blood sugar control' 9%; mostly users stacking with tirzepatide."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "VK2735: no community use exists outside trials (no grey-market found), answering its Log's open question. VENTURE phase 2 (Bays 2026, 9–15% weight loss at 13 wk) doesn't measure its label claims (prediabetes, blood pressure, stomach); left untagged.",
+    "Survodutide: no Log yet. Hunger and stomach labels untagged; community thin and mostly stacked with tirzepatide.",
+    "DSIP Stress hormones ('claimed to dampen ACTH and cortisol'): no study giving DSIP that measures this was found; left untagged. Community: sleep is the main use, many feel nothing.",
+    "AHK-Cu Collagen: no community reports, no study found.",
+    "CJC-1295 with DAC skipped this round (single 'users report' sleep label)."
+   ],
+   "left": "about 187 labels without a study"
   }
  ]
 }

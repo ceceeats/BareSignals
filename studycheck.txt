@@ -1,4 +1,4 @@
-Studies x Library check · 189 studies · Library v83 · 31 flags
+Studies x Library check · 192 studies · Library v83 · 33 flags
 
 retatrutide (rank 5) · Log: https://claude.ai/artifact/TSz7LUmwEPXASU9k5eEPVX
   SAMETRIAL Library 'helps' says ['2.2']% for TRIUMPH-1, checked study has ['28.3']: "In obesity, TRIUMPH-1 showed 28.3% weight loss at 80 weeks against 2.2% on placebo, and weight was still falling."
@@ -28,6 +28,7 @@ liraglutide (rank 24) · Log: https://claude.ai/artifact/L8LKZVgdPeqzfuvjqQXumt
   NOROLE   HUMAN 'Liraglutide on stomach emptying, appetite and energy use (2013)': no Library 'Tested so far' row for it
   NOROLE   HUMAN 'Liraglutide on stomach emptying, appetite and energy use (2013)': no Library 'Tested so far' row for it
 survodutide (rank 24) · Log: no log yet
+  UNDER    'Obesity with T2D, SYNCHRONIZE-2' is human in Library, checked study is P2: Survodutide in type 2 diabetes, phase 2 dose study (2023)
   SAMETRIAL Library 'worked' says ['13.1']% for SYNCHRONIZE-1, checked study has ['13.0', '16.6', '5.4']: "Up to 16.6% weight loss at 76 weeks without diabetes (SYNCHRONIZE-1) and up to 13.1% with diabetes (SYNCHRONIZE-2);"
   SAMETRIAL Library 'worked' says ['47']% for MASH, checked study has ['14', '62', '66']: "Phase 2 MASH resolution in 47% vs 14% on placebo."
   SAMETRIAL Library 'helps' says ['13.1']% for SYNCHRONIZE-1, checked study has ['13.0', '16.6', '5.4']: "Phase 3 SYNCHRONIZE-1 showed up to 16.6% weight loss at 76 weeks in obesity, and SYNCHRONIZE-2 up to 13.1% in obesity with type 2 diabetes, "
@@ -50,3 +51,5 @@ na-semax-amidate (rank 999) · Log: https://claude.ai/artifact/Dd4vHJkNbuPibpzp8
   OVER     Cognition: Library says human ('Relies on Semax's Russian data'), best checked study is ['ANIMAL', 'ANIMAL']
 hgh-frag-176-191 (rank 999) · Log: no log yet
   OVER     Fat: Library says animal/trial ('Fat breakdown'), best checked study is ['ANIMAL']
+ahk-cu (rank 999) · Log: https://claude.ai/artifact/VfA1MgSGrQPWsViBp77ZnE
+  OVER     Hair: Library says cell/human ('Follicle and papilla cell growth'), best checked study is ['LAB', 'LAB']
