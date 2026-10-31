@@ -11,49 +11,63 @@
      "label": "Hypothalamus",
      "before": "No study tag",
      "after": "ANIMAL · Gabery 2020, JCI Insight: reaches brain hunger centres in rats and mice, cuts food intake",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/",
+     "community": "500 reports · Appetite suppression felt within 1–2 weeks; 'food noise' (thinking about food, cravings) drops. Nausea, constipation most reported side effects. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/semaglutide/community"
     },
     {
      "compound": "Semaglutide",
      "label": "Brainstem",
      "before": "No study tag",
      "after": "ANIMAL · Gabery 2020: acts on the brainstem and meal-stopping neurons",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/",
+     "community": "500 reports · Appetite suppression felt within 1–2 weeks; 'food noise' (thinking about food, cravings) drops. Nausea, constipation most reported side effects. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/semaglutide/community"
     },
     {
      "compound": "MK-677",
      "label": "Appetite",
      "before": "No study tag",
      "after": "HUMAN · Nass 2008, Ann Intern Med: 65 adults aged 60–81 for 2 years; bigger appetite was the top side effect, faded in months",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/",
+     "community": "300 reports · Appetite increase is the most consistently reported effect, strongest in weeks 2–4, even when dosed before bed. Also deeper sleep, water retention, tingling. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/ibutamoren/community"
     },
     {
      "compound": "MK-677",
      "label": "Hypothalamus",
      "before": "No study tag",
      "after": "HUMAN · same trial; hunger reported, not measured in the brain",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/",
+     "community": "300 reports · Appetite increase is the most consistently reported effect, strongest in weeks 2–4, even when dosed before bed. Also deeper sleep, water retention, tingling. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/ibutamoren/community"
     },
     {
      "compound": "Epitalon",
      "label": "Pineal gland",
      "before": "No study tag",
      "after": "ANIMAL · Goncharova 2005: night melatonin up in old monkeys",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/15664732/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/15664732/",
+     "community": "90 reports · Better sleep is the most reported effect during cycles; users do not link it to melatonin (only the research does). Few side effects reported. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/epitalon/community"
     },
     {
      "compound": "Epitalon",
      "label": "Pineal gland (2nd source)",
      "before": "—",
      "after": "HUMAN · Korkushko 2007: night melatonin up in elderly people; small, in Russian",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/17969590/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/17969590/",
+     "community": "90 reports · Better sleep is the most reported effect during cycles; users do not link it to melatonin (only the research does). Few side effects reported. No counts per effect. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/epitalon/community"
     },
     {
      "compound": "GHK-Cu",
      "label": "Memory",
      "before": "No study tag",
      "after": "ANIMAL · Mazzola 2026 preprint: aged mice learned a maze faster; not peer reviewed",
-     "url": "https://pubmed.ncbi.nlm.nih.gov/42245779/"
+     "url": "https://pubmed.ncbi.nlm.nih.gov/42245779/",
+     "community": "90 reports · No memory or thinking reports. Community use is skin (texture, firmness in 4–8 weeks), hair (3+ months) and healing. So the memory label is research-only. (Peptide Protocol Wiki community page, updated 2026-02-16)",
+     "community_url": "https://www.peptideprotocolwiki.com/peptides/ghk-cu/community"
     }
    ],
    "fixed": [
@@ -66,9 +80,11 @@
    ],
    "flags": [
     "MK-677: Library has no 'Tested so far' row for appetite though a human trial covers it (not changed; needs your Log).",
-    "Epitalon pineal tag folds inside the Brain label on phone, shows on laptop."
+    "Epitalon pineal tag folds inside the Brain label on phone, shows on laptop.",
+    "SelfAssay (report counts per use) can't be reached from here; Peptide Protocol Wiki used. Send SelfAssay pages if you want those counts too."
    ],
-   "left": "about 220 labels without a study"
+   "left": "about 220 labels without a study",
+   "note": "Research and community are separate pools, never summed. Community = anonymous self-reports (tag: reported)."
   }
  ]
 }
