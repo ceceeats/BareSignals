@@ -429,7 +429,8 @@
     "AOD-9604 Joints ('users report joint relief'): no named forum report and aggregators barely mention it; only a rabbit knee study exists. Worth a look at the wording.",
     "Liraglutide Pancreas says 'raises insulin': in van Can 2013 glucagon fell 30% but early insulin was 20% lower (with lower glucose); left untagged.",
     "GHRP-6: no tag this round (the human GH studies found weren't specific enough); community strongly reports hunger (17 of 27). Insomnia reported at 300 mcg+ before bed.",
-    "GHRP-2 and GHRP-6: no user posted IGF-1 numbers anywhere."
+    "GHRP-2 and GHRP-6: no user posted IGF-1 numbers anywhere.",
+    "Display bug (already there before today): on phone, HGH frag 176-191's merged fat label shows only the 'Fat cells' note; the 'Local fat' note ('Users inject it into stubborn fat areas…') doesn't show. Same family as the folded Brain label bug."
    ],
    "left": "about 190 labels without a study"
   }
