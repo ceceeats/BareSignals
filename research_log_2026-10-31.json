@@ -281,6 +281,61 @@
     "Mazdutide Heart label: only a 2026 review says heart rate rises like other GLP-1 drugs; no primary study found."
    ],
    "left": "about 203 labels without a study"
+  },
+  {
+   "round": 6,
+   "time": "17:35",
+   "version": "Home v75 (v74 kept)",
+   "added": [
+    {
+     "compound": "TB-500 frag 17-23",
+     "label": "Wounds",
+     "before": "No study tag",
+     "after": "ANIMAL · Malinda 1999: full Tβ4 sped rat skin wounds 42–61% (full protein, not the fragment)",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/10469335/",
+     "community": "Can't separate: TB-500 users report recovery broadly; wound-specific data none."
+    },
+    {
+     "compound": "TB-500 frag 17-23",
+     "label": "New vessels",
+     "before": "No study tag",
+     "after": "ANIMAL · Malinda 1999: more new vessels in healing wounds (full protein)",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/10469335/",
+     "community": "Can't test."
+    },
+    {
+     "compound": "TB-500 frag 17-23",
+     "label": "Heart cells",
+     "before": "No study tag",
+     "after": "ANIMAL · Bock-Marquette 2004, Nature: full Tβ4 kept heart cells alive after a heart attack in mice",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/15565145/",
+     "community": "Can't test."
+    },
+    {
+     "compound": "LL-37",
+     "label": "Gut lining",
+     "before": "No study tag",
+     "after": "LAB · Overhage 2008: LL-37 stopped bacterial biofilms forming",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18591225/",
+     "community": "Not applicable (users can't feel it)."
+    },
+    {
+     "compound": "Sermorelin",
+     "label": "Sleep",
+     "before": "No study tag",
+     "after": "HUMAN · Khorram 1997: nightly GHRH 1-29 analogue for 4 months in 19 older adults; sleep quality unchanged",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/9141536/",
+     "community": "Disagrees: sleep is the most-cited benefit on aggregators (peptidescam 199 reports, no %), but the one trial found no change."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "TB-500 frag 17-23: all three new tags are full-Tβ4 studies (the labels already say 'shown with full Tβ4'); no study of the fragment itself. No Log yet. Tendons label (users report) stays untagged; community data is mostly TB-500 + BPC-157 stacks.",
+    "Sermorelin Sleep: community says better sleep; the only human trial with a sleep questionnaire found no change. Worth a look at the label wording.",
+    "SS-31 Brain ('users report a clearer head'): left untagged (no study); community support is qualitative only (peptidescam 'mental clarity' top effect, no %; 1 named long-COVID user). Energy is what most people report.",
+    "LL-37 Lungs and Airway lining: only reviews found, no primary study matching the wording; left untagged."
+   ],
+   "left": "about 198 labels without a study"
   }
  ]
 }
