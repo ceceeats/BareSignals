@@ -513,5 +513,14 @@
    ],
    "left": "about 184 labels without a study"
   }
+ ],
+ "site_changes": [
+  {
+   "time": "21:45",
+   "version": "Home v80",
+   "what": "COMMUNITY DATA tag added under the study tag on every label that has community data (or COMMUNITY DATA · NONE FOUND). Tapping the label opens the card with a What people say section: each pool shown on its own, n people or entries, date, finding, marked reported. On phones the folded Brain label carries the brain parts' community data.",
+   "before": "Labels showed only the study tag; community data was only in the log.",
+   "after": "Labels show the study tag plus the community tag; the card shows research and then what people say."
+  }
  ]
 }
