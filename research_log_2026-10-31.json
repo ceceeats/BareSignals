@@ -80,6 +80,71 @@
    ],
    "left": "about 220 labels without a study",
    "note": "Research and community are separate pools, never summed. Community = anonymous self-reports (tag: reported)."
+  },
+  {
+   "round": 2,
+   "time": "15:30",
+   "version": "Home v71 (v70 kept)",
+   "added": [
+    {
+     "compound": "Retatrutide",
+     "label": "Pancreas",
+     "before": "No study tag",
+     "after": "PHASE 1 · Urva 2022, Lancet: 72 adults with T2D, blood sugar and HbA1c down at top doses",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/36354040/",
+     "community": "Too thin: PeptideMap 'blood sugar control' 15% (base unclear); 1 glucose reading in 22 forum accounts."
+    },
+    {
+     "compound": "Retatrutide",
+     "label": "Appetite centres",
+     "before": "No study tag",
+     "after": "ANIMAL · Coskun 2022, Cell Metab: obese mice ate less",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/35985340/",
+     "community": "Partly: less hunger in 15 of 22 forum accounts, PeptideMap 36%; but 39% of switchers found it weaker than tirzepatide/semaglutide, and a JAMA Netw Open Reddit study found appetite increase common."
+    },
+    {
+     "compound": "Tirzepatide",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "PHASE 1 · Martin 2025, Nat Med: 114 adults ate 524.6 kcal less, less hunger and cravings; brain changes in reward areas",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/40555748/",
+     "community": "Agrees: 75% of forum users who mention appetite say less; Drugs.com 14–17 of 25 per page; fades before next dose for some and returns after stopping."
+    },
+    {
+     "compound": "Thymosin Beta-4",
+     "label": "Tendons",
+     "before": "No study tag",
+     "after": "ANIMAL · Xu 2013, Regul Pept: rats, stronger knee ligament at 4 wk",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/23523891/",
+     "community": "None for full TB4: all community data is TB-500 (mostly fragment) stacked with BPC-157."
+    },
+    {
+     "compound": "Tesamorelin",
+     "label": "Vessels",
+     "before": "No study tag",
+     "after": "PHASE 3 · Stanley 2011, AIDS: 410 people with HIV; tPA down slightly, CRP no effect",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/21516030/",
+     "community": "None: nobody reports inflammation markers."
+    },
+    {
+     "compound": "Tesamorelin",
+     "label": "Sleep",
+     "before": "No study tag",
+     "after": "HUMAN · Stewart 2026 pilot: 22 adults, no significant sleep change",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/42382101/",
+     "community": "Weak: PeptideMap 20% mention sleep quality; PeptIQ 1 of 114; drug review sites 0 of 36."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "Retatrutide Hypothalamus and Brainstem: no region-specific study exists yet; left untagged.",
+    "Tirzepatide Hypothalamus label says 'through GLP-1 receptors' but tirzepatide also acts on GIP, and the human brain scan showed reward areas, not the hypothalamus. Wording is yours to decide.",
+    "Tesamorelin Vessels label says 'lower inflammation markers': the trial shows only a small tPA drop, no CRP effect. Wording is yours to decide.",
+    "Tesamorelin: Library has no Tested-so-far row for the inflammation trial (studycheck NOROLE).",
+    "Thymosin Beta-4: all community 'TB4' data is really TB-500; belongs in the TB-500 Log.",
+    "Community data for compounded/grey-market tirzepatide and semaglutide is almost absent outside Reddit; your ChatGPT Reddit pool would fill it."
+   ],
+   "left": "about 214 labels without a study"
   }
  ]
 }
