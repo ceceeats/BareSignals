@@ -470,7 +470,8 @@
     "Survodutide: no Log yet. Hunger and stomach labels untagged; community thin and mostly stacked with tirzepatide.",
     "DSIP Stress hormones ('claimed to dampen ACTH and cortisol'): no study giving DSIP that measures this was found; left untagged. Community: sleep is the main use, many feel nothing.",
     "AHK-Cu Collagen: no community reports, no study found.",
-    "CJC-1295 with DAC skipped this round (single 'users report' sleep label)."
+    "CJC-1295 with DAC skipped this round (single 'users report' sleep label).",
+    "Display bug (same family, already there before today): on phone, AHK-Cu's merged follicle label shows only the vessels note; the Follicle cells and Collagen notes don't show."
    ],
    "left": "about 187 labels without a study"
   }
