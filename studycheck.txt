@@ -1,7 +1,9 @@
-Studies x Library check · 165 studies · Library v83 · 22 flags
+Studies x Library check · 170 studies · Library v83 · 25 flags
 
 retatrutide (rank 5) · Log: https://claude.ai/artifact/TSz7LUmwEPXASU9k5eEPVX
   SAMETRIAL Library 'helps' says ['2.2']% for TRIUMPH-1, checked study has ['28.3']: "In obesity, TRIUMPH-1 showed 28.3% weight loss at 80 weeks against 2.2% on placebo, and weight was still falling."
+kpv (rank 5) · Log: https://claude.ai/artifact/U8ee8DQt8mcWHiU5YoNi9x
+  NOROLE   LAB 'KPV calms inflammation signals in human airway cells (2012)': no Library 'Tested so far' row for it
 semaglutide (rank 6) · Log: https://claude.ai/artifact/UVgRLR8Mc92a3exFLJnp19
   SAMETRIAL Library 'worked' says ['15']% for SELECT, checked study has ['20', '6.5', '8.0']: "Roughly 15% body-weight loss in the obesity trials, better glucose control, and fewer heart attacks and strokes in people with obesity and h"
 tirzepatide (rank 7) · Log: https://claude.ai/artifact/1mKRQ6mUD7t2Bkx34yF3fS
@@ -13,8 +15,12 @@ orforglipron (rank 18) · Log: https://claude.ai/artifact/DwsnZFriRw7T5dvCKHAqGH
   SAMETRIAL Library 'worked' says ['12.4']% for ATTAIN-1, checked study has ['11.2', '18', '2.1', '20']: "12.4% weight loss on the top dose at 72 weeks (ATTAIN-1);"
   SAMETRIAL Library 'helps' says ['12.4']% for ATTAIN-1, checked study has ['11.2', '18', '2.1', '20']: "ATTAIN-1 showed 12.4% weight loss on the top dose at 72 weeks, and the ACHIEVE program showed HbA1c and weight beating oral semaglutide and "
   NUMBER   home label Body fat: 'About 12% weight loss at 72 weeks' has ['12']% not in its checked study
+cjc-1295-no-dac (rank 20) · Log: https://claude.ai/artifact/Qao817PhreKo7No8k7pBSh
+  NOROLE   HUMAN 'GHRH and sleep in healthy seniors (1997)': no Library 'Tested so far' row for it
 ll-37 (rank 22) · Log: https://claude.ai/artifact/8vgUxmhWEKC92nxsAFFnDM
   OVER     Inflammation: Library says human ('Rosacea and psoriasis links'), best checked study is ['LAB']
+pt-141 (rank 24) · Log: https://claude.ai/artifact/XNEGmqoRNAYitMxeB6UhvB
+  NOROLE   P3 'Bremelanotide safety across the clinical programme (2022)': no Library 'Tested so far' row for it
 survodutide (rank 24) · Log: no log yet
   SAMETRIAL Library 'worked' says ['13.1']% for SYNCHRONIZE-1, checked study has ['13.0', '16.6', '5.4']: "Up to 16.6% weight loss at 76 weeks without diabetes (SYNCHRONIZE-1) and up to 13.1% with diabetes (SYNCHRONIZE-2);"
   SAMETRIAL Library 'worked' says ['47']% for MASH, checked study has ['14', '62', '66']: "Phase 2 MASH resolution in 47% vs 14% on placebo."

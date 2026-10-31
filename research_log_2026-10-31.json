@@ -83,7 +83,7 @@
   },
   {
    "round": 2,
-   "time": "15:30",
+   "time": "14:15",
    "version": "Home v71 (v70 kept)",
    "added": [
     {
@@ -145,6 +145,63 @@
     "Community data for compounded/grey-market tirzepatide and semaglutide is almost absent outside Reddit; your ChatGPT Reddit pool would fill it."
    ],
    "left": "about 214 labels without a study"
+  },
+  {
+   "round": 3,
+   "time": "14:45",
+   "version": "Home v72 (v71 kept)",
+   "added": [
+    {
+     "compound": "PT-141",
+     "label": "Preoptic area",
+     "before": "No study tag",
+     "after": "ANIMAL · Pfaus 2007, J Sex Med: female rats, more desire behaviour when given into the preoptic area",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/17958619/",
+     "community": "Partly: prescribed women 30–55% report more desire with many non-responders; men report erections more than desire."
+    },
+    {
+     "compound": "PT-141",
+     "label": "Skin and gums",
+     "before": "No study tag",
+     "after": "PHASE 3 · Clayton 2022: darkening rare at label dose, over a third after up to 16 daily doses",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/35147466/",
+     "community": "Consistent: 0 darkening reports in about 88 people using it as needed."
+    },
+    {
+     "compound": "PT-141",
+     "label": "Blood pressure",
+     "before": "No study tag",
+     "after": "PHASE 3 · Clayton 2022: small, short-lived BP rise",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/35147466/",
+     "community": "Can't test: nobody measured it; the rise is too small to feel."
+    },
+    {
+     "compound": "KPV",
+     "label": "Lung",
+     "before": "No study tag",
+     "after": "LAB · Land 2012: calmed inflammation signals in human airway cells",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/22837805/",
+     "community": "None: 0 benefit reports in 175 people; 4 had breathing or chest side effects."
+    },
+    {
+     "compound": "CJC-1295 no DAC",
+     "label": "Sleep",
+     "before": "No study tag",
+     "after": "HUMAN · Guldner 1997: native GHRH in 13 seniors, fewer awakenings, more deep sleep (not CJC itself)",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/9390775/",
+     "community": "Partly: sleep reported mainly when stacked with ipamorelin; nothing for no-DAC alone."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "Ipamorelin: no study matches its four labels; the Hypothalamus wording ('amplifies GHRH, blunts somatostatin') isn't supported by research or community. Left untagged.",
+    "Ipamorelin Log: the community dose row links to the CJC-1295 no DAC page, not ipamorelin (Correction line suggested).",
+    "CJC-1295 no DAC: the only sleep study is native GHRH, not CJC; Pituitary label left untagged (no human CJC no-DAC study).",
+    "PT-141, KPV, CJC: Library has no Tested-so-far rows for the new studies (studycheck NOROLE).",
+    "KPV Skin label says 'users report' and stays untagged: human skin research is cell-only, and plain KPV doesn't cross intact skin.",
+    "PeptIQ's CJC no-DAC page looks like a flipped copy of its ipamorelin page (favourable 2% vs 98%)."
+   ],
+   "left": "about 209 labels without a study"
   }
  ]
 }
