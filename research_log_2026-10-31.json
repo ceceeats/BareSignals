@@ -512,6 +512,53 @@
     "Pemvidutide Log: a dosing-calculator site lists grey vials, but PPW says vendors don't carry it — unresolved."
    ],
    "left": "about 184 labels without a study"
+  },
+  {
+   "round": 11,
+   "time": "21:40",
+   "version": "Home v81",
+   "added": [
+    {
+     "compound": "Gonadorelin",
+     "label": "Pituitary",
+     "before": "No study tag",
+     "after": "HUMAN STUDY: 90 men with GnRH deficiency on pulsatile GnRH; most normalised LH, FSH, testosterone and made sperm (Sykiotis 2010, USA). Pump patients, not TRT users.",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/20382682/",
+     "community": "PPW 90 entries: testes kept for some, others keep shrinking (no counts); forums 1/2 testes size came back on TRT"
+    },
+    {
+     "compound": "Gonadorelin",
+     "label": "Sperm making",
+     "before": "No study tag",
+     "after": "HUMAN STUDY: 89 men on pulsatile GnRH; sperm in 70.3% and 52.0% after median 11 and 14 months (Huang 2022, China). No TRT users.",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/35218954/",
+     "community": "PPW 90: sperm vs HCG called uncertain; forums 0/2 report fertility"
+    },
+    {
+     "compound": "Bromantane",
+     "label": "Amygdala",
+     "before": "No study tag",
+     "after": "HUMAN STUDY: 728 patients, 50–100 mg for 28 days, open label; 76% responders, less anxiety, better sleep, side effects 3% (Voznesenskaia 2010, Russia).",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/21322821/",
+     "community": "No aggregator counts users; forums 2 people: 1 liked it, 1 no effect on anxiety; Outliyr: insomnia most cited"
+    },
+    {
+     "compound": "Pinealon",
+     "label": "Neurons",
+     "before": "No study tag",
+     "after": "LAB: neurons made from elderly donors' skin cells; EDR cut oxidative DNA damage and grew dendrites (Kraskovskaya 2024, Russia).",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/39518916/",
+     "community": "peptidescam 46: 33% positive, 29% negative; memory a top effect; PPW 35: subtle, hard to tell from placebo"
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "Bromantane Drive · Brain label says 'switching on its enzymes': no indexed study shows that; reword or source needed",
+    "Gonadorelin: community's strongest signal is libido; no Library label for it",
+    "Pinealon Pineal gland label 'support melatonin making' vs community: sleep split (better for some, insomnia for others)",
+    "Display bug: on phones, the gonadorelin Sperm making label merges into Testes and its study tag is not shown; the folded Brain label drops the brain parts' study tags (gonadorelin Pituitary, bromantane Amygdala, pinealon Neurons). Shows on laptop and in the card."
+   ],
+   "left": "Gonadorelin Testes, Hypothalamus; Bromantane Brain, Focus; Pinealon Pineal gland, Brain, Amygdala, Skin cells, Brainstem"
   }
  ],
  "site_changes": [
