@@ -376,6 +376,62 @@
     "Oxytocin: Uterus, Breast, Pituitary are standard physiology; Amygdala community split (11 helped, 8 nothing of 28)."
    ],
    "left": "about 195 labels without a study"
+  },
+  {
+   "round": 8,
+   "time": "19:25",
+   "version": "Home v77 (v76 kept)",
+   "added": [
+    {
+     "compound": "GHRP-2",
+     "label": "Hypothalamus (hunger)",
+     "before": "No study tag",
+     "after": "HUMAN · Laferrère 2005: 7 healthy men ate 35.9% more on GHRP-2",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/15699539/",
+     "community": "Agrees: hunger up in 9 of 20 forum users (milder than GHRP-6)."
+    },
+    {
+     "compound": "GHRP-2",
+     "label": "Cortisol",
+     "before": "No study tag",
+     "after": "HUMAN · Arvat 1997: raised prolactin, ACTH and cortisol alongside GH",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/9285939/",
+     "community": "Weak: no bloodwork posted; signs only (1 gyno flare, 2 lethargy)."
+    },
+    {
+     "compound": "Liraglutide",
+     "label": "Stomach",
+     "before": "No study tag",
+     "after": "HUMAN · van Can 2013: first-hour stomach emptying 23% slower on 3 mg",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/23999198/",
+     "community": "Agrees: nausea is the top Drugs.com tag (39% of 2,340); GI in 23 of 46 forum users, early or after dose increases."
+    },
+    {
+     "compound": "Liraglutide",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "HUMAN · van Can 2013: hunger down, lunch intake about 16% lower",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/23999198/",
+     "community": "Agrees: less appetite in 25 of 46 forum users and 16 of 25 visible Drugs.com reviews; fades for some."
+    },
+    {
+     "compound": "HGH frag 176-191",
+     "label": "Fat cells",
+     "before": "No study tag",
+     "after": "ANIMAL · Heffernan 2000: GH fragment AOD-9401 cut weight gain and raised fat burning in obese mice",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/10950816/",
+     "community": "Weak: 7 of 11 forum users report some fat loss (unmeasured); 3 none."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "HGH frag 176-191: the tag is a study of AOD-9401, a close form of the fragment; no Log yet. Local fat label: 0 of 11 forum users report injection-site reduction and PPW says it isn't supported.",
+    "AOD-9604 Joints ('users report joint relief'): no named forum report and aggregators barely mention it; only a rabbit knee study exists. Worth a look at the wording.",
+    "Liraglutide Pancreas says 'raises insulin': in van Can 2013 glucagon fell 30% but early insulin was 20% lower (with lower glucose); left untagged.",
+    "GHRP-6: no tag this round (the human GH studies found weren't specific enough); community strongly reports hunger (17 of 27). Insomnia reported at 300 mcg+ before bed.",
+    "GHRP-2 and GHRP-6: no user posted IGF-1 numbers anywhere."
+   ],
+   "left": "about 190 labels without a study"
   }
  ]
 }
