@@ -1,0 +1,74 @@
+{
+ "day": "2026-10-31",
+ "rounds": [
+  {
+   "round": 1,
+   "time": "11:20",
+   "version": "Home v70 (v69 kept)",
+   "added": [
+    {
+     "compound": "Semaglutide",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "ANIMAL · Gabery 2020, JCI Insight: reaches brain hunger centres in rats and mice, cuts food intake",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/"
+    },
+    {
+     "compound": "Semaglutide",
+     "label": "Brainstem",
+     "before": "No study tag",
+     "after": "ANIMAL · Gabery 2020: acts on the brainstem and meal-stopping neurons",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32213703/"
+    },
+    {
+     "compound": "MK-677",
+     "label": "Appetite",
+     "before": "No study tag",
+     "after": "HUMAN · Nass 2008, Ann Intern Med: 65 adults aged 60–81 for 2 years; bigger appetite was the top side effect, faded in months",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/"
+    },
+    {
+     "compound": "MK-677",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "HUMAN · same trial; hunger reported, not measured in the brain",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18981485/"
+    },
+    {
+     "compound": "Epitalon",
+     "label": "Pineal gland",
+     "before": "No study tag",
+     "after": "ANIMAL · Goncharova 2005: night melatonin up in old monkeys",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/15664732/"
+    },
+    {
+     "compound": "Epitalon",
+     "label": "Pineal gland (2nd source)",
+     "before": "—",
+     "after": "HUMAN · Korkushko 2007: night melatonin up in elderly people; small, in Russian",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/17969590/"
+    },
+    {
+     "compound": "GHK-Cu",
+     "label": "Memory",
+     "before": "No study tag",
+     "after": "ANIMAL · Mazzola 2026 preprint: aged mice learned a maze faster; not peer reviewed",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/42245779/"
+    }
+   ],
+   "fixed": [
+    {
+     "what": "Study card country, 5 cards (retatrutide phase 2 + stomach; tirzepatide stomach, fat cells, sleep apnoea)",
+     "before": "India",
+     "after": "USA",
+     "why": "Lookup matched 'India' inside 'Indianapolis' (Eli Lilly). Checked on PubMed."
+    }
+   ],
+   "flags": [
+    "MK-677: Library has no 'Tested so far' row for appetite though a human trial covers it (not changed; needs your Log).",
+    "Epitalon pineal tag folds inside the Brain label on phone, shows on laptop."
+   ],
+   "left": "about 220 labels without a study"
+  }
+ ]
+}
