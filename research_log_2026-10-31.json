@@ -258,6 +258,29 @@
     "Thymosin Alpha-1: almost all community anecdotes are on Reddit (long-COVID subs); your ChatGPT Reddit pool would fill this."
    ],
    "left": "about 204 labels without a study"
+  },
+  {
+   "round": 5,
+   "time": "16:45",
+   "version": "Home v74 (v73 kept)",
+   "added": [
+    {
+     "compound": "Orforglipron",
+     "label": "Pancreas",
+     "before": "No study tag",
+     "after": "PHASE 3 · ACHIEVE-1, Rosenstock 2025: 559 adults with type 2 diabetes, HbA1c down 1.2–1.5 points, no severe lows",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/40544435/",
+     "community": "No signal: it's sold for weight loss (Foundayo), so almost no diabetes users post; 1 of 26 Drugs.com reviews mention blood sugar."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "Cagrilintide: no study measures its label claims for cagrilintide alone (fullness, stomach emptying, glucagon, food reward). The phase 2 (Lau 2021, 6–10.8% weight loss) shows weight loss only. Labels left untagged. Community: PeptideMap 38% appetite suppression (316 users), but alone and combo users aren't split.",
+    "Orforglipron is now approved and sold as Foundayo (FDA 1 Apr 2026, UK Aug 2026) — the Library and Log may need this. Community: Drugs.com 59 reviews, 7.1/10; appetite down 11 of 26.",
+    "Mazdutide: no Log yet; zero usable community data (Chinese platforms unreachable); its Liver label's '60 to 80%' figure has no matching human study I could find (only a mouse study).",
+    "Mazdutide Heart label: only a 2026 review says heart rate rises like other GLP-1 drugs; no primary study found."
+   ],
+   "left": "about 203 labels without a study"
   }
  ]
 }
