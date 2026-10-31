@@ -202,6 +202,62 @@
     "PeptIQ's CJC no-DAC page looks like a flipped copy of its ipamorelin page (favourable 2% vs 98%)."
    ],
    "left": "about 209 labels without a study"
+  },
+  {
+   "round": 4,
+   "time": "15:50",
+   "version": "Home v73 (v72 kept)",
+   "added": [
+    {
+     "compound": "NA-Selank",
+     "label": "Brain",
+     "before": "No study tag",
+     "after": "ANIMAL · Inozemtseva 2008: plain Selank changed rat hippocampus BDNF",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18841804/",
+     "community": "No: 0 of 10 plain-Selank forum users report better focus; NA form has no data."
+    },
+    {
+     "compound": "NA-Selank",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "HUMAN · Zozulia 2008: plain Selank calmed anxiety like medazepam in 62 people; slowed enkephalin breakdown",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/18454096/",
+     "community": "Partly: anxiety relief is the top benefit on aggregators; forums thin and mixed (2 calmer, 5 no effect)."
+    },
+    {
+     "compound": "NA-Semax",
+     "label": "Brain (plasticity)",
+     "before": "No study tag",
+     "after": "ANIMAL · Dolotov 2006: plain Semax raised rat hippocampus BDNF 1.4×, better learning",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/16996037/",
+     "community": "Partly: memory reported by 1 of 8 NA users and 5 of 17 plain users; focus is the stronger signal."
+    },
+    {
+     "compound": "NA-Semax",
+     "label": "Neurons",
+     "before": "No study tag",
+     "after": "ANIMAL · Stavchanskii 2011: plain Semax restored growth-factor genes after reduced brain blood flow, rats",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/22295573/",
+     "community": "Can't test: neuroprotection isn't something users can feel."
+    },
+    {
+     "compound": "Thymosin Alpha-1",
+     "label": "Lungs",
+     "before": "No study tag",
+     "after": "HUMAN · Tuthill 2023 pilot: 194 dialysis patients, preliminary 3 vs 7 deaths, COVID serious events 5 vs 7",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/36881981/",
+     "community": "None: no COVID community data; 80-report page says 'shorter colds' with no counts."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "NAD+: no study matches its body labels; the body labels (Mitochondria, Neurons, Drive, Hippocampus) also differ from its Log's Library labels (Energy, DNA, Cognition, Drive).",
+    "NAD+ community: energy is the main reported benefit; 'clearer thinking' labels (Neurons, Hippocampus) have 0 clean reports in 34 forum accounts.",
+    "NA-Selank and NA-Semax: all tags are plain-form studies (the label notes already say 'as Selank does' / 'from Semax data'); no study or community data of the NA forms themselves.",
+    "NA-Semax: studycheck now flags OVER for Cognition (Library says human; best checked study is animal).",
+    "Thymosin Alpha-1: almost all community anecdotes are on Reddit (long-COVID subs); your ChatGPT Reddit pool would fill this."
+   ],
+   "left": "about 204 labels without a study"
   }
  ]
 }
