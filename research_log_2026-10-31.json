@@ -474,6 +474,44 @@
     "Display bug (same family, already there before today): on phone, AHK-Cu's merged follicle label shows only the vessels note; the Follicle cells and Collagen notes don't show."
    ],
    "left": "about 187 labels without a study"
+  },
+  {
+   "round": 10,
+   "time": "21:05",
+   "version": "Home v79 (v78 kept)",
+   "added": [
+    {
+     "compound": "Bimagrumab",
+     "label": "Insulin response",
+     "before": "No study tag",
+     "after": "PHASE 2 · Heymsfield 2021: 75 adults with type 2 diabetes, HbA1c down 0.76 points",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/33439265/",
+     "community": "None: trial-only antibody, no user reports."
+    },
+    {
+     "compound": "Bimagrumab",
+     "label": "Aging muscle",
+     "before": "No study tag",
+     "after": "PHASE 1 · Rooks 2020: adults 70–85, thigh muscle up ~5–6% after one dose, strength unchanged",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/33264516/",
+     "community": "None."
+    },
+    {
+     "compound": "Eloralintide",
+     "label": "Hypothalamus",
+     "before": "No study tag",
+     "after": "PHASE 1 · Bhattachar 2026: 100 adults, decreased appetite 19%, weight down up to 11.3% in 12 wk",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/41559929/",
+     "community": "None: no user self-reports exist yet (trial-only)."
+    }
+   ],
+   "fixed": [],
+   "flags": [
+    "Eloralintide, amycretin, pemvidutide, bimagrumab: all trial-only — no community use found in any pool. Eloralintide and amycretin have no Log yet.",
+    "Pemvidutide Liver fat ('fell about half by 48 weeks'): only the 24-week IMPACT paper (MASH resolution) and a meta-analysis (12-wk liver fat −53%) found; the 48-week figure isn't in a published paper I could find. Left untagged.",
+    "Pemvidutide Log: a dosing-calculator site lists grey vials, but PPW says vendors don't carry it — unresolved."
+   ],
+   "left": "about 184 labels without a study"
   }
  ]
 }
