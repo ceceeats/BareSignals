@@ -19,7 +19,7 @@ const BASE='/S/';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const track=(n,t)=>{try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
 const LKEY='bs-scan-v1';
-/* v7: ready-made liquid vials (Uther labels, Oct 2026 order); ml = vial volume, mg = active in the vial when the label gives it */
+/* v7: ready-made liquid vials (supplier labels, Oct 2026 order); ml = vial volume, mg = active in the vial when the label gives it */
 const LQ={CRB:{ml:10,mg:30},LPC:{ml:10},MIC:{ml:10}};
 const liqSyr=ml=>ml<=1?1:ml<=3?3:ml<=5?5:10;
 /* titration ladders: start step first (lowest common start), then step-ups; e = when to step */

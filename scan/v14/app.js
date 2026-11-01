@@ -25,7 +25,7 @@ const BASE='/S/';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const track=(n,t)=>{try{window.bsTrack&&window.bsTrack(n,t)}catch(e){}};
 const LKEY='bs-scan-v1';
-/* v7: ready-made liquid vials (Uther labels, Oct 2026 order); ml = vial volume, mg = active in the vial when the label gives it */
+/* v7: ready-made liquid vials (supplier labels, Oct 2026 order); ml = vial volume, mg = active in the vial when the label gives it */
 const LQ={CRB:{ml:10,mg:30},LPC:{ml:10},MIC:{ml:10}};
 /* v10: stock vial sizes (vials.js). A line starts on the stock size the old default matched, else the smallest stock size */
 const VS=window.BS_VIALS||{};
