@@ -1,0 +1,428 @@
+<!doctype html>
+<!-- Tennis Elbow v1 (1 Nov 2026): first "goal" page. One common problem, everything researched on it: what it is, what people report, BPC-157, TB-500 and the full Tβ4, other options, cortisone, sport rules, trials, open questions, sources. Draft, not in nav yet. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Tennis elbow · Bare Signals</title>
+<meta name="description" content="Tennis and golfer's elbow: what peptides like BPC-157 and TB-500 have shown in studies and what people report, with every source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · Goals</p>
+<div class="hd">
+ <div><h1>Tennis elbow</h1><p class="aka">Also golfer's elbow · lateral epicondylitis · elbow tendinopathy</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><path d="M14 22 C30 30 38 40 42 50" stroke="#3E4A80" stroke-width="12" stroke-linecap="round" fill="none" opacity=".18"/><path d="M42 50 C52 56 62 60 74 62" stroke="#3E4A80" stroke-width="10" stroke-linecap="round" fill="none" opacity=".18"/><path d="M14 22 C30 30 38 40 42 50 C52 56 62 60 74 62" stroke="#3E4A80" stroke-width="1.6" fill="none"/><circle class="pl" cx="44" cy="50" r="7" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.5"/><path d="M44 50 l12 6 M44 50 l14 2" stroke="#87CFC5" stroke-width="2.4"/></svg>
+ <div class="meta"><span class="mt">Researched 1 Nov 2026</span><span class="mt">31 sources</span><span class="mt">Version 1</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Tissue repair, Pain and sensory, Inflammatory signaling"><i style="width:70%;background:var(--repair)"></i><i style="width:20%;background:var(--pain)"></i><i style="width:10%;background:var(--infl)"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--repair)">Tissue repair</span><span class="rtg" style="background:var(--pain)">Pain &amp; sensory</span><span class="rtg" style="background:var(--infl)">Inflammatory signaling</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Wear in the tendon that holds the wrist extensors to the outer elbow. The collagen frays and new vessels and nerves grow in. Very little inflammation.</p>
+ <p><b>What people try.</b> BPC-157 most, often with TB-500 or the full Tβ4, next to collagen and rehab. 9 of 10 elbow accounts we logged felt better, most by week 2 or 3.</p>
+ <p><b>What studies show.</b> Every tendon study is in rats or cells, and almost all on a freshly cut tendon, not a worn one. No human elbow or tendon trial yet.</p>
+ <p><b>Watch out.</b> Banned in tested sport. Vial quality varies. What has the strongest human evidence is still progressive loading.</p>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#what">What it is</a><a href="#reports">What people report</a><a href="#bpc">BPC-157</a><a href="#tb">TB-500</a><a href="#stack">Together?</a><a href="#else">What else</a><a href="#cortisone">Cortisone</a><a href="#sport">Banned in sport?</a><a href="#trials">Trials</a><a href="#unknown">Still unknown</a><a href="#sources">Sources</a>
+</nav>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="what">
+ <h2 class="st">What it actually is</h2>
+ <div class="box tl">
+  <div class="dg"><svg viewBox="0 0 340 168" role="img" aria-label="Fresh tendon irritation compared with long-term tendon wear">
+   <text class="m" x="12" y="18" font-size="9" letter-spacing=".6" fill="#3E4A80">A · FRESH IRRITATION</text>
+   <text class="m" x="182" y="18" font-size="9" letter-spacing=".6" fill="#3E4A80">B · LONG-TERM WEAR</text>
+   <g stroke="#3E4A80" stroke-width="1.6" fill="none"><path d="M12 36h146M12 50h146M12 64h146M12 78h146M12 92h146"/></g>
+   <circle cx="78" cy="64" r="16" fill="#FF5050" opacity=".18"/>
+   <circle cx="84" cy="58" r="2.6" fill="#FF5050"/><circle cx="70" cy="70" r="2.6" fill="#FF5050"/><circle cx="90" cy="74" r="2.2" fill="#FF5050"/>
+   <g stroke="#3E4A80" stroke-width="1.6" fill="none">
+    <path d="M182 36c18 0 28 4 40 0s26-6 46 0 28 4 42 0"/><path d="M182 50c16-4 26 6 42 2s18-8 36-2 32 6 50 0"/>
+    <path d="M182 64c14 0 20-6 32 0M232 64c18 6 28-4 46 0 12 3 20 0 32 0"/><path d="M182 78c20 6 28-4 48 0s28 8 44 0 20-2 36 0"/>
+    <path d="M182 92c16-4 28 4 44 0M244 92c18-4 32 6 66 0"/>
+   </g>
+   <path d="M196 104 C218 84 234 80 250 56 S280 32 304 26" stroke="#9E1B32" stroke-width="2" fill="none"/>
+   <path d="M214 104 C236 88 262 80 276 58" stroke="#2E8F82" stroke-width="2.2" fill="none" stroke-dasharray="4 3"/>
+   <text x="12" y="122" font-size="10.5" fill="#3E4A80">Fibres in line, short flare-up.</text>
+   <text x="12" y="137" font-size="10.5" fill="#3E4A80">Recent, often settles faster.</text>
+   <text x="182" y="122" font-size="10.5" fill="#3E4A80"><tspan fill="#9E1B32" font-weight="700">Vessels</tspan> and <tspan fill="#2E8F82" font-weight="700">nerves</tspan> grow in.</text>
+   <text x="182" y="137" font-size="10.5" fill="#3E4A80">Months to years, frayed fibres.</text>
+   <text class="m" x="334" y="162" text-anchor="end" font-size="7" letter-spacing=".5" fill="#6B76A8">TENDON, SIMPLIFIED</text>
+  </svg></div>
+  <p>Most tennis elbow is <b>B</b>: wear, not a fire. Doctors now call it a tendinopathy, not a tendinitis, because the tissue shows collagen breakdown and new blood vessels with very little inflammation.<sup><a href="#s20">20</a></sup></p>
+  <p>Those new vessels matter. In painful tendons they arrive with nerves, and as people improve, the vessels shrink back.<sup><a href="#s16">16</a>,<a href="#s19">19</a></sup></p>
+  <p class="hint">Tennis elbow = outer elbow (gripping, backhand, padel). Golfer's elbow = inner elbow (pulling, climbing, BJJ grips). Same idea, different tendon.</p>
+ </div>
+</section>
+<section class="sec" id="tension-s">
+ <h2 class="st" id="tension">The open question</h2>
+ <div class="box">
+  <p>Both peptides push vessel growth, which suits a fresh tear. A worn tendon already has too many painful vessels. Nobody has tested whether these peptides make that better or worse.<sup><a href="#s4">4</a>,<a href="#s16">16</a></sup> BPC-157 "modulating" rather than forcing vessels is the most hopeful clue so far.</p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">What people report</h2>
+ <div class="box y">
+  <div class="nums">
+   <div class="nm"><b>9/10</b><span>elbow accounts felt better</span></div>
+   <div class="nm"><b>2–3</b><span>weeks, the most common time to feel it</span></div>
+   <div class="nm"><b>2</b><span>Achilles accounts, both partial</span></div>
+  </div>
+  <p class="sub">When people felt it (elbow accounts)</p>
+  <div class="tbar" aria-label="When people felt it, from next day to months">
+   <i style="left:2%"></i><i style="left:30%"></i><i style="left:40%"></i><i style="left:40%;bottom:18px"></i><i style="left:60%"></i><i style="left:60%;bottom:18px"></i><i style="left:70%" class="m"></i><i style="left:97%"></i><i style="left:97%;bottom:18px"></i>
+  </div>
+  <div class="tax"><span>Next day</span><span>1 wk</span><span>2 wk</span><span>3 wk</span><span>4 wk</span><span>Months</span></div>
+  <p class="sub">The stories behind it</p>
+  <div class="story">
+   <div class="sn"><span class="k k-good">Good</span><span>Chronic tennis elbow after shockwave, dry needling and NSAIDs failed. Background ache gone mid week 2, light band work by week 3. <i class="src">Web</i></span></div>
+   <div class="sn"><span class="k k-note">Note</span><span>One person, two elbows. Years of tendinitis in one cleared in 2 weeks; the other, with long-term wear, was slower. <i class="src">Forum</i></span></div>
+   <div class="sn"><span class="k k-good">Good</span><span>Golfer's elbow for 3 months, stretches failed. With TB-500 added, chin-ups were back at week 3. BPC alone had failed his hamstring earlier. <i class="src">Forum</i></span></div>
+   <div class="sn"><span class="k k-hard">Hard</span><span>BJJ grappler: 50% better at 1.5 weeks and training again, but hard rolls flared it and felt like losing a week. <i class="src">Web</i></span></div>
+   <div class="sn"><span class="k k-hard">Hard</span><span>Elbow better by week 3 to 4, but anxiety and mood swings came with it. <i class="src">Web</i></span></div>
+   <div class="sn"><span class="k k-good">Good</span><span>Climber with a 50% partial tear on MRI: back to bouldering with rehab. Says rest, sleep and PT first, peptides last. <i class="src">Reddit</i></span></div>
+  </div>
+  <p class="sub">Sports in these reports</p>
+  <div class="chips"><span class="chip"><i class="sq" style="background:var(--repair)"></i>BJJ</span><span class="chip"><i class="sq" style="background:var(--repair)"></i>Climbing</span><span class="chip"><i class="sq" style="background:var(--repair)"></i>Lifting</span><span class="chip"><i class="sq" style="background:var(--repair)"></i>Arm wrestling</span><span class="chip off">Tennis · soon</span><span class="chip off">Padel · soon</span><span class="chip off">Basketball · soon</span></div>
+  <p class="hint">13 first-hand accounts so far (10 elbow, 2 Achilles, 1 shoulder), from forums, blogs and Reddit, logged 1 Nov 2026. Pale dot = mixed result. Reddit and X sweeps are next.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · how it may help</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:12%;background:var(--gut)"></i><i style="width:10%;background:var(--pain)"></i><i style="width:8%;background:var(--infl)"></i></div>
+  <p class="lead">A 15 amino acid piece of a stomach protein. In rats it is the most studied tendon peptide there is.</p>
+  <ol class="steps">
+   <li><span><b>Tendon cells crawl into the damage.</b></span><span class="sci">FAK–paxillin · cell migration <span class="ev e-c">Cells</span></span></li>
+   <li><span><b>Tendon cells hear growth hormone louder.</b> It raises their growth hormone receptors.</span><span class="sci">GHR · JAK2 <span class="ev e-c">Cells</span></span></li>
+   <li><span><b>Vessels grow where healing needs them.</b> No direct effect in a dish; in the body it modulates VEGF.</span><span class="sci">VEGF · angiogenesis <span class="ev e-a">Rat</span></span></li>
+   <li><span><b>Shields tendon cells from oxidative stress.</b></span><span class="sci">HNE, H<span class="ng">₂</span>O<span class="ng">₂</span> protection <span class="ev e-c">Cells</span></span></li>
+  </ol>
+  <p class="sub">Studies · tap to open</p>
+  <div class="studies">
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Cut Achilles healed stronger and fully rejoined</span><span class="yr">2003</span></summary><div class="bd"><p>Daily BPC-157 after the tendon was cut: higher load before failure, better walking, more collagen and a smaller gap by day 14. Tendon cells were protected from an oxidative molecule, but did not grow faster on their own.</p><p class="src">Staresinic, J Orthop Res · <a href="#s1">1</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Tendon healed back onto bone, and undid steroid damage</span><span class="yr">2006</span></summary><div class="bd"><p>Achilles cut from the heel bone, which does not heal by itself in rats. BPC-157 restored it, with more type I collagen. The steroid methylprednisolone made healing worse; BPC-157 largely reversed that.</p><p class="src">Krivic, J Orthop Res · <a href="#s2">2</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Less inflammation and more vessels, early</span><span class="yr">2008</span></summary><div class="bd"><p>Days 1 to 4 after the cut. BPC-157 lowered inflammation and raised new vessels, and function returned sooner. The steroid lowered inflammation too, but also blocked vessels and did not speed recovery.</p><p class="src">Krivic, Inflamm Res · <a href="#s3">3</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Vessels modulated, not just pushed</span><span class="yr">2009</span></summary><div class="bd"><p>No direct vessel growth in cell culture. In healing muscle and tendon, VEGF and vessel markers were adjusted toward a more orderly repair.</p><p class="src">Brcic, J Physiol Pharmacol · <a href="#s4">4</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-c">Cells</span><span class="t">Tendon cells moved and survived stress</span><span class="yr">2011</span></summary><div class="bd"><p>Rat Achilles tendon cells spread and migrated faster and survived hydrogen peroxide, through the FAK and paxillin pathway. It did not make them multiply directly.</p><p class="src">Chang, J Appl Physiol · <a href="#s5">5</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-c">Cells</span><span class="t">More growth hormone receptors on tendon cells</span><span class="yr">2014</span></summary><div class="bd"><p>Growth hormone receptor was one of the most raised genes. Adding growth hormone then made the treated cells multiply.</p><p class="src">Chang, Molecules · <a href="#s6">6</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">BPC vs TB-500 vs both on a cut Achilles</span><span class="yr">2026</span></summary><div class="bd"><p>8 rats per group, 4 weeks. BPC-157 trended better but did not reach significance on total scores. TB-500 was the only group with significantly stronger tendons. Together: no extra benefit.</p><p class="src">Biçer, Jt Dis Relat Surg · <a href="#s7">7</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-h">Human</span><span class="t">Knee injections, chart review</span><span class="yr">2021</span></summary><div class="bd"><p>17 patients, 16 reached by phone. 11 of 12 on BPC-157 alone said their knee pain improved, 14 of 16 overall. No control group and no scoring tools. The only human musculoskeletal data so far.</p><p class="src">Lee, Altern Ther Health Med · <a href="#s8">8</a></p></div></details>
+  </div>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="tb">
+ <h2 class="st">TB-500 &amp; T<span class="ng">β</span>4 · how it may help</h2>
+ <div class="cp">
+  <div class="cph"><h3>TB-500</h3><span><a href="/library/#/p/tb-500-frag-17-23">Fragment card</a> · <a href="/library/#/p/thymosin-beta-4">Full T<span class="ng">β</span>4 card</a></span></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:15%;background:var(--heart)"></i><i style="width:15%;background:var(--infl)"></i></div>
+  <p class="lead">Two different things share this name. TB-500 is a 7 amino acid piece (17–23) of Thymosin Beta-4. Many vials sold as TB-500 are the full 43 amino acid Tβ4. Most research is on the full one.</p>
+  <ol class="steps">
+   <li><span><b>Holds actin so repair cells can move.</b> Actin is what cells use to crawl into a wound.</span><span class="sci">G-actin binding <span class="ev e-c">Cells</span></span></li>
+   <li><span><b>Grows new vessels at the injury.</b></span><span class="sci">Angiogenesis <span class="ev e-a">Animal</span></span></li>
+   <li><span><b>Calms inflammatory signals.</b></span><span class="sci"><span class="ng">TNF-α, IL-1β, IL-6</span> <span class="ev e-c">Cells</span></span></li>
+   <li><span><b>Lines collagen up.</b> Evenly spaced fibre bundles in healing ligament and tendon.</span><span class="sci">Collagen organisation <span class="ev e-a">Rat</span></span></li>
+  </ol>
+  <p class="sub">Studies · tap to open</p>
+  <div class="studies">
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Strongest tendons of all groups</span><span class="yr">2026</span></summary><div class="bd"><p>Cut Achilles, 4 weeks. Only the TB-500 group reached significantly higher load before failure, with better collagen scores. The paper calls it "synthetic Tβ4 (TB-500)", so which molecule is still unclear.</p><p class="src">Biçer, Jt Dis Relat Surg · <a href="#s7">7</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-a">Rat</span><span class="t">Knee ligament healed stronger</span><span class="yr">2013</span></summary><div class="bd"><p>Full Tβ4 placed in the gap of a cut knee ligament (MCL). At 4 weeks: evenly spaced fibre bundles, thicker collagen fibrils and better mechanical strength.</p><p class="src">Xu, Regul Pept · <a href="#s9">9</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-c">Cells</span><span class="t">Stem cells turned tendon-like</span><span class="yr">2019</span></summary><div class="bd"><p>Full Tβ4 released from a nanofibre yarn made human stem cells move, multiply and switch on tendon genes. Lab tissue engineering, not a treatment.</p><p class="src">Wu, Mater Sci Eng C · <a href="#s10">10</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-t">Trial</span><span class="t">First human trial of the fragment itself</span><span class="yr">2026</span></summary><div class="bd"><p>80 adults with stable heart disease, dose steps vs placebo, recruiting, results expected after Feb 2027. Heart, not tendon, but the first human safety data for the 7 amino acid piece.</p><p class="src">NCT07487363 · <a href="#s13">13</a></p></div></details>
+  </div>
+  <p class="hint">Fragment and full Tβ4 have never been tested against each other. An October 2026 orthopaedic review says no one has shown they are the same.<sup><a href="#s11">11</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="compare">
+ <h2 class="st">How they differ</h2>
+ <table class="cmp">
+  <tr><th></th><th>BPC-157</th><th>TB-500 / T<span class="ng">β</span>4</th></tr>
+  <tr><td>Main action</td><td>Cell signals, vessels, protection</td><td>Moves actin so cells migrate</td></tr>
+  <tr><td>Tendon data</td><td>Many rat Achilles studies, incl. tendon to bone</td><td>Mostly full Tβ4; one rat Achilles study</td></tr>
+  <tr><td>Fits best</td><td>Fresh tears, where tendon meets bone</td><td>Fresh tears, collagen organisation</td></tr>
+  <tr><td>Biggest gap</td><td>No controlled human trial</td><td>Fragment vs full molecule never compared</td></tr>
+ </table>
+</section>
+</div>
+</div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">What else helps the elbow</h2>
+ <div class="box gr">
+  <p class="sub">Loading · the strongest human evidence</p>
+  <p>Slow, heavy, progressive forearm work. Every peptide here is at best an add-on to it, and 2026 orthopaedic reviews say peptides should not replace it.<sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></p>
+  <p class="sub">Collagen + vitamin C, about an hour before loading</p>
+  <p>15 g of vitamin C enriched gelatin an hour before exercise doubled a blood marker of new collagen.<sup><a href="#s15">15</a></sup> For tennis elbow, a supplement with collagen, vitamin C and hyaluronic acid plus rehab and shockwave gave the best grip and function at 30 days.<sup><a href="#s17">17</a></sup> For Achilles, collagen on top of calf training improved faster than placebo.<sup><a href="#s16">16</a></sup></p>
+  <p class="sub">Vitamin D</p>
+  <p>Lower vitamin D was linked with worse elbow function 12 weeks after shockwave. Observational, one study.<sup><a href="#s18">18</a></sup> Worth a <a href="/blood/">blood test</a>.</p>
+  <p class="sub">Weaker fits</p>
+  <ul><li><b>GHK-Cu</b> remodels collagen in skin and wounds; no tendon study found.</li><li><b>GH boosters</b> (CJC-1295, ipamorelin, MK-677): modest human effects at best, MK-677 has a heart failure signal.<sup><a href="#s12">12</a></sup></li><li><b>KPV</b> is anti-inflammatory, which fits a wear problem poorly.</li></ul>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="stack">
+ <h2 class="st">Together?</h2>
+ <div class="box pu">
+  <p><b>People say yes.</b> Several elbow accounts only turned around once TB-500 was added, and the pair is the most common stack in these reports.</p>
+  <p><b>The one study says no.</b> In the 2026 rat Achilles study, the pair did no better than either alone.<sup><a href="#s7">7</a></sup> The authors think both peptides may land on the same repair pathways.</p>
+  <p class="hint">One rat study is not the last word. We are checking which molecule it used before it changes anything on the cards.</p>
+ </div>
+</section>
+<section class="sec" id="cortisone">
+ <h2 class="st">Had a cortisone shot?</h2>
+ <div class="box or">
+  <p>Many tennis elbows get a steroid injection first. In rats, the steroid methylprednisolone made tendon-to-bone healing worse, and BPC-157 largely reversed that.<sup><a href="#s2">2</a></sup></p>
+  <p>Early on, the steroid lowered inflammation but also blocked new vessels and did not speed recovery. BPC-157 lowered inflammation and kept the vessels.<sup><a href="#s3">3</a></sup></p>
+  <p class="hint">Rat data only. No human study of BPC-157 after a cortisone shot exists yet.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="sport">
+ <h2 class="st rdt">Banned in sport?</h2>
+ <div class="box rd">
+  <details class="fq" open><summary>Is BPC-157 banned?</summary><div class="bd"><p>Yes, at all times, for anyone tested under WADA rules. It sits in S0, the group for drugs no health authority has approved, and has been named there since the 2022 list.<sup><a href="#s21">21</a>,<a href="#s22">22</a></sup> Tβ4 and its fragments are banned too.</p></div></details>
+  <details class="fq"><summary>Why do athletes take it?</summary><div class="bd"><p>To come back from tendon and muscle injuries faster, or to keep training through overuse pain.</p></div></details>
+  <details class="fq"><summary>Why is it counted as cheating?</summary><div class="bd"><p>A substance goes on the list when it meets two of three tests: it can enhance performance, it can harm health, or it goes against the spirit of sport.<sup><a href="#s23">23</a></sup> Healing faster means more training, and with no human safety data and unknown purity, the health test is met too.</p></div></details>
+  <details class="fq"><summary>Can an athlete get an exemption?</summary><div class="bd"><p>Unlikely. USADA says permitted alternatives exist.<sup><a href="#s21">21</a></sup></p></div></details>
+  <details class="fq"><summary>What do critics say?</summary><div class="bd"><p>That it is a repair aid, not a performance drug. When ultra-runners admitted using it, supporters said they used it to heal, not to win.<sup><a href="#s24">24</a></sup></p></div></details>
+  <details class="fq"><summary>Who does this apply to?</summary><div class="bd"><p>Only people tested in competition. Padel's federation publishes the WADA list, and grappling events under WADA rules test for it.<sup><a href="#s25">25</a></sup> A weekend player is not bound by it.</p></div></details>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="unknown-s">
+ <h2 class="st" id="unknown">Still unknown</h2>
+ <div class="box">
+  <ul>
+   <li>Does any peptide help a <b>worn</b> tendon, not just a freshly cut one?</li>
+   <li>Do they grow more painful vessels in an elbow that already has too many?</li>
+   <li>Does a recent flare respond faster than years of wear? Reports hint yes.</li>
+   <li>Which molecule was the "TB-500" in the 2026 rat study?</li>
+   <li>Any human data after a cortisone shot?</li>
+   <li>How do tennis, padel and basketball players report it? Sweeps under way.</li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="method">
+ <h2 class="st">How this page was made</h2>
+ <div class="box method">
+  <p>Studies come from PubMed and ClinicalTrials.gov, read from the abstracts and summarised in our words. Reports come from forums, blogs and Reddit, labelled only by where they were posted. Vendor claims with no source are left out.</p>
+  <p><span class="ev e-h">Human</span><span class="ev e-a">Rat</span><span class="ev e-c">Cells</span><span class="ev e-t">Trial</span> show where each finding was seen. This page grows as new reports and studies come in.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid">
+<section class="sec" id="trials">
+ <h2 class="st">Trials to watch</h2>
+ <div class="box">
+  <div class="studies tri">
+   <details class="sd"><summary><span class="ev e-t">Trial</span><span class="t">BPC-157 after rotator cuff surgery</span><span class="yr">2027</span></summary><div class="bd"><p>University of Arkansas. Daily BPC-157 or placebo under the skin for 90 days after repair, with MRI healing, strength and collagen blood markers. Not yet recruiting, start Jan 2027.</p><p class="src">NCT07803250 · <a href="#s14">14</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-t">Trial</span><span class="t">BPC-157 for hamstring strain</span><span class="yr">2027</span></summary><div class="bd"><p>120 people with an MRI-confirmed grade II strain, daily injection or placebo for 14 days plus rehab. Recruiting, completion Feb 2027.</p><p class="src">NCT07437547 · <a href="#s14">14</a></p></div></details>
+   <details class="sd"><summary><span class="ev e-t">Trial</span><span class="t">TB-500 fragment, heart safety</span><span class="yr">2027</span></summary><div class="bd"><p>The first human data for the 7 amino acid piece. 80 adults, recruiting.</p><p class="src">NCT07487363 · <a href="#s13">13</a></p></div></details>
+  </div>
+ </div>
+</section>
+</div>
+<section class="sec" id="sources" style="margin-top:14px">
+ <details class="srcs" id="srcd"><summary class="st">Sources <span class="cnt">31 · tap to open</span></summary>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">Staresinic 2003, BPC-157 accelerates healing of cut rat Achilles. <a href="https://doi.org/10.1016/S0736-0266(03)00110-4">doi</a></li>
+   <li id="s2">Krivic 2006, Achilles tendon-to-bone healing, opposed steroid harm. <a href="https://doi.org/10.1002/jor.20096">doi</a></li>
+   <li id="s3">Krivic 2008, early recovery, BPC-157 vs methylprednisolone. <a href="https://doi.org/10.1007/s00011-007-7056-8">doi</a></li>
+   <li id="s4">Brcic 2009, angiogenesis in muscle and tendon healing. <a href="https://pubmed.ncbi.nlm.nih.gov/20388964/">PubMed</a></li>
+   <li id="s5">Chang 2011, tendon outgrowth, survival and migration. <a href="https://doi.org/10.1152/japplphysiol.00945.2010">doi</a></li>
+   <li id="s6">Chang 2014, growth hormone receptor in tendon fibroblasts. <a href="https://doi.org/10.3390/molecules191119066">doi</a></li>
+   <li id="s7">Biçer 2026, BPC-157 and TB-500 on rat Achilles healing. <a href="https://doi.org/10.52312/jdrs.2026.2951">doi</a></li>
+   <li id="s8">Lee 2021, intra-articular BPC-157 for knee pain. <a href="https://pubmed.ncbi.nlm.nih.gov/34324435/">PubMed</a></li>
+   <li id="s9">Xu 2013, Tβ4 and medial collateral ligament healing in rats. <a href="https://doi.org/10.1016/j.regpep.2013.03.026">doi</a></li>
+   <li id="s10">Wu 2019, Tβ4 loaded nanofibre yarns for tendon engineering. <a href="https://doi.org/10.1016/j.msec.2019.110268">doi</a></li>
+   <li id="s11">Tham 2026, JAAOS review: BPC-157, Tβ4 and TB-500 in orthopaedics. <a href="https://doi.org/10.5435/JAAOS-D-26-00049">doi</a></li>
+   <li id="s12">Tewari 2026, AJSM scoping review of six peptides in sports medicine. <a href="https://doi.org/10.1177/03635465261464420">doi</a></li>
+   <li id="s13">ClinicalTrials.gov NCT07487363, TB-500 fragment in heart disease. <a href="https://clinicaltrials.gov/study/NCT07487363">link</a></li>
+   <li id="s14">ClinicalTrials.gov NCT07803250 rotator cuff and NCT07437547 hamstring. <a href="https://clinicaltrials.gov/study/NCT07803250">link</a> · <a href="https://clinicaltrials.gov/study/NCT07437547">link</a></li>
+   <li id="s15">Shaw 2016, vitamin C enriched gelatin before activity and collagen synthesis. <a href="https://doi.org/10.3945/ajcn.116.138594">doi</a></li>
+   <li id="s16">Praet 2019, collagen peptides with calf training in Achilles tendinopathy. <a href="https://doi.org/10.3390/nu11010076">doi</a></li>
+   <li id="s17">Scaturro 2025, shockwave and nutraceutical in lateral epicondylitis. <a href="https://doi.org/10.3389/fresc.2025.1593909">doi</a></li>
+   <li id="s18">Ku 2026, vitamin D and function after shockwave for tennis elbow. <a href="https://doi.org/10.3390/nu18132152">doi</a></li>
+   <li id="s19">Fogli 2017, tendon thickness and new vessels in painful tendinopathy. <a href="https://doi.org/10.11138/mltj/2017.7.2.388">doi</a></li>
+   <li id="s20">Vitale 2026, lateral elbow tendinopathy as a degenerative condition. <a href="https://doi.org/10.3390/life16091465">doi</a></li>
+   <li id="s21">USADA, BPC-157 substance page. <a href="https://www.usada.org/substance/bpc-157/">link</a></li>
+   <li id="s22">DSHS Köln, S0 non-approved substances. <a href="https://www.dshs-koeln.de/en/universitaet/organisation/institute-einrichtungen/department-of-biochemistry/doping-substances/prohibited-classes-of-substances-and-methods/s0-active-ingredients-not-approved-for-medical-use">link</a></li>
+   <li id="s23">CCES, criteria for the Prohibited List. <a href="https://cces.ca/node/138">link</a></li>
+   <li id="s24">Slowtwitch, the ultra-running peptide debate. <a href="https://slowtwitch.com/triathlon/a-peptide-debate-is-rocking-ultra-running-is-triathlon-next/">link</a></li>
+   <li id="s25">FIP anti-doping page and a grappling peptide guide. <a href="https://www.padelfip.com/?p=240526">link</a> · <a href="https://www.perxpeptides.com/blog/peptides-for-brazilian-jiu-jitsu">link</a></li>
+   <li id="s26">Report: chronic tennis elbow, web. <a href="https://edparker92.substack.com/p/tennis-elbow-that-wont-quit-my-deep">link</a></li>
+   <li id="s27">Reports: elbow tendinitis threads, forum. <a href="https://www.tigerdroppings.com/rant/health-fitness/has-anyone-had-any-experience-with-bpc-157-and-or-tb-500-peptides-for-tendon-healing/123336599/">link</a> · <a href="https://www.tigerdroppings.com/rant/health-fitness/trying-peptides-bpc-157-tb500-for-elbow-pain/120461547/">link</a></li>
+   <li id="s28">Report: BJJ tennis elbow and rotator cuff, web. <a href="https://www.therealjeffarmstrong.com/jeff-armstrong-blog/bpc-157-rotator-cuff-healing-experience">link</a></li>
+   <li id="s29">Report: elbow with anxiety, web. <a href="https://purepeptidehub.pages.dev/stories/bpc157-tendinitis-anxiety">link</a></li>
+   <li id="s30">Report: medial elbow partial tear, Reddit. <a href="https://www.reddit.com/r/climbharder/comments/1j4fiij/experience_with_bpc157_and_elbow_tendinopathy/">link</a></li>
+   <li id="s31">Reports: Achilles, forum. <a href="https://rokslide.com/forums/threads/return-of-the-a-achilles-tendinitis.382585/page-4">link</a> · <a href="https://glp1forum.com/threads/bpc-157-injection-site-for-achilles-injuries.9066/">link</a></li>
+  </ol>
+ </div>
+ </details>
+</section>
+
+<p class="note">Not medical advice. What people report is what they told forums and blogs; vials vary. Doses people use are on each compound's <a href="/library/">Library card</a>.</p>
+</div>
+<script src="/nav.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760)d.open=true;function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
