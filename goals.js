@@ -1,4 +1,5 @@
-/* Bare Signals goals v1 (2 Nov 2026): one registry of goal pages (one deep read per common problem) and the links that tie them to
+/* Bare Signals goals v2 (2 Nov 2026): chips carry small elbow / Achilles / knee drawings instead of a colour square. v1 kept at /goals/v1.js.
+   Bare Signals goals v1 (2 Nov 2026): one registry of goal pages (one deep read per common problem) and the links that tie them to
    the Library cards, Library full pages, the Library list and the Guide summary + card. Loaded by nav.js on every page.
    To rename the door, change LABEL. To add a page, add a row and set live:true once the page exists. */
 (function(){
@@ -18,14 +19,20 @@
   '.bsgo a,.bsgo span.so{display:inline-flex;align-items:center;gap:6px;font:500 11px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;padding:6px 8px;border:1.5px solid #3E4A80;background:#FFFFE2;color:#3E4A80;text-decoration:none;white-space:nowrap}'+
   '.bsgo a{color:#6777B6;text-decoration:underline;text-underline-offset:2px}'+
   '.bsgo a i{display:inline-block;width:9px;height:9px;background:#E1DE62;border:1.2px solid #3E4A80}'+
-  '.bsgo span.so{border-style:dashed;color:#6B76A8}'+
+  '.bsgo span.so{border-style:dashed;color:#6B76A8}.bsgo svg{flex:none;width:20px;height:20px;margin:-3px 0}.bsgo span.so svg{opacity:.55}'+
   '.bsgo .bsgox{display:block;font-size:12px;line-height:1.35;margin:6px 0 0;color:#3E4A80}'+
   '.bsgo.gomin{margin:6px 0 4px;padding:0;border:0;background:none}.bsgo.gomin .bsgol{margin:0 0 4px}'+
   '.bsgo.gorow{margin:0 0 10px}'+'.bsgo.gofr{grid-column:1/-1;margin:0 0 12px}'+
   '.bsgoh{display:inline;margin-left:8px;white-space:nowrap}.bsgoh a{font:500 10.5px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#6777B6;text-decoration:underline;text-underline-offset:2px}';
   function addCss(){if(D.getElementById('bsg-css'))return;var s=D.createElement('style');s.id='bsg-css';s.textContent=css;D.head.appendChild(s)}
   function goalsFor(slug){return G.filter(function(g){return g.for.indexOf(slug)>=0})}
-  function chips(list){return list.map(function(g){return g.live?'<a href="'+g.url+'"><i></i>'+g.name+' →</a>':'<span class="so">'+g.name+' · soon</span>'}).join('')}
+  var IC={
+    'tennis-elbow':'<path d="M8 3C7 9 7.5 15 9 20C10 24 12 27.5 15.5 28.8C20 30.3 27 30.4 34 30L35.5 29.6L35.5 25L34 24.6C28 24.4 22.5 23.8 19.5 22.4C18 21.6 17.4 19.8 17.4 17C17.4 12 18 7 17 3Z" fill="#FFFFF4" stroke="#3E4A80" stroke-width="2" stroke-linejoin="round"/><path d="M14.5 26.6C20 28 27 28.2 34 27.6" fill="none" stroke="#87CFC5" stroke-width="2.4" stroke-linecap="round"/><circle cx="11.6" cy="25.6" r="3.6" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.8"/>',
+    'achilles':'<path d="M9 2C6.5 7 6 12 8 17C9.5 21 11.5 24 11.8 28C12 30.5 11 32.5 11 34.5C11 36.5 12.8 37.6 15 37.6L35.5 37.6C37.8 37.6 38.3 35.4 36.6 34.2C33.5 32.3 28 31.2 24.5 29.6C22 28.4 21 26.4 20.8 23C20.6 16 21.5 8 21 2Z" fill="#FFFFF4" stroke="#3E4A80" stroke-width="2" stroke-linejoin="round"/><path d="M8.6 18.5C10.8 22 12.2 25.6 12.1 29.5C12 31.6 11.4 33 11.5 34.4" fill="none" stroke="#E1DE62" stroke-width="3.6" stroke-linecap="round"/>',
+    'knee':'<path d="M2 6C9 5 17 6.5 25 9.5C28.5 11 31 13.5 31.5 17C31.8 20 31 22.5 30 25.5L28 38L20.5 38L22.5 25.5C22.8 23 22 21.5 19.5 20.6C14 18.8 8 18 2 17.5Z" fill="#FFFFF4" stroke="#3E4A80" stroke-width="2" stroke-linejoin="round"/><ellipse cx="31.2" cy="17.8" rx="3" ry="3.8" transform="rotate(-15 31.2 17.8)" fill="#E1DE62" stroke="#3E4A80" stroke-width="1.8"/>'
+  };
+  function ico(id){return IC[id]?'<svg viewBox="0 0 40 40" width="20" height="20" aria-hidden="true">'+IC[id]+'</svg>':'<i></i>'}
+  function chips(list){return list.map(function(g){return g.live?'<a href="'+g.url+'">'+ico(g.id)+g.name+' →</a>':'<span class="so">'+ico(g.id)+g.name+' · soon</span>'}).join('')}
   function strip(slug,cls,withLine){var L=slug?goalsFor(slug):G;if(!L.length)return null;var d=D.createElement('div');d.className='bsgo'+(cls?' '+cls:'');d.dataset.slug=slug||'all';
     var live=L.filter(function(g){return g.live});
     d.innerHTML='<span class="bsgol">'+LABEL+' · full research reads</span><div class="bsgoc">'+chips(L)+'</div>'+(withLine&&live.length?'<span class="bsgox">'+live.map(function(g){return '<b>'+g.name+':</b> '+g.line}).join('<br>')+'</span>':'');return d}
