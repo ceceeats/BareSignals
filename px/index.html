@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><title>Bare Signals</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a friendly note on site paper. One column, phone first: kit, plan, total, copy for WhatsApp */
+:root{--paper:#FFFFE2;--chip:#FFFFF4;--ink:#3E4A80;--soft:#6B76A8;--rule:#E3E0BF;--line:#E1DE62;--act:#DB6830;--sy:#F2792E;
+--ok:#2F6B46;--okbg:#E6F3DD;--waive:#9AA0BE;
+--display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 13.5px/1.45 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:14px 24px}
+.r{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.hi{font:700 21px/1.15 var(--display);margin:0;text-wrap:balance}
+.sub{color:var(--soft);font-size:13px;margin:-4px 0 2px}
+h2{font:700 14.5px var(--display);margin:10px 0 0}
+.item{display:grid;grid-template-columns:18px 1fr auto auto;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid var(--rule)}
+.item input[type=checkbox]{width:16px;height:16px;accent-color:var(--ink);margin:0}
+.nm{font:600 13.5px var(--body);min-width:0}.nm small{font:400 12px var(--body);color:var(--soft);margin-left:5px}.nm small{white-space:nowrap}
+.pr{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+.item.off .nm,.item.off .pr{opacity:.38}
+.qty{display:flex;align-items:center;gap:6px;margin-top:4px}
+.qty button{width:22px;height:20px;border-radius:6px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.qty span{font-family:var(--mono);font-size:12px;min-width:18px;text-align:center}
+.rec{color:var(--ok);font:600 10.5px var(--body);margin-left:5px}
+.free .pr{color:var(--ok);font-weight:600}
+s{color:var(--waive)}
+.row{display:flex;justify-content:space-between;font-size:13px}.row b{font-family:var(--mono);font-weight:500}
+.row.disc{color:var(--ok)}
+.row.big{font:700 16px var(--display);padding-top:4px;border-top:1.5px solid var(--ink)}.row.big b{font-weight:600;font-size:15px}
+.plan{font-size:12.5px}.plan p{margin:0 0 5px}
+.plan .d{font-weight:600}
+.u{font-family:var(--mono);font-weight:600;color:var(--sy)}
+.bank{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.bank .n{font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.03em}
+.bank small{display:block;color:var(--soft);font-size:11.5px}
+.btn{border:0;background:var(--ink);color:var(--paper);border-radius:8px;padding:7px 12px;font:600 12.5px var(--body);cursor:pointer;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.acts .btn{padding:9px 6px}
+textarea{width:100%;min-height:110px;border:1px solid var(--rule);border-radius:9px;background:var(--chip);color:var(--ink);font:12px/1.4 var(--body);padding:8px}
+.foot{display:flex;justify-content:space-between;font-size:10.5px;color:var(--soft);font-family:var(--mono);margin-top:8px}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--act);outline-offset:2px}
+
+.col{display:block}.it,.hr{display:grid;grid-template-columns:1fr 30px 78px 78px;gap:8px;align-items:baseline}.it{padding:5px 0;border-bottom:1px solid var(--rule)}.hr{border-bottom:1.5px solid var(--ink);padding:6px 0 2px}.addon .it,.addon .hr{grid-template-columns:1fr 78px}
+.hd{font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.p{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+.fp{color:var(--ok)}
+.nm small{white-space:normal}.lf{font:500 11.5px var(--mono);color:var(--soft);text-align:right}.addon{grid-template-columns:1fr auto}
+input[type=search]{width:100%;border:1.5px solid var(--ink);border-radius:9px;background:var(--chip);color:var(--ink);font:14px var(--body);padding:8px 10px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:20px;padding:4px 11px;font:600 12px var(--body);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+
+</style></head><body>
+<div class="r" id="lock"><p class="hi">Private</p><p class="sub">Enter the passcode.</p>
+<form id="lf"><input type="password" id="pw" autocomplete="current-password" inputmode="text" aria-label="Passcode" style="width:100%;border:1.5px solid var(--ink);border-radius:9px;background:var(--chip);color:var(--ink);font:16px var(--body);padding:9px 11px">
+<button class="btn" type="submit" style="margin-top:8px;width:100%">Open</button></form><p class="sub" id="err" hidden style="color:#A8261C">Wrong passcode.</p></div>
+<div class="r" id="main" hidden>
+  <p class="hi">Price list</p>
+  <p class="sub">Private. Per vial, IDR. Friend = Reset minus 100K, never more than 30% off.</p>
+  <input type="search" id="q" placeholder="Search peptides" aria-label="Search peptides">
+  <div class="tabs" id="tabs"><button type="button" data-t="all" aria-pressed="true">All</button><button type="button" data-t="In stock" aria-pressed="false">In stock</button><button type="button" data-t="Pending" aria-pressed="false">Arriving</button><button type="button" data-t="Not stocked" aria-pressed="false">On request</button></div>
+  <div id="list"></div>
+  <h2>Add-ons</h2>
+  <div class="col addon">
+    <div class="hr"><span class="hd">Item</span><span class="hd p">Price</span></div>
+    <div class="it"><span class="nm">BAC water 3 ml</span><span class="p">150,000</span></div>
+    <div class="it"><span class="nm">BD syringe <small>each</small></span><span class="p">15,000</span></div>
+    <div class="it"><span class="nm">Insulin syringe <small>each</small></span><span class="p">8,000</span></div>
+    <div class="it"><span class="nm">Pen <small>when in stock</small></span><span class="p">500,000</span></div>
+    <div class="it"><span class="nm">Mixing</span><span class="p">waived</span></div>
+    <div class="it"><span class="nm">Alcohol swabs</span><span class="p">waived</span></div>
+  </div>
+  <div class="foot"><span>Prices from BS Price v2</span><span>px v1</span></div>
+</div>
+
+<script>
+const BLOB={"s": "CfY8lIbCi4sTL240p8ZHfA==", "i": "35yqjvKJTggLhR23", "c": "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", "n": 250000};
+const u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open_(pw){
+ const k0=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ const k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(BLOB.s),iterations:BLOB.n,hash:'SHA-256'},k0,{name:'AES-GCM',length:256},false,['decrypt']);
+ const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:u(BLOB.i)},k,u(BLOB.c));
+ return JSON.parse(new TextDecoder().decode(pt))}
+
+let D=[];
+const G=[['In stock','In stock'],['Pending','Arriving'],['Not stocked','On request']];
+const f=n=>Math.round(n).toLocaleString('en-US');
+let tab='all';
+function draw(){const q=document.getElementById('q').value.trim().toLowerCase();let h='';
+ G.forEach(([k,lab])=>{if(tab!=='all'&&tab!==k)return;
+  const r=D.filter(x=>x.st===k&&(x.n+' '+x.s).toLowerCase().includes(q));if(!r.length)return;
+  h+=`<h2>${lab}</h2><div class="col"><div class="hr"><span class="hd">Peptide</span><span class="hd p">${k==='Pending'?'Due':k==='In stock'?'Left':''}</span><span class="hd p">Price</span><span class="hd p">Friend</span></div>`+
+   r.map(x=>`<div class="it"><span class="nm">${x.n}<small>${x.s}</small></span><span class="lf">${k!=='Not stocked'&&x.left?x.left:''}</span><span class="p">${f(x.p)}</span><span class="p fp">${f(x.f)}</span></div>`).join('')+'</div>'});
+ document.getElementById('list').innerHTML=h||'<p class="sub">No match.</p>'}
+document.getElementById('q').oninput=draw;
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()});
+
+async function unlock(pw,remember){
+ try{const d=await open_(pw);D=d.rows;document.getElementById('lock').hidden=true;document.getElementById('main').hidden=false;draw();
+  if(remember)try{localStorage.setItem('px',pw)}catch(e){};return true}catch(e){return false}}
+document.getElementById('lf').onsubmit=async e=>{e.preventDefault();const ok=await unlock(document.getElementById('pw').value,true);document.getElementById('err').hidden=ok};
+(async()=>{let s=null;try{s=localStorage.getItem('px')}catch(e){};if(s)await unlock(s,false)})();
+</script></body></html>
