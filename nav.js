@@ -1,3 +1,4 @@
+/* Bare Signals site navigation v21 (2 Nov 2026): loads /share.js (Share button in the top bar, share marks on section headings, Guide ?p=<slug> links). v20 kept at /nav/v20.js.
 /* Bare Signals site navigation v20 (2 Nov 2026): loads /goals.js (goal page links on Library cards, full pages, list and Guide). v19 kept at /nav/v19.js.
 Bare Signals site navigation v19 (2 Nov 2026): Curious door shown as a + sign (aria-label Curious) to free nav space. v18 kept at /nav/v18.js.
 Bare Signals site navigation v18 (29 Oct 2026): adds the reading progress line along the top of every page (end of file). v17 kept at /nav/v17.js.
@@ -212,3 +213,4 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
 (function(){try{if(document.getElementById('bs-prog'))return;var b=document.createElement('div');b.id='bs-prog';b.setAttribute('aria-hidden','true');b.style.cssText='position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#DB6830,#F28E79);box-shadow:0 0 8px rgba(219,104,48,.55);z-index:2147483000;pointer-events:none';var go=function(){var d=document.documentElement,m=(d.scrollHeight-innerHeight)||1,f=Math.min(1,Math.max(0,(d.scrollTop||document.body.scrollTop)/m));b.style.transform='scaleX('+f+')'};var put=function(){(document.body||document.documentElement).appendChild(b);go()};if(document.body)put();else document.addEventListener('DOMContentLoaded',put);addEventListener('scroll',go,{passive:true});addEventListener('resize',go)}catch(e){}})();
 
 (function(){if(document.querySelector('script[src="/goals.js"]'))return;var g=document.createElement('script');g.src='/goals.js';g.async=true;document.head.appendChild(g)})();
+(function(){if(document.querySelector('script[src="/share.js"]'))return;var g=document.createElement('script');g.src='/share.js';g.async=true;document.head.appendChild(g)})();
