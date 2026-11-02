@@ -1,4 +1,5 @@
-/* Bare Signals goals v3 (2 Nov 2026): on the Guide body map, picking Bones & joints shows the goal pages (tennis elbow, Achilles, knee) above the peptide list. v2 kept at /goals/v2.js.
+/* Bare Signals goals v4 (2 Nov 2026): on the Guide body map, a small Uses line sits under Read more in the compound summary; tapping a live use opens a teaser card (one line, three numbers, Read the full research). v3 kept at /goals/v3.js.
+   Bare Signals goals v3 (2 Nov 2026): on the Guide body map, picking Bones & joints shows the goal pages (tennis elbow, Achilles, knee) above the peptide list. v2 kept at /goals/v2.js.
    Bare Signals goals v2 (2 Nov 2026): chips carry small elbow / Achilles / knee drawings instead of a colour square. v1 kept at /goals/v1.js.
    Bare Signals goals v1 (2 Nov 2026): one registry of goal pages (one deep read per common problem) and the links that tie them to
    the Library cards, Library full pages, the Library list and the Guide summary + card. Loaded by nav.js on every page.
@@ -8,9 +9,10 @@
   var LABEL='Uses';
   var TENDON=['bpc-157','tb-500-frag-17-23','thymosin-beta-4','bpc-157-tb-500','glow','klow','tb4-bpc-kpv','ghk-cu-bpc-157','collagen-peptides'];
   var G=[
-    {id:'tennis-elbow',name:'Tennis elbow',url:'/library/goals/tennis-elbow/',live:true,line:'Outer elbow tendon wear: studies, numbers, every option',for:TENDON},
+    {id:'tennis-elbow',name:'Tennis elbow',url:'/library/goals/tennis-elbow/',live:true,line:'Outer elbow tendon wear: studies, numbers, every option',for:TENDON,teaser:{t:'Wear where the wrist tendon meets the outer elbow. 9 in 10 get better within a year anyway, so anything has to beat that.',n:[['14 days','a cut rat Achilles rejoined on BPC-157','Rat'],['8 of 13','elbow tendon tears closed after collagen shots','Human'],['14 of 33','clear Reddit reports felt clearly better','Reports']]}},
     {id:'achilles',name:'Achilles',url:'',live:false,line:'',for:TENDON},
-    {id:'knee',name:'Knee',url:'',live:false,line:'',for:TENDON.concat(['cartalax','cartalax-tb4-bpc'])}
+    {id:'knee',name:'Knee',url:'',live:false,line:'',for:TENDON.concat(['cartalax','cartalax-tb4-bpc'])},
+    {id:'gut',name:'Gut',url:'',live:false,line:'',for:['bpc-157','kpv','tb4-bpc-kpv','bpc-157-tb-500']}
   ];
   window.BS_GOALS=G;window.BS_GOALS_LABEL=LABEL;
   var D=document,P=location.pathname;
@@ -24,6 +26,12 @@
   '.bsgo .bsgox{display:block;font-size:12px;line-height:1.35;margin:6px 0 0;color:#3E4A80}'+
   '.bsgo.gomin{margin:6px 0 4px;padding:0;border:0;background:none}.bsgo.gomin .bsgol{margin:0 0 4px}'+
   '.bsgo.gorow{margin:0 0 10px}'+'.bsgo.gofr{grid-column:1/-1;margin:0 0 12px}'+'.bsgo.gobody{margin:4px 0 8px;padding:6px 8px}'+
+  '.gouse{margin:8px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:4px}.gouse .gul{font:500 9.5px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#6B76A8;margin-right:2px}'+
+  '.gouse button,.gouse span.so{appearance:none;-webkit-appearance:none;margin:0;border:0;border-radius:0;cursor:pointer;font:500 10px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase;padding:5px 6px;background:#EFEDA6;color:#3E4A80}.gouse button:after{content:" ▸"}.gouse button[aria-expanded=true]{background:#3E4A80;color:#FFFFE2}.gouse .gsoon{flex-basis:100%;font:500 9px/1.3 \"JetBrains Mono\",ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;color:#8C93B8}'+
+  '.goteaser a.go{border:0!important;padding:0!important;background:none!important}'+
+  '.goteaser{position:absolute;z-index:60;width:min(300px,calc(100% - 24px));background:#FFFFF4;box-shadow:0 6px 24px rgba(62,74,128,.22),inset 4px 0 0 #E1DE62;padding:10px 12px 10px 14px;font:400 12.5px/1.45 "Hanken Grotesk",system-ui,sans-serif;color:#3E4A80}'+
+  '.goteaser h4{margin:0 22px 4px 0;font:700 15px/1.2 "Bricolage Grotesque",system-ui,sans-serif}.goteaser p{margin:0 0 6px}.goteaser ul{list-style:none;margin:0 0 8px;padding:0}.goteaser li{display:grid;grid-template-columns:62px 1fr;gap:6px;padding:4px 0;border-top:1px solid rgba(62,74,128,.12)}.goteaser li b{font:700 13px/1.2 "JetBrains Mono",ui-monospace,monospace}.goteaser li i{font-style:normal;font:500 8.5px/1 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.05em;background:#ECE9D2;padding:2px 4px;margin-left:4px}'+
+  '.goteaser a.go{display:inline-block;font:600 11px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#2F5BE0;text-decoration:underline;text-underline-offset:3px}.goteaser .x{position:absolute;top:6px;right:6px;appearance:none;border:0;background:none;font:400 18px/1 system-ui;color:#6B76A8;cursor:pointer;padding:2px 6px}'+
   '.bsgoh{display:inline;margin-left:8px;white-space:nowrap}.bsgoh a{font:500 10.5px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#6777B6;text-decoration:underline;text-underline-offset:2px}';
   function addCss(){if(D.getElementById('bsg-css'))return;var s=D.createElement('style');s.id='bsg-css';s.textContent=css;D.head.appendChild(s)}
   function goalsFor(slug){return G.filter(function(g){return g.for.indexOf(slug)>=0})}
@@ -51,7 +59,25 @@
   function runBody(){var on=D.querySelector('#parts .sys[aria-pressed="true"]'),lst=D.getElementById('list'),ex=D.querySelector('.bsgo.gobody');
     var want=on&&/^Bones/.test(on.textContent.trim());if(!want){if(ex)ex.remove();return}if(ex||!lst)return;
     var e=strip(null,'gobody',false);if(!e)return;e.querySelector('.bsgol').textContent=LABEL+' · tendon and joint research reads';lst.parentNode.insertBefore(e,lst)}
-  function runHome(){runBody();
+  function closeT(){var t=D.querySelector('.goteaser');if(t)t.remove();D.querySelectorAll('.gouse button[aria-expanded=true]').forEach(function(b){b.setAttribute('aria-expanded','false')})}
+  function openT(btn,g){var was=btn.getAttribute('aria-expanded')==='true';closeT();if(was)return;var st=D.getElementById('stage');if(!st)return;var tz=g.teaser||{t:g.line,n:[]};
+    var c=D.createElement('div');c.className='goteaser';c.setAttribute('role','dialog');c.setAttribute('aria-label',g.name+' research');
+    c.innerHTML='<button type="button" class="x" aria-label="Close">×</button><h4>'+g.name+'</h4><p>'+tz.t+'</p><ul>'+tz.n.map(function(x){return '<li><b>'+x[0]+'</b><span>'+x[1]+'<i>'+x[2]+'</i></span></li>'}).join('')+'</ul><a class="go" href="'+g.url+'">Read the full research →</a>';
+    var sr=st.getBoundingClientRect(),br=btn.getBoundingClientRect();if(getComputedStyle(st).position==='static')st.style.position='relative';
+    c.style.left=Math.max(8,Math.min(br.left-sr.left,sr.width-308))+'px';c.style.top=(br.bottom-sr.top+6)+'px';st.appendChild(c);btn.setAttribute('aria-expanded','true');
+    c.querySelector('.x').addEventListener('click',closeT)}
+  function runUses(){var ct=D.getElementById('ctags');if(!ct||ct.hidden)return;var rm=ct.querySelector('.rmt');if(!rm)return;
+    var ch=D.querySelector('#list .cchip[aria-pressed="true"]'),sl=ch&&ch.dataset.s;if(!sl)return;var ex=ct.querySelector('.gouse');if(ex&&ex.dataset.slug===sl)return;if(ex)ex.remove();
+    var L=goalsFor(sl);if(!L.length)return;var w=D.createElement('div');w.className='gouse';w.dataset.slug=sl;w.innerHTML='<span class="gul">'+LABEL+'</span>';
+    var soon=[];L.forEach(function(g){if(g.live){var b=D.createElement('button');b.type='button';b.textContent=g.name;b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();openT(b,g)});w.appendChild(b)}else soon.push(g.name)});
+    if(soon.length){var s=D.createElement('span');s.className='gsoon';s.textContent=soon.join(' · ')+' soon';w.appendChild(s)}
+    rm.insertAdjacentElement('afterend',w);closeT();relay();[150,400,800,1300,2000,3000].forEach(function(ms){setTimeout(relay,ms)});setTimeout(function(){try{dispatchEvent(new Event('resize'))}catch(e){}},60)}
+  /* the Guide places its little round pictures under the summary; move them down past the Uses line */
+  function relay(){var sg=D.querySelector('.stage'),ct=D.getElementById('ctags');if(!sg||!ct||ct.hidden)return;var A=sg.getBoundingClientRect(),cb=ct.getBoundingClientRect().bottom-A.top;
+    var cm=D.getElementById('cmini');if(cm&&!cm.hidden)cm.style.top=Math.round(cb+6)+'px';
+    var wm=D.getElementById('wmini');if(wm&&!wm.hidden){var t=cb+10;if(cm&&!cm.hidden){var r=cm.getBoundingClientRect();if(r.height)t=Math.max(t,r.bottom-A.top+10)}wm.style.top=t+'px'}}
+  D.addEventListener('click',function(e){if(!e.target.closest('.goteaser,.gouse'))closeT()});
+  function runHome(){runBody();runUses();relay();
     /* Guide top-corner summary is 120 px wide on phones and boxes there may not cover the body, so the link lives at the top of the Read more card instead. */
     var syn=D.getElementById('cardsyn');if(syn){var card=syn.closest('.bscard')||syn.parentNode,a2=card.querySelector('a[href*="/library/#/p/"]');if(a2){var m=a2.getAttribute('href').match(/#\/p\/([^/?#]+)/),sl=m&&m[1],ex=card.querySelector('.bsgo');
       if(!(ex&&ex.dataset.slug===sl)){if(ex)ex.remove();var e3=strip(sl,'',true);if(e3){var bd=card.querySelector('.bd');if(bd)bd.insertBefore(e3,bd.firstChild);else place(e3,syn,'before')}}}}
