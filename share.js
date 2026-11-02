@@ -1,4 +1,5 @@
-/* Bare Signals share v1 (2 Nov 2026): a Share button in the top bar of every page, plus a small share mark on each section heading
+/* Bare Signals share v2 (2 Nov 2026): section share marks removed (they confused what was being shared); a second Share this page button sits at the bottom of goal pages. Both share the whole page. v1 kept at /share/v1.js.
+   Bare Signals share v1 (2 Nov 2026): a Share button in the top bar of every page, plus a small share mark on each section heading
    (section[id] > h2). On iPhone it opens the phone's own share sheet; elsewhere it copies the link and says so.
    Links always point at the live page, never a frozen version folder (/v7/ is dropped), so a friend gets the newest read.
    Guide: when a compound is open on the body map the link is /?p=<slug>, and opening that link opens the same compound.
@@ -13,7 +14,8 @@
   '@media (max-width:999.98px){.bsn .bsi.hs{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"w l s"}.bsn.lib .bsi.hs,.bsn.c .bsi.hs{grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"w l t s"}.bsn .bssh{grid-area:s}.bsn.c .bssh{width:26px;height:26px}}'+
   '.bsshs{all:unset;cursor:pointer;display:inline-flex;vertical-align:-2px;margin-left:8px;color:#6777B6;opacity:.8}.bsshs:hover{opacity:1}.bsshs svg{width:.95em;height:.95em}.bsshs:focus-visible{outline:2px solid #DB6830;outline-offset:2px}'+
   '.bstoast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:99999;background:#3E4A80;color:#FFFFE2;font:500 12px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.04em;padding:9px 12px;max-width:calc(100vw - 32px);box-sizing:border-box;text-align:center;pointer-events:none;opacity:0;transition:opacity .2s}.bstoast.on{opacity:1}'+
-  '@media print{.bssh,.bsshs,.bstoast{display:none!important}}';
+  '.bsshb{appearance:none;-webkit-appearance:none;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:18px 0 6px;padding:12px;border:1.5px solid #3E4A80;background:#FFFFF4;color:#3E4A80;font:600 12px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:0}.bsshb:hover{background:#F2F0CC}'+
+  '@media print{.bssh,.bsshb,.bstoast{display:none!important}}';
   function addCss(){if(D.getElementById('bssh-css'))return;var s=D.createElement('style');s.id='bssh-css';s.textContent=css;D.head.appendChild(s)}
   /* the live address of this page, version folders removed */
   function base(){var p=P.replace(/index\.html$/,'');
@@ -38,10 +40,9 @@
   function bar(){var n=D.querySelector('.bsn .bsi');if(!n||n.querySelector('.bssh'))return;
     var b=D.createElement('button');b.type='button';b.className='bssh';b.setAttribute('aria-label','Share this page');b.title='Share this page';b.innerHTML=ICO;
     b.addEventListener('click',function(){share(target())});n.appendChild(b);n.classList.add('hs')}
-  function sections(){if(isHome()||base()==='/library/')return;
-    D.querySelectorAll('section[id]>h2').forEach(function(h){if(h.querySelector('.bsshs'))return;var id=h.parentNode.id;
-      var b=D.createElement('button');b.type='button';b.className='bsshs';b.setAttribute('aria-label','Share this section');b.title='Share this section';b.innerHTML=ICO;
-      b.addEventListener('click',function(e){e.preventDefault();share({url:O+base()+'#'+id,title:h.textContent.trim()+' · '+name()})});h.appendChild(b)})}
+  function sections(){if(isHome()||base()==='/library/')return;if(!D.querySelector('section.sec')||D.querySelector('.bsshb'))return;
+    var w=D.querySelector('.w')||D.body,b=D.createElement('button');b.type='button';b.className='bsshb';b.innerHTML=ICO+'<span>Share this page</span>';
+    b.addEventListener('click',function(){share(target())});w.appendChild(b)}
   /* Guide: /?p=<slug> opens that compound */
   function openFromLink(){if(!isHome())return;var s=new URLSearchParams(location.search).get('p');if(!s)return;var n=0;
     (function tryOpen(){var c=D.querySelector('#list .cchip[data-s="'+(window.CSS&&CSS.escape?CSS.escape(s):s)+'"]');

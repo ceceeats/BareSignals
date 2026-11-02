@@ -1,4 +1,5 @@
-/* Bare Signals goals v2 (2 Nov 2026): chips carry small elbow / Achilles / knee drawings instead of a colour square. v1 kept at /goals/v1.js.
+/* Bare Signals goals v3 (2 Nov 2026): on the Guide body map, picking Bones & joints shows the goal pages (tennis elbow, Achilles, knee) above the peptide list. v2 kept at /goals/v2.js.
+   Bare Signals goals v2 (2 Nov 2026): chips carry small elbow / Achilles / knee drawings instead of a colour square. v1 kept at /goals/v1.js.
    Bare Signals goals v1 (2 Nov 2026): one registry of goal pages (one deep read per common problem) and the links that tie them to
    the Library cards, Library full pages, the Library list and the Guide summary + card. Loaded by nav.js on every page.
    To rename the door, change LABEL. To add a page, add a row and set live:true once the page exists. */
@@ -22,7 +23,7 @@
   '.bsgo span.so{border-style:dashed;color:#6B76A8}.bsgo svg{flex:none;width:20px;height:20px;margin:-3px 0}.bsgo span.so svg{opacity:.55}'+
   '.bsgo .bsgox{display:block;font-size:12px;line-height:1.35;margin:6px 0 0;color:#3E4A80}'+
   '.bsgo.gomin{margin:6px 0 4px;padding:0;border:0;background:none}.bsgo.gomin .bsgol{margin:0 0 4px}'+
-  '.bsgo.gorow{margin:0 0 10px}'+'.bsgo.gofr{grid-column:1/-1;margin:0 0 12px}'+
+  '.bsgo.gorow{margin:0 0 10px}'+'.bsgo.gofr{grid-column:1/-1;margin:0 0 12px}'+'.bsgo.gobody{margin:4px 0 8px;padding:6px 8px}'+
   '.bsgoh{display:inline;margin-left:8px;white-space:nowrap}.bsgoh a{font:500 10.5px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#6777B6;text-decoration:underline;text-underline-offset:2px}';
   function addCss(){if(D.getElementById('bsg-css'))return;var s=D.createElement('style');s.id='bsg-css';s.textContent=css;D.head.appendChild(s)}
   function goalsFor(slug){return G.filter(function(g){return g.for.indexOf(slug)>=0})}
@@ -47,7 +48,10 @@
       var e2=strip(cur.s,'gomin');if(!e2)return;cb.insertBefore(e2,cb.firstChild)}
   }
   function homeSlugByName(n){n=(n||'').replace(/⁠/g,'').trim();var ch=D.querySelectorAll('#list .cchip');for(var i=0;i<ch.length;i++){if(ch[i].textContent.replace(/⁠/g,'').trim()===n)return ch[i].dataset.s}return null}
-  function runHome(){
+  function runBody(){var on=D.querySelector('#parts .sys[aria-pressed="true"]'),lst=D.getElementById('list'),ex=D.querySelector('.bsgo.gobody');
+    var want=on&&/^Bones/.test(on.textContent.trim());if(!want){if(ex)ex.remove();return}if(ex||!lst)return;
+    var e=strip(null,'gobody',false);if(!e)return;e.querySelector('.bsgol').textContent=LABEL+' · tendon and joint research reads';lst.parentNode.insertBefore(e,lst)}
+  function runHome(){runBody();
     /* Guide top-corner summary is 120 px wide on phones and boxes there may not cover the body, so the link lives at the top of the Read more card instead. */
     var syn=D.getElementById('cardsyn');if(syn){var card=syn.closest('.bscard')||syn.parentNode,a2=card.querySelector('a[href*="/library/#/p/"]');if(a2){var m=a2.getAttribute('href').match(/#\/p\/([^/?#]+)/),sl=m&&m[1],ex=card.querySelector('.bsgo');
       if(!(ex&&ex.dataset.slug===sl)){if(ex)ex.remove();var e3=strip(sl,'',true);if(e3){var bd=card.querySelector('.bd');if(bd)bd.insertBefore(e3,bd.firstChild);else place(e3,syn,'before')}}}}
