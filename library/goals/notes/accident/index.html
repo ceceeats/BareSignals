@@ -1,0 +1,719 @@
+<!doctype html>
+<!-- Goal research notes: Accident recovery, from Accident Recovery Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="32 first-hand reports, 17 positive, but no doctor or scan credited a peptide.">
+<title>Accident recovery · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Accident recovery</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">32 first-hand reports, 17 positive, but no doctor or scan credited a peptide. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (12)</summary><ol><li><a href="#what-changed-in-v2-3-nov-2026-pass-8">What changed in v2 (3 Nov 2026, Pass 8)</a></li><li><a href="#0-headline-findings-page-top">0. Headline findings (page top)</a></li><li><a href="#1-what-each-injury-is-how-common-symptoms-natural-history">1. What each injury is (how common, symptoms, natural history)</a></li><li><a href="#2-studies-standard-treatments-with-numbers">2. Studies: standard treatments with numbers</a></li><li><a href="#3-peptides-that-touch-the-endpoint">3. Peptides that touch the endpoint</a></li><li><a href="#4-what-people-report-claude-s-own-search-outside-reddit">4. What people report (Claude&#x27;s own search, outside Reddit)</a></li><li><a href="#5-pairings-people-use-as-reported-not-recommended">5. Pairings people use (as reported, not recommended)</a></li><li><a href="#6-options-page-section-evidence-order-inferred-from-sections">6. Options (page section, evidence order) [inferred from sections 2 and 3]</a></li><li><a href="#7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</a></li><li><a href="#8-warnings-bottom-of-page">8. Warnings (bottom of page)</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Accident Recovery Research v2</h1>
+<h2 id="what-changed-in-v2-3-nov-2026-pass-8">What changed in v2 (3 Nov 2026, Pass 8)</h2>
+<ul>
+<li><strong>Community section finished (new 4.3 to 4.6):</strong> 42 more web searches and 31 page fetches outside Reddit (moto and MTB forums, water-ski, hunting, climbing, shooting, sports forums, NeuroTalk, brain injury and brachial plexus forums, Mayo Clinic Connect, acne.org, Drugs.com, news features, Bali travel blogs). <strong>18 new first-hand reports</strong>: 11 worked (2 of them public figures via news), 2 unclear, 3 no change, 2 worse (both side effects). Still 0 clinician-attributed peptide effects.</li>
+<li><strong>Correction to v1:</strong> the v1 table columns add to <strong>15 reports, not 19</strong> (7 + 5 + 3 + 0). The distal biceps case is now moved out of this page's tally (it belongs to Muscle Injury v1), so v1 counts as <strong>14</strong>. Combined page total: <strong>32 reports, 17 worked, 7 unclear, 6 no change, 2 worse.</strong></li>
+<li><strong>New per peptide per injury table (4.5)</strong> with speed and clinician involvement.</li>
+<li><strong>Gap fills from PubMed:</strong> moist vs dry wound care (4 trials and 1 review; 2.3), union times by bone (clavicle, tibia, wrist, scaphoid, ribs; 1.4), LIPUS meta-analysis and electromagnetic stimulation Cochrane (2.2), thymosin beta-4 wound trial details (3.4). Collarbone "up to 10% of fractures" (v1, promotional) corrected to <strong>about 4%</strong> (Cochrane).</li>
+<li>Headline 10, FAQ 6 and Gaps rewritten. Everything else is v1 unchanged.</li>
+</ul>
+<hr />
+<p>Goal page research for baresignals.co: recovery after car or scooter crashes (whiplash and neck pain, back injury, fractures, road rash and scars, concussion and mild TBI, nerve injury, post-surgery recovery). Compiled 3 Nov 2026 (Pass 6), extended Pass 8.
+Builds on, does not repeat: <strong>Tendon Base v1</strong> (tendon vs muscle vs bone table, WADA block 1.6, BPC-157 PK 1.7, warnings 1.9) and <strong>Muscle Injury Research v1</strong> (BPC-157 and TB-500 muscle data, GH secretagogues, MK-677 hip fracture trials, NSAIDs and muscle, collagen, IGF-1 cancer warning).
+Tags: [verified] = read in the primary abstract, registry entry or document. [reported] = secondary source, or a detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Doses appear only as reported in studies. No suppliers named; trial sponsors described by type only. Sources: PubMed (abstracts via the PubMed connector), ClinicalTrials.gov, public forums and news pages as flagged.
+Search log: 55 PubMed searches (4 discarded for broken query logic), 17 PubMed metadata pulls, 2 ClinicalTrials.gov queries, 10 web searches, 19 page fetches (16 loaded, 3 failed) (total 103). The shared web search budget ran out mid community sweep (see Gaps).
+v2 search log: 42 web searches, 31 page fetches (25 loaded, 6 failed or blocked), 17 PubMed searches (5 returned nothing), 7 PubMed metadata pulls, 1 ClinicalTrials.gov record (total 98). Grand total 201.</p>
+<hr />
+<h2 id="0-headline-findings-page-top">0. Headline findings (page top)</h2>
+<ol>
+<li><strong>Most crash injuries heal; the long tail is the problem.</strong> About half of whiplash cases still report neck pain at 1 year (Carroll 2008); recovery mostly happens in the first 3 months then flattens (Kamper 2008). [verified]</li>
+<li><strong>"Mild" brain injury is not mild for many.</strong> 53% of mild TBI patients at US trauma centres still had some functional limitation at 12 months vs 38% of people with only orthopaedic injuries (Nelson 2019, n = 1,453). [verified]</li>
+<li><strong>Move early beats rest and a collar</strong> for whiplash (Rosenfeld 2000/2003); a 6-session physio package only sped early recovery and was gone by 8 months (Lamb 2013, n = 3,851). [verified]</li>
+<li><strong>The only approved "bone peptides" are teriparatide and abaloparatide, and they are not proven fracture healers.</strong> Teriparatide 20 µg shortened distal radius healing from 9.1 to 7.4 weeks in a post hoc comparison; the planned 40 µg comparison failed (Aspenberg 2010). Abaloparatide did not beat placebo for pelvic fractures; more placebo patients healed (64% vs 39%, n.s.) (Nieves 2026). [verified]</li>
+<li><strong>Ultrasound bone stimulators (LIPUS) do nothing</strong> after nailed tibial fractures (TRUST, n = 501, BMJ 2016). [verified]</li>
+<li><strong>Short NSAID courses look fine for bone; long or high-dose ones do not.</strong> Nonunion OR 1.56 overall, not raised with 14 days or less (2026 umbrella review). Chronic opioids carried a bigger signal (OR 5.10). [verified, observational]</li>
+<li><strong>The best peptide trial data after head injury belong to Cerebrolysin, a prescription pig-brain peptide mix, not to the injectable "research" peptides.</strong> CAPTAIN trials (moderate to severe TBI): small to medium benefit, MW 0.60 at day 90 (n = 185 pooled). One mild TBI pilot (n = 32) showed better cognition at 12 weeks. [verified]</li>
+<li><strong>BPC-157 has animal data for every crash injury on this page (bone, nerve, brain, spinal cord, burn), and all of it comes from one Zagreb group.</strong> No human trial in fracture, TBI, nerve or wounds exists. [verified authorship and registry absence]</li>
+<li><strong>Thymosin beta-4 (the full protein, not TB-500) has real human wound trials</strong>, but in chronic leg and pressure ulcers, with modest or unclear results; TBI data are rats from one Detroit group. [verified]</li>
+<li><strong>Community (outside Reddit, v1 + v2): 32 first-hand reports; 17 worked, 7 unclear, 6 no change, 2 worse (side effects); 0 clinician-attributed effects.</strong> Most "worked" reports are soft tissue or confounded by GH, MK-677 or physio. Best fracture story: a CT-confirmed rib fracture with small collapsed lung after a water-ski crash felt "dramatically better within a few days" of starting BPC-157 in week 3 (poster unsure it was the peptide). The two most severe crash fractures in v1 (ribs plus lung plus pelvis; broken back with fusion) were both "no change". Still zero first-hand peptide reports for whiplash, nerve injury or road rash scars, and zero in 6 motorcycle brachial plexus stories. [verified per page; tally inferred] (v1 said 19; corrected, see What changed)</li>
+</ol>
+<hr />
+<h2 id="1-what-each-injury-is-how-common-symptoms-natural-history">1. What each injury is (how common, symptoms, natural history)</h2>
+<h3>1.1 Bali and Indonesia context</h3>
+<ul>
+<li>Bali recorded 8,498 traffic accidents and 261 deaths in 2025; 142 accidents involving foreigners (21 deaths) in 2024; no scooter-specific count exists; minor crashes are under-reported because tourists settle with clinics or rental shops (<a href="https://www.baliholidaysecrets.com/scooter-accidents-in-bali/">Bali Holiday Secrets, 1 Oct 2026</a>, citing Bali Police and BPS "Bali Province in Figures 2025"). [reported, secondary page; 2025 figures unsourced in text]</li>
+<li>Indonesia national survey 2018 (59,423 people with road injury): helmet use was a dominant protective factor (OR 0.66 urban, 0.68 rural) (Zainafree 2022, <a href="https://doi.org/10.4103/npmj.npmj_777_21">DOI</a>). [verified]</li>
+<li>North Maluku neurosurgery register: 91.8% of road-crash brain injuries were motorcycle crashes; 91.2% helmetless; 75% were mild TBI; 9.3% died in hospital (Nugroho 2025, <a href="https://doi.org/10.25259/SNI_929_2024">DOI</a>). [verified] Not Bali, but the closest Indonesian primary data found. [inferred]</li>
+</ul>
+<h3>1.2 Whiplash and neck pain (whiplash-associated disorders, WAD)</h3>
+<ul>
+<li><strong>What:</strong> acceleration/deceleration strain of neck soft tissue; graded I (pain only) to III (neurological signs); grade IV = fracture (classic Quebec grading). [reported]</li>
+<li><strong>Symptoms:</strong> neck pain and stiffness, headache, shoulder pain, dizziness, sometimes arm tingling. [reported]</li>
+<li><strong>Natural history:</strong> recovery is fast in the first 3 months, then levels off (38 cohorts, Kamper 2008, <a href="https://doi.org/10.1016/j.pain.2008.02.019">DOI</a>). About <strong>50% still report neck pain at 1 year</strong>. Slower recovery predicted by higher initial pain, more symptoms, more disability, passive coping, low mood and fear of movement; crash details (direction, headrest) barely predicted anything (Carroll 2008 Neck Pain Task Force, <a href="https://doi.org/10.1097/BRS.0b013e3181643eb8">DOI</a>). [verified]</li>
+<li>Page line: "Your mood and fear of moving predict your neck a year from now better than how hard the scooter hit." [inferred from Carroll 2008]</li>
+</ul>
+<h3>1.3 Back injury</h3>
+<ul>
+<li>Ranges from muscle strain to vertebral fracture. Spinal fractures in this pass appear only in community reports (T4 to T8 fusion after a crash). [verified per thread]</li>
+<li>Back strain natural history, compression fracture rates in young riders: not gathered this pass. [gap]</li>
+<li>Osteoporotic vertebral fractures (older riders): teriparatide conservative care beat vertebroplasty on pain after 6 months and cut new fractures (OR 0.15), low-quality evidence (2025 meta, 326 patients, <a href="https://doi.org/10.3390/jcm14113967">DOI</a>). [verified]</li>
+</ul>
+<h3>1.4 Fractures and bone healing</h3>
+<ul>
+<li><strong>How bone heals:</strong> bone truly regenerates (repeats skeletal development); about 10% heal abnormally (Einhorn 2015, see Tendon Base 1.2). [verified]</li>
+<li><strong>Nonunion rate:</strong> 2.5% of 56,492 fractures in older US adults; younger patients had <strong>more</strong> nonunion; risk factors: smoking (past or current), alcoholism, obesity, diabetes, rheumatoid arthritis, <strong>open fracture</strong> (Zura 2016, <a href="https://doi.org/10.1016/j.bone.2016.11.006">DOI</a>). [verified]</li>
+<li><strong>Union times:</strong> placebo distal radius (wrist) fractures bridged in a median 9.1 weeks (Aspenberg 2010, below). [verified] Typical 6 to 12 weeks for most bones; tibia often months. [reported, no primary pulled this pass, carried from Tendon Base gap]</li>
+<li>Ribs, collarbone and pelvis are common in scooter falls [reported, community and news]; collarbone up to 10% of adult fractures [reported, promotional page, unverified]. <strong>v2 correction:</strong> collarbone is about <strong>4% of all fractures, 76% in the middle third</strong>; sling and figure-of-eight bandage gave similar results (Cochrane, Lenza 2016, <a href="https://doi.org/10.1002/14651858.CD007121.pub4">DOI</a>). [verified]</li>
+<li><strong>Union times by bone (v2, closes v1 gap 3)</strong> [verified unless marked]:
+| Bone | Typical time to union | Source |
+|---|---|---|
+| Wrist (distal radius), adults | 9.1 weeks (placebo arm, older women); 6.9 weeks after plate fixation; 8.3 weeks surgery vs 10.2 weeks cast in older adults (n = 63) | Aspenberg 2010; Kang 2026 <a href="https://doi.org/10.4055/cios25158">DOI</a>; Wang 2026 <a href="https://doi.org/10.1097/MD.0000000000048556">DOI</a> |
+| Scaphoid (wrist bone, falls on hand) | Cast heals 94%; 6% nonunion; surgery cut nonunion risk (RR 0.35) but no better long-term function | 2026 meta, 4 RCTs, 559 patients <a href="https://doi.org/10.7759/cureus.108089">DOI</a> |
+| Collarbone, midshaft displaced | Surgery healed 5.1 weeks faster and cut nonunion (RR 0.10) but had more complications (31% vs 21%) | Guerra 2019 AJSM meta, 14 RCTs, 1,546 patients <a href="https://doi.org/10.1177/0363546519826961">DOI</a> |
+| Tibia (shin), nailed | About 26 weeks mean (25 studies, 790 patients, femur/tibia/humerus); adolescents 14 weeks (69% were road crashes); early weight bearing shaved 2.4 weeks | Papadakis 2025 <a href="https://doi.org/10.1615/JLongTermEffMedImplants.2025055433">DOI</a>; Shah 2026 <a href="https://doi.org/10.13107/jocr.2026.v16.i08.7912">DOI</a>; Bhanushali 2022 <a href="https://doi.org/10.1007/s00068-022-01919-w">DOI</a> |
+| Open tibia (bone through skin, Gustilo IIIB) | 31 weeks mean in children; 22% delayed, 13% nonunion | Glass 2009 <a href="https://doi.org/10.1016/j.injury.2008.12.010">DOI</a> |
+| Ribs (multiple, admitted to hospital) | No primary union-time paper found; quality of life stayed below population norms for 2 years; only 71% returned to any work | Marasco 2014, 397 patients <a href="https://doi.org/10.1016/j.injury.2014.06.014">DOI</a> |
+Page line: "A wrist takes about 2 months, a collarbone 2 to 4, a shin bone often half a year. Ribs hurt long after they knit." [inferred from table; rib knitting time reported, not verified]</li>
+<li>Tibial nonunion can be predicted early: a score using smoking, infection, flap need and 6 and 12 week X-ray scores sorted patients from 0% to 48% nonunion risk (O'Toole 2020, <a href="https://doi.org/10.1016/j.injury.2020.12.024">DOI</a>). [verified]</li>
+</ul>
+<h3>1.5 Road rash (friction burns) and scarring</h3>
+<ul>
+<li><strong>What:</strong> abrasion plus heat injury from sliding on asphalt; depth decides everything (superficial heals from the base; deep needs grafting). [reported]</li>
+<li><strong>How common/serious:</strong> 810 motorcycle trauma admissions with road rash at one US level 1 centre (2018 to 2022): 92% male, extremities most hit. Burn surgeons were needed in 7%; of those 23% had surgical excision and 16% skin grafts (about 1% of all road rash). "Local wound care is sufficient for a vast majority" (2025, <a href="https://doi.org/10.1093/jbcr/irae181">DOI</a>). [verified]</li>
+<li><strong>Scar maturation:</strong> scars keep changing for up to about 18 months, so short trials under-read treatments (Cochrane pressure-garment review 2024, <a href="https://doi.org/10.1002/14651858.CD013530.pub2">DOI</a>). [verified statement in abstract]</li>
+<li>Bali-specific: gravel and dirt embed and must be cleaned out; avoid swimming and sea water; protect new skin from sun (dark marks can last years) (<a href="https://bali.live/p/how-to-treat-wounds-from-falling-on-a-bike-treatment-of-wounds-from-a-bike">bali.live community post, Feb 2024</a>). [reported, non-clinician author] It also suggests letting wounds dry to a scab, which conflicts with moist-healing practice (see 2.4). [inferred]</li>
+</ul>
+<h3>1.6 Concussion and mild traumatic brain injury (mTBI)</h3>
+<ul>
+<li><strong>What:</strong> brain dysfunction from impact or whiplash forces; Glasgow Coma Scale 13 to 15 = "mild". [verified definition in TRACK-TBI]</li>
+<li><strong>Symptoms:</strong> headache, dizziness, fogginess, poor sleep, irritability, light and noise sensitivity, neck pain. [reported]</li>
+<li><strong>Natural history (adults, trauma centres):</strong> at 2 weeks 87% had functional limits; at <strong>12 months 53%</strong> still did (vs 38% orthopaedic controls); 61% if the CT showed bleeding vs 49% with a clean CT (Nelson 2019, <a href="https://doi.org/10.1001/jamaneurol.2019.1313">DOI</a>). [verified]</li>
+<li><strong>Early warning score:</strong> a Rivermead symptom score of 14+ at 2 weeks raised odds of persistent symptoms at 6 months 7-fold (n = 2,000, 2025, <a href="https://doi.org/10.1212/WNL.0000000000213427">DOI</a>). [verified]</li>
+<li><strong>People who skip follow-up do badly:</strong> of those who said "I did not think I need follow-up" at 2 weeks, 44% had incomplete recovery and 40% persistent symptoms at 12 months (2025, <a href="https://doi.org/10.3389/fneur.2025.1558204">DOI</a>). [verified]</li>
+<li>Adolescent sport concussion with heavy cognitive symptoms: recovery 34 vs 15 days; 6-fold odds of symptoms beyond a month (2024, <a href="https://doi.org/10.1097/JSM.0000000000001322">DOI</a>). [verified] Sports data are faster and cleaner than crash data. [inferred]</li>
+</ul>
+<h3>1.7 Nerve injury</h3>
+<ul>
+<li><strong>Example with numbers:</strong> radial nerve palsy (wrist drop) occurs in 12.3% of humeral shaft fractures; 77.2% recover without surgery; early exploration within 3 weeks: 89.8%; late exploration after 8 weeks: 68.1% (Ilyas 2020, 7,262 fractures, <a href="https://doi.org/10.5435/JAAOS-D-18-00142">DOI</a>). Another review: 70.7% recover spontaneously within 6 months (Hegeman 2020, <a href="https://doi.org/10.7759/cureus.11490">DOI</a>). [verified]</li>
+<li>Regrowth speed about 1 mm per day, so distance to the muscle sets the timeline. [reported, standard teaching, no primary pulled]</li>
+<li>Brachial plexus injury (classic motorcycle injury): not gathered this pass. [gap]</li>
+</ul>
+<h3>1.8 Post-surgery recovery</h3>
+<ul>
+<li>Covers plates, nails, fusions, skin grafts, tendon repairs. Relevant cross-links: Tendon Base 1.4 (surgery and injections), Muscle Injury 4.2 (BPC-157 after cuff repair trial NCT07803250). [verified in those files]</li>
+</ul>
+<hr />
+<h2 id="2-studies-standard-treatments-with-numbers">2. Studies: standard treatments with numbers</h2>
+<h3>2.1 Whiplash: active vs rest, collars, physio</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Who</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial">Rosenfeld 2000 (first author name [reported], not shown in record), <a href="https://doi.org/10.1097/00007632-200007150-00008">DOI</a></td>
+<td data-l="Who">97 car-crash whiplash, RCT</td>
+<td data-l="Result">Frequent active neck rotation (McKenzie) reduced pain more than rest + soft collar (p &lt; 0.001); best if started within 96 h [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Rosenfeld 2003, <a href="https://doi.org/10.1097/01.BRS.0000090822.96814.13">DOI</a></td>
+<td data-l="Who">Same cohort, 3 years</td>
+<td data-l="Result">Active: less pain and sick leave; only the early active group had normal neck range of motion vs uninjured matched people [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">German RCT 2002, <a href="https://doi.org/10.1007/s004820100087">DOI</a></td>
+<td data-l="Who">168, collar vs early physio</td>
+<td data-l="Result">Collar group pain 4.75 → 2.66 at 6 weeks; physio group lower (exact number cut off in abstract) [verified partial]</td>
+</tr>
+<tr>
+<td data-l="Trial">Lamb 2013 MINT, Lancet, <a href="https://doi.org/10.1016/S0140-6736(12)61304-X">DOI</a></td>
+<td data-l="Who">3,851 in ED step; 599 with persisting symptoms</td>
+<td data-l="Result">Training ED staff in "active management" added nothing (NDI diff 0.5 at 12 months). Up to 6 physio sessions vs one advice session: modest gain at 4 months (NDI -3.7), gone by 8 and 12 months; not cost-effective [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Page line: "Keep the neck moving from day one. A collar slows you down. Physio speeds the first months a little; time and movement do most of it." [inferred]</td>
+<td data-l="Who"></td>
+<td data-l="Result"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 Fracture healing aids</h3>
+<p><strong>Teriparatide (PTH 1-34) and abaloparatide (PTHrP analogue): the approved bone peptides</strong> (approved for osteoporosis, off-label for fracture healing). [reported regulatory status]
+| Study | Design | Result |
+|---|---|---|
+| Aspenberg 2010 JBMR, <a href="https://doi.org/10.1359/jbmr.090731">DOI</a> | RCT, 102 postmenopausal women, wrist fracture, 8 weeks daily injections | Median cortical bridging 9.1 (placebo), 7.4 (20 µg), 8.8 (40 µg) weeks. Primary 40 µg comparison <strong>failed</strong> (p = 0.52); 20 µg vs placebo p = 0.006 only post hoc [verified] |
+| Aspenberg &amp; Johansson 2010, <a href="https://doi.org/10.3109/17453671003761946">DOI</a> | Post hoc, 27 patients at one site | "Rich" callus at 5 weeks: 0 of placebo vs 9 of teriparatide; outcome not in protocol [verified] |
+| Lancet Healthy Longevity 2026 meta, <a href="https://doi.org/10.1016/j.lanhl.2026.100827">DOI</a> | 28 RCTs, 5,085 patients | Teriparatide shorter time to union (MD -3.03; unit not stated in abstract, likely weeks); <strong>no</strong> difference in delayed union (RR 0.72, CI 0.18 to 2.84). Bisphosphonates neither helped nor harmed healing [verified; unit gap] |
+| Intertrochanteric hip meta 2026, <a href="https://doi.org/10.5312/wjo.v17.i2.113659">DOI</a> | 6 studies, 393 osteoporotic patients | Faster union (SMD -0.77), less collapse; long-term function equal [verified] |
+| Hip fracture meta 2024, <a href="https://doi.org/10.47391/JPMA.9245">DOI</a> | 8 RCTs, 744 | Healing rate <strong>not</strong> different (p = 0.82); bone density, pain, next-fracture risk better [verified] |
+| Nieves 2026 abaloparatide, <a href="https://doi.org/10.1007/s00198-026-08176-2">DOI</a> | Phase 2 RCT, 48 people aged 50+ (mean 82), pelvic fracture | No CT healing benefit at 3 months; healed 39% abaloparatide vs 64% placebo (RR 0.61, CI 0.33 to 1.12) [verified] |
+| Abaloparatide case report 2026, <a href="https://doi.org/10.1186/s13256-026-06289-0">DOI</a> | 1 man, open tibial pilon fracture not healing for 8+ months despite LIPUS | Bridging callus 6 weeks after starting abaloparatide; union at 12 weeks. Causality not established [verified] |
+| Athletes' bone stress injury review 2026, <a href="https://doi.org/10.1016/j.clinthera.2026.08.006">DOI</a> | Narrative | No evidence for routine teriparatide or abaloparatide in healthy athletes; apparent benefit may be pain relief and earlier loading [verified] |
+Takeaway: teriparatide may shave weeks off <strong>osteoporotic</strong> fracture healing; no good trial in young healthy riders; abaloparatide's only fracture RCT was negative. [inferred]</p>
+<p><strong>LIPUS (low-intensity pulsed ultrasound):</strong> TRUST, 501 patients with nailed tibial fractures, sham-controlled: no faster X-ray healing (HR 1.07) and no function gain (Busse 2016, <a href="https://doi.org/10.1136/bmj.i5351">DOI</a>). A BMJ Rapid Recommendation guideline followed (Poolman 2017, <a href="https://doi.org/10.1136/bmj.j576">DOI</a>; abstract unavailable, "strong recommendation against" wording [reported]). [verified for TRUST]
+- v2: the systematic review behind that guideline (26 RCTs): low-bias trials showed <strong>no</strong> gain in return to work, weight bearing, pain or X-ray healing; only high-bias trials looked positive (Schandelmaier 2017 BMJ, <a href="https://doi.org/10.1136/bmj.j656">DOI</a>). Clavicle LIPUS trial (n = 120) also null (Lenza 2016). [verified] A useful mirror for peptide claims: benefit shows up mainly where bias is high. [inferred]
+- v2: electromagnetic stimulation for nonunion: 4 RCTs, 125 people, union RR 1.96 (CI 0.86 to 4.48), not significant, no pain benefit (Cochrane, Griffin 2011, <a href="https://doi.org/10.1002/14651858.CD008471.pub2">DOI</a>). [verified]</p>
+<p><strong>Painkillers and bone</strong> (fills Tendon Base gap "NSAIDs and bone healing"):
+- 2026 JAAOS umbrella review + 38-study meta: NSAIDs nonunion OR 1.56 (1.18 to 2.11); adults OR 1.67, children none; worse in long bones and trauma, higher doses; <strong>not raised with 14 days or less</strong> (<a href="https://doi.org/10.5435/JAAOS-D-25-01579">DOI</a>). [verified]
+- 2024 meta, 20 studies, 523,240 patients: no significant difference (adjusted OR 1.11, 0.99 to 1.23) (<a href="https://doi.org/10.3389/fendo.2024.1428240">DOI</a>). [verified] The two reviews disagree on overall harm, agree that short courses are low risk. [inferred]
+- Opioids: chronic use OR 5.10 for nonunion (7 cohorts, &gt;1 million fractures; 2026, <a href="https://doi.org/10.1016/j.otsr.2026.104918">DOI</a>); acute and chronic opioid and NSAID prescriptions linked to nonunion in a 2018 claims cohort (<a href="https://doi.org/10.1016/j.injury.2018.05.004">DOI</a>). Observational; sicker patients get more painkillers. [verified; confounding inferred]</p>
+<h3>2.3 Road rash wound care</h3>
+<ul>
+<li>Most road rash heals with local care; grafting about 1% (see 1.5). [verified]</li>
+<li>Moist dressings over dry scabbing: standard wound-care principle (faster re-epithelialisation, less pain). [reported; primary RCT not retrieved this pass, gap]</li>
+<li><strong>v2 fill (moist vs dry, closes v1 gap 2):</strong> no RCT on road rash or simple abrasions was found (2 searches). The nearest models, graft donor sites and superficial burns, all point the same way: [verified]</li>
+<li>Review of 35 publications on split-skin graft donor sites (shallow skin wounds much like road rash): moist products had "a clear advantage" over non-moist ones for both pain and healing rate (Brown &amp; Holloway 2018, <a href="https://doi.org/10.1111/iwj.12967">DOI</a>).</li>
+<li>Superficial partial-thickness burns, RCT, 38 analysed: plain petroleum jelly, no top dressing, closed in 6.2 days vs 7.8 days for silver cream plus gauze (p = 0.050); no infections in either arm; dressing changes easier and less sticky (Genuino 2014, <a href="https://doi.org/10.1016/j.burns.2014.07.024">DOI</a>). Done in Manila, a tropical setting. [verified; relevance to Bali inferred]</li>
+<li>Donor sites, double-blind split-site RCT, 50 patients: film dressing 86% healed by day 10 vs 55% with a fibre dressing (Dornseifer 2011, <a href="https://doi.org/10.1097/PRS.0b013e3182268c02">DOI</a>). Different moist products differ too. [verified]</li>
+<li>Pressure ulcers, randomised, 95 home-care patients: moist dressings healed in 86 vs 121 days with gauze, with 4× fewer dressing changes and lower cost (Souliotis 2016, <a href="https://doi.org/10.1111/wrr.12433">DOI</a>). [verified]
+  Page line: "Keep road rash clean, covered and moist (petroleum jelly or a film dressing), not dried into a scab. In a burn trial plain jelly healed a day and a half faster than silver cream and gauze." [inferred from above]</li>
+<li>Clean out grit early (tattooing risk), tetanus booster if contaminated, watch for infection signs: rising pain, swelling, redness, heat, fever, enlarged nodes (bali.live, above). [reported]</li>
+</ul>
+<h3>2.4 Scars: silicone and pressure</h3>
+<ul>
+<li>Fluid silicone gels: prophylactic and curative effect on hypertrophic scars in 18 RCTs, but many "high evidence" trials at high bias risk; unclear if gels equal sheets (Burns 2022, <a href="https://doi.org/10.1016/j.burns.2022.03.004">DOI</a>); 2026 update of 35 papers, 20 meta-analysed (<a href="https://doi.org/10.1684/ejd.2026.5057">DOI</a>, effect sizes not in abstract). [verified]</li>
+<li>Silicone gel with onion and aloe = silicone sheet for post-surgical scars, 40 patients, 3 months (Thai RCT 2021, <a href="https://doi.org/10.1111/jocd.13933">DOI</a>). [verified]</li>
+<li>Pressure garments after burns: evidence "very uncertain" vs no treatment or silicone (Cochrane 2024, 15 RCTs). [verified]
+Page line: "Silicone is the default first step for raised scars. Start once the skin has closed, keep it on for months, and judge it at a year, not a week." [inferred; start-timing advice reported]</li>
+</ul>
+<h3>2.5 Concussion: graded return</h3>
+<ul>
+<li>Amsterdam 2022 consensus (6th International Conference): rather than strict rest, <strong>early return to light physical activity</strong> and less screen time help recovery; cervicovestibular rehab for dizziness, neck pain or headaches beyond 10 days; active rehab and collaborative care if symptoms beyond 30 days (Patricios 2023, <a href="https://doi.org/10.1136/bjsports-2023-106898">DOI</a>; paediatric summary <a href="https://doi.org/10.1542/peds.2023-063489">DOI</a>). [verified]</li>
+<li>Aerobic exercise: 9 RCTs, 346 people; moderate to high intensity, ideally early, improved symptoms; suggested 20-minute supervised sessions 3 to 5 times weekly (2025, <a href="https://doi.org/10.1080/02699052.2025.2476494">DOI</a>). [verified]</li>
+<li>Non-athlete adults (Toronto, n = 75): supervised early exercise testing shortened recovery vs usual care (p = 0.046) (2025, <a href="https://doi.org/10.1097/PHM.0000000000002732">DOI</a>). [verified]</li>
+<li>Women may do better on lower exercise volume (pilot, n = 32, p = 0.058) (2025, <a href="https://doi.org/10.1097/HTR.0000000000001061">DOI</a>). [verified]</li>
+</ul>
+<h3>2.6 Nerve injury timelines</h3>
+<p>See 1.7: most closed-fracture nerve palsies recover on their own within 6 months; early surgical exploration (within 3 weeks) had the highest recovery rate in pooled data. [verified]</p>
+<hr />
+<h2 id="3-peptides-that-touch-the-endpoint">3. Peptides that touch the endpoint</h2>
+<h3>3.1 Summary grade table</h3>
+<p>Grades: A = several good human RCTs; B = some human RCT data; C = small or indirect human data; D = animal only; X = human or animal data negative or mixed.
+| Compound | Endpoint here | Best evidence | Human data for this endpoint | Grade |
+|---|---|---|---|---|
+| Teriparatide (approved, osteoporosis) | Fracture healing | Wrist RCT post hoc; metas positive on time, null on healing rate | Yes, mostly older women | B (osteoporotic), none in young |
+| Abaloparatide (approved, osteoporosis) | Fracture healing | Pelvic RCT negative; 1 case report | n = 48 | X |
+| Cerebrolysin (prescription in some countries) | Moderate to severe TBI; mild TBI | CAPTAIN I and II; mild TBI pilot | n = 185 pooled; n = 32 mild | B (mod/severe), C (mild) |
+| Thymosin beta-4 (full protein) | Skin wounds; TBI | Phase 2 ulcer RCTs; rat TBI | Chronic ulcers only | C (wounds), D (TBI) |
+| TB-500 (7-amino-acid fragment) | Any crash injury | None specific; see Muscle Injury 4.3 | None | D/none |
+| LL-37 | Wounds | 2 RCTs in chronic venous ulcers | n = 34 positive, n = 148 null | X |
+| GHK-Cu | Wounds, scars | Animal, cosmetic; phase 2 acute wound trial recruiting | 13-person laser study negative | D/X |
+| BPC-157 | Bone, nerve, brain, spinal cord, burns | Rat, mouse, rabbit; all one lab | None for these | D |
+| KPV | Wounds | Rat oral mucositis gel | None | D |
+| Semax | Brain injury | Rat stroke models; used clinically in Russia [reported] | No TBI trial found | D |
+| Selank | Anxiety after injury | Poorly studied; sold as supplement in US | None for injury | none |
+| DSIP | Sleep after injury | Mouse fusion protein study | None found | none |
+| Real GH (comparison) | Burn wound healing | 2 adult RCTs | Null; hyperglycaemia | X |
+| GH secretagogues | Fracture function | MK-677 hip fracture (see Muscle Injury 4.6) | Null, heart failure signal | X |
+| Collagen peptides | Bone, skin | See Muscle Injury 3.5 | No crash-wound RCT pulled | gap |
+| NAD+ precursors | TBI | 30 rodent studies reviewed | None | D |</p>
+<h3>3.2 Teriparatide and abaloparatide</h3>
+<p>See 2.2 for all numbers. Key framing: these are the only peptides on this page with regulator approval and human fracture trials, and even they have not proven they speed healing in healthy adults. Doses in the trials: teriparatide 20 or 40 µg daily SC for 8 weeks (Aspenberg 2010). [verified] Abaloparatide dose not in abstract. [gap]</p>
+<h3>3.3 Cerebrolysin</h3>
+<ul>
+<li><strong>What it is:</strong> a mix of low-molecular-weight peptides and amino acids from purified pig brain proteins; IV or IM; approved for TBI in some countries (Jarosz 2023, <a href="https://doi.org/10.3390/brainsci13030507">DOI</a>). [verified] Not FDA approved; not available in the US. [reported, NeuroTalk moderators and reviews]</li>
+<li><strong>CAPTAIN I</strong> (Asian-Pacific, n = 46, GCS moderate to severe): primary multi-scale endpoint just missed in ITT (MW 0.63, p &lt; 0.1), significant per protocol (MW 0.69); 3 cognitive tests significant; safety = placebo (Poon 2019, <a href="https://doi.org/10.1007/s10072-019-04053-5">DOI</a>). [verified]</li>
+<li><strong>CAPTAIN II</strong> (single centre, Romania, n = 139, GCS 7 to 12): small to medium benefit at day 90 (MW 0.59, p = 0.012) (Muresanu 2020, <a href="https://doi.org/10.1007/s10072-019-04181-y">DOI</a>). [verified]</li>
+<li><strong>CAPTAIN meta</strong> (n = 185): MW 0.60 at day 30 and 90; SMD 0.31 to 0.34; OR 1.69 to 1.77 (Vester 2021, <a href="https://doi.org/10.1007/s10072-020-04974-6">DOI</a>). Dosing in trials: 50 mL daily for 10 days, then two 10-day cycles of 10 mL daily. [verified]</li>
+<li><strong>Mild TBI pilot</strong> (Taiwan, n = 32, alert patients with contusion bleeding): 30 mL IV daily for 5 days; cognitive score gain 21.0 vs 7.6 at 12 weeks (p = 0.046) (Chen 2013, <a href="https://doi.org/10.3109/02688697.2013.793287">DOI</a>). [verified]</li>
+<li><strong>Null trial:</strong> Cerebrolysin with or without rTMS vs placebo, n = 93 TBI: no significant primary difference (Verisezan Rosu 2023, <a href="https://doi.org/10.3389/fnins.2023.1186751">DOI</a>). [verified]</li>
+<li><strong>Meta-analyses:</strong> GOS SMD 0.30 but mostly cohort studies, heavy heterogeneity (Ghaffarpasand 2019, <a href="https://doi.org/10.2147/NDT.S186865">DOI</a>); 10 studies, 8,749 patients, better GCS and GOS, no mortality or stay difference (Jarosz 2023). [verified]</li>
+<li><strong>Conflict check:</strong> CAPTAIN authors overlap with one Romanian research institute and a biostatistics consultancy across all three papers; a 2018 rat mild-TBI study had manufacturer employees as co-authors (Zhang 2018, <a href="https://doi.org/10.3171/2017.6.JNS171007">DOI</a>). [verified authorship] Independent large RCT in mild TBI: none found. [verified absence, 2 searches]</li>
+<li>Stroke aphasia RCT (n = 123): +14.8 points on aphasia battery vs placebo with speech therapy (ESCAS 2025, <a href="https://doi.org/10.1161/STROKEAHA.124.049834">DOI</a>). [verified] Stroke, not trauma. [inferred]
+Grade: B for moderate to severe TBI as add-on; C for concussion. Hospital IV product, not a home peptide. [inferred]</li>
+</ul>
+<h3>3.4 Thymosin beta-4 (full protein) and TB-500</h3>
+<p><strong>Wounds (human)</strong>
+- Venous leg ulcers, phase 2, 73 patients, 8 European sites, topical: safety = placebo; 0.03% "may have the potential" to accelerate healing, about 25% fully healed by 3 months; no clear significance stated (Guarnera 2010, <a href="https://doi.org/10.1111/j.1749-6632.2010.05490.x">DOI</a>). [verified]
+- Pressure ulcer phase 2 (NCT00382174, n = 72, completed 2008): results not read. Epidermolysis bullosa phase 2 (NCT00311766): terminated. [verified registry]
+- <strong>v2 detail:</strong> NCT00382174 was a double-blind, placebo-controlled, dose-escalation topical trial at 12 US sites (several VA hospitals), adults 18 to 85 with a full-thickness pressure ulcer 5 to 70 cm² present at least a month. <strong>Primary endpoint was safety; healing at day 84 was only secondary.</strong> Registry says results are posted; the results tab could not be opened from this session. [verified registry, read 3 Nov 2026]
+- The developer-linked summary of both phase 2 trials (stasis and pressure ulcers) says Tβ4 sped healing "by almost a month <strong>in those patients that did heal</strong>" (Treadwell 2012, <a href="https://doi.org/10.1111/j.1749-6632.2012.06717.x">DOI</a>; co-authors include the developer's founders and staff [verified authorship]). Measuring speed only among people who healed is a subgroup chosen by outcome, which can manufacture a difference; the headline healing rates are not given in that abstract. [inferred] A later review by the same group repeats "accelerated the rate of repair" in pressure, stasis and EB wounds without numbers (Kleinman &amp; Sosne 2016, <a href="https://doi.org/10.1016/bs.vh.2016.04.005">DOI</a>). [verified]
+- Dry eye phase 3 (ARISE): a 2023 paper still described Tβ4 as "in Phase 3 trials" (Sosne 2023, <a href="https://doi.org/10.1016/j.intimp.2023.109953">DOI</a>); no ARISE-2/3 result paper on PubMed (1 search). [verified absence]
+- Developer reviews describe faster repair in pressure, stasis and EB wounds (Kleinman 2016, <a href="https://doi.org/10.1016/bs.vh.2016.04.005">DOI</a>; Yang 2019, company-affiliated, <a href="https://doi.org/10.1684/ejd.2019.3642">DOI</a>). [verified; affiliation verified]
+- Eye: phase 3 dry eye trials (ARISE-2 n = 601, ARISE-3 n = 700) completed; neurotrophic keratopathy phase 3 (SEER-2) recruiting. [verified registry; results not read, gap]
+- Still no approved Tβ4 drug after 10+ years of trials (2026 review, <a href="https://doi.org/10.1002/btm2.70144">DOI</a>). [verified]</p>
+<p><strong>Brain (animal, one group)</strong>
+- Rat controlled cortical impact: 6 mg/kg ip from day 1 then every 3 days ×4: better function and learning, more new neurons; <strong>lesion size unchanged</strong> (Xiong 2010, <a href="https://doi.org/10.3171/2010.4.JNS10118">DOI</a>). [verified]
+- Started 6 h after injury, 6 or 30 mg/kg ip at 6, 24, 48 h: smaller lesions, better recovery, higher dose better (Xiong 2012, <a href="https://doi.org/10.3171/2012.1.JNS111729">DOI</a>; n = 7 to 8 per group). [verified]
+- Its 4-amino-acid fragment AcSDKP (not TB-500) also helped rats (Zhang 2016, <a href="https://doi.org/10.3171/2016.3.JNS152699">DOI</a>). [verified]
+- All from the Henry Ford Hospital Detroit group. TB-500 itself has no TBI study. [verified authorship; absence inferred from searches]</p>
+<p><strong>Heart:</strong> recombinant Tβ4 phase 2 trials after heart attack (China, completed and a phase 2c starting); a TB-500 fragment phase 1/2 in stable heart disease, commercial sponsor (NCT07487363). [verified registry] See Muscle Injury 4.3 for muscle (grade X).</p>
+<h3>3.5 GHK-Cu</h3>
+<ul>
+<li>2026 evidence-mapping review: preclinical support consistent; clinical evidence "sparse"; a 13-person post-CO2-laser study was <strong>negative</strong> on objective endpoints; GHK-Cu should be regarded as "promising but unproven" (Mateescu 2026, <a href="https://doi.org/10.3390/pharmaceutics18091077">DOI</a>). [verified]</li>
+<li>Microneedle review: no adequately powered human RCT published (Najafi 2026, <a href="https://doi.org/10.26502/aimr.0255">DOI</a>). [verified]</li>
+<li><strong>Registered trial NCT07437586 (CuHeal):</strong> phase 2, double blind, split-wound (two 5 mm punch biopsies on the upper arm, one GHK-Cu gel, one vehicle, daily for 14 days), 60 healthy adults, single hospital in Shenzhen; primary = days to full re-epithelialisation; scar (POSAS) at 12 weeks; primary completion 14 Feb 2027. Same commercial sponsor as the BPC-157 hamstring trial and the TB-500 heart trial. [verified registry, read 3 Nov 2026]</li>
+<li>Excludes smokers, diabetics, keloid formers: so results will not directly cover infected road rash. [inferred]</li>
+</ul>
+<h3>3.6 LL-37 (antimicrobial peptide)</h3>
+<ul>
+<li>First-in-human RCT, 34 hard-to-heal venous leg ulcers, 4 weeks: healing rate about 6× (0.5 mg/mL) and 3× (1.6 mg/mL) placebo; ulcer area down 68% and 50%; <strong>highest dose 3.2 mg/mL no better than placebo</strong> (Grönberg 2014, <a href="https://doi.org/10.1111/wrr.12211">DOI</a>). [verified]</li>
+<li>Phase IIb HEAL LL-37, 148 patients: <strong>no significant improvement</strong> overall; post hoc benefit in wounds ≥10 cm² (Mahlapuu 2021, <a href="https://doi.org/10.1111/wrr.12977">DOI</a>). [verified]</li>
+<li>Inverted dose response and failed phase IIb = warning that "more is better" logic fails. Chronic ulcers in older adults, not acute road rash. [inferred]</li>
+<li>The body makes LL-37 in injured skin; topical vitamin D analogue raised it further after wounding (Heilborn 2009, <a href="https://doi.org/10.1111/j.1600-0625.2009.00997.x">DOI</a>). [verified]</li>
+</ul>
+<h3>3.7 BPC-157 (crash-relevant tissues; muscle/tendon in other files)</h3>
+<p>All studies below: University of Zagreb group (Sikiric and colleagues). [verified affiliations]
+| Tissue | Study | Model and dose | Result |
+|---|---|---|---|
+| Bone | Sebecić 1999 Bone, <a href="https://doi.org/10.1016/s8756-3282(98)00180-x">DOI</a> | Rabbit, 0.8 cm radius gap that never healed in controls; 10 µg/kg or 10 ng/kg IM or local | Healing comparable to bone marrow injection or bone graft [verified] |
+| Peripheral nerve | Gjurasin 2009, <a href="https://doi.org/10.1016/j.regpep.2009.11.005">DOI</a> | Rat, cut sciatic nerve; 10 µg or 10 ng/kg ip, oral or local | Faster axon regrowth, better EMG and walking index [verified] |
+| Brain | Tudor 2009, <a href="https://doi.org/10.1016/j.regpep.2009.11.012">DOI</a> | Mouse falling-weight TBI; 10 µg or 10 ng/kg ip, mostly <strong>given before or within 30 min</strong> | Less bleeding, swelling and death over 24 h [verified] |
+| Spinal cord | Perovic 2019, <a href="https://doi.org/10.1186/s13018-019-1242-6">DOI</a>; 2022, <a href="https://doi.org/10.3390/cimb44050130">DOI</a> | Rat tail-segment compression; one ip dose 10 min after (and later starts) | Tail function recovered, sustained 1 year [verified] |
+| Burn | Mikus 2001 Burns, <a href="https://doi.org/10.1016/s0305-4179(01)00055-9">DOI</a> | Mouse deep partial burns, 20% body; cream or ip | Better re-epithelialisation and skin strength vs silver sulfadiazine [verified] |
+| Wounds (review) | Seiwerth 2021, <a href="https://doi.org/10.3389/fphar.2021.627533">DOI</a> | Rat skin, fistula, diabetic ulcer models | Originators' review [verified] |
+- Independent reviews: one 12-patient uncontrolled knee pain series is the only human musculoskeletal data (7 of 12 reported relief &gt;6 months); clinicians and athletes advised against use (Vasireddi 2025, <a href="https://doi.org/10.1177/15563316251355551">DOI</a>; AAOS 2025 abstract <a href="https://index.mirasmart.com/AAOS2025/PDFfiles/AAOS2025-009087.PDF">PDF</a>). [verified] "Routine clinical use cannot be currently recommended" (Tham 2026, <a href="https://doi.org/10.5435/JAAOS-D-26-00049">DOI</a>). [verified] Peptides "should not currently be recommended as a replacement or adjunct" (Tewari 2026 AJSM, <a href="https://doi.org/10.1177/03635465261464420">DOI</a>). [verified]
+- Dental case series: 3 inferior alveolar nerve injuries managed with a peptide combination, "hypothesis-generating" only (Froum 2026, <a href="https://doi.org/10.3389/froh.2026.1907109">DOI</a>). [verified] Only human nerve-adjacent BPC-157 report found. [inferred]
+- <strong>Negative mirror search:</strong> no independent replication of the bone, nerve, brain or burn studies; no published null study. [verified absence, 4 searches]
+- Timing caveat: the brain benefit came from dosing before or immediately after injury in mice; nobody takes a peptide in the 30 minutes after a crash. [inferred]</p>
+<h3>3.8 KPV</h3>
+<p>Only animal and formulation data: anti-inflammatory and antibacterial gel healed rat chemotherapy mouth ulcers (2021, <a href="https://doi.org/10.1039/d1bm01466h">DOI</a>). No human wound study found. [verified absence, 1 search] Not to be confused with tanning or pigment tripeptides that share the "alpha-MSH tripeptide" label. [inferred]</p>
+<h3>3.9 Semax, Selank, DSIP</h3>
+<ul>
+<li><strong>Semax:</strong> PubMed hits this pass are rat stroke transcriptome and protein studies (2014 to 2021, Moscow) describing anti-inflammatory gene shifts (<a href="https://doi.org/10.1186/1471-2164-15-228">DOI</a>; <a href="https://doi.org/10.3390/ijms22126179">DOI</a>). Described as used in Russian stroke treatment [reported in those abstracts]. No TBI or concussion human trial found. [verified absence, 2 searches]</li>
+<li><strong>Selank:</strong> "poorly studied Russian drug" with GABA mechanism "inexplicably sold to US consumers as dietary supplements" (Doyno 2021, <a href="https://doi.org/10.1002/jcph.1922">DOI</a>). No injury data. [verified]</li>
+<li><strong>DSIP:</strong> only a mouse fusion-protein study (sleep induction with pentobarbital) in this pass (<a href="https://doi.org/10.2174/0929866524666170426113022">DOI</a>). No human post-injury sleep trial. [verified absence, 1 search] Sleep problems after TBI are common [reported]; prevalence meta not read. [gap]</li>
+</ul>
+<h3>3.10 GH, collagen, NAD+</h3>
+<ul>
+<li><strong>Real GH in burns (adults):</strong> 24 patients, 0.15 mg/kg/day: no faster donor-site healing, no shorter stay; 10 of 13 developed high blood sugar, 7 needed insulin (Losada 2002, <a href="https://doi.org/10.1007/s00268-001-0170-9">DOI</a>). 49 patients: no wound or donor-site benefit (Pelzer 2000, <a href="https://doi.org/10.1007/s001040051225">DOI</a>). Children showed benefit in earlier work [reported in abstracts]. [verified]</li>
+<li>GH secretagogues: see Muscle Injury 4.6 (MK-677 hip fracture: IGF-1 up, function mostly not, heart failure signal). [verified there]</li>
+<li><strong>Collagen:</strong> see Muscle Injury 3.5. No collagen RCT for acute skin wounds or fracture healing pulled. [gap]</li>
+<li><strong>NAD+ precursors:</strong> 30 rodent studies (incl. TBI) suggest cognitive rescue (2025 systematic review, <a href="https://doi.org/10.1186/s12868-025-00937-9">DOI</a>). No human TBI trial found. [verified]</li>
+</ul>
+<h3>3.11 Registered trials touching this page (ClinicalTrials.gov, 3 Nov 2026)</h3>
+<ul>
+<li>GHK-Cu acute wound phase 2 (NCT07437586), recruiting. [verified]</li>
+<li>BPC-157 hamstring phase 2 (NCT07437547) and after cuff repair (NCT07803250): see Muscle Injury. [verified]</li>
+<li><strong>No trial</strong> of BPC-157, TB-500, GHK-Cu or KPV in fracture, concussion, whiplash, nerve injury or road rash. [verified, search of 26 peptide trials]</li>
+</ul>
+<hr />
+<h2 id="4-what-people-report-claude-s-own-search-outside-reddit">4. What people report (Claude's own search, outside Reddit)</h2>
+<p>Sources searched: Vital MX motocross forum (2 pages, Jun 2026), Rokslide hunting forum (main page; 2 sub-pages failed to load), NeuroTalk TBI/post-concussion forum (5 threads, 2009 to 2019), Singletrack mountain bike forum (Sep 2025), Spanish athletics forum (2025), Bali expat/tourist pages (2), physician blog (1), Skool peptide communities (2, promotional, not counted). Excluded: Reddit (ChatGPT tab), MESO-Rx, AnabolicMinds, vendor pages, AI "experience hub" sites. No suppliers named. Whole threads judged where they loaded.</p>
+<h3>4.1 Count: first-hand crash-relevant reports</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Injury</th>
+<th>Worked</th>
+<th>Unclear / pending</th>
+<th>No change</th>
+<th>Worse</th>
+<th>Clinician-observed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Injury">Fracture / bone</td>
+<td data-l="Worked">0</td>
+<td data-l="Unclear / pending">0</td>
+<td data-l="No change">2 (4 broken ribs, collapsed lung, hairline pelvis: BPC 2 to 3 months, "couldn't really feel much of a difference", riding in 4 weeks anyway; T4 to T8 fusion after broken back: oral BPC + TB, nothing "definitively attributed")</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Spine / back soft tissue</td>
+<td data-l="Worked">1 (old moto injuries + back soreness gone, BPC + TB, age 54)</td>
+<td data-l="Unclear / pending">1 (multiple moto injuries incl. herniated L5-S1, pending 8-week report)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Crash soft tissue (sprain, thumb, fascia)</td>
+<td data-l="Worked">3 (longboard crash thumb "healed up pretty well", X-ray excluded fracture, oral BPC; severe ankle sprain, inflammation down "immediately", BPC; forearm fascia, local BPC + TB, "works, but not the end-all")</td>
+<td data-l="Unclear / pending">0</td>
+<td data-l="No change">1 (BPC tablets, injury unclear, "wished it worked")</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0 (X-ray ruled out fracture only)</td>
+</tr>
+<tr>
+<td data-l="Injury">Post-surgery</td>
+<td data-l="Worked">1 (MRI-confirmed distal biceps tear, surgical repair, local injectable BPC, surgeon approved starting; self-rated faster)</td>
+<td data-l="Unclear / pending">2 (two knee replacements, BPC + TB + low-dose GH: surgeon and PT said faster than most, poster unsure; tumour surgeries, nasal BPC, no outcome)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">1 partial (surgeon/PT "faster than most", not attributed)</td>
+</tr>
+<tr>
+<td data-l="Injury">Concussion / TBI</td>
+<td data-l="Worked">1 (Cerebrolysin IM, self-sourced, 2009, "calmer and more clear"; cause not stated)</td>
+<td data-l="Unclear / pending">1 (planned BPC + TB for neck-driven post-concussion symptoms, never reported back)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Whiplash</td>
+<td data-l="Worked">0</td>
+<td data-l="Unclear / pending">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Road rash / scar</td>
+<td data-l="Worked">0</td>
+<td data-l="Unclear / pending">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Nerve</td>
+<td data-l="Worked">0</td>
+<td data-l="Unclear / pending">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Injury not stated (moto riders)</td>
+<td data-l="Worked">1 ("Works for me", self-mixed BPC/TB)</td>
+<td data-l="Unclear / pending">1 (no injury, "placebo can work")</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+</tr>
+<tr>
+<td data-l="Injury"><strong>Total (19 reports)</strong></td>
+<td data-l="Worked"><strong>7</strong></td>
+<td data-l="Unclear / pending"><strong>5</strong></td>
+<td data-l="No change"><strong>3</strong></td>
+<td data-l="Worse"><strong>0</strong></td>
+<td data-l="Clinician-observed"><strong>0 attributed</strong></td>
+</tr>
+<tr>
+<td data-l="Injury">Notes [verified per fetched page; tallies inferred]:</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Lead with what worked: the most specific success is the <strong>MRI-confirmed, surgically repaired distal biceps</strong> case with local BPC-157 (Rokslide). This is very likely the <strong>same case already counted in Muscle Injury v1</strong> (also "MRI-confirmed distal biceps tear, repaired, BPC after surgery"); do not double count across pages. [inferred]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- The <strong>only actual fracture reports are both "no change"</strong>, including the most severe crash (ribs, lung, pelvis). That rider was back on a bike in 2 weeks, which says more about the injury than the peptide. [verified; inferred meaning]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- The knee replacement case is the closest to clinician observation: surgeon and PT said recovery was faster than most, but the patient also used GH and acupuncture (credited acupuncture most). Confounded. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Concussion forums (NeuroTalk) had <strong>zero</strong> first-hand BPC-157 reports across 2 threads and only 1 Cerebrolysin report in 15+ years of threads I checked; moderators repeatedly flagged single-lab BPC data. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Second-hand reports (not counted): a family member's nasal BPC for nagging injuries ("not cured"); a wife's clinic BPC + TB for meniscus ("less pain so far"); a physio recommending peptides with "very good results" in other patients (Spanish forum). [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Side effects: none reported in crash threads. Thread-level worries raised by non-users: mood changes, vision, cancer via new blood vessels; label misspelling on an online product led one rider to bin it. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Skeptic voices in the same threads: "no randomized control trial studies (compared to placebo) in humans"; "no idea what you're getting"; one Singletrack user was offered payment to promote peptides. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Bali-specific: no first-hand peptide report found on Bali tourist or expat pages; Bali news coverage of crashes (amputation risk, kneecap exposure, five-figure hospital bills) mentions no peptides. [verified for fetched pages; search depth limited, gap]</td>
+<td data-l="Worked"></td>
+<td data-l="Unclear / pending"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 Clinician voices</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Date</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Who">Sports medicine physician blog (US)</td>
+<td data-l="Date">28 Sep 2025</td>
+<td data-l="Position">BPC-157 "shows promise" for delayed fracture healing; preclinical only; no own-patient cases; no numbers [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Orthopaedic reviewers (JAAOS, AJSM, HSS J)</td>
+<td data-l="Date">2025 to 2026</td>
+<td data-l="Position">Not recommended routinely; no controlled human orthopaedic efficacy [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Physio (Spanish forum, second-hand)</td>
+<td data-l="Date">Sep 2025</td>
+<td data-l="Position">Recommended peptides to a patient; claims good results in others; unverifiable [verified as reported]</td>
+</tr>
+<tr>
+<td data-l="Who">Clinician-observed crash outcomes attributed to a peptide: <strong>0</strong>. [verified]</td>
+<td data-l="Date"></td>
+<td data-l="Position"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.3 v1 recount (correction)</h3>
+<ul>
+<li>The v1 table rows add to <strong>15</strong>, not the 19 printed in v1 (worked 7, unclear 5, no change 3, worse 0). [verified by re-adding the v1 table]</li>
+<li>The Rokslide distal biceps case (fall on ice, MRI 4 days later, surgical reattachment, local BPC-157 from about 2.5 weeks after surgery, self-rated faster; surgeon and PT said research "might help", not that it did) is the case already in <strong>Muscle Injury v1</strong>. A Rokslide reply describing a 14-month-old distal biceps reattachment "a month ahead of schedule" with BPC + TB-500 may be the same person. Both are <strong>removed</strong> from this page's count. [verified page, read 3 Nov 2026; identity inferred]</li>
+<li>v1 count after removal: <strong>14 reports: 6 worked, 5 unclear, 3 no change, 0 worse.</strong> [inferred]</li>
+</ul>
+<h3>4.4 New first-hand reports (v2 sweep, 3 Nov 2026)</h3>
+<p>Sources loaded this pass: water-ski forum (Ball of Spray), Vital MX (both BPC threads, 2024 and Jun 2026), Vital MTB, TigerDroppings (2 threads, Feb 2025 and Jul to Aug 2026), Sherdog (BPC/TB thread p.7), Teton Gravity, Mountain Project (Injuries and Accidents, May 2025), Sniper's Hide, ExcelMale, Rokslide (3 more pages; 2 failed), NeuroTalk (4 more threads), UBPN brachial plexus forum, Mayo Clinic Connect (C1 fracture), acne.org (GHK-Cu), Drugs.com (teriparatide pages 4 and 5), Fox News and a sports news site (public figures), 2 Bali travel blogs. Failed: looksmax, 2 Rokslide pages, ClinicalTrials.gov results tab. Not searchable from this session: Facebook groups (no public posts surfaced in 3 searches), YouTube transcripts (search returned only reposting sites), Longecity (2 site searches returned no Longecity pages). Vendor pages, AI "experience hubs", Skool sales communities and Reddit mirrors were skipped. No suppliers named (several posters named sources; omitted here).</p>
+<p><strong>Lead with what worked (most specific first):</strong>
+1. <strong>Rib fracture + small collapsed lung, water-ski crash, BPC-157</strong> (Ball of Spray, date not shown). Non-displaced 5th rib fracture, about 5% pneumothorax and lung bruise on scans (the ER first missed it, then called back). Started BPC-157 at the start of week 3; "dramatically better within a few days"; at 4.5 weeks full range of motion, clicking gone, back on skis at 4 weeks; still sore sneezing or lying flat. Poster unsure if peptide or coincidence. A reply with ribs broken skiing and <strong>no</strong> peptide needed about 7 weeks before they were stable. [verified page; route and dose not stated] Clinician role: injury confirmed by imaging; recovery not assessed by a doctor. [verified]
+2. <strong>Multiple fractures, snowcat accident, unnamed "peptide therapies"</strong> (actor Jeremy Renner, Fox News Digital interview, 26 Apr 2026). 38 broken bones; calls peptides "very, very key" to recovery alongside red light, hyperbaric oxygen and mindset; no compound named, no doctor quoted. [reported, secondary news; first-hand words quoted by the outlet] Peptide unknown, many co-treatments. [inferred]
+3. <strong>Paralysis from a training accident (neck), BPC-157 + TB-500</strong> (former MMA athlete and podcast host, quoted from his podcast, article 3 Apr 2026). "I took them throughout my injury, and I think it helped me significantly." No diagnosis, timeline, scan or doctor statement given. [reported, secondary news]
+4. <strong>Teriparatide (approved bone peptide) for a "seriously broken arm"</strong> (Drugs.com, 5 Aug 2017, 8/10). Patient with osteogenesis imperfecta and early osteoporosis; 2 to 3 months; "sped up the process as predicted" versus the doctor's warning it would take "a long time"; no side effects. [verified page; healing not doctor-confirmed in review]
+5. <strong>Teriparatide after a hip fracture from a fall, rod and pins</strong> (Drugs.com, 18 Nov 2018, 7/10). Reviewer reports X-ray improvement at about 3 months; <strong>side effects: major hair loss, reflux, tooth loss</strong>. [verified page; X-ray reading is the reviewer's account]
+6. <strong>Deep wound from a crash, BPC-157 injections twice daily for 2 weeks</strong> (Vital MX, 20 Dec 2024). Taken for old quad tendinitis (resolved, not returned); a later crash wound on the same side "closed quickly" with butterfly strips; has photos; says it "could have healed up on its own". [verified page] Only first-hand crash-wound report found across both passes. [inferred]
+7. <strong>Dog-bite calf wound, BPC-157</strong> (TigerDroppings, 1 Feb 2025): "rapid recovery". Same poster: low back and SI joint only a "band aid", kept coming back (counted unclear below). [verified page]
+8. <strong>Old back injury, 10+ years, nothing else including surgery helped; BPC-157 + TB-500 + long-term low-dose GH, a couple of months</strong> (Vital MX, 20 Dec 2024): walking "with nearly no pain". Cause not stated; GH confounds. [verified page]
+9. <strong>Large shoulder surgery, BPC-157 + TB-500 + MK-677</strong> (Teton Gravity, date not shown): ahead of the expected timeline 7 weeks out, progress then slowed; poster "wouldn't call them miracle" drugs; cannot separate effects. [verified page]
+10. <strong>Sciatica and shoulder bursitis, BPC-157 500 mcg daily SC</strong> (Teton Gravity): sciatica relief "a miracle"; off anti-inflammatories at day 20 (before: could not last 6 days); doctor knew and "wasn't concerned". Cause not stated (not a crash report). [verified page]
+11. <strong>Intercostal (rib cage) muscle strain, felt like a broken rib, BPC/TB from day 10</strong> (TigerDroppings, 21 Jul 2026): no pain the morning after a dose increase around day 15; 9 holes of golf at day 21; physio had predicted 8 to 12 weeks. Not a fracture, not a crash. [verified page]</p>
+<p><strong>Unclear (2):</strong> broken hand, BPC-157 (Sherdog, 2021 to 2025 posts; "dramatic effect" claimed generally, no hand outcome) [verified]; low back/SI recurrence (above) [verified].</p>
+<p><strong>No change (3):</strong>
+- Neck injury, single course with other compounds: doubts it helped the neck, felt general training recovery was better (TigerDroppings, 2 Feb 2025). [verified] <strong>The only first-hand neck report found in either pass.</strong>
+- Acne scars, copper peptide (GHK-Cu) around microneedling: reduced redness after sessions, <strong>no effect on scars</strong>, barely any on texture (acne.org, 14 May 2019). Nearest scar proxy found; no injury-scar GHK-Cu report exists in the places searched. [verified]
+- BPC-157 for an unstated injury "did jack squat" (TigerDroppings, 28 Jul 2026); same poster's BJJ rib injury settled with paracetamol in 2 days. [verified]</p>
+<p><strong>Worse (2, both side effects):</strong>
+- Teriparatide after broken vertebrae and a broken leg: stopped at about 2 months for heavy hair loss, rated 1/10 (Drugs.com, 6 Jun 2018). [verified]
+- Oral BPC-157 for 2 days: gas, bloating and constipation lasting about 2 weeks (Mountain Project, 5 May 2025). [verified]</p>
+<p><strong>Searched, zero first-hand peptide reports:</strong>
+- <strong>Concussion:</strong> NeuroTalk BPC-157 thread (2016: only a plan and a second-hand Reddit claim; never reported back), "guinea pig" thread (2019: BPC + TB plan for neck-driven post-concussion symptoms, never reported back, already in v1), sparring brain-damage thread (2015: Cerebrolysin discussed, nobody took it). Headway and Concussion Alliance searches returned only vendor and manufacturer pages. [verified]
+- <strong>Nerve / brachial plexus:</strong> 6 motorcycle brachial plexus stories (UBPN forum, 2001 to 2011): nerve and muscle transfers, one told "you'll heal in a year or two"; no peptide or supplement mentioned. [verified]
+- <strong>Neck fracture:</strong> Mayo Clinic Connect C1 fracture thread: one surfer asked about BPC-157 after a 9-week CT showed no bone growth; another had failed fibrous union and needed screws and bone graft; neither reported taking it (only 1 of 27 replies visible). [verified]
+- <strong>Bali:</strong> a Bali travel blog with a scooter exhaust burn (8 Jul 2023): aloe, burn cream, clinic cleaning and 3 days of antibiotics, no peptides; Bali "peptide" pages found were vendor blogs (skipped). [verified]
+- <strong>Collarbone:</strong> Vital MTB injury thread (Dec 2010) gave non-peptide timelines: collarbone broken in two places healed without surgery, riding at 9 weeks; another with a bone chip, 4 months. [verified] Useful natural-history comparison. [inferred]</p>
+<p><strong>Off-topic first-hand reports seen in the same threads, not counted</strong> (not crash injuries; belong to Knee, Shoulder, Achilles or Tendon files): MRI-confirmed meniscus tear, TB-500 alone, back to squatting at 56 (ExcelMale); Achilles rupture, BPC then BPC + TB, golf at 5 weeks out of the boot (Rokslide); several shoulder and elbow tendinitis reports, mixed (TigerDroppings, Sniper's Hide, Sherdog, Mountain Project PRP + BPC). [verified]</p>
+<h3>4.5 Per peptide per injury (v1 + v2, Reddit excluded, biceps removed)</h3>
+<p>Speed = what the poster said; "clinician" = a doctor, scan or physio appears in the story, not that they credited the peptide.
+| Peptide | Injury | Reports | Worked | Unclear | No change | Worse | Speed reported | Clinician in story |
+|---|---|---|---|---|---|---|---|---|
+| BPC-157 (alone or + TB-500) | Fracture (ribs, pelvis, spine fusion, hand) | 4 | 1 (rib + lung, water-ski) | 1 (hand) | 2 (ribs + lung + pelvis, moto; T4 to T8 fusion) | 0 | "Within a few days" of starting in week 3 | Scans confirmed the rib injury and the fusion; none assessed the peptide |
+| BPC-157 + TB-500 | Spinal cord / paralysis | 1 | 1 [reported] | 0 | 0 | 0 | Not given | None stated |
+| Unnamed peptides | Multiple fractures | 1 | 1 [reported] | 0 | 0 | 0 | Not given | None quoted |
+| Teriparatide | Fracture (arm, hip, spine + leg) | 3 | 2 | 0 | 0 | 1 (hair loss) | About 3 months | Reviewer-reported X-ray (1); doctor's expected timeline beaten (1) |
+| BPC-157 (± TB, ± GH) | Back (soft tissue, old injuries, disc) | 4 | 2 (old moto injuries age 54; 10-year back on BPC + TB + GH) | 2 (L5-S1 pending; SI "band aid") | 0 | 0 | Over "a couple months" | None |
+| BPC-157 | Neck | 1 | 0 | 0 | 1 | 0 | n/a | None |
+| BPC-157 | Crash and bite wounds | 2 | 2 | 0 | 0 | 0 | "Closed quickly" | None |
+| GHK-Cu | Scars (acne proxy) | 1 | 0 | 0 | 1 | 0 | n/a | None |
+| BPC-157 (± TB) | Crash soft tissue (thumb, ankle, fascia, rib strain) | 5 | 4 | 0 | 1 | 0 | Ankle "immediately"; rib strain about 5 days after dose rise | Thumb X-ray excluded fracture only |
+| BPC-157 (± TB, ± GH, ± MK-677) | Post-surgery (2 knee replacements, shoulder, tumour surgeries) | 3 | 1 (shoulder, ahead of timeline) | 2 | 0 | 0 | Ahead of schedule at 7 weeks | Knee: surgeon and PT said "faster than most", not attributed |
+| BPC-157 | Nerve pain (sciatica, not crash) | 1 | 1 | 0 | 0 | 0 | Off NSAIDs by day 20 | Doctor aware, "not concerned" |
+| Cerebrolysin (IM, self-sourced) | Brain injury | 1 | 1 ("calmer and more clear") | 0 | 0 | 0 | After each dose | None |
+| BPC-157 + TB-500 | Post-concussion (neck-driven) | 1 | 0 | 1 (never reported back) | 0 | 0 | n/a | None |
+| BPC-157 (oral) | Side effect, injury unstated | 1 | 0 | 0 | 0 | 1 (GI, 2 weeks) | n/a | None |
+| BPC-157 / TB mixes | Injury unstated | 3 | 1 | 1 | 1 | 0 | n/a | None |
+| <strong>Total</strong> | | <strong>32</strong> | <strong>17</strong> | <strong>7</strong> | <strong>6</strong> | <strong>2</strong> | | <strong>0 attributed</strong> |
+[tallies inferred from 4.1 and 4.4; v1 rows redistributed by injury]</p>
+<p>Reading the table [inferred]:
+- "Worked" clusters where the injury is soft tissue, self-limiting, or confounded (GH, MK-677, PT). The <strong>hardest, scan-confirmed crash fractures split 1 worked vs 2 no change.</strong>
+- The best-documented positive peptide in this page's community data is the approved one, <strong>teriparatide</strong>, and it carries the only repeated side-effect signal (hair loss in 2 of 3).
+- No report anywhere has a doctor saying the peptide made the difference.
+- Public figures (2) give the loudest "worked" claims with the least detail.</p>
+<h3>4.6 Search honesty</h3>
+<ul>
+<li>Facebook Bali expat groups and YouTube were not reachable as primary sources from this session; 3 targeted searches returned vendor blogs, GoFundMe crash appeals and news, none with peptide use. [verified absence for those searches] This is a gap, not proof of absence. [inferred]</li>
+<li>Longecity did not surface in 2 site-restricted searches. [verified]</li>
+<li>Posters' doses and sources are often missing or vendor-named; vendor names omitted per rule.</li>
+</ul>
+<hr />
+<h2 id="5-pairings-people-use-as-reported-not-recommended">5. Pairings people use (as reported, not recommended)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Pairing</th>
+<th>Rationale people give</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Pairing">BPC-157 + TB-500 ("Wolverine stack") after a crash</td>
+<td data-l="Rationale people give">Blood vessels + cell migration</td>
+<td data-l="Evidence">No crash study; rat Achilles combo added nothing over TB-500 alone (Achilles v2) [verified]; riders in 4.1 split worked vs no change [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ low-dose GH after surgery</td>
+<td data-l="Rationale people give">Systemic repair</td>
+<td data-l="Evidence">Real GH null for adult burn healing and raised blood sugar (Losada 2002) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">BPC-157 + TB-500 + ARA-290 for nerve</td>
+<td data-l="Rationale people give">Nerve repair pathways</td>
+<td data-l="Evidence">Dental case series, 3 patients, hypothesis only (Froum 2026) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">Cerebrolysin with rehab or rTMS</td>
+<td data-l="Rationale people give">Neuroplasticity</td>
+<td data-l="Evidence">rTMS combo trial null (Rosu 2023); with speech therapy positive after stroke (ESCAS) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">Peptides + NSAIDs for crash pain</td>
+<td data-l="Rationale people give">Comfort</td>
+<td data-l="Evidence">Short NSAID courses low risk for bone; long or high dose linked to nonunion [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">GHK-Cu topical + silicone on scars</td>
+<td data-l="Rationale people give">Collagen remodel + hydration</td>
+<td data-l="Evidence">No combination study; silicone alone has the trial base [verified absence]</td>
+</tr>
+<tr>
+<td data-l="Pairing">Peptides <strong>instead of</strong> cleaning a wound, physio or follow-up</td>
+<td data-l="Rationale people give">Convenience</td>
+<td data-l="Evidence">The care that changed outcomes in trials was movement (whiplash), early activity (concussion), follow-up (mTBI) [verified]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-options-page-section-evidence-order-inferred-from-sections">6. Options (page section, evidence order) [inferred from sections 2 and 3]</h2>
+<ol>
+<li><strong>Get checked the same day</strong> for any head knock with symptoms, neck pain with numbness or weakness, suspected fracture, or deep or dirty road rash (see Warnings).</li>
+<li><strong>Whiplash:</strong> keep the neck moving from day one; skip the collar; expect most improvement within 3 months; if still bad at 6 weeks, a short physio course may speed things (MINT).</li>
+<li><strong>Concussion:</strong> light activity within days, less screen time; aerobic exercise as tolerated; vestibular and neck rehab if dizziness or headache past 10 days; a follow-up visit even if you feel fine (44% of "no follow-up needed" people had incomplete recovery at a year).</li>
+<li><strong>Fractures:</strong> stop smoking, control blood sugar, eat enough protein; paracetamol first, short NSAID courses acceptable, avoid long opioid use; skip LIPUS; teriparatide is a doctor conversation only for osteoporosis or a fracture that will not heal.</li>
+<li><strong>Road rash:</strong> wash grit out fully, moist dressings, tetanus check, no sea or pool until closed, sun protection on new skin for a year.</li>
+<li><strong>Scars:</strong> silicone gel or sheet once closed, for months; judge at 12 to 18 months.</li>
+<li><strong>Nerve palsy with a fracture:</strong> most recover by 6 months; ask about early exploration within 3 weeks if the surgeon is unsure.</li>
+<li><strong>Peptides:</strong> no human trial of BPC-157, TB-500, GHK-Cu or KPV in any crash injury. Cerebrolysin has the only real human trial base after brain injury, as a hospital IV product. Watch for the GHK-Cu acute wound trial (results after Feb 2027).</li>
+</ol>
+<hr />
+<h2 id="7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>How long will whiplash last?</strong> Most improvement in 3 months; about half still have some neck pain at 1 year. [verified]</li>
+<li><strong>Should I wear a neck collar?</strong> No for typical whiplash; early active movement gave less pain and better long-term motion than rest plus collar. [verified]</li>
+<li><strong>Does physio help whiplash?</strong> A little and early: 6 sessions beat one advice session at 4 months, not at 8 or 12. [verified]</li>
+<li><strong>I hit my head but feel OK. Do I need follow-up?</strong> Yes: 53% of mild TBI patients had some limitation at a year, and those who skipped follow-up did worse. [verified]</li>
+<li><strong>Should I rest in a dark room after concussion?</strong> Short rest only; light activity early and reduced screens speed recovery (Amsterdam 2022). [verified]</li>
+<li><strong>How long does a broken bone take?</strong> Wrist about 7 to 10 weeks to bridge on X-ray; displaced collarbone 2 to 4 months (surgery about 5 weeks faster); nailed shin bone about 6 months; open shin fractures longer. 2.5% of fractures don't unite, more often in smokers, diabetics and open fractures. Ribs can affect quality of life for 2 years after a bad multi-rib injury. [verified, see 1.4 table]</li>
+<li><strong>Can I take ibuprofen with a fracture?</strong> Short courses (≤14 days) were not linked to nonunion; long or high-dose use was (OR 1.56). [verified]</li>
+<li><strong>Does a bone stimulator help?</strong> Ultrasound (LIPUS) did not speed tibial healing or function in a 501-patient sham trial. [verified]</li>
+<li><strong>Is there a peptide that heals bone?</strong> Teriparatide is approved for osteoporosis and may shorten osteoporotic fracture healing; it is not proven in young healthy people. Abaloparatide's fracture trial was negative. BPC-157 bone data are one rabbit study from one lab. [verified]</li>
+<li><strong>Does BPC-157 help concussion?</strong> One mouse study, dosed before or right after impact, from the same lab. No human data; concussion forums show almost no first-hand use. [verified]</li>
+<li><strong>What about Cerebrolysin?</strong> Small to medium benefit in moderate to severe TBI trials (CAPTAIN); one 32-person mild TBI pilot positive; one 93-person trial null; IV hospital product, not FDA approved. [verified]</li>
+<li><strong>Will TB-500 or thymosin beta-4 heal my road rash?</strong> The full protein was tested on chronic leg ulcers with modest, unclear results; TB-500 (a fragment) has no skin trial. [verified]</li>
+<li><strong>Does GHK-Cu fade accident scars?</strong> Not shown in humans; a small laser-wound study was negative; a 60-person acute wound trial reports after Feb 2027. Silicone has the evidence. [verified]</li>
+<li><strong>How long until a nerve comes back?</strong> Most fracture-related radial nerve palsies (70 to 77%) recover within 6 months on their own; regrowth about 1 mm per day. [verified; speed reported]</li>
+<li><strong>Is it safe to put research peptides on or near an open wound?</strong> No regulator checks identity, purity or sterility; an open crash wound is already an infection risk; orthopaedic reviewers flag sterility and contamination specifically. [verified for review statements; risk inferred]</li>
+</ol>
+<hr />
+<h2 id="8-warnings-bottom-of-page">8. Warnings (bottom of page)</h2>
+<p><strong>Go to hospital now (head)</strong> [reported, standard emergency guidance; Bali page above agrees]: worsening headache, repeated vomiting, seizure, confusion or drowsiness, slurred speech, weakness or numbness, unequal pupils, clear fluid from nose or ears, loss of consciousness, age over 65, on blood thinners, or drinking before the crash. CT-positive mild TBI had worse 1-year outcomes (61% vs 49% limited) (Nelson 2019). [verified]</p>
+<p><strong>Spine</strong> [verified decision-rule data; symptom list reported]: neck pain after a crash plus numbness, tingling or weakness in arms or legs, loss of bladder or bowel control, or midline neck tenderness needs imaging. Canadian C-spine rule and NEXUS catch about 99 to 100% of significant injuries when applied properly; CT has &gt;98% sensitivity (Shah 2026, <a href="https://doi.org/10.1016/j.jcot.2026.103536">DOI</a>). Do not self-manage with a collar and peptides.</p>
+<p><strong>Fractures:</strong> open wound over a break, deformity, can't bear weight → emergency. Open fractures raise nonunion risk (Zura 2016). Long NSAID or opioid courses linked to nonunion. [verified]</p>
+<p><strong>Wounds and infection:</strong> rising pain, redness, swelling, pus, fever or red streaks → doctor; tetanus booster if dirty; deep road rash may need a burn surgeon. [reported] Tropical heat, sea water and humidity add risk. [reported, Bali page]</p>
+<p><strong>Unregulated products near open wounds</strong> [verified review statements; risk inferred]: identity, purity, concentration and sterility of "research" peptides unverified (Tham 2026); injecting near a fresh surgical site or wound adds contamination risk to an already vulnerable area; tell your surgeon before using anything (one community user did, and the surgeon agreed; most don't ask).</p>
+<p><strong>Banned in sport:</strong> BPC-157, TB-500 and GH secretagogues prohibited at all times (see Tendon Base 1.6). Cerebrolysin WADA status not checked. [gap]</p>
+<p><strong>Side effects people actually reported (v2):</strong> teriparatide: hair loss (2 of 3 Drugs.com fracture reviews), reflux, tooth loss; oral BPC-157: 2 weeks of gas, bloating, constipation (1 report). [verified per page]</p>
+<p><strong>Insurance and records (Bali):</strong> hospitals may ask for deposits or insurer confirmation first; keep all invoices and records. [reported] Riding drunk or without a licence can void travel insurance [reported, via Smartraveller as cited by the Bali page].</p>
+<hr />
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<p>Status of v1 gaps: 1 mostly done (see 4.4 to 4.6; leftovers below), 2 done (2.3), 3 done except ribs (1.4), 6 partly done (3.4). Others carried.
+1. <strong>Community leftovers:</strong> Bali Facebook expat groups and YouTube vlogs need a browser session ; Longecity and ADVrider never surfaced via search (try direct site browsing); failed pages: looksmax thread, Rokslide posts 4746212 and 4751369; Mayo Connect C1 thread showed 1 of 27 replies.
+2. <strong>Still zero first-hand reports</strong> for whiplash, road rash scars (GHK-Cu or BPC topical) and crash nerve injury. Next try: scar and burn survivor forums (Phoenix Society), plastic surgery forums (RealSelf Q&amp;A), motorcycle injury groups.
+3. Ribs: primary paper on radiographic union time and pain trajectory for isolated rib fractures (not polytrauma).
+4. Thymosin beta-4: open the NCT00382174 posted results (ClinicalTrials.gov results tab blocked here) and the 2010 venous ulcer full text for healing rates per arm; ARISE-2/3 press results.
+5. Teriparatide 2026 meta: unit of the -3.03 difference; any RCT in young adults with traumatic fractures (1 search, none).
+6. Abaloparatide trial dose; WADA status of teriparatide and Cerebrolysin (1 PubMed search, unhelpful; check the WADA list directly).
+7. TBI sleep disturbance meta-analysis (PMIDs 42263407, 37862135 not read); DSIP or melatonin trial after TBI.
+8. Semax and Cerebrolysin Russian-language TBI trials (eLibrary).
+9. Brachial plexus natural history and surgery timing (forum timelines in 4.4 only; need a primary series).
+10. Back injury: lumbar strain and compression fracture natural history in young riders.
+11. Canadian CT Head Rule primary paper.
+12. Collagen peptides for skin wound or fracture healing RCTs.
+13. Bali primary injury data (BPS, Prof. Ngoerah hospital trauma registry).
+14. Moist healing: a direct abrasion or road-rash RCT (none found; donor site and burn data used as proxy).</p>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first build, 103 searches and fetches. Built on Tendon Base v1 and Muscle Injury Research v1.</li>
+<li>v2 (3 Nov 2026, Pass 8): community section finished (18 new reports, recount, per peptide table, search honesty), union times by bone, moist vs dry wound evidence, LIPUS/PEMF reviews, Tβ4 trial detail, collarbone % corrected, headline 10 and FAQ 6 updated. 98 more searches and fetches (42 web searches, within the 45 budget).</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

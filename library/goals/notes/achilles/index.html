@@ -1,0 +1,802 @@
+<!doctype html>
+<!-- Goal research notes: Achilles, from Achilles Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="80% recovered with exercise alone at 5 years. Peptide tendon evidence is rats only, mostly from one lab.">
+<title>Achilles · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Achilles</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">80% recovered with exercise alone at 5 years. Peptide tendon evidence is rats only, mostly from one lab. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (16)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-doctor-s-notes-vs-evidence-quick-verdict">0. Doctor&#x27;s notes vs evidence (quick verdict)</a></li><li><a href="#1-the-condition">1. The condition</a></li><li><a href="#2-tendon-vs-muscle-vs-bone-healing">2. Tendon vs muscle vs bone healing</a></li><li><a href="#3-verifying-the-doctor-s-isometric-protocol">3. Verifying the doctor&#x27;s isometric protocol</a></li><li><a href="#4-other-treatments-with-numbers">4. Other treatments, with numbers</a></li><li><a href="#5-peptides-evidence-grade">5. Peptides: evidence grade</a></li><li><a href="#6-wada-status-2026-list-in-force-1-jan-2026">6. WADA status (2026 List, in force 1 Jan 2026)</a></li><li><a href="#7-pharmacokinetics-and-dosing-as-reported-in-studies-only">7. Pharmacokinetics and dosing (as reported in studies only)</a></li><li><a href="#8-usual-questions-draft-answers-with-sources">8. Usual questions (draft answers with sources)</a></li><li><a href="#9-designing-one-shared-tendon-base">9. Designing one shared &quot;tendon&quot; base</a></li><li><a href="#10-v2-adversarial-check-6-key-numbers-traced-to-primary-abst">10. v2 adversarial check: 6 key numbers traced to primary abstracts (3 Nov 2026)</a></li><li><a href="#11-v2-community-data-outside-reddit-own-use-first-hand-achil">11. v2 community data outside Reddit (own-use, first-hand, Achilles focus)</a></li><li><a href="#inaccessible-or-partial-sources">Inaccessible or partial sources</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Achilles Research v2</h1>
+<p>Research pass for the Achilles goal page and a shared "tendon base" on baresignals.co. v1 compiled 3 Nov 2026; v2 second pass 3 Nov 2026 (about 60 searches and fetches: PubMed, ClinicalTrials.gov, web, forums).
+Sources: PubMed (via NCBI), ClinicalTrials.gov, WADA 2026 Prohibited List, USADA, FDA advisory coverage, secondary web pages where flagged.
+Tags: [verified] = read in the primary abstract or document this pass. [reported] = stated by a secondary source, or a primary detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+No grey-market suppliers are named. Commercial trial sponsors are described, not named.</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ul>
+<li><strong>US regulation updated (big change).</strong> There is still no final FDA decision. On 28 Oct 2026 HHS (not FDA) issued an interim enforcement discretion policy covering 6 peptides, BPC-157 and TB-500 included. It has 10 conditions and fixed routes: BPC-157 SC/IM/oral/topical; TB-500 SC/IM. Comments close about 13 Nov 2026. See 6.1.</li>
+<li><strong>WADA 2027 List</strong> (approved 10 Sep 2026, published late Sep/6 Oct 2026, in force 1 Jan 2027): S0 gained more examples and now names peptides as a group. The exact 2027 wording for BPC-157 and TB-500 <strong>could not be read</strong> (WADA site blocked); nothing found says either was removed. See 6.</li>
+<li><strong>Healing table</strong> (2.2): muscle and bone rows now cited (Karalaki 2009, Järvinen 2005, Ekstrand 2016, Hallén 2014, Einhorn 2015, Mackey 2012); Achilles blood supply cited (Chen 2009). Fracture union "6 to 12 weeks" still has no primary citation.</li>
+<li><strong>Adversarial check</strong> of 6 key numbers (new section 10). All 6 hold. Retags: Lagas 5.2% is <em>self-reported</em> tendinopathy; Heinemeier's muscle comparison rests on 4 samples; Morales 19.4x has a wide CI (7.8 to 48.2); Rio 2015 = 6 male volleyball players. Bicer 2026 reframed: the authors read BPC-157 more positively than v1 did.</li>
+<li><strong>HEALTHY trial result found</strong>: heel lifts beat eccentrics by 9.6 VISA-A points at 12 weeks, just under the 10-point minimum important difference (Rabusin 2020).</li>
+<li><strong>New long-term data</strong>: 80% of exercise-treated Achilles patients fully recovered at 5 years (Silbernagel 2011).</li>
+<li><strong>New 2026 reviews</strong>: JAAOS Oct 2026 (Tham), Sports Med Apr 2026 (Mendias), Clin Ther 2026 isometrics review (Soliman, 13 RCTs).</li>
+<li><strong>BPC-157 rotator cuff trial details</strong> (NCT07803250): registry lists enrollment as 30 but the summary says 20.</li>
+<li><strong>Doping</strong>: a BPC-157 urine method exists (in vitro, no human excretion time course). A second US sanction was read: a triathlete got 4 years, caught by a whistleblower, not a positive test.</li>
+<li><strong>Community section added</strong> (section 11): outside Reddit, about 14 sources read. Only <strong>1</strong> first-hand Achilles peptide report found (mixed, credited mostly to rest and cycling); <strong>0</strong> clinician-observed Achilles peptide outcomes.</li>
+<li>Patellar, rotator cuff and plantar fascia specifics moved to the new file <strong>Tendon Base v1.md</strong>; short pointers in 9.2.</li>
+</ul>
+<hr />
+<h2 id="0-doctor-s-notes-vs-evidence-quick-verdict">0. Doctor's notes vs evidence (quick verdict)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>His point</th>
+<th>Verdict</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="His point">Tendon pathophysiology is shared; rehab differs mainly by load bearing</td>
+<td data-l="Verdict">Mostly right, with caveats</td>
+<td data-l="Basis">Tendinopathy science is pooled across tendons, but reviews warn pathology and response differ by region (Girgis 2020; Malliaras 2013). Insertional vs mid-portion Achilles also behave differently (compression at the heel bone). [verified]</td>
+</tr>
+<tr>
+<td data-l="His point">Tendon vs muscle vs bone healing matters</td>
+<td data-l="Verdict">Right, and well supported</td>
+<td data-l="Basis">Adult Achilles core collagen is essentially not renewed after about age 17, while muscle turns over continuously (Heinemeier 2013). [verified]</td>
+</tr>
+<tr>
+<td data-l="His point">Isometrics: 2 to 3 sets, at least 40 s, building to 1 to 3 min, 3x/week, no movement</td>
+<td data-l="Verdict">Partly matches; the 1 to 3 min holds and the "pain relief" claim are not well supported</td>
+<td data-l="Basis">See section 3. Frequency matches the 2024 guideline minimum; 40 to 45 s matches Rio 2015; 1 to 3 min holds do not appear in the trials found; the immediate analgesia effect failed to replicate in several trials.</td>
+</tr>
+<tr>
+<td data-l="His point">Rehab and strengthening are the same process; strengthening carries injury risk</td>
+<td data-l="Verdict">Reasonable</td>
+<td data-l="Basis">Same mechanism (load drives collagen synthesis and stiffness). Loading progressions in the trials are pain monitored precisely because too much load flares symptoms (Silbernagel 2007). [verified + inferred]</td>
+</tr>
+<tr>
+<td data-l="His point">WADA ban is the most compelling hook</td>
+<td data-l="Verdict">Confirmed as a fact</td>
+<td data-l="Basis">BPC-157 (S0), TB-500 and thymosin beta-4 (S2.3), GH secretagogues and GHRH analogues (S2.2.4) are all prohibited at all times on the 2026 List. [verified]</td>
+</tr>
+<tr>
+<td data-l="His point">Dosing is pharmacokinetics; start low, go slow</td>
+<td data-l="Verdict">Correct framing</td>
+<td data-l="Basis">BPC-157 half-life under 30 min in rats and dogs; IM bioavailability 14 to 19% (rats) and 45 to 51% (dogs). Human PK essentially unpublished. [verified]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="1-the-condition">1. The condition</h2>
+<h3>1.1 Three different problems under one name</h3>
+<ul>
+<li><strong>Mid-portion Achilles tendinopathy</strong>: pain and thickening 2 to 7 cm above the heel insertion (the definition used in de Vos 2010, PMID 20068208). Most common form in runners. Morning stiffness, pain at the start of a run that may warm up, then worse the next day. [verified for location; symptoms reported via Silbernagel 2020 review, PMID 32267723, DOI <a href="https://doi.org/10.4085/1062-6050-356-19">10.4085/1062-6050-356-19</a>]</li>
+<li><strong>Insertional Achilles tendinopathy</strong>: degeneration from the heel-bone insertion up to about 2 cm. Often calcified; compression of the tendon against the heel bone in deep dorsiflexion is the extra driver, which is why full heel drops off a step are usually avoided and exercises are done to floor level [reported]. Evidence is thin: a 2023 network meta-analysis of 9 trials (464 people) found very low confidence overall; eccentric exercise plus soft tissue work ranked best for short-term pain (Ko 2023, PMID 36750789, DOI <a href="https://doi.org/10.1186/s12891-023-06170-x">10.1186/s12891-023-06170-x</a>). [verified]</li>
+<li><strong>Partial tear</strong>: localized fibre disruption inside a tendinopathic tendon. Literature is sparse and mostly imaging-based; this pass did not find a good treatment trial. [flag: gap]</li>
+<li><strong>Full rupture</strong>: sudden "kicked in the calf" event, often in middle-aged recreational players during push-off. Covered in section 4.4.</li>
+</ul>
+<h3>1.2 How common</h3>
+<ul>
+<li>Recreational runners (Netherlands, 1,929 followed): <strong>5.2%</strong> developed Achilles tendinopathy around one event; <strong>7.4%</strong> in marathon registrants. Strongest risk factor: Achilles tendinopathy in the previous 12 months (OR <strong>6.3</strong>). Using a training schedule (OR 1.8) and compression socks (OR 1.7) were also linked; age, BMI and training volume were not (Lagas 2019, PMID 31892510, DOI <a href="https://doi.org/10.1016/j.jsams.2019.12.013">10.1016/j.jsams.2019.12.013</a>). [verified] <strong>v2 retag:</strong> the outcome was <em>self-reported</em> Achilles tendinopathy by questionnaire, up to 1 month after the event, not a clinical diagnosis; 2,378 enrolled, 1,929 with follow-up, 100 cases. Treat 5.2% as "reported symptoms", not confirmed tendinopathy. [verified] Note: compression socks are likely a marker of people who already had calf/Achilles niggles, not a cause [inferred].</li>
+<li>Former Finnish elite athletes: middle and long distance runners had <strong>31x</strong> the odds of Achilles tendinopathy before age 45 versus controls; sprinters had <strong>14.9x</strong> the odds of rupture (Kujala 2005, PMID 15867554, DOI <a href="https://doi.org/10.1097/01.jsm.0000165347.55638.23">10.1097/01.jsm.0000165347.55638.23</a>). [verified]</li>
+<li>General adult prevalence cited in the 2024 US physical therapy guideline as roughly 4 to 7%, higher with age and sport (secondary summary of Chimenti 2024, PMID 39611662). [reported; guideline full text not read]</li>
+<li><strong>Ruptures are rising</strong>: Finland 17.3 to 32.3 per 100,000 person-years from 1997 to 2019, steepest in older adults, while surgery fell from 13.6 to 4.9 per 100,000 (Leino 2022, PMID 36389616, DOI <a href="https://doi.org/10.1177/23259671221131536">10.1177/23259671221131536</a>). [verified]</li>
+<li><strong>Basketball</strong>: NBA, 22 confirmed ruptures 2000 to 2025; 86.7% of those with follow-up returned, mean <strong>10.8 months</strong>, with clear drops in minutes and scoring; a cluster in 2024 to 25 (Maman 2026, PMID 42436963, DOI <a href="https://doi.org/10.1177/23259671261461403">10.1177/23259671261461403</a>). A second series found minutes per game fell about 20% after return (Kennedy 2026, PMID 42708016, DOI <a href="https://doi.org/10.7759/cureus.114162">10.7759/cureus.114162</a>). [verified]</li>
+<li><strong>Racket sports</strong>: pickleball ruptures rising since 2016 in one US referral network; average age 64.5 vs 48.6 for other ruptures; 67% had surgery (McCahon 2024, PMID 39377135, DOI <a href="https://doi.org/10.1177/19386400241286591">10.1177/19386400241286591</a>). [verified] Padel: about 3 injuries per 1,000 training hours and 8 per 1,000 matches; elbow is the top site; review could not separate Achilles figures (BMJ Open SEM review, <a href="https://bmjopensem.bmj.com/content/9/2/e001607">link</a>; title and authors not visible to me). [reported] Tennis: no Achilles-specific incidence found this pass. [gap]</li>
+<li>Sex: ruptures are about 81% male across 74 years of literature (Potter 2026, PMID 42405884, DOI <a href="https://doi.org/10.1002/ksa.70520">10.1002/ksa.70520</a>). [verified]</li>
+</ul>
+<h3>1.3 Risk factors</h3>
+<ul>
+<li><strong>Fluoroquinolone antibiotics</strong> (ciprofloxacin, levofloxacin etc.): Achilles rupture risk <strong>3.1x</strong> during current use, lasting about 60 days; <strong>19.4x</strong> when combined with oral corticosteroids. Absolute extra risk is small: about 2 per 10,000 treated, rising to 6.6 per 10,000 in people 60+ also on steroids (Morales 2019, UK primary care, PMID 30465300, DOI <a href="https://doi.org/10.1007/s40261-018-0729-y">10.1007/s40261-018-0729-y</a>). [verified] After a tendon repair, a fluoroquinolone within 90 days doubled Achilles reoperation (3.8% vs 1.8%) (Waters 2023, PMID 36843858, DOI <a href="https://doi.org/10.52965/001c.67914">10.52965/001c.67914</a>). [verified]</li>
+<li><strong>Oral corticosteroids</strong>: risk multiplier with fluoroquinolones as above. <strong>Injected</strong> cortisone: see section 4.5.</li>
+<li><strong>Statins</strong>: the same UK dataset found <strong>no association</strong> with rupture (Morales 2019) and an ultrasound study found statin users' Achilles structure equivalent to non-users (de Sá 2018, PMID 29928054, DOI <a href="https://doi.org/10.1371/journal.pone.0199645">10.1371/journal.pone.0199645</a>). [verified] Statins are often listed as a risk on websites; the better data do not support that. Higher BMI was linked to worse tendon structure. [verified]</li>
+<li><strong>Age</strong>: rupture incidence rising most in the elderly (Leino 2022). [verified]</li>
+<li><strong>Previous tendinopathy</strong>: strongest predictor of new symptoms (Lagas 2019). [verified]</li>
+</ul>
+<h3>1.4 Diagnosis and imaging</h3>
+<ul>
+<li>Diagnosis is clinical (location of pain, morning stiffness, pain on loading, palpable thickening). Imaging (ultrasound, MRI) confirms and was required for entry in trials such as Kearney 2021 and Johannsen 2022. [verified for trial entry criteria]</li>
+<li>Ultrasound changes and Doppler signal often do not track symptoms: in Achilles, most high-quality studies found no link between imaging improvement and clinical improvement (Malliaras 2013 systematic review, PMID 23494258, DOI <a href="https://doi.org/10.1007/s40279-013-0019-z">10.1007/s40279-013-0019-z</a>). [verified] Page implication: a scan "looking worse" is not the same as the tendon being worse.</li>
+<li>Rupture: Thompson calf squeeze test plus ultrasound are standard [reported, not sourced this pass].</li>
+</ul>
+<hr />
+<h2 id="2-tendon-vs-muscle-vs-bone-healing">2. Tendon vs muscle vs bone healing</h2>
+<h3>2.1 Key verified facts</h3>
+<ul>
+<li><strong>Tendon core does not renew in adults.</strong> Carbon-14 left by 1955 to 1963 nuclear tests showed the Achilles core carries the carbon of the first ~17 years of life; muscle samples showed continuous turnover (Heinemeier 2013, FASEB J, PMID 23401563, DOI <a href="https://doi.org/10.1096/fj.12-225599">10.1096/fj.12-225599</a>). [verified] <strong>v2 caveat:</strong> 28 forensic tendon <em>core</em> samples vs only <strong>4</strong> muscle samples; donors born 1945 to 1983. The finding applies to the tendon core, not the outer sheath, and the muscle contrast is based on a very small sample. [verified] This is the single best explanation of why tendons heal slowly and incompletely.</li>
+<li><strong>The outside of the tendon does respond to load.</strong> Training raised type I collagen synthesis (PICP) in the tissue around the Achilles about 5 to 7 fold at 4 weeks and kept it high at 11 weeks; early on both synthesis and breakdown rise, later synthesis dominates (Langberg 2001, PMID 11433010, DOI <a href="https://doi.org/10.1111/j.1469-7793.2001.00297.x">10.1111/j.1469-7793.2001.00297.x</a>). [verified]</li>
+<li><strong>Injured tendons respond more than healthy ones.</strong> 12 weeks of eccentric training raised collagen synthesis from 3.9 to 19.7 µg/L in injured Achilles tendons of elite footballers, with no change in healthy tendons; pain fell from 44 to 13 on a 100 mm scale and all returned to football (Langberg 2007, PMID 16787448, DOI <a href="https://doi.org/10.1111/j.1600-0838.2006.00522.x">10.1111/j.1600-0838.2006.00522.x</a>). [verified; n = 6 injured]</li>
+<li><strong>Load magnitude matters more than contraction type.</strong> Meta-analysis of 27 studies: tendon stiffness rises with training (effect size 0.70), driven by loading intensity, not whether the exercise is eccentric, concentric or isometric; programs of 12+ weeks trended larger (Bohm 2015, PMID 27747846, DOI <a href="https://doi.org/10.1186/s40798-015-0009-9">10.1186/s40798-015-0009-9</a>). [verified]</li>
+<li><strong>There is a strain threshold.</strong> Over 14 weeks, only the leg trained at high Achilles strain (~4.6%) got stiffer and thicker; the low-strain leg (~2.9%) did not adapt beyond daily life (Arampatzis 2007, PMID 17644689, DOI <a href="https://doi.org/10.1242/jeb.003814">10.1242/jeb.003814</a>). [verified] The commonly quoted protocol from this group (about 90% of max, 3 s load / 3 s rest cycles) is [reported], not in the abstract.</li>
+<li><strong>Mechanotransduction</strong>: cells sense load through the matrix and cytoskeleton and convert it to protein synthesis; this is the basis of "mechanotherapy" for tendon, muscle, cartilage and bone (Khan and Scott 2009, PMID 19244270, DOI <a href="https://doi.org/10.1136/bjsm.2008.054239">10.1136/bjsm.2008.054239</a>). [verified]</li>
+<li><strong>Growth hormone raises tendon collagen</strong>: 14 days of rhGH increased tendon collagen I mRNA 3.9x and tendon collagen synthesis 1.3x in healthy young men, with no effect on muscle protein (Doessing 2010, PMID 19933753, DOI <a href="https://doi.org/10.1113/jphysiol.2009.179325">10.1113/jphysiol.2009.179325</a>). [verified] Relevant to the GH-peptide question.</li>
+<li><strong>v2: Achilles blood supply.</strong> A cadaver study (20 limbs) found three vascular territories; the midsection is fed by the peroneal artery and is markedly less vascular than the rest; the midsection is also where ruptures and surgical complications cluster (Chen 2009, PMID 19173244, DOI <a href="https://doi.org/10.1002/ca.20758">10.1002/ca.20758</a>). [verified] The exact "2 to 6 cm" figure is not in the abstract. [reported]</li>
+<li><strong>v2: Muscle repair.</strong> Satellite cells (resident muscle stem cells) activate, multiply and fuse into new fibres after injury, in a process that repeats embryonic muscle development (Karalaki 2009 review, PMID 19779115, no DOI listed). [verified] Most muscle injuries heal well without surgery, but failed healing can cost weeks to months (Järvinen 2005, PMID 15851777, DOI <a href="https://doi.org/10.1177/0363546505274714">10.1177/0363546505274714</a>). [verified] Timelines in elite football: hamstring grade 1 about 18 days and grade 2 about 24 days lay-off (255 MRI-graded injuries; Ekstrand 2016, PMID 27084882, DOI <a href="https://doi.org/10.1136/bjsports-2016-095974">10.1136/bjsports-2016-095974</a>); median absence 13 days for hamstring and calf strains across 5,603 muscle injuries (Hallén and Ekstrand 2014, PMID 24784885, DOI <a href="https://doi.org/10.1080/02640414.2014.905695">10.1080/02640414.2014.905695</a>). [verified]</li>
+<li><strong>v2: Anti-inflammatories and muscle.</strong> Any early NSAID benefit seems not to last and may turn into a long-term repair deficit; there is evidence that NSAIDs harm satellite cells (Mackey 2012 review, PMID 22449131, DOI <a href="https://doi.org/10.1111/j.1600-0838.2012.01463.x">10.1111/j.1600-0838.2012.01463.x</a>). [verified]</li>
+<li><strong>v2: Bone repair.</strong> Fracture repair is true regeneration: it usually restores the bone's original cells, structure and strength, but about <strong>10%</strong> of fractures do not heal normally (Einhorn and Gerstenfeld 2015, Nat Rev Rheumatol, PMID 25266456, DOI <a href="https://doi.org/10.1038/nrrheum.2014.164">10.1038/nrrheum.2014.164</a>). [verified] The common "6 to 12 weeks to union" is still not in any abstract read. [reported]</li>
+</ul>
+<h3>2.2 Comparison table (for the page)</h3>
+<p>Tags per row. v2: cited cells marked; remaining [reported] cells still lack a primary source.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Tendon</th>
+<th>Muscle</th>
+<th>Bone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Blood supply</td>
+<td data-l="Tendon">Low; Achilles midsection markedly hypovascular, supplied by the peroneal artery (Chen 2009) [verified]; "2 to 6 cm" [reported]</td>
+<td data-l="Muscle">Rich; inflammation depends partly on muscle vascularity at injury (Smith 2008, PMID 18937524) [verified]</td>
+<td data-l="Bone">Vascular tissue contributes to fracture repair (Einhorn 2015) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Cell density</td>
+<td data-l="Tendon">Sparse tenocytes in dense collagen [reported]</td>
+<td data-l="Muscle">Satellite (stem) cells activate, multiply, fuse into new fibres (Karalaki 2009) [verified]</td>
+<td data-l="Bone">Repair repeats skeletal development (Einhorn 2015) [verified]; cell types [reported]</td>
+</tr>
+<tr>
+<td data-l="">Adult turnover</td>
+<td data-l="Tendon">Core essentially none after ~17 y (Heinemeier 2013) [verified]; outer/peritendon responds to load (Langberg 2001) [verified]</td>
+<td data-l="Muscle">Continuous (Heinemeier 2013) [verified]</td>
+<td data-l="Bone">Continuous remodelling [reported]</td>
+</tr>
+<tr>
+<td data-l="">Collagen</td>
+<td data-l="Tendon">Type I dominant; repair lays down type III first, slowly converted toward type I (seen in rat repair: Bicer 2026) [verified in rat]</td>
+<td data-l="Muscle">Mostly regenerates contractile fibres; scar if large [reported]</td>
+<td data-l="Bone">Type I in mineralized matrix [reported]</td>
+</tr>
+<tr>
+<td data-l="">Repair result</td>
+<td data-l="Tendon">Scar-like, weaker, months to years to remodel [reported]</td>
+<td data-l="Muscle">Good results without surgery in most; failures cost weeks to months (Järvinen 2005) [verified]</td>
+<td data-l="Bone">Usually restores original structure and function; ~10% heal abnormally (Einhorn 2015) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Typical timeline</td>
+<td data-l="Tendon">Tendinopathy rehab trials run 12 weeks with gains to 12 months (Beyer 2015, Silbernagel 2007); 80% fully recovered at 5 years (Silbernagel 2011); NBA rupture return 10.8 ± 4.3 months (Maman 2026) [verified]</td>
+<td data-l="Muscle">Hamstring grade 1 ~18 days, grade 2 ~24 days (Ekstrand 2016); median 13 days (Hallén 2014) [verified, elite football]</td>
+<td data-l="Bone">~6 to 12 weeks for union [reported, no primary found]</td>
+</tr>
+<tr>
+<td data-l="">What drives it</td>
+<td data-l="Tendon">Progressive mechanical load (Bohm 2015) [verified]</td>
+<td data-l="Muscle">Load plus regeneration [reported]</td>
+<td data-l="Bone">Load (Wolff's law) plus stability [reported]</td>
+</tr>
+<tr>
+<td data-l="">Why the page cares</td>
+<td data-l="Tendon">Slow, so rehab is long and partial; makes "faster healing" claims tempting and hard to test</td>
+<td data-l="Muscle"></td>
+<td data-l="Bone"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 Healing phases (tendon) [reported, general literature]</h3>
+<ol>
+<li>Inflammatory: days 0 to ~7.</li>
+<li>Proliferative: ~1 to 6 weeks; fibroblasts lay down type III collagen.</li>
+<li>Remodelling: from ~6 weeks for 12 months or more; type III to type I, fibres align with load.
+Peptide rat studies mostly measure weeks 1 to 4 (phases 1 and 2); none measures the 12-month remodelling that matters most in humans [inferred].</li>
+</ol>
+<hr />
+<h2 id="3-verifying-the-doctor-s-isometric-protocol">3. Verifying the doctor's isometric protocol</h2>
+<h3>3.1 The source studies</h3>
+<ul>
+<li><strong>Rio 2015</strong> (patellar tendinopathy, 6 volleyball players, crossover): 5 x 45 s isometric holds at 70% of max (MVIC), 2 min rest [protocol values reported; outcome verified]. Pain on single-leg decline squat fell from <strong>7.0 to 0.17/10</strong> after isometrics vs 6.3 to 3.75 after isotonic; relief lasted at least 45 min; strength rose 18.7% (PMID 25979840, DOI <a href="https://doi.org/10.1136/bjsports-2014-094386">10.1136/bjsports-2014-094386</a>). [verified]</li>
+<li><strong>Rio 2017</strong> in-season (20 jumping athletes, 4 weeks, 4x/week): isometric leg extension at 80% MVIC produced greater immediate pain relief than isotonic; both improved function (PMID 27513733, DOI <a href="https://doi.org/10.1097/JSM.0000000000000364">10.1097/JSM.0000000000000364</a>). [verified]</li>
+<li><strong>Bradford 2021</strong> (Achilles, 11 people): isometric plantarflexion holds reduced pain on a loading test by 1.6 points (knee straight) and 1.3 (knee bent), about 50% (PMID 33782936, DOI <a href="https://doi.org/10.1055/a-1398-5501">10.1055/a-1398-5501</a>). [verified]</li>
+</ul>
+<h3>3.2 Replication failures and controversy</h3>
+<ul>
+<li><strong>O'Neill 2019</strong> (Achilles, 16 people): one heavy 45 s isometric hold gave <strong>no meaningful pain relief</strong> (4.2 to 4.9/10, not significant); authors concluded it cannot be recommended for immediate pain relief (PMID 29974171, DOI <a href="https://doi.org/10.1007/s00167-018-5050-z">10.1007/s00167-018-5050-z</a>). [verified]</li>
+<li><strong>Holden 2020</strong> (patellar, 21 people, pre-registered crossover): both isometric and dynamic exercise reduced pain by only <strong>0.9/10</strong>, not sustained at 45 min, no difference between types (PMID 31735531, DOI <a href="https://doi.org/10.1016/j.jsams.2019.09.015">10.1016/j.jsams.2019.09.015</a>). [verified]</li>
+<li><strong>Clifford 2020</strong> meta-analysis (10 trials, 5 tendons): isometric <strong>not superior</strong> to isotonic, immediately or up to 12 weeks; response highly variable (PMID 32818059, DOI <a href="https://doi.org/10.1136/bmjsem-2020-000760">10.1136/bmjsem-2020-000760</a>). [verified]</li>
+<li><strong>Challoumas 2021</strong> patellar network meta-analysis: isometric as effective as isotonic for immediate relief (MD -1.03, CI crosses zero) (PMID 34900334, DOI <a href="https://doi.org/10.1136/bmjsem-2021-001110">10.1136/bmjsem-2021-001110</a>). [verified]</li>
+<li><strong>v2: Soliman 2026</strong> systematic review (13 RCTs, 336 people, 6 tendon sites): pain and function improved significantly in only 3 studies; 3 of 13 good quality, 10 poor; adherence fell over time (70% isometric vs 58% isotonic did 80% or more of sessions); interventions ran from one session to 4 months; no hold-duration standard emerged (PMID 42203537, DOI <a href="https://doi.org/10.1016/j.clinthera.2026.04.027">10.1016/j.clinthera.2026.04.027</a>). [verified]</li>
+<li>Takeaway: isometrics are a <strong>valid, tolerable way to load</strong> a painful tendon; the dramatic "instant pain off" from Rio 2015 (n = 6) is <strong>contested</strong>. [inferred from above]</li>
+</ul>
+<h3>3.3 Line by line</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Doctor's number</th>
+<th>Literature</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Doctor&#x27;s number">2 to 3 sets</td>
+<td data-l="Literature">Rio protocols used 5 sets (2015) [reported]; 2024 guideline sets no set count [reported]</td>
+<td data-l="Status">Lower than the studied protocol; reasonable as a starting dose, not evidence matched</td>
+</tr>
+<tr>
+<td data-l="Doctor&#x27;s number">Each hold at least 40 s</td>
+<td data-l="Literature">Rio 2015: 45 s; O'Neill 2019: 45 s</td>
+<td data-l="Status"><strong>Matches</strong></td>
+</tr>
+<tr>
+<td data-l="Doctor&#x27;s number">Build to 1 to 3 min holds</td>
+<td data-l="Literature">Not found in any trial in v1 or v2 (v2 also checked Soliman 2026's 13 RCTs, abstract level). Tendon adaptation favours high load with short holds (Arampatzis 2007 high strain; Bohm 2015 intensity matters)</td>
+<td data-l="Status"><strong>Differs / unsupported</strong>. Long holds force lower intensity; may suit pain management or endurance, not the strain threshold for adaptation [inferred]</td>
+</tr>
+<tr>
+<td data-l="Doctor&#x27;s number">3x per week</td>
+<td data-l="Literature">2024 JOSPT guideline: loading at least 3x weekly, highest tolerated load, Grade A [reported via secondary summary]; Rio 2017 used 4x/week</td>
+<td data-l="Status"><strong>Matches</strong> the guideline minimum</td>
+</tr>
+<tr>
+<td data-l="Doctor&#x27;s number">No movement during hold</td>
+<td data-l="Literature">Definition of isometric</td>
+<td data-l="Status"><strong>Matches</strong></td>
+</tr>
+<tr>
+<td data-l="Doctor&#x27;s number">Intensity</td>
+<td data-l="Literature">Not stated by him. Studies: 70 to 80% of max</td>
+<td data-l="Status"><strong>Missing</strong>; intensity is the variable that most predicts adaptation (Bohm 2015)</td>
+</tr>
+</tbody>
+</table></div>
+<p>One registered trial compared isometric vs eccentric training for Achilles with tendon stiffness as outcome (NCT02732782, Humboldt University Berlin, 45 men, completed 2020, <strong>no results posted</strong>). [verified registry; results unknown] v2: one PubMed author search found no linked publication. [verified absence, single search]</p>
+<h3>3.4 Other Achilles loading programs</h3>
+<ul>
+<li><strong>Alfredson 1998</strong> eccentric heel drops (15 recreational athletes, 12 weeks): all back to full running; strength equalized; conventional-treatment comparison group all ended in surgery (PMID 9617396, DOI <a href="https://doi.org/10.1177/03635465980260030301">10.1177/03635465980260030301</a>). [verified] The standard dose, 3 x 15, straight and bent knee, twice daily, 7 days a week, 12 weeks, is [reported] (described in later protocols, e.g. Rabusin 2019 "twice a day, 7 days a week, for 12 weeks", PMID 30949243). Not randomized; early results not matched by later trials.</li>
+<li><strong>Beyer 2015</strong> heavy slow resistance (HSR) vs eccentric (58 people, 12 weeks): equal improvements in function and pain, maintained at 52 weeks; HSR had better adherence (<strong>92% vs 78%</strong> of sessions) and a trend to higher satisfaction (100% vs 80% at 12 weeks) (PMID 26018970, DOI <a href="https://doi.org/10.1177/0363546515584760">10.1177/0363546515584760</a>). [verified] HSR is 3 sessions/week vs eccentric's 14 [reported].</li>
+<li><strong>Silbernagel 2007</strong> pain-monitoring model (38 people): continuing running and jumping while keeping pain within limits gave the <strong>same</strong> 12-month outcome as 6 weeks of rest (VISA-A 57 to 85 vs 57 to 91) (PMID 17307888, DOI <a href="https://doi.org/10.1177/0363546506298279">10.1177/0363546506298279</a>). [verified] The rule usually quoted (pain up to 5/10 during activity allowed, settles by next morning, no week-on-week worsening) is [reported].</li>
+<li><strong>Negative mirror (2026)</strong>: unsupervised home eccentric training was <strong>no better than sham upper-body exercise</strong> at 12 weeks (VISA-A +10 vs +6, difference 4, CI -7 to 15; 68 people) (Janssen 2026, PMID 42575766, DOI <a href="https://doi.org/10.1016/j.jsams.2026.07.012">10.1016/j.jsams.2026.07.012</a>). [verified] Implies supervision, load progression and time matter; the exercise alone is not magic.</li>
+<li><strong>v2: HEALTHY trial result</strong> (100 people, mid-portion, mean age 46): in-shoe heel lifts improved VISA-A by 26.0 vs 17.4 for eccentrics at 12 weeks; difference 9.6 (CI 1.8 to 17.4), <strong>just below</strong> the trial's own 10-point minimum important difference; 80% follow-up (Rabusin 2020, PMID 32988930, DOI <a href="https://doi.org/10.1136/bjsports-2019-101776">10.1136/bjsports-2019-101776</a>). [verified] Page angle: a cheap, low-effort option at least as good as heel drops in the short term.</li>
+<li><strong>v2: 5-year outcome</strong> with exercise alone (34 people): 80% fully recovered (65% symptom-free, 15% had a new episode), 20% still had symptoms; more fear of movement went with poorer heel-rise recovery (Silbernagel 2011, PMID 21084657, DOI <a href="https://doi.org/10.1177/0363546510384789">10.1177/0363546510384789</a>). [verified; case series, level 4]</li>
+<li>Adherence: in a 127-person trial, doing the prescribed sets, reps and added weight predicted better VISA-A; simply showing up (frequency) did not (Kenny 2025, PMID 40494036, DOI <a href="https://doi.org/10.1016/j.msksp.2025.103362">10.1016/j.msksp.2025.103362</a>). [verified]</li>
+<li>Malliaras 2013 review: no clear superiority for isolated eccentrics; neuromuscular performance gains were the mechanism most consistently linked to recovery (PMID 23494258). [verified]</li>
+</ul>
+<h3>3.5 Rupture rehab and early weight bearing</h3>
+<ul>
+<li><strong>UKSTAR</strong> (540 patients, non-surgical): functional brace with early weight bearing equal to plaster cast at 9 months (ATRS 72.8 vs 74.4); re-rupture 5% vs 6%; cheaper (Costa 2020, Lancet, PMID 32035553, DOI <a href="https://doi.org/10.1016/S0140-6736(19)32942-3">10.1016/S0140-6736(19)32942-3</a>). [verified]</li>
+<li>Accelerated rehab in non-operative care: no difference in outcomes or re-rupture (OR 0.97) across 6 RCTs, judged safe (Coopmans 2021, PMID 34400090, DOI <a href="https://doi.org/10.1053/j.jfas.2021.07.007">10.1053/j.jfas.2021.07.007</a>). [verified]</li>
+</ul>
+<h3>3.6 Rehab vs strengthening (doctor's point)</h3>
+<p>Same biology (load raises collagen synthesis and stiffness). Difference is the starting point and pain ceiling. Risk: loading beyond capacity flares tendinopathy, which is why every successful program above is progressive and pain-monitored. [inferred from verified studies] No trial found that tests "prevention strengthening" for Achilles injury in racket sports. [gap]</p>
+<hr />
+<h2 id="4-other-treatments-with-numbers">4. Other treatments, with numbers</h2>
+<h3>4.1 PRP (platelet-rich plasma)</h3>
+<ul>
+<li><strong>de Vos 2010</strong> (JAMA, 54 people, mid-portion): PRP + eccentrics improved VISA-A 21.7 vs saline 20.5; no difference (PMID 20068208, DOI <a href="https://doi.org/10.1001/jama.2009.1986">10.1001/jama.2009.1986</a>). [verified]</li>
+<li><strong>Kearney 2021 ATM trial</strong> (JAMA, 240 people, 24 sites): PRP 54.4 vs sham 53.4 VISA-A at 6 months; does not support use (PMID 34255009, DOI <a href="https://doi.org/10.1001/jama.2021.6986">10.1001/jama.2021.6986</a>). [verified]</li>
+<li><strong>PATH-2</strong> (BMJ 2019, 230 acute ruptures): no benefit on heel-rise function (difference -3.9%) or any secondary outcome (PMID 31748208, DOI <a href="https://doi.org/10.1136/bmj.l6132">10.1136/bmj.l6132</a>). [verified]</li>
+<li>Cochrane 2015 (18 trials, 732 people): no meaningful VISA-A difference for injection therapies vs control at 6 weeks, 3 months or 6 to 12 months (PMID 26009861, DOI <a href="https://doi.org/10.1002/14651858.CD010960.pub2">10.1002/14651858.CD010960.pub2</a>). [verified]</li>
+</ul>
+<h3>4.2 Shockwave (ESWT)</h3>
+<ul>
+<li>Rompe 2009 (68 people): eccentric + low-energy shockwave beat eccentric alone at 4 months (VISA-A 51 to 87 vs 50 to 73; 82% vs 56% much improved); no difference by 1 year (PMID 19088057, DOI <a href="https://doi.org/10.1177/0363546508326983">10.1177/0363546508326983</a>). [verified; same research group developed the device protocol, single trial]</li>
+<li>Katolický 2026 (41 people): both groups improved; shockwave added more ultrasound-measured remodelling but clinical difference not highlighted (PMID 42120288). [verified]</li>
+<li>Umbrella review: shockwave improves pain and function across tendinopathies, clinical significance undetermined (Girgis 2020, PMID 32877858). [verified] 2024 guideline summary does not mention it. [reported]</li>
+</ul>
+<h3>4.3 High-volume injection (HVI)</h3>
+<ul>
+<li><strong>Inject trial 2026</strong> (BMJ, 192 people, 12 months): HVI with or without hydrocortisone <strong>no better than sham</strong>; steroid version helped at 6 weeks (+9.2) but was <strong>worse at 26 weeks</strong> than HVI without steroid (-8.6) (Malliaras 2026, PMID 42951276, DOI <a href="https://doi.org/10.1136/bmj-2026-100807">10.1136/bmj-2026-100807</a>). [verified]</li>
+<li>Military trial (62 men, Achilles and patellar): HVI not superior to a small control injection (Barker-Davies 2022, PMID 35425844, DOI <a href="https://doi.org/10.1177/23259671221088326">10.1177/23259671221088326</a>). [verified]</li>
+</ul>
+<h3>4.4 Rupture: surgery vs non-surgery</h3>
+<ul>
+<li><strong>Ochen 2019 meta-analysis</strong> (29 studies, ~15,900 patients): re-rupture 2.3% surgery vs 3.9% non-surgery (difference 1.6 points); complications 4.9% vs 1.6%, mostly infection; with accelerated functional rehab, <strong>no significant re-rupture difference</strong> (PMID 30617123, DOI <a href="https://doi.org/10.1136/bmj.k5120">10.1136/bmj.k5120</a>). [verified]</li>
+<li><strong>Myhrvold 2022 NEJM</strong> (554 patients, 3 arms): no difference in function at 12 months; re-rupture <strong>6.2%</strong> non-operative vs <strong>0.6%</strong> in each surgical group; nerve injury 5.2% minimally invasive, 2.8% open, 0.6% non-op (PMID 35417636, DOI <a href="https://doi.org/10.1056/NEJMoa2108447">10.1056/NEJMoa2108447</a>). [verified] v2 recheck: 526 analysed; all three groups were still <strong>below baseline</strong> at 12 months (ATRS change -17.0, -16.0, -14.7) [verified]; that baseline was the patients' recalled pre-injury score [reported, not in abstract].</li>
+<li>Non-operative with functional bracing: re-rupture 5 to 12% in a 2026 review; functional deficits persist for years either way (Maffulli 2026, PMID 42949430, DOI <a href="https://doi.org/10.1093/bmb/ldag041">10.1093/bmb/ldag041</a>). [verified]</li>
+</ul>
+<h3>4.5 Cortisone</h3>
+<ul>
+<li>Johannsen 2022 (JAMA Netw Open, 100 people): ultrasound-guided steroid + exercise gave <strong>17.7 points</strong> more VISA-A improvement at 6 months than placebo + exercise, no deterioration at 2 years, no severe adverse events (PMID 35816306, DOI <a href="https://doi.org/10.1001/jamanetworkopen.2022.19661">10.1001/jamanetworkopen.2022.19661</a>). [verified]</li>
+<li>Counterweights: Inject 2026 showed steroid HVI worse at 26 weeks (above); a 2024 expert viewpoint recommends against steroid injections, citing recurrence and rupture risk (Visser 2024, PMID 37506303, DOI <a href="https://doi.org/10.2519/jospt.2023.11875">10.2519/jospt.2023.11875</a>); the only major adverse event in the Cochrane review was a rupture in a steroid trial (PMID 26009861). [verified] Rat data: methylprednisolone worsened tendon-to-bone healing (Krivic 2006). [verified, animal]</li>
+<li>Status: <strong>contested</strong>; short-term benefit likely, long-term cost possible.</li>
+</ul>
+<h3>4.6 Other</h3>
+<ul>
+<li>Heel lifts: may temporarily reduce load; orthoses evidence contradictory (2024 guideline summary) [reported]. The HEALTHY trial (heel lifts vs eccentrics) protocol is verified (PMID 30949243); results not retrieved. [gap]</li>
+<li>Low-level laser: guideline says do not use [reported]. PEMF: both arms improved, no sustained extra benefit reported in abstract (Ko 2026, PMID 41651914). [verified]</li>
+</ul>
+<hr />
+<h2 id="5-peptides-evidence-grade">5. Peptides: evidence grade</h2>
+<p>Grade key: A = multiple good human RCTs; B = one human RCT or consistent small human trials; C = human pilot/retrospective only; D = animal/cell only.</p>
+<h3>5.1 BPC-157. Grade D for Achilles (C overall, non-tendon)</h3>
+<p>Animal (rat) Achilles work, nearly all from one Zagreb group:
+- <strong>Staresinic 2003</strong>: transected rat Achilles; BPC-157 10 µg, 10 ng or 10 pg/kg intraperitoneal daily; higher load to failure, stiffness and functional index, smaller defect, by day 14 (PMID 14554208, DOI <a href="https://doi.org/10.1016/S0736-0266(03)00110-4">10.1016/S0736-0266(03)00110-4</a>). [verified]
+- <strong>Krivic 2006</strong>: Achilles detached from bone; BPC-157 improved tendon-to-bone healing and <strong>reduced the damage from methylprednisolone</strong> (PMID 16583442, DOI <a href="https://doi.org/10.1002/jor.20096">10.1002/jor.20096</a>). [verified]
+- <strong>Krivic 2008</strong>: early function days 1 to 4 better, less inflammation, more new vessels; steroid reduced inflammation but also vessels, with no functional gain (PMID 18594781, DOI <a href="https://doi.org/10.1007/s00011-007-7056-8">10.1007/s00011-007-7056-8</a>). [verified]
+- <strong>Brcic 2009</strong>: no direct effect on cells in a dish; in vivo VEGF up and angiogenesis modulated (PMID 20388964). [verified]
+- <strong>Chang 2011</strong> (independent, Taiwan): faster tendon fibroblast outgrowth, survival under oxidative stress and migration via FAK-paxillin; no direct proliferation (PMID 21030672, DOI <a href="https://doi.org/10.1152/japplphysiol.00945.2010">10.1152/japplphysiol.00945.2010</a>). [verified]
+- <strong>Bicer 2026</strong> (independent, Turkey, 32 rats, repaired Achilles, 4 weeks): BPC-157 10 µg/kg/day ip gave <strong>numerically</strong> better histology but <strong>not statistically significant</strong> on total scores; TB-500 did better (below); combination added nothing (PMID 42542926, DOI <a href="https://doi.org/10.52312/jdrs.2026.2951">10.52312/jdrs.2026.2951</a>). [verified] This is the first non-Zagreb in vivo Achilles test found and it is weaker than the Zagreb results. Important negative mirror. <strong>v2 reframe:</strong> BPC-157 load to failure was also higher than control, but not significantly; the authors themselves conclude <em>both</em> peptides were associated with better histology and matrix organization, and call the study exploratory. 8 rats per group, split between strength testing and histology, so each test used fewer than 8 [inferred from methods wording]. Fair page wording: "positive direction for both, significant only for TB-500, tiny study". [verified + inferred]
+Human:
+- Systematic review to 1 June 2026: <strong>3 human studies, n = 30 total</strong>, none in tendon; all poor quality; certainty very low (Poolton 2026, PMID 42885452, DOI <a href="https://doi.org/10.52628/92.3.15837">10.52628/92.3.15837</a>). [verified]
+- Knee injections, retrospective phone survey: 14 of 16 reported relief (Lee and Padgett 2021, PMID 34324435). [verified; no controls, no validated measures]
+- Registered trials: a phase 2 RCT in MRI-confirmed grade II hamstring strain (n = 120, recruiting since Feb 2026, NCT07437547); a phase 1 rotator cuff repair study (n = 30, not yet recruiting, NCT07803250); an older phase 1 safety/PK study (NCT02637284, status unknown, no results). [verified registry] <strong>No Achilles trial registered</strong> (rechecked 3 Nov 2026). [verified]
+- <strong>v2: rotator cuff trial detail</strong> (NCT07803250): university sponsor, randomized double-blind placebo-controlled pilot; daily <strong>subcutaneous</strong> self-injection for 90 days after arthroscopic repair; start Jan 2027, primary outcome shoulder strength; registry enrollment 30 but summary says 20 patients (discrepancy). Dose not stated. [verified registry] The hamstring phase 2 trial has the same commercial sponsor as the TB-500 fragment trial. [verified registry]
+- <strong>v2: 2026 reviews.</strong> JAAOS (27 Oct 2026): human musculoskeletal evidence for BPC-157 is one small retrospective uncontrolled case series; no validated dosing, PK or long-term safety; routine clinical use cannot be recommended (Tham 2026, PMID 42937313, DOI <a href="https://doi.org/10.5435/JAAOS-D-26-00049">10.5435/JAAOS-D-26-00049</a>). [verified] Sports Med (Apr 2026) flags placebo effects amplified by social media as a likely driver of reported benefit (Mendias 2026, PMID 41966639, DOI <a href="https://doi.org/10.1007/s40279-026-02437-0">10.1007/s40279-026-02437-0</a>). [verified] A Feb 2026 review claiming consistent efficacy is written by the Zagreb group itself (Matek 2026, PMID 41754849, DOI <a href="https://doi.org/10.3390/ph19020309">10.3390/ph19020309</a>). [verified authorship] Treat it as the originators' view, not independent confirmation. [inferred]</p>
+<h3>5.2 TB-500 / thymosin beta-4. Grade D for tendon</h3>
+<ul>
+<li>Clarify on page: <strong>TB-500 is not thymosin beta-4.</strong> It is a synthetic acetylated 7-amino-acid fragment (Ac-LKKTETQ, residues 17 to 23 of the 43-amino-acid protein), the actin-binding region (Ho 2012, PMID 23084823, DOI <a href="https://doi.org/10.1016/j.chroma.2012.09.043">10.1016/j.chroma.2012.09.043</a>). [verified]</li>
+<li><strong>Bicer 2026</strong> rats: TB-500 60 µg/kg/day ip for 4 weeks gave <strong>significantly higher load to failure</strong> and better Bonar (p = 0.016) and Movin (p = 0.017) scores; more mature collagen organization. [verified] Best single animal Achilles result for TB-500, one small study.</li>
+<li>Human: full thymosin beta-4 has human trials in eye, heart and skin (e.g. phase 3 dry eye, n = 601, NCT02974907; recombinant Tβ4 phase 1a/1b in healthy volunteers, NCT04555824/NCT04555850). No tendon trials. A phase 1/2 dose-escalation trial of the TB-500 fragment itself in cardiovascular disease is recruiting (n = 80, NCT07487363, commercial sponsor). [verified registry; results not available]</li>
+</ul>
+<h3>5.3 GHK-Cu. Grade D, weak</h3>
+<ul>
+<li>Rat ACL reconstruction: intra-articular GHK-Cu improved laxity and stiffness at 6 weeks, <strong>benefit gone by 12 weeks</strong> after stopping (Fu 2015, PMID 25731775, DOI <a href="https://doi.org/10.1002/jor.22831">10.1002/jor.22831</a>). [verified] No Achilles or tendon study found. Fits the editor's earlier decision to drop the GHK-Cu card on the tennis elbow page.</li>
+</ul>
+<h3>5.4 Collagen / gelatin + vitamin C. Grade B-minus (only peptide-adjacent option with human tendon data)</h3>
+<ul>
+<li><strong>Shaw 2017</strong>: 15 g vitamin C-enriched gelatin 1 h before 6 min of rope skipping <strong>doubled</strong> PINP (collagen synthesis marker) vs placebo; serum applied to engineered ligaments raised collagen content (8 healthy men, crossover) (PMID 27852613, DOI <a href="https://doi.org/10.3945/ajcn.116.138594">10.3945/ajcn.116.138594</a>). [verified] Surrogate markers, not injury outcomes.</li>
+<li><strong>Praet 2019</strong> (20 Achilles tendinopathy patients, crossover with calf program): specific collagen peptides first 3 months: VISA-A +12.6 vs +5.3 placebo; after crossover the late group caught up (+17.7) (PMID 30609761, DOI <a href="https://doi.org/10.3390/nu11010076">10.3390/nu11010076</a>). [verified; small, industry product]</li>
+<li>2026 systematic review: "cautiously positive signal", low certainty, most products multicomponent (Latini 2026, PMID 42666580, DOI <a href="https://doi.org/10.3389/fmed.2026.1891011">10.3389/fmed.2026.1891011</a>). [verified]</li>
+<li>Not WADA-relevant; a legal food. Strong candidate for an "options" card. [inferred]</li>
+</ul>
+<h3>5.5 GH secretagogues (CJC-1295, ipamorelin, MK-677). Grade D for tendon</h3>
+<ul>
+<li>Mechanistic link: real GH raises tendon collagen synthesis (Doessing 2010, above). [verified]</li>
+<li>2026 AJSM scoping review of BPC-157, TB-500, CJC-1295, MK-677, ipamorelin, GHK-Cu: 67% of papers animal; human data "modest improvements at best"; <strong>MK-677 linked to congestive heart failure risk and insulin resistance</strong>; should not be recommended (Tewari 2026, PMID 42578445, DOI <a href="https://doi.org/10.1177/03635465261464420">10.1177/03635465261464420</a>). [verified]</li>
+</ul>
+<h3>5.6 Summary grid</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Best tendon evidence</th>
+<th>Human tendon data</th>
+<th>Grade</th>
+<th>WADA 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">BPC-157</td>
+<td data-l="Best tendon evidence">Rat Achilles (Zagreb, positive); independent rat 2026 non-significant</td>
+<td data-l="Human tendon data">None</td>
+<td data-l="Grade">D</td>
+<td data-l="WADA 2026">S0, banned at all times</td>
+</tr>
+<tr>
+<td data-l="Compound">TB-500</td>
+<td data-l="Best tendon evidence">Rat Achilles 2026, positive on strength</td>
+<td data-l="Human tendon data">None</td>
+<td data-l="Grade">D</td>
+<td data-l="WADA 2026">S2.3, banned</td>
+</tr>
+<tr>
+<td data-l="Compound">Thymosin beta-4 (full)</td>
+<td data-l="Best tendon evidence">None in tendon</td>
+<td data-l="Human tendon data">Eye/heart trials only</td>
+<td data-l="Grade">D for tendon</td>
+<td data-l="WADA 2026">S2.3, banned</td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu</td>
+<td data-l="Best tendon evidence">Rat ACL, transient</td>
+<td data-l="Human tendon data">None</td>
+<td data-l="Grade">D</td>
+<td data-l="WADA 2026">Not listed by name [verified absent from S0 examples; S0 catch-all status unclear, see 6]</td>
+</tr>
+<tr>
+<td data-l="Compound">Collagen + vit C</td>
+<td data-l="Best tendon evidence">Small human RCT crossover (Achilles), marker study</td>
+<td data-l="Human tendon data">Yes, small</td>
+<td data-l="Grade">B-</td>
+<td data-l="WADA 2026">Not prohibited</td>
+</tr>
+<tr>
+<td data-l="Compound">GH secretagogues</td>
+<td data-l="Best tendon evidence">Indirect (GH itself)</td>
+<td data-l="Human tendon data">None for tendon</td>
+<td data-l="Grade">D</td>
+<td data-l="WADA 2026">S2.2.4, banned</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-wada-status-2026-list-in-force-1-jan-2026">6. WADA status (2026 List, in force 1 Jan 2026)</h2>
+<p>From the WADA 2026 Prohibited List PDF (copy hosted by a national federation: <a href="https://www.segas.gr/wp-content/uploads/2025/11/2026list_en_final_clean_september_2025.pdf">link</a>). [verified]
+- <strong>S0 Non-approved substances</strong>: any substance not covered elsewhere and without government approval for human therapeutic use; prohibited at all times; examples explicitly include <strong>BPC-157</strong>.
+- <strong>S2.3 Growth factors</strong>: "Thymosin-β4 and its derivatives e.g. <strong>TB-500</strong>".
+- <strong>S2.2.4 GH releasing factors</strong>: GHRH analogues incl. <strong>CJC-1295, sermorelin, tesamorelin</strong>; GH secretagogues incl. <strong>ibutamoren (MK-677), ipamorelin, anamorelin</strong>; GHRPs incl. hexarelin, GHRP-1, GHRP-2.
+- History: BPC-157 was first named in S0 on the <strong>2022</strong> List (UK Anti-Doping summary, <a href="https://network.ukad.org.uk/news/major-changes-2022-prohibited-list-what-you-need-know">link</a>). [verified]
+- <strong>No therapeutic exemption possible</strong>: a UFC fighter prescribed BPC-157 by a doctor self-reported and still received a <strong>4-month</strong> sanction (reduced for early disclosure); TUE did not apply because it is a non-approved substance (USADA, Cortney Casey, Sep 2023, <a href="https://www.usada.org/sanction/cortney-casey-accepts-doping-sanction/">link</a>). [verified] Other cases surfaced in search (a US triathlete, a whistleblower report) were not read. [gap]
+- <strong>Testing</strong>: lab methods exist; TB-500 and its metabolites detectable in horse urine at 0.01 ng/mL after a 10 mg dose (Ho 2012). [verified, equine] Human detection windows for BPC-157 and TB-500: not found in PubMed this pass. [gap]
+- GHK-Cu: not named in the List text I read. Whether it falls under S0 depends on approval status (it is used in cosmetics, not approved as a drug). [speculated; check with WADA or a national agency]
+- Page angle: "Prohibited at all times, in and out of competition, and a doctor's prescription does not protect you." Factual and the strongest hook per the doctor.</p>
+<h3>6.0 v2: WADA 2027 List (in force 1 Jan 2027)</h3>
+<ul>
+<li>Approved by WADA's Executive Committee 10 Sep 2026; announced late Sep 2026 and posted by federations 6 Oct 2026 (World Rugby, <a href="https://www.world.rugby/keep-rugby-clean/news/1048285/wada-publishes-2027-prohibited-list">link</a>; Athletics Illustrated, <a href="https://athleticsillustrated.com/world-anti-doping-agency-published-its-2027-list-of-banned-substances-and-methods/">link</a>). [verified via secondary]</li>
+<li>Changes listed: more examples and clarifications in <strong>S0</strong> (also S4, S5, S8); S4.2 title expanded; vaginal glucocorticoids permitted; beta-blocker sports harmonized; some Monitoring Program removals; GLP-1 drugs (semaglutide, tirzepatide) <strong>stay permitted</strong>, with a second study started. [verified via World Rugby, World Triathlon, Athletics Illustrated]</li>
+<li>A law firm summary says the 2027 explanatory note now names <strong>peptides</strong> as S0 examples and states that many peptides not approved for human use fall under S0 or other classes, so unnamed peptides can still be banned (<a href="https://foxmandal.in/?p=61008">FoxMandal</a>). [reported]</li>
+<li><strong>Not verified:</strong> the exact 2027 wording for BPC-157 (S0) and TB-500 (S2.3). WADA's list page and explanatory-note PDF were blocked by the allowlist. No source found says either was removed, and the S0 changes add examples rather than take them away. Working assumption: both stay prohibited at all times in 2027. [inferred; confirm on the WADA page before publishing]</li>
+<li>Page wording until confirmed: "Banned on the 2026 List (BPC-157 by name since 2022); the 2027 List, in force 1 Jan 2027, widened the non-approved-substances examples." [inferred]</li>
+</ul>
+<h3>6.0b v2: Testing and sanctions</h3>
+<ul>
+<li>A validated urine method detects BPC-157 and 5 main metabolites at 0.01 to 0.11 ng/mL, built from human liver and skin enzyme incubations; no human dosing, so <strong>no detection window</strong> is known (Tian 2023, Molecules, <a href="https://www.mdpi.com/1420-3049/28/21/7345">link</a>). [verified abstract/page; not in PubMed via my searches]</li>
+<li>US triathlete, 46, accepted a <strong>4-year</strong> sanction (Sep 2025) for possession and use of BPC-157 and TB-500, plus attempted complicity for promoting peptides to followers; found through a <strong>whistleblower and investigation, not a positive test</strong> (USADA, <a href="https://www.usada.org/sanction/anthony-mccauley-accepts-doping-sanction/">link</a>). [verified] Compare the UFC case: 4 months after self-reporting. Page angle: sanctions range from months (self-report) to years (promotion), and evidence other than a test is enough. [inferred]</li>
+</ul>
+<h3>6.1 US regulatory note (dated)</h3>
+<ul>
+<li>Sept 2023: FDA flagged BPC-157 among peptides with safety concerns for compounding (impurities, characterization, no human safety data). [reported, BioSpace Apr 2026]</li>
+<li>23 to 24 July 2026: FDA's Pharmacy Compounding Advisory Committee voted <strong>8 to 6 (1 abstention)</strong> to recommend BPC-157, KPV and TB-500 for the compounding bulks list; FDA's own reviewers recommended against all seven peptides; the vote is non-binding and no final FDA decision or rulemaking had happened as of the 31 July report (AJMC, <a href="https://ajmc.com/view/fda-panel-backs-6-peptides-for-compounding">link</a>). [reported; FDA documents not read] An HHS draft enforcement policy (Oct 2026) was mentioned but not read. [gap; check current status before publishing]</li>
+<li><strong>v2 update (as of 3 Nov 2026):</strong></li>
+<li><strong>Vote detail:</strong> BPC-157, KPV and TB-500 recommended 8 to 6 (1 abstention); MOTS-c 7 to 5 (2 abstentions); Semax and epitalon cleared 24 July by similarly tight margins; emideltide rejected 7 to 6. FDA staff had recommended against all 7. FDA briefing materials called the BPC-157 human studies short and small, not enough to show safety or effectiveness (AJMC 31 Jul 2026, <a href="https://ajmc.com/view/fda-panel-backs-6-peptides-for-compounding">link</a>). [reported]</li>
+<li><strong>No final FDA decision.</strong> The committee's advice did not change the 503A bulks list. Adding a peptide needs a proposed rule, comments and a final rule, with no deadline; one past example took more than 2 years (Buchanan Ingersoll, <a href="https://www.bipc.com/fda-voted-yes-on-six-peptides-now-what-the-regulatory-road-ahead">link</a>). [reported]</li>
+<li><strong>HHS interim policy (28 Oct 2026, Federal Register 30 Oct, Docket HHS-OASH-2026-0496):</strong> HHS says it will not take enforcement action against state-licensed pharmacies, federal facilities or licensed physicians compounding <strong>BPC-157, TB-500, KPV, MOTS-c, Semax, epitalon</strong> if all 10 conditions are met. Conditions include: FDA-registered, CGMP bulk source with valid COA; single active ingredient; MedWatch adverse event reporting; "compounded drug, not for resale" label; only a 510(k)-cleared syringe as the device; documented human bioavailability for oral forms; and the listed identity and route (<a href="https://public-inspection.federalregister.gov/2026-22192.pdf">Federal Register inspection copy</a>; Foley, <a href="https://www.foley.com/?p=130749">link</a>; AJMC 29 Oct 2026, <a href="https://www.ajmc.com/view/5-things-to-know-about-hhs-s-interim-peptide-compounding-policy">link</a>). [verified FR text for scope and docket; conditions reported]</li>
+<li><strong>Routes allowed:</strong> BPC-157 acetate SC, IM, oral, topical; TB-500 acetate SC or IM injectable; KPV topical and oral; MOTS-c SC/IM; epitalon SC/IM in intermittent courses; Semax intranasal (BakerHostetler, <a href="https://www.bakerlaw.com/insights/hhs-issues-enforcement-discretion-policy-regarding-503a-compounding-using-certain-peptide-bulk-drug-substances/">link</a>). [reported; appendix not read directly]</li>
+<li>Comments are due 2 weeks after publication, about <strong>13 Nov 2026</strong>. The policy is interim, non-binding and revocable on safety or quality signals. It is <strong>not FDA approval</strong>, and it does nothing to WADA status. [reported]</li>
+<li>Page implication: US legality is now "pharmacy-compounded under conditions" for BPC-157 and TB-500, still unapproved, still unproven, still banned in sport. Bare Signals is not a US 503A pharmacy, so the policy does not cover its products. [inferred]</li>
+</ul>
+<hr />
+<h2 id="7-pharmacokinetics-and-dosing-as-reported-in-studies-only">7. Pharmacokinetics and dosing (as reported in studies only)</h2>
+<ul>
+<li><strong>BPC-157 animal PK</strong> (He 2022): elimination half-life <strong>under 30 minutes</strong> after IV or IM in rats and dogs; linear kinetics; IM bioavailability <strong>14 to 19% in rats, 45 to 51% in dogs</strong>; broken into small peptides and amino acids, cleared via urine and bile (PMID 36588717, DOI <a href="https://doi.org/10.3389/fphar.2022.1026182">10.3389/fphar.2022.1026182</a>). [verified]</li>
+<li><strong>Human IV pilot 2025</strong> (Lee and Burgess): <strong>2 people</strong> (58 and 68 y), who had used IV BPC-157 before; 10 mg in 250 mL saline over 1 h on day 1, 20 mg on day 2; no change in heart, liver, kidney, thyroid or glucose markers; no side effects reported (PMID 40131143). [verified] No PK sampling reported in abstract; two prior users at a private clinic is a very weak safety signal.</li>
+<li><strong>Animal doses used in Achilles studies</strong>: BPC-157 10 µg/kg/day ip (Staresinic 2003; Bicer 2026), with effects also claimed at 10 ng and 10 pg/kg (Staresinic 2003); TB-500 60 µg/kg/day ip (Bicer 2026). [verified] The Zagreb claim of effect across a million-fold dose range is unusual and a reason for caution [inferred].</li>
+<li><strong>Routes</strong>: rat studies used intraperitoneal or local cream; human reports used intra-articular, intravesical, IV (Poolton 2026). Local vs systemic: no human data comparing them. With a &lt;30 min half-life and systemic distribution, "inject near the tendon" is unproven [inferred].</li>
+<li><strong>TB-500 / Tβ4 human PK</strong>: phase 1 studies of recombinant full Tβ4 completed (NCT04555824, NCT04555850) but results not retrieved; a TB-500 fragment PK trial is recruiting (NCT07487363). [gap]</li>
+<li><strong>Why "start low, go slow"</strong>: standard first-in-human logic when human PK, dose-response and toxicity are unknown; lets side effects show at low exposure; and with no purity regulation, a low first dose limits harm from a contaminated or mislabeled vial [inferred]. FDA's 2023 concerns were impurities and characterization, which supports the product-quality reason [reported].</li>
+<li>No human dose for tendon healing is established for any of these peptides. [verified absence across the 2025 and 2026 reviews; reconfirmed by Tham 2026 JAAOS]</li>
+<li>v2: the only registered human tendon protocol (NCT07803250) uses daily subcutaneous injection for 90 days; the dose is not posted. [verified registry]</li>
+</ul>
+<hr />
+<h2 id="8-usual-questions-draft-answers-with-sources">8. Usual questions (draft answers with sources)</h2>
+<ul>
+<li><strong>Can I keep running/playing?</strong> Often yes, if pain stays within limits: continuing with pain monitoring gave the same 12-month result as rest (Silbernagel 2007). Complete rest is discouraged (2024 guideline summary). [verified / reported]</li>
+<li><strong>How long?</strong> Most trials run 12 weeks of loading with gains continuing to 12 months (Beyer 2015; Silbernagel 2007); at 5 years 80% had fully recovered with exercise alone (Silbernagel 2011). Rupture: elite basketball return ~10.8 months, 13 of 15 with follow-up returned (Maman 2026). [verified]</li>
+<li><strong>Stretching?</strong> Guideline summary: only when ankle dorsiflexion is restricted. [reported]</li>
+<li><strong>Shoes / heel drop?</strong> v2: heel lifts did at least as well as eccentric exercise at 12 weeks (+26 vs +17 VISA-A; difference just under the clinically important threshold) (Rabusin 2020). [verified] Footwear beyond heel lifts: no strong evidence found. [gap]</li>
+<li><strong>Ice?</strong> No Achilles trial found this pass. For acute rotator cuff, isometrics were no better than ice (Clifford 2020). [gap for Achilles]</li>
+<li><strong>Injections?</strong> PRP: no benefit in two JAMA trials and PATH-2. HVI: no benefit at 12 months (Inject 2026). Cortisone: short-term help, possible long-term harm, contested. [verified]</li>
+<li><strong>Return to sport?</strong> Use symptoms plus strength: recovery tracks neuromuscular performance (Malliaras 2013); the NBA data show performance often does not fully return after rupture. [verified]</li>
+<li><strong>Side effects of peptides?</strong> Human data cannot answer this: n = 30 total in published reports, poor quality (Poolton 2026). Known risks are product quality, injection site issues, and for MK-677 heart failure and insulin resistance (Tewari 2026). [verified]</li>
+<li><strong>Will it get me banned?</strong> Yes for BPC-157, TB-500 and GH secretagogues under WADA rules, any time, prescription or not. [verified for 2026 List; 2027 wording not read, assumed unchanged, see 6.0] A US sanction came from a whistleblower, not a test (USADA 2025). [verified]</li>
+<li><strong>Is it legal now in the US?</strong> v2: since 28 Oct 2026, HHS says it will not act against licensed US compounding pharmacies making BPC-157 or TB-500 under 10 conditions. That is enforcement discretion, not FDA approval, and has no bearing on sport (see 6.1). [reported]</li>
+<li><strong>Do antibiotics matter?</strong> Fluoroquinolones raise rupture risk ~3x for ~60 days, ~19x with oral steroids (Morales 2019). [verified]</li>
+</ul>
+<hr />
+<h2 id="9-designing-one-shared-tendon-base">9. Designing one shared "tendon" base</h2>
+<h3>9.1 Common to all tendons (put in the base)</h3>
+<ul>
+<li>Biology: low turnover (Heinemeier 2013), mechanotransduction (Khan 2009), load magnitude drives adaptation (Bohm 2015), type III to type I remodelling.</li>
+<li>Healing comparison table (section 2.2).</li>
+<li>Principles: progressive loading first line; pain-monitored; 12-week minimum; imaging does not equal symptoms.</li>
+<li>Injection evidence pattern: PRP and HVI mostly null; cortisone short-term gain, long-term doubt.</li>
+<li>Peptide evidence grid, WADA section, PK and "start low, go slow", product quality.</li>
+<li>Risk factors that are systemic: fluoroquinolones, oral steroids, age, BMI, previous injury.</li>
+</ul>
+<h3>9.2 Differs per tendon (put on each goal page)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Tennis elbow (common extensor)</th>
+<th>Achilles</th>
+<th>Patellar</th>
+<th>Rotator cuff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Load type</td>
+<td data-l="Tennis elbow (common extensor)">Non weight-bearing, grip and wrist extension</td>
+<td data-l="Achilles">Weight-bearing, energy-storing spring, very high forces in running/jumping [reported]</td>
+<td data-l="Patellar">Weight-bearing, jumping</td>
+<td data-l="Rotator cuff">Mostly non weight-bearing, overhead</td>
+</tr>
+<tr>
+<td data-l="">Typical loading</td>
+<td data-l="Tennis elbow (common extensor)">Wrist extension isometrics/eccentrics, grip</td>
+<td data-l="Achilles">Calf raises (straight and bent knee), HSR, Silbernagel progression, plyometrics last</td>
+<td data-l="Patellar">Leg extension or Spanish squat isometrics (Rio), decline squats, HSR</td>
+<td data-l="Rotator cuff">Isometric then isotonic external rotation, scapular work</td>
+</tr>
+<tr>
+<td data-l="">Compression issue</td>
+<td data-l="Tennis elbow (common extensor)">Less</td>
+<td data-l="Achilles">Insertional type: avoid deep dorsiflexion</td>
+<td data-l="Patellar">Less</td>
+<td data-l="Rotator cuff">Subacromial space</td>
+</tr>
+<tr>
+<td data-l="">Rupture risk</td>
+<td data-l="Tennis elbow (common extensor)">Rare</td>
+<td data-l="Achilles">Real, rising with age</td>
+<td data-l="Patellar">Rare</td>
+<td data-l="Rotator cuff">Common with age (degenerative tears)</td>
+</tr>
+<tr>
+<td data-l="">Key trial base</td>
+<td data-l="Tennis elbow (common extensor)">(from tennis elbow page)</td>
+<td data-l="Achilles">Alfredson, Beyer, Silbernagel, de Vos, Kearney, Myhrvold, UKSTAR</td>
+<td data-l="Patellar">Rio 2015/2017, Holden 2020, Challoumas 2021</td>
+<td data-l="Rotator cuff">Fewer this pass [gap]</td>
+</tr>
+<tr>
+<td data-l="">Return to sport</td>
+<td data-l="Tennis elbow (common extensor)">Grip and racket load</td>
+<td data-l="Achilles">Running, hopping, jumping progressions</td>
+<td data-l="Patellar">Jump landing</td>
+<td data-l="Rotator cuff">Throwing/serving</td>
+</tr>
+<tr>
+<td data-l="">Peptide animal data</td>
+<td data-l="Tennis elbow (common extensor)">(see tennis elbow page)</td>
+<td data-l="Achilles">BPC-157 and TB-500 rat Achilles</td>
+<td data-l="Patellar">None specific found</td>
+<td data-l="Rotator cuff">GHK-Cu ACL (ligament, not cuff); BPC-157 cuff trial planned (NCT07803250)</td>
+</tr>
+</tbody>
+</table></div>
+<p>v2: the per-tendon table is now expanded (patellar, rotator cuff, plantar fascia, tennis and golfer's elbow) with protocols, return timelines and surgery thresholds in <strong>Tendon Base v1.md</strong>. Headlines: patellar progressive loading beat eccentrics (Breda 2021); subacromial decompression no better than placebo surgery at 10 years (FIMPACT 2025); small degenerative cuff tears in people over 55 did as well with physio as with surgery (Kukkonen 2021). [verified]</p>
+<h3>9.3 Structure suggestion [inferred]</h3>
+<p>"Tendons" base page (biology, healing table, loading principles, injections, peptides and WADA, PK) linked from the body map's tendons area. Each goal page keeps: what it is, who gets it, the specific loading plan, specific trials, specific return-to-sport, then links to the base for shared sections. This fixes the doctor's main complaint (Achilles content living inside the tennis elbow page).</p>
+<hr />
+<h2 id="10-v2-adversarial-check-6-key-numbers-traced-to-primary-abst">10. v2 adversarial check: 6 key numbers traced to primary abstracts (3 Nov 2026)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>v1 claim</th>
+<th>Primary source check</th>
+<th>Result</th>
+<th>New tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="v1 claim">Achilles core not renewed after ~17 y; muscle turns over (Heinemeier 2013)</td>
+<td data-l="Primary source check">Abstract: 28 tendon core samples, 4 muscle samples, bomb-pulse 14C</td>
+<td data-l="Result"><strong>Holds</strong>; muscle contrast thin (n = 4); applies to core only</td>
+<td data-l="New tag">[verified, caveat]</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="v1 claim">Fluoroquinolones 3.1x Achilles rupture, 19.4x with oral steroids; ~2 per 10,000 extra (Morales 2019)</td>
+<td data-l="Primary source check">aIRR 3.14 (2.11 to 4.65); 19.36 (7.78 to 48.19); aRD 2.1 per 10,000 Achilles; 6.6 per 10,000 at 60+ on steroids; no statin link</td>
+<td data-l="Result"><strong>Holds</strong>; 19.4x has a very wide CI, say "up to about 20x"</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="v1 claim">Re-rupture 6.2% non-op vs 0.6% surgery; no function difference (Myhrvold 2022 NEJM)</td>
+<td data-l="Primary source check">554 randomized, 526 analysed; ATRS change -17.0 / -16.0 / -14.7 (P = 0.57); nerve injury 5.2 / 2.8 / 0.6%</td>
+<td data-l="Result"><strong>Holds</strong>; add that all groups were still below baseline (recalled pre-injury) at 12 months</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="v1 claim">Isometrics cut patellar pain 7.0 to 0.17/10 (Rio 2015)</td>
+<td data-l="Primary source check">6 volleyball players, crossover, single bout; effect lasted 45 min; MVIC up 18.7%</td>
+<td data-l="Result"><strong>Holds numerically</strong>; n = 6, all male, not replicated (O'Neill 2019, Holden 2020, Clifford 2020)</td>
+<td data-l="New tag">[verified; contested]</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="v1 claim">5.2% of recreational runners develop Achilles tendinopathy (Lagas 2019)</td>
+<td data-l="Primary source check">1,929 with follow-up, 100 cases; outcome self-reported by questionnaire</td>
+<td data-l="Result"><strong>Holds</strong>, but outcome is <strong>self-reported</strong>, not diagnosed</td>
+<td data-l="New tag">[verified; retag to "self-reported"]</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="v1 claim">Human BPC-157 evidence: 3 studies, n = 30, none in tendon (Poolton 2026)</td>
+<td data-l="Primary source check">16 knee (intra-articular, retrospective) + 12 interstitial cystitis + 2 IV safety; very low certainty</td>
+<td data-l="Result"><strong>Holds</strong>; JAAOS Oct 2026 agrees (Tham 2026)</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Also rechecked: Beyer 2015 adherence 92% vs 78% [verified]; NBA 10.8 ± 4.3 months, 13 of 15 returned [verified]; Leino 17.3 to 32.3 per 100,000 [verified]; Langberg 2007 PICP 3.9 to 19.7 µg/L, n = 6 injured [verified]. One reframe: Bicer 2026 (see 5.1).</p>
+<hr />
+<h2 id="11-v2-community-data-outside-reddit-own-use-first-hand-achil">11. v2 community data outside Reddit (own-use, first-hand, Achilles focus)</h2>
+<p>Method: searched runners' (LetsRun), triathlon (Slowtwitch), hunting/fitness (Rokslide), general sports (TexAgs, TigerDroppings), cycling (Singletrackworld), car-hobby (Classic Motorsports) forums, Drugs.com, padel/pickleball and tennis forums, BJJ/MMA forums, and physio/podiatry/sports-medicine blogs. Read the whole thread where it was accessible. Excluded: MESO-Rx, AnabolicMinds, vendor pages, Reddit. No supplier names recorded. Dates are post dates where visible; all accessed 3 Nov 2026.</p>
+<p><strong>What I could not reach:</strong> 2 of 3 LetsRun BPC-157 threads failed to load; Drugs.com has no BPC-157 review page (it is not a listed drug) [verified absence via search]; no padel, tennis or BJJ forum thread with an outcome surfaced; one Achilles "peptide journey" post in a men's health community was cut off before any detail.</p>
+<h3>11.1 What worked (lead)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Source</th>
+<th>What they did</th>
+<th>Outcome</th>
+<th>Clinician?</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Report">A. Achilles strain (Achilles/soleus junction), runner</td>
+<td data-l="Source">Rokslide Achilles thread</td>
+<td data-l="What they did">Kept running; loaded single-leg isometric calf holds 45 to 60 s, then weekly heavy calf raises 3 x 5</td>
+<td data-l="Outcome">"No more issues"</td>
+<td data-l="Clinician?">No</td>
+<td data-l="Weight">Self-report, <strong>no peptide</strong> [reported]</td>
+</tr>
+<tr>
+<td data-l="Report">B. Achilles 70% tear, age 45</td>
+<td data-l="Source">Classic Motorsports, Oct 2025</td>
+<td data-l="What they did">No surgery; boot ~6 weeks, no running ~8 weeks, NSAID gel</td>
+<td data-l="Outcome">Later ran 1,000+ miles and a 100-mile trail race</td>
+<td data-l="Clinician?">Not described</td>
+<td data-l="Weight">Self-report, <strong>no peptide</strong> [reported]</td>
+</tr>
+<tr>
+<td data-l="Report">C. Achilles tendinitis turned visible partial rupture (one person, posted in 2 Rokslide threads)</td>
+<td data-l="Source">Rokslide</td>
+<td data-l="What they did">BPC-157 + TB-500 nasal ~1 month; then 4 weeks local SC BPC-157; stationary cycling, zero-drop shoes, barefoot time, ~3 months off running; earlier PT for months</td>
+<td data-l="Outcome">Pain "pretty much gone" by ~5 months; <strong>credits cycling and rest most</strong>; local injections gave no change; sinus dryness from nasal use; rupture still visible</td>
+<td data-l="Clinician?">PT before peptides; none for peptides</td>
+<td data-l="Weight">The <strong>only first-hand Achilles peptide report found</strong>: mixed, outcome not attributable [reported]</td>
+</tr>
+<tr>
+<td data-l="Report">D. Achilles, chiropractic hip work</td>
+<td data-l="Source">Rokslide</td>
+<td data-l="What they did">Hip assessment</td>
+<td data-l="Outcome">"Noticeable improvement" leaving the office</td>
+<td data-l="Clinician?">Chiropractor</td>
+<td data-l="Weight">Self-report, no peptide [reported]</td>
+</tr>
+</tbody>
+</table></div>
+<h3>11.2 Other tendons with peptides (context for the tendon base)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tendon</th>
+<th>Source</th>
+<th>Co-treatment</th>
+<th>Outcome</th>
+<th>Clinician involvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tendon">Distal biceps tear, surgically reattached</td>
+<td data-l="Source">Rokslide injury thread</td>
+<td data-l="Co-treatment">Surgery, brace; local BPC-157 from 2.5 weeks post-op</td>
+<td data-l="Outcome">Felt it sped recovery; near-full extension, rotation still limited</td>
+<td data-l="Clinician involvement">Surgeon and PT told about it; said research "might help"; did not prescribe [reported]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Elbow tendonitis, both sides</td>
+<td data-l="Source">TigerDroppings, Apr 2026</td>
+<td data-l="Co-treatment">Stacked peptides</td>
+<td data-l="Outcome">One side "knocked out" in 2 weeks, other improving</td>
+<td data-l="Clinician involvement">"Doctor guides me" [reported; clinician role unclear]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Rotator cuff tear, surgery</td>
+<td data-l="Source">Rokslide shoulder thread</td>
+<td data-l="Co-treatment">Surgery; peptides from 9 days pre-op</td>
+<td data-l="Outcome">Off strong painkillers by day 2 post-op</td>
+<td data-l="Clinician involvement">No (friend coached dosing) [reported]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Pec partial tear</td>
+<td data-l="Source">Rokslide shoulder thread</td>
+<td data-l="Co-treatment">Rest, rehab</td>
+<td data-l="Outcome">"Good results"</td>
+<td data-l="Clinician involvement">No [reported]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Biceps tendonitis</td>
+<td data-l="Source">Classic Motorsports</td>
+<td data-l="Co-treatment">Also used an anabolic steroid</td>
+<td data-l="Outcome">Positive</td>
+<td data-l="Clinician involvement">Suggests a TRT doctor; confounded [reported]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Shoulder, tissue unspecified (2 people)</td>
+<td data-l="Source">TigerDroppings</td>
+<td data-l="Co-treatment">Stack, 2 cycles</td>
+<td data-l="Outcome"><strong>No change</strong></td>
+<td data-l="Clinician involvement">No [reported]</td>
+</tr>
+<tr>
+<td data-l="Tendon">Unspecified injuries (1)</td>
+<td data-l="Source">TigerDroppings</td>
+<td data-l="Co-treatment">Combination</td>
+<td data-l="Outcome">"No more effect than rest and time"</td>
+<td data-l="Clinician involvement">No [reported]</td>
+</tr>
+</tbody>
+</table></div>
+<h3>11.3 Counts</h3>
+<ul>
+<li><strong>First-hand Achilles peptide reports: 1</strong> (mixed: pain resolved, credited mostly to rest and cycling; local injections no change; 1 side effect). Plus 2 people asking or planning, with no outcome.</li>
+<li><strong>Clinician-observed Achilles peptide outcomes: 0.</strong> Two clinician pages read (a podiatry practice, Apr/May 2026; a sports-medicine physician, Sep 2025) cite only animal data; the podiatry page lists BPC-157 as "not recommended" and says proven treatments come first. A physician posting in the Rokslide thread recommended PT, ultrasound, needle tenotomy, PRP and nitrate patches, not peptides. [reported]</li>
+<li><strong>First-hand Achilles non-peptide fixes that worked: 3 to 4</strong> (loading, conservative boot then return, rest plus cycling; chiropractic is one more). One said eccentric heel drops gave no improvement over 3 weeks; one is still unable to jog more than a year after surgery. [reported]</li>
+<li><strong>First-hand tendon (any site) peptide reports: 5 positive, 1 mixed (Achilles), 2 no change (shoulder, tissue unclear).</strong> All self-report, none with imaging or scores. 3 of 5 positives were alongside surgery, and 1 alongside an anabolic steroid. [reported]</li>
+<li><strong>All-tissue peptide reports in the general threads</strong> (TigerDroppings 9 people, TexAgs 2): 6 positive, 3 no change, 2 negative (side effects or body aches leading to stopping). [reported]</li>
+<li>Secondhand stories (plantar fasciitis, knee and hip "friends", podcast anecdotes, an ultra-runner's disc) were logged but <strong>not counted</strong>.</li>
+</ul>
+<h3>11.4 Reading [inferred]</h3>
+<ul>
+<li>Outside Reddit, real Achilles peptide reports are <strong>very rare</strong>; the forum chatter is mostly questions. The one detailed case improved over months of reduced running and cycling, which matches the natural history and the trial data (Silbernagel 2007 and 2011).</li>
+<li>Tendon "wins" cluster around surgery, where recovery is expected anyway, and pain relief is reported far more than function or structure. This fits the placebo and social-amplification concern in Mendias 2026. [verified source + inferred]</li>
+<li>Page use: one honest line, "We found almost no first-hand Achilles reports, and the one detailed case credited rest and cycling", is stronger and more credible than testimonials.</li>
+</ul>
+<p>Sources (community): <a href="https://rokslide.com/forums/threads/return-of-the-a-achilles-tendinitis.382585/post-4094950">Rokslide Achilles thread</a>, <a href="https://rokslide.com/forums/threads/return-of-the-a-achilles-tendinitis.382585/post-4099297">Rokslide follow-up</a>, <a href="https://www.rokslide.com/forums/threads/bpc-157-peptide-injury-update.407813">Rokslide injury update</a>, <a href="https://rokslide.com/forums/threads/peptides-bpc-157-and-tb-500-shoulder-pain.389864/page-2">Rokslide shoulder p2</a>, <a href="https://www.tigerdroppings.com/rant/health-fitness/has-anyone-had-any-experience-with-bpc-157-and-or-tb-500-peptides-for-tendon-healing/123336599/">TigerDroppings</a>, <a href="https://texags.com/forums/48/topics/3438204">TexAgs</a>, <a href="https://classicmotorsports.com/forum/off-topic-discussion/post-achilles-surgery/282222/page1/">Classic Motorsports</a>, <a href="https://singletrackworld.com/forum/off-topic/peptides">Singletrackworld</a>, <a href="https://www.letsrun.com/forum/flat_read.php?thread=14146614">LetsRun Peptides</a>, <a href="https://slowtwitch.com/?p=84272">Slowtwitch</a>, <a href="https://marathonhandbook.com/what-are-peptides-and-why-is-every-middle-aged-runner-suddenly-talking-about-bpc-157/">Marathon Handbook</a>, <a href="https://www.michiganfootdoctors.com/bpc-157-achilles-tendon/">Michigan Foot Doctors</a>, <a href="https://patients.sportsmedreview.com/blog/orthopedic-use-of-bpc-157">Sports Med Review</a>, <a href="https://the5krunner.com/2026/10/06/bpc-157-tb-500-peptide/">the5krunner</a>.</p>
+<hr />
+<h2 id="inaccessible-or-partial-sources">Inaccessible or partial sources</h2>
+<ul>
+<li>PMC full texts were blocked by a browser check; abstracts used via PubMed instead.</li>
+<li>2024 JOSPT Achilles guideline (PMID 39611662): full text not read; recommendations taken from a physiotherapy clinic's summary. [reported]</li>
+<li>Padel review in BMJ Open SEM: only discussion text visible; title and authors not captured.</li>
+<li>A physiotherapy education page on isometric dosing was blocked by the allowlist.</li>
+<li>FDA advisory committee documents and the Oct 2026 HHS draft enforcement policy not read; coverage from AJMC and BioSpace only.</li>
+<li>USADA BPC-157 education page returned partial text only.</li>
+<li>v2: WADA 2027 List page and the 2027 explanatory note PDF were blocked (allowlist); 2027 content is from federation and law-firm summaries.</li>
+<li>v2: HHS Appendix A (peptide identities and routes) not opened directly; routes are from a law-firm summary.</li>
+<li>v2: 2 of 3 LetsRun threads failed to load; a men's health community post was cut off.</li>
+</ul>
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<p>v1 gaps status: 1 mostly closed (fracture union weeks still open); 2 partly (Rio full-text numbers still [reported]; no 1 to 3 min trial found); 3 searched, nothing; 4 closed; 5 open; 6 open; 7 partly (method exists, no window; second case read); 8 open; 9 closed for now (re-check); 10 open; 11 closed (Tendon Base v1); 12 closed outside Reddit (Reddit stays with ChatGPT tab G57).
+1. Read the WADA 2027 List directly (ask the editor to open the page in her browser or allow wada-ama.org): confirm BPC-157 S0 and TB-500 S2.3 wording, and whether GHK-Cu or any new peptide is now named.
+2. HHS Appendix A primary text (routes, identity) and the final policy after comments close (~13 Nov 2026); any FDA proposed rule.
+3. Primary source for fracture union time (e.g. a cohort of tibia or radius union times).
+4. Insertional Achilles loading trials (PubMed returned 8 RCT hits this pass, not yet read); partial tear management.
+5. Rio 2015/2017 full-text protocol (sets, % MVIC, rest); NCT02732782 publication under a different title.
+6. Tennis and padel Achilles incidence; basketball outside the NBA.
+7. Recombinant Tβ4 phase 1 PK results (NCT04555824/50) via sponsor publications.
+8. Community: retry the 2 LetsRun BPC-157 threads; search Achilles-specific runner forums (e.g. Runner's World, Fetcheveryone), BJJ and padel forums with different terms; look for a clinician (physio or sports doctor) describing patients who used peptides.
+9. Check whether any human detection window for BPC-157 or TB-500 has been published in drug testing journals (Drug Test Anal).</p>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first pass; 40+ searches across PubMed, ClinicalTrials.gov and web; doctor's notes checked.</li>
+<li>v2 (3 Nov 2026): second pass; about 60 searches and fetches. HHS interim peptide policy and WADA 2027 added; healing table cited; 6-number adversarial check; HEALTHY result; community section outside Reddit; split per-tendon detail to Tendon Base v1. v1 left unchanged.</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

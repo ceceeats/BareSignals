@@ -1,0 +1,836 @@
+<!doctype html>
+<!-- Goal research notes: Addiction, from Addiction Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Semaglutide cut heavy drinking days in a 2026 Lancet trial. NAD+ drips have no controlled trial.">
+<title>Addiction · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Addiction</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">Semaglutide cut heavy drinking days in a 2026 Lancet trial. NAD+ drips have no controlled trial. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (14)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#1-what-addiction-is-plain-language">1. What addiction is (plain language)</a></li><li><a href="#2-studies-glp-1-drugs-and-addiction-the-hot-area">2. Studies: GLP-1 drugs and addiction (the hot area)</a></li><li><a href="#3-what-people-report-community-signal">3. What people report (community signal)</a></li><li><a href="#4-standard-treatments-with-effect-sizes">4. Standard treatments (with effect sizes)</a></li><li><a href="#5-peptides-and-emerging-options-evidence-graded">5. Peptides and emerging options (evidence graded)</a></li><li><a href="#6-pairings-and-related-conditions">6. Pairings and related conditions</a></li><li><a href="#7-usual-questions-people-ask">7. Usual questions people ask</a></li><li><a href="#8-negative-mirror-failures-nulls-concerns">8. Negative mirror (failures, nulls, concerns)</a></li><li><a href="#9-options-how-a-page-could-frame-them-factual-only">9. Options (how a page could frame them, factual only)</a></li><li><a href="#10-warnings-bottom-of-page">10. Warnings (bottom of page)</a></li><li><a href="#11-community-findings-outside-reddit-folded-in-from-adhd-add">11. Community findings outside Reddit (folded in from ADHD Addiction Peptides v1)</a></li><li><a href="#flags-inaccessible-or-unverified">Flags (inaccessible or unverified)</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li></ol></details>
+<div class="md"><h1>Addiction Research v2</h1>
+<p>Goal page research for baresignals.co. v1 compiled 3 Nov 2026; v2 second pass 3 Nov 2026.</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ol>
+<li><strong>JAMA Psychiatry 2026 GLP-1 drinking survey (Uscher-Pines et al):</strong> PubMed record confirmed (PMID 42873517, published 14 Oct 2026, Brown/RAND/Harvard authors, described as nationally representative). The abstract and full text are not available through PubMed or this session's allowlist, so the 31.1% less / 6.0% more figures from news coverage of 1,179 new users <strong>stay [reported]</strong>. Added the separate Matero 2024 WeightWatchers survey and Tyndall 2026 All of Us cohort with sourced numbers. [verified record; numbers reported]</li>
+<li><strong>The 5 finished GLP-1 trials without results:</strong> all 5 re-checked on ClinicalTrials.gov 3 Nov 2026.
+   - <strong>Liraglutide OUD (NCT04199728): results are now posted on the registry</strong>, and the team's 2026 review reports about a 40% drop in opioid craving (20 analysed, 19 days). Upgraded from "no results". [verified registry flag + verified review abstract]
+   - <strong>Semaglutide nicotine lab study (NCT05530577): results are posted on the registry</strong> but the numbers could not be opened (results tab blocked). No paper on PubMed. [verified flag]
+   - STAR-T (NCT05891587), Novo ALD (NCT06409130, final completion Jan 2026) and exenatide smoking (NCT05610800, final completion Mar 2026): <strong>still no results, no paper.</strong> Primary outcomes added so the page can say what they were testing.</li>
+<li><strong>FDA status of BPC-157 and Semax:</strong> no final FDA rule. HHS issued a draft interim enforcement-discretion policy (28 to 30 Oct 2026) for six peptides. Relevant here because the July panel's review listed opioid withdrawal among the indications considered. [verified]</li>
+<li><strong>Adversarial check of 5 key numbers:</strong> Klausen 2026 (−41.1 vs −26.4 points, difference 13.7, p=0.0015, 81% completed), NIH's NNT 4.3, Hendershot 2025 betas, Lähteenvuo 2025 HRs, McPheeters 2023 NNTs, Santo 2021 death ratios, Lüthi 2024 abstinence rates, Lindson 2023 ORs all match primary abstracts or the NIH release. <strong>Clarified:</strong> NIH compares NNT 4.3 with "7 or higher" for approved drugs; the JAMA meta-analysis gives naltrexone NNT 11 to 18, so "7+" is NIH's framing, not a head-to-head. Lähteenvuo semaglutide users were only 4,321. Quddos 2023's 71% included "other negative effects" (already flagged).</li>
+<li><strong>Tobacco target-trial emulation</strong> primary paper found (Wang 2024, Annals of Internal Medicine): now [verified].</li>
+<li><strong>Gambling:</strong> ClinicalTrials.gov re-checked (0 GLP-1 gambling trials). Added opioid-antagonist gambling evidence (Cochrane 2022, network meta-analysis 2024).</li>
+<li><strong>Semaglutide pharmacovigilance:</strong> a FAERS analysis found a reporting signal for depression and suicidality with semaglutide but not tirzepatide; added to the anhedonia question with its limits.</li>
+<li><strong>New section 11:</strong> community findings folded in from ADHD Addiction Peptides v1 (Mumsnet tallies, NAD+, veterans BMJ cohort, amylin).</li>
+<li><strong>Usual questions</strong> expanded from 8 to 15.</li>
+</ol>
+<p>Tags: [verified] = read in the primary abstract or registry entry this pass. [reported] = from a secondary source (press release, news, review) not traced to full text. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Sources: PubMed (via PubMed API), ClinicalTrials.gov (registry API), FDA, EMA, NIH and news pages. Full texts were not opened unless stated; numbers are from abstracts.</p>
+<hr />
+<h2 id="1-what-addiction-is-plain-language">1. What addiction is (plain language)</h2>
+<p><strong>The reward circuit.</strong> Deep in the midbrain, a cluster of cells called the ventral tegmental area (VTA) sends dopamine to the nucleus accumbens (part of the ventral striatum). Food, sex, social wins and every addictive drug raise dopamine there. Dopamine is less a "pleasure chemical" than a "this matters, do it again" signal: it tags cues and actions as worth chasing. [verified as consensus framing; Jerlhag 2023, PMID 37063267, doi:10.3389/fphar.2023.1063033]</p>
+<p><strong>Wanting vs liking.</strong> Incentive sensitisation theory (Robinson and Berridge, 1993) splits reward into two systems. "Liking" is the actual pleasure. "Wanting" is the pull toward the thing, run largely by mesolimbic dopamine. With repeated drug use, wanting becomes sensitised (stronger and more cue-driven) while liking stays flat or even drops. Result: people keep using something they no longer enjoy much, and cues trigger intense craving long after detox. The same split is proposed for gambling and food. [verified; Robinson et al 2016, PMID 26407959, doi:10.1007/7854_2015_387]</p>
+<p><strong>Tolerance.</strong> The brain turns down its own response (fewer or less sensitive receptors, counter-adaptations), so the same dose does less. [verified as textbook; inferred wording]</p>
+<p><strong>Withdrawal.</strong> When the substance stops, those counter-adaptations are left unopposed: the rebound shows up as anxiety, low mood, insomnia, irritability, and for alcohol, benzodiazepines and opioids, physical symptoms. Alcohol withdrawal raises stress-hormone (HPA axis) activity, which stays altered for 2 to 4 weeks after the last drink. [verified; Wilkins &amp; Gorelick 1986, PMID 3010391]</p>
+<p><strong>Craving cues.</strong> Places, people, times of day, smells, a payday notification. Cues alone fire the striatum. In the exenatide alcohol trial, brain scans showed cue reactivity in the ventral striatum and septal area, the exact zone the drug dampened. [verified; Klausen 2022, PMID 36066977]</p>
+<p><strong>Why relapse happens.</strong> Three triggers are classic: cues, stress, and a small "priming" dose. Cue-reactivity can grow during early abstinence ("incubation of craving"). In 76 people with cocaine addiction, the brain's EEG response to cocaine pictures was higher at 1 and 6 months of abstinence than at 2 days or 1 year, even though self-rated craving fell steadily. Translation: people may feel fine while their brain is most reactive, so 1 to 6 months is a high-risk window. Incubation has been shown in humans for alcohol, nicotine and methamphetamine. [verified; Parvaz 2016, PMID 27603142, doi:10.1001/jamapsychiatry.2016.2181]</p>
+<p><strong>Is it a disease?</strong> The landmark JAMA review (McLellan 2000) compared drug dependence with type 2 diabetes, hypertension and asthma: heritability, choice and environment play comparable roles, and medication adherence and relapse rates are similar across all four. It argued addiction should be treated as a chronic illness. [verified; PMID 11015800, doi:10.1001/jama.284.13.1689] The widely quoted figure "40 to 60% relapse for addiction vs 30 to 50% for type 1 diabetes and 50 to 70% for hypertension/asthma" comes from that paper via NIDA. [reported; NIDA page could not be fetched, see Flags]</p>
+<p><strong>Behavioural addictions.</strong> Gambling disorder is the only behavioural addiction in DSM-5. The same wanting/liking dissociation and mesostriatal hyper-reactivity are proposed for gambling and food. [verified; PMID 26407959; Ballerio 2026, PMID 42645133] Compulsive buying, gaming and social media are discussed through the same lens, with weaker evidence. [reported; Hunt 2024, PMID 38402919]</p>
+<hr />
+<h2 id="2-studies-glp-1-drugs-and-addiction-the-hot-area">2. Studies: GLP-1 drugs and addiction (the hot area)</h2>
+<h3>2a. Why it might work (mechanism)</h3>
+<ul>
+<li>GLP-1 is made in the gut and in the brainstem (nucleus of the solitary tract), which projects to reward areas. GLP-1 receptors sit in the VTA and nucleus accumbens. [verified; Jerlhag 2023, PMID 37063267]</li>
+<li>In rodents, GLP-1 drugs reduce alcohol intake, motivation, relapse-like drinking, and block alcohol-induced dopamine release in the nucleus accumbens. [verified; Jerlhag 2026 review, PMID 42461204, doi:10.1016/j.biopsych.2026.04.022]</li>
+<li>Caveat in the same review: nausea, slower stomach emptying and stress may also contribute, so "it's all dopamine" is not proven. [verified]</li>
+<li>Peripheral mechanism: in 20 people with obesity, GLP-1 users had a delayed rise in breath alcohol and delayed subjective effects after a drink, not explained by nausea. Alcohol may simply "hit" later and softer. [verified; Quddos 2025, PMID 41093891, doi:10.1038/s41598-025-17927-w]</li>
+<li>In humans: exenatide lowered fMRI cue reactivity in the ventral striatum and lowered dopamine transporter availability. [verified; PMID 36066977]</li>
+</ul>
+<p><strong>"Food noise".</strong> Lay term for intrusive, constant thoughts about food that many GLP-1 users say go quiet. A nationally representative US survey (n=3,646, fall 2025, preprint) found 4 to 9.5% of adults meet criteria, rising to 6 to 14% with obesity. [verified; Jovanovic 2026 preprint, PMID 42926667] People use "drink noise" or "booze noise" the same way. [reported; community language] No validated scale for "alcohol noise" was found. [inferred]</p>
+<h3>2b. Randomised trials in alcohol use disorder (AUD)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Who</th>
+<th>Drug, dose (as reported)</th>
+<th>Main result</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial">Klausen 2022, JCI Insight (Denmark), n=127, 26 wk + CBT</td>
+<td data-l="Who">Treatment-seeking AUD</td>
+<td data-l="Drug, dose (as reported)">Exenatide 2 mg weekly</td>
+<td data-l="Main result"><strong>Primary outcome missed</strong>: heavy drinking days not reduced vs placebo. Reduced brain cue reactivity. In obese subgroup (BMI&gt;30) heavy drinking days and total intake fell</td>
+<td data-l="Grade">RCT, null primary [verified] PMID 36066977</td>
+</tr>
+<tr>
+<td data-l="Trial">Jensen 2025 (secondary analysis, same trial) n=30 obese</td>
+<td data-l="Who">AUD + obesity</td>
+<td data-l="Drug, dose (as reported)">Exenatide</td>
+<td data-l="Main result">PEth blood alcohol marker lower by 0.9 µmol/L at week 26 only, not earlier: delayed effect</td>
+<td data-l="Grade">Post hoc [verified] PMID 40123107</td>
+</tr>
+<tr>
+<td data-l="Trial">Probst 2023 (secondary analysis of smoking trial), n=151 drinkers</td>
+<td data-l="Who">Smokers quitting</td>
+<td data-l="Drug, dose (as reported)">Dulaglutide 1.5 mg weekly, 12 wk</td>
+<td data-l="Main result">Drank <strong>29% less</strong> than placebo (relative effect 0.71, 95% CI 0.52 to 0.97)</td>
+<td data-l="Grade">Secondary outcome of RCT [verified] PMID 37991022</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>Hendershot 2025, JAMA Psychiatry</strong> (USA), n=48, 9 wk</td>
+<td data-l="Who">Non-treatment-seeking AUD, 71% women</td>
+<td data-l="Drug, dose (as reported)">Semaglutide 0.25 mg x4 wk, 0.5 mg x4 wk, 1.0 mg x1 wk</td>
+<td data-l="Main result">Lab drinking session: less alcohol drunk (β −0.48) and lower peak breath alcohol. Real life: <strong>no change in drinks per day or drinking days</strong>, but fewer <strong>drinks per drinking day</strong> (β −0.41), lower weekly craving (β −0.39), bigger drop in heavy drinking over time. Smokers in the sample cut cigarettes/day</td>
+<td data-l="Grade">Phase 2 RCT [verified] PMID 39937469, doi:10.1001/jamapsychiatry.2024.4789, NCT05520775</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>Klausen 2026, Lancet</strong> (Denmark), n=108, 26 wk + CBT</td>
+<td data-l="Who">Treatment-seeking moderate-severe AUD <strong>with obesity</strong></td>
+<td data-l="Drug, dose (as reported)">Semaglutide 2.4 mg weekly</td>
+<td data-l="Main result">Heavy drinking days fell <strong>41.1 percentage points</strong> vs <strong>26.4</strong> on placebo (difference <strong>13.7 points</strong>, p=0.0015). 81% completed. GI side effects more common, mostly mild/transient</td>
+<td data-l="Grade">Phase 2 RCT, positive primary [verified] PMID 42070571, doi:10.1016/S0140-6736(26)00305-3, NCT05895643</td>
+</tr>
+<tr>
+<td data-l="Trial">Same trial, NIH press release</td>
+<td data-l="Who"></td>
+<td data-l="Drug, dose (as reported)"></td>
+<td data-l="Main result">Number needed to treat <strong>4.3</strong>; NIH says approved drugs have an NNT of "7 or higher". Blood alcohol biomarkers backed self-report; weight and blood pressure also fell more</td>
+<td data-l="Grade">[verified in v2, <a href="https://www.nih.gov/news-events/news-releases/adding-weekly-glp-1-cognitive-behavioral-therapy-further-reduces-heavy-drinking">NIH news 30 Apr 2026</a>]. Note: different outcomes and populations, so not a head-to-head comparison [inferred]</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>Schacht 2026, Am J Psychiatry</strong> (Colorado), n=50, 8 wk</td>
+<td data-l="Who">Treatment-seeking moderate-severe AUD</td>
+<td data-l="Drug, dose (as reported)"><strong>Oral</strong> semaglutide 3 mg/day x4 wk then 7 mg/day x4 wk</td>
+<td data-l="Main result">Primary (lab cue craving) <strong>missed</strong>; drinks per day <strong>not</strong> reduced. But heavy drinking days ↓ (b −0.58), drinks per drinking day ↓ (b −1.18), real-world craving ↓, cannabis use days ↓ (b −1.43), more people dropped ≥1 WHO risk level</td>
+<td data-l="Grade">Phase 2 RCT, mixed [verified] PMID 42522065, doi:10.1176/appi.ajp.20260003, NCT05892432</td>
+</tr>
+<tr>
+<td data-l="Trial">Tiouririne 2026 (oxytocin comparator, see section 4)</td>
+<td data-l="Who"></td>
+<td data-l="Drug, dose (as reported)"></td>
+<td data-l="Main result"></td>
+<td data-l="Grade"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pattern across trials [inferred]:</strong> GLP-1 drugs reliably cut <em>how much</em> people drink when they drink (drinks per drinking day, heavy days) more than <em>whether</em> they drink (drinking days, abstinence). Effects look stronger with obesity, higher doses and longer treatment. Primary endpoints were missed in 2 of 4 dedicated trials (exenatide 2022, oral semaglutide 2026).</p>
+<p>Systematic review (Patel 2025): of 3 RCTs (n 48 to 151), semaglutide reduced alcohol use, dulaglutide reduced intake in drinkers, exenatide had no effect on heavy drinking days. [verified; PMID 41273789, doi:10.1093/alcalc/agaf069]</p>
+<h3>2c. Observational (real-world) studies</h3>
+<p>All are associations, not proof. People who get GLP-1 prescriptions differ from those who don't (insurance, engagement with care, weight loss motivating change).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Population</th>
+<th>Finding</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Study">Wang 2024, Nat Commun (TriNetX EHR)</td>
+<td data-l="Population">83,825 with obesity; replicated in 598,803 with T2D</td>
+<td data-l="Finding">Semaglutide vs other anti-obesity drugs: <strong>50 to 56% lower risk</strong> of new AUD and of AUD recurrence over 12 months</td>
+<td data-l="Tag">[verified] PMID 38806481, doi:10.1038/s41467-024-48780-6</td>
+</tr>
+<tr>
+<td data-l="Study">Lähteenvuo 2025, JAMA Psychiatry (Sweden, within-person)</td>
+<td data-l="Population">227,866 with AUD, median 8.8 yr follow-up</td>
+<td data-l="Finding">AUD hospitalisation: semaglutide aHR <strong>0.64</strong> (only 4,321 users), liraglutide <strong>0.72</strong> (2,509 users); any approved AUD drug only <strong>0.98</strong>. Any SUD hospitalisation: semaglutide 0.68</td>
+<td data-l="Tag">[verified] PMID 39535805, doi:10.1001/jamapsychiatry.2024.3599</td>
+</tr>
+<tr>
+<td data-l="Study">Qeadan 2025, Addiction (Oracle Cerner, 136 US systems)</td>
+<td data-l="Population">503,747 OUD; 817,309 AUD</td>
+<td data-l="Finding">GLP-1/GIP prescription: opioid overdose rate ratio <strong>0.60</strong>; alcohol intoxication <strong>0.50</strong></td>
+<td data-l="Tag">[verified] PMID 39415416, doi:10.1111/add.16679</td>
+</tr>
+<tr>
+<td data-l="Study">Wang 2024, JAMA Netw Open</td>
+<td data-l="Population">T2D + OUD</td>
+<td data-l="Finding">Semaglutide associated with lower opioid overdose risk</td>
+<td data-l="Tag">[verified title; abstract not available, numbers not extracted] PMID 39320894</td>
+</tr>
+<tr>
+<td data-l="Study">Wang 2024, Mol Psychiatry</td>
+<td data-l="Population">85,223 obesity; 596,045 T2D</td>
+<td data-l="Finding">Cannabis use disorder: new diagnosis HR <strong>0.56</strong> (obesity) / <strong>0.40</strong> (T2D); recurrence HR <strong>0.62</strong> / 0.66 (T2D CI crossed 1)</td>
+<td data-l="Tag">[verified] PMID 38486046, doi:10.1038/s41380-024-02498-5</td>
+</tr>
+<tr>
+<td data-l="Study">Lakhani 2026, J Addict Dis</td>
+<td data-l="Population">8,052 matched pairs with OUD</td>
+<td data-l="Finding">5-yr mortality <strong>4.9% vs 10.9%</strong> (HR 0.63); overdose <strong>3.0% vs 4.8%</strong> (HR 0.81)</td>
+<td data-l="Tag">[verified] PMID 42116696</td>
+</tr>
+<tr>
+<td data-l="Study">Pan 2026, JGIM</td>
+<td data-l="Population">2,314 methadone patients with OUD + T2D</td>
+<td data-l="Finding">OUD remission HR <strong>1.75</strong>; depression HR 0.71; suicidal thoughts/behaviour HR 0.27</td>
+<td data-l="Tag">[verified] PMID 42151525</td>
+</tr>
+<tr>
+<td data-l="Study">Dai 2025, Obesity (Medicare, ≥65)</td>
+<td data-l="Population">T2D + SUD</td>
+<td data-l="Finding">vs DPP-4 drugs: SUD hospitalisation HR 0.76, OUD 0.64, AUD 0.76 (not significant). <strong>No difference vs SGLT2 drugs</strong></td>
+<td data-l="Tag">[verified] PMID 40954547</td>
+</tr>
+<tr>
+<td data-l="Study">Wang 2024, Ann Intern Med (TriNetX)</td>
+<td data-l="Population">222,942 new users of diabetes drugs with T2D and tobacco use disorder; 5,967 on semaglutide</td>
+<td data-l="Finding">Fewer tobacco-use-disorder medical encounters on semaglutide vs every comparator: HR 0.68 vs insulin, 0.88 vs other GLP-1 drugs. Differences appeared within 30 days. Authors flag documentation bias and no data on actual smoking</td>
+<td data-l="Tag">[verified in v2] PMID 39074369, <a href="https://doi.org/10.7326/M23-2718">doi:10.7326/M23-2718</a></td>
+</tr>
+<tr>
+<td data-l="Study"><strong>Cai 2026, BMJ (US veterans, T2D)</strong></td>
+<td data-l="Population">524,817 starting GLP-1 vs SGLT-2 drugs; 81,617 with existing SUD</td>
+<td data-l="Finding">New disorders vs SGLT-2: alcohol HR <strong>0.82</strong>, cannabis 0.86, cocaine 0.80, nicotine 0.80, opioid 0.75. In people with existing SUD: SUD death HR <strong>0.50</strong>, overdose 0.61, suicidal ideation or attempt 0.75. Absolute differences small (e.g. 5.6 fewer alcohol disorders per 1,000 over 3 years)</td>
+<td data-l="Tag">[verified, NEW in v2] PMID 41781010, <a href="https://doi.org/10.1136/bmj-2025-086886">doi:10.1136/bmj-2025-086886</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Note on Dai 2025: when compared with another modern diabetes drug (SGLT2), the benefit disappeared. That is a useful honesty check on the big EHR numbers. [inferred] <strong>v2:</strong> the much larger Cai 2026 BMJ veterans study used the same SGLT-2 comparator and did find benefits, smaller than the TriNetX numbers (HR about 0.8 rather than 0.5). The honest range is probably a 15 to 25% lower risk, observational only. [inferred]</p>
+<h3>2d. Nicotine / smoking trials</h3>
+<ul>
+<li>Exenatide + nicotine patch, n=84 (Yammine 2021): 7-day abstinence <strong>46.3% vs 26.8%</strong> (RR 1.70, credible interval 0.96 to 3.27), less craving and withdrawal, <strong>5.6 lb less weight gain</strong>. Pilot. [verified; PMID 33831213, doi:10.1093/ntr/ntab066]</li>
+<li>Follow-up analysis: benefit concentrated in &gt;20 cigs/day, people without obesity or prediabetes, and those without depressive symptoms. [verified; PMID 39780397]</li>
+<li>Dulaglutide + varenicline + counselling, n=255 (Basel): <strong>no benefit</strong>. Abstinence 63% vs 65% at 12 wk, 43% vs 41% at 24 wk, <strong>32% vs 32% at 52 wk</strong>. Prevented weight gain only while on drug (−1.0 kg vs +1.9 kg at 12 wk), gone by 1 year. [verified; Lüthi 2024, PMID 38371479, doi:10.1016/j.eclinm.2024.102429]</li>
+<li>Hendershot 2025 semaglutide: fewer cigarettes per day in smokers subsample. [verified; PMID 39937469]</li>
+<li>Systematic review 2026: exenatide strongest; dulaglutide no abstinence benefit; semaglutide only observational. [verified; Bhaduri 2026, PMID 41697556]</li>
+</ul>
+<h3>2e. Cocaine, stimulants, opioids</h3>
+<ul>
+<li>Single low dose of exenatide (5 mcg) before cocaine in the lab, n=13: <strong>no change</strong> in cocaine taken, euphoria or wanting. Single acute dose, so weak test. [verified; Angarita 2021, PMID 33621809]</li>
+<li>Exenatide case series in cocaine use disorder: mixed (n=12, p=0.46 null in one; craving drop in 2 cases in another). [verified via review; Meshkat 2025, PMID 40635383]</li>
+<li>Liraglutide in residential OUD (NCT04199728, Penn State with a residential treatment centre, 27 enrolled, completed Sep 2023). <strong>v2 update:</strong></li>
+<li>The registry now flags results as posted. Primary outcomes: cue-triggered craving and day-to-day craving over 19 days of rising doses. [verified, <a href="https://clinicaltrials.gov/study/NCT04199728">ClinicalTrials.gov</a>]</li>
+<li>Presented Feb 2024 (AAAS meeting): 20 analysed (10 vs 10), craving fell about 30% vs placebo, starting at the lowest dose; some dropped out at higher doses because of nausea and other GI effects. [reported, <a href="https://www.sciencenews.org/article/weight-loss-drug-addiction-opioid-disorder">Science News</a>]</li>
+<li>The same team's July 2026 review states "a 40% reduction in opioid craving" from this trial, and that 3 more trials (2 semaglutide, 1 tirzepatide, alongside buprenorphine or methadone) are running. [verified, Grigson 2026, Biol Psychiatry, PMID 42480803, <a href="https://doi.org/10.1016/j.biopsych.2026.06.033">doi:10.1016/j.biopsych.2026.06.033</a>]</li>
+<li>The 30% vs 40% gap likely reflects different analyses; the posted registry tables could not be opened to settle it. [inferred; see Gaps]</li>
+<li>Grade for opioids moves from D/C to <strong>C</strong> (one small RCT, craving only, 19 days).</li>
+</ul>
+<h3>2f. Ongoing and recent trials (ClinicalTrials.gov, pulled 3 Nov 2026)</h3>
+<p>48 registered trials matched GLP-1/GIP drugs x substance use. Key ones:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>NCT</th>
+<th>Drug</th>
+<th>Condition</th>
+<th>n</th>
+<th>Phase</th>
+<th>Status</th>
+<th>Primary completion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="NCT">NCT07219953 RENEW-ALC-2 (Eli Lilly)</td>
+<td data-l="Drug">Brenipatide (GIP/GLP-1)</td>
+<td data-l="Condition">AUD</td>
+<td data-l="n">1,100</td>
+<td data-l="Phase">3</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Apr 2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07219966</td>
+<td data-l="Drug">Brenipatide</td>
+<td data-l="Condition">Moderate-severe AUD</td>
+<td data-l="n">n/a</td>
+<td data-l="Phase">3</td>
+<td data-l="Status">Listed [reported]</td>
+<td data-l="Primary completion">n/a</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07218354 CRAVE (US VA)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">AUD (veterans)</td>
+<td data-l="n">622</td>
+<td data-l="Phase">3</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Mar 2029</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06015893 STAR (NIDA)</td>
+<td data-l="Drug">Semaglutide + "Take Control"</td>
+<td data-l="Condition">AUD</td>
+<td data-l="n">63</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Active, not recruiting</td>
+<td data-l="Primary completion">Mar 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT05891587 STAR-T (Tulsa)</td>
+<td data-l="Drug">Semaglutide 0.25 to 1.0 mg, 12 wk</td>
+<td data-l="Condition">AUD, BMI 25 to 50</td>
+<td data-l="n">80</td>
+<td data-l="Phase">2</td>
+<td data-l="Status"><strong>Completed (primary Jul 2025, final Oct 2025). v2: still no results, no paper.</strong> Primary outcome: drinks per drinking day</td>
+<td data-l="Primary completion"></td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06994338 (USC)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">AUD + overweight</td>
+<td data-l="n">42</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Aug 2026</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06727331 (Brigham)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">AUD</td>
+<td data-l="n">20</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Mar 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07046819 (NIAAA)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">AUD + alcohol liver disease</td>
+<td data-l="n">120</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Jul 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07559500 (NIAAA)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">AUD, dopamine PET</td>
+<td data-l="n">176</td>
+<td data-l="Phase">1</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2031</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06939088 (Copenhagen)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">AUD + schizophrenia</td>
+<td data-l="n">108</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07249554 (Johns Hopkins)</td>
+<td data-l="Drug">Semaglutide + naltrexone</td>
+<td data-l="Condition">AUD</td>
+<td data-l="n">45</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Not yet recruiting</td>
+<td data-l="Primary completion">2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07772960 (Yale)</td>
+<td data-l="Drug">Semaglutide 1 vs 2 mg</td>
+<td data-l="Condition">AUD + obesity</td>
+<td data-l="n">90</td>
+<td data-l="Phase">1</td>
+<td data-l="Status">Not yet recruiting</td>
+<td data-l="Primary completion">2031</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07223983 (Yale)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">AUD after bariatric surgery</td>
+<td data-l="n">4</td>
+<td data-l="Phase">1</td>
+<td data-l="Status">Active</td>
+<td data-l="Primary completion">2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06409130 (Novo Nordisk)</td>
+<td data-l="Drug">Semaglutide, cagrilintide, NNC0194-0499</td>
+<td data-l="Condition">Alcohol liver disease + alcohol use</td>
+<td data-l="n">270</td>
+<td data-l="Phase">2</td>
+<td data-l="Status"><strong>Completed (primary Nov 2025, final Jan 2026). v2: still no results.</strong> Primary outcome is a liver-fibrosis blood score; alcohol intake (diary, PEth) is secondary</td>
+<td data-l="Primary completion"></td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06651177 TAB (NIDA CTN)</td>
+<td data-l="Drug">Tirzepatide + buprenorphine</td>
+<td data-l="Condition">OUD</td>
+<td data-l="n">310</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Sep 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06548490 (Penn State)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">OUD</td>
+<td data-l="n">200</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Apr 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06639464 (Brigham)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">OUD</td>
+<td data-l="n">46</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Sep 2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07602699 (USC)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">Smoking cessation</td>
+<td data-l="n">300</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Mar 2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06173778 (UTHealth)</td>
+<td data-l="Drug">Semaglutide 2.4 mg + NRT</td>
+<td data-l="Condition">Smoking, weight gain</td>
+<td data-l="n">197</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">May 2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07059377 (Ottawa)</td>
+<td data-l="Drug">Semaglutide + NRT</td>
+<td data-l="Condition">Smoking + T2D</td>
+<td data-l="n">100</td>
+<td data-l="Phase">3</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">Dec 2026</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT05610800 (UTHealth)</td>
+<td data-l="Drug">Exenatide 2 mg + patch + counselling</td>
+<td data-l="Condition">Smoking with prediabetes or overweight</td>
+<td data-l="n">140</td>
+<td data-l="Phase">2</td>
+<td data-l="Status"><strong>Completed (primary Nov 2025, final Mar 2026). v2: still no results.</strong> Primary: 4-week continuous abstinence at week 15, and weight change</td>
+<td data-l="Primary completion"></td>
+</tr>
+<tr>
+<td data-l="NCT">NCT05530577 (UNC)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">Nicotine intake, lapse (lab)</td>
+<td data-l="n">24</td>
+<td data-l="Phase">2</td>
+<td data-l="Status"><strong>Completed May 2024. v2: results now posted on the registry (numbers not opened); no paper.</strong> Primary: cigarettes smoked in a lab session and time resisting a lapse</td>
+<td data-l="Primary completion"></td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07523633 (Copenhagen)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">Cannabis use disorder</td>
+<td data-l="n">100</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07468552 (NIDA)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">Cannabis use disorder</td>
+<td data-l="n">100</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Not yet recruiting</td>
+<td data-l="Primary completion">2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07227948 (UTHealth)</td>
+<td data-l="Drug">Semaglutide + CBT</td>
+<td data-l="Condition">Cocaine</td>
+<td data-l="n">75</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2029</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07825857 (UT Southwestern)</td>
+<td data-l="Drug">Tirzepatide</td>
+<td data-l="Condition">Methamphetamine</td>
+<td data-l="n">228</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2031</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07509112 (Kirby, Australia)</td>
+<td data-l="Drug">Semaglutide</td>
+<td data-l="Condition">Methamphetamine</td>
+<td data-l="n">40</td>
+<td data-l="Phase">2</td>
+<td data-l="Status">Not yet recruiting</td>
+<td data-l="Primary completion">2027</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT07387796 (UT Dallas)</td>
+<td data-l="Drug">Tirzepatide stop/restart</td>
+<td data-l="Condition">SUD, eating</td>
+<td data-l="n">40</td>
+<td data-l="Phase">n/a</td>
+<td data-l="Status">Recruiting</td>
+<td data-l="Primary completion">2028</td>
+</tr>
+<tr>
+<td data-l="NCT">NCT03645408 (Boston)</td>
+<td data-l="Drug">Exenatide</td>
+<td data-l="Condition">Heavy drinkers</td>
+<td data-l="n">8</td>
+<td data-l="Phase">1</td>
+<td data-l="Status"><strong>Terminated</strong></td>
+<td data-l="Primary completion"></td>
+</tr>
+<tr>
+<td data-l="NCT">NCT06252623</td>
+<td data-l="Drug">Exenatide</td>
+<td data-l="Condition">Cocaine</td>
+<td data-l="n">0</td>
+<td data-l="Phase">1</td>
+<td data-l="Status"><strong>Withdrawn</strong></td>
+<td data-l="Primary completion"></td>
+</tr>
+</tbody>
+</table></div>
+<p>Brenipatide early data (Lilly poster, Psych Congress Sept 2026): phase 1 only, half-life 9 to 12 days, GI effects similar to placebo; no efficacy data shown. Lilly also studying it in tobacco relapse prevention and OUD. [reported; Psychiatric Times 18 Sep 2026, company presenter]</p>
+<p><strong>No gambling, compulsive buying or food-addiction GLP-1 RCT was found on ClinicalTrials.gov in this search.</strong> Gambling is only a hypothesis in reviews. [verified absence for this query; Ballerio 2026, PMID 42645133] <strong>v2 re-check (3 Nov 2026):</strong> gambling + any GLP-1 drug on ClinicalTrials.gov = 0 trials. WHO ICTRP and EU CTR not searched (see Gaps). [verified]</p>
+<hr />
+<h2 id="3-what-people-report-community-signal">3. What people report (community signal)</h2>
+<ul>
+<li>Virginia Tech mined ~68,250 Reddit posts on GLP-1 drugs (2009 to 2023). Of 1,580 alcohol-related posts from ~960 users, <strong>71% described reduced craving, less desire to drink or other effects</strong>. Follow-up remote study (n=153, BMI ≥30): semaglutide/tirzepatide users reported fewer drinks per episode, lower binge odds, lower AUDIT scores, and felt <strong>less buzzed/sedated</strong> when drinking. [verified; Quddos 2023, PMID 38017205, doi:10.1038/s41598-023-48267-2]</li>
+<li>Case series of 6 semaglutide weight-loss patients: all had marked AUDIT score drops. No control. [reported; Univ of Oklahoma/OSU press release Nov 2023, J Clin Psychiatry]</li>
+<li>Common themes on r/Mounjaro, r/Ozempic, r/Alcoholism_Medication, r/stopdrinking: "forgot to finish my wine", "one drink is enough", "drinking feels pointless", "lost interest in vaping", "impulse shopping stopped", gambling urges quieter. [reported; Reddit threads surfaced via search, not systematically counted]</li>
+<li>Gambling and shopping reports are anecdotal only; one ethics paper notes "recent evidence suggests" GLP-1s may placate problem gambling but cites no trial. [verified; Jesudason 2026, PMID 41781266]</li>
+</ul>
+<p><strong>Why this is weak data [inferred]:</strong> posts self-select (people with dramatic changes post), no dose or duration control, many also lost weight, changed diet or cut alcohol for GI reasons (alcohol + nausea), and "less drinking" in someone without AUD is a different claim from treating AUD. The trial data (section 2b) show the real effect is smaller than the forums suggest: roughly a 14-point extra drop in heavy drinking days, not "cravings gone".</p>
+<p>No-change and negative GLP-1 alcohol posts were not counted on Reddit (gap). <strong>v2:</strong> non-Reddit forums were counted; see section 11 (about 38 less, 3 no change, 1 more out of ~42). The best population figure is the JAMA Psychiatry survey: about 1 in 3 new users drank less and about 1 in 17 drank more. [reported]</p>
+<hr />
+<h2 id="4-standard-treatments-with-effect-sizes">4. Standard treatments (with effect sizes)</h2>
+<h3>Alcohol</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Treatment</th>
+<th>Evidence</th>
+<th>Numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Treatment">Naltrexone oral 50 mg/day</td>
+<td data-l="Evidence">118 RCTs, 20,976 people (JAMA 2023)</td>
+<td data-l="Numbers">NNT <strong>18</strong> to prevent return to any drinking; NNT <strong>11</strong> to prevent return to heavy drinking [verified] McPheeters 2023, PMID 37934220</td>
+</tr>
+<tr>
+<td data-l="Treatment">Naltrexone injectable</td>
+<td data-l="Evidence">Same review</td>
+<td data-l="Numbers">~<strong>5 fewer drinking days</strong> per 30 days [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Acamprosate</td>
+<td data-l="Evidence">Same review</td>
+<td data-l="Numbers">NNT <strong>11</strong> to prevent return to any drinking. Diarrhoea RR 1.58 [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Nalmefene (EU, "drink less" approach)</td>
+<td data-l="Evidence">NMA 55 RCTs</td>
+<td data-l="Numbers">Fewer heavy drinking days long-term (SMD −0.28) but not short-term; more side effects [verified] Kotake 2024, PMID 38173342. More dropouts due to side effects (RR 3.26) [verified] Bahji 2022</td>
+</tr>
+<tr>
+<td data-l="Treatment">Disulfiram (makes you sick if you drink)</td>
+<td data-l="Evidence">NMA 156 RCTs</td>
+<td data-l="Numbers">Abstinence RR <strong>1.71</strong>; reduced heavy drinking RR 0.19 [verified] Bahji 2022, PMID 35653782. Works mainly when intake is supervised [reported, consensus]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Topiramate (off-label)</td>
+<td data-l="Evidence">NMA</td>
+<td data-l="Numbers">Heavy drinking days SMD −0.35 short-term; more side-effect dropouts (RR 2.18) [verified] Kotake 2024, Bahji 2022</td>
+</tr>
+<tr>
+<td data-l="Treatment">Baclofen (approved in France)</td>
+<td data-l="Evidence">NMA; Cochrane (Agabio)</td>
+<td data-l="Numbers">Abstinence RR <strong>1.80</strong> [verified Bahji]. Cochrane: works for staying abstinent, not for cutting down; no dose-response [reported via Rolland 2024, PMID 39244501]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Gabapentin (off-label)</td>
+<td data-l="Evidence">NMA</td>
+<td data-l="Numbers">Abstinence RR <strong>1.66</strong> [verified Bahji 2022]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Contingency management (rewards for negative tests)</td>
+<td data-l="Evidence">29 studies, n=2,615</td>
+<td data-l="Numbers">Alcohol-negative samples OR <strong>3.07</strong>; alcohol-free days OR 3.97; no gain in longest continuous abstinence [verified] Alessi 2025, PMID 41261929</td>
+</tr>
+<tr>
+<td data-l="Treatment">CBT</td>
+<td data-l="Evidence">Used as background in nearly every GLP-1 trial; placebo + CBT alone cut heavy drinking days by 26.4 points in Klausen 2026 [verified]</td>
+<td data-l="Numbers">Shows how much therapy plus trial attention does by itself [inferred]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Context: fewer than 3% of US adults with AUD receive any medication. [reported; Psychiatric Times 2026]</p>
+<h3>Opioids</h3>
+<ul>
+<li>Methadone or buprenorphine (opioid agonist treatment): all-cause death rate <strong>roughly halved</strong> while in treatment (RR 0.47; buprenorphine 0.34, methadone 0.47); suicide RR 0.48. Deaths are <strong>6x higher in the 4 weeks after stopping</strong>, and ~2x higher in the first 4 weeks of methadone. 36 cohorts, 749,634 people. [verified; Santo 2021, PMID 34076676, doi:10.1001/jamapsychiatry.2021.0976]</li>
+</ul>
+<h3>Nicotine</h3>
+<ul>
+<li>Cochrane network meta-analysis, 319 RCTs, 157,179 people: nicotine e-cigarettes OR 2.37, <strong>varenicline OR 2.33</strong>, cytisine OR 2.21 (about <strong>7 to 8 extra quitters per 100</strong>), combination NRT OR 1.93, patch 1.37, bupropion 1.43. [verified; Lindson 2023, PMID 37696529, doi:10.1002/14651858.CD015226.pub2]</li>
+</ul>
+<h3>Stimulants (cocaine, methamphetamine)</h3>
+<ul>
+<li>No approved medication. Contingency management is the best-supported option: in stimulant+opioid co-use, CM gave OR <strong>2.46</strong> for negative urine samples and ~1.4 extra weeks of continuous abstinence. [verified; Jegede 2026, PMID 42109226]</li>
+</ul>
+<hr />
+<h2 id="5-peptides-and-emerging-options-evidence-graded">5. Peptides and emerging options (evidence graded)</h2>
+<p>Grading: A = multiple good RCTs; B = at least one decent RCT; C = small/pilot human data; D = animal only; E = no relevant data.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>What exists</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound"><strong>Semaglutide / GLP-1 class</strong></td>
+<td data-l="What exists">See section 2. Positive phase 2 RCTs in AUD; phase 3 running</td>
+<td data-l="Grade"><strong>B</strong> for alcohol (esp. with obesity); C for nicotine; D/C for opioids, cannabis, cocaine; E for gambling</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Oxytocin (intranasal)</strong></td>
+<td data-l="What exists">Largest RCT: 100 people with AUD, up to 70 IU/day, 12 wk: <strong>no reduction in heavy drinking days</strong>, craving, mood or sleep; only anger/aggression scores dropped; hyposmia most common side effect [verified; Tiouririne 2026, PMID 42458234]. Alcohol withdrawal RCT (Norway, n=40, 24 IU twice daily x3 days): oxazepam needed 56.8 vs 79.0 mg, <strong>not significant</strong>; no change in withdrawal scores [verified; Melby 2019, PMID 30784955]. Same trial: no effect on sleep/motor activity [verified; PMID 32053696]. OUD lab study (n=20, 80 IU twice daily x7 days): reduced stress-induced withdrawal-like symptoms, anxiety and cortisol, but <strong>not craving</strong> [verified; Gully 2024, PMID 39534517]. Veteran AUD+PTSD trial (n=180) ongoing [verified; NCT04523922]</td>
+<td data-l="Grade"><strong>C, leaning negative</strong> for drinking</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Selank</strong> (tuftsin analogue, Russia)</td>
+<td data-l="What exists">Rats only: single 0.3 mg/kg dose cut morphine withdrawal index by 39.6% (diazepam 49.3%) [verified; PMID 36322304]; reduced anxiety in alcohol-withdrawn rats <strong>without changing alcohol intake</strong> [verified; PMID 24913576]; protected memory in alcohol-fed rats [verified; PMID 31625062]. All from one Moscow institute</td>
+<td data-l="Grade"><strong>D</strong>. No human addiction data found</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Semax</strong> (ACTH 4-10 analogue)</td>
+<td data-l="What exists">Neuroprotection and dopamine-neuron studies in rodents and cells; nothing on addiction outcomes found [verified absence; PMIDs 34707903, 31760919]</td>
+<td data-l="Grade"><strong>E</strong> for addiction</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>DSIP</strong></td>
+<td data-l="What exists">1984 uncontrolled Swiss report: IV DSIP in 107 inpatients (47 alcohol, 60 opiate withdrawal), clinician-judged improvement in 87 to 97%; 13 to 22% couldn't be evaluated; no placebo, no blinding [verified; Dick 1984, PMID 6548969]. Nothing since</td>
+<td data-l="Grade"><strong>C−</strong> (40 years old, uncontrolled)</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>BPC-157</strong></td>
+<td data-l="What exists">All animal, nearly all from one Zagreb group: counters amphetamine/apomorphine hyperactivity, haloperidol catalepsy and <strong>methamphetamine sensitisation</strong> in rats [verified; PMID 32956773]; protects stomach from strong alcohol [verified; PMID 30279308]. Reviews claim it "counteracts dopamine disturbances" broadly [verified; PMID 38675421]. No study on drug-seeking, self-administration, craving or relapse found</td>
+<td data-l="Grade"><strong>D</strong>. No human addiction data</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Kisspeptin</strong></td>
+<td data-l="What exists">Rodent work suggests KP-10 may <em>promote</em> impulsive/compulsive-like behaviour [reported in Netesa 2026 computational paper, PMID 42707558]; hamster study found no effect on sexual reward [verified; PMID 40643513]. Human kisspeptin studies are about sexual desire, not addiction</td>
+<td data-l="Grade"><strong>E</strong> for addiction; direction of effect unclear</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Cerebrolysin</strong></td>
+<td data-l="What exists">Psychiatry scoping review: "relatively small application", possible support in depression and autism, not addiction [verified; Florek 2025, PMID 40722733]. Cochrane stroke review: no mortality benefit, more non-fatal serious adverse events (RR 2.39) [verified; PMID 37818733]</td>
+<td data-l="Grade"><strong>E</strong> for addiction</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Psilocybin</strong> (context only)</td>
+<td data-l="What exists">RCT n=95 AUD, 2 sessions + therapy: heavy drinking days <strong>9.7% vs 23.6%</strong> over 32 wk [verified; Bogenschutz 2022, PMID 36001306]. Open-label re-dose: drops in heavy drinkers were <strong>transient</strong> (back to baseline after month 1) [verified; Pagni 2026, PMID 42913354]. Illegal outside trials in most countries</td>
+<td data-l="Grade">B (single RCT), context only</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Ibogaine</strong> (context only)</td>
+<td data-l="What exists">Known for fatal heart rhythm problems; noribogaine trial showed dose-dependent QTc prolongation up to ~42 ms at 180 mg [verified; Glue 2016, PMID 27870477]. Stanford veterans study used magnesium to blunt cardiac risk, outcomes were TBI/PTSD not addiction, open-label n=30 [verified; Cherian 2024, PMID 38182784]</td>
+<td data-l="Grade">C for withdrawal; serious cardiac risk</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-pairings-and-related-conditions">6. Pairings and related conditions</h2>
+<ul>
+<li><strong>Semaglutide + naltrexone</strong>: trial not yet recruiting (NCT07249554). No data. [verified]</li>
+<li><strong>GLP-1 + CBT</strong>: every positive AUD trial paired the drug with therapy. [verified]</li>
+<li><strong>GLP-1 + buprenorphine</strong>: TAB trial (310 people) testing whether tirzepatide keeps people in buprenorphine treatment. Results ~2027. [verified; PMID 42600923]</li>
+<li><strong>GLP-1 + nicotine patch</strong>: exenatide pilot positive; semaglutide trials running. [verified]</li>
+<li><strong>Related conditions</strong>: obesity (strongest effect modifier), alcohol-related liver disease (Novo trial completed), schizophrenia + AUD (Copenhagen tirzepatide trial), HIV + AUD (Yale, Vanderbilt), PTSD + AUD (oxytocin trial), depression (bidirectional, see Warnings). [verified via registry]</li>
+<li><strong>Bariatric surgery cross-addiction</strong>: gastric bypass raises AUD risk. US LABS-2: AUD symptoms 7.6% before, 7.3% at year 1, <strong>9.6% at year 2</strong> [verified; King 2012, PMID 22710289]; 5-year new AUD symptoms <strong>20.8% after gastric bypass vs 11.3% after banding</strong> (HR 2.08) [verified; King 2017, PMID 28528115]. Swedish SOS, 25-yr follow-up: gastric bypass AUD HR <strong>5.07</strong>, alcohol-related death HR <strong>6.18</strong> vs usual care [verified; Sjöholm 2025, PMID 41066138]. Likely mechanism: faster alcohol absorption and higher blood alcohol peaks after bypass [reported, consensus]; the "swapping food for alcohol" story is popular but less proven [inferred]. A Yale pilot is testing semaglutide for AUD after bariatric surgery. [verified; NCT07223983]</li>
+</ul>
+<hr />
+<h2 id="7-usual-questions-people-ask">7. Usual questions people ask</h2>
+<p><strong>Does Ozempic stop drinking?</strong> It reduces it for many, it doesn't switch it off. Best trial: heavy drinking days fell 41 points on semaglutide vs 26 on placebo, both with CBT, in people with obesity. Effects on drinking days and abstinence are weaker. Not approved for AUD anywhere. [verified]</p>
+<p><strong>Does it work for smoking/vaping?</strong> Mixed. Exenatide + patch: 46% vs 27% quit (pilot). Dulaglutide: no effect at all (32% vs 32% at one year). Semaglutide: fewer cigarettes per day in a small subsample; dedicated trials running. Varenicline remains far better supported (7 to 8 extra quitters per 100). [verified]</p>
+<p><strong>Is addiction a disease?</strong> Mainstream medicine treats it as a chronic, relapsing brain disorder with heritability and relapse rates similar to diabetes, hypertension and asthma. [verified McLellan 2000] Some scholars argue for a learning/choice model; this debate was not researched this pass. [gap]</p>
+<p><strong>How long do cravings last?</strong> Self-rated craving falls steadily over the first year, but the brain's cue response can peak at 1 to 6 months (incubation). Alcohol stress-hormone changes last 2 to 4 weeks. [verified PMIDs 27603142, 3010391]</p>
+<p><strong>Relapse rates?</strong> About 40 to 60% relapse within a year, similar to other chronic illnesses. [reported, NIDA citing McLellan 2000] In the dulaglutide smoking trial, quitters fell from ~64% at 12 weeks to 32% at 1 year in both arms. [verified] Risk of death spikes 6x in the month after stopping opioid agonist treatment. [verified]</p>
+<p><strong>Cross-addiction after bariatric surgery?</strong> Real for gastric bypass: roughly 1 in 5 develop new AUD symptoms within 5 years; risk 2 to 5x usual care. [verified]</p>
+<p><strong>Can GLP-1s cause low mood or anhedonia?</strong> Regulators say no causal link to suicidality (see Warnings). But a 2026 case series of 3 women on tirzepatide 15 mg/week described flatness and lost motivation that eased when the dose was lowered to ≤10 mg, and returned on re-escalation in one. [verified; Nadolsky 2026, PMID 42518361] Observationally, depression and suicidal thoughts are <em>lower</em> in GLP-1 users (e.g. HR 0.27 to 0.44 for suicidal ideation). [verified; Wang 2024, PMID 38182782] Both can be true: rare individual blunting vs population-level benefit. [inferred]</p>
+<p><strong>How many people on Ozempic or Mounjaro actually drink less?</strong> About 1 in 3. A nationally representative US survey of 1,179 people who had just started a GLP-1 found 31.1% said they drank less and 6.0% said they drank more. [reported via news coverage; record verified, Uscher-Pines 2026, JAMA Psychiatry, PMID 42873517, <a href="https://doi.org/10.1001/jamapsychiatry.2026.3242">doi:10.1001/jamapsychiatry.2026.3242</a>] In a WeightWatchers survey (~14,000 members on any weight-loss drug, ~7,500 drinkers), about 3,400 moved to a lower drinking category. [reported, <a href="https://www.eurekalert.org/news-releases/1067116">Henry Ford/EurekAlert release, Nov 2024</a>; Miller-Matero 2024, JAMA Netw Open] In the NIH All of Us cohort, current users scored about 5% lower on AUDIT-C, driven by drinking frequency, not binges. [verified, Tyndall 2026, PMID 42423024, <a href="https://doi.org/10.1111/acer.70357">doi:10.1111/acer.70357</a>]</p>
+<p><strong>Does it help opioid addiction?</strong> Early signs only. One 20-person liraglutide trial in residential treatment cut craving by roughly 30 to 40% over 19 days, with GI dropouts at higher doses. Large health-record studies link GLP-1 use to about 25 to 40% fewer overdoses. Methadone and buprenorphine remain the proven options, halving death rates. [verified + reported, section 2e, 2c, 4]</p>
+<p><strong>Does it help gambling?</strong> No trial exists (0 registered, Nov 2026). The drugs with some evidence are the opioid antagonists: nalmefene (SMD −0.86) and naltrexone (−0.42) in a 2024 network meta-analysis of 16 RCTs (n=977), with high side-effect dropouts (OR about 7.5). Cochrane rates this evidence very low to low certainty. [verified, Ioannidis 2024, PMID 39675219, <a href="https://doi.org/10.1016/j.comppsych.2024.152566">doi:10.1016/j.comppsych.2024.152566</a>; Dowling 2022, PMID 36130734]</p>
+<p><strong>Are BPC-157 or Semax legal now in the US, and do they help addiction?</strong> Since late Oct 2026 HHS tolerates pharmacy compounding of both with a prescription under strict conditions (draft, non-binding, not approval). Neither has any human addiction study. BPC-157's addiction data are mouse and rat only. [verified]</p>
+<p><strong>Does NAD+ IV work for withdrawal?</strong> No controlled trial exists. The only human data are two uncontrolled 50-patient reports from authors linked to a company, and documented cases of withdrawal seizures when NAD+ was used instead of medical detox. ClinicalTrials.gov: 0 NAD+ addiction trials (re-checked 3 Nov 2026). [verified + reported, section 11]</p>
+<p><strong>Does semaglutide help in people without obesity?</strong> Unclear. The strongest RCT (Klausen 2026) enrolled only people with obesity. The 2022 exenatide trial helped only the obese subgroup. Hendershot 2025 (mixed weights, low dose) cut drinks per drinking day but not drinking days. [verified]</p>
+<p><strong>Does it make alcohol feel different?</strong> Often, yes. In a 20-person lab study alcohol's rise in breath level and felt effect were delayed on GLP-1 drugs, not explained by nausea. Users describe feeling drunk faster, less buzz and worse hangovers. Rats on semaglutide, tirzepatide or retatrutide also "felt" alcohol less. [verified, Quddos 2025, PMID 41093891; reported community; verified preprint]</p>
+<p><strong>What happens when you stop?</strong> Unknown. A trial specifically studying stop/restart of tirzepatide and craving is recruiting (NCT07387796). Weight data suggest effects fade off-drug; the dulaglutide smoking trial lost its weight benefit after stopping. [verified registry; inferred extrapolation]</p>
+<hr />
+<h2 id="8-negative-mirror-failures-nulls-concerns">8. Negative mirror (failures, nulls, concerns)</h2>
+<ul>
+<li>Exenatide AUD trial (2022): <strong>missed primary outcome</strong>. [verified]</li>
+<li>Oral semaglutide AUD trial (2026): <strong>missed primary outcome</strong> (lab craving) and no change in drinks per day. [verified]</li>
+<li>Hendershot 2025: no change in drinks per day or drinking days; only 9 weeks, low dose, n=48. [verified]</li>
+<li>Dulaglutide smoking trial: <strong>zero</strong> benefit on quitting at any timepoint. [verified]</li>
+<li>Acute exenatide cocaine lab study: <strong>null</strong>. [verified]</li>
+<li>Exenatide did not change inflammatory or metabolic blood markers in AUD vs placebo. [verified; PMID 40630018]</li>
+<li>Boston exenatide alcohol trial <strong>terminated</strong> (n=8); UTHealth exenatide cocaine trial <strong>withdrawn</strong>. Reasons not stated in registry. [verified status]</li>
+<li>Medicare study: no SUD benefit vs SGLT2 inhibitors. [verified]</li>
+<li>Oxytocin's biggest AUD trial: null. [verified]</li>
+<li>Psilocybin re-dose effects transient. [verified]</li>
+<li>Psychiatric-outcome review (26 studies): of 9 RCTs, only 3 hit their psychiatric primary outcome, 6 did not. [verified; Meshkat 2025, PMID 40635383]</li>
+<li>Editorial (Addiction 2026): "early clinical promise and uncertain long-term use". [verified title; PMID 41715992]</li>
+<li><strong>Completed trials with no published paper (v2 status, 3 Nov 2026)</strong>: STAR-T Tulsa (n=80, no results), Novo ALD trial (n=270, no results), exenatide smoking RCT (n=140, no results), semaglutide nicotine lapse (n=24, results posted on registry, no paper), liraglutide OUD (n=27, results posted, presented and cited in a review, no stand-alone paper found). Unpublished completed trials can hide nulls. [verified status; inferred risk]</li>
+<li><strong>Pharmacovigilance:</strong> in FDA adverse-event reports (2004 to 2024), semaglutide showed a reporting signal for depression (ROR 1.87) and suicide/self-injury (ROR 1.73); liraglutide and tirzepatide did not. Reporting databases cannot show cause and are skewed by media attention. [verified, Wang 2025, J Affect Disord, PMID 40523410, <a href="https://doi.org/10.1016/j.jad.2025.119670">doi:10.1016/j.jad.2025.119670</a>] A 2026 Bradford Hill review concluded evidence is insufficient to establish causality for most psychiatric outcomes. [verified, Schifano 2026, PMID 42624955]</li>
+</ul>
+<hr />
+<h2 id="9-options-how-a-page-could-frame-them-factual-only">9. Options (how a page could frame them, factual only)</h2>
+<ol>
+<li>Proven medical options first: naltrexone, acamprosate (alcohol); methadone, buprenorphine (opioids); varenicline, cytisine, NRT (nicotine); contingency management and CBT (all, especially stimulants). [verified]</li>
+<li>GLP-1 drugs: strongest emerging option for alcohol, especially with obesity; currently off-label; phase 3 results 2028 to 2029. [verified]</li>
+<li>Peptides marketed online for addiction (Selank, Semax, BPC-157, DSIP, kisspeptin, Cerebrolysin): <strong>no controlled human addiction data</strong>. Say so plainly. [verified absence this pass]</li>
+<li>Oxytocin: tested properly, mostly failed for drinking. [verified]</li>
+</ol>
+<hr />
+<h2 id="10-warnings-bottom-of-page">10. Warnings (bottom of page)</h2>
+<ul>
+<li><strong>Regulators on suicidality</strong>: EMA PRAC (April 2024) concluded the evidence does not support a causal link between GLP-1 drugs and suicidal thoughts; no label change. [verified; EMA PRAC highlights 8 to 11 Apr 2024] FDA (13 Jan 2026) reviewed 91 placebo-controlled trials (107,910 patients) and a Sentinel cohort of 2.24 million people, found no increased risk, and asked makers of Wegovy, Saxenda and Zepbound to <strong>remove</strong> the suicidality warning. [verified; FDA Drug Safety Communication, updated 3 Apr 2026]</li>
+<li>Trials of GLP-1 drugs for addiction exclude people with recent suicidal ideation/behaviour and advanced liver disease (e.g. RENEW-ALC-2). Results don't apply to them. [verified registry]</li>
+<li>Rare anhedonia/flatness reports at high doses (case reports only). [verified]</li>
+<li>Alcohol withdrawal can be dangerous (seizures, delirium tremens); stopping heavy drinking abruptly is a medical issue. Benzodiazepines are the standard used in trials. [reported, consensus; verified that oxazepam was used in Melby 2019]</li>
+<li>Stopping methadone/buprenorphine: death risk 6x in the next 4 weeks. [verified]</li>
+<li>GI side effects are the main GLP-1 adverse events in all addiction trials. [verified]</li>
+<li>Ibogaine: fatal arrhythmias reported; QT prolongation measured in trials. [verified]</li>
+<li>Cerebrolysin: more non-fatal serious adverse events in stroke trials. [verified]</li>
+<li>Bariatric bypass patients: higher alcohol risk long term. [verified]</li>
+<li><strong>Regulatory (v2):</strong> no peptide here is approved for addiction. The Oct 2026 HHS draft interim policy covers compounding of BPC-157, Semax and four others under conditions; it is not FDA approval and excludes research-chemical sellers. DSIP and Selank are outside it. [verified, <a href="https://public-inspection.federalregister.gov/2026-22192.pdf">Federal Register notice 2026-22192</a>]</li>
+<li><strong>NAD+ IV is not a detox:</strong> documented withdrawal seizures and hallucinations when alcohol or benzodiazepine withdrawal was handled with NAD+ alone. [reported, KFF Health News/NPR 2019]</li>
+<li>Doses in this file are only as reported in studies, not recommendations.</li>
+</ul>
+<hr />
+<h2 id="11-community-findings-outside-reddit-folded-in-from-adhd-add">11. Community findings outside Reddit (folded in from ADHD Addiction Peptides v1)</h2>
+<p>All forum material is [reported]; tallies counted from pages as fetched 3 Nov 2026. Sources: Mumsnet (8 threads), Drugs.com, LessWrong, BenzoBuddies, NPR/KFF, PBS NewsHour, VICE, AlterNet, Science-Based Medicine, podcast pages. Reddit and vendor pages excluded.</p>
+<p><strong>GLP-1 drugs and alcohol</strong>
+- About 42 first-hand posters: about 38 less drinking or desire, 3 no change, 1 drinking more.
+- In their words (paraphrased): "alcohol noise gone", take-or-leave, stop after 2 or 3 drinks, wine tastes too sweet or "vile", drunk faster, worse hangovers.
+- Former heavy drinkers in the count include about 50 units a week and a bottle of vodka a day (PBS).
+- Timing: day one to week 3 for most who gave a time. Fits the trial pattern of fewer drinks per drinking day within weeks. [verified, Hendershot 2025]
+- After stopping: split. Some stayed uninterested months later; one had alcohol and food noise return within a month. No trial has measured this. [reported; verified absence]
+- <strong>Forum rate vs survey rate:</strong> forums run about 90% "less"; the representative survey shows about 31%. Forums over-sample dramatic responders. [inferred]
+- Clinician-observed: a large US treatment centre has prescribed GLP-1s off-label to over 600 patients over 2 years; its medical lead calls it "not a silver bullet" (has a programme to sell). A Rhode Island sober-housing pilot (~18 to 20 residents) reported lower craving, some relapses. A Stanford addiction psychiatrist reported one patient with complete craving loss and warned about substitution. [reported, PBS Oct 2026, Wyoming Public Media, Attia podcast page]</p>
+<p><strong>GLP-1 drugs: smoking, vaping, other urges</strong>
+- 1 Mumsnet vaper: no change on Mounjaro. Shopping, fizzy-drink and food urges down in a handful. [reported]
+- Gambling: listed in a 2026 review as investigational with no trial data. [verified, Bissig 2026, PMID 42147309]</p>
+<p><strong>Tirzepatide flatness</strong>
+- 8 of 13 Mounjaro posters in one Mumsnet low-mood thread described flatness, 5 of whom improved after a dose cut or stopping. Matches a 3-case report at the top dose. [reported; verified, Nadolsky 2026, PMID 42518361] Note the FAERS signal pointed at semaglutide, not tirzepatide; forum and database signals disagree. [inferred]</p>
+<p><strong>Amylin drugs (cagrilintide, salmon calcitonin)</strong>
+- Rats only. Added to dulaglutide, salmon calcitonin cut alcohol intake in both sexes; injected into one brain area it cut intake in males but not females. [verified, Aranäs 2024, PMID 39639536; Aranäs 2026, PMID 41763298] Novo's human trial (NCT06409130) has no results yet.</p>
+<p><strong>NAD+ IV (the addiction-clinic favourite)</strong>
+- Clinic claims: cravings gone in days, 70 to 90% craving-free by day 5 to 10. Courses cost up to about $15,000. [reported, KFF/NPR 2019, AlterNet 2014]
+- Published human data: two uncontrolled reports on the same 50 poly-drug patients (NAD+ mixed with amino acids and B vitamins), counsellor-collected ratings, authors linked to a company selling a related product. [verified, Blum 2022, PMID 36118157; Blum 2024, PMID 39949994]
+- First-hand: about 9 positive press and clinic stories; 3 documented failures (withdrawal seizures and hallucinations, relapse, a DUI). [reported, KFF/NPR 23 Aug 2019]
+- Expert: "no published evidence" of benefit for addiction. [verified page, Science-Based Medicine, Dec 2021]</p>
+<p><strong>Selank, BPC-157, DSIP, Semax, others</strong>
+- Selank: a BenzoBuddies thread on using it during a clonazepam taper; no one had actually tried it. Mouse study: blocked alcohol-induced sensitisation. [reported; verified, Kolik 2016, PMID 27878720]
+- BPC-157: no first-hand craving or withdrawal reports. Mouse studies: reduced acute alcohol intoxication and withdrawal seizures; also <strong>blunted morphine pain relief</strong> in mice, relevant for anyone on opioid pain control. [verified, PMIDs 15381050, 16369461, 20388962]
+- DSIP: one recovery podcast mention for sleep in opioid withdrawal. FDA advisers rejected it July 2026. [reported]
+- Semax, Cerebrolysin, kisspeptin, Epitalon, MOTS-c, SS-31, Pinealon, Dihexa, P21: no addiction studies, no community reports. [verified absence]
+- A recovery-coach podcast (hosts with peptide-business ties) described blending low-dose GLP-1s for clients and reported retatrutide dimming libido and mood in some. [reported, commercial flag]</p>
+<p><strong>Ranked view (community signal x study quality)</strong>
+1. Semaglutide: B for alcohol (RCT + large cohorts + strong forum signal).
+2. Tirzepatide: C (forum signal, observational data, trials running).
+3. Liraglutide: C for opioid craving (one small RCT).
+4. Retatrutide, amylin drugs: D (animal only).
+5. NAD+ IV: C− (marketing strong, evidence weakest).
+6. DSIP: C− (1984 uncontrolled).
+7. Oxytocin: C, negative (100-person RCT null).
+8. Selank, BPC-157: D (animal only).
+9. The rest: E.</p>
+<hr />
+<h2 id="flags-inaccessible-or-unverified">Flags (inaccessible or unverified)</h2>
+<ul>
+<li>NIDA relapse-rate page: fetch blocked by allowlist. 40 to 60% figure tagged [reported].</li>
+<li>v2: Uscher-Pines 2026 abstract, PMC page and JAMA page were all unreachable (PubMed lists no abstract; allowlist blocked the others; the news site errored). Numbers remain from news coverage.</li>
+<li>v2: ClinicalTrials.gov results tabs (NCT04199728, NCT05530577) blocked; only the "has results" flag was read through the registry API.</li>
+<li>Full texts not opened: Klausen 2026 Lancet secondary outcomes (drinks per day, liver, PEth numbers), Wang 2024 JAMA Netw Open opioid overdose HR (abstract not available in PubMed). Tobacco target-trial paper resolved in v2.</li>
+<li>Agabio Cochrane baclofen review not retrieved directly; cited through Rolland 2024.</li>
+<li>Reddit: no systematic count of negative/no-change posts; only one peer-reviewed Reddit analysis (Quddos 2023), which grouped "other negative effects" with craving reduction in its 71%.</li>
+<li>Brenipatide data are from a company presenter, phase 1, no efficacy.</li>
+</ul>
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<ol>
+<li>Uscher-Pines 2026 full text: breakdown by drug, baseline drinking level and AUD subgroup, and the exact "no change" share. Try the browser on jamanetwork.com or PMC13670115.</li>
+<li>Open the posted ClinicalTrials.gov results for NCT04199728 (liraglutide OUD) and NCT05530577 (semaglutide nicotine lab) with the browser and extract per-arm numbers.</li>
+<li>Recheck STAR-T (NCT05891587), Novo NCT06409130 and UTHealth NCT05610800 for results or conference abstracts (RSA June 2026, CPDD June 2026, AASLD Nov 2026).</li>
+<li>Klausen 2026 Lancet full text: drinks per day, PEth, liver enzymes, weight, dropout by arm.</li>
+<li>Matero/Miller-Matero 2024 JAMA Netw Open PubMed record and exact percentages, including the metformin comparison.</li>
+<li>WHO ICTRP and EU CTR search for GLP-1 gambling, compulsive buying and food-addiction trials.</li>
+<li>Systematic Reddit sweep (ChatGPT) and X sweep (Grok) including no-change and negative reports, compared with section 11 tallies.</li>
+<li>Tirzepatide vs semaglutide psychiatric signal: EudraVigilance or a second FAERS analysis to reconcile forum (tirzepatide flatness) vs FAERS (semaglutide) signals.</li>
+<li>NIDA/SAMHSA relapse statistics via an accessible source; addiction-as-disease counterarguments (Lewis, Heyman).</li>
+<li>Selank/Semax Russian clinical literature (eLibrary) for any human withdrawal studies.</li>
+<li>Watch the HHS peptide policy (comments close about 13 Nov 2026) and any FDA proposed rule.</li>
+<li>Long-term durability: any GLP-1 addiction trial with follow-up after the drug stops.</li>
+<li>Kisspeptin rodent impulsivity papers to settle direction of effect (still open from v1).</li>
+</ol></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

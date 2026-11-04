@@ -1,0 +1,619 @@
+<!doctype html>
+<!-- Goal research notes: Knee, from Knee Research v1.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Collagen peptides have the best human knee data, across 35 trials. Half of ACL tears treated with rehab never needed surgery.">
+<title>Knee · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Knee</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 1</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">Collagen peptides have the best human knee data, across 35 trials. Half of ACL tears treated with rehab never needed surgery. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (12)</summary><ol><li><a href="#0-page-summary-the-8-lines-a-reader-should-leave-with">0. Page summary (the 8 lines a reader should leave with)</a></li><li><a href="#1-the-conditions-so-readers-can-match-their-symptoms">1. The conditions (so readers can match their symptoms)</a></li><li><a href="#2-standard-treatments-with-numbers">2. Standard treatments with numbers</a></li><li><a href="#3-every-peptide-that-touches-the-knee-evidence-from-the-endp">3. Every peptide that touches the knee (evidence from the endpoint)</a></li><li><a href="#4-what-people-report-claude-s-own-search-outside-reddit-3-no">4. What people report (Claude&#x27;s own search outside Reddit; 3 Nov 2026)</a></li><li><a href="#5-pairings-and-related-conditions">5. Pairings and related conditions</a></li><li><a href="#6-options-ordered-by-evidence">6. Options (ordered by evidence)</a></li><li><a href="#7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</a></li><li><a href="#8-warnings-bottom-of-page">8. Warnings (bottom of page)</a></li><li><a href="#9-source-list-primary-this-pass">9. Source list (primary, this pass)</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Knee Research v1</h1>
+<p>Research pass for the Knee goal page on baresignals.co (ACL, meniscus, jumper's knee, knee osteoarthritis, MCL, post-surgery). Compiled 3 Nov 2026. About 70 searches and fetches: PubMed (via NCBI), ClinicalTrials.gov, web search, forums and clinician blogs.
+Tags: [verified] = read in the primary abstract or registry record this pass. [reported] = secondary source, or a primary detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Doses appear only as reported in studies. No suppliers or vendors named; commercial trial sponsors described, not named.
+Tendon basics (how tendons heal, loading rules, cortisone/PRP/shockwave pattern, peptide grade table, WADA block, BPC-157 PK) live in <strong>Tendon Base v1.md</strong> and are referenced, not repeated. Patellar tendinopathy uses the Tendon Base per-tendon table; this file adds only knee-specific numbers.</p>
+<hr />
+<h2 id="0-page-summary-the-8-lines-a-reader-should-leave-with">0. Page summary (the 8 lines a reader should leave with)</h2>
+<ol>
+<li>Most knee problems in this group get better with structured rehab: half of young adults with a torn ACL never needed reconstruction in two randomised trials, with the same results at 2, 5 and 11 years. [verified]</li>
+<li>For meniscus tears without locking, physio equals surgery in people 45 to 70 and in young adults 18 to 40, and keyhole meniscus trimming equals sham surgery. [verified]</li>
+<li>Ligament inside the joint (ACL) heals poorly because joint fluid dissolves the healing clot; ligament outside the joint (MCL) usually heals on its own in weeks. [verified/reported]</li>
+<li>After ACL reconstruction 81% return to some sport but only 55% to competitive level; roughly 1 in 4 young athletes who go back to pivoting sport injure an ACL again. [verified]</li>
+<li>Knee osteoarthritis: semaglutide (STEP 9) cut pain more than placebo, mostly via weight loss; PRP and hyaluronic acid did not beat placebo in the best trials; repeated cortisone thinned cartilage. [verified]</li>
+<li>BPC-157's only human knee data is one uncontrolled phone survey of 16 people (14 reported relief). Every other BPC-157, TB-500 and GHK-Cu knee finding is in rats. [verified]</li>
+<li>Collagen peptides have the strongest human knee data of anything called a "peptide" here: small but real pain reductions in randomised trials. [verified]</li>
+<li>Community reports outside Reddit: 5 first-hand knee reports for BPC-157 (all positive, 1 clinician-observed), 2 for collagen (both positive); 0 knee "worse". Non-knee reports in the same threads were mixed (12 better, 8 no change). [verified count of what I read]</li>
+</ol>
+<hr />
+<h2 id="1-the-conditions-so-readers-can-match-their-symptoms">1. The conditions (so readers can match their symptoms)</h2>
+<h3>1.1 ACL tear (anterior cruciate ligament)</h3>
+<ul>
+<li><strong>What it is:</strong> the ligament in the middle of the knee that stops the shin sliding forward and twisting under the thigh. Usually torn without contact: landing, cutting, pivoting, or a sudden stop. [reported]</li>
+<li><strong>Symptoms:</strong> a pop, fast swelling within hours (blood in the joint), a knee that "gives way" when turning. Many can walk within days, which fools people into thinking it is minor. [reported]</li>
+<li><strong>Who:</strong> KANON trial participants were young active adults, mean age 26, 74% male (<a href="https://doi.org/10.1056/EVIDoa2200287">Lohmander 2023 NEJM Evidence</a>). [verified] Female athletes are commonly cited at 2 to 8 times the ACL rate of males in jumping and cutting sports [reported; primary not retrieved this pass].</li>
+<li><strong>In her circle's sports:</strong> basketball (jumping, cutting) and BJJ. In IBJJF competition, athletes exposed to the heel hook had 26.5 knee injuries per 1,000 matches vs 2.2 unexposed, about 12 times higher (<a href="https://doi.org/10.1177/19417381251400303">Piekarski 2026 Sports Health</a>). [verified] Knee was the single most common injured location in US emergency visits for martial arts, 9.7% of 8,400 cases (<a href="https://doi.org/10.1016/j.injury.2023.111089">Bickley 2023 Injury</a>). [verified] Padel: no ACL figure found; the main padel review does not discuss ACL. [verified absence in that review]</li>
+<li><strong>Imaging:</strong> MRI confirms the tear and shows bone bruises, meniscus and cartilage damage. Clinical tests (Lachman, pivot shift) are standard. [reported]</li>
+<li><strong>Natural history (no surgery):</strong> In KANON, 16 of 30 people managed with rehab alone (53%) showed a continuous ACL on MRI at 2 years, and they had better 2-year scores than both non-healed and reconstructed knees (<a href="https://doi.org/10.1136/bjsports-2022-105473">Filbay 2022 BJSM</a>). [verified] <strong>But</strong> at 11 years, ACL continuity on the 5-year MRI was linked to <em>worse</em> scores than reconstruction (adjusted difference about 15 to 20 points) (<a href="https://doi.org/10.1177/03635465251339061">Filbay 2025 AJSM</a>). [verified] So "my ACL healed on the scan" is not the end of the story.</li>
+<li><strong>Cross Bracing Protocol:</strong> an Australian method that braces the knee at 90 degrees for weeks so the torn ends can touch and heal. One 2026 case: an elite female Australian rules footballer, complete rupture, normal-looking ACL on MRI by 36 months, back to elite play at 1 year (<a href="https://doi.org/10.1002/ccr3.72818">Mead 2026 Clin Case Rep</a>); MRI criteria to pick who may heal were published in 2025 (<a href="https://doi.org/10.1016/j.jsams.2025.08.017">Filbay 2025 JSAMS</a>). [verified] One case, no control; the RCT is not yet reported. [gap]</li>
+</ul>
+<h3>1.2 Meniscus tear</h3>
+<ul>
+<li><strong>What it is:</strong> two C-shaped cartilage shock absorbers between thigh and shin bone. Young people tear them by twisting (traumatic); older people get gradual fraying (degenerative). [reported]</li>
+<li><strong>Symptoms:</strong> pain on the inside or outside joint line, swelling the next day, catching. True <strong>locking</strong> (the knee gets stuck and cannot straighten) is the one symptom that changes the plan toward surgery; the big trials excluded it. [verified exclusion criterion in ESCAPE]</li>
+<li><strong>Imaging trap:</strong> in a random sample of 991 people aged 50 to 90, MRI showed a meniscus tear in 19% of women 50 to 59 up to 56% of men 70 to 90, and 61% of people with a tear had no knee pain in the past month (<a href="https://doi.org/10.1056/NEJMoa0800777">Englund 2008 NEJM</a>). [verified] A tear on MRI after 40 is often not the cause of the pain.</li>
+<li><strong>Padel:</strong> medial meniscus problems and MCL injury are listed among the common padel knee injuries, without percentages (<a href="https://journal.aspetar.com/en/journals/volume-12-targeted-topic-sports-medicine-in-padel/injuries-in-padel">Aspetar Journal review</a>). [verified]</li>
+<li><strong>Natural history:</strong> both trial arms improve a lot (see 2.2). Forum anecdote: one 47-year-old reported a meniscus tear took two years to settle without treatment, now about 95% (<a href="https://rokslide.com/forums/threads/meniscus-tear-wont-heal.310861">Rokslide meniscus thread</a>). [reported, anecdotal]</li>
+<li><strong>Why it heals poorly:</strong> only the outer rim has a blood supply; the inner part relies on joint fluid. [reported; primary vascular study not retrieved this pass, gap] Removing meniscus (meniscectomy) is the most consistent risk factor for arthritis 10+ years after an ACL injury (<a href="https://doi.org/10.1136/bjsports-2018-099751">Lie 2019 BJSM</a>; <a href="https://doi.org/10.1177/03635465251405438">Shah 2026 AJSM</a>). [verified]</li>
+</ul>
+<h3>1.3 Patellar tendinopathy (jumper's knee)</h3>
+<p>See Tendon Base v1, section 2 (patellar column) for loading plan, cortisone, PRP and shockwave results.
+- <strong>Symptoms:</strong> pain just below the kneecap on jumping, landing, squatting, stairs; often "warms up" then hurts later. [reported]
+- <strong>How common:</strong> 613 Norwegian elite athletes: 14.2% had it currently; <strong>volleyball 44.6%, basketball 31.9%</strong>, none in cycling; mean symptom duration 32 months (<a href="https://doi.org/10.1177/0363546504270454">Lian 2005 AJSM</a>). [verified] Padel lists it as a common cause of knee pain, males 2 to 4 times more often (<a href="https://journal.aspetar.com/en/journals/volume-12-targeted-topic-sports-medicine-in-padel/injuries-in-padel">Aspetar review</a>). [reported within that review]
+- <strong>Natural history:</strong> 15-year follow-up: 53% of athletes with jumper's knee had quit their sport because of it, vs 7% of controls; symptoms were mild but lasting (<a href="https://doi.org/10.1177/03635465020300051001">Kettunen 2002 AJSM</a>). [verified, small: 20 vs 16 responders]
+- <strong>Surgery vs exercise:</strong> open tenotomy equalled 12 weeks of decline-board eccentric squats at 12 months (VISA from 30 to 70 in both); 5 of 20 exercise knees went on to surgery (<a href="https://doi.org/10.2106/JBJS.E.01181">Bahr 2006 JBJS</a>). [verified] This fills Tendon Base gap 3.</p>
+<h3>1.4 MCL sprain (medial collateral ligament)</h3>
+<ul>
+<li><strong>What it is:</strong> ligament on the inside of the knee, injured by a blow or force pushing the knee inward (valgus): tackles, BJJ guard passes, padel lunges. [reported]</li>
+<li><strong>Grades:</strong> I (stretched), II (partial), III (complete). Grade III often comes with an ACL tear. [reported]</li>
+<li><strong>Natural history:</strong> a 2024 systematic review (26 reports, 1,912 patients) found exercise therapy "success" in 70 to 98%; return to sport 3 to 12 weeks; about 10 days missed for grade I and 35 days for grade II in football data (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11202733/">Svantesson 2024 BMJ OSEM, PMC full text</a>). [verified via full text; evidence rated very low quality by the authors] Femoral-side tears tend to do well; tibial-side can be harder. [verified in same review]</li>
+<li><strong>With ACL:</strong> nonoperative grade I to II MCL plus ACL reconstruction gave the same 2-year scores as isolated ACL reconstruction (34 vs 119 patients) (<a href="https://doi.org/10.1016/j.jisako.2025.101054">Bae 2025 J ISAKOS</a>). [verified] Elite soccer and rugby (238 knees): 95.4% returned, mean 12.0 months, whether the MCL was treated or not (<a href="https://doi.org/10.1177/03635465261448236">Abdul 2026 AJSM</a>). [verified]</li>
+</ul>
+<h3>1.5 Knee osteoarthritis</h3>
+<ul>
+<li><strong>What it is:</strong> wear and remodelling of joint cartilage, bone and lining; pain on loading, morning stiffness under 30 minutes, swelling. [reported]</li>
+<li><strong>Link to sport injury:</strong> 44% of KANON participants (injured at mean 26) had X-ray osteoarthritis by 11 years (<a href="https://doi.org/10.1056/EVIDoa2200287">Lohmander 2023</a>). [verified] In ACL-deficient knees at mean 11 years, 37.8% had X-ray arthritis vs 35.2% after reconstruction (5.0% in the other knee); moderate to severe 18.1% vs 12.8% (<a href="https://doi.org/10.1177/03635465251405438">Shah 2026</a>). [verified] So reconstruction does <strong>not</strong> clearly prevent arthritis.</li>
+<li><strong>Imaging:</strong> X-ray grade (Kellgren-Lawrence) for diagnosis; MRI shows bone marrow lesions and synovitis. Pain and X-ray severity correlate poorly. [reported]</li>
+</ul>
+<h3>1.6 Post-surgery recovery (ACL reconstruction, meniscus surgery, knee replacement)</h3>
+<ul>
+<li><strong>ACL graft:</strong> a reconstructed graft "ligamentises" over many months; return to sport clearance usually 9 to 12 months (see 2.1). [reported]</li>
+<li><strong>Second trauma:</strong> reconstruction keeps inflammatory signals (IL-6, IL-8, TNF) in joint fluid higher at 4 and 8 months than rehab alone (<a href="https://doi.org/10.1016/j.joca.2017.05.009">KANON synovial fluid analysis 2017, OAC</a>). [verified] Rehab-alone knees also showed less synovitis on MRI at 2 and 5 years (<a href="https://doi.org/10.1148/radiol.2021202954">Roemer 2021 Radiology</a>). [verified]</li>
+<li><strong>Quad weakness</strong> is the main limiter after ACL surgery; quad symmetry before return cuts re-injury (Grindem, 2.1). [verified]</li>
+</ul>
+<h3>1.7 Why ligament and cartilage heal poorly (one paragraph for the page)</h3>
+<ul>
+<li><strong>ACL (inside the joint):</strong> bleeding happens, but the fibrin-platelet clot that normally bridges a wound never forms or is dissolved: joint fluid carries plasmin, and injury increases its activator. Cells can still multiply and migrate; the missing piece is the scaffold (<a href="https://research.childrenshospital.org/research-units/sports-medicine-research-laboratory-research/scientific-problem">Boston Children's Sports Medicine Research Lab summary</a>). [reported; primary Murray papers not retrieved, gap] This is why bracing protocols and scaffold surgery try to keep torn ends together. [inferred]</li>
+<li><strong>MCL (outside the joint):</strong> surrounded by soft tissue with blood supply, it forms a normal clot and heals, which is why rats are a good MCL model and why most MCL sprains need no surgery. [inferred from the above plus Svantesson 2024]</li>
+<li><strong>Cartilage:</strong> no blood vessels, few cells; adult damage is mostly not replaced. [reported] Tendon renewal: see Tendon Base 1.1.</li>
+</ul>
+<hr />
+<h2 id="2-standard-treatments-with-numbers">2. Standard treatments with numbers</h2>
+<h3>2.1 ACL: rehab vs surgery</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Who</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial"><strong>KANON</strong> 2-year (<a href="https://doi.org/10.1056/NEJMoa0907797">Frobell 2010 NEJM</a>)</td>
+<td data-l="Who">121, mean 26 y</td>
+<td data-l="Result">KOOS4 gain 39.2 (early surgery) vs 39.4 (rehab, optional later surgery); 36 of 59 (61%) never had surgery by 2 y [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">KANON 5-year (<a href="https://doi.org/10.1136/bmj.f232">Frobell 2013 BMJ</a>)</td>
+<td data-l="Who">same</td>
+<td data-l="Result">Difference 2.0 points; 30 of 59 (51%) had delayed surgery; no difference in meniscus surgery or X-ray OA [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">KANON 11-year (<a href="https://doi.org/10.1056/EVIDoa2200287">Lohmander 2023 NEJM Evid</a>)</td>
+<td data-l="Who">88% followed</td>
+<td data-l="Result">Difference 1.6 points; 52% of optional arm reconstructed; ~2/3 "acceptable symptom state"; 44% X-ray OA; OA feature score 2.4 early vs 1.0 rehab-first [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">KANON cost (<a href="https://doi.org/10.1136/bjsports-2015-095308">KANON cost analysis 2016 BJSM</a>)</td>
+<td data-l="Who">same</td>
+<td data-l="Result">Rehab alone cost about €13,650 less than early surgery over 5 y [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>COMPARE</strong> (<a href="https://doi.org/10.1136/bmj.n375">Reijman 2021 BMJ</a>)</td>
+<td data-l="Who">167, mean 31 y, 40% women</td>
+<td data-l="Result">IKDC 5.3 points better with early surgery at 2 y (statistically significant, below clinical importance); rehab group better at 3 months; 50% of rehab arm reconstructed; re-ruptures 4 + 3 contralateral (early) vs 2 + 1 [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">COMPARE failures (<a href="https://doi.org/10.1177/03635465211068532">van der Graaff 2022 AJSM</a>)</td>
+<td data-l="Who">82 rehab arm</td>
+<td data-l="Result">41 had surgery, median 6.4 months, mostly between 3 and 6 months; 90% for instability; they were younger (27.4 vs 35.3) and more active [verified]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Takeaway [inferred]: rehab first is a legitimate choice; younger, high-level pivoting athletes with instability are the ones who end up needing surgery.</p>
+<p><strong>Return to sport after reconstruction</strong> (<a href="https://doi.org/10.1136/bjsports-2013-093398">Ardern 2014 BJSM</a>, 69 studies, 7,556 people): 81% any sport, 65% pre-injury level, <strong>55% competitive</strong>. [verified] Fear of re-injury was the most common reason for stopping (<a href="https://doi.org/10.1136/bjsm.2010.076364">Ardern 2011</a>). [verified]
+<strong>Re-injury</strong> (<a href="https://doi.org/10.1177/0363546515621554">Wiggins 2016 AJSM</a>, 19 studies): second ACL injury 15% overall (7% same knee, 8% other knee); 21% under 25; <strong>23% under 25 who return to sport</strong>. [verified]
+<strong>Timing rule</strong> (<a href="https://doi.org/10.1136/bjsports-2016-096031">Grindem 2016 BJSM</a>, 106 pivoting athletes): re-injury risk fell 51% for each month return was delayed up to 9 months; 38.2% re-injured if they failed return tests vs 5.6% if they passed; level I sports (jumping, cutting, pivoting: basketball, padel, BJJ) carried 4.3 times the re-injury rate. [verified]
+<strong>Elite:</strong> ACL with or without MCL: 95.4% returned at mean 12 months; 67.7% still playing at 5 years (<a href="https://doi.org/10.1177/03635465261448236">Abdul 2026</a>). [verified]</p>
+<h3>2.2 Meniscus: surgery vs physio</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Who</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial"><strong>FIDELITY/FIDESCO</strong> (<a href="https://doi.org/10.1056/NEJMoa1305189">Sihvonen 2013 NEJM</a>)</td>
+<td data-l="Who">146, age 35 to 65, degenerative, no OA</td>
+<td data-l="Result">Keyhole partial meniscectomy = <strong>sham surgery</strong> at 12 months on all outcomes [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>ESCAPE</strong> (<a href="https://doi.org/10.1001/jama.2018.13308">van de Graaf 2018 JAMA</a>)</td>
+<td data-l="Who">321, age 45 to 70, no locking</td>
+<td data-l="Result">16 physio sessions over 8 weeks non-inferior: +20.4 vs +26.2 IKDC; 29% of physio group had surgery later [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">ESCAPE patient-specific (<a href="https://doi.org/10.1177/2325967120954392">Noorduyn 2020</a>)</td>
+<td data-l="Who">same</td>
+<td data-l="Result">Difference 0.6 points, below the 2.5 that matters [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial"><strong>DREAM</strong> (<a href="https://doi.org/10.2519/jospt.2024.12245">Damsted 2024 JOSPT</a>)</td>
+<td data-l="Who">121, age 18 to 40</td>
+<td data-l="Result">Traumatic tears: surgery 18.8 vs exercise 16.0 KOOS4 gain (adjusted 4.8, CI crosses 0) at 12 months; exploratory [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Takeaway [inferred]: for this circle's ages, 12 weeks of supervised exercise first is backed by trials; locking, a displaced bucket-handle tear, or failure after 3 months are reasons to see a surgeon. Meniscus <em>repair</em> (not trimming) in young people was not trialled here. [gap]</td>
+<td data-l="Who"></td>
+<td data-l="Result"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 Patellar tendinopathy</h3>
+<p>Exercise loading first line; surgery = eccentrics (Bahr 2006, above); progressive tendon loading beat eccentrics (Breda 2021); PRP null; shockwave null; cortisone short gain then relapse. All in <strong>Tendon Base v1, section 2</strong>. [verified there]</p>
+<h3>2.4 MCL</h3>
+<p>Brace for grade II to III as needed, early weight bearing, range of motion and strength; surgery mostly for grade III with valgus instability in full extension or a tibial "Stener-like" lesion (<a href="https://doi.org/10.1177/03635465261448236">Abdul 2026 indications</a>; <a href="https://doi.org/10.1016/j.asmr.2023.03.006">Wright 2023 review</a>). [verified] Grade III combined with ACL reconstructed: 87.5 to 90.6% returned to previous activity. [verified, Wright 2023]</p>
+<h3>2.5 Knee osteoarthritis</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Treatment</th>
+<th>Best trial</th>
+<th>Numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Treatment">Exercise and weight loss</td>
+<td data-l="Best trial">Reviews</td>
+<td data-l="Numbers">First line in every guideline reviewed (<a href="https://doi.org/10.1007/s43465-026-01885-0">Habib 2026</a>) [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment"><strong>Semaglutide 2.4 mg weekly (STEP 9)</strong></td>
+<td data-l="Best trial"><a href="https://doi.org/10.1056/NEJMoa2403664">STEP 9, NEJM 2024</a></td>
+<td data-l="Numbers">407 people, BMI ≥30 (mean 40.3), 81.6% women, mean 56 y; 68 weeks: weight -13.7% vs -3.2%; <strong>WOMAC pain -41.7 vs -27.5</strong> (0 to 100); physical function +12.0 vs +6.5; stopped for side effects 6.7% vs 3.0% (mostly gut) [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">PRP (3 weekly shots)</td>
+<td data-l="Best trial"><a href="https://doi.org/10.1001/jama.2021.19415">RESTORE, Bennell 2021 JAMA</a></td>
+<td data-l="Numbers">288 people: pain -2.1 vs -1.8 saline (not different); cartilage loss the same; 29 of 31 secondary outcomes no different [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Hyaluronic acid</td>
+<td data-l="Best trial"><a href="https://doi.org/10.1136/bmj-2022-069722">Pereira 2022 BMJ</a></td>
+<td data-l="Numbers">169 trials, 21,163 people; large trials: <strong>2 mm on a 100 mm scale</strong> better than placebo (below what matters); serious adverse events 1.49 times higher; equivalence with placebo conclusive since 2009 [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Cortisone every 3 months for 2 years</td>
+<td data-l="Best trial"><a href="https://doi.org/10.1001/jama.2017.5283">McAlindon 2017 JAMA</a></td>
+<td data-l="Numbers">140 people: more cartilage loss (-0.21 vs -0.10 mm) and <strong>no</strong> pain benefit vs saline [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">Supplements</td>
+<td data-l="Best trial"><a href="https://doi.org/10.1136/bjsports-2016-097333">Liu 2018 BJSM</a></td>
+<td data-l="Numbers">69 RCTs: collagen hydrolysate among 7 with large short-term pain effects; glucosamine and chondroitin small or none; nothing clinically important long term [verified]</td>
+</tr>
+<tr>
+<td data-l="Treatment">GLP-1 note: in STEP 9 the placebo group also improved by 27.5 points (diet, activity counselling, placebo, regression). [verified numbers, inferred meaning] A 2026 review says liraglutide produced extra weight loss without extra knee pain relief, and GLP-1s are not proven analgesics independent of weight (<a href="https://doi.org/10.3390/jcm15155932">JCM 2026 review</a>). [verified] A 2026 JBJS review called GLP-1s the only injectable peptide class with reproducible randomised knee OA benefit (<a href="https://doi.org/10.2106/JBJS.RVW.26.00027">Villegas Meza 2026</a>). [verified] Tirzepatide/retatrutide knee OA trial results: not found this pass. [gap]</td>
+<td data-l="Best trial"></td>
+<td data-l="Numbers"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.6 PRP around ACL surgery</h3>
+<p>One retrospective cohort (not randomised, protocol change over time): PRP at partial ACL reconstruction, 88% vs 69% back to pre-injury sport, 7.4 vs 9.3 months (<a href="https://doi.org/10.1186/s12891-026-09887-7">Iqbal 2026 BMC MSD</a>). [verified] Low-grade evidence; time-period bias likely. [inferred]</p>
+<hr />
+<h2 id="3-every-peptide-that-touches-the-knee-evidence-from-the-endp">3. Every peptide that touches the knee (evidence from the endpoint)</h2>
+<h3>3.1 Evidence grade table</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Is it a peptide?</th>
+<th>Best knee evidence</th>
+<th>Human knee data</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound"><strong>Semaglutide (GLP-1)</strong></td>
+<td data-l="Is it a peptide?">Yes</td>
+<td data-l="Best knee evidence">STEP 9 RCT</td>
+<td data-l="Human knee data">407 people, OA with obesity</td>
+<td data-l="Grade"><strong>A</strong> for OA pain in obesity (weight-mediated)</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>Collagen peptides / hydrolysate</strong></td>
+<td data-l="Is it a peptide?">Yes (food-derived)</td>
+<td data-l="Best knee evidence">35 RCTs meta-analysis</td>
+<td data-l="Human knee data">OA and active young adults</td>
+<td data-l="Grade"><strong>B</strong> (small to moderate, industry-linked trials)</td>
+</tr>
+<tr>
+<td data-l="Compound">Undenatured type II collagen (UC-II)</td>
+<td data-l="Is it a peptide?">Protein, not hydrolysed</td>
+<td data-l="Best knee evidence">8 small RCTs</td>
+<td data-l="Human knee data">OA</td>
+<td data-l="Grade">C</td>
+</tr>
+<tr>
+<td data-l="Compound"><strong>BPC-157</strong></td>
+<td data-l="Is it a peptide?">Yes (15 aa)</td>
+<td data-l="Best knee evidence">Rat MCL 2010; rat PTOA thesis 2018</td>
+<td data-l="Human knee data">1 uncontrolled survey, n = 16</td>
+<td data-l="Grade"><strong>D</strong> (human: very low certainty)</td>
+</tr>
+<tr>
+<td data-l="Compound">TB-500 / Thymosin β4</td>
+<td data-l="Is it a peptide?">Yes</td>
+<td data-l="Best knee evidence">No in vivo knee study found</td>
+<td data-l="Human knee data">4 people in the BPC-157 survey</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu</td>
+<td data-l="Is it a peptide?">Yes (3 aa + copper)</td>
+<td data-l="Best knee evidence">Rat ACL reconstruction 2015, effect gone by 12 weeks</td>
+<td data-l="Human knee data">None</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">Growth hormone (real rhGH)</td>
+<td data-l="Is it a peptide?">Protein</td>
+<td data-l="Best knee evidence">Pilot RCT after ACL surgery</td>
+<td data-l="Human knee data">19 men</td>
+<td data-l="Grade">C (pilot)</td>
+</tr>
+<tr>
+<td data-l="Compound">GH secretagogues (CJC-1295, ipamorelin, MK-677)</td>
+<td data-l="Is it a peptide?">Yes / non-peptide (MK-677)</td>
+<td data-l="Best knee evidence">Indirect only</td>
+<td data-l="Human knee data">None</td>
+<td data-l="Grade">D; MK-677 heart failure flag</td>
+</tr>
+<tr>
+<td data-l="Compound">IGF-1</td>
+<td data-l="Is it a peptide?">Protein</td>
+<td data-l="Best knee evidence">Not found for knee in humans this pass</td>
+<td data-l="Human knee data">None found</td>
+<td data-l="Grade">gap</td>
+</tr>
+<tr>
+<td data-l="Compound">KPV</td>
+<td data-l="Is it a peptide?">Yes (3 aa)</td>
+<td data-l="Best knee evidence">Parent hormone α-MSH: chondrocytes in vitro, mice</td>
+<td data-l="Human knee data">None</td>
+<td data-l="Grade">D (speculative)</td>
+</tr>
+<tr>
+<td data-l="Compound">LL-37</td>
+<td data-l="Is it a peptide?">Yes (37 aa)</td>
+<td data-l="Best knee evidence">Mouse: losing it worsened OA; may drive RA synovitis</td>
+<td data-l="Human knee data">None</td>
+<td data-l="Grade">D (direction unclear)</td>
+</tr>
+<tr>
+<td data-l="Compound">Pentosan polysulfate</td>
+<td data-l="Is it a peptide?"><strong>No, a polysaccharide</strong></td>
+<td data-l="Best knee evidence">Phase 2 biomarker RCT, pilot</td>
+<td data-l="Human knee data">61 + 38 people</td>
+<td data-l="Grade">C</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 BPC-157</h3>
+<p><strong>Human</strong>
+- <strong>Lee &amp; Padgett 2021</strong> (<a href="https://pubmed.ncbi.nlm.nih.gov/34324435/">Altern Ther Health Med, PMID 34324435</a>; <a href="https://asipp.org/wp-content/uploads/Intra-Articular-Injection-of-BPC-157-for-Multiple-Types-of-Knee-Pain-2021-Alternative-Therapies-in-Health-and-Medicine.pdf">full PDF</a>): a Florida hormone clinic chart review, 2019 to 2020. 17 patients injected in the knee, 16 reached by phone 6 to 12 months later. 12 had BPC-157 alone: 11 (91.6%) said pain was significantly better. 4 had BPC-157 plus thymosin β4: 3 better. Overall <strong>14 of 16 (87.5%)</strong>. Mixed causes (OA, meniscus, ligament, tendon). No validated scores, no control, no imaging. [verified]
+  - <strong>Discrepancy flag:</strong> a 2025 HSS review summarises the same paper as "7 of 12 reported relief for more than 6 months" (<a href="https://doi.org/10.1177/15563316251355551">HSS J 2025 systematic review</a>). [verified] Both can be true (relief vs relief lasting &gt;6 months), but the page should quote 14/16 "said it helped" and 7/12 "still helped after 6 months" side by side. [inferred] Dose wording in one secondary summary looked garbled; full-text dose not checked. [gap]
+  - The Conversation (2026) dates this study to 2025; it is 2021. [verified error in secondary]
+- <strong>Systematic review 2026</strong> (<a href="https://doi.org/10.52628/92.3.15837">Acta Orthop Belg</a>): all human BPC-157 evidence = 3 studies, 30 people (knee 16, bladder 12, IV safety 2); certainty very low; use only inside approved trials. [verified]
+- <strong>JAAOS Oct 2026</strong> (<a href="https://doi.org/10.5435/JAAOS-D-26-00049">Tham</a>): human musculoskeletal evidence is that one uncontrolled series; routine use not recommended. [verified]
+- <strong>AJSM 2026 scoping review</strong> (<a href="https://doi.org/10.1177/03635465261464420">DOI</a>): 67% of papers animal; human data showed "modest improvements at best" for degenerative knee pain. [verified]</p>
+<p><strong>Animal (all rats; nearly all one Zagreb group)</strong>
+- <strong>MCL, 2010</strong> (<a href="https://doi.org/10.1002/jor.21107">Zagreb group, J Orthop Res</a>): surgically cut MCL, followed 90 days. BPC-157 given once daily into the abdomen (10 µg/kg or 10 ng/kg), as a cream on the injury (1 µg per g), or in drinking water (0.16 µg/ml). All routes improved function, strength testing, appearance and microscopy. [verified]
+- <strong>Post-traumatic knee OA, 2018 thesis</strong> (<a href="https://repozitorij.mef.unizg.hr/en/islandora/object/mef:6125">Krstonijević, Zagreb</a>): rats with ACL + MCL cut and medial meniscus removed. BPC-157 in drinking water (10 µg/kg or 10 ng/kg) or injected into the knee every 2 weeks (20 µg/ml or 20 ng/ml, 0.1 ml). Treated rats walked better and had less OA at 4 and 8 weeks; started late, it helped less. 5 rats per group; thesis, not peer-reviewed paper. [verified from abstract]
+- <strong>Quadriceps detachment and myotendinous junction</strong> (<a href="https://doi.org/10.3390/pharmaceutics17010119">2025 Pharmaceutics</a>; <a href="https://doi.org/10.3390/biomedicines9111547">2021 Biomedicines</a>): rats regained walking and knee extension. [verified] Relevant to quad tendon, not ACL.
+- <strong>No rat ACL, meniscus or patellar tendon BPC-157 study found.</strong> [verified absence in PubMed searches]</p>
+<p><strong>Registered trials</strong> [verified registry, 3 Nov 2026]
+- <strong>NCT07437547</strong> (hamstring): phase 2, randomised, double-blind, placebo; 120 people aged 18 to 45 with MRI grade II hamstring strain; BPC-157 under the skin once daily for 14 days plus supervised rehab; co-primary: days to return to sport and MRI injury volume at day 14; recruiting at one hospital in Shenzhen, China; primary completion Feb 2027; sponsor a US peptide biotech. Excludes athletes in anti-doping testing. [verified] <a href="https://clinicaltrials.gov/study/NCT07437547">registry</a>
+- <strong>NCT07803250</strong> (rotator cuff): phase 1 pilot, University of Arkansas; daily self-injected BPC-157 for 90 days after keyhole cuff repair vs saline; primary = shoulder strength at 12 weeks and 5 months; enrollment listed 30, summary says 20; starts 1 Jan 2027. [verified] <a href="https://clinicaltrials.gov/study/NCT07803250">registry</a>
+- <strong>No knee BPC-157 trial is registered.</strong> [verified, searched knee/ACL/meniscus/patellar/OA × BPC/thymosin/GHK/peptide]</p>
+<h3>3.3 TB-500 and thymosin β4</h3>
+<ul>
+<li>Knee data: only the 4 combination patients in Lee 2021 (3 improved). [verified] JAAOS 2026: Tβ4 musculoskeletal evidence limited to cell and rodent studies; TB-500 is a 7-amino-acid fragment, not proven equivalent to Tβ4. [verified] No cartilage, ACL or meniscus animal study found. [verified absence]</li>
+<li>Rat Achilles data and grade: Tendon Base 1.5.</li>
+<li>A TB-500 phase 1/2 trial in heart disease is recruiting (NCT07487363), same sponsor as the hamstring trial; no knee trial. [verified registry]</li>
+</ul>
+<h3>3.4 GHK-Cu</h3>
+<ul>
+<li><strong>Rat ACL reconstruction, 2015</strong> (<a href="https://doi.org/10.1002/jor.22831">J Orthop Res</a>): 72 rats; weekly knee injections of 0.3 or 3 mg/ml from week 2 for 4 weeks. At 6 weeks: less knee laxity (p = 0.009) and a stiffer graft at the low dose. At 12 weeks: no difference. No difference in pull-out strength, gait or microscopy. The effect stopped when the injections stopped. [verified]</li>
+<li>No human knee data. A topical GHK-Cu skin-wound phase 2 trial is recruiting (NCT07437586). [verified registry]</li>
+</ul>
+<h3>3.5 Collagen peptides (strongest human "peptide" data for knee pain)</h3>
+<ul>
+<li><strong>Liang 2024</strong> (<a href="https://doi.org/10.1016/j.joca.2023.12.010">Osteoarthritis Cartilage</a>): 35 RCTs, 3,165 people with OA; pain SMD -0.35 (small to moderate, moderate certainty), function SMD -0.31 (high certainty); no more side effects than control. [verified]</li>
+<li><strong>Simental-Mendía 2024</strong> (<a href="https://doi.org/10.55563/clinexprheumatol/kflfr5">Clin Exp Rheumatol</a>): 11 RCTs, 870 knee OA patients; pain -13.6 points, function -6.5, high heterogeneity. [verified]</li>
+<li><strong>Active young adults, no disease:</strong> 5 g/day specific collagen peptides for 12 weeks: 139 athletes, activity pain fell 19.5 vs 13.9 mm (p = 0.046) (<a href="https://doi.org/10.1139/apnm-2016-0390">Zdzieblik 2017</a>); replication in 180 people aged 18 to 30: -21.9 vs -15.6 mm (p = 0.024), physician scores agreed (<a href="https://doi.org/10.3390/nu13020523">Zdzieblik 2021 Nutrients</a>). [verified] Differences of about 6 mm on a 100 mm scale are small. [inferred] One co-author is from an industry-linked collagen institute. [verified affiliation]</li>
+<li><strong>Collagen synthesis mechanism:</strong> 15 g vitamin C-enriched gelatin 1 hour before 6 minutes of skipping doubled a blood marker of collagen production (8 men, crossover) (<a href="https://doi.org/10.3945/ajcn.116.138594">Shaw 2017 AJCN</a>). [verified]</li>
+<li><strong>UC-II (undenatured type II collagen), 40 mg daily:</strong> 8 small RCTs suggest pain and function gains (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10579002/">Kumar 2023</a>; <a href="https://doi.org/10.1080/07853890.2025.2493306">Gupta 2025, industry-affiliated author</a>). [verified]</li>
+<li>A completed 150-person RCT of collagen peptide vs glucosamine/chondroitin (NCT07746466) has no results read. [gap]</li>
+</ul>
+<h3>3.6 Growth hormone axis</h3>
+<ul>
+<li><strong>Real rhGH after ACL surgery</strong> (<a href="https://doi.org/10.1177/0363546520920591">Mendias 2020 AJSM</a>): pilot RCT, 19 men 18 to 35, twice daily from 1 week before to 5 weeks after surgery. IGF-1 doubled; knee extension strength +29% vs placebo (p = 0.05, with the pilot's looser 0.10 threshold); MMP3 (cartilage breakdown marker) 36% lower; no change in muscle size or patient scores. [verified]</li>
+<li><strong>GH secretagogues</strong> (CJC-1295, ipamorelin, MK-677): no knee data; MK-677 linked to congestive heart failure and insulin resistance in the AJSM 2026 review. [verified] WADA S2. See Tendon Base 1.5/1.6.</li>
+<li><strong>IGF-1 injected into knees:</strong> no human trial found this pass. [gap]</li>
+</ul>
+<h3>3.7 KPV and LL-37</h3>
+<ul>
+<li><strong>KPV</strong> is a 3-amino-acid end piece of α-MSH. α-MSH analogue reduced senescence markers, oxidative stress and IL-6 in human OA chondrocytes in a dish, with sex differences; mice lacking its receptor (MC1R) aged worse (<a href="https://doi.org/10.14336/AD.2025.1307">Schäfer 2026 Aging Dis</a>). [verified] α-MSH did not harm fracture healing in mice (<a href="https://doi.org/10.1186/s12891-025-08374-9">Graue 2025</a>). [verified] <strong>No KPV knee study exists</strong>; extrapolating from α-MSH is [speculated].</li>
+<li><strong>LL-37:</strong> mice missing their version (Cramp) got <em>worse</em> OA (<a href="https://doi.org/10.3390/ijms26167874">Choi 2025 IJMS</a>); in rheumatoid arthritis, antimicrobial peptides can drive synovitis and act as autoantigens (<a href="https://doi.org/10.1016/j.autrev.2026.104124">Anania 2026 review</a>). [verified] Direction for injection is unclear; a pharmacy news piece says LL-37 was expected to stay on the FDA restricted compounding list for safety reasons (<a href="https://www.pharmacytimes.com/view/the-peptide-reclassification-everyone-s-talking-about-a-pharmacist-s-take-on-what-rfk-jr-s-announcement-actually-means">Pharmacy Times, Jun 2026</a>). [reported]</li>
+</ul>
+<h3>3.8 Pentosan polysulfate (not a peptide; included because people group it with peptides)</h3>
+<ul>
+<li><strong>Phase 2 RCT</strong> (<a href="https://doi.org/10.1186/s13075-026-03740-x">Skerrett 2026 Arthritis Res Ther</a>): 61 people with moderate to severe knee OA pain; injections under the skin once or twice weekly for 39 days vs placebo. Primary outcome was joint-fluid markers: ARGS (cartilage breakdown) fell 57% at day 56 and 74% at day 168 vs placebo; most other markers not significant. Run by the drug's developer. [verified] Clinical pain results not in abstract. [gap]</li>
+<li><strong>Oral pilot</strong> (<a href="https://doi.org/10.1016/j.ocarto.2023.100343">Liu 2023</a>): 38 people, open-label, 10 mg/kg every 4 days in two 5-week cycles; pain 6.4 to 3.6 out of 10 at week 16; most common side effect was positive stool blood test. [verified] No control group.</li>
+<li>Case report: bone marrow oedema resolved on MRI after IM injections (<a href="https://doi.org/10.1186/s12891-017-1754-3">Sampson 2017</a>). [verified, n = 1, developer co-author]</li>
+<li>Long-term oral use (bladder indication) has a reported eye (maculopathy) warning. [reported; primary not read this pass, verify before publishing]</li>
+</ul>
+<h3>3.9 Same compounds at other joints (pairings and related pages)</h3>
+<ul>
+<li>Tendon, Achilles, tennis elbow, rotator cuff: Tendon Base and Achilles v2.</li>
+<li>Rotator cuff BPC-157 trial (NCT07803250) and hamstring trial (NCT07437547) are the nearest human tests of the "BPC-157 heals soft tissue" claim; their results (2027) will matter for the knee page too. [inferred]</li>
+</ul>
+<hr />
+<h2 id="4-what-people-report-claude-s-own-search-outside-reddit-3-no">4. What people report (Claude's own search outside Reddit; 3 Nov 2026)</h2>
+<p>Method: ~14 sources read (forums: Rokslide ×2, TigerDroppings, VitalMX, Teton Gravity, River Dave's, StrongFirst, Uphill Athlete, Mumsnet; BJJ: BJJDoc, a BJJ apparel blog; clinicians: Mike Reinold podcast page, a physio-informed equipment blog, The Conversation). Own use only, vendor posts excluded, no supplier names. MESO-Rx and AnabolicMinds not used. Drugs.com search returned no BPC-157 review page (only spam), so none counted. YouTube searches surfaced only vendor-hosted clips; none counted. [verified]</p>
+<h3>4.1 Knee-specific first-hand reports (lead with what worked)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source</th>
+<th>Condition</th>
+<th>Used</th>
+<th>Outcome</th>
+<th>Clinician/scan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="Source"><a href="https://www.vitalmx.com/comment/9048201">VitalMX thread</a></td>
+<td data-l="Condition">Both knees replaced (total knee)</td>
+<td data-l="Used">BPC-157 + TB-500, 4 weeks after each surgery, plus PT and acupuncture</td>
+<td data-l="Outcome"><strong>Better</strong>: surgeon and PT said they healed faster than most; poster cannot credit peptides alone</td>
+<td data-l="Clinician/scan"><strong>Clinician-observed</strong></td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="Source"><a href="https://www.rokslide.com/forums/threads/bpc-157-peptide-injury-update.407813">Rokslide injury update</a></td>
+<td data-l="Condition">Right meniscus flare (left meniscus earlier MRI-confirmed)</td>
+<td data-l="Used">Oral BPC-157</td>
+<td data-l="Outcome"><strong>Better</strong>: ~3 weeks vs ~3 months for the previous knee; also on curcumin, boswellia, glucosamine</td>
+<td data-l="Clinician/scan">Prior MRI on other knee; none this episode</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="Source"><a href="https://bjjdoc.com/?p=18601">BJJDoc, Jun 2025</a></td>
+<td data-l="Condition">ADCC veteran's chronic knee problems</td>
+<td data-l="Used">BPC-157 "Wolverine stack"</td>
+<td data-l="Outcome"><strong>Better</strong>: knees "a lot better"; says some friends got nothing</td>
+<td data-l="Clinician/scan">None (podcast quote)</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="Source"><a href="https://forums.tetongravity.com/home/forum/connections/gimp-central/11680669-bpc-157-peptide">Teton Gravity</a></td>
+<td data-l="Condition">Chronic patellar tendon/knee soreness (taken for shoulder)</td>
+<td data-l="Used">BPC-157 + TB-500</td>
+<td data-l="Outcome"><strong>Better</strong>: skied 5 hours without usual knee soreness</td>
+<td data-l="Clinician/scan">Doctor impressed by shoulder strength, not knee</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="Source"><a href="https://rokslide.com/forums/threads/meniscus-tear-wont-heal.310861">Rokslide meniscus thread</a></td>
+<td data-l="Condition">"Nagging knee injuries"</td>
+<td data-l="Used">BPC-157/TB-500</td>
+<td data-l="Outcome"><strong>Better</strong> ("tremendous")</td>
+<td data-l="Clinician/scan">None, no diagnosis</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="Source"><a href="https://sensobjj.com/blogs/graciemag-1/can-peptides-heal-bjj-injuries-faster">BJJ apparel blog, Aug 2023</a></td>
+<td data-l="Condition">LCL tear in BJJ</td>
+<td data-l="Used">Unnamed peptides, physician-guided</td>
+<td data-l="Outcome">Not stated</td>
+<td data-l="Clinician/scan">Physician involved, no outcome</td>
+</tr>
+<tr>
+<td data-l="#">7</td>
+<td data-l="Source"><a href="https://www.vitalmx.com/comment/9048201">VitalMX</a></td>
+<td data-l="Condition">ACL reconstruction + meniscus, PCL</td>
+<td data-l="Used">BPC-157 + TB-500</td>
+<td data-l="Outcome">Pending (no follow-up found)</td>
+<td data-l="Clinician/scan">None</td>
+</tr>
+<tr>
+<td data-l="#">8</td>
+<td data-l="Source"><a href="https://www.mumsnet.com/talk/exercise/5452825-knee-pain-collagne-peptide">Mumsnet</a></td>
+<td data-l="Condition">Side and kneecap pain</td>
+<td data-l="Used">Marine collagen</td>
+<td data-l="Outcome"><strong>Better</strong>: "pain has gone"</td>
+<td data-l="Clinician/scan">None</td>
+</tr>
+<tr>
+<td data-l="#">9</td>
+<td data-l="Source">Mumsnet (same)</td>
+<td data-l="Condition">Knee and hand pain, feared arthritis</td>
+<td data-l="Used">Collagen peptides</td>
+<td data-l="Outcome"><strong>Better</strong></td>
+<td data-l="Clinician/scan">None</td>
+</tr>
+<tr>
+<td data-l="#">10</td>
+<td data-l="Source"><a href="https://uphillathlete.com/forums/topic/collagen-for-articular-cartilage-bogus-or-something-to-it/">Uphill Athlete</a></td>
+<td data-l="Condition">"Cranky" knee</td>
+<td data-l="Used">Collagen</td>
+<td data-l="Outcome">Unclear yet</td>
+<td data-l="Clinician/scan">None</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Counts (knee):</strong>
+- BPC-157 (alone or with TB-500): <strong>5 better</strong> (1 clinician-observed, post knee replacement), 0 no change, 0 worse, 2 unknown/pending.
+- Collagen: <strong>2 better</strong>, 1 unclear, 0 worse.
+- GHK-Cu, KPV, LL-37, GH peptides, pentosan: <strong>0 knee reports found</strong>.
+- PRP (not a peptide, context): 1 better for meniscus (Rokslide), 1 "not impressed" for knee OA (Uphill Athlete).
+- Clinician-observed attributable to the peptide: <strong>0</strong>. The one clinician comment (faster than most after knee replacement) came with PT, acupuncture and other care, and the poster himself would not credit the peptides. [verified]</p>
+<h3>4.2 Same threads, non-knee reports (to show the baseline)</h3>
+<p>Across TigerDroppings, Rokslide, VitalMX, River Dave's, Teton Gravity and StrongFirst: <strong>12 better, 8 no change, 1 mixed with side effects</strong> (trouble waking; another reported body aches on a 6-week run). [verified count] Examples of no change: a "shredded" shoulder after two cycles; an injectable user who tried three sources and noticed nothing; a shoulder reconstruction user who saw "minimal" benefit after 11 weeks BPC-157 plus TB-500 (<a href="https://www.tigerdroppings.com/rant/health-fitness/has-anyone-had-any-experience-with-bpc-157-and-or-tb-500-peptides-for-tendon-healing/123336599/">TigerDroppings</a>; <a href="https://forums.tetongravity.com/home/forum/connections/gimp-central/11680669-bpc-157-peptide">Teton Gravity</a>). [verified]
+Reading [inferred]: knee reports lean positive, but there are only 5 and none isolate the peptide; the broader soft-tissue picture in the same communities is closer to 60/40.</p>
+<h3>4.3 What clinicians say they see</h3>
+<ul>
+<li><strong>Physios (Mike Reinold and Lenny Macrina, Jun 2026):</strong> patients regularly ask for it; one physio is "personally not" recommending it; oral BPC-157 for patellar tendinopathy not useful in their view; some patients feel better, which they partly credit to rehab time and placebo (<a href="https://mikereinold.com/the-truth-about-bpc-157-peptide-in-sports-medicine-what-you-need-to-know/">page</a>). [verified]</li>
+<li><strong>A physio colleague quoted in an equipment-company blog (Sep 2025):</strong> patients who used BPC-157 often get short-term relief that fades (<a href="https://crossoversymmetry.com/blogs/news/bpc-157-for-tendon-injuries-mechanisms-risks-and-reality">Crossover Symmetry</a>). [verified; anonymous author] This is the only clinician-observed <em>negative</em> pattern found.</li>
+<li><strong>Rehab physician (The Conversation, 2026):</strong> evidence "extremely thin"; cites an analysis of over 12,000 Reddit posts reporting injection-site reactions, diarrhoea and emotional numbness (<a href="https://www.inkl.com/news/can-peptide-injections-help-people-recover-from-injuries-here-s-what-you-need-to-know">via inkl</a>). [reported; the 12,000-post analysis not located on PubMed, gap]</li>
+</ul>
+<hr />
+<h2 id="5-pairings-and-related-conditions">5. Pairings and related conditions</h2>
+<ul>
+<li><strong>BPC-157 + TB-500 ("Wolverine stack"):</strong> the most common knee pairing in reports (4 of 5 BPC-157 knee reports). Only human data: Lee 2021, 3 of 4 combination patients improved vs 11 of 12 on BPC-157 alone; too few to compare. [verified]</li>
+<li><strong>Peptide + PRP / HA / cortisone at the same visit:</strong> reported by clinics [reported]; no data. Cortisone into the knee repeatedly thinned cartilage (McAlindon 2017). [verified]</li>
+<li><strong>Collagen + vitamin C before loading:</strong> mechanism study (Shaw 2017). [verified]</li>
+<li><strong>GLP-1 + exercise for knee OA:</strong> STEP 9 included activity counselling in both arms. [verified]</li>
+<li><strong>Related pages to link:</strong> Tendon Base (patellar), Achilles (calf-knee chain, basketball), Muscle injury (hamstring trial), Shoulder (cuff trial), GLP-1 hub (knee OA spoke). [inferred]</li>
+<li><strong>Same problem elsewhere:</strong> MCL heals like other extra-articular ligaments (ankle ATFL sprains) [inferred]; ACL behaves like other intra-articular structures (labrum) [speculated].</li>
+</ul>
+<hr />
+<h2 id="6-options-ordered-by-evidence">6. Options (ordered by evidence)</h2>
+<ol>
+<li><strong>Supervised, progressive rehab</strong> for every condition here; 12 weeks before judging. ACL: rehab-first is a trial-backed option. Meniscus without locking: physio first. Patellar: progressive loading (Tendon Base). MCL: brace as needed, early loading. [verified]</li>
+<li><strong>Return-to-sport tests</strong> after ACL: wait 9+ months, pass strength and hop symmetry (&gt;90%) before pivoting sports. [verified, Grindem]</li>
+<li><strong>Weight loss for knee OA</strong>, including GLP-1 drugs where prescribed (STEP 9). [verified]</li>
+<li><strong>Collagen peptides</strong> (5 to 10 g/day in trials; 15 g gelatin plus vitamin C in the mechanism study): low risk, small benefit. [verified dosing as used in trials]</li>
+<li><strong>Surgery</strong> when indicated: locked knee, repeated giving way despite rehab, grade III MCL with instability, failed 3 to 6 months of loading. [verified from trial exclusions and failure analyses]</li>
+<li><strong>Experimental:</strong> BPC-157, TB-500, GHK-Cu: animal data only for ligament and cartilage; one uncontrolled human knee survey. Watch the 2027 hamstring and cuff trial results. [verified]</li>
+<li><strong>Not supported by best trials:</strong> HA injections, PRP for knee OA, repeated cortisone, keyhole trimming of degenerative meniscus tears. [verified]</li>
+</ol>
+<hr />
+<h2 id="7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>Do I need surgery for a torn ACL?</strong> Not necessarily. In two trials about half of people who started with rehab never needed surgery, and results matched early surgery at 2, 5 and 11 years. Younger, very active people with instability more often end up reconstructed. [verified]</li>
+<li><strong>Can a torn ACL heal by itself?</strong> Sometimes on MRI: about half of rehab-only KANON knees looked continuous at 2 years. But at 11 years that "healed" look was linked to worse scores than reconstruction, so a healed scan is not a guarantee. [verified]</li>
+<li><strong>How long until I can play padel/basketball/BJJ after ACL surgery?</strong> Most clearance is 9 to 12 months. Each month of waiting up to 9 months cut re-injury risk about 51%. [verified]</li>
+<li><strong>What are my chances of getting back to my level?</strong> 81% return to some sport, 65% to the same level, 55% to competitive play. [verified]</li>
+<li><strong>Will I tear it again?</strong> About 15% overall get a second ACL injury; about 23% of under-25s who return to sport. Passing strength and hop tests cut it sharply (38% vs 6%). [verified]</li>
+<li><strong>Should I get my torn meniscus "cleaned up"?</strong> For tears without locking, physio matched surgery in 45 to 70 year olds and in 18 to 40 year olds, and trimming equalled sham surgery. [verified]</li>
+<li><strong>My MRI shows a meniscus tear. Is that why it hurts?</strong> Maybe not. In people over 50, tears are common on MRI and 61% of people with one had no pain that month. [verified]</li>
+<li><strong>How long does an MCL sprain take?</strong> Usually 3 to 12 weeks; about 10 days missed for grade I, about 5 weeks for grade II. Most need no surgery. [verified]</li>
+<li><strong>Does BPC-157 heal ACL or meniscus tears?</strong> Unknown in humans. Rat studies show faster MCL healing; no rat or human ACL or meniscus study exists. The one human knee study was a phone survey (14 of 16 said pain improved, no control). [verified]</li>
+<li><strong>Does it help after knee surgery?</strong> No controlled human data. The first controlled post-surgery BPC-157 trial (shoulder) starts January 2027. One forum report had a surgeon note faster-than-usual recovery after knee replacement, alongside other treatments. [verified]</li>
+<li><strong>Is collagen worth it for knees?</strong> It has the best human data among "peptides" here: small to moderate pain relief in 35 trials; in young active people the gain over placebo was about 6 mm on a 100 mm scale. Low risk. [verified]</li>
+<li><strong>Does semaglutide help knee arthritis?</strong> In people with obesity, yes for pain (STEP 9: -41.7 vs -27.5 points), mostly through weight loss. It is not proven to rebuild cartilage. [verified]</li>
+<li><strong>Are PRP or hyaluronic acid injections better than peptides?</strong> For knee OA, both failed to beat placebo by a meaningful amount in the best trials; HA had more serious side effects. [verified]</li>
+<li><strong>Is cortisone bad for my knee?</strong> Injections every 3 months for 2 years caused more cartilage thinning and no extra pain relief vs saline. One injection for a flare is a different question not tested there. [verified + inferred]</li>
+<li><strong>Can I use these if I compete?</strong> BPC-157, TB-500 and GH secretagogues are banned at all times by WADA; see the Tendon Base dated block. Trial participants who are drug tested were excluded from the hamstring trial for this reason. [verified]</li>
+</ol>
+<hr />
+<h2 id="8-warnings-bottom-of-page">8. Warnings (bottom of page)</h2>
+<p>Use the shared warnings block from Tendon Base 1.9, plus these knee-specific lines:
+- <strong>WADA:</strong> BPC-157 (S0), TB-500/Tβ4 (S2), GH secretagogues (S2) prohibited at all times; 2027 List (in force 1 Jan 2027) adds S0 examples, exact peptide wording not read. Semaglutide/tirzepatide unchanged for 2027 (<a href="https://www.world.rugby/keep-rugby-clean/news/1048285/wada-publishes-2027-prohibited-list">World Rugby summary of WADA 2027</a>). [verified] Full block: Tendon Base 1.6.
+- <strong>US regulation (dated):</strong> 15 Apr 2026 FDA moved BPC-157 off the "significant safety risk" compounding list after nominations were withdrawn, but did not approve it; advisory committee review set for 23 Jul 2026 (<a href="https://djholtlaw.com/regulatory-alert-fdas-april-2026-update-on-bpc-157-and-ghk-cu/">law firm alert</a>). [reported] 28 Oct 2026 HHS enforcement discretion: Tendon Base 1.6. [reported]
+- <strong>Injecting into a knee joint</strong> carries infection risk (septic arthritis) even with medical products; unregulated vials add sterility and identity risk. [reported general medical knowledge; no peptide-specific case series found, gap]
+- <strong>Around surgery:</strong> tell the surgeon and anaesthetist. No peptide has surgical interaction data. GLP-1 drugs slow stomach emptying and raise aspiration concern under anaesthesia; 2024 multisociety guidance says decide case by case whether to hold them (<a href="https://doi.org/10.2344/anpr-72-1-ANPR_Agonists">Anesth Prog 2025</a>). [verified] BPC-157 has anti-clotting/vascular claims in rat work (<a href="https://doi.org/10.3389/fphar.2021.627533">2021 review</a>); relevance to surgical bleeding in humans unknown. [speculated]
+- <strong>Pain masking:</strong> if a peptide reduces pain, people may return to pivoting sport before strength tests are passed, the strongest re-injury predictor. [inferred from Grindem 2016] A physio-informed source says relief often fades. [reported]
+- <strong>Red flags to see a doctor:</strong> knee locked and cannot straighten; fast swelling after a pop; giving way; hot, red, swollen knee with fever (especially after any injection); calf swelling after surgery (clot). [reported]
+- <strong>Pentosan:</strong> a blood-thinning-type drug, not a peptide; positive stool blood tests were the most common side effect in the pilot. [verified]
+- <strong>MK-677:</strong> heart failure and insulin resistance signals. [verified, AJSM 2026]</p>
+<hr />
+<h2 id="9-source-list-primary-this-pass">9. Source list (primary, this pass)</h2>
+<p>ACL: Frobell 2010 <a href="https://doi.org/10.1056/NEJMoa0907797">NEJM</a>; Frobell 2013 <a href="https://doi.org/10.1136/bmj.f232">BMJ</a>; Lohmander 2023 <a href="https://doi.org/10.1056/EVIDoa2200287">NEJM Evid</a>; Filbay 2022 <a href="https://doi.org/10.1136/bjsports-2022-105473">BJSM</a>; Filbay 2025 <a href="https://doi.org/10.1177/03635465251339061">AJSM</a>; KANON cytokines 2017 <a href="https://doi.org/10.1016/j.joca.2017.05.009">OAC</a>; Roemer 2021 <a href="https://doi.org/10.1148/radiol.2021202954">Radiology</a>; KANON cost 2016 <a href="https://doi.org/10.1136/bjsports-2015-095308">BJSM</a>; Reijman 2021 <a href="https://doi.org/10.1136/bmj.n375">BMJ</a>; van der Graaff 2022 <a href="https://doi.org/10.1177/03635465211068532">AJSM</a>; Ardern 2011 <a href="https://doi.org/10.1136/bjsm.2010.076364">BJSM</a>; Ardern 2014 <a href="https://doi.org/10.1136/bjsports-2013-093398">BJSM</a>; Wiggins 2016 <a href="https://doi.org/10.1177/0363546515621554">AJSM</a>; Grindem 2016 <a href="https://doi.org/10.1136/bjsports-2016-096031">BJSM</a>; Lie 2019 <a href="https://doi.org/10.1136/bjsports-2018-099751">BJSM</a>; Shah 2026 <a href="https://doi.org/10.1177/03635465251405438">AJSM</a>; Mead 2026 <a href="https://doi.org/10.1002/ccr3.72818">CCR</a>; Filbay 2025 <a href="https://doi.org/10.1016/j.jsams.2025.08.017">JSAMS</a>; Iqbal 2026 <a href="https://doi.org/10.1186/s12891-026-09887-7">BMC MSD</a>.
+Meniscus: Sihvonen 2013 <a href="https://doi.org/10.1056/NEJMoa1305189">NEJM</a>; van de Graaf 2018 <a href="https://doi.org/10.1001/jama.2018.13308">JAMA</a>; Noorduyn 2020 <a href="https://doi.org/10.1177/2325967120954392">OJSM</a>; Damsted 2024 <a href="https://doi.org/10.2519/jospt.2024.12245">JOSPT</a>; Englund 2008 <a href="https://doi.org/10.1056/NEJMoa0800777">NEJM</a>.
+Patellar: Lian 2005 <a href="https://doi.org/10.1177/0363546504270454">AJSM</a>; Kettunen 2002 <a href="https://doi.org/10.1177/03635465020300051001">AJSM</a>; Bahr 2006 <a href="https://doi.org/10.2106/JBJS.E.01181">JBJS</a>.
+MCL: Svantesson 2024 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11202733/">BMJ OSEM</a>; Bae 2025 <a href="https://doi.org/10.1016/j.jisako.2025.101054">J ISAKOS</a>; Abdul 2026 <a href="https://doi.org/10.1177/03635465261448236">AJSM</a>; Wright 2023 <a href="https://doi.org/10.1016/j.asmr.2023.03.006">ASMR</a>.
+OA: STEP 9 2024 <a href="https://doi.org/10.1056/NEJMoa2403664">NEJM</a>; Bennell 2021 <a href="https://doi.org/10.1001/jama.2021.19415">JAMA</a>; Pereira 2022 <a href="https://doi.org/10.1136/bmj-2022-069722">BMJ</a>; McAlindon 2017 <a href="https://doi.org/10.1001/jama.2017.5283">JAMA</a>; Liu 2018 <a href="https://doi.org/10.1136/bjsports-2016-097333">BJSM</a>; Habib 2026 <a href="https://doi.org/10.1007/s43465-026-01885-0">IJO</a>; JCM 2026 <a href="https://doi.org/10.3390/jcm15155932">review</a>; McGowan 2025 <a href="https://doi.org/10.1038/s41591-025-03978-z">Nat Med</a>.
+Peptides: Lee 2021 <a href="https://pubmed.ncbi.nlm.nih.gov/34324435/">PubMed</a>; Acta Orthop Belg 2026 <a href="https://doi.org/10.52628/92.3.15837">DOI</a>; Tham 2026 <a href="https://doi.org/10.5435/JAAOS-D-26-00049">JAAOS</a>; AJSM 2026 scoping <a href="https://doi.org/10.1177/03635465261464420">DOI</a>; Villegas Meza 2026 <a href="https://doi.org/10.2106/JBJS.RVW.26.00027">JBJS Rev</a>; HSS J 2025 review <a href="https://doi.org/10.1177/15563316251355551">HSS J</a>; BPC-157 rat MCL 2010 <a href="https://doi.org/10.1002/jor.21107">JOR</a>; Krstonijević 2018 <a href="https://repozitorij.mef.unizg.hr/en/islandora/object/mef:6125">thesis</a>; GHK-Cu rat ACL 2015 <a href="https://doi.org/10.1002/jor.22831">JOR</a>; Zdzieblik 2017 <a href="https://doi.org/10.1139/apnm-2016-0390">APNM</a>; Zdzieblik 2021 <a href="https://doi.org/10.3390/nu13020523">Nutrients</a>; Liang 2024 <a href="https://doi.org/10.1016/j.joca.2023.12.010">OAC</a>; Simental-Mendía 2024 <a href="https://doi.org/10.55563/clinexprheumatol/kflfr5">CER</a>; Shaw 2017 <a href="https://doi.org/10.3945/ajcn.116.138594">AJCN</a>; Mendias 2020 <a href="https://doi.org/10.1177/0363546520920591">AJSM</a>; Skerrett 2026 <a href="https://doi.org/10.1186/s13075-026-03740-x">ART</a>; Liu 2023 <a href="https://doi.org/10.1016/j.ocarto.2023.100343">OAC Open</a>; Schäfer 2026 <a href="https://doi.org/10.14336/AD.2025.1307">Aging Dis</a>; Choi 2025 <a href="https://doi.org/10.3390/ijms26167874">IJMS</a>; Anania 2026 <a href="https://doi.org/10.1016/j.autrev.2026.104124">Autoimmun Rev</a>.
+Sport epidemiology: Piekarski 2026 <a href="https://doi.org/10.1177/19417381251400303">Sports Health</a>; Bickley 2023 <a href="https://doi.org/10.1016/j.injury.2023.111089">Injury</a>; Aspetar padel <a href="https://journal.aspetar.com/en/journals/volume-12-targeted-topic-sports-medicine-in-padel/injuries-in-padel">review</a>.
+Registries: <a href="https://clinicaltrials.gov/study/NCT07437547">NCT07437547</a>; <a href="https://clinicaltrials.gov/study/NCT07803250">NCT07803250</a>.</p>
+<hr />
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<ol>
+<li><strong>Murray lab primaries</strong> on why the ACL fails to heal (plasmin, fibrin) and the BEAR scaffold trial results; currently tagged [reported] from a lab web page.</li>
+<li><strong>Cross Bracing Protocol RCT</strong> status and any cohort numbers beyond the single case.</li>
+<li><strong>Meniscus repair</strong> (not trimming) outcomes in young athletes; meniscus blood supply primary source.</li>
+<li><strong>ACL incidence by sex</strong> in basketball and padel (primary meta-analysis); padel knee percentage.</li>
+<li><strong>Lee 2021 full text</strong>: dose, route, follow-up, and why one review reports 7/12 durable relief; check for any 2022 to 2026 follow-up from the same clinic.</li>
+<li><strong>Tirzepatide / retatrutide knee OA</strong> trials (registry and results); STEP 9 structural (MRI) secondary outcomes.</li>
+<li><strong>IGF-1</strong> intra-articular human data; <strong>TB-500/Tβ4</strong> cartilage or ligament in vivo studies (none found).</li>
+<li><strong>The 12,000+ Reddit post analysis</strong> cited by The Conversation: locate the primary paper for side-effect rates.</li>
+<li><strong>Pentosan</strong>: phase 2 clinical pain results; primary source for the eye (maculopathy) warning before publishing.</li>
+<li><strong>Collagen RCT NCT07746466</strong> (collagen vs glucosamine/chondroitin) results.</li>
+<li><strong>Community</strong>: no Drugs.com page and no first-hand YouTube knee outcome found; next pass try physio patient forums (e.g. ACL recovery communities), padel/tennis club forums in Spanish, BJJ forums (Sherdog grappling subforum direct), and Facebook public ACL groups. ChatGPT Reddit tab for Knee not yet assigned a G row (next free row per Run Plan).</li>
+<li><strong>WADA 2027</strong> exact S0/S2 peptide wording (carry-over from Tendon Base gap 7).</li>
+<li><strong>Septic arthritis after unregulated intra-articular peptide injection</strong>: search for case reports.</li>
+<li><strong>Adversarial re-check</strong> of the 5 biggest numbers on primary full text: KANON 11-year (1.6 points, 44% OA), STEP 9 (-41.7 vs -27.5), Wiggins 23%, Grindem 51% per month, Lee 14/16.</li>
+</ol>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first pass; about 70 searches and fetches; built on Tendon Base v1 (patellar details referenced, not repeated); filled Tendon Base gap 3 partly (Bahr 2006 patellar surgery vs exercise).</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

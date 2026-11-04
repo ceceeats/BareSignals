@@ -1,0 +1,1451 @@
+<!doctype html>
+<!-- Goal research notes: GLP-1s: full research, from GLP1 Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Mechanism, trial numbers, 50 usual questions and the animation storyboard.">
+<title>GLP-1s: full research · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>GLP-1s: full research</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">Mechanism, trial numbers, 50 usual questions and the animation storyboard. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (17)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-status-board-what-exists-as-of-3-nov-2026">0. Status board (what exists as of 3 Nov 2026)</a></li><li><a href="#1-plain-language-mechanism-step-by-step">1. Plain-language mechanism, step by step</a></li><li><a href="#2-animation-storyboard-8-scenes">2. Animation storyboard (8 scenes)</a></li><li><a href="#3-key-trial-numbers">3. Key trial numbers</a></li><li><a href="#4-the-usual-questions">4. The usual questions</a></li><li><a href="#5-compound-comparison-table">5. Compound comparison table</a></li><li><a href="#6-negative-mirror-what-fails">6. Negative mirror: what fails</a></li><li><a href="#7-sources-i-could-not-access-or-only-saw-second-hand">7. Sources I could not access or only saw second-hand</a></li><li><a href="#8-gaps-for-next-pass-v1-list-see-section-10-for-what-v2-clos">8. Gaps for next pass (v1 list; see Section 10 for what v2 closed and Section 14 for the live list)</a></li><li><a href="#9-changes-in-this-version">9. Changes in this version</a></li><li><a href="#">---</a></li><li><a href="#10-v1-gaps-what-this-pass-closed">10. v1 gaps: what this pass closed</a></li><li><a href="#11-adversarial-check-tracing-numbers-to-primary-sources">11. Adversarial check: tracing numbers to primary sources</a></li><li><a href="#12-the-50-usual-questions">12. The 50 usual questions</a></li><li><a href="#13-animation-storyboard-v2-10-scenes-90-seconds">13. Animation storyboard v2 (10 scenes, ~90 seconds)</a></li><li><a href="#14-gaps-for-next-pass">14. Gaps for next pass</a></li></ol></details>
+<div class="md"><h1>GLP1 Research v2</h1>
+<p>Goal page research for baresignals.co: "GLP-1 drugs, explained"
+Compiled 3 Nov 2026. Version 2 (second pass). v1 kept intact as "GLP1 Research v1.md".</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ul>
+<li><strong>~60 new searches/fetches</strong> (PubMed, ClinicalTrials.gov, WebSearch, WebFetch on label text, FDA, company releases). New Sections 10 to 14 at the bottom; v1 Sections 0 to 9 kept, with in-place corrections marked <strong>[v2 fix]</strong>.</li>
+<li><strong>Corrections to v1 (adversarial check, Section 11):</strong></li>
+<li>STEP UP non-diabetes: v1 said ~20.7% from a headline. Primary Lancet D&amp;E paper says <strong>-18.7% (7.2 mg) vs -15.6% (2.4 mg) vs -3.9% placebo</strong>, treatment-policy, n=1,407. The ~20.7% is the "on drug" figure. Dysaesthesia 22.9% vs 6.0% vs 0.5%.</li>
+<li>OASIS 4: v1 had ~13.6% from a blog. Primary NEJM: <strong>-13.6% vs -2.2%</strong> (not 2.7%), n=307, 64 wk; GI events 74.0% vs 42.2%. Now [verified].</li>
+<li>Half-lives now from labels: semaglutide ~1 week, tirzepatide <strong>5 to 6 days</strong>, liraglutide ~13 h, orforglipron <strong>29 to 49 h</strong> (v1 guessed 1 to 2 days, [speculated]), cagrilintide 159 to 195 h (phase 1b), retatrutide ~6 days (review).</li>
+<li>Wegovy pill steps confirmed from label: <strong>1.5 mg (days 1 to 30), 4 mg, 9 mg, then 25 mg from day 91</strong>.</li>
+<li>CagriSema decision: no public PDUFA date; the "October 2026" date circulating online is an unofficial estimate. Still not approved as far as any source checked shows (as of 3 Nov 2026).</li>
+<li>Retatrutide filing: Lilly said on 23 Jul 2026 it would file in <strong>early 2027</strong> (Q1 2027 per several outlets). The Q3 release (29 Oct 2026) does not restate a date. The v1 conflict is resolved toward early 2027 [reported].</li>
+<li>Hub v1's five secondary-source numbers: four now traced to a primary or near-primary source (mouse lifespan, SURPASS-CVOT deaths, pill absorption, SELECT early events); CRP figures still rest on secondary summaries of a Circulation paper whose abstract was not reachable.</li>
+<li><strong>New:</strong> eloralintide phase 2 (Lancet 2025) and phase 3 program; REDEFINE 4 full numbers; REIMAGINE 5; TRANSCEND-T2D-2 (retatrutide vs Ozempic, 28 Oct 2026); ACHIEVE-4 (Foundayo heart safety); SURPASS-CVOT primary paper; label side-effect tables for Wegovy, Zepbound, Saxenda, Foundayo; generic semaglutide launches in India and Canada; STEP TEENS; weight-regain systematic review (Oct 2026).</li>
+<li><strong>Section 12:</strong> 50 usual questions with short evidence answers.</li>
+<li><strong>Section 13:</strong> animation storyboard v2 (10 scenes, captions, includes single/dual/triple/amylin scene).</li>
+<li><strong>Section 14:</strong> Gaps for next pass (replaces v1 Section 8 as the live list).</li>
+</ul>
+<p><strong>Evidence tags:</strong> [verified] = primary source seen (abstract, label page or regulator page read this pass). [reported] = secondary source (news, review, company page, commercial site). [inferred] = my reasoning from verified facts. [speculated] = plausible but unsupported.
+<strong>Dose rule:</strong> every dose below is what a trial used or what a published label states. None of it is an instruction.
+<strong>Estimand note for readers:</strong> trials report two numbers. "Treatment-regimen / treatment-policy" counts everyone, including people who stopped the drug (closer to real life). "Efficacy / trial-product" assumes everyone kept taking it (bigger number). Companies headline the bigger one. This page should lead with treatment-regimen where both exist.</p>
+<hr />
+<h2 id="0-status-board-what-exists-as-of-3-nov-2026">0. Status board (what exists as of 3 Nov 2026)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Brand(s)</th>
+<th>Hits which receptors</th>
+<th>Form</th>
+<th>Status Nov 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">Liraglutide</td>
+<td data-l="Brand(s)">Victoza (T2D), Saxenda (obesity)</td>
+<td data-l="Hits which receptors">GLP-1</td>
+<td data-l="Form">daily injection</td>
+<td data-l="Status Nov 2026">Approved since 2010/2014; patents expired, generics exist [reported]</td>
+</tr>
+<tr>
+<td data-l="Compound">Semaglutide</td>
+<td data-l="Brand(s)">Ozempic (T2D), Wegovy (obesity), Rybelsus (oral T2D), Wegovy pill, Wegovy HD</td>
+<td data-l="Hits which receptors">GLP-1</td>
+<td data-l="Form">weekly injection or daily pill</td>
+<td data-l="Status Nov 2026">Wegovy 2.4 mg approved 2021; Wegovy pill (25 mg oral) approved Dec 2025, launched Jan 2026 [reported, BioSpace 2026]; Wegovy HD 7.2 mg approved 19 Mar 2026 [reported, HCPLive 2026]</td>
+</tr>
+<tr>
+<td data-l="Compound">Tirzepatide</td>
+<td data-l="Brand(s)">Mounjaro (T2D), Zepbound (obesity, OSA)</td>
+<td data-l="Hits which receptors">GIP + GLP-1</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">Approved 2022/2023; OSA indication 2024 [reported]</td>
+</tr>
+<tr>
+<td data-l="Compound">Orforglipron</td>
+<td data-l="Brand(s)">Foundayo</td>
+<td data-l="Hits which receptors">GLP-1 (small molecule, not a peptide)</td>
+<td data-l="Form">daily pill</td>
+<td data-l="Status Nov 2026">FDA approved ~1 Apr 2026 for chronic weight management [reported, BioSpace 1 Apr 2026; Frontiers Pharmacol review 2026 says "April 2026"]</td>
+</tr>
+<tr>
+<td data-l="Compound">Cagrilintide + semaglutide</td>
+<td data-l="Brand(s)">CagriSema</td>
+<td data-l="Hits which receptors">Amylin + GLP-1</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">NDA filed 18 Dec 2025; FDA decision expected Q4 2026; still not approved as of 28 Oct 2026 [reported, Patient Care Online 28 Oct 2026]. <strong>[v2 fix]</strong> No public PDUFA date; Novo's own 21 Sep 2026 release still says "decision expected in Q4 2026" [verified, novonordisk.com]; no approval or rejection found by 3 Nov 2026</td>
+</tr>
+<tr>
+<td data-l="Compound">Retatrutide</td>
+<td data-l="Brand(s)">none yet</td>
+<td data-l="Hits which receptors">GIP + GLP-1 + glucagon</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">Phase 3 TRIUMPH-1 and TRIUMPH-2 published Sept 2026 [verified]; <strong>[v2 fix]</strong> Lilly said 23 Jul 2026 it will file in early 2027 (moved from 2026) [reported, multiple outlets]; head-to-head win vs Ozempic in T2D announced 28 Oct 2026 [verified, Lilly release]</td>
+</tr>
+<tr>
+<td data-l="Compound">Eloralintide (v2 add)</td>
+<td data-l="Brand(s)">none yet</td>
+<td data-l="Hits which receptors">Amylin (selective AMY1R)</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">Phase 2 published (Lancet 2025); phase 3 (ENLIGHTEN) recruiting since Feb 2026 [verified, Lancet abstract; ClinicalTrials.gov]</td>
+</tr>
+<tr>
+<td data-l="Compound">Liraglutide generic (v2 add)</td>
+<td data-l="Brand(s)">generic Saxenda</td>
+<td data-l="Hits which receptors">GLP-1</td>
+<td data-l="Form">daily injection</td>
+<td data-l="Status Nov 2026">First US generic for weight loss approved and launched Aug 2025 [reported, Indian Pharma Post 29 Aug 2025]</td>
+</tr>
+<tr>
+<td data-l="Compound">Semaglutide generics (v2 add)</td>
+<td data-l="Brand(s)">several brands outside US</td>
+<td data-l="Hits which receptors">GLP-1</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">India launches from 21 Mar 2026; Health Canada approved first generic Ozempic Apr 2026 [reported, The South First; CTV News 28 Apr 2026]</td>
+</tr>
+<tr>
+<td data-l="Compound">Survodutide</td>
+<td data-l="Brand(s)">none yet</td>
+<td data-l="Hits which receptors">Glucagon + GLP-1</td>
+<td data-l="Form">weekly injection</td>
+<td data-l="Status Nov 2026">Phase 3 SYNCHRONIZE-1 and -2 published 2026 [verified]; not approved</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="1-plain-language-mechanism-step-by-step">1. Plain-language mechanism, step by step</h2>
+<h3>1.1 The hormone your gut already makes</h3>
+<ul>
+<li>GLP-1 (glucagon-like peptide-1) is a hormone released by "L-cells" in the lining of the small intestine and colon when food arrives. It tells the body "a meal is here" [verified, Drucker 2018 Cell Metab review abstract, PMID 29617641, doi:10.1016/j.cmet.2018.03.001].</li>
+<li>Natural GLP-1 lasts only about 2 minutes in blood because an enzyme called DPP-4 chops it up, and the kidneys clear it [reported, standard physiology; widely cited in reviews; exact figure not re-checked this pass].</li>
+</ul>
+<h3>1.2 The incretin effect (the "why does eating sugar release more insulin than injecting sugar?" fact)</h3>
+<ul>
+<li>If you swallow glucose, your pancreas releases far more insulin than if the same glucose is dripped into a vein. The difference is caused by gut hormones called incretins: GLP-1 and GIP [reported, classic physiology]. Commonly cited size: incretins account for roughly 50 to 70% of the insulin response after a meal [reported; figure from textbook/review literature, not re-verified this pass].</li>
+</ul>
+<h3>1.3 At the pancreas</h3>
+<ul>
+<li>GLP-1 makes beta cells release more insulin, but only when blood sugar is raised ("glucose-dependent"). This is why GLP-1 drugs alone rarely cause dangerous lows [verified, Drucker 2018 abstract describes insulin augmentation and glucagon inhibition; hypoglycaemia point reported].</li>
+<li>It also tells alpha cells to release less glucagon (glucagon is the hormone that pushes sugar out of the liver) [verified, Drucker 2018].</li>
+</ul>
+<h3>1.4 At the stomach</h3>
+<ul>
+<li>GLP-1 slows how fast the stomach empties into the gut [verified, Drucker 2018]. Food sits longer, you feel full longer, and blood sugar rises more slowly after meals.</li>
+<li>This same effect explains nausea, the anaesthesia concern, and the pill-contraceptive interaction with tirzepatide (Sections 4.10, 4.13) [inferred from label mechanism statements].</li>
+<li>The stomach-slowing effect is strongest early and partly fades with continued dosing (tachyphylaxis). Lilly states the oral drug absorption effect of tirzepatide is greatest after the first 5 mg dose and lessens later [verified, Lilly Medical Information page, 2026].</li>
+</ul>
+<h3>1.5 At the brain (the main reason for weight loss)</h3>
+<ul>
+<li>GLP-1 receptors sit in two key brain areas [reported, Drucker 2018 and broader review literature]:</li>
+<li><strong>Hindbrain (brainstem):</strong> the area postrema and nucleus of the solitary tract. These areas sit near "leaky" parts of the blood-brain barrier, so the drug can reach them. They signal fullness and, when over-stimulated, nausea.</li>
+<li><strong>Hypothalamus:</strong> the appetite control centre. GLP-1 signalling turns up "I'm full" neurons (POMC) and turns down "I'm hungry" neurons (NPY/AgRP).</li>
+<li><strong>Reward circuits</strong> (mesolimbic dopamine areas): GLP-1 signalling appears to dampen the "want more" pull of food, alcohol and possibly nicotine. This is the basis of the "food noise" and alcohol-craving reports [reported; human trial evidence is early, see 4.8].</li>
+<li>Net effect: people eat less, mostly by feeling full sooner and thinking about food less. Weight loss comes mainly from eating less, not from burning more [reported; consistent across reviews].</li>
+</ul>
+<h3>1.6 Why one shot lasts a week (the engineering trick)</h3>
+<ul>
+<li><strong>Semaglutide:</strong> two tweaks to the natural GLP-1 chain. (1) An unusual amino acid (Aib) at position 8 blocks DPP-4 from cutting it. (2) A fatty acid "tail" attached at position 26 grips albumin, the most common blood protein, so the drug rides around protected and is released slowly. In mini-pigs half-life was 46 h IV [verified, Lau 2015 J Med Chem, PMID 26308095, doi:10.1021/acs.jmedchem.5b00726]. In humans the half-life is about 1 week (~165 h) [reported, Wegovy label figure; label not re-opened this pass]. <strong>[v2 fix]</strong> Label: "approximately 1 week" [verified, Wegovy PI via Drugs.com; EU tablet SmPC via fachinfo.de]; phase 1b measured 145 to 165 h at 2.4 mg [verified, Enebo Lancet 2021, PMID 33894838, doi:10.1016/S0140-6736(21)00845-X]. Oral semaglutide absolute bioavailability is only ~1 to 2% [verified, EU SmPC].</li>
+<li><strong>Liraglutide:</strong> same albumin idea but a weaker grip, so half-life ~13 h and it must be injected daily [reported]. <strong>[v2 fix]</strong> Label: "approximately 13 hours" [verified, Saxenda PI via Drugs.com].</li>
+<li><strong>Tirzepatide:</strong> built on the GIP backbone with a C20 fatty diacid tail; half-life ~5 days [reported, label figure not re-opened]. <strong>[v2 fix]</strong> Label: "approximately 5-6 days in patients with overweight or obesity" [verified, Zepbound PI via Drugs.com]; Lilly says it is cleared ~30 days after the last dose [verified, Lilly Medical Information].</li>
+<li><strong>Orforglipron (v2 add):</strong> label half-life 29 to 49 h, peak at 4 to 8 h, no meaningful food effect [verified, Foundayo PI, uspl.lilly.com].</li>
+<li><strong>Cagrilintide (v2 add):</strong> half-life 159 to 195 h in phase 1b [verified, PMID 33894838].</li>
+<li><strong>Retatrutide:</strong> lipidated 39-amino-acid peptide, once weekly [verified, Mateescu 2026 Pharmaceutics review, PMID 42942810].</li>
+<li><strong>Orforglipron:</strong> not a peptide at all. A small chemical molecule that fits the GLP-1 receptor, survives the stomach, and is taken daily with no food or water rules [verified, ATTAIN-1 NEJM 2025 abstract; Lilly Medical Info dosing page]. It is a "biased partial agonist", which a 2026 review flags as the reason its heart-outcome question is still open [verified, Frontiers Pharmacol 2026, PMID 42729683].</li>
+<li><strong>Analogy for the page:</strong> natural GLP-1 is a paper note that dissolves in 2 minutes. The drugs are the same note laminated (DPP-4 resistance) and clipped to a bus that circles the body all week (albumin binding) [inferred, explanatory device].</li>
+</ul>
+<h3>1.7 GLP-1 vs GIP vs glucagon vs amylin (mono, dual, triple)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Hormone</th>
+<th>Made by</th>
+<th>What it does (simple)</th>
+<th>Drugs that hit it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Hormone">GLP-1</td>
+<td data-l="Made by">gut L-cells</td>
+<td data-l="What it does (simple)">more insulin when sugar is high, less glucagon, slower stomach, fullness in brain</td>
+<td data-l="Drugs that hit it">all of the drugs on this page</td>
+</tr>
+<tr>
+<td data-l="Hormone">GIP</td>
+<td data-l="Made by">gut K-cells (upper gut)</td>
+<td data-l="What it does (simple)">the other incretin; boosts insulin; acts on fat tissue and the brain; may reduce nausea from GLP-1 [reported, mechanism still debated]</td>
+<td data-l="Drugs that hit it">tirzepatide, retatrutide</td>
+</tr>
+<tr>
+<td data-l="Hormone">Glucagon</td>
+<td data-l="Made by">pancreas alpha cells</td>
+<td data-l="What it does (simple)">raises blood sugar, but also increases energy use and burns liver fat [reported, Sergi 2026 survodutide review PMID 42822760 describes energy expenditure and hepatic effects]</td>
+<td data-l="Drugs that hit it">retatrutide, survodutide</td>
+</tr>
+<tr>
+<td data-l="Hormone">Amylin</td>
+<td data-l="Made by">pancreas beta cells (released with insulin)</td>
+<td data-l="What it does (simple)">fullness signal via the hindbrain, slows stomach, lowers glucagon</td>
+<td data-l="Drugs that hit it">cagrilintide (in CagriSema)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Mono-agonist</strong> = one key, one lock (semaglutide, liraglutide, orforglipron).</li>
+<li><strong>Dual</strong> = one molecule, two locks (tirzepatide GIP+GLP-1; survodutide glucagon+GLP-1). CagriSema is two separate molecules in one pen, not one dual molecule [verified, REDEFINE 3 design abstract, PMID 42838477].</li>
+<li><strong>Triple</strong> = one molecule, three locks (retatrutide GIP+GLP-1+glucagon) [verified, TRIUMPH-1 NEJM 2026].</li>
+<li>Why add glucagon if it raises sugar? GLP-1 and GIP pull sugar down hard enough to cancel that, while glucagon adds energy burn and liver-fat clearance [reported, reviews; inferred simplification].</li>
+<li>Unexpected sign worth explaining: retatrutide raises resting heart rate in a dose-dependent way that peaked at 24 weeks and declined after, in phase 2 [verified, NEJM 2023 phase 2 abstract].</li>
+</ul>
+<hr />
+<h2 id="2-animation-storyboard-8-scenes">2. Animation storyboard (8 scenes)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>What is shown</th>
+<th>The one idea it teaches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="What is shown">A bite of food travels into the small intestine; cells in the gut wall light up and release glowing GLP-1 dots into the blood.</td>
+<td data-l="The one idea it teaches">Your gut already makes this hormone every time you eat.</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="What is shown">A scissors-shaped enzyme (DPP-4) snips the GLP-1 dots apart within seconds; a clock reads "~2 minutes".</td>
+<td data-l="The one idea it teaches">Natural GLP-1 is powerful but gone almost instantly.</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="What is shown">Dots reach the pancreas: insulin "doors" open only when sugar cubes are crowding the blood; glucagon taps close.</td>
+<td data-l="The one idea it teaches">Insulin rises only when sugar is high, which is why lows are rare.</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="What is shown">The stomach drawn as a funnel; the outflow valve narrows and food drips out slowly; a "full" gauge stays high.</td>
+<td data-l="The one idea it teaches">Slower stomach = fuller for longer (and the source of nausea).</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="What is shown">Dots cross into the brain: the hindbrain flashes "full", the hypothalamus dims a "hungry" neuron and brightens a "satisfied" one, a reward centre's "want more" signal quiets.</td>
+<td data-l="The one idea it teaches">Most weight loss comes from the brain turning down appetite and food noise.</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="What is shown">The drug molecule appears with a shield (blocks the scissors) and a fatty tail that clips onto a large albumin "bus" that loops the body; calendar flips Mon to Mon.</td>
+<td data-l="The one idea it teaches">Engineering makes one dose last a week.</td>
+</tr>
+<tr>
+<td data-l="#">7</td>
+<td data-l="What is shown">Three locks on a cell labelled GLP-1, GIP, glucagon; keys for semaglutide (1 lock), tirzepatide (2), retatrutide (3); an amylin key appears beside semaglutide for CagriSema.</td>
+<td data-l="The one idea it teaches">Newer drugs open more locks, which adds more weight loss.</td>
+</tr>
+<tr>
+<td data-l="#">8</td>
+<td data-l="What is shown">A weight line falls over 72 weeks, then the injection icon disappears and the line climbs back two-thirds of the way within a year.</td>
+<td data-l="The one idea it teaches">It works while you take it; stopping usually means regain.</td>
+</tr>
+<tr>
+<td data-l="#">9 (optional)</td>
+<td data-l="What is shown">A staircase of doses with a person stepping up one step per month, nausea cloud shrinking at each landing.</td>
+<td data-l="The one idea it teaches">Doses go up slowly so the gut can adapt.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-key-trial-numbers">3. Key trial numbers</h2>
+<p>All weights are mean % change from start. "Pbo" = placebo. AE dropout = stopped drug because of side effects.</p>
+<h3>3.1 Obesity trials (people without diabetes unless stated)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial (year)</th>
+<th>Drug, dose used</th>
+<th>n</th>
+<th>Length</th>
+<th>Drug vs placebo</th>
+<th>AE dropout drug vs placebo</th>
+<th>Tag / source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial (year)">SCALE (2015)</td>
+<td data-l="Drug, dose used">liraglutide 3.0 mg daily</td>
+<td data-l="n">3,731</td>
+<td data-l="Length">56 wk</td>
+<td data-l="Drug vs placebo">-8.4 kg vs -2.8 kg; ≥5% loss 63.2% vs 27.1%</td>
+<td data-l="AE dropout drug vs placebo">not in abstract</td>
+<td data-l="Tag / source">[verified] Pi-Sunyer NEJM 2015, PMID 26132939, doi:10.1056/NEJMoa1411892</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">STEP 1 (2021)</td>
+<td data-l="Drug, dose used">semaglutide 2.4 mg weekly</td>
+<td data-l="n">1,961</td>
+<td data-l="Length">68 wk</td>
+<td data-l="Drug vs placebo">-14.9% vs -2.4% (-15.3 kg vs -2.6 kg); ≥15% loss 50.5% vs 4.9%</td>
+<td data-l="AE dropout drug vs placebo">GI-related dropout 4.5% vs 0.8%</td>
+<td data-l="Tag / source">[verified] Wilding NEJM 2021, PMID 33567185, doi:10.1056/NEJMoa2032183</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SURMOUNT-1 (2022)</td>
+<td data-l="Drug, dose used">tirzepatide 5 / 10 / 15 mg</td>
+<td data-l="n">2,539</td>
+<td data-l="Length">72 wk</td>
+<td data-l="Drug vs placebo">-15.0 / -19.5 / -20.9% vs -3.1%; ≥20% loss 50% (10 mg) and 57% (15 mg) vs 3%</td>
+<td data-l="AE dropout drug vs placebo">4.3 / 7.1 / 6.2% vs 2.6%</td>
+<td data-l="Tag / source">[verified] Jastreboff NEJM 2022, PMID 35658024, doi:10.1056/NEJMoa2206038</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SURMOUNT-5 head-to-head (2025)</td>
+<td data-l="Drug, dose used">tirzepatide max tolerated (10/15) vs semaglutide max tolerated (1.7/2.4)</td>
+<td data-l="n">751</td>
+<td data-l="Length">72 wk</td>
+<td data-l="Drug vs placebo">-20.2% vs -13.7% (open-label)</td>
+<td data-l="AE dropout drug vs placebo">not in abstract</td>
+<td data-l="Tag / source">[verified] Aronne NEJM 2025, PMID 40353578, doi:10.1056/NEJMoa2416394</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">Retatrutide phase 2 (2023)</td>
+<td data-l="Drug, dose used">1 / 4 / 8 / 12 mg</td>
+<td data-l="n">338</td>
+<td data-l="Length">48 wk</td>
+<td data-l="Drug vs placebo">-8.7 / -17.1 / -22.8 / -24.2% vs -2.1%; 12 mg: 83% lost ≥15%</td>
+<td data-l="AE dropout drug vs placebo">not in abstract</td>
+<td data-l="Tag / source">[verified] Jastreboff NEJM 2023, PMID 37366315, doi:10.1056/NEJMoa2301972</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRIUMPH-1 (2026)</td>
+<td data-l="Drug, dose used">retatrutide 4 / 9 / 12 mg</td>
+<td data-l="n">2,339</td>
+<td data-l="Length">80 wk</td>
+<td data-l="Drug vs placebo">treatment-regimen: -17.6 / -23.7 / -25.0% vs -3.9%. Efficacy estimand: -19.0 / -25.9 / -28.3% vs -2.2%</td>
+<td data-l="AE dropout drug vs placebo">4.1 / 6.9 / 11.3% vs 4.9%</td>
+<td data-l="Tag / source">[verified] NEJM 2026, PMID 42814954, doi:10.1056/NEJMoa2604169 (weights). [reported] Lilly press release 21 May 2026 (efficacy estimand, dropout, AE rates)</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRIUMPH-1 extension, BMI ≥35</td>
+<td data-l="Drug, dose used">retatrutide to max tolerated</td>
+<td data-l="n">532</td>
+<td data-l="Length">104 wk</td>
+<td data-l="Drug vs placebo">12 mg arm -29.9% (treatment-regimen)</td>
+<td data-l="AE dropout drug vs placebo">n/a</td>
+<td data-l="Tag / source">[reported] Lilly press release 21 May 2026</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRIUMPH-2, with T2D (2026)</td>
+<td data-l="Drug, dose used">retatrutide 4 / 9 / 12 mg</td>
+<td data-l="n">1,152</td>
+<td data-l="Length">80 wk</td>
+<td data-l="Drug vs placebo">-11.9 / -16.8 / -18.8% vs -5.1%</td>
+<td data-l="AE dropout drug vs placebo">AE/death dropout 4 / 12 / 8% vs 5%</td>
+<td data-l="Tag / source">[verified] Bellido Lancet 2026, PMID 42810372, doi:10.1016/S0140-6736(26)01861-1</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">REDEFINE 1 (2025)</td>
+<td data-l="Drug, dose used">CagriSema 2.4/2.4 mg</td>
+<td data-l="n">3,417</td>
+<td data-l="Length">68 wk</td>
+<td data-l="Drug vs placebo">-20.4% vs -3.0% (treatment-policy); 22.7% trial-product estimand</td>
+<td data-l="AE dropout drug vs placebo">GI events 79.6% vs 39.9%</td>
+<td data-l="Tag / source">[verified] NEJM 2025, PMID 40544433, doi:10.1056/NEJMoa2502081; 22.7% figure [reported]</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">REDEFINE 2, with T2D (2025)</td>
+<td data-l="Drug, dose used">CagriSema 2.4/2.4 mg</td>
+<td data-l="n">1,206</td>
+<td data-l="Length">68 wk</td>
+<td data-l="Drug vs placebo">-13.7% vs -3.4%</td>
+<td data-l="AE dropout drug vs placebo">GI events 72.5% vs 34.4%</td>
+<td data-l="Tag / source">[verified] NEJM 2025, PMID 40544432, doi:10.1056/NEJMoa2502082</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">REDEFINE 4 head-to-head</td>
+<td data-l="Drug, dose used">CagriSema vs tirzepatide</td>
+<td data-l="n">809</td>
+<td data-l="Length">not checked</td>
+<td data-l="Drug vs placebo">23.0% vs 25.5% (efficacy estimand); missed non-inferiority goal</td>
+<td data-l="AE dropout drug vs placebo">n/a</td>
+<td data-l="Tag / source">[reported] Life Science Daily, 16 Jul 2026. <strong>[v2 fix]</strong> Novo release 23 Feb 2026: 84 weeks, open-label, vs tirzepatide 15 mg; treatment-regimen <strong>20.2% vs 23.6%</strong>; efficacy 23.0% vs 25.5% [verified, company release via Inderes]</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">ATTAIN-1 (2025)</td>
+<td data-l="Drug, dose used">orforglipron 6 / 12 / 36 mg daily (trial doses)</td>
+<td data-l="n">3,127</td>
+<td data-l="Length">72 wk</td>
+<td data-l="Drug vs placebo">-7.5 / -8.4 / -11.2% vs -2.1%; 36 mg: 36% lost ≥15%</td>
+<td data-l="AE dropout drug vs placebo">5.3 to 10.3% vs 2.7%</td>
+<td data-l="Tag / source">[verified] NEJM 2025, PMID 40960239, doi:10.1056/NEJMoa2511774</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">OASIS 4</td>
+<td data-l="Drug, dose used">oral semaglutide 25 mg daily</td>
+<td data-l="n">not checked</td>
+<td data-l="Length">64 wk</td>
+<td data-l="Drug vs placebo">~13.6% (treatment-policy) / 16.6% (adherent) vs 2.7%</td>
+<td data-l="AE dropout drug vs placebo">not found</td>
+<td data-l="Tag / source">[reported] NiceRx blog 2026; BioSpace 2026. <strong>[v2 fix]</strong> Primary NEJM: n=307 (205 vs 102), -13.6% vs <strong>-2.2%</strong> at 64 wk; GI events 74.0% vs 42.2% [verified, Wharton NEJM 2025, PMID 40934115, doi:10.1056/NEJMoa2500969]. Label AE dropout 6.9% vs 5.9% [verified, Wegovy PI]. 16.6% figure not in abstract [reported]</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">STEP UP T2D (2025)</td>
+<td data-l="Drug, dose used">semaglutide 7.2 mg vs 2.4 mg</td>
+<td data-l="n">512</td>
+<td data-l="Length">72 wk</td>
+<td data-l="Drug vs placebo">-13.2% (7.2 mg) vs -3.9% pbo; dysaesthesia 18.9% vs 4.9% vs 0%</td>
+<td data-l="AE dropout drug vs placebo">serious AE ~9% all arms</td>
+<td data-l="Tag / source">[verified] Lingvay Lancet D&amp;E 2025, PMID 40961953, doi:10.1016/S2213-8587(25)00225-6</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">STEP UP (no diabetes)</td>
+<td data-l="Drug, dose used">semaglutide 7.2 mg</td>
+<td data-l="n">1,407</td>
+<td data-l="Length">72 wk</td>
+<td data-l="Drug vs placebo">~20.7% (title reference only); ≥5% loss 89% vs 38%; skin-sensation events 22% vs 6% vs 0.3%</td>
+<td data-l="AE dropout drug vs placebo">not found</td>
+<td data-l="Tag / source">[reported] HCPLive 19 Mar 2026. <strong>[v2 fix]</strong> Primary paper, treatment-policy: <strong>-18.7% (7.2 mg) vs -15.6% (2.4 mg) vs -3.9% pbo</strong>; GI events 70.8 / 61.2 / 42.8%; dysaesthesia 22.9 / 6.0 / 0.5%; serious AE 6.8 / 10.9 / 5.5% [verified, Wharton Lancet D&amp;E 2025, PMID 40961952, doi:10.1016/S2213-8587(25)00226-8]. MRI substudy (n=55): thigh muscle volume -1.1 L vs pbo (not significant), sit-to-stand preserved [verified, PMID 42764399]</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRANSCEND-T2D-2 (v2 add)</td>
+<td data-l="Drug, dose used">retatrutide 9 / 12 mg vs Ozempic 2 mg, T2D</td>
+<td data-l="n">1,298</td>
+<td data-l="Length">80 wk</td>
+<td data-l="Drug vs placebo">Efficacy estimand: weight -19.5 / -20.9% vs -9.4%; A1C -2.2 / -2.2 vs -1.8 points</td>
+<td data-l="AE dropout drug vs placebo">4.8 / 7.9% vs 2.7%</td>
+<td data-l="Tag / source">[verified] Lilly release 28 Oct 2026 (open-label; treatment-regimen not given)</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">REIMAGINE 5 (v2 add)</td>
+<td data-l="Drug, dose used">CagriSema 1.0/1.0 mg vs tirzepatide 5 mg, T2D</td>
+<td data-l="n">not stated</td>
+<td data-l="Length">60 wk</td>
+<td data-l="Drug vs placebo">Efficacy estimand: weight -12.4% vs -9.1%; A1C -1.71 vs -1.67</td>
+<td data-l="AE dropout drug vs placebo">not stated</td>
+<td data-l="Tag / source">[verified] Novo release 21 Sep 2026 (note low comparator dose)</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">Eloralintide phase 2 (v2 add)</td>
+<td data-l="Drug, dose used">eloralintide 1 to 9 mg weekly</td>
+<td data-l="n">263</td>
+<td data-l="Length">48 wk</td>
+<td data-l="Drug vs placebo">Efficacy estimand: -9 / -12 / -18 / -20% (1 / 3 / 6 / 9 mg) vs -0.4%; nausea 11 to 64%, fatigue 0 to 46% vs 12%</td>
+<td data-l="AE dropout drug vs placebo">not in abstract</td>
+<td data-l="Tag / source">[verified] Billings Lancet 2025, PMID 41207310, doi:10.1016/S0140-6736(25)02155-5</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">STEP TEENS (v2 add)</td>
+<td data-l="Drug, dose used">semaglutide 2.4 mg, ages 12 to 17</td>
+<td data-l="n">201</td>
+<td data-l="Length">68 wk</td>
+<td data-l="Drug vs placebo">BMI -16.1% vs +0.6%; ≥5% loss 73% vs 18%; gallstones 4% vs 0</td>
+<td data-l="AE dropout drug vs placebo">n/a</td>
+<td data-l="Tag / source">[verified] Weghuber NEJM 2022, PMID 36322838, doi:10.1056/NEJMoa2208601</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">ACHIEVE-4 (v2 add)</td>
+<td data-l="Drug, dose used">orforglipron vs insulin glargine, T2D + high CV risk</td>
+<td data-l="n">&gt;2,700</td>
+<td data-l="Length">52 wk+</td>
+<td data-l="Drug vs placebo">MACE-4 HR 0.84 (0.59 to 1.20), non-inferior; weight -8.8% vs +1.7%; all-cause death HR 0.43 (exploratory)</td>
+<td data-l="AE dropout drug vs placebo">n/a</td>
+<td data-l="Tag / source">[reported] BioPharm International 16 Apr 2026 citing Lilly</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SYNCHRONIZE-1 (2026)</td>
+<td data-l="Drug, dose used">survodutide 3.6 / 6.0 mg</td>
+<td data-l="n">725</td>
+<td data-l="Length">76 wk</td>
+<td data-l="Drug vs placebo">-12.2 / -13.0% vs -5.4%</td>
+<td data-l="AE dropout drug vs placebo">GI events 80.9 / 89.7% vs 47.9%</td>
+<td data-l="Tag / source">[verified] le Roux NEJM 2026, PMID 42253238, doi:10.1056/NEJMoa2600751</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SYNCHRONIZE-2, with T2D (2026)</td>
+<td data-l="Drug, dose used">survodutide 3.6 / 6.0 mg</td>
+<td data-l="n">752</td>
+<td data-l="Length">76 wk</td>
+<td data-l="Drug vs placebo">-8.2 / -9.8% vs -3.9%</td>
+<td data-l="AE dropout drug vs placebo">GI events 72.8 / 77.7% vs 38.6%</td>
+<td data-l="Tag / source">[verified] Wharton NEJM 2026, PMID 42820639, doi:10.1056/NEJMoa2607219</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Plain-English ladder for the page (treatment-regimen, ~68 to 80 weeks, no diabetes):</strong> liraglutide ~8%, orforglipron ~11%, oral or injected semaglutide ~14 to 15%, survodutide ~13%, tirzepatide ~20 to 21%, CagriSema ~20%, retatrutide ~24 to 25% [inferred, synthesised from rows above; cross-trial comparisons are rough because populations differ].</p>
+<p><strong>Pattern worth stating:</strong> people with type 2 diabetes lose less on every drug (retatrutide 18.8% vs 25.0%; CagriSema 13.7% vs 20.4%; survodutide 9.8% vs 13.0%) [inferred from verified rows].</p>
+<h3>3.2 Beyond weight: heart, kidney, sleep, liver</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial (year)</th>
+<th>Population, drug</th>
+<th>n</th>
+<th>Result</th>
+<th>Tag / source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial (year)">SELECT (2023)</td>
+<td data-l="Population, drug">established heart disease, BMI ≥27, no diabetes; semaglutide 2.4 mg</td>
+<td data-l="n">17,604</td>
+<td data-l="Result">Heart attack, stroke or CV death: 6.5% vs 8.0%, HR 0.80 (20% relative reduction) over ~40 months. AE dropout 16.6% vs 8.2%</td>
+<td data-l="Tag / source">[verified] Lincoff NEJM 2023, PMID 37952131, doi:10.1056/NEJMoa2307563</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">FLOW (2024)</td>
+<td data-l="Population, drug">T2D + chronic kidney disease; semaglutide 1.0 mg</td>
+<td data-l="n">3,533</td>
+<td data-l="Result">Major kidney events -24% (HR 0.76); CV death HR 0.71; any death HR 0.80; stopped early for efficacy</td>
+<td data-l="Tag / source">[verified] Perkovic NEJM 2024, PMID 38785209, doi:10.1056/NEJMoa2403347</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">STEP-HFpEF (2023)</td>
+<td data-l="Population, drug">heart failure with preserved EF + obesity; semaglutide 2.4 mg</td>
+<td data-l="n">529</td>
+<td data-l="Result">Symptom score +16.6 vs +8.7; walk test +21.5 m vs +1.2 m; weight -13.3% vs -2.6%; serious AE 13.3% vs 26.7%</td>
+<td data-l="Tag / source">[verified] Kosiborod NEJM 2023, PMID 37622681, doi:10.1056/NEJMoa2306963</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SUMMIT (2024)</td>
+<td data-l="Population, drug">HFpEF + obesity; tirzepatide up to 15 mg</td>
+<td data-l="n">731</td>
+<td data-l="Result">CV death or worsening HF: 9.9% vs 15.3%, HR 0.62. AE dropout 6.3% vs 1.4%</td>
+<td data-l="Tag / source">[verified] Packer NEJM 2024, PMID 39555826, doi:10.1056/NEJMoa2410027</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SURMOUNT-OSA (2024)</td>
+<td data-l="Population, drug">moderate-severe sleep apnoea + obesity; tirzepatide 10/15 mg</td>
+<td data-l="n">~469 (two trials)</td>
+<td data-l="Result">Apnoea events per hour: -25.3 vs -5.3 (no CPAP), -29.3 vs -5.5 (on CPAP), from ~50/h baseline</td>
+<td data-l="Tag / source">[verified] Malhotra NEJM 2024, PMID 38912654, doi:10.1056/NEJMoa2404881 (n [reported])</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRIUMPH-1/2 OSA (2026)</td>
+<td data-l="Population, drug">retatrutide 4/9/12 mg</td>
+<td data-l="n">243 + 448</td>
+<td data-l="Result">Apnoea events -34.3 (9 mg) vs -9.9 pbo from ~59/h baseline</td>
+<td data-l="Tag / source">[verified] Grunstein NEJM 2026, PMID 42904878, doi:10.1056/NEJMoa2611477</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">TRIUMPH-1 knee OA (2026)</td>
+<td data-l="Population, drug">retatrutide</td>
+<td data-l="n">574 subgroup</td>
+<td data-l="Result">WOMAC pain -3.5 (9 mg) vs -1.9 pbo</td>
+<td data-l="Tag / source">[verified] NEJM 2026, PMID 42814954</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">ESSENCE part 1 (2025)</td>
+<td data-l="Population, drug">MASH (fatty liver inflammation) with F2 to F3 fibrosis; semaglutide 2.4 mg</td>
+<td data-l="n">800 (interim of 1,197)</td>
+<td data-l="Result">Inflammation resolved 62.9% vs 34.3%; fibrosis improved 36.8% vs 22.4% at 72 wk</td>
+<td data-l="Tag / source">[verified] Sanyal NEJM 2025, PMID 40305708, doi:10.1056/NEJMoa2413258</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SYNERGY-NASH (phase 2, 2024)</td>
+<td data-l="Population, drug">MASH; tirzepatide 5/10/15 mg</td>
+<td data-l="n">190</td>
+<td data-l="Result">MASH resolution without fibrosis worsening in up to 73%</td>
+<td data-l="Tag / source">[verified] post hoc paper PMID 40689147, doi:10.1016/j.jhepr.2025.101472 (placebo rate not in abstract)</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SURPASS-CVOT</td>
+<td data-l="Population, drug">T2D; tirzepatide vs dulaglutide</td>
+<td data-l="n">not checked</td>
+<td data-l="Result">Non-inferior to dulaglutide on heart outcomes</td>
+<td data-l="Tag / source">[reported] OMICS 2026 review, PMID 42902597. <strong>[v2 fix]</strong> n=13,165 analysed; CV death, MI or stroke 12.2% vs 13.1%, HR 0.92 (95.3% CI 0.83 to 1.01), non-inferior, superiority missed (P=0.09) [verified, Nicholls NEJM 2025, PMID 41406444, doi:10.1056/NEJMoa2505928]. All-cause death HR 0.84 (0.75 to 0.94) [reported, Healio 19 Sep 2025, not in abstract]. Post hoc 6-part cardiorenal composite 23.7% vs 27.4%, HR 0.84 [verified, JAMA Cardiol 2026, PMID 41903177]. FDA has since approved Mounjaro for CV risk reduction in T2D [verified, Lilly Q3 release 29 Oct 2026]</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">SOUL</td>
+<td data-l="Population, drug">oral semaglutide, T2D</td>
+<td data-l="n">not checked</td>
+<td data-l="Result">CV superiority vs placebo</td>
+<td data-l="Tag / source">[reported] Cardiovasc Diabetol 2026, PMID 42649514</td>
+</tr>
+<tr>
+<td data-l="Trial (year)">CagriSema REDEFINE 1 BP</td>
+<td data-l="Population, drug"></td>
+<td data-l="n">3,417</td>
+<td data-l="Result">Systolic BP -10.9 vs -2.8 mmHg</td>
+<td data-l="Tag / source">[verified] Hypertension 2025, PMID 41328546</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-the-usual-questions">4. The usual questions</h2>
+<h3>4.1 Does the weight come back when you stop?</h3>
+<ul>
+<li><strong>STEP 1 extension:</strong> 327 people stopped semaglutide and lifestyle support at week 68. One year later they had regained about two-thirds of what they lost (net loss shrank from 17.3% to 5.6%). Blood pressure, sugar and cholesterol gains also drifted back [verified, Wilding DOM 2022, PMID 35441470, doi:10.1111/dom.14725].</li>
+<li><strong>SURMOUNT-4:</strong> 670 people who lost 20.9% in 36 weeks on tirzepatide were randomised. Switched to placebo: regained 14.0% over 52 weeks. Stayed on drug: lost a further 5.5%. At week 88, 89.5% of continuers kept ≥80% of their loss vs 16.6% of stoppers [verified, Aronne JAMA 2024, PMID 38078870, doi:10.1001/jama.2023.24945].</li>
+<li>Plain answer: these drugs treat appetite while you take them; they do not reset it. Obesity behaves like blood pressure: stop the medicine, the number drifts back [inferred].</li>
+<li>Caveat: stoppers in STEP 1 also lost the lifestyle programme at the same time, so the drug's sole effect is not isolated [verified design detail, inferred implication].</li>
+</ul>
+<h3>4.2 How much of the weight lost is muscle?</h3>
+<ul>
+<li><strong>SURMOUNT-1 DXA substudy (160 people):</strong> about 75% of weight lost was fat and 25% was lean mass, the same split as in the placebo group who lost less [verified, Look DOM 2025, PMID 39996356, doi:10.1111/dom.16275].</li>
+<li><strong>Annals of Internal Medicine systematic review (35 RCTs, Apr 2026):</strong> median share of weight loss from muscle-related measures was 28.3% (range 15.9 to 39.9%); about two-thirds of incretin studies exceeded the expected ~25% benchmark, but so did nearly half of diet-only studies. No study measured real physical function [verified, Batsis 2026, PMID 41996180, doi:10.7326/ANNALS-25-00478].</li>
+<li>"Lean mass" on DXA includes water, organs and connective tissue, not only skeletal muscle [reported, standard DXA caveat].</li>
+<li>Plain answer: roughly 1 kg in every 4 lost is not fat, similar to dieting. Whether that matters for strength, especially in older people, is unknown [inferred].</li>
+</ul>
+<h3>4.3 "Ozempic face"</h3>
+<ul>
+<li>Not a defined medical diagnosis. It describes facial volume loss and skin laxity after rapid weight loss. A 2026 review calls it a "proposed phenotype" and says no controlled studies exist yet [verified, Cho 2026 Clin Cosmet Investig Dermatol, PMID 42893183]. Listed among dermatologic effects in a 2026 dermatology review [verified, Narla 2026 Clin Dermatol, PMID 42562129].</li>
+<li>Most likely cause: facial fat loss in proportion to total fat loss, more visible in older skin [inferred]. No evidence the drug targets facial fat directly [inferred, absence of evidence].</li>
+</ul>
+<h3>4.4 Side-effect rates</h3>
+<p><strong>Stomach and gut (most common, mostly during dose increases):</strong>
+- Retatrutide TRIUMPH-1 (4 / 9 / 12 mg vs pbo): nausea 28.6 / 38.4 / 42.4% vs 14.8%; diarrhoea 25.2 / 34.1 / 32.0% vs 13.5%; constipation 23.8 / 25.9 / 26.1% vs 10.9%; vomiting 10.6 / 22.8 / 25.3% vs 4.8% [reported, Lilly press release 21 May 2026].
+- CagriSema REDEFINE 1: any GI event 79.6% vs 39.9% [verified].
+- Survodutide: any GI event 81 to 90% vs 48% [verified].
+- STEP 1 and SURMOUNT-1: nausea and diarrhoea most common, mild to moderate, mostly during escalation [verified]. (Exact STEP 1 per-symptom percentages not captured this pass; gap.)</p>
+<p><strong>Rare but serious (real-world, not trials):</strong>
+- Sodhi JAMA 2023 claims study, people using GLP-1s for weight loss vs bupropion-naltrexone: pancreatitis HR 9.09 (wide CI 1.25 to 66), bowel obstruction HR 4.22, gastroparesis HR 3.67, biliary disease HR 1.50 (not significant). Absolute pancreatitis rate 4.6 per 1,000 person-years on semaglutide vs 1.0 on comparator [verified citation PMID 37796527, doi:10.1001/jama.2023.19574; numbers [reported] via TCTMD 2023 because abstract unavailable]. <strong>[v2 fix]</strong> Full text now read: HRs are for semaglutide and liraglutide pooled vs bupropion-naltrexone; cohort was small (613 semaglutide, 4,144 liraglutide, 654 comparator); semaglutide pancreatitis rate 4.6 per 1,000 person-years rests on 2 events [verified, JAMA 2023 Table 1 and 2].
+- Gallbladder: meta-analysis of 76 RCTs (103,371 people) found 37% higher relative risk of gallbladder/biliary disease; 2.29x in weight-loss trials; higher with higher doses and longer use [verified, He JAMA Intern Med 2022, PMID 35344001, doi:10.1001/jamainternmed.2022.0338]. Rapid weight loss itself causes gallstones [reported].</p>
+<p><strong>Eye (NAION, a stroke of the optic nerve):</strong>
+- EMA PRAC (June 2025): NAION is a "very rare" side effect of semaglutide; about a twofold risk in diabetes studies, roughly 1 extra case per 10,000 person-years; stop semaglutide if it occurs [verified, EMA news page, 6 Jun 2025].
+- Harvard claims study (482,912 matched pairs, T2D): GLP-1 vs SGLT2 users HR 1.85, absolute increase 0.29 per 1,000 person-years [verified, Tesfaye DOM 2025, PMID 41104517].
+- 2026 meta-analyses: HR ~1.93 overall, significant in diabetes, not significant in obesity-only groups (HR 1.68, CI 0.72 to 3.91) [verified, Khani J Clin Pharmacol 2026, PMID 42612051]; another reports HR 2.37 to 3.36 in T2D [verified, Lampsas Graefes 2026, PMID 42201355]. High heterogeneity (I² up to 97%).</p>
+<p><strong>Thyroid C-cell warning (context):</strong>
+- Labels carry a boxed warning because these drugs caused thyroid C-cell tumours in rodents; whether this happens in humans is unknown. Contraindicated with personal or family history of medullary thyroid cancer (MTC) or MEN2 [verified, Zepbound label via PrescriberPoint 2026; Foundayo boxed warning reported, BioSpace 2026].
+- Scandinavian cohort (145,410 GLP-1 users, mean 3.9 years): no increase in thyroid cancer, HR 0.93 (0.66 to 1.31); medullary HR 1.19 with very wide CI [verified, Pasternak BMJ 2024, PMID 38683947, doi:10.1136/bmj-2023-078225].
+- Why rodents differ: rodent C-cells carry far more GLP-1 receptors than human C-cells [reported, widely cited in reviews; not re-verified this pass]. <strong>[v2 fix]</strong> Primary source: GLP-1 receptors found on rodent C-cells; humans and monkeys had low expression, the drugs did not trigger calcitonin release in primates, and 20 months of liraglutide at &gt;60x human exposure caused no C-cell hyperplasia in monkeys. Authors (Novo-affiliated) note long-term human effects remain unknown [verified, Bjerre Knudsen Endocrinology 2010, PMID 20203154, doi:10.1210/en.2009-1272].
+- Label rates (v2 add): acute pancreatitis 0.2 per 100 patient-years on Wegovy vs &lt;0.1 placebo; gallstones 1.6% vs 0.7% [verified, Wegovy PI]. Zepbound pancreatitis 0.14 vs 0.15 per 100 years; gallstones 1.1% vs 1% [verified, Zepbound PI]. Foundayo pancreatitis 0.14 vs 0.04 per 100 years; gallstones 1% vs 0.7% [verified, Foundayo PI].</p>
+<p><strong>Suicidality:</strong>
+- FDA (13 Jan 2026) found no increased risk of suicidal thoughts or behaviour, based on a 91-trial meta-analysis (107,910 patients) and a Sentinel study of ~2.24 million users, and asked makers to remove the warning from Wegovy, Zepbound and Saxenda labels [reported, HCPLive 13 Jan 2026 summarising FDA release; FDA page itself not opened].</p>
+<p><strong>Hair loss:</strong>
+- 2026 meta-analysis (17 studies, 1.09 million exposures): ~40% higher odds of non-scarring hair loss (OR 1.40), mostly telogen effluvium (stress shedding from rapid weight loss) and androgenetic patterns; alopecia areata not increased [verified, Viquez Burboa Skin Appendage Disord 2026, PMID 42621629].
+- Trials report 3 to 7%; real-world cohorts much higher. Women and &gt;10% weight loss are the strongest predictors. Usually temporary [verified, Leite Júnior Acta Diabetol 2026, PMID 42873315]. Hair loss is listed among common reactions on the Wegovy HD label [reported, HCPLive 2026].</p>
+<p><strong>New "skin sensation" signal (dysaesthesia):</strong>
+- Tingling, burning or sensitive skin rises at high doses: retatrutide 12.5% (12 mg) vs 0.9% [reported, Lilly 2026]; semaglutide 7.2 mg 18.9% vs 4.9% at 2.4 mg [verified, STEP UP T2D]. Mechanism unknown [reported, Mateescu 2026 review flags it as needing evaluation].</p>
+<h3>4.5 Aspiration under anaesthesia</h3>
+<ul>
+<li>Concern: a slowed stomach may still hold food despite fasting, risking inhaling stomach contents under sedation.</li>
+<li>Multi-society guidance (ASA, AGA, ASMBS, ISPCOP, SAGES, 29 Oct 2024): most people can continue GLP-1s before elective surgery; higher-risk times are during dose escalation or with active GI symptoms; a 24-hour liquid diet and stomach ultrasound are options [verified, ASA news release 2024].</li>
+<li>Evidence: aspiration about 0.01 to 0.05% for colonoscopy and under 0.3% in upper endoscopy, with retained food more common [verified, Beig 2026 review, PMID 42494946]. A Henry Ford cohort found retained food in 8.4% and fasting from solids &gt;15 h cut odds by two-thirds [verified, Mendez-Pino Can J Anaesth 2026, PMID 42618722].</li>
+</ul>
+<h3>4.6 Gastroparesis</h3>
+<ul>
+<li>Sodhi 2023 claims signal HR 3.67 (above) [reported]. Litigation (4.17) required plaintiffs to show proper gastric-emptying tests as of Aug 2025, which underlines that many claims lacked objective diagnosis [reported, RxIndex tracker Oct 2026]. Whether drug-induced slowing is permanent is not established [inferred, no source found].</li>
+</ul>
+<h3>4.7 Pancreatitis</h3>
+<ul>
+<li>Labels warn; trial rates low. Real-world HR elevated in one small claims study (above). Retatrutide trials excluded anyone with past pancreatitis [verified, ClinicalTrials.gov NCT05929066 eligibility]. Pooled phase 3 pancreatitis incidence figures not captured this pass (gap).</li>
+</ul>
+<h3>4.8 Alcohol and cravings</h3>
+<ul>
+<li>RCT: 48 adults with alcohol use disorder, low-dose semaglutide (0.25 to 1.0 mg) for 9 weeks reduced alcohol drunk in a lab test, drinks per drinking day and craving, but not number of drinking days; smokers cut cigarettes too [verified, Hendershot JAMA Psychiatry 2025, PMID 39937469, doi:10.1001/jamapsychiatry.2024.4789].</li>
+<li>Status: promising, small, short. Not approved for addiction [inferred].</li>
+</ul>
+<h3>4.9 Fertility and "Ozempic babies"</h3>
+<ul>
+<li>Most likely explanation: weight loss restores ovulation, especially in PCOS, in women who had irregular cycles [reported, Monash Lens 2024].</li>
+<li>Pill interaction: tirzepatide's label says to switch from oral birth control to a non-oral method, or add a barrier method, for 4 weeks after starting and 4 weeks after each dose increase, because slowed stomach emptying can reduce pill absorption; effect largest after the first 5 mg dose [verified, Lilly Medical Information 2026 citing Zepbound PI]. Semaglutide labels carry no equivalent instruction [reported; not re-verified]. <strong>[v2 fix]</strong> Confirmed: UK FSRH guidance summarises semaglutide studies showing no meaningful change in pill hormone levels (injection: 39 women; oral: 25 women) [reported, FSRH/CoSRH interim guidance PDF]. Foundayo label now carries a 30-day switch-or-barrier rule after starting and after each step, like tirzepatide [verified, Foundayo PI §7.3]. Wegovy label: stop at least 2 months before a planned pregnancy [verified, Wegovy PI via Drugs.com].</li>
+<li>Pregnancy safety: 2026 meta-analyses find no clear rise in major birth defects with early-pregnancy exposure (RR 1.02; OR 0.99), but certainty is "very low" and authors say this is not proof of safety [verified, Liu Endocr Connect 2026, PMID 42447044; Mavigök Front Pharmacol 2026, PMID 42964193].</li>
+<li>Guidance commonly cited: stop semaglutide at least 2 months before trying to conceive (washout because of the long half-life) [reported, Monash Lens 2024 citing guidelines].</li>
+</ul>
+<h3>4.10 Titration (published label schedules, reported as label facts)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Drug</th>
+<th>Label escalation</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Drug">Wegovy injection</td>
+<td data-l="Label escalation">0.25 mg wk 1-4, 0.5 mg wk 5-8, 1 mg wk 9-12, 1.7 mg wk 13-16, then 2.4 mg (or 1.7 mg) maintenance; may delay a step 4 weeks if not tolerated</td>
+<td data-l="Source">[reported] Drugs.com label summary</td>
+</tr>
+<tr>
+<td data-l="Drug">Wegovy HD</td>
+<td data-l="Label escalation">7.2 mg only after tolerating 2.4 mg for ≥4 weeks</td>
+<td data-l="Source">[reported] HCPLive 2026</td>
+</tr>
+<tr>
+<td data-l="Drug">Wegovy pill</td>
+<td data-l="Label escalation">starts 1.5 mg daily, steps up about every 30 days to 25 mg max; morning, empty stomach, ≤4 oz water, wait 30 min</td>
+<td data-l="Source">[verified] wegovy.com; intermediate steps (4 mg, 9 mg) [reported] from secondary sites, conflicting. <strong>[v2 fix]</strong> Label: 1.5 mg days 1 to 30, 4 mg days 31 to 60, 9 mg days 61 to 90, 25 mg from day 91 [verified, US PI via PrescriberPoint; EU SmPC matches]</td>
+</tr>
+<tr>
+<td data-l="Drug">Zepbound</td>
+<td data-l="Label escalation">2.5 mg × 4 wk (start only), then 5 mg, then +2.5 mg steps every ≥4 wk; maintenance 5, 10 or 15 mg; OSA 10 or 15 mg</td>
+<td data-l="Source">[verified] PrescriberPoint label page</td>
+</tr>
+<tr>
+<td data-l="Drug">Saxenda</td>
+<td data-l="Label escalation">0.6 mg daily, +0.6 mg each week to 3.0 mg at week 5; stop if &lt;4% loss at week 16</td>
+<td data-l="Source">[reported] Drugs.com label summary</td>
+</tr>
+<tr>
+<td data-l="Drug">Foundayo</td>
+<td data-l="Label escalation">0.8 mg daily ≥30 days, 2.5 mg ≥30 days, 5.5 mg, then optional 9, 14.5 or 17.2 mg; with or without food</td>
+<td data-l="Source">[verified] Lilly Medical Information</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Why go slow:</strong> GI side effects concentrate in the escalation phase and are dose-related; retatrutide phase 2 showed a lower starting dose (2 vs 4 mg) partly reduced them [verified, NEJM 2023]. Surgery guidance treats escalation as the higher-risk window [verified, ASA 2024]. The brain's nausea centre appears to adapt over weeks [inferred].</p>
+<h3>4.11 Compounded vs branded</h3>
+<ul>
+<li>Shortages ended: tirzepatide removed from FDA shortage list 2 Oct 2024; semaglutide 21 Feb 2025. Grace periods for mass compounding ended Mar to May 2025; courts sided with FDA; Fifth Circuit affirmed 27 Aug 2026 [reported, RxIndex trackers Oct 2026; FDA pages not opened].</li>
+<li>FDA sent warning letters to 30 telehealth companies (3 Mar 2026) and proposed (30 Apr 2026) keeping semaglutide, tirzepatide and liraglutide off the 503B bulks list; final decision not found [reported].</li>
+<li>FDA had 605 adverse-event reports for compounded semaglutide and 545 for compounded tirzepatide by 31 Jul 2025, many involving dosing errors from multi-dose vials [reported].</li>
+<li>Compounded products are not FDA-reviewed for identity, purity or dose accuracy [reported].</li>
+</ul>
+<h3>4.12 Microdosing</h3>
+<ul>
+<li>No published trials of sub-label "microdoses" for weight, longevity or inflammation were found on PubMed (search returned zero) [verified, PubMed search 3 Nov 2026]. Lilly says it has no data on microdosing; Drucker says low-dose anti-inflammatory benefit is "uncertain" [reported, ConsumerAffairs 16 Jan 2026].</li>
+<li>Note: the alcohol RCT used low label starting doses (0.25 to 0.5 mg) and found effects on craving, which is the closest real data [verified, Hendershot 2025; inferred relevance].</li>
+<li>Status: anecdote only [inferred].</li>
+</ul>
+<h3>4.13 Price and access 2026 (US unless stated)</h3>
+<ul>
+<li>TrumpRx self-pay (Sept 2026 snapshot): Wegovy pill $149/month; Wegovy pen $199 for first two fills then $349; Zepbound vial $299 [reported, Trimi blog 4 Sep 2026; check TrumpRx.gov].</li>
+<li>Foundayo: $149/month self-pay via LillyDirect; $25 with commercial coverage [reported, BioSpace 1 Apr 2026].</li>
+<li>Generics: key semaglutide patents expired in 2026 in India, China and Canada; analysts estimate ~US$15 per dose in India and China; no launches confirmed in the source [reported, Asia IP 20 Mar 2026]. Liraglutide generics exist [reported].</li>
+<li>Persistence is low partly because of cost (see 6.2).</li>
+</ul>
+<h3>4.14 Oral versions</h3>
+<ul>
+<li><strong>Wegovy pill (oral semaglutide 25 mg):</strong> a peptide that needs an absorption enhancer (SNAC), strict morning fasting rules; ~13.6 to 16.6% loss in OASIS 4; exposure similar to 2.4 mg injection in 82% of users [verified, Overgaard DOM 2026, PMID 42023428; weight figures reported].</li>
+<li><strong>Foundayo (orforglipron):</strong> small molecule, no food rules, cheaper to make; ~11% loss at top trial dose in ATTAIN-1; AE dropout up to 10.3%; Japanese trial only ~8% [verified, ATTAIN-1 and ATTAIN-J, PMID 42962687].</li>
+<li>A Novo-funded indirect comparison estimated oral semaglutide 25 mg gives ~3 points more weight loss with fewer dropouts than orforglipron 36 mg [verified, Michalak DOM 2026, PMID 42225305; conflict of interest: funded by the competitor].</li>
+</ul>
+<h3>4.15 Who should not use them</h3>
+<ul>
+<li>Personal or family history of medullary thyroid cancer or MEN2 (boxed warning, contraindication) [verified, Zepbound label; retatrutide trials excluded the same, NCT05929066].</li>
+<li>Serious hypersensitivity to the drug [verified, Zepbound label].</li>
+<li>Pregnancy: not recommended; stop beforehand (see 4.9) [reported].</li>
+<li>Caution groups in trials and guidance: past pancreatitis (excluded from retatrutide trials) [verified], severe GI disease/gastroparesis [reported], diabetic eye disease with rapid sugar drops [reported, not checked], severe liver impairment for Foundayo [verified, Lilly dosing page].</li>
+</ul>
+<hr />
+<h2 id="5-compound-comparison-table">5. Compound comparison table</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Liraglutide</th>
+<th>Semaglutide</th>
+<th>Tirzepatide</th>
+<th>Orforglipron</th>
+<th>CagriSema</th>
+<th>Survodutide</th>
+<th>Retatrutide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Receptors</td>
+<td data-l="Liraglutide">GLP-1</td>
+<td data-l="Semaglutide">GLP-1</td>
+<td data-l="Tirzepatide">GIP + GLP-1</td>
+<td data-l="Orforglipron">GLP-1</td>
+<td data-l="CagriSema">amylin + GLP-1</td>
+<td data-l="Survodutide">glucagon + GLP-1</td>
+<td data-l="Retatrutide">GIP + GLP-1 + glucagon</td>
+</tr>
+<tr>
+<td data-l="">Type</td>
+<td data-l="Liraglutide">peptide</td>
+<td data-l="Semaglutide">peptide</td>
+<td data-l="Tirzepatide">peptide</td>
+<td data-l="Orforglipron">small molecule</td>
+<td data-l="CagriSema">2 peptides</td>
+<td data-l="Survodutide">peptide</td>
+<td data-l="Retatrutide">peptide</td>
+</tr>
+<tr>
+<td data-l="">How often</td>
+<td data-l="Liraglutide">daily injection</td>
+<td data-l="Semaglutide">weekly injection or daily pill</td>
+<td data-l="Tirzepatide">weekly injection</td>
+<td data-l="Orforglipron">daily pill</td>
+<td data-l="CagriSema">weekly injection</td>
+<td data-l="Survodutide">weekly injection</td>
+<td data-l="Retatrutide">weekly injection</td>
+</tr>
+<tr>
+<td data-l="">Half-life</td>
+<td data-l="Liraglutide">~13 h [verified, label]</td>
+<td data-l="Semaglutide">~1 week [verified, label]</td>
+<td data-l="Tirzepatide">5 to 6 days [verified, label]</td>
+<td data-l="Orforglipron">29 to 49 h [verified, label; v2 fix]</td>
+<td data-l="CagriSema">cagrilintide 159 to 195 h [verified, phase 1b]</td>
+<td data-l="Survodutide">not checked</td>
+<td data-l="Retatrutide">~6 days [reported, review PMID 39724554]</td>
+</tr>
+<tr>
+<td data-l="">Top obesity result (treatment-regimen)</td>
+<td data-l="Liraglutide">~8% (56 wk)</td>
+<td data-l="Semaglutide">14.9% (68 wk); 7.2 mg ~20% [reported]</td>
+<td data-l="Tirzepatide">20.9% (72 wk)</td>
+<td data-l="Orforglipron">11.2% (72 wk)</td>
+<td data-l="CagriSema">20.4% (68 wk)</td>
+<td data-l="Survodutide">13.0% (76 wk)</td>
+<td data-l="Retatrutide">25.0% (80 wk)</td>
+</tr>
+<tr>
+<td data-l="">AE dropout, top dose vs pbo</td>
+<td data-l="Liraglutide">not checked; <strong>label 9.8 vs 4.3%</strong> [verified, v2]</td>
+<td data-l="Semaglutide">GI only 4.5 vs 0.8%; <strong>label (2.4 mg) 6.8 vs 3.2%</strong> [verified, v2]</td>
+<td data-l="Tirzepatide">6.2 vs 2.6%</td>
+<td data-l="Orforglipron">up to 10.3 vs 2.7%; <strong>label 8 vs 3%</strong> [verified, v2]</td>
+<td data-l="CagriSema">not checked</td>
+<td data-l="Survodutide">not checked</td>
+<td data-l="Retatrutide">11.3 vs 4.9%</td>
+</tr>
+<tr>
+<td data-l="">Proven hard outcomes</td>
+<td data-l="Liraglutide">heart (LEADER, T2D) [reported]</td>
+<td data-l="Semaglutide">heart (SELECT), kidney (FLOW), HFpEF symptoms, MASH</td>
+<td data-l="Tirzepatide">HF events (SUMMIT), OSA, CV non-inferior</td>
+<td data-l="Orforglipron">none yet (outcomes question open)</td>
+<td data-l="CagriSema">trial ongoing (REDEFINE 3, n=7,076)</td>
+<td data-l="Survodutide">none yet</td>
+<td data-l="Retatrutide">OSA, knee OA pain; outcomes trial ongoing</td>
+</tr>
+<tr>
+<td data-l="">Status Nov 2026</td>
+<td data-l="Liraglutide">approved, generic</td>
+<td data-l="Semaglutide">approved</td>
+<td data-l="Tirzepatide">approved</td>
+<td data-l="Orforglipron">approved Apr 2026</td>
+<td data-l="CagriSema">under FDA review</td>
+<td data-l="Survodutide">phase 3</td>
+<td data-l="Retatrutide">phase 3, not filed; filing planned early 2027 [reported, v2 fix]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-negative-mirror-what-fails">6. Negative mirror: what fails</h2>
+<h3>6.1 Non-responders</h3>
+<ul>
+<li>In STEP 1, 13.6% on semaglutide did not reach even 5% loss (86.4% did) [inferred from verified 86.4%]. SURMOUNT-1: 9 to 15% missed 5% depending on dose [inferred from verified 85 to 91%]. ATTAIN-1 Japan: only 46 to 61% reached 5% [verified, ATTAIN-J]. Survodutide: only ~72% reached 5% vs 46% on placebo [verified].</li>
+<li>Saxenda's label builds non-response in: stop if &lt;4% at 16 weeks [reported].</li>
+<li>Real-world: switchers from liraglutide had a weaker early response to semaglutide [verified, Milani Front Endocrinol 2026, PMID 42582375].</li>
+<li>With T2D, every drug underperforms (see 3.1) [inferred].</li>
+</ul>
+<h3>6.2 Real-world discontinuation</h3>
+<ul>
+<li>Prime Therapeutics (5,780 commercially insured adults with obesity, started 2021 to Q1 2022): only 8% (1 in 12) still on a GLP-1 at three years; 14% for high-potency obesity products; one-year persistence rose from 33% (2021 starters) to 63% (Q1 2024 starters) [reported, press release 25 Jun 2025].</li>
+<li>Johns Hopkins EHR (9,189 adults with obesity, no diabetes): 36.7% had a prescription lasting under a month and 82.7% of them got no further anti-obesity drug; only 18.6% had ≥336 days coverage at 12 months [verified, Ali Diabetes Obes Cardiometab CARE 2026, PMID 42920957].</li>
+<li>Claims commentary: about one-third of obesity patients without diabetes still on therapy at 1 year; ~70% of T2D patients stop by 24 months [verified as stated in commentary, Sisodia AJMC 2026, PMID 42663544; underlying studies not traced].</li>
+<li>Combine with 4.1: most people stop, and stoppers regain about two-thirds within a year [inferred]. This is the single biggest gap between trials and real life [inferred].</li>
+</ul>
+<h3>6.3 Trial-side failures and weak spots</h3>
+<ul>
+<li>CagriSema missed non-inferiority vs tirzepatide in REDEFINE 4 [reported].</li>
+<li>SELECT: twice as many people stopped semaglutide for side effects (16.6% vs 8.2%) [verified].</li>
+<li>Retatrutide 9 mg in T2D: 12% stopped for AEs or death vs 5% placebo; hypotension up to 6% [verified, TRIUMPH-2]. Five obesity phase 3s are positive but only one full peer-reviewed report existed by Sept 2026 per one review (now superseded by Sept to Oct 2026 NEJM/Lancet papers) [verified, Mateescu 2026].</li>
+<li>Cross-trial comparison problem: estimands, durations and populations differ; head-to-head data exist only for tirzepatide vs semaglutide and CagriSema vs tirzepatide [inferred].</li>
+<li>Nearly all pivotal trials are company-funded (Novo, Lilly, Boehringer) [verified from abstracts].</li>
+</ul>
+<h3>6.4 Lawsuits</h3>
+<ul>
+<li>MDL 3094 (gastroparesis, ileus, bowel obstruction; E.D. Pennsylvania, Judge Marston): 4,022 pending actions as of 1 Sep 2026, up from 3,636 in May 2026. No bellwether trial date or global settlement identified. Rule 702 expert hearing set for 14 to 18 Sep 2026; outcome not found [reported, RxIndex tracker updated 20 Oct 2026].</li>
+<li>MDL 3163 (NAION vision loss): 216 pending actions as of 1 Sep 2026 [reported, same].</li>
+<li>Court order (Aug 2025): gastroparesis plaintiffs must show an objective gastric-emptying test [reported].</li>
+<li>Case counts are filings, not proven injuries [reported].</li>
+</ul>
+<hr />
+<h2 id="7-sources-i-could-not-access-or-only-saw-second-hand">7. Sources I could not access or only saw second-hand</h2>
+<ul>
+<li>JAMA full text of Sodhi 2023 (fetch blocked by allowlist; abstract empty on PubMed). Numbers taken from TCTMD.</li>
+<li>FDA's own pages (suicidality release, compounding, shortage list, labels) not opened; relied on HCPLive, RxIndex, PrescriberPoint, Drugs.com.</li>
+<li>Full prescribing information PDFs for Wegovy, Wegovy pill, Saxenda, Foundayo not opened; half-lives in Section 1.6 and 5 are from memory of labels and are tagged [reported].</li>
+<li>OASIS 4 primary paper not located in PubMed this pass (only reviews and indirect comparisons).</li>
+<li>STEP UP (non-diabetes, 7.2 mg) primary paper not retrieved; only news summary.</li>
+<li>SURMOUNT-OSA participant total and weight-loss figures not in abstract.</li>
+<li>TRIUMPH-3 (CVD population) results not found.</li>
+<li>Lilly 21 May 2026 press release was read via the investor page; per-arm n not given.</li>
+<li>Commercial sites (RxIndex, Trimi, NiceRx) have affiliate interests and inconsistent dating.</li>
+</ul>
+<hr />
+<h2 id="8-gaps-for-next-pass-v1-list-see-section-10-for-what-v2-clos">8. Gaps for next pass (v1 list; see Section 10 for what v2 closed and Section 14 for the live list)</h2>
+<ol>
+<li>Retatrutide FDA filing date: Epocrates (Jul 2026) says submission planned early 2027; other sources say 2026. Check Lilly Q3 2026 earnings (late Oct 2026).</li>
+<li>CagriSema FDA decision: expected Q4 2026; re-check in late Nov / Dec 2026.</li>
+<li>Pull full labels (DailyMed) for half-lives, Wegovy pill exact steps (1.5 / 4 / 9 / 25 mg?), semaglutide contraception wording, pancreatitis and gallbladder label rates.</li>
+<li>STEP 1 per-symptom GI rates and total AE dropout; SCALE AE dropout; REDEFINE 1 AE dropout.</li>
+<li>OASIS 4 primary publication (n, AE dropout).</li>
+<li>STEP UP non-diabetes primary paper (mean % per arm).</li>
+<li>Survodutide phase 3 MASH (LIVERAGE) and orforglipron cardiovascular outcomes.</li>
+<li>Muscle: trials adding muscle-preserving drugs (bimagrumab, etc.) and resistance-training data; function outcomes.</li>
+<li>Weight regain after tapering vs abrupt stop (any trial of slow tapering?).</li>
+<li>Real-world non-responder % with tirzepatide specifically.</li>
+<li>Generic semaglutide launches in India, Canada, China and actual prices after Mar 2026.</li>
+<li>MDL 3094 Rule 702 ruling outcome (Sept 2026 hearing).</li>
+<li>Community data (Reddit/X/forums) on nausea management, "food noise", hair loss timing, as the research-method notes ask; keep separate from trial data.</li>
+<li>Confirm rodent vs human C-cell receptor density with a primary source.</li>
+<li>Pediatric/adolescent data (STEP TEENS, SURMOUNT-ADOLESCENTS) if the page will mention teens.</li>
+</ol>
+<hr />
+<h2 id="9-changes-in-this-version">9. Changes in this version</h2>
+<ul>
+<li>v1 (3 Nov 2026): first pass. ~55 searches/fetches across PubMed, ClinicalTrials.gov, WebSearch, WebFetch.</li>
+<li>v2 (3 Nov 2026): second pass. ~60 searches/fetches. See "What changed in v2" at top.</li>
+</ul>
+<h2 id="">---</h2>
+<h1>v2 ADDITIONS (Sections 10 to 14)</h1>
+<h2 id="10-v1-gaps-what-this-pass-closed">10. v1 gaps: what this pass closed</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>v1 gap</th>
+<th>Status in v2</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="v1 gap">1. Retatrutide filing date</td>
+<td data-l="Status in v2">Closed (reported)</td>
+<td data-l="Finding">Lilly said on 23 Jul 2026, with Q2 results and TRIUMPH-2/-3 readouts, that it will file in early 2027, moved from 2026; several outlets say Q1 2027 and give manufacturing data checks as the reason [reported, Ground News aggregation and HealingMaps, both 23 to 28 Jul 2026; Lilly own wording not seen]. Lilly's Q3 release (29 Oct 2026) does not restate a date [verified, investor.lilly.com Q3 PDF].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">2. CagriSema FDA decision</td>
+<td data-l="Status in v2">Still open</td>
+<td data-l="Finding">No PDUFA date was ever made public. Novo's 21 Sep 2026 release still says "decision expected in Q4 2026" [verified, novonordisk.com]. No approval or complete response letter found in any source dated up to 3 Nov 2026 [verified absence across 6 sources; Novo Q3 results due 4 Nov 2026, reported]. The "October 2026" date online is an unofficial estimate [reported, GLP Winner 29 Jun 2026].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">3. Labels: half-lives, Wegovy pill steps, contraception wording, pancreatitis and gallbladder rates</td>
+<td data-l="Status in v2">Closed</td>
+<td data-l="Finding">See Sections 1.6, 4.4, 4.9, 4.10, 5 (all marked [v2 fix]) and table 10.1 below. Labels read as text via Drugs.com, PrescriberPoint and Lilly's own label site; FDA PDF links were blocked.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">4. STEP 1 per-symptom GI rates; SCALE and REDEFINE 1 AE dropout</td>
+<td data-l="Status in v2">Partly closed</td>
+<td data-l="Finding">Label pooled rates (Wegovy 2.4 mg vs pbo): nausea 44 vs 16%, diarrhoea 30 vs 16%, vomiting 24 vs 6%, constipation 24 vs 11% [verified, Wegovy PI]. Saxenda AE dropout 9.8 vs 4.3% [verified, Saxenda PI]. REDEFINE 1 AE dropout still not found.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">5. OASIS 4 primary paper</td>
+<td data-l="Status in v2">Closed</td>
+<td data-l="Finding">NEJM 2025, PMID 40934115 [verified].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">6. STEP UP non-diabetes paper</td>
+<td data-l="Status in v2">Closed</td>
+<td data-l="Finding">Lancet D&amp;E 2025, PMID 40961952 [verified]. v1 number corrected.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">7. Survodutide MASH (LIVERAGE); orforglipron CV outcomes</td>
+<td data-l="Status in v2">Partly closed</td>
+<td data-l="Finding">LIVERAGE (biopsy) results not found. SYNCHRONIZE-MASLD: liver fat normal (&lt;5%) in 61% vs 5.7% at 48 wk [reported, BI release via ChemDiv 8 Jun 2026]. Orforglipron ACHIEVE-4: CV safety met vs insulin glargine, MACE-4 HR 0.84 [reported, BioPharm Intl 16 Apr 2026].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">8. Muscle-preserving add-ons, function outcomes</td>
+<td data-l="Status in v2">Partly closed</td>
+<td data-l="Finding">STEP UP MRI substudy (n=55): fat -11.1 L, thigh muscle -1.1 L (not significant), muscle fat infiltration down, sit-to-stand count preserved [verified, PMID 42764399]. Exercise after stopping liraglutide kept 5.1 kg more off at one year in one RCT [verified, as summarised in Marchetti 2026 systematic review, PMID 42941232]. Bimagrumab combination: reviews only this pass [reported, PMID 41948476].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">9. Taper vs abrupt stop</td>
+<td data-l="Status in v2">Closed (answer: no good evidence)</td>
+<td data-l="Finding">Oct 2026 systematic review (18 reports): no controlled trial isolated tapering, diet or drug-switch strategies; exercise had the only randomised support [verified, PMID 42941232, doi:10.3390/metabo16100757].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">10. Real-world tirzepatide non-response</td>
+<td data-l="Status in v2">Open</td>
+<td data-l="Finding">PubMed search returned nothing specific [verified search, 3 Nov 2026]. Trial figure stands: 9 to 15% missed 5% [verified, SURMOUNT-1].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">11. Generic semaglutide launches</td>
+<td data-l="Status in v2">Closed</td>
+<td data-l="Finding">India: generics launched from 21 Mar 2026; monthly prices roughly ₹2,200 to ₹4,200 for some brands vs ~₹8,800 to ₹11,000 for branded Ozempic [reported, The South First]. Canada: first generic Ozempic approved Apr 2026, launch reported [reported, CTV 28 Apr 2026; Telangana Today Jun 2026]. US: first generic liraglutide for weight loss launched Aug 2025 [reported]. No US generic semaglutide. Manufacturer names deliberately left out.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">12. MDL 3094 Rule 702 ruling</td>
+<td data-l="Status in v2">Open</td>
+<td data-l="Finding">Hearing was scheduled 14 to 18 Sep 2026; no ruling found. Tracker updated 20 Oct 2026 still shows 4,022 pending, no bellwether date [reported, RxIndex].</td>
+</tr>
+<tr>
+<td data-l="v1 gap">13. Community data</td>
+<td data-l="Status in v2">Out of scope here</td>
+<td data-l="Finding">Covered in GLP1 Community v1.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">14. Rodent vs human C-cells</td>
+<td data-l="Status in v2">Closed</td>
+<td data-l="Finding">[verified, PMID 20203154]. See 4.4.</td>
+</tr>
+<tr>
+<td data-l="v1 gap">15. Teens</td>
+<td data-l="Status in v2">Closed for semaglutide</td>
+<td data-l="Finding">STEP TEENS [verified]. Tirzepatide SURMOUNT-ADOLESCENTS (n=160, 72 wk) reached primary completion 2 Jun 2026; no results posted yet [verified, NCT06075667]. A Sep 2026 review says no randomised tirzepatide trial in non-diabetic teens has reported [verified, PMID 42794619].</td>
+</tr>
+</tbody>
+</table></div>
+<h3>10.1 Label side-effect table (published label facts, pooled weight-loss trials, % drug vs placebo)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Wegovy 2.4 mg inj</th>
+<th>Zepbound 5 / 10 / 15 mg</th>
+<th>Foundayo 5.5 / 9 / 17.2 mg</th>
+<th>Saxenda 3 mg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Nausea</td>
+<td data-l="Wegovy 2.4 mg inj">44 vs 16</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">25 / 29 / 28 vs 8</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">26 / 34 / 35 vs 10</td>
+<td data-l="Saxenda 3 mg">39.3 vs 13.8</td>
+</tr>
+<tr>
+<td data-l="">Diarrhoea</td>
+<td data-l="Wegovy 2.4 mg inj">30 vs 16</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">19 / 21 / 23 vs 8</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">21 / 23 / 25 vs 11</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Vomiting</td>
+<td data-l="Wegovy 2.4 mg inj">24 vs 6</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">8 / 11 / 13 vs 2</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">13 / 21 / 24 vs 4</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Constipation</td>
+<td data-l="Wegovy 2.4 mg inj">24 vs 11</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">17 / 14 / 11 vs 5</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">20 / 27 / 24 vs 9</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Fatigue</td>
+<td data-l="Wegovy 2.4 mg inj">11 vs 5</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">5 / 6 / 7 vs 3</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">6 / 7 / 9 vs 4</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Burping</td>
+<td data-l="Wegovy 2.4 mg inj">7 vs &lt;1</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">4 / 5 / 5 vs 1</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">6 / 8 / 8 vs 1</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Hair loss</td>
+<td data-l="Wegovy 2.4 mg inj">3 vs 1</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">5 / 4 / 5 vs 1</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">4 / 4 / 5 vs 2</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Stopped for side effects</td>
+<td data-l="Wegovy 2.4 mg inj">6.8 vs 3.2</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">4.8 / 6.3 / 6.7 vs 3.4</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">8 vs 3 (all doses)</td>
+<td data-l="Saxenda 3 mg">9.8 vs 4.3</td>
+</tr>
+<tr>
+<td data-l="">Gallstones</td>
+<td data-l="Wegovy 2.4 mg inj">1.6 vs 0.7</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">1.1 vs 1</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">1 vs 0.7</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Heart rate</td>
+<td data-l="Wegovy 2.4 mg inj">+1 to 4 bpm vs pbo</td>
+<td data-l="Zepbound 5 / 10 / 15 mg">+1 to 3 bpm</td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg">+4 to 5 bpm</td>
+<td data-l="Saxenda 3 mg">not pulled</td>
+</tr>
+<tr>
+<td data-l="">Sources: Wegovy, Zepbound and Saxenda PIs via Drugs.com; Foundayo PI via uspl.lilly.com [all verified, read 3 Nov 2026]. Cross-label comparison is rough: different trials, populations and escalation schemes [inferred].</td>
+<td data-l="Wegovy 2.4 mg inj"></td>
+<td data-l="Zepbound 5 / 10 / 15 mg"></td>
+<td data-l="Foundayo 5.5 / 9 / 17.2 mg"></td>
+<td data-l="Saxenda 3 mg"></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="11-adversarial-check-tracing-numbers-to-primary-sources">11. Adversarial check: tracing numbers to primary sources</h2>
+<h3>11.1 The 8 most important numbers in v1</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>v1 claim</th>
+<th>Primary source checked</th>
+<th>Verdict</th>
+<th>New tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="v1 claim">STEP 1: -14.9% vs -2.4% at 68 wk; GI dropout 4.5 vs 0.8%</td>
+<td data-l="Primary source checked">Wilding NEJM 2021 abstract, PMID 33567185</td>
+<td data-l="Verdict">Matches exactly</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="v1 claim">SURMOUNT-1: -20.9% (15 mg) vs -3.1%; AE dropout 6.2 vs 2.6%</td>
+<td data-l="Primary source checked">Jastreboff NEJM 2022 abstract, PMID 35658024</td>
+<td data-l="Verdict">Matches. Note label pooled AE dropout is 6.7% at 15 mg vs 3.4%, a different pool</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="v1 claim">TRIUMPH-1: -25.0% (12 mg) vs -3.9%, treatment-regimen</td>
+<td data-l="Primary source checked">NEJM 2026 abstract, PMID 42814954</td>
+<td data-l="Verdict">Matches. The 28.3% "efficacy" number and the dropout and AE rates still rest on Lilly's press release, not the abstract</td>
+<td data-l="New tag">weights [verified]; dropout [reported]</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="v1 claim">SELECT: 6.5% vs 8.0%, HR 0.80; AE dropout 16.6 vs 8.2%</td>
+<td data-l="Primary source checked">Lincoff NEJM 2023 abstract, PMID 37952131</td>
+<td data-l="Verdict">Matches (569 vs 701 events; 1,461 vs 718 stopped)</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="v1 claim">Stopping semaglutide: two-thirds regained in a year (17.3% to 5.6%)</td>
+<td data-l="Primary source checked">Wilding DOM 2022 abstract, PMID 35441470</td>
+<td data-l="Verdict">Matches: regained 11.6 points. Caveat confirmed: lifestyle support also stopped</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="v1 claim">SURMOUNT-4: +14.0% on placebo vs -5.5% continuing; 89.5% vs 16.6% kept ≥80%</td>
+<td data-l="Primary source checked">Aronne JAMA 2024 abstract, PMID 38078870</td>
+<td data-l="Verdict">Matches</td>
+<td data-l="New tag">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">7</td>
+<td data-l="v1 claim">STEP UP (no diabetes) ~20.7%</td>
+<td data-l="Primary source checked">Wharton Lancet D&amp;E 2025, PMID 40961952</td>
+<td data-l="Verdict"><strong>Wrong headline.</strong> Treatment-policy is -18.7% (7.2 mg) vs -15.6% (2.4 mg) vs -3.9%. The ~20.7% is an on-treatment figure from company material. Skin events 22.9 vs 6.0 vs 0.5% (paper) and 22 vs 6 vs 0.3% (label)</td>
+<td data-l="New tag"><strong>Corrected</strong> [verified]</td>
+</tr>
+<tr>
+<td data-l="#">8</td>
+<td data-l="v1 claim">OASIS 4: ~13.6% vs 2.7%</td>
+<td data-l="Primary source checked">Wharton NEJM 2025, PMID 40934115</td>
+<td data-l="Verdict"><strong>Placebo was 2.2%, not 2.7%.</strong> Main figure matches; n=307 (small for a pivotal)</td>
+<td data-l="New tag"><strong>Corrected</strong> [verified]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Extra checks done while there:
+- ATTAIN-1 -11.2% (36 mg) vs -2.1%, AE dropout 5.3 to 10.3% vs 2.7%: matches PMID 40960239 [verified].
+- REDEFINE 1 -20.4% vs -3.0%: matches PMID 40544433 [verified]. The 22.7% is the trial-product estimand from Novo's Dec 2024 topline [reported; also quoted in a 2026 review, PMID 42803913].
+- Sodhi JAMA 2023 HRs: match the full text, but they pool two drugs and rest on very few semaglutide events (2 pancreatitis cases). The page should say "small study, few cases" [verified].
+- Orforglipron half-life: v1 guessed 1 to 2 days [speculated]; label says 29 to 49 h. Close but now [verified].
+- Eloralintide: Hub says it "went the other way" on heart rate. That rests on a review (PMID 42745233), which itself says evidence is from small phase 1/2 studies [reported]. The phase 2 Lancet abstract does not report heart rate.</p>
+<h3>11.2 The 5 Hub v1 numbers that rested on secondary sources</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Hub claim</th>
+<th>What the primary or best source says</th>
+<th>Verdict</th>
+<th>Tag now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Hub claim"><strong>SELECT early events</strong>: curves split from ~day 20; 67 vs 113 events in first 6 months; weight loss under 5%; nobody at full dose</td>
+<td data-l="What the primary or best source says">Organiser press release for the ECO 2025 presentation (EASO via EurekAlert, 12 May 2025): 36 vs 58 events at 3 months (-38%), 67 vs 113 at 6 months (-41%). TCTMD (14 May 2025): first difference at day 20, significant by day 86; weight loss &lt;5% <strong>at 3 months</strong>; full dose needs ≥16 weeks</td>
+<td data-l="Verdict">Numbers hold. Small overreach in Hub: "&lt;5% weight loss" was stated for 3 months, not for the whole 6 months. No peer-reviewed paper found</td>
+<td data-l="Tag now">[reported, congress data; two independent write-ups agree]</td>
+</tr>
+<tr>
+<td data-l="Hub claim"><strong>CRP</strong>: -12% at week 4, -19% at week 8 with 1.4% and 2.8% weight loss; n=6,011; ~38% more than placebo by 2 years</td>
+<td data-l="What the primary or best source says">News-Medical (24 Aug 2026) independently gives the same figures as Consultant360, cites Plutzky et al., Circulation 2026, doi 10.1161/CIRCULATIONAHA.125.074482; 37.8% placebo-corrected at week 104; "accounting for changes in hsCRP partially attenuated" the CV benefit. Unclear if week 4/8 figures are placebo-corrected</td>
+<td data-l="Verdict">Consistent across 2 secondaries; primary abstract not reached (not in PubMed search results)</td>
+<td data-l="Tag now">[reported, 2 secondaries agree]; flag "placebo-corrected?"</td>
+</tr>
+<tr>
+<td data-l="Hub claim"><strong>Mouse lifespan</strong>: median 742 vs 834 days; 24% less food; females only; "control mice were short-lived for their strain"; no CR lifespan group</td>
+<td data-l="What the primary or best source says">Full text (Nature 2026, PMID 42686906, doi:10.1038/s41586-026-10940-7): 742 vs 834 days confirmed; food intake -24% confirmed; 39 vs 40 female mice started at 20 months; CR comparison was only a 5-month function study, not lifespan. Paper states control lifespan was <strong>"within the reported range"</strong> for the strain</td>
+<td data-l="Verdict">Numbers verified. <strong>Hub's "short-lived controls" line is contradicted by the paper and should be removed</strong> (it may come from outside commentary; not traced)</td>
+<td data-l="Tag now">[verified] numbers; Hub caveat <strong>correct it</strong></td>
+</tr>
+<tr>
+<td data-l="Hub claim"><strong>SURPASS-CVOT deaths</strong>: 16% fewer deaths vs dulaglutide</td>
+<td data-l="What the primary or best source says">NEJM 2025 abstract (PMID 41406444) reports only the primary composite (HR 0.92, non-inferior, superiority missed). Death HR 0.84 (0.75 to 0.94) is in Healio's congress write-up. JAMA Cardiol 2026 post hoc (PMID 41903177) confirms a 6-part composite including all-cause death HR 0.84</td>
+<td data-l="Verdict">Plausible and consistent, but the death HR is a secondary endpoint not seen in a primary abstract</td>
+<td data-l="Tag now">[reported]; add "secondary endpoint; primary endpoint was not superior"</td>
+</tr>
+<tr>
+<td data-l="Hub claim"><strong>Pill absorption</strong>: one tirzepatide dose cut pill hormone peaks 59 to 66%, exposure ~20%, delay 2.5 to 4.5 h, 40 women</td>
+<td data-l="What the primary or best source says">Trial registry NCT04172987: 40 healthy women, ethinylestradiol + norgestimate, tirzepatide single dose, completed 2021 [verified]. FSRH guidance: EE peak -59%, progestin peak -66%, AUC -20% and -21%, Tmax +2.5 to 4.5 h [reported]. The registry measured norelgestromin (the active metabolite); FSRH writes "norgestimate"</td>
+<td data-l="Verdict">Design verified; numbers from a professional body summary, consistent. Posted registry results page did not render</td>
+<td data-l="Tag now">design [verified]; numbers [reported, professional guidance]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Other Hub fixes found during this pass:
+- Fact 44 says skin tingling "0% on placebo": paper 0.5%, label 0.3% → change to "under 1%" [verified].
+- Facts 42, 43, 46 label rates (hair 3 vs 1; burping 7 vs &lt;1; fatigue 11 vs 5) all match the Wegovy label [verified].
+- Fact 1 Lancet alcohol trial: -41.1 vs -26.4 percentage points heavy-drinking days, n=108, 26 weeks, semaglutide 2.4 mg plus CBT; treatment difference -13.7 points [verified, PMID 42070571]. Hub matches.</p>
+<hr />
+<h2 id="12-the-50-usual-questions">12. The 50 usual questions</h2>
+<p>Each answer: plain evidence, 2 to 4 sentences, source. Doses appear only as published label or trial facts.</p>
+<h3>Basics</h3>
+<p><strong>1. How do GLP-1 drugs work?</strong>
+They copy a gut hormone released after meals, which tells the pancreas to release insulin when sugar is high, slows the stomach, and signals fullness in the brain. Most weight loss comes from eating less, not burning more. [verified, Drucker 2018, PMID 29617641; see Section 1]</p>
+<p><strong>2. What's the difference between Ozempic, Wegovy and Rybelsus?</strong>
+All three are semaglutide. Ozempic is the diabetes injection, Wegovy is the weight-loss brand (injection up to 2.4 mg weekly, HD 7.2 mg, or a daily pill up to 25 mg), and Rybelsus is the diabetes pill. Same molecule, different approved doses and uses. [verified, Wegovy PI; Section 0]</p>
+<p><strong>3. Which one is strongest?</strong>
+On average in big trials: retatrutide (not approved) ~24 to 25%, tirzepatide ~20 to 21%, CagriSema ~20%, semaglutide 7.2 mg ~19%, semaglutide 2.4 mg or 25 mg pill ~14 to 15%, orforglipron ~11%, liraglutide ~8%. Only two head-to-heads in obesity exist: tirzepatide beat semaglutide (-20.2% vs -13.7%) and CagriSema failed to match tirzepatide (20.2% vs 23.6%). Individual response varies more than these averages. [verified, PMIDs 42814954, 35658024, 40961952, 40353578; Novo release 23 Feb 2026]</p>
+<p><strong>4. How much weight will I lose?</strong>
+On the top approved doses, the average person without diabetes lost 15 to 21% over about 16 to 18 months, but 9 to 14% lost less than 5%. People with type 2 diabetes lose less on every drug. [verified, STEP 1, SURMOUNT-1; inferred from Section 3.1]</p>
+<p><strong>5. How fast does it start working?</strong>
+Appetite often drops within the first week, but doses rise slowly, so most weight loss happens months 3 to 12 and plateaus around 60 to 72 weeks in trials. Heart-event curves in SELECT separated from about day 20, before much weight was lost. [reported, TCTMD 14 May 2025; inferred from trial curves]</p>
+<p><strong>6. Is GLP-1 "better" than a dual or triple drug?</strong>
+Adding GIP or glucagon adds weight loss on average, but also new effects: retatrutide raises resting heart rate early and causes more skin tingling; glucagon parts add liver-fat burning. Only semaglutide (SELECT) and tirzepatide (SUMMIT, SURPASS-CVOT) have outcome trials; retatrutide's are running. [verified, Section 3.2; inferred]</p>
+<h3>How long, stopping, tapering</h3>
+<p><strong>7. How long do I need to take it?</strong>
+Trials treat it like blood-pressure medicine: benefits last while you take it. No trial has found a duration after which you can stop without regain. [verified, PMID 42941232]</p>
+<p><strong>8. What happens when I stop?</strong>
+In STEP 1, people regained two-thirds of the lost weight within a year after stopping both drug and lifestyle support. In SURMOUNT-4, switching to placebo meant regaining 14% of body weight in a year, while staying on lost 5.5% more. [verified, PMIDs 35441470, 38078870]</p>
+<p><strong>9. Can I taper down slowly instead?</strong>
+There is no controlled trial showing that tapering prevents regain. An October 2026 systematic review found only exercise had randomised support for keeping weight off after stopping. [verified, Marchetti 2026, PMID 42941232]</p>
+<p><strong>10. Can I take a lower "maintenance" dose?</strong>
+Labels allow some maintenance choice (Wegovy 1.7 or 2.4 mg; Zepbound 5, 10 or 15 mg), but no published trial tested stepping down after reaching goal. Lower doses lose less weight in every trial. [verified, labels; reported absence]</p>
+<h3>Muscle and body composition</h3>
+<p><strong>11. How much of the weight lost is muscle?</strong>
+About 25 to 28% of the weight lost is "lean mass," the same share as dieting, and lean mass on scans includes water and organs. In an MRI substudy of semaglutide 7.2 mg, thigh muscle shrank slightly but chair-stand performance held. [verified, PMIDs 39996356, 41996180, 42764399]</p>
+<p><strong>12. How do I protect muscle?</strong>
+Strength training and adequate protein are the standard advice; the only randomised evidence after stopping shows exercise helped keep 5.1 kg more off. Drugs designed to protect muscle (such as bimagrumab) are still in trials. [verified, PMID 42941232; reported, PMID 41948476]</p>
+<p><strong>13. Am I less strong afterwards?</strong>
+Unknown. A 35-trial review found no study measured real physical function. [verified, Batsis 2026, PMID 41996180]</p>
+<h3>Side effects</h3>
+<p><strong>14. What are the most common side effects?</strong>
+Nausea, diarrhoea, vomiting and constipation. On Wegovy 2.4 mg, 44% had nausea vs 16% on placebo; on Zepbound 25 to 29% vs 8%. [verified, labels; table 10.1]</p>
+<p><strong>15. When do side effects happen and do they pass?</strong>
+They cluster in the first weeks and after each dose increase, then usually fade. Trials describe them as mostly mild to moderate and transient. [verified, STEP 1 and SURMOUNT-1 abstracts]</p>
+<p><strong>16. Why does the dose go up slowly?</strong>
+Because stomach side effects are dose-related and concentrate during escalation; starting lower reduced them in the retatrutide phase 2. Labels build in 4-week (injection) or 30-day (pill) steps. [verified, PMID 37366315; labels]</p>
+<p><strong>17. How many people stop because of side effects?</strong>
+In label trials, about 5 to 10% on the drug vs 3 to 4% on placebo. In the 3-year SELECT trial, 16.6% stopped for side effects vs 8.2%. [verified, labels; PMID 37952131]</p>
+<p><strong>18. Why do I burp (and why sulfur)?</strong>
+Burping is a listed side effect (7% on Wegovy vs under 1%), from food sitting longer in a slowed stomach. The rotten-egg smell has never been measured in a study. [verified, Wegovy PI; reported absence]</p>
+<p><strong>19. Will my hair fall out?</strong>
+Labels list hair loss at 3 to 5% vs 1 to 2% on placebo; it is mostly stress shedding after fast weight loss, more common in women, and usually temporary. [verified, labels; PMID 42621629]</p>
+<p><strong>20. What is "Ozempic face"?</strong>
+Facial volume loss in proportion to fat lost (about 7% of midface volume per 10 kg in one scan study), more visible in older skin. It is not a diagnosis and no study shows the drug targets the face. [verified, PMIDs 40407186, 42893183]</p>
+<p><strong>21. Can it cause pancreatitis?</strong>
+It is a label warning, but rates in trials are low: Wegovy 0.2 vs &lt;0.1 cases per 100 patient-years; Zepbound 0.14 vs 0.15. One claims study found a raised risk with very wide uncertainty and only 2 semaglutide cases. [verified, labels; JAMA 2023 full text]</p>
+<p><strong>22. Gallbladder problems?</strong>
+Yes, modestly: gallstones 1.6% vs 0.7% on Wegovy, and a 76-trial meta-analysis found 37% higher relative risk, more with higher doses and longer use. Fast weight loss itself causes gallstones. [verified, Wegovy PI; PMID 35344001]</p>
+<p><strong>23. Thyroid cancer?</strong>
+Labels carry a boxed warning from rodent tumours, and people with personal or family medullary thyroid cancer or MEN2 must not use them. Human C-cells have few GLP-1 receptors, and a 145,410-person Scandinavian study found no rise. [verified, PMIDs 20203154, 38683947]</p>
+<p><strong>24. Can it affect my eyes?</strong>
+Europe's regulator lists a rare optic-nerve stroke (NAION) for semaglutide, roughly 1 extra case per 10,000 person-years in diabetes studies. Sudden vision loss means stop and seek care. [verified, EMA PRAC 6 Jun 2025]</p>
+<p><strong>25. Does it cause depression or suicidal thoughts?</strong>
+The FDA reviewed 91 trials (107,910 people) and 2.24 million users and found no increased risk, and asked for the warning to be removed from Wegovy, Zepbound and Saxenda. A minority report flat mood at high doses, which is a separate, less-studied issue. [verified, FDA DSC 13 Jan 2026, updated 3 Apr 2026]</p>
+<p><strong>26. Does it raise heart rate?</strong>
+Slightly: 1 to 4 bpm on Wegovy, 1 to 3 on Zepbound, 4 to 5 on Foundayo. Retatrutide's rise was dose-dependent and peaked around week 24. [verified, labels; PMID 37366315]</p>
+<p><strong>27. Is gastroparesis permanent?</strong>
+Not established. A small claims study linked GLP-1 use to gastroparesis diagnoses (HR 3.67), and courts now require an objective stomach-emptying test for lawsuits. [verified, JAMA 2023; reported, MDL order Aug 2025]</p>
+<p><strong>28. Is it safe before surgery or a scope?</strong>
+Most people can continue, but food can remain in the stomach despite fasting, especially during dose increases or with GI symptoms. Tell the anaesthetist; options include a 24-hour liquid diet. [verified, multi-society guidance 29 Oct 2024; PMID 42618722]</p>
+<h3>Alcohol, cravings, food noise</h3>
+<p><strong>29. Can I drink alcohol on it?</strong>
+No label bans alcohol, but slower stomach emptying changes how fast alcohol hits, and a small study saw a delayed rise in breath alcohol. People also report feeling it more or less. [reported, Hub v1 fact 2, PMID 41093891]</p>
+<p><strong>30. Does it reduce drinking?</strong>
+In a 108-person trial in people with alcohol use disorder and obesity, heavy-drinking days fell 41 points on semaglutide vs 26 on placebo, on top of therapy. It is not approved for alcohol. [verified, Klausen Lancet 2026, PMID 42070571]</p>
+<p><strong>31. Does "food noise" really go quiet?</strong>
+Users and small studies report less food preoccupation, sometimes before much weight loss, and it tends to return after stopping. [reported, Hub v1 fact 4, PMIDs 42801078, 42641845]</p>
+<h3>Pregnancy, fertility, contraception</h3>
+<p><strong>32. Is it safe in pregnancy?</strong>
+Not recommended; labels say stop when pregnancy is recognised. Meta-analyses of early accidental exposure found no clear rise in birth defects, but certainty is very low. [verified, labels; PMID 42447044]</p>
+<p><strong>33. How long before trying to conceive should I stop?</strong>
+The Wegovy label says at least 2 months before a planned pregnancy because of the ~1-week half-life. Zepbound and Foundayo labels give no fixed washout. [verified, Wegovy, Zepbound, Foundayo PIs]</p>
+<p><strong>34. Does it affect the pill?</strong>
+Tirzepatide and orforglipron: yes, labels say switch to a non-oral method or add a barrier for 4 weeks (Zepbound) or 30 days (Foundayo) after starting and after each dose increase. Semaglutide: studies showed no meaningful effect, but vomiting or diarrhoea can still make a pill fail. [verified, labels; reported, FSRH guidance]</p>
+<p><strong>35. Why "Ozempic babies"?</strong>
+Weight loss can restore ovulation (especially in PCOS), tirzepatide can lower pill absorption, and many users are not on contraception. [verified, Zepbound PI; reported, Hub v1 fact 20]</p>
+<p><strong>36. Breastfeeding?</strong>
+Not recommended. Wegovy tablets contain an absorption enhancer found in milk; Foundayo has no human data; one small study found no detectable injected semaglutide in milk. [verified, Wegovy and Foundayo PIs; reported, PMID 39275201]</p>
+<h3>Access, cost, forms</h3>
+<p><strong>37. What does it cost?</strong>
+US self-pay prices fell sharply: Lilly's Foundayo starts at $149/month and $25 with commercial insurance. Under the White House pricing deal (TrumpRx), Wegovy and Zepbound were announced at about $350 and $346/month on average, and a Sept 2026 snapshot listed lower starter prices. Prices change often; check the maker's site. [verified, Lilly release 1 Apr 2026; reported, MobiHealthNews (undated) and v1 §4.13]</p>
+<p><strong>38. Are there generics?</strong>
+In the US only liraglutide (Saxenda generic, Aug 2025). Semaglutide generics launched in India from March 2026 at roughly a quarter to half of the branded price, and Canada approved its first in April 2026. [reported, Section 10]</p>
+<p><strong>39. Compounded vs branded: what's the difference?</strong>
+Compounded versions are not FDA-reviewed for identity, purity or dose, and the FDA logged hundreds of adverse-event reports, many from dosing errors with vials. Shortages ended in 2024 to 2025, and the FDA has proposed keeping these drugs off the bulk-compounding list (final decision not found). [reported, Section 4.11; RxIndex tracker Oct 2026]</p>
+<p><strong>40. Pill or injection?</strong>
+The Wegovy pill (25 mg) gave ~14% loss but must be taken on an empty stomach with ≤4 oz water and a 30-minute wait; only 1 to 2% is absorbed. Foundayo has no food rules but gave ~11% at the top trial dose. Injections remain the strongest. [verified, PMID 40934115; Wegovy and Foundayo PIs; EU SmPC]</p>
+<p><strong>41. What is "microdosing"?</strong>
+Using doses below the label for wellness or "just food noise." No published trial has tested it, and the makers say they have no data. [verified, PubMed search 3 Nov 2026; reported, ConsumerAffairs Jan 2026]</p>
+<h3>Who it's for</h3>
+<p><strong>42. Can lean or normal-weight people use it?</strong>
+Approval is for BMI ≥30, or ≥27 with a weight-related condition. No trial has tested benefit or safety in lean people for weight or longevity; a placebo trial in healthy lean men found no effect on testosterone or desire. [verified, labels; reported, Hub v1 fact 23]</p>
+<p><strong>43. Can teenagers use it?</strong>
+Wegovy and Saxenda are approved from age 12 (Saxenda: &gt;60 kg). In STEP TEENS, BMI fell 16.1% vs +0.6% on placebo, with gallstones in 4% vs none. Tirzepatide's teen trial has not reported. [verified, PMID 36322838; Saxenda PI; NCT06075667]</p>
+<p><strong>44. Do people with type 2 diabetes lose less?</strong>
+Yes, on every drug: retatrutide 18.8% vs 25.0%, CagriSema 13.7% vs 20.4%, survodutide 9.8% vs 13.0%. [verified, Section 3.1]</p>
+<p><strong>45. What if it doesn't work for me?</strong>
+About 1 in 7 on semaglutide and 1 in 10 on tirzepatide lost under 5%. Saxenda's label says stop if under 4% at 16 weeks. Switching to a stronger drug is common practice, but switch trials are few. [verified, PMIDs 33567185, 35658024; Saxenda PI]</p>
+<p><strong>46. Does it interact with my other medicines?</strong>
+Slowed stomach emptying can change how oral drugs are absorbed; Wegovy tablets raised levothyroxine levels 33%. With insulin or sulfonylureas the risk of low blood sugar rises. [verified, Wegovy PI; label class warnings]</p>
+<h3>Beyond weight and the pipeline</h3>
+<p><strong>47. Does it protect the heart even without much weight loss?</strong>
+SELECT cut heart attack, stroke or heart death by 20%, and the benefit did not depend on starting weight or week-20 weight loss; about a third tracked waist shrinkage. [verified, PMIDs 37952131, 41138739]</p>
+<p><strong>48. Does it slow ageing?</strong>
+In old female mice, semaglutide extended median lifespan from 742 to 834 days. No human trial has tested ageing or lifespan. [verified, Nature 2026, PMID 42686906]</p>
+<p><strong>49. What is retatrutide and when will it be available?</strong>
+A weekly triple-hormone drug (GIP, GLP-1, glucagon) that gave 25.0% loss at the top dose in TRIUMPH-1 and more than doubled Ozempic's weight loss in diabetes. Lilly plans to file in early 2027, so approval is unlikely before late 2027 at the earliest. [verified, PMID 42814954; Lilly 28 Oct 2026; reported filing timing; inferred approval timing]</p>
+<p><strong>50. What are amylin drugs (CagriSema, eloralintide)?</strong>
+Amylin is a fullness hormone made alongside insulin. CagriSema (amylin + semaglutide) gave 20.4% loss and awaits an FDA decision expected Q4 2026; eloralintide (amylin alone) gave up to ~20% in phase 2 with fatigue and nausea as main side effects and is in phase 3. [verified, PMIDs 40544433, 41207310; Novo release 21 Sep 2026]</p>
+<hr />
+<h2 id="13-animation-storyboard-v2-10-scenes-90-seconds">13. Animation storyboard v2 (10 scenes, ~90 seconds)</h2>
+<p>Style note: one visual metaphor carried through (keys and locks), no doses on screen, no brand logos [inferred design choice].</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>On screen</th>
+<th>One idea taught</th>
+<th>Caption (&lt;12 words)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="On screen">Fork lands on a plate; food slides into a cut-away gut; wall cells glow and release small light dots into a blood vessel.</td>
+<td data-l="One idea taught">Your gut already makes GLP-1 every time you eat.</td>
+<td data-l="Caption (&amp;lt;12 words)">Every meal, your gut sends a "you've eaten" signal.</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="On screen">A pair of scissors (DPP-4) chases the dots and snips them; a stopwatch hits 2:00 and the dots are gone.</td>
+<td data-l="One idea taught">Natural GLP-1 vanishes in about two minutes.</td>
+<td data-l="Caption (&amp;lt;12 words)">Your own signal lasts only about two minutes.</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="On screen">Dots reach the pancreas: insulin doors open only where sugar cubes pile up; on a quiet street the doors stay shut.</td>
+<td data-l="One idea taught">Insulin rises only when sugar is high, so lows are rare.</td>
+<td data-l="Caption (&amp;lt;12 words)">It releases insulin only when blood sugar is high.</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="On screen">Stomach as a funnel; the valve narrows, food drips slowly; a "full" gauge stays high. A small queasy face appears at the narrow valve.</td>
+<td data-l="One idea taught">Slower stomach means fuller longer, and explains nausea.</td>
+<td data-l="Caption (&amp;lt;12 words)">A slower stomach keeps you full and can cause nausea.</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="On screen">Dots enter the brain: hindbrain flashes "full", a "hungry" neuron dims, a reward dial labelled "want more" turns down. Thought bubbles of cake fade.</td>
+<td data-l="One idea taught">Most weight loss is the brain turning down appetite and food noise.</td>
+<td data-l="Caption (&amp;lt;12 words)">Your brain hears "full" sooner and thinks about food less.</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="On screen">The drug molecule gets a shield (scissors bounce off) and a fatty tail that clips onto a big albumin bus; a weekly calendar flips Monday to Monday.</td>
+<td data-l="One idea taught">Engineering makes one dose last a week.</td>
+<td data-l="Caption (&amp;lt;12 words)">A shield and a fatty tail make one shot last a week.</td>
+</tr>
+<tr>
+<td data-l="#">7</td>
+<td data-l="On screen"><strong>Key and lock comparison.</strong> One cell with four locks: GLP-1, GIP, glucagon, amylin. Four keyrings appear in turn: Single (semaglutide, 1 key), Dual (tirzepatide, 2 keys), Triple (retatrutide, 3 keys), Amylin pair (CagriSema: separate GLP-1 key plus amylin key). A bar beside each grows to its average trial loss: ~15%, ~21%, ~25%, ~20%. Fine print: "different trials, rough comparison".</td>
+<td data-l="One idea taught">More locks opened usually means more weight loss, with new trade-offs.</td>
+<td data-l="Caption (&amp;lt;12 words)">One key, two, three, or a partner hormone: more locks, more loss.</td>
+</tr>
+<tr>
+<td data-l="#">8</td>
+<td data-l="On screen">A dose staircase; a figure steps up one stair every 4 weeks; a nausea cloud shrinks at each landing.</td>
+<td data-l="One idea taught">Doses rise slowly so the gut can adapt.</td>
+<td data-l="Caption (&amp;lt;12 words)">Doses climb slowly because the gut needs time to adjust.</td>
+</tr>
+<tr>
+<td data-l="#">9</td>
+<td data-l="On screen">A body silhouette loses volume: three of four blocks leaving are yellow (fat), one is red (lean). A dumbbell appears and the red block steadies.</td>
+<td data-l="One idea taught">About a quarter of weight lost is lean mass, like any diet.</td>
+<td data-l="Caption (&amp;lt;12 words)">Roughly one kilo in four lost isn't fat. Lift weights.</td>
+</tr>
+<tr>
+<td data-l="#">10</td>
+<td data-l="On screen">A weight line falls over 72 weeks; the pen icon disappears; the line climbs two-thirds of the way back over the next year. A second line stays down with the pen still showing.</td>
+<td data-l="One idea taught">It works while you take it; stopping usually means regain.</td>
+<td data-l="Caption (&amp;lt;12 words)">It treats appetite while you take it. It doesn't reset it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Scene sources: 1 to 6 Section 1 [verified/reported as tagged there]; 7 Section 3.1 [verified trial numbers; inferred simplification]; 8 labels and PMID 37366315 [verified]; 9 PMIDs 39996356, 41996180 [verified]; 10 PMIDs 35441470, 38078870 [verified].</p>
+<p>Changes from v1 storyboard: captions added; old scene 7 rebuilt into a clear four-way single/dual/triple/amylin comparison with outcome bars; old optional staircase made scene 8; new muscle scene 9.</p>
+<hr />
+<h2 id="14-gaps-for-next-pass">14. Gaps for next pass</h2>
+<ol>
+<li><strong>CagriSema decision</strong>: re-check Novo's Q3 report (4 Nov 2026) and FDA news through December 2026.</li>
+<li><strong>Retatrutide filing</strong>: find Lilly's own wording on the early-2027 filing (Q2 2026 earnings transcript or release); confirm no change in the Q3 call.</li>
+<li><strong>SELECT CRP paper</strong>: get the Circulation abstract (doi 10.1161/CIRCULATIONAHA.125.074482) and check whether the week-4/8 drops are placebo-corrected.</li>
+<li><strong>SELECT early-events</strong>: find a peer-reviewed version of the ECO 2025 analysis.</li>
+<li><strong>SURPASS-CVOT all-cause death</strong>: confirm HR 0.84 in the NEJM full text or supplement.</li>
+<li><strong>Tirzepatide-pill study</strong>: get the posted ClinicalTrials.gov results (NCT04172987) or the Skelley 2024 paper for primary numbers.</li>
+<li><strong>Hub v1 correction to make</strong>: remove "control mice were short-lived for their strain" from fact 12; change fact 44 placebo to "under 1%"; fact 9 "&lt;5% weight loss" applies to 3 months.</li>
+<li><strong>TRIUMPH-1 dropout and AE rates</strong>: pull from the NEJM full text (currently from Lilly's release).</li>
+<li><strong>REDEFINE 1 AE dropout</strong> and CagriSema label rates once approved.</li>
+<li><strong>Eloralintide heart rate and CRP</strong>: find primary phase 2 numbers rather than the review.</li>
+<li><strong>SURMOUNT-ADOLESCENTS</strong> results (primary completion Jun 2026).</li>
+<li><strong>LIVERAGE</strong> biopsy results for survodutide.</li>
+<li><strong>Real-world tirzepatide non-response</strong> rate.</li>
+<li><strong>MDL 3094</strong> Rule 702 ruling after the Sep 2026 hearing; 503B bulks-list final decision.</li>
+<li><strong>Prices</strong>: confirm current TrumpRx and maker self-pay prices from primary sites (TrumpRx.gov, LillyDirect, NovoCare) rather than news; label each with a date.</li>
+<li><strong>Inaccessible this pass</strong>: FDA accessdata label PDFs, DailyMed, SEC 8-K, and the Novo/Lilly filing-date wording were blocked or failed; labels were read via Drugs.com and the maker's label site instead.</li>
+</ol></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

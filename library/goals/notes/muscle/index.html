@@ -1,0 +1,786 @@
+<!doctype html>
+<!-- Goal research notes: Muscle injury, from Muscle Injury Research v1.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Early loading got footballers back in 28 days instead of 51. The first BPC-157 hamstring trial reports in 2027.">
+<title>Muscle injury · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Muscle injury</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 1</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">Early loading got footballers back in 28 days instead of 51. The first BPC-157 hamstring trial reports in 2027. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (12)</summary><ol><li><a href="#0-headline-findings-for-the-page-top">0. Headline findings (for the page top)</a></li><li><a href="#1-what-each-injury-is">1. What each injury is</a></li><li><a href="#2-how-muscle-heals-plain-language">2. How muscle heals (plain language)</a></li><li><a href="#3-studies-standard-treatments-with-numbers">3. Studies: standard treatments with numbers</a></li><li><a href="#4-peptides-that-touch-the-endpoint">4. Peptides that touch the endpoint</a></li><li><a href="#5-what-people-report-claude-s-own-search-outside-reddit">5. What people report (Claude&#x27;s own search, outside Reddit)</a></li><li><a href="#6-pairings-people-use-as-reported-not-recommended">6. Pairings people use (as reported, not recommended)</a></li><li><a href="#7-options-page-section-in-evidence-order-inferred-from-secti">7. Options (page section, in evidence order) [inferred from sections 3 and 4]</a></li><li><a href="#8-fifteen-usual-questions-evidence-answers">8. Fifteen usual questions (evidence answers)</a></li><li><a href="#9-warnings-bottom-of-page">9. Warnings (bottom of page)</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Muscle Injury Research v1</h1>
+<p>Goal page research for baresignals.co: hamstring strain, calf strain ("tennis leg"), quad, groin/adductor, pec and bicep tears, contusions, DOMS and training recovery, muscle loss during injury or immobilisation. Compiled 3 Nov 2026 (Pass 5). Builds on Tendon Base v1 (tendon vs muscle vs bone table) and Achilles Research v2 (BPC-157, TB-500, WADA, PK details).
+Tags: [verified] = read in the primary abstract, registry entry or document. [reported] = secondary source, or a detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Doses appear only as reported in studies. No suppliers named. Trial sponsors described by type only. Sources: PubMed (abstracts via NCBI), ClinicalTrials.gov, WADA 2026 List (via German Sport University Cologne summary), public forums and news pages as flagged.
+Search log: 41 PubMed searches and metadata pulls, 3 ClinicalTrials.gov queries, 18 web searches, 19 page fetches (total 81).</p>
+<hr />
+<h2 id="0-headline-findings-for-the-page-top">0. Headline findings (for the page top)</h2>
+<ol>
+<li><strong>Muscle heals far better than tendon.</strong> It regenerates from satellite cells; most strains heal without surgery. Typical elite hamstring lay-off 18 to 24 days for grade 1 to 2 (Ekstrand 2016, see Tendon Base). [verified]</li>
+<li><strong>Re-injury is the real problem, not first healing.</strong> 16% of all muscle injuries in pro football are re-injuries, and they keep players out longer (Ekstrand 2011). [verified]</li>
+<li><strong>Loading early beats resting.</strong> Lengthening-focused rehab (Askling L-protocol) cut return to play from 51 to 28 days in footballers and from 86 to 49 days in sprinters. [verified]</li>
+<li><strong>Nordic curls prevent hamstring injuries, but how much is disputed:</strong> "halves the rate" (van Dyk 2019, RR 0.49) vs "inconclusive" on stricter methods (Impellizzeri 2021, RR 0.59, CI 0.27 to 1.29). Most amateur players never do them (69%). [verified]</li>
+<li><strong>PRP does nothing for hamstring strains</strong> in the best trial (Reurink 2014 NEJM, n = 80, double blind). [verified]</li>
+<li><strong>No peptide has any human muscle-injury result yet.</strong> The first placebo-controlled BPC-157 trial (grade 2 hamstring, n = 120) is recruiting; primary completion Feb 2027. [verified registry]</li>
+<li><strong>BPC-157 muscle data = one lab.</strong> Every rat muscle study found is from the Zagreb group that discovered it. [verified authorship]</li>
+<li><strong>TB-500's parent protein failed to speed muscle regeneration</strong> in one independent mouse study (Gonzalez-Franquesa 2021). [verified]</li>
+<li><strong>Injured muscle stays smaller.</strong> After hamstring or calf strains the injured muscle was 9.4% smaller at 3 months and still smaller at 12 months; extra protein did not help (Mertz 2025 RCT). [verified]</li>
+<li><strong>Community: 14 muscle injury reports from 13 people found outside Reddit; 10 "worked", 3 early or unclear, 1 worse. Zero clinician-confirmed effects.</strong> [verified per page; tally inferred]</li>
+</ol>
+<hr />
+<h2 id="1-what-each-injury-is">1. What each injury is</h2>
+<h3>1.1 Grading (applies to all muscle strains)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Grade</th>
+<th>Classic definition</th>
+<th>Feels like</th>
+<th>Typical time out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Grade">1 (mild)</td>
+<td data-l="Classic definition">Under 10% of fibres disrupted</td>
+<td data-l="Feels like">Tightness, can keep moving, little strength loss</td>
+<td data-l="Typical time out">Hamstring ~18 days (elite football) [verified, Ekstrand 2016]</td>
+</tr>
+<tr>
+<td data-l="Grade">2 (moderate)</td>
+<td data-l="Classic definition">10 to 50% disrupted</td>
+<td data-l="Feels like">Sudden pain, limp, weakness, sometimes bruising</td>
+<td data-l="Typical time out">Hamstring ~24 days [verified, Ekstrand 2016]</td>
+</tr>
+<tr>
+<td data-l="Grade">3 (severe)</td>
+<td data-l="Classic definition">50 to 100% disrupted, or tendon avulsion</td>
+<td data-l="Feels like">Pop, big bruise, gap, major weakness</td>
+<td data-l="Typical time out">Months; proximal hamstring avulsion often surgical [verified, Rudisill 2021]</td>
+</tr>
+<tr>
+<td data-l="Grade">Grade percentages from the calf literature (Hauer 2026 JAAOS, <a href="https://doi.org/10.5435/JAAOS-D-25-01090">DOI</a>). [verified]</td>
+<td data-l="Classic definition"></td>
+<td data-l="Feels like"></td>
+<td data-l="Typical time out"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Modern grading (BAMIC, British Athletics):</strong> grades 0 to 4 plus a letter for site: a = muscle edge (myofascial), b = muscle-tendon junction, c = into the tendon. Elite sport uses it because the <strong>letter predicts time out more than the number</strong>. [reported]
+- Elite Australian cricket, 141 MRI-confirmed hamstring strains over 13.5 seasons: median 22 days out (IQR 15 to 38); grade 2 or 3 and tendon involvement meant longer (Cooney 2026, <a href="https://doi.org/10.1097/JSM.0000000000001511">DOI</a>). [verified]
+- Hungarian pro football, 57 hamstring injuries: low/moderate patterns returned in 9 to 27 days (median); high-grade patterns took 46.5 and 94.5 days (Zsidai 2026, <a href="https://doi.org/10.1002/jeo2.70885">DOI</a>). [verified]
+- US college football, 96 hamstring injuries: oedema fully wrapping the sciatic nerve on MRI added ~10 days (33.7 vs 21.5) (Lee 2026 BJSM, <a href="https://doi.org/10.1136/bjsports-2026-111940">DOI</a>). [verified]
+- Tendon involvement is the big multiplier: sprinters 73 vs 31 days; footballers' "stretching type" 43 vs 23 days (Askling 2013/2014). [verified]
+- A caution for the page: radiologists barely agreed on BAMIC grades for one lesion type (Fleiss κ near 0; Corsini 2026, <a href="https://doi.org/10.1177/23259671261427748">DOI</a>). [verified] Strength and flexibility tests could not tell which injuries involved the tendon (Crema 2017, <a href="https://doi.org/10.1177/2325967117733434">DOI</a>). [verified]</p>
+<h3>1.2 Each injury</h3>
+<p><strong>Hamstring strain</strong> (most common). 37% of all muscle injuries in pro football; 22% of players get one each season; match rate 9 times training rate; training injuries rising 4% a year (Ekstrand 2011, <a href="https://doi.org/10.1177/0363546510395879">DOI</a>; Ekstrand 2016, <a href="https://doi.org/10.1136/bjsports-2015-095359">DOI</a>). [verified] Biceps femoris is hit most (63% in cricket, Cooney 2026). [verified] Two types: <strong>sprinting</strong> (high speed, usually biceps femoris, quicker) and <strong>stretching</strong> (kicks, splits, dance; often semimembranosus near the tendon, slower) (Askling 2013). [verified]</p>
+<p><strong>Calf strain / "tennis leg".</strong> 13% of football muscle injuries; the only muscle group whose rate rises with age (Ekstrand 2011). [verified] Gastrocnemius: explosive push-off with knee straight (classic "tennis leg", medial head). Soleus: repetitive running with knee bent (Hauer 2026). [verified] In AFL, soleus was 84.6% of calf strains; return 25.4 days (soleus) vs 19.1 (gastrocnemius); running-related injuries took ~12 days longer (Green 2019, <a href="https://doi.org/10.1111/sms.13552">DOI</a>). [verified] Recreational tennis leg: 6 to 12 weeks (Schwach 2026, <a href="https://doi.org/10.1016/j.foot.2026.102267">DOI</a>). [verified] Runners' forum consensus: 4 weeks off for grade 1, ~6 for grade 2, early return often relapses [reported, Fetch Everyone forum].</p>
+<p><strong>Quadriceps.</strong> 19% of football muscle injuries; rectus femoris most often (73% in one series) (Ekstrand 2011; Kruse 2026, <a href="https://doi.org/10.1097/JSM.0000000000001460">DOI</a>). [verified] After ACL reconstruction, thigh muscle injuries doubled in the 2 years after return; patellar tendon grafts tripled quad injuries (RR 3.5) (Della Villa 2025, <a href="https://doi.org/10.1177/03635465251353213">DOI</a>). [verified]</p>
+<p><strong>Groin / adductor.</strong> 23% of football muscle injuries (Ekstrand 2011). [verified] Complete adductor longus ruptures can be managed without surgery: returns at 96 and 146 days in two case reports; conservative if the gap is under ~1 cm (Quintana-Cepedal 2025, <a href="https://doi.org/10.1080/15438627.2025.2543089">DOI</a>; Abate 2023, <a href="https://doi.org/10.1002/jcu.23525">DOI</a>). [verified, case reports only]</p>
+<p><strong>Pec tear.</strong> Usually the tendon at the arm bone during heavy bench press. Repair gives full return at about 6 months; non-surgical care only for low-grade partial tears (Liem 2017 review, DOI 10.1007/s40141-017-0154-9). [reported, abstract summary via university page] Structurally closer to a <strong>tendon</strong> injury: link to Tendon Base. [inferred]</p>
+<p><strong>Bicep tear.</strong> Distal biceps rupture left without repair loses supination and flexion strength and endurance (Tzeuton 2023, <a href="https://doi.org/10.2106/JBJS.RVW.22.00185">DOI</a>). [verified] Also a tendon injury in most cases. [inferred]</p>
+<p><strong>Contusion (dead leg, cork).</strong> Direct blow crushes fibres and connective tissue; healing is regeneration plus scar (Mackey 2012, <a href="https://doi.org/10.1111/j.1600-0838.2012.01463.x">DOI</a>). [verified] Mouse contusion work shows scar can be reduced by blocking TGF-β1 (losartan) (Kobayashi 2016, <a href="https://doi.org/10.1177/0363546516656823">DOI</a>). [verified, mice]</p>
+<p><strong>DOMS and training recovery.</strong> Not an injury: temporary soreness 24 to 72 h after unaccustomed or eccentric work. Most supplements only move soreness, not strength or blood markers (see 3.5). [verified]</p>
+<p><strong>Muscle loss during injury or immobilisation.</strong> Fast: thigh volume down 1.7% after 2 days and 5.5% after 7 days in a knee brace (quads 6.7%, hamstrings 3.5%) (Kilroe 2020, <a href="https://doi.org/10.1249/MSS.0000000000002200">DOI</a>). [verified]</p>
+<h3>1.3 How to tell muscle from tendon (page box) [reported clinical teaching; inferred wording]</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Clue</th>
+<th>Muscle strain</th>
+<th>Tendon problem (see Tendon Base)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Clue">Onset</td>
+<td data-l="Muscle strain">Sudden, one moment (sprint, kick, lunge)</td>
+<td data-l="Tendon problem (see Tendon Base)">Usually gradual over weeks; ruptures are sudden</td>
+</tr>
+<tr>
+<td data-l="Clue">Where it hurts</td>
+<td data-l="Muscle strain">Belly of the muscle or where muscle meets tendon</td>
+<td data-l="Tendon problem (see Tendon Base)">Near the bone attachment or in the cord</td>
+</tr>
+<tr>
+<td data-l="Clue">Pattern</td>
+<td data-l="Muscle strain">Hurts to stretch and to contract hard; eases day by day</td>
+<td data-l="Tendon problem (see Tendon Base)">Stiff in the morning, warms up, worse the next day after load</td>
+</tr>
+<tr>
+<td data-l="Clue">Bruising</td>
+<td data-l="Muscle strain">Common after grade 2 to 3</td>
+<td data-l="Tendon problem (see Tendon Base)">Uncommon except rupture</td>
+</tr>
+<tr>
+<td data-l="Clue">Red flags</td>
+<td data-l="Muscle strain">Pop, gap, big bruise, can't bear weight or lift the arm → scan and surgeon (avulsion, pec, distal biceps)</td>
+<td data-l="Tendon problem (see Tendon Base)">Same for rupture</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2-how-muscle-heals-plain-language">2. How muscle heals (plain language)</h2>
+<h3>2.1 The biology</h3>
+<ul>
+<li><strong>Satellite cells</strong> are stem cells parked on every fibre. Injury wakes them; they multiply and fuse to rebuild fibres (Karalaki 2009, see Tendon Base). [verified]</li>
+<li><strong>Three overlapping phases</strong>: destruction (days 1 to 3: bleeding, inflammation, clean-up by immune cells); repair (days 3 to ~21: new fibres plus a connective tissue scar compete); remodelling (weeks to months). [reported, Järvinen 2005, see Tendon Base] These phases run in parallel, not one after another (Ferré 2007 pig injection model, <a href="https://doi.org/10.1007/s11095-007-9266-8">DOI</a>). [verified]</li>
+<li><strong>Scar vs regeneration.</strong> The scar is driven by TGF-β1; myostatin slows regeneration. Blocking either (follistatin in transgenic mice; losartan in mice) gave more new fibres and less scar (Zhu 2011, <a href="https://doi.org/10.1016/j.ajpath.2011.04.008">DOI</a>; Kobayashi 2016). [verified, mice] No human test of these anti-scar strategies after strain. [gap]</li>
+<li><strong>Thymosin beta-4 is made naturally at the injury site</strong> and attracts muscle precursor cells (Tokura 2010, <a href="https://doi.org/10.1093/jb/mvq115">DOI</a>). [verified, mice] This is the logic behind TB-500. [inferred]</li>
+</ul>
+<h3>2.2 Why hamstrings re-injure [verified where cited; mechanism inferred]</h3>
+<ul>
+<li>Re-injuries = 16% of all muscle injuries and cause longer absence (Ekstrand 2011). [verified]</li>
+<li>In Petersen 2011 controls, previously injured players re-injured at 45.8 per 100 player seasons vs 8.1 for new injuries: about <strong>5.7 times</strong> the rate [calculation inferred from verified rates].</li>
+<li>The repair site changes for good: after hamstring or calf strains the <strong>aponeurosis (inner tendon sheet) was 6 times larger at 3 months and still 5 times larger at 12 months</strong>, while muscle volume stayed ~9% lower (Mertz 2025, <a href="https://doi.org/10.1111/sms.70043">DOI</a>). [verified] A stiffer scar next to weaker muscle is a plausible re-tear point. [inferred]</li>
+<li>Returning on a timeline instead of criteria raises risk; consensus RTP criteria list no pain on palpation, strength and flexibility testing, functional tests, similar flexibility, field testing and psychological readiness (van der Horst 2017 Delphi, 58 experts, <a href="https://doi.org/10.1136/bjsports-2016-097206">DOI</a>). [verified]</li>
+<li>Team factors matter: a new head coach bringing his own fitness coach was linked to ~3 times the hamstring burden (Ekstrand 2023, <a href="https://doi.org/10.1136/bmjsem-2023-001640">DOI</a>); better medical and performance staff communication = 4.1 fewer injury days per 1000 h per step (Ekstrand 2025, <a href="https://doi.org/10.1136/bmjsem-2024-002182">DOI</a>). [verified, observational]</li>
+</ul>
+<h3>2.3 Tendon vs muscle (adds to Tendon Base 1.2)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Muscle</th>
+<th>Tendon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Can it regrow its working tissue?</td>
+<td data-l="Muscle">Yes, satellite cells</td>
+<td data-l="Tendon">Core barely renews after ~17 y</td>
+</tr>
+<tr>
+<td data-l="">Typical return</td>
+<td data-l="Muscle">2.5 to 4 weeks grade 1 to 2</td>
+<td data-l="Tendon">12 weeks to 12 months</td>
+</tr>
+<tr>
+<td data-l="">What lingers</td>
+<td data-l="Muscle">Smaller muscle, enlarged scar sheet (12 months)</td>
+<td data-l="Tendon">Thickened tendon, symptoms</td>
+</tr>
+<tr>
+<td data-l="">Main failure mode</td>
+<td data-l="Muscle">Re-tear in first months</td>
+<td data-l="Tendon">Persistence, slow progression</td>
+</tr>
+<tr>
+<td data-l="">Peptide animal data</td>
+<td data-l="Muscle">Mostly BPC-157 (one lab)</td>
+<td data-l="Tendon">BPC-157 and TB-500 in Achilles</td>
+</tr>
+<tr>
+<td data-l="">[verified rows from sources above and Tendon Base; summary wording inferred]</td>
+<td data-l="Muscle"></td>
+<td data-l="Tendon"></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="3-studies-standard-treatments-with-numbers">3. Studies: standard treatments with numbers</h2>
+<h3>3.1 Early loading vs rest: the Askling trials</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Who</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Trial">Askling 2013 BJSM, <a href="https://doi.org/10.1136/bjsports-2013-092165">DOI</a></td>
+<td data-l="Who">75 Swedish elite footballers, MRI-verified</td>
+<td data-l="Result">L-protocol 28 days vs conventional 51 days; 1 re-injury, in conventional group [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Askling 2014 BJSM, <a href="https://doi.org/10.1136/bjsports-2013-093214">DOI</a></td>
+<td data-l="Who">56 elite sprinters and jumpers</td>
+<td data-l="Result">49 vs 86 days; 2 re-injuries, both conventional [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Pas 2015 meta, <a href="https://doi.org/10.1136/bjsports-2015-094879">DOI</a></td>
+<td data-l="Who">2 lengthening RCTs pooled</td>
+<td data-l="Result">Faster return (HR 3.22), <strong>no re-injury difference</strong> [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Afonso 2023 living review, <a href="https://doi.org/10.1007/s40279-022-01783-z">DOI</a></td>
+<td data-l="Who">14 studies, 730 athletes</td>
+<td data-l="Result">No single programme proven superior; certainty very low for everything [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Jankaew 2022 meta, <a href="https://doi.org/10.1177/19417381221118085">DOI</a></td>
+<td data-l="Who">9 RCTs</td>
+<td data-l="Result">Lengthening speeds return; trunk stability plus agility training <strong>cut re-injury</strong> at 12 months [verified]</td>
+</tr>
+<tr>
+<td data-l="Trial">Page line: "Load early, in lengthened positions. It gets you back faster. Agility and trunk work keep you there." [inferred]</td>
+<td data-l="Who"></td>
+<td data-l="Result"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 Prevention: Nordic hamstring curls</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Design</th>
+<th>Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Source">Petersen 2011, <a href="https://doi.org/10.1177/0363546511419277">DOI</a></td>
+<td data-l="Design">Cluster RCT, 942 Danish players</td>
+<td data-l="Number">Rate 3.8 vs 13.1 per 100 player seasons (RR 0.29); recurrent RR 0.14; NNT 13 overall, 25 new, <strong>3 recurrent</strong> [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">van der Horst 2015, <a href="https://doi.org/10.1177/0363546515574057">DOI</a></td>
+<td data-l="Design">RCT, 579 Dutch amateurs</td>
+<td data-l="Number">0.25 vs 0.8 per 1000 h; OR 0.28; severity unchanged; 91% compliance [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">van Dyk 2019, <a href="https://doi.org/10.1136/bjsports-2018-100045">DOI</a></td>
+<td data-l="Design">Meta, 15 studies, 8459 athletes</td>
+<td data-l="Number">RR 0.49 ("up to 51%"); RCTs only 0.52 [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">Impellizzeri 2021, <a href="https://doi.org/10.1016/j.jclinepi.2021.09.007">DOI</a></td>
+<td data-l="Design">Reanalysis, 6 true RCTs</td>
+<td data-l="Number">RR 0.59, CI 0.27 to 1.29: <strong>inconclusive</strong>, high bias [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">Hong 2026 NMA, <a href="https://doi.org/10.1186/s40798-026-01087-w">DOI</a></td>
+<td data-l="Design">11 RCTs, 9282 players</td>
+<td data-l="Number">FIFA 11+ IRR 0.55 best; Nordic alone modest, not significant; certainty low to very low [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">van der Horst 2021, <a href="https://doi.org/10.1097/JSM.0000000000000710">DOI</a></td>
+<td data-l="Design">Follow-up 2 years later</td>
+<td data-l="Number">69% of amateur players <strong>never</strong> did them [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">Cholp 2025, <a href="https://doi.org/10.3389/fphys.2025.1631205">DOI</a></td>
+<td data-l="Design">Meta, 11 studies</td>
+<td data-l="Number">2 to 3 sets of 8 to 12, 2 to 3x/week lengthened fascicles; 1 to 2 sets of 3 to 5 built strength only [verified]</td>
+</tr>
+<tr>
+<td data-l="Source">Page line: "Best tested prevention exercise in sport. Effect between 'cuts half' and 'unproven', depending on who does the maths. Biggest effect is on repeat injuries." [inferred]</td>
+<td data-l="Design"></td>
+<td data-l="Number"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.3 PRP and other injections</h3>
+<ul>
+<li><strong>Reurink 2014 NEJM</strong> (<a href="https://doi.org/10.1056/NEJMc1402340">DOI</a>): 80 athletes, double blind, PRP vs saline. No faster return; 1-year re-injury HR 0.89 (CI 0.38 to 2.13); no MRI or score difference (Reurink 2015, <a href="https://doi.org/10.1136/bjsports-2014-094250">DOI</a>). [verified]</li>
+<li>Pas 2015 meta of 3 PRP trials: HR 1.03, no effect. Afonso 2023: does not support PRP. [verified]</li>
+<li>Contrary signal: Liu 2025 meta (8 studies, 330 patients, includes unblinded) found return ~2.3 units faster (unit not stated in abstract) and re-injury not significantly lower (Liu 2025, <a href="https://doi.org/10.1123/jsr.2024-0278">DOI</a>). [verified; unit gap] Blinded trials are null; open trials positive. [inferred]</li>
+<li>Calf: "limited evidence" of quicker return with PRP (Hauer 2026). [verified, review statement]</li>
+<li>Quad: platelet-poor plasma, 37 patients, return 30 ± 15 days, 1 recurrence; <strong>no control group</strong> (Kruse 2026). [verified]</li>
+</ul>
+<h3>3.4 Anti-inflammatories (NSAIDs): the debate</h3>
+<ul>
+<li>Review: early benefit of NSAIDs after muscle injury "not maintained", possibly a long-term repair deficit; evidence of harm to satellite cells (Mackey 2012). [verified]</li>
+<li><strong>But</strong> a human RCT pointing the other way: ibuprofen 1200 mg/day for 2 weeks before and 4 after an electrically induced thigh injury <strong>increased</strong> satellite cell activity and sped repair at 30 days vs placebo (Mackey 2016 FASEB J, <a href="https://doi.org/10.1096/fj.201500198R">DOI</a>). [verified] Lab injury model, young men, not a sports strain. [inferred]</li>
+<li>Topical NSAIDs for strains and sprains: NNT 3.9 for 50% pain relief at 1 week, side effects same as placebo (Moore 1998 BMJ, 86 trials, <a href="https://doi.org/10.1136/bmj.316.7128.333">DOI</a>); updated in Cochrane (Derry 2015, <a href="https://doi.org/10.1002/14651858.CD007402.pub3">DOI</a>). [verified]</li>
+<li>Steroids: systemic methylprednisolone "markedly aggravated" crushed-muscle healing in rats (Pevec 2010, Zagreb). [verified, rats]
+Page line: "Short-term pain relief: yes. Healing: the data disagree. No good reason to take them for weeks." [inferred]</li>
+</ul>
+<h3>3.5 Nutrition and supplements with human data (non-peptide, heavily used)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Best human evidence</th>
+<th>Result</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">Whey protein after strain</td>
+<td data-l="Best human evidence">RCT, 50 recreational athletes, hamstring/calf strain, 3 months (Mertz 2025)</td>
+<td data-l="Result"><strong>No effect</strong> on muscle loss, strength or return</td>
+<td data-l="Grade">A (null)</td>
+</tr>
+<tr>
+<td data-l="Compound">Creatine, during immobilisation</td>
+<td data-l="Best human evidence">6 RCTs, n = 118, 1 to 2 weeks cast (Pratt 2026, <a href="https://doi.org/10.1113/EP093965">DOI</a>)</td>
+<td data-l="Result">Muscle size loss same (e.g. 5.6% vs 5.5%); DXA "lean mass" gains may be water; some faster regain during rehab</td>
+<td data-l="Grade">B- mixed</td>
+</tr>
+<tr>
+<td data-l="Compound">Creatine, muscle damage</td>
+<td data-l="Best human evidence">Meta, 23 studies (Doma 2022, <a href="https://doi.org/10.1007/s40279-022-01640-z">DOI</a>)</td>
+<td data-l="Result">Lower damage markers after one bout; <strong>higher</strong> after long-term use ("paradox")</td>
+<td data-l="Grade">C</td>
+</tr>
+<tr>
+<td data-l="Compound">Creatine, old cast trial</td>
+<td data-l="Best human evidence">22 people, 2-week cast then 10-week training (Op 't Eijnde 2001, <a href="https://doi.org/10.2337/diabetes.50.1.18">DOI</a>)</td>
+<td data-l="Result">Protected muscle GLUT4; not a size study</td>
+<td data-l="Grade">C</td>
+</tr>
+<tr>
+<td data-l="Compound">HMB</td>
+<td data-l="Best human evidence">Meta 7 RCTs, 287 adults over 65 (Wu 2015, <a href="https://doi.org/10.1016/j.archger.2015.06.020">DOI</a>)</td>
+<td data-l="Result">Small muscle mass preservation (SMD 0.35); bed rest strongest</td>
+<td data-l="Grade">B for elderly; no data for strains</td>
+</tr>
+<tr>
+<td data-l="Compound">HMB, bed rest</td>
+<td data-l="Best human evidence">20 older adults, 10 days (Standley 2020, <a href="https://doi.org/10.1093/gerona/glaa001">DOI</a>)</td>
+<td data-l="Result">Blunted some gene changes; mitochondria declined in both groups</td>
+<td data-l="Grade">C</td>
+</tr>
+<tr>
+<td data-l="Compound">Collagen peptides + training</td>
+<td data-l="Best human evidence">Meta 19 RCTs, 768 people (Bischof 2024, <a href="https://doi.org/10.1007/s40279-024-02079-0">DOI</a>)</td>
+<td data-l="Result">Fat-free mass SMD 0.48 (moderate certainty); 48 h reactive strength recovery SMD 0.43 (low)</td>
+<td data-l="Grade">B-</td>
+</tr>
+<tr>
+<td data-l="Compound">Gelatin for muscle damage</td>
+<td data-l="Best human evidence">Pilot RCT, 22 people (Graham 2026, <a href="https://doi.org/10.1007/s00421-026-06288-5">DOI</a>)</td>
+<td data-l="Result">No significant group-by-time effect</td>
+<td data-l="Grade">C null</td>
+</tr>
+<tr>
+<td data-l="Compound">Omega-3 for DOMS</td>
+<td data-l="Best human evidence">Meta 9 RCTs (Yaghoobi 2026, <a href="https://doi.org/10.3390/nu18091447">DOI</a>)</td>
+<td data-l="Result">DOMS g -0.75; strength g +0.45</td>
+<td data-l="Grade">B-</td>
+</tr>
+<tr>
+<td data-l="Compound">Tart cherry, pomegranate</td>
+<td data-l="Best human evidence">NMA 30 trials (Xu 2026, <a href="https://doi.org/10.3389/fnut.2026.1857527">DOI</a>)</td>
+<td data-l="Result">Lower soreness only; no strength or marker benefit</td>
+<td data-l="Grade">B- for soreness</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.6 Return-to-play criteria (page box)</h3>
+<p>Consensus (van der Horst 2017): no pain on touch; no pain on strength and flexibility tests; no pain during or after functional tests; flexibility similar to the other leg; field-test performance; feeling mentally ready; decision shared between athlete, doctor, physio, fitness coach and coach. [verified]</p>
+<hr />
+<h2 id="4-peptides-that-touch-the-endpoint">4. Peptides that touch the endpoint</h2>
+<h3>4.1 Summary grade table</h3>
+<p>Grades: A = several good human RCTs; B = some human RCT data; C = small or indirect human data; D = animal only; X = animal data negative or mixed.
+| Compound | Best muscle evidence | Human muscle-injury data | Grade | WADA 2026 |
+|---|---|---|---|---|
+| BPC-157 | Rat transected quad, crushed calf, myotendinous junction, quad detachment; all one lab | None. Hamstring RCT recruiting | D | S0 |
+| TB-500 / Tβ4 | Natural chemoattractant in mice; more regenerating fibres in dystrophic mice but <strong>no strength gain</strong>; <strong>no faster regeneration</strong> in normal mice | None | X | S2 |
+| IGF-1 (incl. LR3) | IGF-1 injection improved lacerated mouse muscle strength at 1 month (2000) | None | D | S2 |
+| MGF | Overexpression <strong>delayed</strong> inflammation resolution, no clear regeneration gain; natural MGF peptide never isolated | None | X | S2 |
+| Follistatin | Transgenic mice: more regeneration, less scar | None | D | S4 [reported] |
+| GH secretagogues (MK-677, CJC-1295, ipamorelin, tesamorelin) | MK-677 hip fracture trials: IGF-1 up, function mostly not; heart failure signal stopped one trial | Hip fracture only | C (null/harm) | S2 |
+| Real GH (not a peptide people buy, for comparison) | ACL reconstruction pilot: +29% quad strength, no volume change | n = 19 | C | S2 |
+| MOTS-c | Cancer cachexia mice: quad mass +12% | None | D | Not checked [gap] |
+| SS-31 | Cast immobilisation mice: prevented atrophy; spinal cord injury mice: <strong>no effect</strong> (2 studies) | None | X | Not listed by name [gap] |
+| GLP-1 drugs | Not a repair agent; cause lean mass loss | Large RCTs | A (for loss) | Not prohibited [reported] |
+| Collagen peptides | See 3.5 | Moderate | B- | Allowed |</p>
+<h3>4.2 BPC-157</h3>
+<p><strong>Animal muscle studies (all Zagreb, Sikiric group)</strong> [verified authorship and abstracts]
+- Transected quadriceps, rats, 10 µg, 10 ng or 10 pg/kg ip daily, 72 days: stumps reconnected, higher load to failure, better walking, less atrophy (Staresinic 2006, <a href="https://doi.org/10.1002/jor.20089">DOI</a>).
+- Crushed gastrocnemius, ip or local cream, 14 days: less haematoma and oedema, better function and enzymes (Novinscak 2008, <a href="https://doi.org/10.1007/s00595-007-3706-2">DOI</a>).
+- Crush injury plus systemic steroid: BPC-157 "completely reversed" steroid-impaired healing (Pevec 2010, PMID 20190676, no DOI).
+- Angiogenesis in crushed and transected muscle via VEGF; no direct effect on cells in a dish (Brcic 2009, PMID 20388964). 
+- Myotendinous junction cut, ip or in drinking water, to 42 days: defect closed, atrophy prevented (Japjec 2021, <a href="https://doi.org/10.3390/biomedicines9111547">DOI</a>).
+- Quad muscle detached from bone, <strong>oral</strong> 10 µg/kg/day in water, to 90 days: reattachment (2025, <a href="https://doi.org/10.3390/pharmaceutics17010119">DOI</a>).
+- Same group's 2026 review argues consistent efficacy (Matek 2026, <a href="https://doi.org/10.3390/ph19020309">DOI</a>): originators' view, not independent. [inferred]
+- Outside Zagreb: ischaemia-reperfusion of the rat leg, 20 µg/kg ip, reduced oxidative damage (2026 Sci Rep, <a href="https://doi.org/10.1038/s41598-026-55449-1">DOI</a>; n = 6 per group). [verified abstract; group independence not verified, gap] Not a strain model. [inferred]
+- <strong>Negative mirror search</strong>: no independent rat or mouse muscle strain study found; no published null BPC-157 muscle study found. Absence of nulls from one lab is itself a warning sign. [verified absence, 3 searches; inferred meaning]</p>
+<p><strong>The hamstring trial (NCT07437547)</strong> [verified registry, read 3 Nov 2026]
+| Item | Detail |
+|---|---|
+| Title | Phase 2, randomised, double-blind, placebo-controlled; BPC 157 for acute grade II hamstring strain confirmed by MRI ("BPC-HAMSTR") |
+| Sponsor / site | Commercial sponsor (same as the TB-500 fragment heart trial, per Achilles v2); one hospital in Shenzhen, China |
+| Who | 120 adults 18 to 45, active ≥3 sessions/week, injury within 72 h, MRI grade II in any hamstring |
+| Excluded | Grade III or avulsion, re-strain within 6 months, recent steroids/PRP/peptides, <strong>athletes under WADA-style testing</strong> |
+| Treatment | Subcutaneous BPC 157 or placebo once daily for <strong>14 days</strong>, plus the same supervised rehab; dose not stated |
+| Primary outcomes | Days to unrestricted sport (blinded clinician + functional battery, within 8 weeks); MRI injury volume change at day 14 (blinded central reading) |
+| Secondary | Pain 0 to 10, isokinetic strength symmetry, LEFS function, all at day 56; re-injury watched 3 months after return |
+| Dates | Started 2 Feb 2026; primary completion 14 Feb 2027; study completion 17 Feb 2028; no results |
+Why it matters: first human test of the most common use case. Weak points: single site, commercial sponsor, 14-day window, re-injury follow-up only 3 months. [inferred]</p>
+<p><strong>Human data overall</strong>: 3 published studies, n = 30, none muscle (Poolton 2026, see Achilles v2); half-life under 30 min in animals; no human dose for muscle. [verified, see Tendon Base 1.7]</p>
+<h3>4.3 TB-500 / thymosin beta-4</h3>
+<ul>
+<li>Muscle injury raises Tβ4 locally; Tβ4 pulls muscle precursor cells in (Tokura 2010). [verified, mice]</li>
+<li>Dystrophic mice, 150 µg twice weekly for 6 months: more regenerating fibres, <strong>no strength, heart or fibrosis improvement</strong> (Spurney 2010, <a href="https://doi.org/10.1371/journal.pone.0008976">DOI</a>). [verified]</li>
+<li>Exercise raises Tβ4 in human blood (it is an "exerkine"), but giving it to mice <strong>did not enhance muscle regeneration</strong> (Gonzalez-Franquesa 2021, <a href="https://doi.org/10.1152/ajpcell.00263.2021">DOI</a>). [verified]</li>
+<li>TB-500 is a 7-amino-acid fragment; human trials used the full protein for eye, heart and skin, not muscle (Achilles v2). [verified]</li>
+<li>Best TB-500 animal result is tendon, not muscle (Bicer 2026, rat Achilles, see Achilles v2). [verified]
+Grade X for muscle: one positive mechanism, two weak or null outcome studies. [inferred]</li>
+</ul>
+<h3>4.4 IGF-1, IGF-1 LR3, MGF</h3>
+<ul>
+<li>IGF-1 (and bFGF) injected into lacerated mouse calf improved regeneration and twitch and tetanus strength at 1 month (Menetrey 2000, <a href="https://doi.org/10.1302/0301-620x.82b1.8954">DOI</a>). [verified] Same group later found growth factors also drive scar; hence the anti-scar work. [reported]</li>
+<li>IGF-1 LR3 (the long-acting analogue people buy): <strong>no muscle injury study found</strong>. [verified absence, 2 searches]</li>
+<li>MGF: the synthetic 24-amino-acid peptide sold as "MGF" corresponds to no product ever found in tissues or blood (Matheny 2010 review, <a href="https://doi.org/10.1210/en.2009-1217">DOI</a>). [verified] Overexpressing MGF in injured mouse muscle <strong>delayed</strong> clearing of inflammatory macrophages with no obvious regeneration benefit (Sun 2018, <a href="https://doi.org/10.3389/fphys.2018.00999">DOI</a>). [verified]</li>
+</ul>
+<h3>4.5 Follistatin</h3>
+<ul>
+<li>Follistatin-overexpressing mice regenerated more fibres with less fibrosis after injury (Zhu 2011). [verified] Decorin gene transfer raised follistatin and sped mouse muscle healing (Li 2007, <a href="https://doi.org/10.1038/sj.mt.6300250">DOI</a>). [verified]</li>
+<li>These are genetic models, not injected peptide. No injected-follistatin muscle injury study and no human data. [verified absence, 2 searches]</li>
+<li>WADA: follistatin added to the List in 2019 under myostatin/activin inhibitors (S4) [reported, BSCG and UKAD headlines; 2026 wording not read, gap].</li>
+</ul>
+<h3>4.6 GH secretagogues (MK-677, CJC-1295, ipamorelin, tesamorelin)</h3>
+<ul>
+<li><strong>MK-677, hip fracture</strong>, 161 patients, 6 months: IGF-1 +84% vs +17%; no significant function gain (Bach 2004, <a href="https://doi.org/10.1111/j.1532-5415.2004.52156.x">DOI</a>). [verified]</li>
+<li><strong>MK-677, hip fracture</strong>, 123 patients, 25 mg/day: gait speed better; stair climbing and most measures not; <strong>stopped early for a congestive heart failure signal</strong> (Adunsky 2011, <a href="https://doi.org/10.1016/j.archger.2010.10.004">DOI</a>). [verified]</li>
+<li>Real GH in ACL reconstruction (pilot, 19 men, 6 weeks): +29% knee extension strength at the pilot threshold (p = 0.05, significance set at 0.10); no muscle volume difference (Mendias 2020, <a href="https://doi.org/10.1177/0363546520920591">DOI</a>; NCT02420353). [verified] A Danish trial is testing GH on connective tissue after muscle injury (NCT05746650, recruiting, completion 2027). [verified registry]</li>
+<li>CJC-1295, ipamorelin, tesamorelin: <strong>no muscle injury or immobilisation study found</strong>. [verified absence for this pass] 2026 AJSM review: MK-677 linked to heart failure and insulin resistance; do not recommend (Tewari 2026, see Achilles v2). [verified]</li>
+</ul>
+<h3>4.7 MOTS-c and SS-31 (mitochondrial peptides)</h3>
+<ul>
+<li>MOTS-c, cancer cachexia mice: quad weight preserved +12% vs vehicle; did not stop body weight or fat loss (Jamnick 2026, <a href="https://doi.org/10.3389/fmed.2026.1838178">DOI</a>). [verified] Blood MOTS-c tracks fitness in young men (cross-sectional; Zhang 2026, <a href="https://doi.org/10.3390/antiox15101267">DOI</a>). [verified] No strain or immobilisation study. [gap]</li>
+<li>SS-31 (elamipretide), 14-day hindlimb immobilisation in mice: <strong>prevented</strong> fibre atrophy (Min 2011, <a href="https://doi.org/10.1152/japplphysiol.00591.2011">DOI</a>). [verified] After spinal cord injury in mice, <strong>no protection</strong> at 7 or 14 days (Graham 2021, <a href="https://doi.org/10.14814/phy2.14751">DOI</a>; Graham 2022, <a href="https://doi.org/10.14814/phy2.15266">DOI</a>). [verified] Heart failure rats: better muscle force and less atrophy (Vahle 2026, <a href="https://doi.org/10.1161/CIRCHEARTFAILURE.126.014397">DOI</a>). [verified]</li>
+</ul>
+<h3>4.8 GLP-1 drugs and lean mass (the opposite direction)</h3>
+<ul>
+<li>Network meta-analysis, 22 RCTs: lean mass ~25% of weight lost; semaglutide 2.4 mg and tirzepatide 15 mg least lean-sparing (Karakasis 2024, <a href="https://doi.org/10.1016/j.metabol.2024.156113">DOI</a>). [verified]</li>
+<li>Annals 2026 systematic review, 35 RCTs: median <strong>28.3%</strong> of weight lost was muscle-related tissue; two thirds of trials exceeded benchmarks; no trial measured physical function (Batsis 2026, <a href="https://doi.org/10.7326/ANNALS-25-00478">DOI</a>). [verified]</li>
+<li>Relevance: someone injured <strong>and</strong> on a GLP-1 is losing muscle from two directions (disuse 5.5% per week in the thigh + drug). [inferred] Protein alone did not stop post-strain loss (Mertz 2025). [verified] See GLP1 Hub v1.</li>
+</ul>
+<hr />
+<h2 id="5-what-people-report-claude-s-own-search-outside-reddit">5. What people report (Claude's own search, outside Reddit)</h2>
+<p>Sources searched: TigerDroppings health and fitness (3 threads), Rokslide (2 threads), Sherdog (1), StrongFirst (1), Mountain Project (1), Fetch Everyone runners' forum (1), Spanish athletics forum (1), news coverage of public figures (2), physio and surgeon blogs and podcasts (3), Skool communities (2, unreadable or vendor-linked). Excluded: Reddit (ChatGPT tab), MESO-Rx, AnabolicMinds, vendor pages, vendor-linked "story" pages. Judged whole threads. No suppliers named.</p>
+<h3>5.1 Count: first-hand muscle injury reports</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Injury</th>
+<th>Worked</th>
+<th>Early / unclear</th>
+<th>No change</th>
+<th>Worse</th>
+<th>Clinician-observed effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Injury">Hamstring</td>
+<td data-l="Worked">3 (BPC+TB, 2.5 weeks, months-old pain gone; grade 2 "full strength in 2 to 3 weeks", peptide unnamed; public bodybuilder, hedged)</td>
+<td data-l="Early / unclear">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">1 (self-graded near grade 3; 12 weeks BPC+TB; re-tore, not healed after 1 year)</td>
+<td data-l="Clinician-observed effect">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Calf</td>
+<td data-l="Worked">1 (dog-bite calf trauma, BPC)</td>
+<td data-l="Early / unclear">1 (BPC "maybe" faster, couldn't tell)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed effect">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Groin</td>
+<td data-l="Worked">1 (13-year-old groin pull "mostly resolved", BPC+TB)</td>
+<td data-l="Early / unclear">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed effect">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Pec</td>
+<td data-l="Worked">2 (partial pec tear, BPC; public bodybuilder "bad chest tear", BPC+TB, hedged, same person as hamstring)</td>
+<td data-l="Early / unclear">1 (pec strain, few doses, already healed with rest)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed effect">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Bicep / tricep</td>
+<td data-l="Worked">2 (MRI-confirmed distal biceps tear, repaired, BPC after surgery, "sped recovery"; public fighter "small bicep tear", BPC+TB+IGF-1, benching at ~1 month)</td>
+<td data-l="Early / unclear">1 (possible tricep detachment, oral BPC, swelling down in 56 h, awaiting scan)</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed effect">0</td>
+</tr>
+<tr>
+<td data-l="Injury">Intercostal (rib muscle)</td>
+<td data-l="Worked">1 (PT predicted 8 to 12 weeks; golfing by ~3 to 4 weeks on BPC+TB)</td>
+<td data-l="Early / unclear">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed effect">0 (prognosis only)</td>
+</tr>
+<tr>
+<td data-l="Injury"><strong>Total (13 people, 14 injuries)</strong></td>
+<td data-l="Worked"><strong>10</strong></td>
+<td data-l="Early / unclear"><strong>3</strong></td>
+<td data-l="No change"><strong>0</strong></td>
+<td data-l="Worse"><strong>1</strong></td>
+<td data-l="Clinician-observed effect"><strong>0</strong></td>
+</tr>
+<tr>
+<td data-l="Injury">Notes [verified per fetched page; tallies inferred]:</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- One hamstring "worked" report (grade 2, 2 to 3 weeks) does not say whether it was the poster's own injury. Remove it and the total is 9 worked from 12 people. [verified ambiguity]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Lead with what worked: hamstring, intercostal and bicep stories are the most specific. The intercostal case is the only one where a clinician gave a timeline to compare against; recovery came in roughly a third of it. Still self-reported. [inferred]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- The one MRI-confirmed injury (distal biceps) had surgery; surgeon and PT were told but did not attribute the recovery to the peptide. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- No-change reports exist in the same threads for <strong>non-muscle</strong> problems (shoulders x3, elbows x2, "several injuries" x2, unspecified x2), and one person said rest and time did as much. [verified] For muscle specifically, I found none labelled "no change" except the unclear calf. Survivorship and selection bias likely. [inferred]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Public figures: a bodybuilder (Mar 2026 Q&amp;A, via news) and a former UFC fighter (podcast, Dec 2025 news) credit peptides; neither cites a doctor or scan. [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Side effects reported: GI upset for ~2 weeks on oral BPC (1, but poster may be a seller); dry sinuses with nasal spray (1); feeling unwell with an arginine-salt product (1); injection-into-tissue pain with TB-500 (1). [verified]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- DOMS / training recovery: 1 vague report ("body recovered faster" after one use). [verified] Not enough to report on.</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+<tr>
+<td data-l="Injury">- Muscle loss during immobilisation: 0 first-hand peptide reports found. [verified absence]</td>
+<td data-l="Worked"></td>
+<td data-l="Early / unclear"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed effect"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>5.2 Clinician voices (count most; none muscle-specific)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Date</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Who">Chartered sports physio (UK) blog</td>
+<td data-l="Date">Feb 2025, updated</td>
+<td data-l="Position">No own-patient observations; "we don't know" if it works or is safe; won't use until anti-doping approval [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Physio podcast (US, 4 PTs)</td>
+<td data-l="Date">18 Jun 2026</td>
+<td data-l="Position">Some patients on oral BPC say they feel much better after ~2 months, likely the rehab; oral form unlikely to reach tendon; banned for athletes; refer to a physician [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Orthopaedic surgeon blog (US)</td>
+<td data-l="Date">Jan 2022</td>
+<td data-l="Position">Rat quad and calf data promising; needs human RCTs; prescription only; WADA banned [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Endurance sports site</td>
+<td data-l="Date">6 Oct 2026</td>
+<td data-l="Position">No athlete reports; summarises 2026 reviews; warns against sellers [verified]</td>
+</tr>
+<tr>
+<td data-l="Who">Clinician-observed muscle outcomes: <strong>0</strong>. [verified]</td>
+<td data-l="Date"></td>
+<td data-l="Position"></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-pairings-people-use-as-reported-not-recommended">6. Pairings people use (as reported, not recommended)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Pairing</th>
+<th>Rationale people give</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Pairing">BPC-157 + TB-500 ("recovery stack")</td>
+<td data-l="Rationale people give">Different mechanisms: blood vessels vs cell migration</td>
+<td data-l="Evidence">Rat Achilles: combination added nothing over TB-500 alone (Bicer 2026, Achilles v2) [verified]; no muscle study [gap]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ IGF-1 or MGF</td>
+<td data-l="Rationale people give">"Growth signal" for regrowth</td>
+<td data-l="Evidence">Mouse IGF-1 positive (2000); MGF possibly counterproductive (Sun 2018) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ GH secretagogue</td>
+<td data-l="Rationale people give">Raise IGF-1 systemically</td>
+<td data-l="Evidence">MK-677 raised IGF-1 but not function in hip fracture; heart failure signal [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ GHK-Cu (blend products)</td>
+<td data-l="Rationale people give">Collagen, skin</td>
+<td data-l="Evidence">No muscle data [verified absence, see Tendon Base]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ Collagen and vitamin C before rehab</td>
+<td data-l="Rationale people give">Connective tissue</td>
+<td data-l="Evidence">Muscle-adjacent: fat-free mass and recovery small gains with training (Bischof 2024) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">+ Creatine during a cast</td>
+<td data-l="Rationale people give">Keep muscle</td>
+<td data-l="Evidence">Size not protected in imaging studies; may help regain (Pratt 2026) [verified]</td>
+</tr>
+<tr>
+<td data-l="Pairing">Peptide <strong>instead of</strong> rehab</td>
+<td data-l="Rationale people give">Convenience</td>
+<td data-l="Evidence">The only "worse" report did 12 weeks of peptides and still re-tore; the rehab itself is what has trial data [verified report; inferred lesson]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="7-options-page-section-in-evidence-order-inferred-from-secti">7. Options (page section, in evidence order) [inferred from sections 3 and 4]</h2>
+<ol>
+<li><strong>Get it graded</strong> if there was a pop, big bruise, gap or major weakness (avulsion, pec, distal biceps need a surgeon early).</li>
+<li><strong>Start loading within days</strong>, lengthening-focused for hamstrings (Askling protocol); progress by pain and function, not calendar.</li>
+<li><strong>Add agility and trunk work</strong> before return; it is what cut re-injury.</li>
+<li><strong>Return on criteria</strong> (van der Horst 2017 list).</li>
+<li><strong>Prevention</strong>: Nordic curls 2 to 3 sets of 8 to 12, 2 to 3x/week in season, or FIFA 11+; the hard part is actually doing them.</li>
+<li><strong>During a cast or brace</strong>: move what you can; expect ~5% thigh loss per week; neither protein nor creatine reliably stopped it; plan the rebuild.</li>
+<li><strong>Pain</strong>: topical NSAID short term is well supported; long oral courses are debated.</li>
+<li><strong>Skip PRP</strong> for hamstring strains (best trial null).</li>
+<li><strong>Peptides</strong>: no human muscle result yet. If someone still chooses, the honest framing is "experimental, banned in sport, unknown product quality; watch for the BPC-157 hamstring trial results in 2027".</li>
+</ol>
+<hr />
+<h2 id="8-fifteen-usual-questions-evidence-answers">8. Fifteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>How long will my hamstring take?</strong> Grade 1 ~18 days, grade 2 ~24 days in elite football; median 22 days in cricket; much longer if the tendon is involved (31 vs 73 days in sprinters). [verified]</li>
+<li><strong>Why does it keep tearing?</strong> Repeat injuries are 16% of all muscle injuries; previously injured players re-injured ~5.7 times as often; scar tissue stays enlarged a year later. [verified; ratio inferred]</li>
+<li><strong>Rest or move?</strong> Move early. Lengthening rehab got footballers back in 28 vs 51 days. [verified]</li>
+<li><strong>Do Nordic curls work?</strong> Probably, especially against repeat tears (NNT 3 for recurrent injury in Petersen 2011); stricter reanalyses call the overall effect inconclusive. [verified]</li>
+<li><strong>Is PRP worth it?</strong> Not for hamstring strains: double-blind NEJM trial null at 6 months and 1 year. [verified]</li>
+<li><strong>Should I take ibuprofen?</strong> Short-term pain relief yes; long-term healing effect disputed (one review suggests harm, one human RCT suggests faster regeneration). [verified]</li>
+<li><strong>Does BPC-157 heal muscle?</strong> In rats, yes, in one lab's studies. In humans, unknown; the first trial reports from 2027. [verified]</li>
+<li><strong>Does TB-500 heal muscle?</strong> Weakest case of the popular peptides for muscle: an independent mouse study found no faster regeneration. [verified]</li>
+<li><strong>Do I inject near the injury?</strong> No human data. Rat BPC-157 worked by injection into the belly cavity, cream and drinking water, which argues against "must be local". [verified animal routes; inferred]</li>
+<li><strong>What dose?</strong> None established in humans. Rat studies used 10 µg/kg/day (and far lower); the human hamstring trial has not published its dose. [verified]</li>
+<li><strong>Will I lose muscle while injured?</strong> Yes: ~5.5% of thigh volume in 7 days of bracing; injured hamstring/calf ~9% smaller at 3 and 12 months. [verified]</li>
+<li><strong>Can creatine, protein or HMB stop it?</strong> Protein: no (RCT). Creatine: size not protected on imaging, maybe better regain. HMB: small effect in older adults on bed rest, untested after strains. [verified]</li>
+<li><strong>Do GH peptides or IGF-1 speed recovery?</strong> MK-677 raised IGF-1 but did not improve most function after hip fracture and raised a heart failure signal; IGF-1 injections helped mice in 2000. [verified]</li>
+<li><strong>I'm on a GLP-1; does it matter?</strong> Yes: ~25 to 28% of GLP-1 weight loss is muscle-related tissue, on top of disuse loss. [verified]</li>
+<li><strong>Will it get me banned?</strong> BPC-157 S0, TB-500/Tβ4, IGF-1, MGF and all GH secretagogues S2 on the 2026 List; follistatin S4 [reported]; prohibited at all times. [verified for S0/S2]</li>
+</ol>
+<hr />
+<h2 id="9-warnings-bottom-of-page">9. Warnings (bottom of page)</h2>
+<ul>
+<li><strong>WADA 2026</strong> [verified via List summary]: BPC-157 S0 (non-approved substance, no TUE route). S2: IGF-1 and analogues, mechano growth factors, thymosin-β4 and derivatives (TB-500), GHRH analogues (CJC-1295, tesamorelin), GH secretagogues (ipamorelin, MK-677). Follistatin: S4 since 2019 [reported]. Sanctions range from 4 months (self-report) to 4 years (possession plus promotion, found by whistleblower) (see Achilles v2). [verified]</li>
+<li><strong>IGF-1 and cancer</strong> [verified where cited; risk to users inferred]: higher circulating IGF-1 was linked to multiple myeloma in UK Biobank (HR 1.11 per SD) and genetically higher IGF-1 to higher myeloma risk (OR 1.27) (Benavente 2026, <a href="https://doi.org/10.1111/bjh.70444">DOI</a>). Mendelian randomisation found <strong>no</strong> link to lung cancer (Jiang 2023, <a href="https://doi.org/10.3389/fendo.2023.1126397">DOI</a>). Injected IGF-1, LR3 and GH secretagogues raise IGF-1 above natural levels; long-term cancer effect of that is unstudied. Clinicians name "unwanted cell growth" as an open concern for BPC-157 too (physio podcast 2026). [reported] Separate sweep of IGF-1 and breast, prostate, colorectal cancer needed. [gap]</li>
+<li><strong>MK-677</strong>: heart failure signal in elderly hip fracture patients; insulin resistance (Adunsky 2011; Tewari 2026). [verified]</li>
+<li><strong>Unregulated product risk</strong>: identity, purity, dose and sterility unverified; "research use only" labelling; FDA-flagged immune reactions and adverse event reports for injected BPC-157 (summarised by the endurance site, primary FDA document not read this pass). [reported]</li>
+<li><strong>Steroids slow muscle healing</strong> in rats; avoid steroid injections into muscle tears. [verified rats; inferred advice]</li>
+<li><strong>Red flags</strong>: pop plus gap, big bruise, inability to walk or lift, numbness down the leg (sciatic involvement), or pec/biceps deformity: see a clinician quickly; tendon avulsions have a surgical window. [inferred from 1.2]</li>
+<li><strong>Not a substitute for loading</strong>: the trials that changed outcomes were all exercise trials. [verified]</li>
+</ul>
+<hr />
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<ol>
+<li>Primary read of Ekstrand 2016 grade-based lay-off (18/24 days) and Järvinen 2005 phases (both carried from Tendon Base, not reopened).</li>
+<li>Hamstring re-injury rate within the first 2 months after return (UEFA data); I found 16% of all muscle injuries but not the time window.</li>
+<li>Pec major and distal biceps: a 2020+ meta-analysis of repair vs non-repair with return-to-sport percentages (search returned nothing on PubMed).</li>
+<li>Calf: any RCT on calf strain rehab; PRP calf data primary source.</li>
+<li>BPC-157: confirm authorship of the 2026 Sci Rep ischaemia study (independent or Zagreb); search Embase/Scopus for any null muscle study.</li>
+<li>WADA 2026/2027 S4 wording for follistatin; MOTS-c and SS-31 status on the List.</li>
+<li>IGF-1 and cancer: Mendelian randomisation for breast, prostate, colorectal (2023 to 2026).</li>
+<li>Tesamorelin, CJC-1295, ipamorelin: any muscle atrophy or injury study (none found).</li>
+<li>Liu 2025 PRP meta: unit of the 2.29 return-to-play difference (days vs weeks).</li>
+<li>FDA 2026 BPC-157 review document (5 human studies, adverse events) read directly.</li>
+<li>Community: BJJ-specific forums, YouTube transcripts and physio clinic case reports for hamstring and calf; 2 Skool posts were vendor-linked or paywalled and not counted. Reddit counts come from ChatGPT's tab.</li>
+<li>Hamstring trial (NCT07437547): check for a published protocol paper and the dose.</li>
+</ol>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first build. 81 searches and fetches. Built on Tendon Base v1 and Achilles Research v2.</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

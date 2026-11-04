@@ -1,0 +1,402 @@
+<!doctype html>
+<!-- Goal research notes: Tendons, the shared base, from Tendon Base v1.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="One base for elbow, Achilles, knee, shoulder and heel: why tendons heal slowly and how loading works.">
+<title>Tendons, the shared base · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Tendons, the shared base</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 1</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">One base for elbow, Achilles, knee, shoulder and heel: why tendons heal slowly and how loading works. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (7)</summary><ol><li><a href="#0-the-doctor-s-points-vs-the-literature">0. The doctor&#x27;s points vs the literature</a></li><li><a href="#1-shared-base-page-section-outline-common-to-all-tendons">1. Shared base page: section outline (common to all tendons)</a></li><li><a href="#2-per-tendon-table-goes-on-each-goal-page">2. Per-tendon table (goes on each goal page)</a></li><li><a href="#3-where-the-literature-agrees-vs-differs-across-tendons">3. Where the literature agrees vs differs across tendons</a></li><li><a href="#4-page-architecture-inferred">4. Page architecture [inferred]</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Tendon Base v1</h1>
+<p>Shared page outline for all tendon goal pages on baresignals.co: tennis and golfer's elbow, Achilles, patellar, rotator cuff, plantar fascia. Compiled 3 Nov 2026 alongside Achilles Research v2.
+Tags: [verified] = read in the primary abstract or document. [reported] = secondary source, or a detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Doses appear only as reported in studies. No suppliers named. Full citations for anything marked "(see Achilles v2)" are in Achilles Research v2.md.
+Fixes the doctor's main point: the tennis elbow page mixed in Achilles and general tendon content. Shared science lives here once; each goal page keeps only what differs.</p>
+<hr />
+<h2 id="0-the-doctor-s-points-vs-the-literature">0. The doctor's points vs the literature</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>His point</th>
+<th>Literature</th>
+<th>Agree / differ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="His point">Pathophysiology is the same across tendons; they differ mainly in load-bearing rehab</td>
+<td data-l="Literature">Same core biology (low turnover, load-driven collagen response). But treatments do <strong>not</strong> transfer cleanly: shockwave beat placebo for elbow, cuff and Achilles but <strong>not</strong> patellar (Guo 2026 NMA, 65 trials) [verified]; insertional vs mid-portion Achilles behave differently (compression) [reported]</td>
+<td data-l="Agree / differ"><strong>Mostly agree.</strong> Add: "same biology, different responses to the same treatment"</td>
+</tr>
+<tr>
+<td data-l="His point">Tendon vs muscle vs bone healing explains a lot</td>
+<td data-l="Literature">Tendon core essentially not renewed after ~17 y (Heinemeier 2013); muscle regenerates from satellite cells, hamstring lay-off ~18 to 24 days (Ekstrand 2016); bone truly regenerates, ~10% heal abnormally (Einhorn 2015) [verified]</td>
+<td data-l="Agree / differ"><strong>Agree</strong>, strongly supported</td>
+</tr>
+<tr>
+<td data-l="His point">Isometrics: 2 to 3 sets, 40 s+, building to 1 to 3 min, 3x/week, no movement</td>
+<td data-l="Literature">40 to 45 s matches Rio 2015; 3x/week matches the Achilles guideline minimum [reported]; Rio used 5 sets at 70% max [reported]; <strong>no trial found with 1 to 3 min holds</strong> (v1, v2, and Soliman 2026's 13 RCTs at abstract level); isometrics not superior to isotonic (Clifford 2020; Soliman 2026) [verified]</td>
+<td data-l="Agree / differ"><strong>Partly.</strong> Hold time and frequency fine; long holds unsupported; intensity (70 to 80% max) is missing from his version</td>
+</tr>
+<tr>
+<td data-l="His point">Rehab and strengthening are the same process; strengthening carries injury risk</td>
+<td data-l="Literature">Same mechanism (load intensity drives stiffness: Bohm 2015). Every successful program is progressive and pain-monitored because overload flares symptoms (Silbernagel 2007) [verified]</td>
+<td data-l="Agree / differ"><strong>Agree.</strong> No trial tests tendon-specific prevention strengthening in racket sports [gap]</td>
+</tr>
+<tr>
+<td data-l="His point">WADA ban sells most</td>
+<td data-l="Literature">BPC-157 S0, TB-500 S2.3, GH secretagogues S2.2.4 on the 2026 List; prescription no defence (USADA cases) [verified]; 2027 List wording not read [gap]</td>
+<td data-l="Agree / differ"><strong>Agree</strong> as a fact; strongest hook</td>
+</tr>
+<tr>
+<td data-l="His point">Dosing is pharmacokinetics; start low, go slow</td>
+<td data-l="Literature">BPC-157 half-life under 30 min in rats and dogs; no human PK; no human tendon dose established (He 2022; Tham 2026) [verified]</td>
+<td data-l="Agree / differ"><strong>Agree</strong>; "start low" is first-in-human logic plus product-quality protection [inferred]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="1-shared-base-page-section-outline-common-to-all-tendons">1. Shared base page: section outline (common to all tendons)</h2>
+<h3>1.1 What a tendon is and why it heals slowly</h3>
+<ul>
+<li>Tendon core essentially not renewed in adults; muscle turns over continuously (Heinemeier 2013, <a href="https://doi.org/10.1096/fj.12-225599">DOI</a>; 28 tendon vs 4 muscle samples). [verified]</li>
+<li>The tendon's outer layer does respond: training raised collagen synthesis around the Achilles 5 to 7 fold (Langberg 2001) and injured tendons responded more than healthy ones (Langberg 2007, n = 6). [verified, see Achilles v2]</li>
+<li>Poor blood supply at classic injury zones: Achilles midsection markedly hypovascular (Chen 2009, <a href="https://doi.org/10.1002/ca.20758">DOI</a>). [verified] Equivalent primary data for the elbow, patellar and cuff zones not gathered. [gap]</li>
+<li>Healing phases: inflammation days 0 to 7, proliferation weeks 1 to 6 (type III collagen), remodelling from week 6 for 12+ months (type III to type I). [reported, general literature]</li>
+</ul>
+<h3>1.2 Tendon vs muscle vs bone (comparison table)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Tendon</th>
+<th>Muscle</th>
+<th>Bone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Renewal</td>
+<td data-l="Tendon">Core ~none after 17 y (Heinemeier 2013) [verified]</td>
+<td data-l="Muscle">Continuous (Heinemeier 2013) [verified]</td>
+<td data-l="Bone">Remodels throughout life [reported]</td>
+</tr>
+<tr>
+<td data-l="">Repair cells</td>
+<td data-l="Tendon">Sparse tenocytes [reported]</td>
+<td data-l="Muscle">Satellite cells activate, multiply, fuse (Karalaki 2009) [verified]</td>
+<td data-l="Bone">Repair repeats skeletal development (Einhorn 2015) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Result</td>
+<td data-l="Tendon">Scar-like, slow to remodel [reported]</td>
+<td data-l="Muscle">Most heal well without surgery (Järvinen 2005) [verified]</td>
+<td data-l="Bone">Usually full restoration; ~10% heal abnormally (Einhorn 2015) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Typical time</td>
+<td data-l="Tendon">12-week programs, gains to 12 months; 80% recovered at 5 years for Achilles (Silbernagel 2011) [verified]</td>
+<td data-l="Muscle">Hamstring grade 1 ~18 d, grade 2 ~24 d (Ekstrand 2016) [verified, elite football]</td>
+<td data-l="Bone">~6 to 12 weeks to union [reported, no primary]</td>
+</tr>
+<tr>
+<td data-l="">Main driver</td>
+<td data-l="Tendon">Load intensity (Bohm 2015) [verified]</td>
+<td data-l="Muscle">Load plus regeneration [reported]</td>
+<td data-l="Bone">Load and stability [reported]</td>
+</tr>
+<tr>
+<td data-l="">Anti-inflammatories</td>
+<td data-l="Tendon">Steroid injections: short gain, long-term cost (Coombes 2013; Kongsgaard 2009) [verified]</td>
+<td data-l="Muscle">NSAID early benefit not maintained, possible repair deficit (Mackey 2012) [verified]</td>
+<td data-l="Bone">NSAIDs and bone healing [gap]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Citations: Karalaki 2009 PMID 19779115; Järvinen 2005 <a href="https://doi.org/10.1177/0363546505274714">DOI</a>; Ekstrand 2016 <a href="https://doi.org/10.1136/bjsports-2016-095974">DOI</a>; Einhorn 2015 <a href="https://doi.org/10.1038/nrrheum.2014.164">DOI</a>; Mackey 2012 <a href="https://doi.org/10.1111/j.1600-0838.2012.01463.x">DOI</a>.</p>
+<h3>1.3 Loading principles (all tendons)</h3>
+<ol>
+<li><strong>Load is the treatment.</strong> Stiffness gains depend on load intensity, not contraction type (Bohm 2015, 27 studies). [verified]</li>
+<li><strong>There is a threshold.</strong> Only high-strain Achilles training (~4.6%) adapted the tendon (Arampatzis 2007). [verified]</li>
+<li><strong>Progressive and pain-monitored.</strong> Keep activity if pain stays within limits; same 12-month result as rest (Silbernagel 2007). The common rule (up to 5/10 during, settled by next morning) is [reported].</li>
+<li><strong>12 weeks minimum</strong>, gains to 12 months.</li>
+<li><strong>Isometrics</strong> are a tolerable way to start loading a painful tendon; instant pain relief is contested (Rio 2015 n = 6 vs O'Neill 2019, Holden 2020, Clifford 2020, Soliman 2026). [verified]</li>
+<li><strong>Supervision and dose matter</strong>: unsupervised home eccentrics no better than sham (Janssen 2026); doing the prescribed sets and weight predicted results, attendance did not (Kenny 2025). [verified, see Achilles v2]</li>
+<li><strong>Scans do not equal symptoms.</strong> Imaging change rarely tracks recovery (Malliaras 2013); patellar gains were not explained by strength, thickness or vessel changes (Deng 2024, <a href="https://doi.org/10.1016/j.jsams.2024.12.006">DOI</a>). [verified]</li>
+<li><strong>Fear of movement slows recovery</strong>: kinesiophobia correlated with poorer heel-rise recovery at 5 years (Silbernagel 2011, <a href="https://doi.org/10.1177/0363546510384789">DOI</a>). [verified]</li>
+</ol>
+<h3>1.4 Injections and procedures (cross-tendon pattern)</h3>
+<ul>
+<li><strong>Cortisone:</strong> better short term, worse long term in tennis elbow (1-year recovery 83% vs 96% placebo; recurrence 54% vs 12%; Coombes 2013 JAMA, <a href="https://doi.org/10.1001/jama.2013.129">DOI</a>) and patellar (gains lost at 6 months; Kongsgaard 2009, <a href="https://doi.org/10.1111/j.1600-0838.2009.00949.x">DOI</a>) [verified]; Achilles mixed (Johannsen 2022 positive; Inject 2026 negative at 26 weeks) [verified]. Not recommended directly into weight-bearing tendons because of rupture risk; plantar fascia rupture and fat pad atrophy risk (AFP 2026 review, PMID 42202347). [verified]</li>
+<li><strong>PRP:</strong> null in Achilles (de Vos 2010, Kearney 2021, PATH-2) and patellar (Scott 2019: neither PRP type beat saline with HSR rehab; <a href="https://doi.org/10.1177/0363546519837954">DOI</a>) [verified]. After cuff repair, biologic augmentation (PRP or patch) cut re-tears 26.7% to 14.8% but <strong>without clinically meaningful</strong> function gains (Checketts 2026, 20 RCTs, <a href="https://doi.org/10.2106/JBJS.OA.26.00248">DOI</a>). [verified]</li>
+<li><strong>Shockwave:</strong> beat placebo for elbow, cuff and Achilles but <strong>not patellar</strong> (SMD -0.15, CI crosses zero) (Guo 2026 NMA, 65 RCTs, 3,921 people, <a href="https://doi.org/10.1111/os.70408">DOI</a>). [verified]</li>
+<li><strong>High-volume injection:</strong> no better than sham (Inject 2026). [verified]</li>
+<li><strong>Blood flow restriction:</strong> promising adjunct in upper-limb tendons, not consistently better than active rehab (Khan 2026, 20 reports, <a href="https://doi.org/10.1097/MD.0000000000051205">DOI</a>). [verified]</li>
+</ul>
+<h3>1.5 Peptides: evidence grade (same for every tendon page)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Best tendon evidence</th>
+<th>Human tendon data</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">BPC-157</td>
+<td data-l="Best tendon evidence">Rat Achilles, mostly one Zagreb group; independent rat 2026 positive direction, not significant</td>
+<td data-l="Human tendon data">None. 3 human studies total, n = 30, none tendon (Poolton 2026)</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">TB-500 (7-amino-acid fragment, not full Tβ4)</td>
+<td data-l="Best tendon evidence">Rat Achilles 2026, significant strength gain (Bicer 2026)</td>
+<td data-l="Human tendon data">None</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">Thymosin beta-4 (full)</td>
+<td data-l="Best tendon evidence">None in tendon</td>
+<td data-l="Human tendon data">Eye, heart, skin trials only</td>
+<td data-l="Grade">D for tendon</td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu</td>
+<td data-l="Best tendon evidence">Rat ACL, gone by 12 weeks</td>
+<td data-l="Human tendon data">None</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">Collagen peptides + vitamin C</td>
+<td data-l="Best tendon evidence">Small human Achilles crossover; marker study</td>
+<td data-l="Human tendon data">Small</td>
+<td data-l="Grade">B-</td>
+</tr>
+<tr>
+<td data-l="Compound">GH secretagogues</td>
+<td data-l="Best tendon evidence">Indirect (real GH raises tendon collagen)</td>
+<td data-l="Human tendon data">None; MK-677 heart failure and insulin resistance concerns (Tewari 2026)</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Compound">Expert consensus Oct 2026: no FDA-approved musculoskeletal use, no validated protocol, no controlled human orthopaedic efficacy; routine use not recommended (Tham 2026 JAAOS, <a href="https://doi.org/10.5435/JAAOS-D-26-00049">DOI</a>). [verified] Registered trials: BPC-157 hamstring phase 2 (NCT07437547, recruiting); BPC-157 after cuff repair, daily SC for 90 days (NCT07803250, starts Jan 2027). No Achilles, patellar, elbow or plantar trial. [verified registry]</td>
+<td data-l="Best tendon evidence"></td>
+<td data-l="Human tendon data"></td>
+<td data-l="Grade"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.6 WADA and the law (dated block, update each pass)</h3>
+<ul>
+<li>WADA 2026: BPC-157 S0 (named since 2022); TB-500 and Tβ4 S2.3; CJC-1295, ipamorelin, MK-677 S2.2.4; prohibited at all times; no TUE for S0. [verified]</li>
+<li>WADA 2027 (in force 1 Jan 2027): more S0 examples, peptides named as a class in the explanatory note [reported]; exact BPC-157/TB-500 wording not read. [gap]</li>
+<li>Sanctions: 4 months after self-report (UFC, 2023); 4 years for possession, use and promotion, found by whistleblower (US triathlete, 2025). [verified]</li>
+<li>US: HHS interim enforcement discretion (28 Oct 2026) for licensed 503A compounding of BPC-157 (SC/IM/oral/topical) and TB-500 (SC/IM) under 10 conditions; not FDA approval; FDA rulemaking pending; comments close ~13 Nov 2026. [reported, see Achilles v2 6.1]</li>
+</ul>
+<h3>1.7 PK and "start low, go slow"</h3>
+<p>BPC-157 half-life under 30 min (rats, dogs); IM bioavailability 14 to 19% rats, 45 to 51% dogs (He 2022). Human IV pilot: 2 people, 10 mg then 20 mg, no lab changes (Lee 2025). Animal tendon doses: BPC-157 10 µg/kg/day ip; TB-500 60 µg/kg/day ip. No human tendon dose. [verified, see Achilles v2 section 7]</p>
+<h3>1.8 Systemic risk factors (all tendons)</h3>
+<p>Fluoroquinolones (Achilles rupture ~3x for 60 days, up to ~20x with oral steroids; absolute risk small); oral steroids; age; previous tendinopathy; higher BMI linked to worse structure; statins <strong>not</strong> linked in the best data (Morales 2019; de Sá 2018). [verified]</p>
+<h3>1.9 Warnings and fine print (doctor liked this; keep identical on every page)</h3>
+<p>Unproven in humans; product identity, purity and sterility unregulated; banned in sport; not a substitute for loading; see a clinician for sudden pain, a "kick" sensation, inability to push off or lift the arm (possible rupture). [inferred from above]</p>
+<hr />
+<h2 id="2-per-tendon-table-goes-on-each-goal-page">2. Per-tendon table (goes on each goal page)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Tennis elbow (lateral)</th>
+<th>Golfer's elbow (medial)</th>
+<th>Achilles</th>
+<th>Patellar</th>
+<th>Rotator cuff</th>
+<th>Plantar fascia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="">Load type</td>
+<td data-l="Tennis elbow (lateral)">Non weight-bearing; grip, wrist extension</td>
+<td data-l="Golfer&#x27;s elbow (medial)">Non weight-bearing; grip, wrist flexion</td>
+<td data-l="Achilles">Weight-bearing spring; running, jumping</td>
+<td data-l="Patellar">Weight-bearing; jumping, landing</td>
+<td data-l="Rotator cuff">Mostly non weight-bearing; overhead</td>
+<td data-l="Plantar fascia">Weight-bearing; arch, heel strike</td>
+</tr>
+<tr>
+<td data-l="">First-line loading</td>
+<td data-l="Tennis elbow (lateral)">Wrist extensor loading, grip; physio added nothing over wait-and-see at 1 year in Coombes 2013 (but helped at 4 weeks: 39% vs 10%) [verified]</td>
+<td data-l="Golfer&#x27;s elbow (medial)">Not studied separately in this pass [gap]</td>
+<td data-l="Achilles">Calf raises straight and bent knee; HSR 3x/week = eccentrics with better adherence (Beyer 2015); pain-monitored running (Silbernagel 2007); heel lifts as good short-term (Rabusin 2020) [verified]</td>
+<td data-l="Patellar"><strong>Progressive tendon loading</strong> (isometric, then isotonic, then energy storage, then sport) beat eccentrics: VISA-P +28 vs +18 at 24 weeks (Breda 2021) [verified]; HSR held gains at 6 months (Kongsgaard 2009) [verified]</td>
+<td data-l="Rotator cuff">Shoulder exercise first line; adding other modalities mostly no better (Lazzarini 2026 NMA, 89 RCTs) [verified]; a single self-managed exercise = usual physio (Littlewood 2015 SELF) [verified]</td>
+<td data-l="Plantar fascia">High-load heel raises with towel under toes every second day beat stretching at 3 months (FFI 29 points), equal by 12 months (Rathleff 2014) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Isometrics</td>
+<td data-l="Tennis elbow (lateral)">Studied (2 trials in Soliman 2026) [verified]</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">Bradford 2021 positive; O'Neill 2019 null [verified]</td>
+<td data-l="Patellar">Rio 2015/2017 positive; Holden 2020 null [verified]</td>
+<td data-l="Rotator cuff">2 trials in Soliman 2026; Clifford 2020: no better than ice acutely [verified]</td>
+<td data-l="Plantar fascia">[gap]</td>
+</tr>
+<tr>
+<td data-l="">Compression issue</td>
+<td data-l="Tennis elbow (lateral)">Less</td>
+<td data-l="Golfer&#x27;s elbow (medial)">Less</td>
+<td data-l="Achilles">Insertional: avoid deep dorsiflexion [reported]</td>
+<td data-l="Patellar">Less</td>
+<td data-l="Rotator cuff">Subacromial space [reported]; decompression surgery = placebo (FIMPACT) [verified]</td>
+<td data-l="Plantar fascia">Less</td>
+</tr>
+<tr>
+<td data-l="">Injection notes</td>
+<td data-l="Tennis elbow (lateral)">Steroid worse at 1 year (Coombes 2013)</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">PRP null; steroid contested; HVI null</td>
+<td data-l="Patellar">Steroid short gain then relapse (Kongsgaard 2009); PRP null (Scott 2019); shockwave null (Guo 2026)</td>
+<td data-l="Rotator cuff">After repair: biologic augmentation fewer re-tears, no meaningful function gain (Checketts 2026)</td>
+<td data-l="Plantar fascia">Steroid short-term relief, rupture and fat pad risk; PRP possibly helpful (AFP 2026) [verified]</td>
+</tr>
+<tr>
+<td data-l="">Typical program length</td>
+<td data-l="Tennis elbow (lateral)">12 weeks to 1 year</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">12 weeks; 80% recovered by 5 years</td>
+<td data-l="Patellar">24 weeks (Breda)</td>
+<td data-l="Rotator cuff">3 months primary endpoint (SELF)</td>
+<td data-l="Plantar fascia">3 to 12 months</td>
+</tr>
+<tr>
+<td data-l="">Return to sport</td>
+<td data-l="Tennis elbow (lateral)">Grip and racket load progression [reported]</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">Run/hop/jump progressions; rupture: NBA 10.8 months, performance often down (Maman 2026) [verified]</td>
+<td data-l="Patellar">RTS 43% PTLE vs 27% eccentric at 24 weeks (n.s.) (Breda 2021) [verified]</td>
+<td data-l="Rotator cuff">After decompression 88 to 90% back to work by 24 months in all arms (FIMPACT 2021) [verified, work not sport]</td>
+<td data-l="Plantar fascia">[gap]</td>
+</tr>
+<tr>
+<td data-l="">Rupture risk</td>
+<td data-l="Tennis elbow (lateral)">Rare</td>
+<td data-l="Golfer&#x27;s elbow (medial)">Rare</td>
+<td data-l="Achilles">Real, rising with age; 81% male</td>
+<td data-l="Patellar">Rare</td>
+<td data-l="Rotator cuff">Common with age (degenerative tears)</td>
+<td data-l="Plantar fascia">Fascia rupture after steroid injection [verified]</td>
+</tr>
+<tr>
+<td data-l="">Surgery threshold</td>
+<td data-l="Tennis elbow (lateral)">Not covered this pass [gap]</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">Rupture: surgery cuts re-rupture (0.6% vs 6.2%) with equal function at 12 months, more nerve injury (Myhrvold 2022) [verified]; tendinopathy surgery thresholds [gap]</td>
+<td data-l="Patellar">Not covered this pass [gap]</td>
+<td data-l="Rotator cuff">Small (~10 mm) non-traumatic supraspinatus tears over 55: physio = surgery at 6.2 years, 8 of 60 physio shoulders crossed over to repair (Kukkonen 2021) [verified]; subacromial decompression no better than placebo at 10 years (Kanto 2025 BMJ) [verified]; traumatic tears in young people [gap]</td>
+<td data-l="Plantar fascia">[gap]</td>
+</tr>
+<tr>
+<td data-l="">Peptide animal data</td>
+<td data-l="Tennis elbow (lateral)">See tennis elbow page</td>
+<td data-l="Golfer&#x27;s elbow (medial)">None found</td>
+<td data-l="Achilles">BPC-157 and TB-500 rat Achilles</td>
+<td data-l="Patellar">None specific</td>
+<td data-l="Rotator cuff">BPC-157 trial planned after repair (NCT07803250)</td>
+<td data-l="Plantar fascia">None found</td>
+</tr>
+<tr>
+<td data-l="">Key trial base</td>
+<td data-l="Tennis elbow (lateral)">Coombes 2013</td>
+<td data-l="Golfer&#x27;s elbow (medial)">[gap]</td>
+<td data-l="Achilles">Alfredson, Beyer, Silbernagel, Rabusin, de Vos, Kearney, Myhrvold, UKSTAR</td>
+<td data-l="Patellar">Rio, Holden, Kongsgaard, Breda, Scott</td>
+<td data-l="Rotator cuff">Lazzarini, Littlewood, FIMPACT, Kukkonen, Checketts</td>
+<td data-l="Plantar fascia">Rathleff, AFP 2026</td>
+</tr>
+</tbody>
+</table></div>
+<p>Citations for new rows: Breda 2021 <a href="https://doi.org/10.1136/bjsports-2020-103403">DOI</a>; Kongsgaard 2009 <a href="https://doi.org/10.1111/j.1600-0838.2009.00949.x">DOI</a>; Scott 2019 <a href="https://doi.org/10.1177/0363546519837954">DOI</a>; Lazzarini 2026 <a href="https://doi.org/10.1136/bjsports-2025-110024">DOI</a>; Littlewood 2015 <a href="https://doi.org/10.1177/0269215515593784">DOI</a>; Kanto 2025 FIMPACT 10-year <a href="https://doi.org/10.1136/bmj-2025-086201">DOI</a>; Bäck 2021 FIMPACT return to work <a href="https://doi.org/10.1186/s12891-021-04768-7">DOI</a>; Kukkonen 2021 <a href="https://doi.org/10.1016/j.jse.2021.03.133">DOI</a>; Checketts 2026 <a href="https://doi.org/10.2106/JBJS.OA.26.00248">DOI</a>; Rathleff 2014 <a href="https://doi.org/10.1111/sms.12313">DOI</a>; Coombes 2013 <a href="https://doi.org/10.1001/jama.2013.129">DOI</a>; Guo 2026 <a href="https://doi.org/10.1111/os.70408">DOI</a>; Soliman 2026 <a href="https://doi.org/10.1016/j.clinthera.2026.04.027">DOI</a>; Rabusin 2020 <a href="https://doi.org/10.1136/bjsports-2019-101776">DOI</a>.</p>
+<hr />
+<h2 id="3-where-the-literature-agrees-vs-differs-across-tendons">3. Where the literature agrees vs differs across tendons</h2>
+<p><strong>Agrees</strong> [verified across trials above]
+- Exercise and loading are first line everywhere; most add-ons do not beat exercise alone (cuff NMA, Achilles injections, patellar PRP).
+- Cortisone trades short-term relief for worse or relapsing longer-term results (elbow, patellar, plantar risk; Achilles mixed).
+- Placebo or sham procedures match surgery or injections more often than expected (FIMPACT, Inject, Kearney, Scott).</p>
+<p><strong>Differs</strong>
+- Shockwave: works vs placebo in elbow, cuff, Achilles; not patellar (Guo 2026). [verified]
+- Best loading style: patellar favours a staged progression over eccentrics (Breda 2021); Achilles shows HSR = eccentrics (Beyer 2015) and heel lifts close to both (Rabusin 2020). [verified]
+- Surgery: helpful for re-rupture prevention in Achilles rupture; not better than physio for small degenerative cuff tears or impingement. [verified]
+- Peptide animal data exist almost only for Achilles. [verified absence for others in PubMed searches this pass]</p>
+<hr />
+<h2 id="4-page-architecture-inferred">4. Page architecture [inferred]</h2>
+<ol>
+<li><strong>Tendons (base)</strong> page: sections 1.1 to 1.9, linked from the body map tendon area.</li>
+<li>Each <strong>goal page</strong> (tennis elbow, golfer's elbow, Achilles, patellar, rotator cuff, plantar fascia): what it is, who gets it, the specific loading plan, specific trials and numbers, return to sport, surgery threshold, then "Shared: how tendons heal / peptides / WADA" as links to the base.</li>
+<li>One warnings block reused verbatim (doctor liked it).</li>
+<li>WADA and US regulation as one dated block on the base page so one edit updates every tendon page.</li>
+</ol>
+<hr />
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<ol>
+<li>Golfer's elbow: any RCT on loading, injections, natural history.</li>
+<li>Plantar fascia: return-to-sport data; surgery (fasciotomy) thresholds; a 2023+ guideline.</li>
+<li>Patellar: surgery vs exercise trial (Bahr 2006 not retrieved); return-to-sport timelines in jumpers.</li>
+<li>Rotator cuff: traumatic tears in younger athletes; isometric protocol details; return to throwing/serving.</li>
+<li>Tennis elbow: confirm current tennis elbow page cites are consistent with this base (Coombes numbers).</li>
+<li>Primary citations for tendon blood supply outside Achilles, and for fracture union weeks.</li>
+<li>WADA 2027 wording read directly; HHS Appendix A read directly.</li>
+<li>Rio 2015/2017 full-text protocols; any trial testing 1 to 3 min isometric holds.</li>
+<li>Community (outside Reddit) for patellar, cuff, elbow and plantar peptide reports; the Achilles count was 1 first-hand report, 0 clinician-observed.</li>
+</ol>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first outline; built from Achilles Research v2 plus about 20 new PubMed records (patellar, cuff, plantar, elbow, cross-tendon reviews).</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

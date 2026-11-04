@@ -1,0 +1,725 @@
+<!doctype html>
+<!-- Goal research notes: Endometriosis, from Endometriosis Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="No research peptide has human data, and blood-vessel peptides are a concern. GLP-1s carry the only community signal.">
+<title>Endometriosis · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Endometriosis</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">No research peptide has human data, and blood-vessel peptides are a concern. GLP-1s carry the only community signal. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (14)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-one-screen-summary">0. One-screen summary</a></li><li><a href="#a-adversarial-check-v2-headline-numbers-traced-to-the-primar">A. Adversarial check (v2): headline numbers traced to the primary source</a></li><li><a href="#1-what-endometriosis-is-so-readers-can-match-symptoms">1. What endometriosis is (so readers can match symptoms)</a></li><li><a href="#2-standard-options-with-numbers">2. Standard options with numbers</a></li><li><a href="#3-peptides-and-emerging-compounds-evidence-grades">3. Peptides and emerging compounds: evidence grades</a></li><li><a href="#3b-folded-in-from-endo-pcos-peptides-v1-gleam-thymosin-alpha">3b. Folded in from Endo PCOS Peptides v1 (GLEAM, thymosin alpha-1, LDN)</a></li><li><a href="#4-usual-questions">4. Usual questions</a></li><li><a href="#5-community-signal-peptides-in-endometriosis">5. Community signal (peptides in endometriosis)</a></li><li><a href="#6-negative-mirror-failures-side-effects-risks">6. Negative mirror: failures, side effects, risks</a></li><li><a href="#pairings-and-related-conditions-for-page-interlinks">Pairings and related conditions (for page interlinks)</a></li><li><a href="#sources-flagged-as-inaccessible-or-partial">Sources flagged as inaccessible or partial</a></li><li><a href="#gaps-from-v1-status-after-v2">Gaps from v1 (status after v2)</a></li><li><a href="#gaps-for-next-pass-v3">Gaps for next pass (v3)</a></li></ol></details>
+<div class="md"><h1>Endometriosis Research v2</h1>
+<p>Research pass for a baresignals.co goal page. v1 compiled 3 Nov 2026; v2 (second pass) compiled 3 Nov 2026.
+Sources v1: PubMed (via PubMed tool), ClinicalTrials.gov, web search and fetch. About 45 PubMed queries, 3 trial registry queries, 12 web searches, 12 page fetches.
+Sources v2 (added): about 24 PubMed queries and metadata pulls, 4 ClinicalTrials.gov queries, 18 web searches, 20 page fetches.</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ul>
+<li><strong>Adversarial check added (new section A).</strong> Eight headline numbers traced to the primary source. Six held. Two were corrected: the quinagolide "61% lesion regression" is a post hoc figure from a phase 2 RCT whose primary endpoint failed (QLARITY), and the LDN trial does have results posted on the registry (v1 said none). Prevalence (10%, about 190 million) upgraded from [reported] to [verified] against the WHO fact sheet.</li>
+<li><strong>Guidelines updated:</strong> ACOG published its first endometriosis diagnosis guideline (Obstet Gynecol, March 2026). NICE NG73 had diagnosis updates in Nov 2024 and fertility updates in Apr 2024, with minor link changes in Sep 2025 and Mar 2026. ESHRE 2022 is still "under revision" with no date. ACOG 2022 "reaffirmed" note in v1 is superseded.</li>
+<li><strong>DCA resolved:</strong> EPiC1 paper found (DOI 10.1016/j.lanogw.2025.100028). Pain effect sizes still not in the abstract. EPiC2 is <strong>planned, due to start recruiting late 2026</strong> (status conflict in v1 resolved).</li>
+<li><strong>New failed or null trials (2025 to 2026):</strong> linustedastat (OG-6219, n = 353, no effect, programme stopped); CBD oil RCT (DREAMLAND, n = 102, stopped at interim for no benefit and more side effects); supplements meta-analysis of 9 placebo RCTs (no benefit); QLARITY quinagolide (no lesion change). Cannabinoid grade adjusted.</li>
+<li><strong>New positive or pending trials:</strong> linzagolix EDELWEISS 3 and 6 numbers; melatonin 5 mg RCT (n = 80, pain down); nanocurcumin + dienogest RCT (n = 86); vipoglanstat phase 2 (n about 190, readout 2027); ESPriT2 recruitment finished, results due 2026.</li>
+<li><strong>GH / IGF-1 gap partly filled:</strong> IGF-1 is raised in peritoneal fluid and blood in endometriosis, and macrophage IGF-1 drives nerve growth and pain in mice and tracks with pain in women. Strengthens the GH-peptide caution (still inferred).</li>
+<li><strong>New section 3b:</strong> findings folded in from Endo PCOS Peptides v1 (GLEAM survey, thymosin alpha-1 Indian trial, LDN), each re-checked this pass where possible.</li>
+<li><strong>Usual questions expanded</strong> from 9 to 16; infertility figure traced (weak citation chain, kept [reported]); new family-risk figure (sibling IRR 2.75).</li>
+<li><strong>Retraction check:</strong> 51 retracted endometriosis papers on PubMed; none overlap the 91 PMIDs cited in v1.</li>
+<li>All PMIDs now link to PubMed. New "Gaps for next pass" at the end; v1's list kept for the record, marked with what was closed.</li>
+</ul>
+<p><strong>Tags:</strong> [verified] = read in the primary source's abstract or registry record this pass. [reported] = stated by a secondary source, or a primary source I could not open in full. [inferred] = my reasoning from verified facts. [speculated] = plausible but untested.
+<strong>Note on depth:</strong> almost everything below was read at abstract level. Full texts were not opened unless stated. Numbers come from abstracts.</p>
+<hr />
+<h2 id="0-one-screen-summary">0. One-screen summary</h2>
+<ul>
+<li>Endometriosis is tissue similar to the womb lining growing outside the womb. It affects roughly 1 in 10 women of reproductive age (about 190 million, WHO), and diagnosis typically takes years. [verified]</li>
+<li>Proven options are hormonal: progestins such as dienogest, the combined pill, and oral GnRH antagonists. GnRH antagonists help period pain strongly (NNT 2) and non-period pelvic pain moderately (NNT 5). Surgery helps, but about 1 in 10 people need another operation. [verified]</li>
+<li><strong>No peptide sold in the research-peptide market has any human endometriosis data.</strong> BPC-157, TB-500, KPV, GHK-Cu, thymosin alpha-1 and LL-37 have zero endometriosis trials. Most have zero endometriosis animal studies. [verified absence on PubMed]</li>
+<li>Several of these peptides <strong>promote new blood vessel growth (angiogenesis)</strong>. Endometriosis lesions need new blood vessels to survive. This is a real theoretical concern, not a selling point. [inferred, from verified mechanisms]</li>
+<li>The non-hormonal compounds with actual human signal are melatonin (4 RCTs, mixed), NAC (weak cohort studies, one negative RCT), cannabis-based products (open-label positive, but the first placebo RCT of CBD oil was null), cabergoline (tiny pilot), and dichloroacetate (feasibility only; RCT due to start late 2026). GLP-1 drugs have only preprint surveys. [verified/reported as tagged below]</li>
+<li><strong>v2:</strong> two 2025 to 2026 drug failures (linustedastat, quinagolide ring) and one null CBD RCT are a reminder that strong lab rationale often fails in people. Thymosin alpha-1 has an unreviewed industry trial in a patent only (section 3b). [verified]</li>
+</ul>
+<hr />
+<h2 id="a-adversarial-check-v2-headline-numbers-traced-to-the-primar">A. Adversarial check (v2): headline numbers traced to the primary source</h2>
+<p>Method: each number re-read in the primary abstract (or registry/guideline page) this pass, 3 Nov 2026.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>v1 claim</th>
+<th>Primary source checked</th>
+<th>Result</th>
+<th>Tag now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="v1 claim">About 10% of reproductive-age women, about 190 million</td>
+<td data-l="Primary source checked"><a href="https://www.who.int/es/news-room/fact-sheets/detail/endometriosis/">WHO fact sheet, 24 Mar 2023</a></td>
+<td data-l="Result">Holds. Was [reported] via a news summary; now matched to WHO.</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="v1 claim">GnRH antagonists: period pain NNT 2, non-period pain NNT 5; "no robust differences between drugs"</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/42025872/">PMID 42025872</a></td>
+<td data-l="Result">Numbers hold (RR 3.06, CI 2.76 to 3.39, NNT 2; RR 1.53, CI 1.40 to 1.67, NNT 5; I² 0%). <strong>Nuance added:</strong> elagolix 200 mg twice daily beat relugolix combination on period pain in an indirect comparison (RR 1.34, p = 0.017), but that elagolix dose has no add-back and is not a long-term regimen.</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="v1 claim">Elaris: 46% / 76% vs 20% (EM-I), 43% / 72% vs 23% (EM-II)</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/28525302/">PMID 28525302</a></td>
+<td data-l="Result">Holds (46.4 / 75.8 / 19.6; 43.4 / 72.4 / 22.7). Non-period pain 50.4 to 57.8% vs 36.5%.</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="v1 claim">Reoperation 10.8%; 4.4% with vs 11.2% without hormones after surgery</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/42498214/">PMID 42498214</a></td>
+<td data-l="Result">Numbers hold. <strong>Caveat added:</strong> heterogeneity was extreme (I² 95.7%), and the 4.4 vs 11.2 comparison comes from studies that reported it, not from randomisation. Lower rates in bowel (5.1%) and urinary (4.0%) disease.</td>
+<td data-l="Tag now">[verified], weaker than v1 implied</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="v1 claim">Endometrioma: period pain returns 10 to 34% after excision vs 49% after ablation</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/39588841/">PMID 39588841</a></td>
+<td data-l="Result">Holds, but rests on <strong>2 studies, 140 women, low certainty</strong>. Also: further endometrioma surgery 3 to 16% vs 32%; no difference in pregnancy (OR 1.27).</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="v1 claim">Central sensitisation 11 to 58%, up to 75% in referral centres; OR 1.02 per CSI point</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/42452647/">PMID 42452647</a></td>
+<td data-l="Result">Holds (11.3 to 58.2%, 74.8%). <strong>Caveat added:</strong> OR 1.02 per point is a small effect per point; meaningful only across large score gaps (the authors use CSI 40 or more as "high").</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">7</td>
+<td data-l="v1 claim">Quinagolide "regressed 61.3% of lesions"</td>
+<td data-l="Primary source checked">Trial itself: QLARITY, <a href="https://pubmed.ncbi.nlm.nih.gov/40188683/">PMID 40188683</a></td>
+<td data-l="Result"><strong>Corrected.</strong> The phase 2 RCT missed its primary endpoint (no lesion size difference vs placebo). 61.3% is a post hoc within-arm count.</td>
+<td data-l="Tag now">[verified], claim downgraded</td>
+</tr>
+<tr>
+<td data-l="#">8</td>
+<td data-l="v1 claim">LDN RCT "no results posted"</td>
+<td data-l="Primary source checked"><a href="https://clinicaltrials.gov/study/NCT03970330">NCT03970330</a> registry record</td>
+<td data-l="Result"><strong>Corrected.</strong> Record shows results posted (first posted Nov 2022 per mirror). Values not readable here.</td>
+<td data-l="Tag now">[verified] status; values unread</td>
+</tr>
+<tr>
+<td data-l="#">Extra</td>
+<td data-l="v1 claim">Dienogest 12.3 mm better than placebo</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/20444534/">PMID 20444534</a></td>
+<td data-l="Result">Holds (27.4 vs 15.1 mm, p &lt; 0.0001, n = 198).</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">Extra</td>
+<td data-l="v1 claim">Hysterectomy reoperation 19.2 / 13.2 / 4.9%</td>
+<td data-l="Primary source checked"><a href="https://pubmed.ncbi.nlm.nih.gov/42962755/">PMID 42962755</a></td>
+<td data-l="Result">Holds (aHR 0.56 and 0.20).</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">Extra</td>
+<td data-l="v1 claim">"30 to 50% of women with endometriosis are infertile" (flagged in v1)</td>
+<td data-l="Primary source checked">Traced to a 2015 JCDR retrospective study (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4525559">PMC4525559</a>), which cites a 2004 incidence paper for it</td>
+<td data-l="Result"><strong>Citation chain is weak</strong>; the cited source is not a prevalence-of-infertility study. Keep as a commonly quoted range only. That same paper found endometriosis in 48% of 372 infertile women at laparoscopy (one hospital).</td>
+<td data-l="Tag now">[reported]</td>
+</tr>
+</tbody>
+</table></div>
+<p>Also noted: v1 quoted an average diagnostic delay of 8 to 12 years [reported]. ACOG's 2026 materials quote <strong>4 to 11 years</strong> in the US. [reported] Healio, MDLinx. The BJOG review range (0.3 to 12 years) stays the safest statement.</p>
+<hr />
+<h2 id="1-what-endometriosis-is-so-readers-can-match-symptoms">1. What endometriosis is (so readers can match symptoms)</h2>
+<h3>Definition and prevalence</h3>
+<ul>
+<li>Endometriosis means endometrial-like tissue (glands and stroma) growing outside the uterus, mostly on the pelvic lining (peritoneum), ovaries and the ligaments behind the uterus. It is chronic, estrogen-dependent and inflammatory. [verified] Zondervan, Becker, Missmer, NEJM 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/32212520/">PMID 32212520</a>, doi:10.1056/NEJMra1810764 (no abstract available, so only the title and MeSH terms were read)</li>
+<li>Prevalence is about 10% of women of reproductive age. Estimates range from 2 to 10%, and some recent reviews say 10 to 15%. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/">PMID 42885805</a> (2026, doi:10.1002/ijgo.71401); <a href="https://pubmed.ncbi.nlm.nih.gov/41073125/">PMID 41073125</a> (2025); <a href="https://pubmed.ncbi.nlm.nih.gov/42941690/">PMID 42941690</a> (2026)</li>
+<li>About 190 million women and girls worldwide (cited for the ESHRE 2022 guideline). Older papers say about 176 million. [reported] the-hospitalist.org summary of ESHRE 2022; <a href="https://pubmed.ncbi.nlm.nih.gov/31792175/">PMID 31792175</a> (2019)</li>
+<li><strong>v2 [verified]:</strong> WHO fact sheet (24 Mar 2023) states roughly 190 million women of reproductive age, about 10%. Read via the <a href="https://www.who.int/es/news-room/fact-sheets/detail/endometriosis/">Spanish-language WHO page</a> (English page not on allowlist). The 176 million figure appears in the 2021 EPiC protocol (<a href="https://pubmed.ncbi.nlm.nih.gov/33712086/">PMID 33712086</a>).</li>
+<li><strong>Family risk (v2):</strong> in a Korean national cohort of 2.1 million women, having an affected sister raised risk 2.75-fold (IRR 2.75), and an affected twin 6.98-fold. Smoking and early first period added to family risk. [verified] BJOG 2021, <a href="https://pubmed.ncbi.nlm.nih.gov/34028167/">PMID 34028167</a>, doi:10.1111/1471-0528.16769</li>
+<li>2 to 5% of postmenopausal women are still affected. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42647142/">PMID 42647142</a> (Curr Opin Obstet Gynecol 2026, doi:10.1097/GCO.0000000000001127)</li>
+</ul>
+<h3>Three main types</h3>
+<ul>
+<li><strong>Superficial peritoneal:</strong> small spots on the pelvic lining. It is the most common type, and it is <strong>largely invisible on ultrasound and MRI</strong>. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/">PMID 42885805</a></li>
+<li><strong>Ovarian endometrioma ("chocolate cyst"):</strong> a blood-filled cyst on the ovary. Ultrasound shows it well. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/">PMID 42885805</a></li>
+<li><strong>Deep endometriosis:</strong> lesions that invade more than about 5 mm into the bowel, bladder, ligaments or vaginal wall. Expert ultrasound and MRI can map it. [verified for imaging; depth threshold is standard definition, reported]</li>
+<li>Rare sites include the abdominal wall (often a caesarean scar), diaphragm and chest. Cancer arising in abdominal wall endometriosis is rare (46 cases found worldwide) but has a poor outlook. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/34391052/">PMID 34391052</a> (2021)</li>
+</ul>
+<h3>Adenomyosis vs endometriosis</h3>
+<ul>
+<li>Adenomyosis is the same kind of tissue growing <strong>into the muscle wall of the uterus</strong> rather than outside it. It causes heavy, painful periods and an enlarged, tender uterus. Ultrasound is first-line and MRI is used for unclear cases. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42910152/">PMID 42910152</a> (Int J Med Sci 2026)</li>
+<li>In adenomyosis the uterine muscle overcontracts. Oxytocin receptor levels in the muscle are raised and track with contraction strength and period pain severity. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41836349/">PMID 41836349</a> (Hum Reprod Open 2026, doi:10.1093/hropen/hoag013)</li>
+<li>The two conditions often coexist. Peptide or hormonal claims for one should not be assumed to apply to the other. [inferred]</li>
+</ul>
+<h3>Symptoms</h3>
+<ul>
+<li>Period pain (dysmenorrhea), pelvic pain between periods, pain with sex (dyspareunia), pain with bowel movements (dyschezia), pain passing urine (dysuria), and infertility. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42941690/">PMID 42941690</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/30092712/">PMID 30092712</a></li>
+<li>Bloating, fatigue, anxiety and depression are common alongside. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42926793/">PMID 42926793</a> (2026); <a href="https://pubmed.ncbi.nlm.nih.gov/42771648/">PMID 42771648</a> (2026)</li>
+<li>A reader whose main symptom is period pain that ordinary painkillers do not touch should note: about 18% of people with painful periods do not respond to NSAIDs. That is a signal to get assessed, not proof of endometriosis. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/28888592/">PMID 28888592</a> (AJOG 2017)</li>
+</ul>
+<h3>Diagnostic delay</h3>
+<ul>
+<li>Published delays range from 0.3 to 12 years depending on how delay is defined and on country (17 studies). Physician factors drive most of it. [verified] BJOG 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/39373298/">PMID 39373298</a>, doi:10.1111/1471-0528.17973</li>
+<li>In a meta-analysis, both patient factors (normalising symptoms, waiting to seek care; SMD 1.94) and provider factors (misdiagnosis, non-specific tests; SMD 2.00) contributed. [verified] Front Med 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40766070/">PMID 40766070</a></li>
+<li>The commonly quoted average is 8 to 12 years from symptom onset. [reported] the-hospitalist.org</li>
+</ul>
+<h3>Diagnosis: laparoscopy vs imaging (ESHRE 2022)</h3>
+<ul>
+<li>The 2022 ESHRE guideline (109 recommendations, evidence up to Dec 2020) <strong>challenged laparoscopy plus histology as the gold standard</strong>. [verified] Becker et al., Hum Reprod Open 2022, <a href="https://pubmed.ncbi.nlm.nih.gov/35350465/">PMID 35350465</a>, doi:10.1093/hropen/hoac009</li>
+<li>In practice: diagnose from history, examination and imaging, then start hormonal treatment empirically. Laparoscopy is reserved for people with negative imaging whose empirical treatment fails. Serum biomarkers (e.g. CA125) are not recommended for diagnosis. [reported] the-hospitalist.org summary of the guideline; full guideline PDF not opened this pass</li>
+<li>Expert ultrasound and MRI detect endometrioma and deep disease with high specificity. <strong>A normal scan does not rule out superficial disease.</strong> No blood, urine or saliva biomarker is ready for clinical use, and miRNA panels have failed independent validation. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/">PMID 42885805</a> (2026)</li>
+<li>Other guidelines in force: NICE 2024, German S2k 2025 (73 recommendations, adds a tiered multimodal pain approach), ACOG (reaffirmed 2022), WES. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41517629/">PMID 41517629</a> (2026); <a href="https://pubmed.ncbi.nlm.nih.gov/42274745/">PMID 42274745</a> (Schmerz 2026)</li>
+<li><strong>v2 guideline update:</strong></li>
+<li><strong>ACOG Clinical Practice Guideline, "Diagnosis of Endometriosis"</strong> (Obstet Gynecol, March 2026, 147(3):432-448). Covers clinical, imaging and surgical diagnosis, applies to adolescents too, and leaned on the NICE evidence review. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41712950/">PMID 41712950</a>, doi:10.1097/AOG.0000000000006181. Reported content: symptoms and/or exam are enough to start treatment; transvaginal ultrasound first, MRI for deep disease; no biomarker for diagnosis; laparoscopy by shared decision, and if done, treat lesions at the same time; a negative biopsy does not rule it out. [reported] <a href="https://www.healio.com/news/womens-health-ob-gyn/20260220/acog-updates-guidance-on-diagnosing-endometriosis">Healio, 20 Feb 2026</a>. ACOG says management guidance is still in development. One excision surgeon criticised the lack of endometriosis specialists among the three authors. [reported] <a href="https://www.mdlinx.com/article/acogs-first-ever-endometriosis-guideline-clinical-impacts-and-why-experts-are-split/3Lzd9p0TFw1d5wqul7ZSIG">MDLinx, 26 Feb 2026</a></li>
+<li><strong>NICE NG73:</strong> Nov 2024 diagnosis evidence reviewed and recommendations updated; Apr 2024 fertility-priority management updated; Sep 2025 and Mar 2026 minor link changes only. [verified] <a href="https://www.nice.org.uk/guidance/NG73/chapter/update-information">NICE update information</a>. NICE recommended relugolix combination therapy for routine NHS use (final draft, March 2025) for people whose symptoms persist after earlier treatment. [reported] <a href="https://trial.medpath.com/news/93855a728c987730/endometriosis-pain-treatment-pipeline-shows-mixed-results-as-nhs-approves-first-daily-oral-therapy">MedPath summary</a></li>
+<li><strong>ESHRE:</strong> its guideline page says the endometriosis guideline is "currently under revision", no date given. No 2025 or 2026 ESHRE update found. [verified absence] <a href="https://www.eshre.eu/Guidelines-and-Legal/Guidelines/Surgery-in-Endometriosis">ESHRE guideline page</a></li>
+</ul>
+<h3>Staging, and why stage does not match pain</h3>
+<ul>
+<li>rASRM staging (I minimal to IV severe) is scored during surgery. It does not correlate well with deep disease and cannot be used before surgery. Newer systems (#Enzian, AAGL 2021) map anatomy or surgical complexity but <strong>do not score pain</strong>. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42211905/">PMID 42211905</a> (2025)</li>
+<li>Symptoms "associate poorly with lesion burden". Some patients have severe symptoms with no lesion found at surgery or on pathology. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42926793/">PMID 42926793</a> (2026)</li>
+<li>In one study, CA125 tracked stage but not pain, while peritoneal fluid VEGF tracked pain (r = 0.505) but not stage. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42137832/">PMID 42137832</a> (Narra J 2026, small Indonesian cohort)</li>
+<li>Why: pain comes from inflammation, nerve ingrowth into lesions (neuroangiogenesis), and <strong>central sensitisation</strong>, where the nervous system itself amplifies pain. Central sensitisation affects 11 to 58% of people with endometriosis, and up to 75% in tertiary referral centres. Each 1-point rise on the Central Sensitization Inventory before surgery raises the odds of persistent pain after surgery (OR 1.02). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42452647/">PMID 42452647</a> (J Clin Med 2026, 71 studies, more than 12,000 participants); <a href="https://pubmed.ncbi.nlm.nih.gov/42941690/">PMID 42941690</a></li>
+</ul>
+<h3>Pathophysiology (how it starts and persists)</h3>
+<ul>
+<li><strong>Retrograde menstruation</strong> (menstrual tissue flowing backwards through the tubes) is the leading theory. A 2024 systematic review found evidence that it is universal is weak: blood was seen in peritoneal fluid in 9 to 100% of people and endometrial cells in 8 to 75%, with heterogeneous studies. In baboons, it was seen in 83% of those with endometriosis vs 51% without. [verified] Hum Reprod Open 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/39055487/">PMID 39055487</a>, doi:10.1093/hropen/hoae045</li>
+<li>Endometriosis is much more common with <strong>obstructive</strong> Müllerian anomalies (which force backflow), which supports the retrograde theory. Rates with non-obstructive anomalies are similar to normal, which argues against the coelomic metaplasia / embryonic remnant theory as the main route. [verified] Hum Reprod 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/38733102/">PMID 38733102</a></li>
+<li>Other theories: coelomic metaplasia, stem cells, lymphatic or vascular spread, and iatrogenic implantation in surgical scars. [reported] general review literature; not re-checked this pass</li>
+<li><strong>Estrogen dependence:</strong> lesions make their own estrogen and resist progesterone. This is why hormonal suppression works. [verified as "estrogen-dependent"] multiple abstracts; [reported] for local aromatase and progesterone resistance, <a href="https://pubmed.ncbi.nlm.nih.gov/37416064/">PMID 37416064</a></li>
+<li><strong>Angiogenesis:</strong> VEGF-driven blood vessel growth is "central to the establishment and persistence" of lesions. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41668890/">PMID 41668890</a> (Front Reprod Health 2026). <strong>Key point for the peptide section.</strong></li>
+<li><strong>Inflammation and immune dysfunction:</strong> TNF-α, IL-1, IL-6, oxidative stress and JAK/STAT activation. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41439725/">PMID 41439725</a> (2026). There are more regulatory T cells in the peritoneal fluid, and the chemokine TECK/CCL25 promotes lesion invasion. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/25275597/">PMID 25275597</a> (2014), <a href="https://pubmed.ncbi.nlm.nih.gov/20081876/">PMID 20081876</a> (2010)</li>
+<li><strong>Metabolic change:</strong> the pelvic lining cells of affected women run on glycolysis and produce more lactate, which fuels lesions. This is the basis for dichloroacetate. [verified] PNAS 2019, <a href="https://pubmed.ncbi.nlm.nih.gov/31792175/">PMID 31792175</a>, doi:10.1073/pnas.1916144116</li>
+<li><strong>Nerves and pain signalling:</strong> blood levels of CGRP (a pain neuropeptide) were higher in endometriosis (80.5 vs 58.6) and fell on dienogest. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/38658933/">PMID 38658933</a> (2024)</li>
+</ul>
+<hr />
+<h2 id="2-standard-options-with-numbers">2. Standard options with numbers</h2>
+<h3>NSAIDs (ibuprofen, naproxen)</h3>
+<ul>
+<li>They are the usual first step, but the <strong>Cochrane evidence is very thin</strong>: one usable trial of 24 women showed no significant benefit of naproxen over placebo (OR 3.27, 95% CI 0.61 to 17.69, very low quality). The review is closed for updates. [verified] Cochrane 2017, <a href="https://pubmed.ncbi.nlm.nih.gov/28114727/">PMID 28114727</a>, doi:10.1002/14651858.CD004753.pub4</li>
+<li>Honest framing: NSAIDs are reasonable and cheap. The absence of endometriosis-specific proof reflects lack of study more than proven failure. [inferred]</li>
+</ul>
+<h3>Combined pill and progestins (dienogest)</h3>
+<ul>
+<li>Dienogest 2 mg daily vs placebo for 12 weeks (n = 198): pain fell 27.4 mm vs 15.1 mm on a 100 mm scale, a 12.3 mm difference (p &lt; 0.0001). [verified] Strowitzki 2010, <a href="https://pubmed.ncbi.nlm.nih.gov/20444534/">PMID 20444534</a></li>
+<li>Open-label extension to 53 weeks (n = 168): pain kept improving and 2.4% withdrew for side effects. In a small group (n = 34), the benefit persisted at least 24 weeks after stopping. [verified] Petraglia 2011, <a href="https://pubmed.ncbi.nlm.nih.gov/21681516/">PMID 21681516</a></li>
+<li>Dienogest vs elagolix 150 mg (India phase III, n = 230): non-inferior, with an essentially identical pain reduction (difference 0.04 points). Adverse events were 14.8% vs 19.1%, with no bone density change at 24 weeks. [verified] BJOG 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42116589/">PMID 42116589</a></li>
+<li>A subset of people are <strong>dienogest-resistant</strong>. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/33387360/">PMID 33387360</a> (2021)</li>
+<li>ESHRE: hormonal contraceptives or progestins are first-line (strong recommendation in adolescents). [reported] the-hospitalist.org summary</li>
+</ul>
+<h3>Oral GnRH antagonists (elagolix, relugolix combination, linzagolix)</h3>
+<ul>
+<li>Elaris EM-I and EM-II (NEJM 2017, n = 872 + 817). Period pain responders at 3 months: 46% (150 mg) and 76% (200 mg twice daily) vs 20% placebo in EM-I; 43% and 72% vs 23% in EM-II. Non-period pelvic pain responders: 50 to 58% vs 37%. Side effects: hot flushes, higher lipids, bone density loss. [verified] Taylor et al., <a href="https://pubmed.ncbi.nlm.nih.gov/28525302/">PMID 28525302</a>, doi:10.1056/NEJMoa1700089</li>
+<li>2026 meta-analysis of 5 phase 3 trials (n = 2,060; Elaris, SPIRIT 1 and 2, EDELWEISS-3): period pain RR 3.06, <strong>NNT 2</strong>; non-period pelvic pain RR 1.53, <strong>NNT 5</strong>. No robust differences between drugs. [verified] J Minim Invasive Gynecol 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42025872/">PMID 42025872</a>, doi:10.1016/j.jmig.2026.04.004</li>
+<li>Relugolix combination therapy (relugolix 40 mg + estradiol 1 mg + norethisterone acetate 0.5 mg) for 2 years: pain improvements held. Bone density fell by less than 1% at first, then stayed stable. 501 of 802 completed 104 weeks. [verified] SPIRIT LTE, Hum Reprod 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/38243752/">PMID 38243752</a>, doi:10.1093/humrep/dead263</li>
+<li><strong>Linzagolix (v2):</strong> EDELWEISS 3 (n = 486, 3 months): with add-back (200 mg + estradiol 1 mg + norethisterone acetate 0.5 mg), period pain responders were 72.9% vs 23.5% placebo and non-period pelvic pain 47.3% vs 30.9%. 75 mg alone helped period pain (44.0% vs 23.5%) but not non-period pain at 3 months (p = 0.279); both doses helped at 6 months. Bone loss under 1%. [verified] Hum Reprod 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/38648863/">PMID 38648863</a>, doi:10.1093/humrep/deae076. Extension EDELWEISS 6 (n = 353, to 12 months): period pain responders 55.9% (75 mg) and 91.0% (200 mg + add-back); non-period pain 59.5% and 67.6%. No placebo arm in the extension. [verified] Hum Reprod Open 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42077502/">PMID 42077502</a>, doi:10.1093/hropen/hoag030</li>
+<li>ESHRE: GnRH antagonists are second-line for pain, and long courses before IVF are not recommended. [reported]</li>
+</ul>
+<h3>Surgery: excision vs ablation, and recurrence</h3>
+<ul>
+<li><strong>Endometrioma:</strong> excision (cystectomy) beats drain-and-burn. Period pain returned in 10 to 34% after excision vs 49% after ablation (OR 0.25). Painful sex returned in 4 to 23% vs 58% (OR 0.09). Cyst recurrence was also lower with excision. Evidence certainty is low. [verified] Cochrane 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/39588841/">PMID 39588841</a>, doi:10.1002/14651858.CD004992.pub4</li>
+<li><strong>Superficial (minimal to mild) disease:</strong> 4 RCTs (n = 346) found <strong>no difference</strong> in pain reduction between excision and ablation at 12 months or beyond. [verified] JMIG 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/33310168/">PMID 33310168</a>. Online communities strongly favour excision. The RCT data for superficial disease do not back that up yet. [inferred]</li>
+<li>Laparoscopic surgery vs diagnostic laparoscopy only: 14 RCTs, n = 1,563. The pain benefit is uncertain due to low-quality evidence. [verified] Cochrane 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/33095458/">PMID 33095458</a>. The ESPriT2 RCT is testing whether removing isolated superficial disease helps pelvic pain at all. [verified] protocol <a href="https://pubmed.ncbi.nlm.nih.gov/37349849/">PMID 37349849</a></li>
+<li><strong>Reoperation:</strong> 57 studies, 22,644 patients, pooled reoperation rate <strong>10.8%</strong>. It was 4.4% with postoperative hormonal suppression vs 11.2% without. [verified] JMIG 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42498214/">PMID 42498214</a></li>
+<li>Ontario cohort (n = 84,885, median 10-year follow-up): diagnostic-only laparoscopy carried a higher risk of repeat surgery in year 1 (HR 1.68). Major conservative surgery carried a lower risk (HR 0.44). [verified] AJOG 2021, <a href="https://pubmed.ncbi.nlm.nih.gov/33894154/">PMID 33894154</a></li>
+<li>Repeat surgery hurts fertility. Spontaneous pregnancy odds were 2.1 times higher after one surgery than after two or more. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41702301/">PMID 41702301</a> (2026)</li>
+</ul>
+<h3>Hysterectomy</h3>
+<ul>
+<li>It is not an automatic cure. In a cohort of 990: reoperation was 19.2% after hysterectomy keeping the ovaries, 13.2% removing one, and 4.9% removing both. <strong>Pain-related doctor visits and opioid use did not differ</strong>, even when both ovaries were removed. Only 67% of those put into early surgical menopause filled HRT. [verified] J Obstet Gynaecol Can 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42962755/">PMID 42962755</a></li>
+<li>Older review: recurrence up to 62% in advanced disease when the ovaries were kept. Incomplete excision is the main driver of recurrence. [verified] Facts Views Vis Obgyn 2014, <a href="https://pubmed.ncbi.nlm.nih.gov/25593697/">PMID 25593697</a></li>
+<li>After surgical menopause, use <strong>combined</strong> estrogen-progestogen HRT, not estrogen alone, at least until natural menopause age. [verified] EMAS 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40907339/">PMID 40907339</a>; [reported] ESHRE</li>
+</ul>
+<h3>Pelvic floor physio, exercise, pain care</h3>
+<ul>
+<li>RCT (n = 81): supervised exercise plus pelvic floor training on top of a pain-management course <strong>did not improve worst pain</strong>. It improved current pain by 1.1 points at 4 months and 1.5 points at 12 months. [verified] J Physiother 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/41006088/">PMID 41006088</a></li>
+<li>Same trial: sexual function score up 3.52 at 4 months, but not at 12 months. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42483830/">PMID 42483830</a> (2026)</li>
+<li>Trials under way: pelvic floor physio vs placebo (Porto Alegre, <a href="https://clinicaltrials.gov/study/NCT07733583">NCT07733583</a>), pain neuroscience education (<a href="https://clinicaltrials.gov/study/NCT06795243">NCT06795243</a>), rTMS (<a href="https://clinicaltrials.gov/study/NCT06333353">NCT06333353</a>), esketamine (<a href="https://clinicaltrials.gov/study/NCT06161805">NCT06161805</a>), desloratadine (<a href="https://clinicaltrials.gov/study/NCT07821320">NCT07821320</a>). [verified] ClinicalTrials.gov</li>
+</ul>
+<h3>Diet and supplements</h3>
+<ul>
+<li>Systematic review (24 RCTs, n = 2,019). Benefit was reported with nanomicellar curcumin, selenium added to dienogest, Proscur and garlic. Vitamin and melatonin results were mixed. <strong>Omega-3, conventional curcumin and resveratrol showed no clear benefit.</strong> Fertility markers improved in some trials, but <strong>pregnancy rates did not</strong>. [verified] Reprod Fertil 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42900597/">PMID 42900597</a></li>
+<li>Critical review (34 studies): no supplement meets evidence-based medicine standards for a recommendation. Single RCTs of vitamin C, magnesium, resveratrol, NAC and PEA did not confirm benefit. All four RCTs of vitamins C+E combined were positive. [verified] Nutrients 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42075089/">PMID 42075089</a></li>
+<li><strong>v2:</strong> a 2025 meta-analysis of 9 placebo-controlled supplement RCTs (n = 545) found <strong>no benefit</strong> for pelvic pain, period pain or painful sex, including when restricted to trustworthy trials. The authors say supplements should not be recommended for pain at this time. [verified] Gynecol Obstet Invest 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40288359/">PMID 40288359</a>, doi:10.1159/000545414</li>
+<li>Nanocurcumin 80 mg/day added to dienogest (RCT, n = 86, 8 weeks): period pain, painful sex and pelvic pain improved more than dienogest + placebo (about 1.5 points on period pain). Single Iranian RCT. [verified] Phytomedicine 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40220411/">PMID 40220411</a></li>
+<li>Vitamin D 4,000 IU every other day added to dienogest (RCT n = 66, 8 weeks): no significant pain or QoL benefit. [verified] Sci Rep 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42463771/">PMID 42463771</a>. A vitamins review reports benefit with high dose (50,000 IU). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41683896/">PMID 41683896</a></li>
+<li>A probiotic that metabolises estrogen (pilot RCT n = 37, with dienogest): estradiol fell about 50% and QoL improved. A pilot only. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41891123/">PMID 41891123</a> (2026)</li>
+<li>Mediterranean or low-inflammatory diets are associated with less pain. Red and processed meat is associated with higher risk. All evidence is observational. [verified as review claims] <a href="https://pubmed.ncbi.nlm.nih.gov/41515258/">PMID 41515258</a> (2026). RCTs are running: whole-food plant-based diet (UCSD, <a href="https://clinicaltrials.gov/study/NCT07090096">NCT07090096</a>), Mediterranean (<a href="https://clinicaltrials.gov/study/NCT07270393">NCT07270393</a>), anti-inflammatory diet with IVF (DANTE, n = 438, <a href="https://clinicaltrials.gov/study/NCT06885125">NCT06885125</a>). [verified]</li>
+</ul>
+<h3>Fertility and IVF</h3>
+<ul>
+<li>In IVF, women with an endometrioma had <strong>similar live birth rates</strong> to women without (OR 0.98) but fewer eggs and more cancelled cycles (OR 2.83). Removing the cyst before IVF did <strong>not</strong> improve live birth (OR 0.90). [verified] Hum Reprod Update 2015, <a href="https://pubmed.ncbi.nlm.nih.gov/26168799/">PMID 26168799</a>, doi:10.1093/humupd/dmv035</li>
+<li>Long-term GnRH agonist before IVF has a Cochrane review (2019, <a href="https://pubmed.ncbi.nlm.nih.gov/31747470/">PMID 31747470</a>, doi:10.1002/14651858.CD013240.pub2). <strong>v2:</strong> 8 RCTs, 640 women, very low to low quality. The authors are uncertain whether it changes live birth (the only RCT reporting it, n = 147, gave RR 0.48) or complications; earlier advice in its favour is no longer supported. [verified]</li>
+<li><strong>Fertility after deep endometriosis surgery (v2):</strong> a single-centre retrospective cohort (Romania, n = 507, mostly stage III to IV) reported 61.1% pregnant during follow-up, 70% of them spontaneously; higher Endometriosis Fertility Index scores predicted success (5.5 vs 4.9). Retrospective, single expert centre, no comparison group. [verified] J Clin Med 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42513298/">PMID 42513298</a></li>
+<li>A Swedish RCT comparing surgery first vs IVF first in advanced disease is recruiting (n = 350, <a href="https://clinicaltrials.gov/study/NCT07240363">NCT07240363</a>). [verified]</li>
+</ul>
+<hr />
+<h2 id="3-peptides-and-emerging-compounds-evidence-grades">3. Peptides and emerging compounds: evidence grades</h2>
+<p>Grade key: <strong>A</strong> = multiple RCTs in endometriosis. <strong>B</strong> = at least 1 RCT, or a strong cohort. <strong>C</strong> = small open-label human data. <strong>D</strong> = animal or cell work in endometriosis only. <strong>E</strong> = no endometriosis data at all (mechanism only). <strong>E!</strong> = no endometriosis data AND a mechanism that could plausibly worsen it.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Human endo data</th>
+<th>Animal/cell endo data</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">BPC-157</td>
+<td data-l="Human endo data">None</td>
+<td data-l="Animal/cell endo data">None</td>
+<td data-l="Grade"><strong>E!</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">TB-500 / thymosin β4</td>
+<td data-l="Human endo data">None</td>
+<td data-l="Animal/cell endo data">Tβ4 raised in diseased tissue</td>
+<td data-l="Grade"><strong>E!</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">KPV</td>
+<td data-l="Human endo data">None</td>
+<td data-l="Animal/cell endo data">None</td>
+<td data-l="Grade"><strong>E</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu</td>
+<td data-l="Human endo data">None</td>
+<td data-l="Animal/cell endo data">None</td>
+<td data-l="Grade"><strong>E!</strong> (weak)</td>
+</tr>
+<tr>
+<td data-l="Compound">Thymosin alpha-1</td>
+<td data-l="Human endo data">Industry open-label trial, patent only (v2)</td>
+<td data-l="Animal/cell endo data">None</td>
+<td data-l="Grade"><strong>C-</strong> pending publication (v2; was E)</td>
+</tr>
+<tr>
+<td data-l="Compound">LL-37</td>
+<td data-l="Human endo data">None</td>
+<td data-l="Animal/cell endo data">None (one bovine endometritis study)</td>
+<td data-l="Grade"><strong>E</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Kisspeptin</td>
+<td data-l="Human endo data">None (therapeutic)</td>
+<td data-l="Animal/cell endo data">Cell + animal, anti-invasion</td>
+<td data-l="Grade"><strong>D</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">GLP-1 agonists</td>
+<td data-l="Human endo data">Preprint survey only</td>
+<td data-l="Animal/cell endo data">Hypothesis papers</td>
+<td data-l="Grade"><strong>C-</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Oxytocin antagonists</td>
+<td data-l="Human endo data">None (endo)</td>
+<td data-l="Animal/cell endo data">Rat studies, lesion shrinkage</td>
+<td data-l="Grade"><strong>D</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Cabergoline (anti-angiogenic)</td>
+<td data-l="Human endo data">Pilot RCT n = 9; small RCT</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>C</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Quinagolide (v2)</td>
+<td data-l="Human endo data">Phase 2 RCT n = 67, null</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>D, human null</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Melatonin</td>
+<td data-l="Human endo data">4 RCTs, mixed (v2 adds 1 positive)</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>B-</strong> (mixed)</td>
+</tr>
+<tr>
+<td data-l="Compound">NAC</td>
+<td data-l="Human endo data">Cohorts + 1 negative RCT</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>C</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Resveratrol</td>
+<td data-l="Human endo data">RCTs negative</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>D for benefit</strong> (human negative)</td>
+</tr>
+<tr>
+<td data-l="Compound">Dichloroacetate</td>
+<td data-l="Human endo data">Feasibility n = 30; RCT due to start late 2026 (v2)</td>
+<td data-l="Animal/cell endo data">Yes, mouse</td>
+<td data-l="Grade"><strong>C</strong></td>
+</tr>
+<tr>
+<td data-l="Compound">Cannabinoids</td>
+<td data-l="Human endo data">Open-label cohort + registry; CBD RCT null (v2)</td>
+<td data-l="Animal/cell endo data">Yes</td>
+<td data-l="Grade"><strong>C</strong> (THC:CBD); CBD alone: 1 null RCT</td>
+</tr>
+<tr>
+<td data-l="Compound">Low-dose naltrexone</td>
+<td data-l="Human endo data">RCT terminated at n = 9, results posted but unread (v2)</td>
+<td data-l="Animal/cell endo data">None found</td>
+<td data-l="Grade"><strong>E</strong> (clinical anecdote only)</td>
+</tr>
+<tr>
+<td data-l="Compound">Linustedastat (OG-6219, v2)</td>
+<td data-l="Human endo data">Phase 2 RCT n = 353, null</td>
+<td data-l="Animal/cell endo data">n/a</td>
+<td data-l="Grade"><strong>Failed</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>BPC-157</h3>
+<ul>
+<li><strong>No endometriosis study exists in PubMed.</strong> The only hit for BPC-157 plus uterus/ovary/endometriosis was a 1993 overview paper. [verified absence] Searches 3 Nov 2026</li>
+<li>Human data across all uses is 3 studies, 30 people, all poor quality: knee injections (n = 16), bladder instillation for interstitial cystitis (n = 12), and an IV safety pilot (n = 2). The certainty of evidence is very low, and the authors say it should not be used outside trials. [verified] Acta Orthop Belg 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/">PMID 42885452</a>, doi:10.52628/92.3.15837</li>
+<li><strong>Angiogenesis concern:</strong> BPC-157 increased vessel density in chick embryo and endothelial tube assays. It activated the VEGFR2-Akt-eNOS pathway and <strong>upregulated VEGFR2</strong> (rat hind limb, human endothelial cells). [verified] J Mol Med 2016, <a href="https://pubmed.ncbi.nlm.nih.gov/27847966/">PMID 27847966</a>. It upregulated VEGF-a in burned rat skin and promoted endothelial proliferation and migration. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/25995620/">PMID 25995620</a> (2015). In rat muscle and tendon healing it raised VEGF expression. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/20388964/">PMID 20388964</a> (2009)</li>
+<li>Endometriosis lesions need VEGF-driven angiogenesis to establish and persist, and anti-VEGF drugs shrink lesions in animals. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41668890/">PMID 41668890</a>. So a compound that boosts VEGFR2 signalling has a <strong>plausible path to feed lesions</strong>. Whether it does in practice is untested. [inferred]</li>
+<li>Possible upside, also untested: anti-inflammatory and gut-protective effects might help endometriosis-related bowel symptoms. The bladder pilot (interstitial cystitis, which overlaps with endometriosis) is the closest human analogue. [speculated]</li>
+<li><strong>Honest grade: E!</strong> No human data, no animal data, and a mechanism that cuts both ways.</li>
+</ul>
+<h3>TB-500 / thymosin beta-4</h3>
+<ul>
+<li>No therapeutic study in endometriosis. [verified absence]</li>
+<li>Thymosin β4 gene expression was <strong>up-regulated</strong> in experimentally induced adenomyosis in mice, strongest at the invading edge of endometrial tissue. The authors suggest it may help break down the muscle wall. [verified] In Vivo 2003, <a href="https://pubmed.ncbi.nlm.nih.gov/14758721/">PMID 14758721</a></li>
+<li>In human endometriosis tissue and cells, a circRNA pathway that <strong>raises TMSB4X</strong> (the Tβ4 gene) accelerated lesion proliferation, migration and invasion. Silencing it reduced them. [verified] Bioengineered 2021, <a href="https://pubmed.ncbi.nlm.nih.gov/34546850/">PMID 34546850</a>, doi:10.1080/21655979.2021.1978618</li>
+<li>Tβ4 is broadly known to promote angiogenesis, cell migration and tumour metastasis. [verified] review <a href="https://pubmed.ncbi.nlm.nih.gov/36464872/">PMID 36464872</a> (2023)</li>
+<li>[inferred] Of all the peptides, this has the most direct red flag: the body's own Tβ4 is associated with <strong>worse</strong> invasive behaviour in endometriosis and adenomyosis tissue. Note that TB-500 is a fragment, not full Tβ4, and has not been tested. <strong>Grade E!</strong></li>
+</ul>
+<h3>KPV</h3>
+<ul>
+<li>No endometriosis or uterine study found. [verified absence] It is an α-MSH fragment. A melanocortin search returned only unrelated hits. Its anti-inflammatory action (NF-κB) is mechanistically relevant, but it is untested here. <strong>Grade E.</strong> [speculated relevance]</li>
+</ul>
+<h3>GHK-Cu</h3>
+<ul>
+<li>No endometriosis or endometrium study. [verified absence]</li>
+<li>GHK-copper complexes promote VEGF, BDNF and BMP-2 release in vitro. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40123442/">PMID 40123442</a> (2025). [inferred] Same angiogenic direction as BPC-157, but weaker evidence and typically used on skin. Systemic injected use carries a theoretical concern. <strong>Grade E! (weak).</strong></li>
+</ul>
+<h3>Thymosin alpha-1</h3>
+<ul>
+<li>PubMed returned <strong>0 results</strong> for endometriosis. [verified absence] The immune dysfunction theory gives a rationale (altered T-cell and NK function). [speculated] Immune boosting could cut either way: NK cells may clear lesions, but more regulatory T cells already favour lesions (<a href="https://pubmed.ncbi.nlm.nih.gov/25275597/">PMID 25275597</a>). <strong>Grade E.</strong></li>
+<li><strong>v2:</strong> an Indian industry phase 3 trial exists, with results only in a patent filing. See section 3b. PubMed still returns 0 (re-checked 3 Nov 2026). Grade moved to <strong>C- pending publication</strong>, with heavy bias flags.</li>
+</ul>
+<h3>LL-37</h3>
+<ul>
+<li>PubMed returned 0 results for cathelicidin plus endometriosis. [verified absence] The only near hit was an engineered antimicrobial peptide containing an LL-37 sequence tested in <strong>endometritis</strong> (uterine infection) in cows and mice. Endometritis is a different disease; the abstract confused the two terms. [verified] Vet Res 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40713896/">PMID 40713896</a>. <strong>Grade E.</strong></li>
+</ul>
+<h3>Kisspeptin</h3>
+<ul>
+<li>In endometriosis tissue, kisspeptin (KISS1) and its receptor are <strong>reduced</strong>, while MMP-2 and MMP-9 (tissue-invasion enzymes) rise in stages II to IV. [verified] Biomedicines 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/38255200/">PMID 38255200</a> (n = 40)</li>
+<li>In cell and animal experiments, kisspeptin <strong>inhibited</strong> invasion and angiogenesis of ectopic endometrial cells by suppressing PI3K/AKT. [verified] Int J Med Sci 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/41399389/">PMID 41399389</a></li>
+<li>Ultrastructural study: KISS1 was reduced and PI3K/AKT raised in both normal-site and ectopic endometrium (n = 27). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41567980/">PMID 41567980</a> (2026)</li>
+<li>Caveat: kisspeptin is also the master driver of GnRH, LH and FSH. Systemic dosing <strong>raises sex hormones</strong>, which could feed an estrogen-dependent disease. Reviews say kisspeptin-based therapies are "under investigation", but no human endometriosis trial was found. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/39768606/">PMID 39768606</a> (2024); [inferred] for the hormonal risk. <strong>Grade D.</strong></li>
+</ul>
+<h3>GLP-1 agonists (semaglutide, tirzepatide)</h3>
+<ul>
+<li>PubMed (3 hits): one is a <strong>hypothesis paper</strong> proposing tirzepatide for refractory endometriosis. It openly says its key premise ("peritoneal incretin deficiency") rests on <strong>a single non-replicated case-control study</strong>. [verified] Int J Mol Sci 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42449952/">PMID 42449952</a>. The other two are PCOS and general reviews.</li>
+<li>Leonardi et al. 2026 international survey (McMaster University, <strong>preprint</strong>, Authorea): 64.6% reported improvement in at least one endometriosis symptom and 33.7% reported complete resolution of at least one. Mean weight loss was about 12 kg. 60.3% of those who stopped said symptoms returned. Drugs: 75% semaglutide, 20% tirzepatide. [reported] via internationalendo.com; <strong>preprint could not be opened (site error)</strong>, and n was not given in the secondary source</li>
+<li>No GLP-1 endometriosis trial was found in the registry. [verified] ClinicalTrials.gov search</li>
+<li>[inferred] A self-selected survey with no control group, confounded by weight loss and other treatments. It is hypothesis-generating only. <strong>Grade C-.</strong></li>
+<li><strong>v2:</strong> a second, separate survey (GLEAM, n = 227) and a forum tally are now in section 3b.</li>
+</ul>
+<h3>Oxytocin antagonists</h3>
+<ul>
+<li>Women with endometriosis had higher blood oxytocin (51.5 vs 27.6 pg/mL), which correlated with pain (VAS r = 0.76). In rats, an oxytocin receptor inhibitor shrank lesions from 22.2 to 7.3 mm². [verified] Gynecol Endocrinol 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/33305665/">PMID 33305665</a></li>
+<li>Atosiban shrank lesions in a rat model (n = 8 per group). [verified] Arch Gynecol Obstet 2012, <a href="https://pubmed.ncbi.nlm.nih.gov/22648446/">PMID 22648446</a></li>
+<li>Oxytocin triggered invasion of endometriotic cells in vitro. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40381972/">PMID 40381972</a> (2025)</li>
+<li>No human therapeutic trial. <strong>Grade D.</strong> Strongest rationale is in adenomyosis (<a href="https://pubmed.ncbi.nlm.nih.gov/41836349/">PMID 41836349</a>).</li>
+</ul>
+<h3>Anti-angiogenics (cabergoline and similar)</h3>
+<ul>
+<li>Cabergoline 0.5 mg twice weekly vs norethindrone 5 mg daily (pilot RCT, <strong>n = 9</strong>, 6 months): pain improvement was similar or better, sVEGFR1 declined, and there were no serious adverse events. [verified] F&amp;S Rep 2021, <a href="https://pubmed.ncbi.nlm.nih.gov/34934987/">PMID 34934987</a></li>
+<li>A 2026 review reports quinagolide regressed 61.3% of lesions with ovulation preserved in 93%. [verified as review claim] <a href="https://pubmed.ncbi.nlm.nih.gov/42903633/">PMID 42903633</a>. Note: another review says quinagolide was <strong>not</strong> different from placebo in a clinical trial. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/37416064/">PMID 37416064</a>. <strong>Conflict flagged.</strong></li>
+<li><strong>v2 resolved:</strong> the trial is QLARITY, a randomised, double-blind phase 2 of a quinagolide vaginal ring vs placebo (n = 67, 4 cycles, mostly advanced disease). <strong>No difference in lesion size (primary endpoint), pain, bleeding or side effects.</strong> The 61.3% figure is a post hoc count of lesions within the quinagolide arm, not a comparison with placebo, so it should not be quoted as a result. [verified] Eur J Obstet Gynecol Reprod Biol 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40188683/">PMID 40188683</a>, doi:10.1016/j.ejogrb.2025.113946, <a href="https://clinicaltrials.gov/study/NCT03749109">NCT03749109</a>. Quinagolide grade: <strong>D, human null.</strong></li>
+<li>Network meta-analysis of VEGF-directed drugs (31 studies, 58% rodent): curcumin and cetrorelix ranked best, but the authors call it hypothesis-generating. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41668890/">PMID 41668890</a> (2026)</li>
+<li>Bevacizumab (an anti-VEGF cancer drug) has animal data only in endometriosis and is too toxic to consider. [inferred]</li>
+<li>Grade: cabergoline <strong>C</strong>, others <strong>D</strong>.</li>
+</ul>
+<h3>Melatonin</h3>
+<ul>
+<li>10 mg for 8 weeks (Brazil RCT, n = 40): daily pain down 39.8% and period pain down 38% vs placebo, with 80% less analgesic use and better sleep. [verified] Pain 2013, <a href="https://pubmed.ncbi.nlm.nih.gov/23602498/">PMID 23602498</a></li>
+<li>20 mg at bedtime for 2 cycles (Sweden RCT, n = 40, 34 completed): <strong>no difference</strong> (pain 2.9 vs 3.3, p = 0.45). [verified] PLoS One 2023, <a href="https://pubmed.ncbi.nlm.nih.gov/37267394/">PMID 37267394</a>, <a href="https://clinicaltrials.gov/study/NCT03782740">NCT03782740</a></li>
+<li>Added to dienogest for 6 months (RCT, n = 94): period pain improved 1.2 to 1.3 points more. Other pain, QoL and composite scores did not differ. <strong>Vertigo 53.8% vs 7.7%.</strong> [verified] Obstet Gynecol Sci 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/41914017/">PMID 41914017</a></li>
+<li><strong>v2:</strong> melatonin 5 mg for 2 months in infertile women with endometriosis and poor sleep (Iran, triple-blind RCT, n = 80): sleep improved (PSQI -1.7, below the 3-point clinical threshold) and chronic pelvic pain fell vs placebo (large effect size; raw scores not in the abstract). [verified] PLoS One 2025, <a href="https://pubmed.ncbi.nlm.nih.gov/40238733/">PMID 40238733</a></li>
+<li><strong>Grade B-, mixed.</strong> Now two positive, one null, one partially positive.</li>
+</ul>
+<h3>NAC (N-acetylcysteine)</h3>
+<ul>
+<li>Observational cohort (n = 92, 145 cysts): cyst diameter -1.5 mm on NAC vs +6.6 mm untreated. 24 vs 1 cancelled planned surgery. Not randomised; patients chose. [verified] Porpora 2013, <a href="https://pubmed.ncbi.nlm.nih.gov/23737821/">PMID 23737821</a></li>
+<li>Single-arm cohort (n = 120): 600 mg × 3 tablets/day, 3 days/week, for 3 months. Pain, cyst size and CA125 improved. 39 of 52 trying to conceive became pregnant in 6 months. No control group. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/36981595/">PMID 36981595</a> (2023)</li>
+<li>2026 systematic review (22 studies, 6 clinical): non-surgical settings suggest benefit. <strong>The only randomised postoperative comparison found no added benefit</strong> over the continuous pill. [verified] Antioxidants 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42510611/">PMID 42510611</a></li>
+<li>RCT in ICSI patients (n = 60): lowered lead, nickel and cholesterol, but also lowered HDL. No pain outcome. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42781143/">PMID 42781143</a> (2026)</li>
+<li><strong>Grade C.</strong> The positive data are uncontrolled. The controlled data are null.</li>
+</ul>
+<h3>Resveratrol</h3>
+<ul>
+<li>Strong animal data, but in human RCTs, single studies did not confirm benefit and a systematic review lists it under "no clear benefit". [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42075089/">PMID 42075089</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/42900597/">PMID 42900597</a>. <strong>Grade: animal D, human negative.</strong></li>
+</ul>
+<h3>Dichloroacetate (DCA)</h3>
+<ul>
+<li>Mechanism: corrects the high-lactate metabolism of pelvic lining cells. Oral DCA reduced lactate and lesion size in mice. [verified] PNAS 2019, <a href="https://pubmed.ncbi.nlm.nih.gov/31792175/">PMID 31792175</a></li>
+<li><strong>EPiC1</strong> (single-arm feasibility, <a href="https://clinicaltrials.gov/study/NCT04046081">NCT04046081</a>, Edinburgh, n = 30, 12 weeks, dose about 6.25 mg/kg twice daily rising to 12.5 mg/kg if needed per protocol). 66% met retention metrics and 60% completed. <strong>6 developed transient peripheral neuropathy and 2 stopped</strong>; both carried a slow-metabolising GSTZ1 gene variant. Many participants reported less pain and less painkiller use, but <strong>no pain effect sizes were found in accessible sources</strong>. Published in Lancet Obstet Gynaecol Womens Health, Nov 2025, vol 1(3) e189-e197. [verified for protocol] <a href="https://pubmed.ncbi.nlm.nih.gov/33712086/">PMID 33712086</a>; [reported for results] RELX SDG summary and Edinburgh news page 6 Nov 2025; <strong>full paper not accessed, DOI not found</strong></li>
+<li><strong>v2, EPiC1 primary record found:</strong> Lancet Obstet Gynaecol Womens Health 2025;1(3):e189-e197, published 5 Nov 2025, doi:10.1016/j.lanogw.2025.100028. Women had surgically confirmed <strong>stage I to II</strong> disease only. 30 of 54 eligible were recruited (56%). 19 of 29 (66%) met all retention metrics; the abstract says the retention criterion was met, though the stated threshold reads as 80%, so this looks internally inconsistent. 18 (60%) finished 12 weeks. Pain numbers are <strong>not in the abstract</strong>. Funding is secured for a double-blind RCT. [verified, abstract via <a href="https://research.birmingham.ac.uk/en/publications/dichloroacetate-for-the-treatment-of-endometriosis-associated-pai/">University of Birmingham repository</a>] Registry: <a href="https://clinicaltrials.gov/study/NCT04046081">NCT04046081</a> completed, n = 30. [verified]</li>
+<li><strong>EPiC2:</strong> randomised placebo-controlled trial, about 100 women, Edinburgh + London, 12 weeks, dose set by GSTZ1 genotype. Announced March 2023. No results found. [reported] University of Aberdeen news. A Nov 2025 Edinburgh page still described the RCT as "planned". <strong>Status conflict flagged.</strong></li>
+<li><strong>v2 resolved:</strong> the Edinburgh EPiC2 page says it is <strong>due to start recruiting in late 2026</strong>, target 100, NHS Lothian and West Middlesex. The 2023 news was a funding announcement. No registry number on the page. [verified] <a href="https://reproductive-health.ed.ac.uk/endometriosis/our-research/epic2-clinical-trial">Edinburgh EPiC2 page</a></li>
+<li><strong>Grade C.</strong> The "2025 trial" in the brief is EPiC1, a feasibility study, not an efficacy trial.</li>
+</ul>
+<h3>Cannabinoids</h3>
+<ul>
+<li>Prospective open-label pilot (n = 30, 27 completed, oral balanced THC:CBD, 3 months): pain intensity fell (p = 0.0004), NSAID and opioid use fell, and anxiety, central sensitisation and QoL improved. Side effects were mild and mostly during dose titration. No placebo group. [verified] PLoS One 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42771648/">PMID 42771648</a></li>
+<li>UK Medical Cannabis Registry (n = 101, 24 months): pain, QoL, sleep and anxiety improved at all time points. Opioid dose fell from 19.9 to 14.8 mg/day morphine equivalent. 17.8% had adverse events (fatigue 16%, lethargy 15%, headache 13%). [verified] Aust NZ J Obstet Gynaecol 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42576801/">PMID 42576801</a></li>
+<li>Patients with endometriosis use cannabis for pain more than controls (controls aOR 0.32). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42926793/">PMID 42926793</a></li>
+<li><strong>v2, first placebo RCT (negative):</strong> DREAMLAND (Brazil, triple-blind, n = 102) gave CBD-enriched oil rising from 10 to 150 mg/day for 10 weeks to women with pain returning after surgery while on hormones. About 40% in <strong>both</strong> arms had a 50% pain drop. End pain 41.6 mm (CBD) vs 36.8 mm (placebo), not significant. Stopped at interim analysis for no benefit and more mild side effects (mainly gut and weight changes) on CBD. [verified] Cannabis Cannabinoid Res 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42261989/">PMID 42261989</a>, doi:10.1177/25785125251413989. Note this tested CBD, not the THC:CBD products in the open-label studies.</li>
+<li><strong>Grade C (revised in v2).</strong> Consistent open-label signal for THC-containing products; the one RCT, of CBD alone, was null with a large placebo response. Registry data carry selection and expectation bias.</li>
+</ul>
+<h3>Low-dose naltrexone (LDN)</h3>
+<ul>
+<li>The only RCT (Penn State Hershey, <a href="https://clinicaltrials.gov/study/NCT03970330">NCT03970330</a>, phase 3, LDN + norethindrone vs placebo) was <strong>terminated at n = 9 with no results posted</strong>. [verified] ClinicalTrials.gov search result. The reason for termination could not be read (the registry page did not render).</li>
+<li><strong>v2 correction:</strong> the registry record now shows <strong>results posted</strong> (results first posted 3 Nov 2022, per a registry mirror). Ran Jan 2020 to Jun 2021; primary outcome was 12-week pain area under the curve. The per-arm values and the stop reason could not be read (registry results tab did not render; the API is blocked here). With 9 people split across two arms, any result would be uninformative. [verified record fields; results values not accessed] NIH career grant K23 HD097303 funded it. [reported]</li>
+<li>PubMed returned <strong>0 results</strong> for low dose naltrexone plus endometriosis. [verified absence] A 2020 Russian-language review on LDN in autoimmune disease and endometriosis exists but was not read. [reported] DOAJ listing</li>
+<li>A clinician (Dr Vidali) states that most chronic pelvic pain patients stabilise or improve, citing case experience. A fibromyalgia crossover trial showed 57% significant pain reduction. [reported] via redlib mirror of r/endometriosis_corner; interviewee claims not checked</li>
+<li><strong>Grade E</strong> for endometriosis-specific evidence.</li>
+</ul>
+<hr />
+<h2 id="3b-folded-in-from-endo-pcos-peptides-v1-gleam-thymosin-alpha">3b. Folded in from Endo PCOS Peptides v1 (GLEAM, thymosin alpha-1, LDN)</h2>
+<p>Source file: Endo PCOS Peptides v1 (3 Nov 2026). Items marked "re-checked v2" were re-opened this pass; the rest keep that file's tags.</p>
+<h3>GLP-1 drugs: two separate surveys, plus forum stories</h3>
+<ul>
+<li><strong>GLEAM</strong> (Baudoin and van Bakel, Research Square preprint v1, posted 14 Jul 2026; not peer reviewed) [verified, re-checked v2] <a href="https://www.researchsquare.com/article/rs-10323555/v1">preprint page</a>:</li>
+<li>Anonymous international cross-sectional survey, 227 analysable people with endometriosis or adenomyosis who had used a GLP-1.</li>
+<li>63% (95% CI 57 to 69) met the primary endpoint (global rating at least slightly better plus at least one symptom area better). 84% (78 to 88) reported improvement in at least one area.</li>
+<li>Weight loss did <strong>not</strong> predict improvement (adjusted OR 1.02 per % lost, CI 0.98 to 1.05; trend p = 0.219). Higher starting BMI meant <strong>less</strong> improvement (OR 0.94 per BMI unit, CI 0.90 to 0.98).</li>
+<li>Normal BMI with under 5% weight loss: 12 of 14 improved (86%), descriptive only.</li>
+<li><strong>Not reported on the page:</strong> drug split, per-symptom rates, worsening rates, side effects.</li>
+<li>Authors' own limits: uncontrolled, self-selected, recalled weights, cannot compute participation rate, underpowered.</li>
+<li><strong>McMaster / Leonardi survey</strong> (v1 figures: 64.6% improved at least one symptom, 33.7% full resolution of one, 60.3% relapse after stopping): still [reported]; n still not found. A McMaster repository search returned an unrelated Leonardi ultrasound paper (n = 46), not this survey. <strong>Do not merge with GLEAM.</strong></li>
+<li><strong>Forum tally</strong> (Mumsnet, HealthUnlocked, news features; first-hand, de-duplicated): 9 users, <strong>7 better, 1 no change, 1 worse</strong> (prolonged bleeding after starting tirzepatide together with relugolix combination). 8 of 9 on tirzepatide. <strong>0 scan or surgery confirmations.</strong> [reported]</li>
+<li><strong>Mechanism study:</strong> peritoneal fluid GLP-1 was lower in endometriosis than in fibroid controls (n = 54 vs 30). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/36142272/">PMID 36142272</a>. This is the single study the tirzepatide hypothesis paper (<a href="https://pubmed.ncbi.nlm.nih.gov/42449952/">PMID 42449952</a>) rests on.</li>
+<li><strong>Registry re-checked v2:</strong> 0 GLP-1 endometriosis trials on ClinicalTrials.gov; PubMed 2026: 6 hits, none a clinical trial. [verified absence]</li>
+<li><strong>Practical risks seen:</strong> oral progestin or pill absorption worries with tirzepatide (the label advises backup contraception after starting and each dose step), and slowed gut emptying that can mimic or worsen endometriosis bloating. [reported/inferred, per source file]</li>
+<li>Grade stays <strong>C-</strong>.</li>
+</ul>
+<h3>Thymosin alpha-1: industry phase 3 trial, results only in a patent</h3>
+<ul>
+<li>Registry CTRI/2023/06/054279: open-label, randomised, thymosin alpha-1 + standard care vs standard care alone, ages 18 to 49, endometriosis up to stage III. [verified via mirror in source file]</li>
+<li><strong>Re-checked v2:</strong> the registry mirror still shows "active, not recruiting", <strong>0 enrolled</strong>, start date "TBD", last updated 27 May 2024, no results. This conflicts with the patent's n = 120. [verified] <a href="https://trial.medpath.com/clinical-trial/52f79e2f4f07aa40/ctri/2023/06/054279-thymosin-alpha-one-endometriosis-trial">MedPath registry mirror</a></li>
+<li><strong>Patent 202321069111</strong> (provisional filed 13 Oct 2023, complete 8 Oct 2024, publication no. 16/2025) [verified, re-checked v2] <a href="https://www.quickcompany.in/patents/202321069111-b1b1">patent text</a>:</li>
+<li>n = 120 total; <strong>per-arm numbers not given</strong>.</li>
+<li>Dose as reported: 1.6 mg under the skin, twice weekly, 90 days, then 3 months follow-up. (The text also mentions "two subcutaneous injections" per administration; wording is ambiguous.)</li>
+<li>Pain VAS: 6.35 → 1.88 (thymosin) vs 5.88 → 2.5 (standard care). The thymosin start value is labelled "screening", the other "baseline".</li>
+<li>Non-period pelvic pain: 1.3 → 0.67 (p = 0.023) vs 1.28 → 0.94 (p = 0.135). Period pain, painful sex and painful bowel movements improved in <strong>both</strong> arms; between-arm p-values not given.</li>
+<li><strong>No adverse event data</strong>, though safety was a listed endpoint.</li>
+<li>[inferred] Standard care alone also improved a lot (VAS about 3.4 points), so the extra effect, if real, is small (end VAS gap about 0.6 points on a 10-point scale), in an open-label trial with no between-arm test shown. The sponsor makes the drug.</li>
+<li>PubMed: 0 hits for thymosin alpha-1 + endometriosis (re-checked v2). [verified absence]</li>
+<li>Community: 0 first-hand endometriosis reports. [verified absence, per source file]</li>
+<li><strong>Grade C-</strong>, pending peer review. Do not quote the VAS numbers on the page without the caveats.</li>
+</ul>
+<h3>Low-dose naltrexone (not a peptide)</h3>
+<ul>
+<li><strong>Closest study:</strong> a retrospective Ontario pain-clinic cohort (n = 93): 53.8% responded overall, 66.7% in a pelvic pain subgroup of unstated size; endometriosis not named. About half had side effects; 25 stopped for side effects and 21 for no effect. [verified per source file] Aalto et al., J Pain Res 2025;18:6637</li>
+<li><strong>Anecdotes:</strong> 1 patient story on a pro-LDN charity site (also on ovulation drugs); 1 clinician-described case; a clinic blog calling it "life-changing" without data. [reported]</li>
+<li><strong>Safety point for the page:</strong> naltrexone blocks opioid painkillers. One forum poster woke from endometriosis surgery in hard-to-control pain while on naltrexone. Anyone on LDN should tell their surgical team. [reported case; inferred from pharmacology]</li>
+<li>The only RCT (<a href="https://clinicaltrials.gov/study/NCT03970330">NCT03970330</a>) stopped at n = 9; results are posted but were not readable here (see section 3). PubMed: still 1 hit for naltrexone + endometriosis, a weight-loss drug review, not a trial. [verified]</li>
+<li>Grade stays <strong>E</strong> for endometriosis-specific evidence.</li>
+</ul>
+<hr />
+<h2 id="4-usual-questions">4. Usual questions</h2>
+<p><strong>What are my infertility odds?</strong>
+- Endometriosis is linked to infertility, but in IVF, live birth rates with an endometrioma match those without (OR 0.98). Egg numbers are lower. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/26168799/">PMID 26168799</a>
+- Each extra surgery lowers natural pregnancy odds (2.1 times better after only one). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41702301/">PMID 41702301</a>
+- [flag] A clean population figure (e.g. "30 to 50% of people with endometriosis have fertility problems") is widely quoted but was not verified this pass.</p>
+<p><strong>Does pregnancy cure it?</strong>
+- No. The only symptom data come from a 1965 study of 14 women (3 better, 2 worse). Endometriomas: 15 to 50% disappeared, 34 to 65% shrank, more than 25% unchanged, and <strong>8.8 to 39% grew</strong>. Placenta praevia risk was about 9 times higher, especially with rectovaginal disease. Authors advise against presenting pregnancy as a treatment. [reported, from full text] Leeners et al., Hum Reprod Update 2018, 24(3):290-299 (PDF read via doc.rero.ch)</p>
+<p><strong>Does menopause end it?</strong>
+- Mostly it quiets down, but 2 to 5% stay affected after menopause. Estrogen-only HRT should be avoided, even after hysterectomy; combined HRT or tibolone is preferred. Aromatase inhibitors are the most promising postmenopausal drug, with limited research. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42647142/">PMID 42647142</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/40907339/">PMID 40907339</a>
+- Endometriosis is associated with higher cardiovascular, osteoporosis, ovarian, breast and thyroid cancer risk. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40907339/">PMID 40907339</a></p>
+<p><strong>Can it come back after surgery?</strong>
+- Yes. About 1 in 10 have another operation (10.8%), less with hormones after surgery (4.4% vs 11.2%). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42498214/">PMID 42498214</a>
+- Endometrioma pain recurrence is 10 to 34% after excision vs 49% after ablation. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/39588841/">PMID 39588841</a></p>
+<p><strong>Link to IBS and bladder pain?</strong>
+- IBS is about 3 times more likely (OR 3.26). [verified] Arch Gynecol Obstet 2020, <a href="https://pubmed.ncbi.nlm.nih.gov/32949284/">PMID 32949284</a>
+- Interstitial cystitis / bladder pain syndrome coexists in 15.5 to 78.3% of women with chronic pelvic pain. [verified] Healthcare 2024, <a href="https://pubmed.ncbi.nlm.nih.gov/39685025/">PMID 39685025</a></p>
+<p><strong>Can I be diagnosed without surgery? (v2)</strong>
+- Yes. ACOG (2026), NICE (2024) and ESHRE (2022) all allow a clinical and imaging diagnosis and starting treatment without laparoscopy. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/41712950/">PMID 41712950</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/35350465/">PMID 35350465</a>; NICE NG73 update page</p>
+<p><strong>My scan was normal. Does that rule it out? (v2)</strong>
+- No. Expert ultrasound and MRI pick up cysts and deep disease well, but superficial disease, the most common type, is largely invisible on scans. No blood or saliva test is ready. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/">PMID 42885805</a></p>
+<p><strong>Is it genetic? (v2)</strong>
+- It runs in families. Having an affected sister raised risk about 2.75-fold, and an affected twin about 7-fold, in 2.1 million Korean women. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/34028167/">PMID 34028167</a></p>
+<p><strong>Does surgery type matter: excision or ablation? (v2)</strong>
+- For endometriomas (ovarian cysts), cutting the cyst out lowers pain and cyst return vs drain-and-burn (low certainty). For superficial disease, 4 RCTs found no pain difference. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/39588841/">PMID 39588841</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/33310168/">PMID 33310168</a></p>
+<p><strong>Will a hysterectomy cure it? (v2)</strong>
+- Not reliably. Removing the ovaries too cut reoperation (4.9% vs 19.2%) but did not reduce pain-related visits or opioid use in a cohort of 990. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42962755/">PMID 42962755</a></p>
+<p><strong>Does CBD or cannabis help? (v2)</strong>
+- Open-label studies of THC:CBD products report less pain and opioid use. The first placebo-controlled trial of CBD oil alone (n = 102) found no benefit over placebo, which itself helped about 40%. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42771648/">PMID 42771648</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/42576801/">PMID 42576801</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/42261989/">PMID 42261989</a></p>
+<p><strong>Do GLP-1 drugs (Ozempic, Mounjaro) help endometriosis? (v2)</strong>
+- Unknown. Two unreviewed surveys and forum stories report improvement, often early and not tied to weight loss. There is no trial and no scan-confirmed lesion change. [verified/reported] section 3b</p>
+<p><strong>Does diet help?</strong>
+- Possibly modestly. There is no strong RCT evidence, and the large diet RCTs are still running (see section 2). [verified]
+- Supplements: a 2025 meta-analysis of 9 placebo RCTs found no pain benefit. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40288359/">PMID 40288359</a></p>
+<p><strong>Which hormone treatment?</strong>
+- Dienogest and elagolix performed equally in a head-to-head trial. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42116589/">PMID 42116589</a>
+- The guideline order is pill or progestin first, then GnRH antagonist second. [reported] ESHRE
+- Choice comes down to side effects, bleeding pattern and fertility plans. [inferred]</p>
+<p><strong>Bone loss on GnRH drugs and add-back?</strong>
+- Elagolix 200 mg twice daily without add-back reduced bone density (NEJM 2017). [verified]
+- With add-back (relugolix combination therapy), bone density fell less than 1% and then stabilised over 2 years. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/38243752/">PMID 38243752</a>
+- Untreated endometriosis does not appear to cause meaningful bone loss or fractures. The loss comes from treatment; long-term fracture data are lacking. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42688833/">PMID 42688833</a> (2026)</p>
+<p><strong>Does it cause cancer?</strong>
+- Risk of clear-cell and endometrioid ovarian cancer is raised, mainly with endometrioma or deep disease, but <strong>absolute risk is low</strong> and routine screening is not recommended. [verified] Cancers 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42882935/">PMID 42882935</a></p>
+<hr />
+<h2 id="5-community-signal-peptides-in-endometriosis">5. Community signal (peptides in endometriosis)</h2>
+<ul>
+<li><strong>Very weak.</strong> Searches across Reddit (via web search and mirrors), HealthUnlocked (Endometriosis UK) and general web found <strong>no first-person report of BPC-157, TB-500, KPV, GHK-Cu or thymosin alpha-1 used for endometriosis with a stated outcome</strong>, and <strong>no clinician-observed outcome</strong> (no surgeon or scan report of lesion change on peptides). [verified absence this pass]</li>
+<li>What does surface: vendor and telehealth "peptides for endometriosis" pages (SEO content, no data, excluded per rules), two r/IAmA BPC-157 threads with <strong>no</strong> endometriosis content, and a HealthUnlocked LDN thread with only questions and no outcomes. [verified]</li>
+<li>LDN: a clinician interview gives positive anecdotes (uncontrolled). [reported]</li>
+<li>GLP-1: the Leonardi preprint is the closest thing to structured community data (self-report survey). A Reddit-mined cohort (n = 29,172, 2019 to 2025) concerned GLP-1 side effects generally, not endometriosis outcomes: about two thirds reported GI effects and 37% nausea. [reported] internationalendo.com</li>
+<li><strong>Inaccessible:</strong> direct reddit.com search was blocked (not on the allowlist). r/Endo, r/endometriosis and r/Peptides threads were <strong>not read directly</strong>. This is the biggest gap for this section. Per the editor's usual method, a Reddit pass via ChatGPT and an X pass via Grok would fill it.</li>
+<li>[inferred] Expect positive-skewed reporting. Endometriosis pain fluctuates cyclically and responds to placebo (placebo responders were about 20 to 37% in Elaris). Any "felt better on BPC" report cannot separate the peptide from cycle timing, concurrent hormones or regression to the mean.</li>
+</ul>
+<hr />
+<h2 id="6-negative-mirror-failures-side-effects-risks">6. Negative mirror: failures, side effects, risks</h2>
+<h3>Failures and nulls</h3>
+<ul>
+<li>Melatonin 20 mg: null RCT. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/37267394/">PMID 37267394</a></li>
+<li>Melatonin 10 mg in plain dysmenorrhea: null clinically. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/34668986/">PMID 34668986</a></li>
+<li>Vitamin D with dienogest: null. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42463771/">PMID 42463771</a></li>
+<li>Omega-3, standard curcumin, resveratrol: no clear benefit. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42900597/">PMID 42900597</a></li>
+<li>NAC after surgery: no added benefit over the pill. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42510611/">PMID 42510611</a></li>
+<li>Quinagolide vs placebo: no difference in one trial. [verified as review claim] <a href="https://pubmed.ncbi.nlm.nih.gov/37416064/">PMID 37416064</a></li>
+<li>Vilaprisan phase 3 suspended for toxicity. [verified as review claim] <a href="https://pubmed.ncbi.nlm.nih.gov/37416064/">PMID 37416064</a></li>
+<li>LDN RCT terminated at n = 9. [verified]</li>
+<li>Excision vs ablation for superficial disease: no pain difference. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/33310168/">PMID 33310168</a></li>
+<li>Hysterectomy with both ovaries removed: fewer reoperations, but no less pain-care use. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42962755/">PMID 42962755</a></li>
+<li><strong>v2, failed or null 2025 to 2026:</strong></li>
+<li><strong>Linustedastat (OG-6219)</strong>, an oral blocker of local estradiol production (HSD17β1): phase 2a/b ELENA, n = 353, three doses vs placebo for 12 weeks. <strong>No difference on any pain measure or painkiller use.</strong> Dose-related methaemoglobinaemia trend. Sponsor stopped the programme (Jul 2025). [verified] Int J Womens Health 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42733850/">PMID 42733850</a>, doi:10.2147/IJWH.S622776, <a href="https://clinicaltrials.gov/study/NCT05560646">NCT05560646</a>; [reported] <a href="https://www.biopharmadive.com/news/organon-endometriosis-negative-study-og-6219-discontinue/752174/">BioPharma Dive, 2 Jul 2025</a></li>
+<li><strong>Quinagolide vaginal ring</strong> (QLARITY phase 2, n = 67): no lesion, pain or bleeding difference. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40188683/">PMID 40188683</a></li>
+<li><strong>CBD oil after surgery</strong> (DREAMLAND, n = 102): no better than placebo; stopped early. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42261989/">PMID 42261989</a></li>
+<li><strong>Dietary supplements, pooled</strong> (9 placebo RCTs, n = 545): no pain benefit. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/40288359/">PMID 40288359</a></li>
+<li><strong>Physical rehab for sexual function</strong> (meta-analysis): no significant difference (SMD 0.12, CI -0.39 to 0.63). [verified] Eur J Obstet Gynecol Reprod Biol 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42691545/">PMID 42691545</a></li>
+<li><strong>v2, pending readouts (not failures):</strong> vipoglanstat (oral mPGES-1 inhibitor that cuts prostaglandin E2), NOVA phase 2, about 190 women, half randomised by 17 Jun 2026, topline expected 2027 [reported] <a href="https://www.placera.se/pressmeddelanden/gesynta-pharma-randomizes-50-of-patients-in-phase-2-endometriosis-trial-of-vipoglanstat-20260617">company release</a>, <a href="https://clinicaltrials.gov/study/NCT07260669">NCT07260669</a>. ESPriT2: recruitment finished, results due 2026, none found yet. [verified] <a href="https://reproductive-health.ed.ac.uk/endometriosis/our-research/esprit2-clinical-trial">Edinburgh ESPriT2 page</a></li>
+<li><strong>v2, retraction check:</strong> PubMed lists 51 retracted endometriosis items (all years). None overlap the 91 PMIDs cited in v1. Recent examples are a 2024 IVF endometrioma study (<a href="https://pubmed.ncbi.nlm.nih.gov/38639522/">PMID 38639522</a>), a 2024 mouse NLRC5 study (<a href="https://pubmed.ncbi.nlm.nih.gov/39218863/">PMID 39218863</a>) and a 2025 dienogest paper withdrawn for a publishing error (<a href="https://pubmed.ncbi.nlm.nih.gov/40032175/">PMID 40032175</a>); none were used here. [verified]</li>
+</ul>
+<h3>Side effects of standard care</h3>
+<ul>
+<li>GnRH antagonists: hot flushes, higher lipids, bone loss without add-back. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/28525302/">PMID 28525302</a></li>
+<li>DCA: transient neuropathy in 6 of 30, linked to genotype. [reported]</li>
+<li>Melatonin + dienogest: vertigo 54%. [verified]</li>
+<li>Cannabis: fatigue, lethargy, headache in 13 to 16%. [verified]</li>
+<li>Repeat surgery lowers fertility. [verified]</li>
+</ul>
+<h3>Peptide-specific risks for an estrogen-driven, blood-vessel-dependent disease</h3>
+<ol>
+<li><strong>Angiogenesis:</strong> BPC-157 (VEGFR2 up, VEGF-a up), Tβ4 (pro-angiogenic) and GHK-Cu (VEGF release) push in the <strong>same direction</strong> that anti-angiogenic research tries to block. Lesion survival depends on VEGF-driven vessel growth. [verified mechanisms; inferred risk]</li>
+<li><strong>Tβ4 specifically</strong> is up-regulated in mouse adenomyosis and pushes human endometriosis cells to invade. This is the most direct red flag found. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/14758721/">PMID 14758721</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/34546850/">PMID 34546850</a></li>
+<li><strong>GH secretagogues (CJC-1295, ipamorelin, MK-677, GH itself):</strong> IGF-1 is a mitogen. No endometriosis-specific study was found linking GH peptides to lesion growth (a PubMed search for GH + IGF-1 + lesion proliferation returned 0). [verified absence; risk speculated] <strong>Gap.</strong>
+   - <strong>v2:</strong> IGF-1 levels are <strong>higher in peritoneal fluid and blood</strong> of women with endometriosis than controls, and higher in lesion cells and immune cells (Iran, small sample). [verified] BMC Womens Health 2021, <a href="https://pubmed.ncbi.nlm.nih.gov/34930225/">PMID 34930225</a>. Macrophage-made IGF-1 drives nerve sprouting and nerve sensitisation; peritoneal IGF-1 <strong>correlated with pain scores in women</strong>, and blocking the IGF-1 receptor reversed pain behaviour in mice. [verified] FASEB J 2019, <a href="https://pubmed.ncbi.nlm.nih.gov/31291762/">PMID 31291762</a>, doi:10.1096/fj.201900797R. GH secretagogues reliably raise GH and IGF-1. [verified] Sex Med Rev 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42862021/">PMID 42862021</a>. PubMed has 0 studies of GH as an IVF add-on in endometriosis. [verified absence] [inferred] Raising IGF-1 pushes on a pathway linked to endometriosis pain. Still no human test of a GH peptide in endometriosis.</li>
+<li><strong>Kisspeptin</strong> raises LH, FSH and estradiol, the opposite of what endometriosis treatment aims for. [inferred]</li>
+<li><strong>Product quality:</strong> grey-market purity and contamination are unknown. The BPC-157 review explicitly restricts use to regulated trials. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/">PMID 42885452</a>. A 2026 review lists contamination, wrong dosing, unwanted blood-vessel growth and cancer promotion as concerns for unapproved peptides including BPC-157 and TB-500. [verified] Mo Med 2026, <a href="https://pubmed.ncbi.nlm.nih.gov/42757290/">PMID 42757290</a>
+   - <strong>v2, case report search:</strong> no case report of endometriosis flare or growth linked to BPC-157, TB-500 or GH peptides found on PubMed (2024 to 2026 adverse/case-report search: 172 hits, first 15 screened, none about endometriosis). FDA FAERS not searchable here. [verified absence, partial screen]</li>
+<li><strong>Masking:</strong> peptides that reduce pain could delay diagnosis of deep disease involving the bowel, ureter or ovary. [speculated]</li>
+<li><strong>Pregnancy:</strong> no peptide in this list has pregnancy safety data, and many readers will be trying to conceive. [inferred]</li>
+</ol>
+<hr />
+<h2 id="pairings-and-related-conditions-for-page-interlinks">Pairings and related conditions (for page interlinks)</h2>
+<ul>
+<li>Commonly paired in clinical care: hormone suppression + pain education + pelvic floor physio + psychological therapy (German S2k 2025 multimodal approach). [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42274745/">PMID 42274745</a></li>
+<li>Supplement add-ons with trial data: melatonin + dienogest; nanocurcumin + dienogest; selenium + dienogest. [verified] <a href="https://pubmed.ncbi.nlm.nih.gov/42900597/">PMID 42900597</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/41914017/">PMID 41914017</a></li>
+<li>Related goal pages worth linking: IBS / gut pain, interstitial cystitis, chronic pelvic pain, period pain (primary dysmenorrhea), adenomyosis, PCOS (a kisspeptin review frames PCOS and endometriosis as opposite ends of one system, <a href="https://pubmed.ncbi.nlm.nih.gov/37505370/">PMID 37505370</a>), and fertility.</li>
+</ul>
+<hr />
+<h2 id="sources-flagged-as-inaccessible-or-partial">Sources flagged as inaccessible or partial</h2>
+<ul>
+<li>ESHRE 2022 full guideline: abstract only. PMC blocked by captcha; recommendations taken from a secondary summary.</li>
+<li>EPiC1 DCA results paper (Lancet OGWH 2025): not accessed. Pain effect sizes unknown. DOI not found.</li>
+<li>GLP-1 survey preprint (Leonardi 2026, Authorea): site error. n not obtained.</li>
+<li>WHO endometriosis fact sheet: not on allowlist.</li>
+<li>reddit.com direct: not on allowlist.</li>
+<li><a href="https://clinicaltrials.gov/study/NCT03970330">NCT03970330</a> LDN record: page did not render; termination reason unknown. (v2: record fields read via the registry tool; results tab and API still blocked.)</li>
+<li>v2: English WHO page and ASRM pages not on allowlist (WHO read in Spanish). EPiC1 full text not accessed (abstract only). CTRI official site not opened (mirror only).</li>
+<li>All PubMed items were read at abstract level only.</li>
+</ul>
+<hr />
+<h2 id="gaps-from-v1-status-after-v2">Gaps from v1 (status after v2)</h2>
+<p>Status key: CLOSED / PARTLY / OPEN.
+1. (PARTLY: paper found, pain numbers not in abstract; EPiC2 = recruiting late 2026) Get EPiC1 pain numbers and confirm EPiC2 status (recruiting, completed or delayed).
+2. (PARTLY: no ESHRE update; ACOG 2026 and NICE updates added; full ESHRE text still unread) Read the full ESHRE 2022 guideline (and check whether a 2025/26 update was released, since revision was scheduled for 2025).
+3. (OPEN; non-Reddit forum tally added via Endo PCOS Peptides v1) Run a direct Reddit pass on r/Endo, r/endometriosis and r/Peptides via ChatGPT, plus X via Grok, specifically for BPC-157, TB-500, KPV and GLP-1 with endometriosis. Log positive, no-change and worse separately, and capture any surgeon or scan-confirmed reports.
+4. (PARTLY: IGF-1 raised in peritoneal fluid and tied to pain; no GH-in-IVF studies) GH secretagogue / IGF-1 and endometriosis: deeper search (IGF-1 in peritoneal fluid, GH in IVF for endometriosis patients).
+5. (PARTLY: 30 to 50% traced to a weak chain; one EFI cohort added) Verify a clean infertility prevalence figure and a natural-conception rate after surgery (e.g. the Endometriosis Fertility Index).
+6. (OPEN for Leonardi; GLEAM added) Leonardi GLP-1 preprint: n, response rates by drug, and any planned RCT.
+7. (CLOSED for linzagolix and NICE/ACOG) Linzagolix (EDELWEISS-3) numbers individually; check the status of 2026 NICE/ACOG updates.
+8. (OPEN) Adenomyosis-specific evidence, if it gets its own page.
+9. (PARTLY: none found on PubMed; FAERS unreachable) Look for any <strong>case report</strong> of endometriosis flare or growth temporally linked to BPC-157, TB-500 or GH peptides (none found this pass), and search FDA adverse event data.
+10. (CLOSED: QLARITY null; 61% is post hoc) Resolve the quinagolide conflict (review says 61% lesion regression; another says no different from placebo).</p>
+<hr />
+<h2 id="gaps-for-next-pass-v3">Gaps for next pass (v3)</h2>
+<ol>
+<li><strong>LDN RCT results (<a href="https://clinicaltrials.gov/study/NCT03970330">NCT03970330</a>):</strong> read the posted results tab (per-arm pain AUC, stop reason) through a browser; the registry results page and API were blocked here.</li>
+<li><strong>EPiC1 full text:</strong> pain scores at baseline and week 12, and the retention-threshold inconsistency. Watch for an EPiC2 registry number once recruiting opens.</li>
+<li><strong>ESPriT2 results</strong> (due 2026) on whether removing superficial disease helps pelvic pain. This could change the surgery section.</li>
+<li><strong>ACOG 2026 full text:</strong> recommendation strengths, adolescent advice, and whether a management guideline has followed.</li>
+<li><strong>Thymosin alpha-1:</strong> the official CTRI record (not a mirror) to resolve 0 enrolled vs n = 120; look for any journal or conference paper; obtain per-arm n and safety data.</li>
+<li><strong>GLEAM full PDF:</strong> drug split, per-symptom rates, worsening and side effects. Leonardi survey n.</li>
+<li><strong>Infertility figure:</strong> find a primary population source (cohort or registry) for the share of people with endometriosis who have fertility problems, to replace the 30 to 50% range.</li>
+<li><strong>Adenomyosis:</strong> oral GnRH antagonist data (narrative review <a href="https://pubmed.ncbi.nlm.nih.gov/42599074/">PMID 42599074</a> summarises post hoc analyses) if it gets its own page.</li>
+<li><strong>Reddit (r/Endo, r/endometriosis, r/Peptides) via ChatGPT and X via Grok</strong> for BPC-157, TB-500, KPV, GLP-1; keep in separate columns from the non-Reddit tally.</li>
+<li><strong>FAERS / Yellow Card:</strong> endometriosis or menstrual events with BPC-157, TB-500, GH peptides; breakthrough bleeding with tirzepatide + progestins.</li>
+<li><strong>Vipoglanstat NOVA</strong> topline (2027) and any new 2026 to 2027 non-hormonal readouts (HMI-115, merigolix).</li>
+<li><strong>Full-text depth:</strong> almost everything is still abstract level. Prioritise full text for the GnRH meta-analysis, reoperation meta-analysis and the CBD RCT.</li>
+</ol></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

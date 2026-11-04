@@ -1,0 +1,1033 @@
+<!doctype html>
+<!-- Goal research notes: PCOS, from PCOS Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Renamed PMOS in May 2026. Only GLP-1s have PCOS trials: natural pregnancy tripled against metformin.">
+<title>PCOS · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>PCOS</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">Renamed PMOS in May 2026. Only GLP-1s have PCOS trials: natural pregnancy tripled against metformin. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (16)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</a></li><li><a href="#1-what-the-condition-is">1. What the condition is</a></li><li><a href="#2-studies-standard-options-with-numbers">2. Studies: standard options, with numbers</a></li><li><a href="#3-glp-1-agonists-in-pcos">3. GLP-1 agonists in PCOS</a></li><li><a href="#4-peptides-and-emerging-options-evidence-graded">4. Peptides and emerging options: evidence graded</a></li><li><a href="#5-usual-questions-people-ask">5. Usual questions people ask</a></li><li><a href="#6-community-signal-weak-data-flagged">6. Community signal (weak data, flagged)</a></li><li><a href="#7-pairings-and-related-conditions">7. Pairings and related conditions</a></li><li><a href="#8-negative-mirror-failures-side-effects-pregnancy-risk">8. Negative mirror (failures, side effects, pregnancy risk)</a></li><li><a href="#9-warnings-for-the-bottom-of-the-page">9. Warnings (for the bottom of the page)</a></li><li><a href="#10-sources-not-accessible-or-not-fully-read-flags">10. Sources not accessible or not fully read (flags)</a></li><li><a href="#11-adversarial-check-6-headline-numbers-traced-to-primary-ne">11. Adversarial check: 6 headline numbers traced to primary (new in v2)</a></li><li><a href="#12-folded-in-from-endo-pcos-peptides-v1-new-in-v2">12. Folded in from Endo PCOS Peptides v1 (new in v2)</a></li><li><a href="#13-negative-mirror-for-2025-to-2026-new-in-v2">13. Negative mirror for 2025 to 2026 (new in v2)</a></li><li><a href="#gaps-for-next-pass-v2">Gaps for next pass (v2)</a></li></ol></details>
+<div class="md"><h1>PCOS Research v2</h1>
+<p>Goal page research for baresignals.co. v1 compiled 3 Nov 2026 morning; v2 second pass 3 Nov 2026 (Bali).
+Tags: [verified] = read in the primary abstract, registry record, label or guideline text. [reported] = stated by a secondary source, or recalled from earlier literature and not re-opened. [inferred] = reasoning from verified data. [speculated] = plausible, untested.
+Doses appear only as reported in the studies. No suppliers are named.</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<p>Work done: about 32 PubMed queries plus 14 metadata pulls (about 60 abstracts read), 8 ClinicalTrials.gov lookups, 9 web searches and 5 page fetches. v1 is kept intact as "PCOS Research v1.md".
+1. <strong>Lancet PMOS paper read at the abstract level</strong> (PMID 42119588). It confirms 56 organisations, 14,360 survey responses and "one in eight women". Registry and impact-report detail added: an ICD-11 proposal was submitted 18 Jun 2026, and the guideline terminology update is due 2028. The two dissenting votes and their reasons are now named (STAT). See 1.1.
+2. <strong>New section 3.8: how often untreated PCOS ovulates.</strong> Placebo arms give the baseline for "my period came back": 6 of 22 ovulated in 6 to 8 weeks; ovulation fell in 13% of observed weeks; menses came back on placebo in 6 of 14 over 3 months; bleeding improved on placebo in the liraglutide RCT too. Cycles also shorten with age on their own (Elting 2000).
+3. <strong>Lean PCOS and GLP-1: no RCT exists.</strong> All 28 registered GLP-1 PCOS trials found require overweight or obesity. NK3R antagonists have no PCOS trial registered for 2024 to 2026. See 1.3 and 3.9.
+4. <strong>Adversarial check of 6 headline numbers</strong> (new section 11). Four held as written. Two needed rewording: the Nordic "CVD" outcome includes blood clots (DVT and PE), and the 75%/95% insulin-resistance figure comes from 20 + 20 women in Hum Reprod, not JCEM. Five more corrections were made along the way: PPCOS I numbers, liraglutide + metformin 35.7% (not 35.4%), the MOTS-c cohort is Turkish (not Australian/European), the Wegovy pregnancy registry runs to 2032 with n = 728 (not "summer 2027, &gt;1,100"), and tesamorelin did <em>not</em> worsen glucose in two RCTs.
+5. <strong>New section 12: findings folded in from Endo PCOS Peptides v1.</strong> It covers the GLP-1 natural-pregnancy meta-analysis (OR 3.10, re-verified), the naltrexone trials (two re-verified), GH peptides and blood sugar (MK-677 verified to raise glucose; tesamorelin did not in RCTs; no data for CJC/ipamorelin), the bremelanotide-naltrexone interaction, and the 21-user community tally.
+6. <strong>Section 5 rewritten as 15 usual questions</strong> with short evidence answers.
+7. <strong>New section 13: negative mirror for 2025 to 2026.</strong> Two semaglutide PCOS trials passed their completion dates with no results posted. One US trial was withdrawn. Overall and IVF pregnancy were not improved in the 2026 meta-analysis. GLP-1 vomiting OR reaches about 27 in a network meta-analysis. Lean mass makes up 28% of the weight lost. Full remission occurred in only 12% of patients.
+8. Filled from the v1 gap list: PPCOS I (gap 2), the phenotype split in referral vs community samples (gap 3), mental-health ORs (gap 5), endometrial, ovarian and breast cancer (gap 6), natural history (gap 7), semaglutide trial status (gap 9), the bremelanotide label (gap 14), CagriSema numbers (gap 12), tesamorelin (gap 13) and the baseline (gap 15). Partly filled: kisspeptin (gap 8), hair (gap 11) and AOD-9604 (gap 13). The community gap (gap 10) is left for the ChatGPT/Grok tabs.
+9. A new "Gaps for next pass" list is at the end. The v1 gaps are kept above it for reference.</p>
+<hr />
+<h2 id="0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</h2>
+<ul>
+<li>Roughly 1 in 10 women of reproductive age. The guideline says 10 to 13% under Rotterdam criteria [verified, 2023 guideline summary]. A 2024 global meta-analysis of 35 studies found 9.2% overall: 5.5% under NIH criteria, 11.5% under Rotterdam and 7.1% under AES [verified, PMID 38922413, doi:10.1007/s00404-024-07607-x].</li>
+<li>On 12 May 2026 the condition was renamed <strong>PMOS (polyendocrine metabolic ovarian syndrome)</strong> in The Lancet, with a 3-year transition plan running to about 2028 [verified across 3 news sources; Lancet doi:10.1016/S0140-6736(26)00717-8].</li>
+<li><strong>v2:</strong> the Lancet abstract itself says PMOS "affects one in eight women", and lists 56 partner organisations and 14,360 survey responses [verified, <a href="https://doi.org/10.1016/S0140-6736(26)00717-8">PMID 42119588</a>].</li>
+<li>Letrozole vs clomiphene, live birth: <strong>27.5% vs 19.1%</strong> (n=750, NEJM 2014) [verified, PMID 25006718].</li>
+<li><strong>v2:</strong> Cochrane 2018 (42 RCTs, 7,935 women) pooled the same direction: live birth OR 1.68, number needed to treat about 10, moderate certainty [verified, <a href="https://doi.org/10.1002/14651858.CD010287.pub3">PMID 29797697</a>].</li>
+<li>Semaglutide plus metformin vs metformin alone: <strong>6.1 kg vs 2.3 kg</strong> weight loss in 16 weeks, and <strong>35% vs 15%</strong> natural pregnancy in the follow-up window (n=100 RCT, 2025) [verified, PMID 40713699].</li>
+<li><strong>v2 caveats:</strong> open label, single centre, 80% completion.</li>
+<li>The pregnancies happened in weeks 16 to 40, when everyone was on metformin only. Some conceptions may have fallen inside the 2-month semaglutide washout [inferred from the design].</li>
+<li>The registry entry is dated Oct 2024, which looks retrospective for a 40-week trial published in Jul 2025 [inferred; start date not stated in the abstract].</li>
+<li>Tirzepatide in women with self-reported PCOS: <strong>-19.4%</strong> body weight at 10 months, the same as women without PCOS (-18.7%) (real-world cohort, n=40 at that timepoint) [verified, PMID 42634795].</li>
+<li><strong>v2:</strong> only 40 of 4,241 women with PCOS (under 1%) reached the 10-month timepoint, and the authors work for the digital weight service [verified, author affiliations in the PubMed record].</li>
+<li>Type 2 diabetes risk is about <strong>3x</strong> (OR 2.9). Major cardiovascular events have HR 1.2 to 2.5, with risk diverging from about age 35 [verified, review PMID 42669621]. In Nordic data on 127,517 women, cardiovascular disease had an adjusted HR of <strong>1.32</strong>, and <strong>1.40 in women with BMI &lt;25</strong> [verified, PMID 41439462].</li>
+<li><strong>v2 correction to wording:</strong> the Nordic "CVD" outcome combines major cardiac events with <strong>pulmonary embolism and deep vein thrombosis</strong>. Part of the excess could reflect blood clots linked to the pill, not only heart disease [verified definition; inferred interpretation]. On the page, say "heart and blood-clot events", not "heart disease".</li>
+<li>GLP-1 drugs: the label says stop semaglutide <strong>at least 2 months</strong> before a planned pregnancy [verified, Wegovy PI via drugs.com]. On tirzepatide, use <strong>backup contraception for 4 weeks</strong> after starting and after each dose increase if on the pill [reported, GoodRx citing the Zepbound label].</li>
+<li><strong>v2:</strong> the Zepbound label (§7.2, §8.3) was now read directly. It says to switch to a non-oral method, or add a barrier method for 4 weeks after starting and 4 weeks after each dose increase. The label gives <strong>no</strong> pre-conception washout. It only says to stop when pregnancy is recognised [verified, <a href="https://www.drugs.com/pro/zepbound.html">Zepbound PI via drugs.com</a>].</li>
+<li><strong>New in v2: baseline.</strong> In placebo arms of PCOS trials, about 1 in 4 women ovulated at least once in 6 to 8 weeks, and periods restarted in about 4 in 10 over 3 months. Single "my period came back" stories are therefore weak evidence (see 3.8) [verified per trial; inferred synthesis].</li>
+</ul>
+<hr />
+<h2 id="1-what-the-condition-is">1. What the condition is</h2>
+<h3>1.1 Definition and the name change</h3>
+<ul>
+<li><strong>Adult diagnosis (2023 International Evidence-based Guideline, Rotterdam-based):</strong> 2 of 3 features, once mimics are excluded (thyroid, prolactin, non-classic CAH and others) [verified, guideline summary PDF]:
+  1. Clinical or biochemical hyperandrogenism.
+  2. Ovulatory dysfunction (irregular cycles).
+  3. Polycystic ovarian morphology on ultrasound (≥20 follicles per ovary), <strong>or a raised AMH</strong>. AMH as an alternative to ultrasound in adults is new in 2023.</li>
+<li>If irregular cycles and hyperandrogenism are both present, no ultrasound or AMH is needed [verified].</li>
+<li><strong>Cycle definitions:</strong> 21 to 35 days is normal in adults. Any cycle over 90 days is abnormal from 1 year after the first period [verified].</li>
+<li><strong>Testosterone testing:</strong> total and free testosterone, preferably by LC-MS/MS rather than direct immunoassay. Hirsutism threshold is a modified Ferriman-Gallwey score of 4 to 6 depending on ethnicity [verified].</li>
+<li><strong>Adolescents:</strong> both irregular cycles AND hyperandrogenism are required. Ultrasound and AMH are NOT used under 8 years post-menarche because both are normally high in teens. A girl with only one feature is labelled "at risk" and followed up [verified, PMID 40069730, doi:10.1186/s12916-025-03901-w].</li>
+<li><strong>Rename to PMOS (status Nov 2026):</strong></li>
+<li>Published in The Lancet on 12 May 2026 (Teede et al., Global Name Change Consortium, led from Monash) [verified, MedicalNewsToday, Medicine Today, Medical Dialogues].</li>
+<li>Surveys drew <strong>14,360 responses (10,411 patients, 3,949 clinicians)</strong>. <strong>86% of patients and 71% of clinicians</strong> favoured a symptom-based name. In the final workshop all but 2 participants backed the new name, and those 2 opposed any rename [verified, secondary reports; the Lancet full text was not opened].</li>
+<li>The <strong>3-year transition</strong> covers medical records, ICD coding with WHO, and education [verified].</li>
+<li><strong>Diagnostic criteria did not change.</strong> This is a renaming only [verified that no source reports new criteria; inferred that criteria are unchanged].</li>
+<li><strong>Pushback:</strong> some Indian clinicians (Dr Pai) proposed keeping the acronym PCOS with a new expansion and cited cost and confusion. One OB on social media suggested it could widen GLP-1 prescribing, though no evidence of pharma influence was found [verified, Medical Dialogues, May/Jun 2026]. The RCOG spokesperson (Balen) supports a gradual transition [verified].</li>
+<li>Papers from mid-2026 already use "PMOS (formerly PCOS)" (e.g. PMID 42249166, 42669621, 42857939) [verified].</li>
+<li><strong>Page note:</strong> use "PCOS (now PMOS)". Search traffic will stay "PCOS" for years [inferred].</li>
+<li><strong>v2, from the Lancet abstract</strong> [verified, <a href="https://doi.org/10.1016/S0140-6736(26)00717-8">PMID 42119588</a>; Lancet 407:2329-39]:<ul>
+<li>The process used iterative global surveys, modified Delphi rounds, nominal group workshops, and marketing and implementation analyses.</li>
+<li>An accurate new name was chosen over keeping the PCOS acronym or using a generic name.</li>
+<li>The implementation is described as "evolution rather than transformation".</li>
+<li>It is classed as a consensus statement with 15+ named authors, including Teede, Laven, Norman, Dokras, Piltonen, Cree and a patient-charity chair.</li>
+<li>Full text was still not opened. Sections on ICD codes and patient wording are not seen.</li>
+</ul>
+</li>
+<li><strong>v2, from the Monash impact report (Aug 2026)</strong> [reported, promotional; <a href="https://www.mchri.org.au/wp-content/uploads/2026/08/PMOS-Impact-Report-August.pdf">MCHRI PDF</a>]:<ul>
+<li>An ICD-11 reclassification proposal went to WHO on 18 Jun 2026, aimed at the October 2026 WHO meeting. The outcome was not found.</li>
+<li>The name has been adopted into the international guideline, with the "full terminology update in 2028".</li>
+<li>The report counts about 22,000 contributors across all rounds. The 14,360 figure is the final survey only.</li>
+</ul>
+</li>
+<li><strong>v2, the vote and the dissent</strong> [reported, <a href="https://www.statnews.com/2026/05/12/pcos-now-called-pmos-polyendocrine-metabolic-ovarian-syndrome/">STAT 12 May 2026</a>]:<ul>
+<li>87 of 90 voters backed PMOS at once, and one more came round before submission.</li>
+<li>The 2 dissenters were the heads of two US patient and nutrition organisations. Their reasons:
+  1. Rebranding costs: trademarks, domains and books.
+  2. The name still excludes a possible male form of the condition.</li>
+<li>The lead author does not expect another rename "unless something dramatic changes in the science".</li>
+</ul>
+</li>
+<li><strong>v2 nuance:</strong> v1 said "all but 2 participants backed the new name". That matches STAT (88 of 90) [verified consistency across sources].</li>
+</ul>
+<h3>1.2 Phenotypes A to D</h3>
+<p>Standard NIH 2012 phenotype labels [reported; standard nomenclature, not re-opened this pass]:
+| Phenotype | Androgen excess | Irregular ovulation | Polycystic ovaries | Notes |
+|---|---|---|---|---|
+| A ("full") | yes | yes | yes | Most metabolic risk |
+| B ("classic") | yes | yes | no | High metabolic risk |
+| C ("ovulatory") | yes | no | yes | Milder metabolic profile |
+| D ("non-hyperandrogenic") | no | yes | yes | Mildest metabolic profile, most debated |
+- A 2025 cluster analysis of 975 women found 3 natural subtypes rather than the 4 letters [verified, PMID 41180187, doi:10.3389/fendo.2025.1572427]:
+  - <strong>Metabolic (29.6%):</strong> higher BMI, blood pressure, insulin resistance and lipids, and <em>lower</em> LH:FSH.
+  - <strong>Reproductive (43.3%):</strong> leaner, higher LH:FSH, DHEAS and androstenedione.
+  - <strong>Intermediate (27.1%).</strong>
+  - In the lean, reproductive group, weight had little relationship with other features. This is the root-cause argument for treating lean and overweight PCOS differently [verified].
+- <strong>v2, how common each letter is depends on where you look</strong> (meta-analysis, 13,796 women) [verified, Lizneva 2016, <a href="https://doi.org/10.1016/j.fertnstert.2016.07.1121">PMID 27530062</a>]:
+  | Phenotype | Referral clinics | Unselected community samples |
+  |---|---|---|
+  | A | 50% | 19% |
+  | B | 13% | 25% |
+  | C | 14% | 34% |
+  | D | 17% | 19% |
+  - Clinic patients also had higher BMI than local controls, and the community cases did not. Most trial data come from clinic-type women, who are heavier and have the fuller phenotype [inferred]. <strong>Page line:</strong> "The PCOS you read about in studies is often the heavier, full-blown version."
+- A trial comparing myo-inositol plus D-chiro-inositol against metformin hypothesised that inositol may suit phenotypes C and D better, and metformin phenotype A [verified as the authors' hypothesis, PMID 39847053; speculated as to the effect].</p>
+<h3>1.3 Lean vs overweight PCOS</h3>
+<ul>
+<li>Lean PCOS exists and is common: the reproductive cluster above is 43% of the cohort [verified].</li>
+<li>Insulin resistance in PCOS is partly independent of BMI. The intrinsic-IR figure usually quoted is about 75% of lean and 95% of overweight women with PCOS, based on clamp studies (Stepto 2013) [reported; not re-opened this pass, flag for check].</li>
+<li><strong>v2, checked at source</strong> [verified, Stepto 2013, Hum Reprod 28:777, <a href="https://doi.org/10.1093/humrep/des463">PMID 23315061</a>]:<ul>
+<li>The study clamped <strong>20 lean and 20 overweight</strong> women with PCOS against BMI-matched controls.</li>
+<li>Insulin resistance was present in 75% of lean PCOS, 95% of overweight PCOS, and <strong>62% of overweight controls</strong>.</li>
+<li>The figure is real but rests on 40 women. Note the 62% in overweight women <em>without</em> PCOS, which shows weight alone carries most of the effect. The 2026 review repeats the 75%/95% figure [verified, PMID 42669621].</li>
+</ul>
+</li>
+<li><strong>v2, counterpoint:</strong> in a 4,768-woman Boston biobank, lean women with PMOS showed <strong>no</strong> metabolomic differences from lean controls once adjusted (only creatinine differed). Women with overweight showed 4 of 71 markers different [verified, <a href="https://doi.org/10.1007/s10815-026-04015-9">PMID 42658451</a>]. This pulls against "lean PCOS is metabolically sick" [inferred]. The Nordic CVD HR of 1.40 in lean women pulls the other way. <strong>Both should be shown.</strong></li>
+<li>Cardiovascular risk is raised even in lean women: HR <strong>1.40</strong> for BMI &lt;25 without diabetes in the Nordic cohort [verified, PMID 41439462].</li>
+<li>Guideline: metformin is recommended for metabolic features at BMI ≥25 and is a conditional option below 25 with limited evidence. Lifestyle advice applies at every weight. Minimise weight stigma [verified].</li>
+<li>Lean PCOS tends to be more LH-driven and adrenal-androgen-driven [inferred from PMID 41180187].</li>
+</ul>
+<h3>1.4 Symptoms with numbers</h3>
+<ul>
+<li><strong>Cycles:</strong> irregular or absent periods. PCOS is the leading cause of anovulatory infertility [verified, PMID 34000049].</li>
+<li><strong>Acne:</strong> pooled prevalence in PCOS is about 48 to 53%. It is slightly higher at BMI ≤25 (53%) than above 25 (48%), with wide regional spread (Europe 32%, Oceania 76%) [verified, PMID 41089626, doi:10.47176/mjiri.39.105].</li>
+<li><strong>Hirsutism:</strong> the commonest sign of hyperandrogenism. On its own it predicts raised androgens [verified, guideline].</li>
+<li><strong>Hair loss (female pattern):</strong> the Androgen Excess and PCOS Society says hair loss alone is NOT proof of high androgens if blood levels are normal. Treatment starts with 5% minoxidil, adding 5-alpha-reductase inhibitors or anti-androgens if loss is severe or androgens are high. Iron, vitamin D, zinc, thyroid and prolactin checks are optional but recommended [verified, PMID 30785992, doi:10.1210/jc.2018-02548].</li>
+<li><strong>Weight:</strong> higher weight amplifies every feature but is not required for the diagnosis [verified, PMID 42249166].</li>
+<li><strong>Mood:</strong> a 2023 JAMA Network Open meta-analysis found the literature is dominated by PCOS and affective disorders, with strong co-occurrence [verified, PMID 37071426, doi:10.1001/jamanetworkopen.2023.8685; the PCOS-specific ORs were in a truncated part of the abstract and not captured, flag]. The guideline says screen ALL adults and adolescents for depression and all adults for anxiety [verified].</li>
+<li><strong>v2, PCOS-specific ORs found</strong> (Cooney 2017; 30 cross-sectional studies; 3,050 women with PCOS) [verified, <a href="https://doi.org/10.1093/humrep/dex044">PMID 28333286</a>]:<ul>
+<li>Any depressive symptoms OR 3.78. Moderate or severe depression OR 4.18.</li>
+<li>Any anxiety OR 5.62. Moderate or severe anxiety OR 6.55.</li>
+<li>In BMI-matched studies the odds stayed high: depression OR 3.25, anxiety OR 6.30. Weight does not explain it.</li>
+<li>All the studies are cross-sectional, so the direction of cause is unknown.</li>
+</ul>
+</li>
+<li><strong>Sleep apnoea:</strong> more common in PCOS. Screen if there is snoring with unrefreshing sleep [verified, guideline, PMID 40255502].</li>
+<li><strong>Thyroid:</strong> about 20% of women with PCOS have subclinical hypothyroidism, and it worsens HOMA-IR [verified, PMID 40102852, doi:10.1186/s12902-025-01896-2].</li>
+</ul>
+<h3>1.5 Pathophysiology (root causes)</h3>
+<ul>
+<li><strong>Insulin resistance → high insulin.</strong> Insulin acts with LH on the ovarian theca cells to raise androgen output. It also lowers SHBG in the liver, which leaves more free testosterone [reported, standard physiology; consistent with PMID 42249166 and 42669621].</li>
+<li><strong>Faster GnRH pulses → LH dominance.</strong> In PCOS the hypothalamic pulse generator (KNDy neurons: kisspeptin, neurokinin B, dynorphin) fires faster. Fast pulses favour LH over FSH, so LH:FSH rises (often quoted at &gt;2). High LH drives androgens while relatively low FSH stalls follicles [verified that PCOS shows accelerated gonadotropin pulsatility: PMID 42219677 and 27459523; the LH:FSH &gt;2 cut-off is reported, not a diagnostic criterion].</li>
+<li>Mechanistic proof in humans: blocking the neurokinin-3 receptor cut LH pulses by 3.55 per 8 hours and testosterone by 28.7% (see 4.2) [verified, PMID 27459523].</li>
+<li>The paradox: in PCOS, female-range high testosterone <em>raises</em> LH, whereas male-range testosterone (e.g. in trans men) suppresses it [verified, PMID 42802656].</li>
+<li><strong>Androgen excess.</strong> The ovary is the main source, with enzyme dysregulation (CYP17A1, aromatase). Adrenal androgens contribute in a subset [verified, PMID 42471064, 41180187].</li>
+<li><strong>AMH.</strong> Raised because of many small arrested follicles. It is now usable as a substitute for ultrasound in adults (not teens) [verified, guideline]. AMH is often quoted at 2 to 3x normal, and it may itself inhibit FSH action and aromatase [reported].</li>
+<li><strong>Inflammation.</strong> Low-grade (CRP); see the CRP falls on semaglutide plus metformin in PMID 40713699 [verified that CRP improved].</li>
+<li><strong>Genetics.</strong></li>
+<li>Strongly heritable. The Dutch twin-family study (Vink 2006, JCEM) estimated heritability at about 70% (often quoted as 79%) [reported; PubMed page blocked by captcha, flag].<ul>
+<li><strong>v2, abstract read</strong> [verified, <a href="https://doi.org/10.1210/jc.2005-1494">PMID 16219714</a>]:</li>
+<li>1,332 identical-twin and 1,873 non-identical-twin or sister records.</li>
+<li>The tetrachoric correlation was <strong>0.71 in identical twins vs 0.38 in non-identical sisters</strong>.</li>
+<li>The abstract does <strong>not</strong> state a heritability %. The 79% figure circulating online cannot be confirmed from the abstract [verified absence].</li>
+<li>PCOS was defined loosely by questionnaire: fewer than 9 cycles a year plus acne or hirsutism.</li>
+<li><strong>Page line:</strong> "Identical twins share PCOS about twice as often as non-identical sisters."</li>
+</ul>
+</li>
+<li>Genome-wide association loci explain &lt;10% of that heritability [verified, PMID 29972435, doi:10.20945/2359-3997000000049].</li>
+<li>Developmental programming in utero and at puberty is under study [verified, PMID 42838111].</li>
+<li><strong>Stress.</strong> HPA-axis activation can disrupt the GnRH pulse generator in a "stress-sensitive" PCOS subgroup [verified as hypothesis-level review, PMID 42401315].</li>
+</ul>
+<hr />
+<h2 id="2-studies-standard-options-with-numbers">2. Studies: standard options, with numbers</h2>
+<h3>2.1 Lifestyle (first line for everyone)</h3>
+<ul>
+<li>The guideline says lifestyle works as well in PCOS as in the general population and applies at any weight. It sets "modest weight loss" with an individual energy deficit. The summary gives no single % target [verified].</li>
+<li>The common claim that <strong>5 to 10% weight loss restores ovulation</strong> in many women is widely quoted, including by Drucker in the CNN/6abc piece. He framed 5 to 15% as mechanistic, not as a measured trial result [reported].</li>
+<li>Diet RCT (n=90, 8 weeks): all three diets cut weight by more than 5% (-6.3% calorie-restricted, -5.7% high protein, -7.2% high protein + high fibre). The high-protein arms kept more lean mass [verified, PMID 38988067].</li>
+<li>2026 network meta-analysis (Hum Reprod Update) [verified, PMID 42854088, doi:10.1093/humupd/dmag032]:</li>
+<li>Ketogenic diet may cut waist and BMI. HIIT and mind-body exercise helped multiple cardiometabolic markers.</li>
+<li>Best exercise dose was about 480 to 1,012 MET-min/week. Example: moderate-to-vigorous exercise, 60 min, 3 times a week, for 13 to 17 weeks.</li>
+<li>Certainty was low or very low.</li>
+<li><strong>"Best diet" answer:</strong> no single diet wins on evidence. Choose the one that sustains an energy deficit and keeps protein up [inferred from the above plus the guideline].</li>
+</ul>
+<h3>2.2 Metformin</h3>
+<ul>
+<li>The guideline maximum is 2.5 g/day in adults and 2 g/day in teens. Monitor B12. Not routinely used in pregnancy [verified].</li>
+<li>Network meta-analysis of 47 RCTs: metformin lowered total testosterone (MD -0.41 nmol/L) [verified, PMID 36129662, doi:10.1007/s40265-022-01779-z].</li>
+<li>The guideline prefers metformin over inositol for hirsutism and central fat [verified].</li>
+<li>Fertility alone: weaker than clomiphene or letrozole. In PPCOS I (Legro 2007, NEJM) live birth was about 7% on metformin vs 22% on clomiphene and 27% combined [reported from memory, not re-opened this pass, flag].</li>
+<li><strong>v2, verified</strong> (n=626, up to 6 months) [verified, <a href="https://doi.org/10.1056/NEJMoa063971">PMID 17287476</a>]:<ul>
+<li>Live birth: clomiphene <strong>22.5%</strong> (47/209), metformin <strong>7.2%</strong> (15/208), combined <strong>26.8%</strong> (56/209).</li>
+<li>Multiple pregnancy: 6.0%, 0% and 3.1%.</li>
+<li>Metformin caused more gastrointestinal side effects.</li>
+</ul>
+</li>
+<li><strong>v2, Cochrane metformin figures</strong> (Sharpe 2019; 41 RCTs, 4,552 women) [verified, <a href="https://doi.org/10.1002/14651858.CD013505">PMID 31845767</a>]:<ul>
+<li>Metformin vs placebo: live birth OR 1.59 (19% on placebo becomes 19 to 37%), low certainty.</li>
+<li>Ovulation OR 2.64.</li>
+<li>GI side effects OR 4.00: 10% on placebo vs 22 to 40% on metformin.</li>
+<li>Metformin + clomiphene vs clomiphene: live birth OR 1.27, uncertain.</li>
+<li>Results differ by BMI. In obese women metformin did worse than clomiphene (live birth OR 0.30).</li>
+</ul>
+</li>
+<li>Side effects: GI upset is common (see 2.6).</li>
+</ul>
+<h3>2.3 Combined oral contraceptive pill (COCP)</h3>
+<ul>
+<li>First line for hirsutism and irregular cycles in adults and teens [verified].</li>
+<li>Low-dose ethinylestradiol (20 to 30 µg) is preferred, since higher doses offer no clear hirsutism advantage. Cyproterone 35 µg preparations are second line [verified].</li>
+<li><strong>What it fixes vs hides:</strong> it raises SHBG and suppresses ovarian androgens. It does not treat insulin resistance, and cycles revert after stopping [inferred].</li>
+</ul>
+<h3>2.4 Spironolactone and anti-androgens</h3>
+<ul>
+<li>Add only after <strong>≥6 months</strong> of COCP and/or cosmetic therapy has not worked well enough, and always <strong>with effective contraception</strong> because of risk to a male fetus. Spironolactone has a favourable safety profile. Cyproterone ≥10 mg is not advised [verified, guideline].</li>
+<li>Testosterone-lowering network meta-analysis: spironolactone + metformin ranked first (SUCRA 85%), spironolactone alone third (77%) [verified, PMID 37832133].</li>
+<li><strong>Teens: SPIOMET</strong> (spironolactone + pioglitazone + metformin, low dose) restored menses in up to 91%, halved Ferriman-Gallwey scores, and cut visceral and liver fat with no weight change. Benefits lasted 1 year after treatment. These are small trials [verified, PMID 41506442].</li>
+</ul>
+<h3>2.5 Ovulation induction: letrozole vs clomiphene</h3>
+<ul>
+<li><strong>PPCOS II (Legro, NEJM 2014), n=750, up to 5 cycles</strong> [verified, PMID 25006718, doi:10.1056/NEJMoa1313517]:</li>
+<li>Live birth: <strong>27.5% letrozole vs 19.1% clomiphene</strong> (rate ratio 1.44, 95% CI 1.10 to 1.87).</li>
+<li>Ovulation per cycle: 61.7% vs 48.3%.</li>
+<li>Twins: 3.4% vs 7.4%.</li>
+<li>Pregnancy loss: 31.8% vs 29.1% (no significant difference).</li>
+<li>Major anomalies: 4 vs 1, P=0.65, not significant.</li>
+<li>Clomiphene caused more hot flushes. Letrozole caused more fatigue and dizziness.</li>
+<li>Guideline ladder: <strong>letrozole first</strong>. Second line is clomiphene (± metformin), gonadotrophins, or laparoscopic ovarian drilling. Third line is IVF/IVM [verified].</li>
+<li>Gonadotrophins vs continuing clomiphene after clomiphene failure: live birth RR 1.24. That means a 41% baseline becomes 43 to 60%, with more miscarriage (RR 2.23, low certainty) [verified, Cochrane 2025, PMID 40193219, doi:10.1002/14651858.CD010290.pub4].</li>
+</ul>
+<h3>2.6 Inositol (myo / D-chiro, 40:1)</h3>
+<ul>
+<li><strong>Guideline-informing meta-analysis (2023; 30 trials, n=2,230)</strong> [verified, PMID 38163998, doi:10.1210/clinem/dgad762]:</li>
+<li>Evidence is "limited and inconclusive".</li>
+<li>Some metabolic benefit, and a possible ovulation benefit for D-chiro-inositol.</li>
+<li>No effect on other outcomes.</li>
+<li>Metformin beat inositol on waist-hip ratio and hirsutism. There was likely no difference for reproductive outcomes.</li>
+<li>Myo-inositol caused fewer GI side effects than metformin.</li>
+<li>The guideline says inositol "may be considered" based on preference, with limited benefit. It is <strong>experimental for infertility</strong> [verified].</li>
+<li><strong>The 40:1 ratio</strong> mirrors the physiological plasma ratio of the two forms. The case for it comes mostly from industry-linked Italian groups (narrative review 2025, PMID 40420946), which claim efficacy "greater than other pharmacological agents". That claim is not supported by the guideline meta-analysis [verified that the claim exists; the evidence for it is weak].</li>
+<li>A small RCT of 40:1 vs metformin found asprosin fell more with inositol, but the difference was not significant [verified, PMID 40665752].</li>
+<li><strong>Page note:</strong> the strongest pro-40:1 papers are often supplement-sponsored. Present it as low-risk, low-certainty [inferred].</li>
+</ul>
+<h3>2.7 Berberine</h3>
+<ul>
+<li>Meta-analysis [verified, PMID 31915452, doi:10.1155/2019/7918631]:</li>
+<li><strong>No solid evidence for more live births.</strong></li>
+<li>Compared with metformin it did better on insulin resistance, lipids, androgens, LH:FSH, and waist (-2.7 cm).</li>
+<li>No difference in BMI.</li>
+<li>GI side effects were similar to placebo.</li>
+<li>Most trials were Chinese-language.</li>
+<li>Pre-IVF RCT (2013): berberine and metformin both improved pregnancy rate vs placebo. Berberine gave more live births with fewer GI effects than metformin [verified, PMID 23869585].</li>
+<li>Not in the international guideline [inferred from its absence in the summary].</li>
+<li>Safety: not for use in pregnancy [reported; standard caution].</li>
+</ul>
+<h3>2.8 Statins</h3>
+<ul>
+<li><strong>Cochrane 2023:</strong> all evidence very low certainty. Uncertain whether statins improve cycles, ovulation, hirsutism, acne or testosterone. No significant adverse events in the trials [verified, PMID 37462232, doi:10.1002/14651858.CD008565.pub3].</li>
+<li>A network meta-analysis ranked atorvastatin high for testosterone lowering, but the optimal dose is unknown [verified, PMID 37832133].</li>
+<li>Use them for lipids by usual CV-risk rules, not for PCOS symptoms. They must be stopped before pregnancy [inferred plus reported].</li>
+</ul>
+<hr />
+<h2 id="3-glp-1-agonists-in-pcos">3. GLP-1 agonists in PCOS</h2>
+<h3>3.1 Guideline status</h3>
+<ul>
+<li>2023 guideline: liraglutide, semaglutide (and orlistat) <strong>may be considered for higher weight in adults with PCOS</strong>, alongside lifestyle and per general-population rules. Use contraception and escalate the dose gradually [verified]. There is no PCOS-specific approval [verified, PMID 42278283: "not approved or guideline-recommended for fertility restoration"].</li>
+</ul>
+<h3>3.2 Liraglutide</h3>
+<ul>
+<li>Danish RCT (Frøssing/Nylander), 72 women, 1.8 mg/day vs placebo for 26 weeks [verified, PMID 28681988, doi:10.1111/dom.13053]:</li>
+<li>Weight <strong>-5.2 kg (-5.6%)</strong>.</li>
+<li>Liver fat -44%, visceral fat -18%.</li>
+<li>Fatty liver prevalence fell by two thirds.</li>
+<li>SHBG <strong>+19%</strong>, free testosterone <strong>-19%</strong> (P=0.054, borderline).</li>
+<li>Insulin resistance by HOMA did not change.</li>
+<li>Same trial: heart rate rose, linked with an ANP marker fall [verified, PMID 29295870].</li>
+<li>Liraglutide + metformin vs metformin: pregnancy <strong>69.2% vs 35.4%</strong> in one RCT (small, cited in a review) [verified as quoted in the review PMID 42441883; primary trial not opened].</li>
+<li><strong>v2, primary opened and corrected</strong> [verified, Salamun 2018, <a href="https://doi.org/10.1530/EJE-18-0175">PMID 29703793</a>]:<ul>
+<li><strong>n = 28 obese women</strong> (BMI about 37) who had responded poorly to earlier fertility treatment. Pilot, open label.</li>
+<li>Arms: metformin 1,000 mg twice daily ± liraglutide 1.2 mg daily, for 12 weeks. A 4-week drug-free gap followed, then IVF.</li>
+<li>Weight loss was the <strong>same</strong> in both arms: 7.0 vs 7.5 kg.</li>
+<li>Pregnancy per embryo transfer: 85.7% vs 28.6%.</li>
+<li>Cumulative 12-month pregnancy: <strong>69.2% vs 35.7%</strong>. The review's 35.4% is a transcription slip.</li>
+<li>With n = 28 the percentages swing on 1 or 2 women. The equal weight loss is the interesting part, since it hints at an effect beyond weight [inferred].</li>
+</ul>
+</li>
+<li><strong>v2, liraglutide's own bleeding data</strong> (same Danish 72-woman RCT as above) [verified, Nylander 2017, <a href="https://doi.org/10.1016/j.rbmo.2017.03.023">PMID 28479118</a>]:</li>
+<li>Bleeding ratio improved by 0.28 on liraglutide <strong>and by 0.14 on placebo</strong>. The between-group difference was 0.14.</li>
+<li>About half of the "cycle improvement" happened on placebo [inferred]. See 3.8.</li>
+<li>Ovarian volume fell by 1.6 mL (borderline).</li>
+<li><strong>v2, liraglutide 3 mg phase 3</strong> (US, NIH-criteria PCOS, 32 weeks, n = 82 randomised 2:1) [verified, Elkind-Hirsch 2022, <a href="https://doi.org/10.1016/j.fertnstert.2022.04.027">PMID 35710599</a>]:</li>
+<li>Weight -5.7% vs -1.4%. 25 of 44 vs 5 of 23 lost ≥5%.</li>
+<li>Free androgen index fell on the drug and rose slightly on placebo.</li>
+<li><strong>GI side effects 58.2% vs 18.5%.</strong></li>
+</ul>
+<h3>3.3 Semaglutide</h3>
+<ul>
+<li><strong>RCT, n=100 overweight or obese, 16 weeks</strong>: metformin 1,000 mg twice daily ± semaglutide 1 mg weekly, then metformin only from weeks 16 to 40 [verified, PMID 40713699, doi:10.1186/s12958-025-01447-3]:</li>
+<li>Weight <strong>-6.09 kg vs -2.25 kg</strong>. Larger falls in testosterone and CRP. More cycle recovery.</li>
+<li><strong>Natural pregnancy 35% vs 15%</strong> (P&lt;0.05).</li>
+<li>80% completed. Open-label, single centre in China.</li>
+<li>Taste RCT (n=30, semaglutide 1 mg vs placebo, 16 weeks): taste recognition improved, which is a mechanism detail [verified, PMID 41161684].</li>
+<li>Preliminary adolescent data (Cree): more frequent periods and lower testosterone with both semaglutide and diet, tracking with weight lost. Unpublished at the time of the report [reported, CNN/6abc May 2024].</li>
+</ul>
+<h3>3.4 Tirzepatide</h3>
+<ul>
+<li><strong>UK digital-clinic cohort (2026), 54,114 women, of whom 4,241 self-reported PCOS</strong> [verified, PMID 42634795, doi:10.1210/jendso/bvag177]:</li>
+<li>At 10 months: <strong>-19.4%</strong> (PCOS, n=40) vs -18.7% (no PCOS, n=397).</li>
+<li>57.7% of the PCOS group lost ≥20%.</li>
+<li>Digitally engaged users lost 3.4% more.</li>
+<li>Limits: self-reported PCOS, small 10-month n, company-authored.</li>
+<li><strong>No published PCOS RCT yet.</strong> University of Bonn phase 4 placebo-controlled trial NCT07326111: n=198, recruiting, completion 2028-12 [verified, ClinicalTrials.gov].</li>
+<li><strong>v2, semaglutide PCOS trials checked (v1 gap 9)</strong> [verified, registry records, 3 Nov 2026]:
+  | Trial | Design | Status | Results |
+  |---|---|---|---|
+  | NCT05646199 (Hull, UK) | Semaglutide up to 2.4 mg vs metformin, BMI ≥30, n=60, 28 weeks, weight primary | "Unknown"; completion was due Dec 2025 | <strong>None posted</strong> |
+  | NCT05702905 (Peking Univ. First Hospital) | Metformin vs semaglutide vs both, BMI ≥28 infertile, n=75, 12 weeks then ≥8-week washout before ovulation induction | "Unknown"; completion was due Jun 2025 | <strong>None posted</strong> |
+  | NCT05819853 RESTORE (Colorado, NICHD-funded) | Semaglutide 10 months after a 4-month observation run-in, ages 12 to 35, obese, n=80; primary = ovulation frequency by daily urine progesterone | Recruiting; primary completion Feb 2028 | Not yet |
+  | NCT06742710 (Peking Univ. Third Hospital) | Liraglutide + metformin vs metformin, obese infertile, <strong>n=890</strong> | Recruiting; to May 2029 | Not yet |
+  | NCT07687667 (Peking Univ. Third Hospital) | GLP-1 + lifestyle vs metformin + lifestyle before IVF, BMI 28 to 35, n=406, primary = ongoing pregnancy | Not yet recruiting; to 2029 | Not yet |
+  | NCT06222437 (US) | Semaglutide in PCOS | <strong>Withdrawn, 0 enrolled</strong> | n/a |</li>
+<li>The two large Peking trials (n=890 and n=406) will be the first adequately sized live-birth or ongoing-pregnancy trials, due 2028 to 2029 [inferred from registry sizes].</li>
+<li>Weight reviews: the agents produce clinically meaningful weight loss in PMOS, but there is no proven superiority between them, and most trials used sub-obesity doses alongside metformin [verified, PMID 42948675].</li>
+</ul>
+<h3>3.5 Pooled effects</h3>
+<ul>
+<li>Network meta-analysis of 27 RCTs (n=1,642) [verified, PMID 40410888, doi:10.1186/s13098-025-01730-8]:</li>
+<li>GLP-1 drugs improved menstrual frequency, all weight measures, free androgen index, free testosterone, androstenedione and SHBG.</li>
+<li>SGLT2 inhibitors lowered testosterone more.</li>
+<li><strong>Strength of evidence was very low.</strong></li>
+<li>Older network meta-analysis: GLP-1 + metformin was best for free androgen index (MD -5.44) [verified, PMID 36129662].</li>
+<li>Ovulation up to 86% with exenatide + metformin (as cited in a review) [verified as cited, PMID 42441883].</li>
+<li><strong>v2, primary located</strong> [verified, Elkind-Hirsch 2008, <a href="https://doi.org/10.1210/jc.2008-0115">PMID 18460557</a>]:<ul>
+<li>n = 60 overweight women, 24 weeks. Only <strong>42 (70%) completed</strong>.</li>
+<li>Combination therapy beat either drug alone on menstrual frequency and ovulation rate.</li>
+<li>The abstract gives <strong>no 86% figure</strong>. The number is only in the full text or the review [unverified].</li>
+</ul>
+</li>
+<li><strong>v2, newer pooled data:</strong></li>
+<li>2026 network meta-analysis (29 RCTs, 1,771 women): metformin + GLP-1 was best for lowering testosterone and free androgen index. <strong>GLP-1 alone carried the highest nausea risk (OR 6 to 9) and vomiting risk (OR up to about 27).</strong> Certainty was moderate to very low for most comparisons [verified, <a href="https://doi.org/10.1186/s13048-026-02078-x">PMID 41862977</a>].</li>
+<li>2025 meta-analysis: GLP-1 drugs lowered BMI, weight and HOMA-IR. <strong>Hormones other than those were mostly unchanged.</strong> Nausea, vomiting and dizziness were higher [verified, <a href="https://doi.org/10.1038/s41598-025-99622-4">PMID 40360648</a>].</li>
+<li><strong>Preconception outcomes (TriNetX target-trial emulation, 48,126 per arm, 2026)</strong> [verified, PMID 42857939, doi:10.1210/clinem/dgag423]:</li>
+<li>Compared with metformin, GLP-1 or GIP drugs before conception were linked with <strong>62% fewer adverse pregnancy outcomes</strong> (HR 0.38), fewer major CV events (HR 0.88) and less type 2 diabetes (HR 0.31).</li>
+<li>Observational. The authors say it does NOT support use during pregnancy.</li>
+<li><strong>HR 0.38 is strikingly large.</strong> Residual confounding is likely [inferred].</li>
+</ul>
+<h3>3.6 "Ozempic babies"</h3>
+<ul>
+<li>Social-media reports of surprise pregnancies on GLP-1 drugs [reported, CNN/6abc 8 May 2024; Motherly].</li>
+<li>Two plausible mechanisms [reported]:
+  1. Weight loss restores ovulation.
+  2. Tirzepatide slows stomach emptying, which may reduce absorption of the contraceptive pill. That is why the label wants backup contraception.</li>
+<li>Lilly called the fertility benefit an "untested hypothesis" [reported].</li>
+<li>A Novo Wegovy pregnancy registry (target &gt;1,100 pregnancies) is due around summer 2027. A Lilly registry also exists [reported].</li>
+<li><strong>v2 correction:</strong> the registry record (NCT05872022) shows a <strong>target of 728</strong>, enrolling by invitation, with <strong>primary completion in Oct 2032</strong>. The primary outcome is major malformations up to 12 months of infant age. There will be no definitive registry answer for years [verified, <a href="https://clinicaltrials.gov/study/NCT05872022">ClinicalTrials.gov</a>].</li>
+</ul>
+<h3>3.7 Washout before conception</h3>
+<ul>
+<li><strong>Semaglutide (Wegovy label §8.3):</strong> stop <strong>at least 2 months</strong> before a planned pregnancy, because of the long half-life. Animal data show embryofetal death, malformations and growth changes in rats, and early losses and malformations in rabbits and monkeys [verified, drugs.com label text].</li>
+<li><strong>Tirzepatide:</strong> about 2 months is commonly advised. It clears in about 25 to 35 days [reported, GoodRx]. Use backup contraception for 4 weeks after starting and after each dose increase if on oral contraceptives [reported, label via GoodRx; also verified as stated in PMID 42108205].</li>
+<li>Reviews give <strong>8 to 10 weeks</strong> for semaglutide and tirzepatide [verified, PMID 42441883]. Women with type 2 diabetes are advised to stop 2 months before [verified, PMID 42262435].</li>
+<li><strong>v2:</strong> the US semaglutide ovulation trial (RESTORE, NCT05819853) itself tells participants to avoid pregnancy for <strong>at least 2 months</strong> after stopping. Hormonal contraception is not allowed, so a copper IUD or barrier is required [verified, registry].</li>
+</ul>
+<h3>3.8 Baseline: how often untreated PCOS ovulates or bleeds (new in v2)</h3>
+<p>This is the comparison every "my periods came back on a GLP-1" story needs. Placebo arms are the cleanest source.
+| Study | Who | Placebo-arm result | Window |
+|---|---|---|---|
+| Nestler 1999, NEJM (n=44) [verified, <a href="https://doi.org/10.1056/NEJM199904293401703">PMID 10219066</a>] | Obese PCOS, weekly progesterone checks | <strong>6 of 22 (27%) ovulated</strong> (19/22 on D-chiro-inositol) | 6 to 8 weeks |
+| Gerli 2003, RCT (n=283) [verified, <a href="https://pubmed.ncbi.nlm.nih.gov/15206484/">PMID 15206484</a>] | Oligomenorrhoea + polycystic ovaries, twice-weekly bloods | <strong>Luteal (ovulatory) weeks were 13% of observed weeks</strong> (23% on inositol). Placebo first ovulation came at about 42 days | 14 weeks |
+| Sturrock 2002 (n=26) [verified, <a href="https://doi.org/10.1046/j.1365-2125.2002.01575.x">PMID 11994052</a>] | Clomiphene-resistant PCOS | <strong>Periods resumed in 6 of 14 (43%) on placebo</strong> vs 5 of 12 on metformin; spontaneous ovulation 1 of 14 | 3 months |
+| Nylander 2017 (n=72) [verified, PMID 28479118] | Overweight PCOS | Bleeding ratio <strong>+0.14 on placebo</strong> vs +0.28 on liraglutide | 26 weeks |
+| Cochrane metformin review [verified, PMID 31845767] | Pooled | <strong>Live birth 19% on placebo</strong> | Trial length |
+| Morin-Papunen 2012 (n=320) [verified, <a href="https://doi.org/10.1210/jc.2011-3061">PMID 22419702</a>] | Anovulatory infertility; placebo + routine fertility care after 3 months | Live birth <strong>28.8% on placebo</strong> (41.9% on metformin) | About 1 year |
+- <strong>Ageing:</strong> in 205 Dutch women with PCOS aged 30+ who were not on the pill, cycle length shortened steadily with age (P&lt;0.001). This was independent of BMI, weight loss and prior treatment. The authors put it down to follow-up and follicle loss [verified, Elting 2000, <a href="https://doi.org/10.1093/humrep/15.1.24">PMID 10611183</a>]. The study was retrospective and phone-based.
+- <strong>Remission:</strong> in a 2026 Chinese clinic cohort on metabolic drugs (metformin, GLP-1, SGLT2, TZD), 11.75% reached full remission over about 13 months, meaning regular periods, normal testosterone and normal ovaries. There was no untreated control arm [verified, <a href="https://doi.org/10.3389/fendo.2026.1877873">PMID 42597837</a>].
+- <strong>What this means</strong> [inferred]:
+  1. In any 3-month window, a sizeable minority of women with PCOS will ovulate or bleed with no active drug, roughly 1 in 4 to 4 in 10 depending on how it is measured.
+  2. One period after starting a GLP-1 is not proof the drug did it.
+  3. Repeated regular cycles over 6+ months, confirmed by a progesterone test, are the real bar.
+  4. In the RCTs, GLP-1 effects on cycles are about double placebo, not "from zero to normal".
+- Gap: no study found gives a spontaneous-ovulation rate over 12 months in untreated, non-trial PCOS. The NIH RESTORE trial uses a 4-month observation run-in with daily urine progesterone, which will give the best baseline yet when it reports (about 2028) [verified, NCT05819853].</p>
+<h3>3.9 GLP-1 in lean PCOS (new in v2)</h3>
+<ul>
+<li><strong>No RCT of any GLP-1 drug in normal-weight PCOS was found</strong> [verified absence]:</li>
+<li>PubMed title search: 8 hits, all reviews, mechanism papers or obese cohorts.</li>
+<li>ClinicalTrials.gov: 28 registered GLP-1 PCOS trials. Every one with stated entry criteria requires BMI ≥27 to 30, or "overweight/obese".</li>
+<li>A 2023 review says up to 50% of women with PCOS are lean, yet the RCTs enrolled almost only overweight women, and mostly at low or medium doses [verified, <a href="https://doi.org/10.1007/s40618-023-02084-6">PMID 37093453</a>].</li>
+<li>One registered study comes close: a continuous-kisspeptin study at MGH (NCT05971849, n=8, completed Apr 2024) allowed BMI 18.5 to 35. It is a 24-hour LH-pulse study, not a GLP-1 trial, and no results are posted [verified, registry].</li>
+<li>Hints of an effect beyond weight:</li>
+<li>In the Salamun IVF pilot, pregnancy rates rose with equal weight loss [verified, PMID 29703793].</li>
+<li>In the endometriosis GLEAM survey, normal-BMI users improved without weight loss (Endo PCOS Peptides v1).</li>
+<li>Neither is a lean-PCOS reproductive result [inferred].</li>
+<li><strong>Page line:</strong> "If you are lean with PCOS, nobody has tested GLP-1 drugs on you yet. The evidence comes from women carrying extra weight." [inferred]</li>
+</ul>
+<hr />
+<h2 id="4-peptides-and-emerging-options-evidence-graded">4. Peptides and emerging options: evidence graded</h2>
+<p>Grade key: <strong>A</strong> = RCTs in PCOS. <strong>B</strong> = human trials, not for PCOS outcomes, or small PCOS mechanism trials. <strong>C</strong> = human observational or biomarker data only. <strong>D</strong> = animal or cell only. <strong>X</strong> = no PCOS data at all.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Grade</th>
+<th>What exists</th>
+<th>Plain verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">Semaglutide / liraglutide</td>
+<td data-l="Grade">A (low certainty)</td>
+<td data-l="What exists">RCTs above</td>
+<td data-l="Plain verdict">Real weight, androgen and cycle effects in overweight PCOS. Lean PCOS data thin</td>
+</tr>
+<tr>
+<td data-l="Compound">Tirzepatide</td>
+<td data-l="Grade">B to C</td>
+<td data-l="What exists">Cohort; RCT recruiting</td>
+<td data-l="Plain verdict">Strong weight loss; PCOS endpoints pending 2028</td>
+</tr>
+<tr>
+<td data-l="Compound">Kisspeptin</td>
+<td data-l="Grade">B</td>
+<td data-l="What exists">Human IVF trials</td>
+<td data-l="Plain verdict">Used as an IVF egg-maturation trigger, not a PCOS treatment</td>
+</tr>
+<tr>
+<td data-l="Compound">NK3R antagonists (fezolinetant, AZD4901)</td>
+<td data-l="Grade">B (phase 2 RCTs)</td>
+<td data-l="What exists">2 RCTs in PCOS</td>
+<td data-l="Plain verdict">Cut LH and testosterone. Not developed further for PCOS</td>
+</tr>
+<tr>
+<td data-l="Compound">GnRH analogues</td>
+<td data-l="Grade">A for IVF use</td>
+<td data-l="What exists">IVF standard</td>
+<td data-l="Plain verdict">Antagonist protocols / agonist trigger to lower OHSS risk. Not daily PCOS therapy</td>
+</tr>
+<tr>
+<td data-l="Compound">MOTS-c</td>
+<td data-l="Grade">C</td>
+<td data-l="What exists">Biomarker studies conflict</td>
+<td data-l="Plain verdict">No human treatment data</td>
+</tr>
+<tr>
+<td data-l="Compound">Retatrutide</td>
+<td data-l="Grade">X for PCOS</td>
+<td data-l="What exists">Obesity phase 3</td>
+<td data-l="Plain verdict">No PCOS data</td>
+</tr>
+<tr>
+<td data-l="Compound">Cagrilintide (± sema)</td>
+<td data-l="Grade">X for PCOS</td>
+<td data-l="What exists">Obesity trials</td>
+<td data-l="Plain verdict">No PCOS data</td>
+</tr>
+<tr>
+<td data-l="Compound">Tesamorelin</td>
+<td data-l="Grade">X for PCOS</td>
+<td data-l="What exists">HIV visceral fat; 2 non-HIV RCTs show no glucose worsening (v2)</td>
+<td data-l="Plain verdict">No PCOS data</td>
+</tr>
+<tr>
+<td data-l="Compound">MK-677 (oral, non-peptide GH secretagogue)</td>
+<td data-l="Grade">X for PCOS, harm signal</td>
+<td data-l="What exists">2-year RCT in older adults</td>
+<td data-l="Plain verdict">Raised fasting glucose and lowered insulin sensitivity (v2)</td>
+</tr>
+<tr>
+<td data-l="Compound">Naltrexone 50 mg (not a peptide)</td>
+<td data-l="Grade">B</td>
+<td data-l="What exists">Small open trials in obese PCOS (v2)</td>
+<td data-l="Plain verdict">Cycles and clomiphene response improved; weight confounds</td>
+</tr>
+<tr>
+<td data-l="Compound">AOD-9604</td>
+<td data-l="Grade">X</td>
+<td data-l="What exists">Old obesity trials</td>
+<td data-l="Plain verdict">No PCOS data; obesity development stopped</td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu (hair)</td>
+<td data-l="Grade">D/C</td>
+<td data-l="What exists">Cell, cosmetic</td>
+<td data-l="Plain verdict">No PCOS or female-pattern hair loss RCT</td>
+</tr>
+<tr>
+<td data-l="Compound">BPC-157</td>
+<td data-l="Grade">X</td>
+<td data-l="What exists">Animal; minimal human</td>
+<td data-l="Plain verdict">Nothing for PCOS</td>
+</tr>
+<tr>
+<td data-l="Compound">PT-141 (bremelanotide)</td>
+<td data-l="Grade">B (not PCOS)</td>
+<td data-l="What exists">Phase 3 for low desire</td>
+<td data-l="Plain verdict">Approved for low libido; no PCOS-specific data</td>
+</tr>
+<tr>
+<td data-l="Compound">Melanotan I/II</td>
+<td data-l="Grade">X, harm signal</td>
+<td data-l="What exists">Case reports</td>
+<td data-l="Plain verdict">Avoid; mole changes and melanoma case reports</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.1 Kisspeptin</h3>
+<ul>
+<li>In PCOS the pulse generator is already overactive (see 1.5), so kisspeptin is not a logical daily therapy for PCOS anovulation [inferred].</li>
+<li>Its human use is as an <strong>IVF trigger</strong> in women at high risk of ovarian hyperstimulation syndrome (OHSS), a group that is often PCOS.</li>
+<li>Phase 2 RCT: a second dose of kisspeptin-54 at 10 hours improved egg yield, with moderate OHSS in 1/31 vs 0/31 [verified, PMID 28854728, doi:10.1093/humrep/dex253].</li>
+<li>Kisspeptin-54 dose reported as 9.6 nmol/kg (once or twice); most participants had PCOS [verified, PMID 29206944].</li>
+<li>Kisspeptin-10 still raised LH in PCOS while neurokinin B was blocked [verified, PMID 32510130].</li>
+<li>Serum kisspeptin may predict IVF outcome in PCOS (AUC 0.655) [verified, PMID 42244951].</li>
+<li>Not approved. Research-only [reported].</li>
+<li><strong>v2:</strong> PubMed has no 2025 to 2026 kisspeptin PCOS trial [verified absence]. The MGH continuous-kisspeptin study (NCT05971849) tested whether a 24-hour infusion <em>dampens</em> LH pulses in PCOS (n=8, completed Apr 2024). No results are posted [verified, registry]. Abbara 2015 phase 2 numbers (gap 8) were not re-opened this pass.</li>
+</ul>
+<h3>4.2 NK3R antagonists (non-peptide, but they target the same pathway)</h3>
+<ul>
+<li><strong>AZD4901, 28 days, n=67</strong> (80 mg/day arm, as reported) [verified, PMID 27459523, doi:10.1210/jc.2016-1202]:</li>
+<li>LH area under the curve <strong>-52%</strong>, total testosterone <strong>-28.7%</strong>, LH pulses -3.55 per 8 hours.</li>
+<li><strong>Fezolinetant, 12 weeks, n=73</strong> (60 or 180 mg/day, as reported) [verified, PMID 34000049, doi:10.1210/clinem/dgab320]:</li>
+<li>Testosterone -0.80 nmol/L vs -0.05 on placebo. LH -10.2 vs -3.2 IU/L. Well tolerated.</li>
+<li>Fezolinetant was later approved for menopausal hot flushes, with liver-injury warnings [reported, flag].</li>
+<li>No PCOS phase 3 has been found [inferred from the ClinicalTrials.gov and PubMed searches this pass].</li>
+<li><strong>v2:</strong> a ClinicalTrials.gov search for fezolinetant, elinzanetant or "neurokinin" with PCOS returned <strong>0 trials</strong>. PubMed 2024 to 2026 holds only reviews citing the older phase 2 data [verified, 3 Nov 2026]. No active PCOS programme is visible.</li>
+<li>This is the most mechanism-direct "root cause" drug class for lean, LH-driven PCOS [inferred].</li>
+</ul>
+<h3>4.3 GnRH analogues</h3>
+<ul>
+<li>Used inside IVF cycles. Antagonist protocols and a GnRH-agonist trigger reduce OHSS risk in PCOS [reported, standard practice; verified indirectly in PMID 29206944, which calls the agonist trigger "a safer alternative to hCG"].</li>
+<li>Not used as ongoing PCOS treatment, since long-term suppression causes menopause-like effects [inferred].</li>
+</ul>
+<h3>4.4 MOTS-c</h3>
+<ul>
+<li>Australian/European cohort: serum MOTS-c <strong>220 vs 498 pg/mL</strong> (PCOS vs controls), lower in muscle too, and inversely related to testosterone [verified, PMID 41680431, doi:10.1038/s41598-026-39687-x; a published correction exists, PMID 42716952, content not available].</li>
+<li><strong>v2 correction:</strong><ul>
+<li>The cohort is <strong>Turkish</strong> (Hacettepe University, Ankara): 40 PCOS vs 40 BMI-matched controls. It is not Australian or European.</li>
+<li>The testosterone correlation is weak: r = -0.22, p = 0.046.</li>
+<li>The correction notice (Sep 2026) has no abstract, so its content is still unknown.</li>
+<li>Both MOTS-c studies (this one and the adolescent study) are therefore Turkish [verified, PMID 41680431 affiliations].</li>
+</ul>
+</li>
+<li>Turkish adolescent study (121 PCOS, 125 controls): <strong>no significant difference</strong> (p=0.059, trending <em>higher</em>) [verified, PMID 41945630].</li>
+<li>So the human biomarker findings <strong>conflict</strong>. No human trial gives MOTS-c to people with PCOS [verified absence in searches]. A 2026 perspective calls the clinical link "initial, unreplicated" [verified, PMID 42880137].</li>
+</ul>
+<h3>4.5 Retatrutide</h3>
+<ul>
+<li>Obesity phase 3 TRIUMPH-2 and -3 (80 weeks) [verified, HCPLive 23 Jul 2026]:</li>
+<li>Weight loss up to <strong>-20.8%</strong> (12 mg, TRIUMPH-2, type 2 diabetes) and <strong>-22.6%</strong> (12 mg, TRIUMPH-3).</li>
+<li>Diarrhoea 24 to 30%. 13.5% stopped for side effects vs 4.8% on placebo.</li>
+<li>FDA filing planned Q1 2027.</li>
+<li><strong>No PCOS data, and no PCOS trial registered</strong> [verified by search].</li>
+<li>Not approved anywhere [reported].</li>
+</ul>
+<h3>4.6 Cagrilintide (amylin analogue; CagriSema with semaglutide)</h3>
+<ul>
+<li>Listed among late-stage obesity drugs in a 2026 Lancet Diabetes &amp; Endocrinology review [verified, PMID 42208956].</li>
+<li>REDEFINE-1 weight loss was about 20 to 23% [reported, not re-opened].</li>
+<li><strong>v2:</strong> REDEFINE 1 (68 weeks, n=3,417, no diabetes): CagriSema <strong>-20.4% vs -3.0%</strong> on placebo. GI side effects 80% vs 40%. REDEFINE 2 (type 2 diabetes, n=1,206): -13.7% vs -3.4%. No sex subgroup was given in the summary [verified as reported by the ACC journal scan, <a href="https://www.acc.org/latest-in-cardiology/journal-scans/2025/07/02/14/43/redefine-1-and-redefine-2">ACC Jul 2025</a>; NEJM primary not opened].</li>
+<li><strong>No PCOS-specific data</strong> [verified by search].</li>
+</ul>
+<h3>4.7 Tesamorelin</h3>
+<ul>
+<li>A growth-hormone-releasing hormone analogue approved for HIV-associated visceral fat. Recent literature is HIV case reports from a manufacturer-linked team [verified, PMID 42139091].</li>
+<li><strong>No PCOS data</strong> [verified by search].</li>
+<li>Raises IGF-1 and can worsen glucose, which is a concern given PCOS insulin resistance [reported, label-level knowledge; flag].</li>
+<li><strong>v2 correction (adversarial check): the glucose concern is weaker than v1 said.</strong><ul>
+<li>Obese adults with low GH, 12 months, n=60: visceral fat, triglycerides, CRP and carotid thickness improved, IGF-1 rose, and fasting glucose, 2-hour glucose and HbA1c did <strong>not</strong> change [verified, Makimura 2012, <a href="https://doi.org/10.1210/jc.2012-2794">PMID 23015655</a>].</li>
+<li>Type 2 diabetes, 12 weeks, n=53: insulin response and HbA1c did not differ from placebo [verified, Clemmons 2017, <a href="https://doi.org/10.1371/journal.pone.0179538">PMID 28617838</a>; manufacturer co-author].</li>
+</ul>
+</li>
+<li>Retag: "worsens glucose" becomes <strong>[not supported in 2 RCTs; label caution reported]</strong>. It is still untested in PCOS.</li>
+</ul>
+<h3>4.8 AOD-9604</h3>
+<ul>
+<li>A growth hormone fragment that was in obesity trials in the mid-2000s [verified that it was listed as in development, PMID 16931496, 17971763].</li>
+<li>Phase 2b reportedly failed to beat placebo and development stopped (around 2007) [reported, not verified this pass].</li>
+<li><strong>v2:</strong> a search found only secondary peptide-guide pages and a 2006 CEO interview. No primary trial report or registry result was reached [still reported]. Excluded from evidence: seller and peptide-guide sites.</li>
+<li><strong>No PCOS data.</strong></li>
+</ul>
+<h3>4.9 GHK-Cu (hair loss)</h3>
+<ul>
+<li>Pickart's review says GHK-Cu increases hair follicle size and improves hair-transplant success. The author is the compound's commercial developer [verified, PMID 18644225].</li>
+<li>The cell work is on keratinocyte stem cells [verified, PMID 23019153].</li>
+<li><strong>No RCT in female-pattern hair loss or PCOS.</strong> The evidence-backed first line is 5% minoxidil, plus anti-androgens if androgens are high [verified, PMID 30785992].</li>
+<li><strong>v2:</strong> PubMed for GHK-Cu or copper peptide with scalp hair loss and a human clinical trial returned <strong>0 results</strong> [verified absence, 3 Nov 2026].</li>
+<li><strong>v2, oral minoxidil:</strong><ul>
+<li>There is a randomised trial of low-dose oral minoxidil in female-pattern hair loss (0.25 mg vs 1 mg). Its abstract is not available, so the numbers were not read [verified existence, <a href="https://doi.org/10.1016/j.jaad.2022.01.017">PMID 35077777</a>].</li>
+<li>Reviews describe low-dose oral use with tachycardia and swelling as systemic side effects [verified, <a href="https://doi.org/10.1111/jocd.70863">PMID 42003048</a>].</li>
+<li>Adolescent oral minoxidil + bicalutamide is reported as a letter only [verified existence, PMID 39863164].</li>
+<li>A PCOS-specific oral minoxidil trial was not found.</li>
+</ul>
+</li>
+<li>Topical cosmetic use has a low risk profile [inferred].</li>
+</ul>
+<h3>4.10 BPC-157</h3>
+<ul>
+<li><strong>No PCOS data and no meaningful human efficacy trials</strong> [verified by search: PubMed "BPC-157 human" returns reviews and animal work].</li>
+<li>No mechanistic reason to expect an effect on ovulation or androgens [inferred].</li>
+</ul>
+<h3>4.11 PT-141 (bremelanotide)</h3>
+<ul>
+<li>RECONNECT phase 3 (premenopausal women with low desire, HSDD): 1.75 mg under the skin as needed (as reported) improved desire and reduced distress across BMI and testosterone subgroups. That covers 1,202 women in the integrated analysis [verified, PMID 35230162].</li>
+<li>Open-label year: nausea <strong>40.4%</strong>, flushing 20.6%, headache 12.0% [verified, PMID 31599847, doi:10.1097/AOG.0000000000003514].</li>
+<li><strong>Not studied in PCOS.</strong></li>
+<li>Relevance: low desire and body-image distress are common in PCOS [inferred].</li>
+<li>Label cautions include transient blood-pressure rise and focal hyperpigmentation [reported, flag].</li>
+<li><strong>v2, label checked</strong> [verified, <a href="https://www.drugs.com/pro/vyleesi-injection.html">Vyleesi PI via drugs.com</a>]:<ul>
+<li>Blood pressure rises by up to about 6/3 mmHg, peaking 2 to 4 hours after a dose and back to baseline within about 12 hours. Heart rate drops by up to 5 bpm.</li>
+<li><strong>Contraindicated</strong> with uncontrolled hypertension or known cardiovascular disease.</li>
+<li>Focal hyperpigmentation: 1% at ≤8 doses a month, but <strong>38% with daily dosing for 8 days</strong>, more with darker skin. It did not always resolve.</li>
+<li>Nausea 40% vs 1% on placebo. 8% stopped because of it.</li>
+<li>Maximum 1 dose per 24 hours. More than 8 a month is not recommended.</li>
+<li><strong>It lowers oral naltrexone levels.</strong> Avoid combining with naltrexone used for alcohol or opioid treatment. This matters for anyone trying naltrexone for PCOS (section 12.2) [verified label; inferred relevance].</li>
+</ul>
+</li>
+</ul>
+<h3>4.12 Melanotan I/II</h3>
+<ul>
+<li>Unregulated alpha-MSH analogues. Case reports describe changes in existing moles, new dysplastic moles, and <strong>4 melanomas</strong> arising during or shortly after use. Health agencies have issued warnings [verified, PMID 28266027, doi:10.1111/ijd.13585].</li>
+<li><strong>No role in PCOS.</strong> Use in the PCOS community seems to come from tanning and appetite culture [speculated].</li>
+</ul>
+<hr />
+<h2 id="5-usual-questions-people-ask">5. Usual questions people ask</h2>
+<p><strong>Can I get pregnant?</strong>
+- Yes, most can, often with help.
+- Letrozole gives about 27.5% live birth over up to 5 cycles in the RCT population (see 2.5). Gonadotrophins and IVF are later steps [verified].
+- Weight loss before treatment improves odds [verified, guideline counselling]. One open-label trial found semaglutide + metformin pretreatment doubled natural pregnancy (35% vs 15%) [verified].
+- PCOS pregnancies carry more complications (gestational diabetes, preeclampsia and others), which antenatal guidelines under-recognise [verified, PMID 42249166]. The guideline advises an OGTT before pregnancy and again at 24 to 28 weeks [verified].</p>
+<p><strong>Does it go away? Is it lifelong?</strong>
+- Officially it is a lifelong endocrine and metabolic condition. The rename stresses that [verified, PMID 42669621].
+- Cycles often become more regular in the late 30s and 40s as follicle numbers fall, but metabolic and CV risk persists. CV risk diverges from about age 35 [verified for CV risk; cycle normalisation with age is reported, not re-verified, flag].</p>
+<p><strong>Lean PCOS treatment?</strong>
+- It is often LH- and androgen-driven (see 1.2).
+- Options: COCP, spironolactone, letrozole for fertility. Metformin is a weaker, conditional option below BMI 25. Inositol is low certainty but low risk.
+- GLP-1 drugs are not indicated without higher weight, and lean-PCOS GLP-1 data are thin [verified, guideline; PMID 42948675].
+- NK3R antagonists are the most logical future option, but are not available for PCOS [inferred].</p>
+<p><strong>Hair loss and acne?</strong>
+- Acne: COCP, plus spironolactone after 6 months. Topicals are standard [verified, guideline].
+- Scalp hair: 5% minoxidil first [verified].
+- Hair responds slowly. Expect 6 to 12 months [reported].</p>
+<p><strong>Anxiety and depression?</strong>
+- Clearly raised. Screening is recommended for everyone [verified, guideline; PMID 37071426].
+- Children of mothers with PCOS show higher odds of ASD (about 1.4 to 1.7), ADHD (about 1.4 to 1.5) and anxiety (1.33) [verified, PMID 34750348]. This is associative.</p>
+<p><strong>Long-term risks?</strong>
+- Type 2 diabetes: OR about 2.9 [verified, PMID 42669621].
+- Cardiovascular disease: HR 1.32, including lean women (1.40) [verified, PMID 41439462].
+- Endometrial hyperplasia or cancer, among women with abnormal bleeding: hyperplasia OR 3.09, cancer <strong>OR 6.98</strong> [verified, PMID 41847749, doi:10.17305/bb.2026.13498; 9 retrospective studies in a symptomatic population, so this overstates general-population risk].
+- The often-cited general PCOS endometrial cancer OR is about 2.8 (Barry 2014) [reported, flag].
+- Protection: regular withdrawal bleeds (COCP or cyclical progestogen) and weight management. Routine screening is not recommended [verified, guideline].
+- Adolescents: higher odds of metabolic syndrome, clustering in waist, systolic BP (+3.8 mmHg) and triglycerides [verified, PMID 41970391].</p>
+<p><strong>Best diet?</strong> See 2.1. No single winner; protein-forward energy deficit plus exercise.</p>
+<ul>
+<li><strong>v2 addition to "Long-term risks", cancer:</strong></li>
+<li>Barry 2014 confirmed endometrial cancer <strong>OR 2.79</strong> (5 studies), rising to <strong>OR 4.05 under age 54</strong>. Ovarian cancer OR 1.41 was not significant overall, but OR 2.52 under 54. Breast cancer was not raised (OR 0.95). The authors warn that obesity and selection bias may exaggerate these [verified, <a href="https://doi.org/10.1093/humupd/dmu012">PMID 24688118</a>].</li>
+<li>2024 update: pooled endometrial cancer RR <strong>3.46</strong> (9 studies). US prevalence is 1.7% in PCOS vs 0.5% overall, and about 24% of endometrial cancer is attributable to PCOS [verified, Pace 2024, <a href="https://doi.org/10.1210/clinem/dgae527">PMID 39106216</a>].</li>
+<li>Absolute risk stays low. "About 2 in 100 vs 1 in 200" is the honest framing [inferred from Pace prevalence figures].</li>
+</ul>
+<h3>5A. Usual questions: 15 with short evidence answers (new in v2)</h3>
+<ol>
+<li><strong>Is PCOS the same as PMOS?</strong>
+   - Yes. The condition is the same and the diagnostic criteria did not change.
+   - The name changed in May 2026 because cysts are not the problem and the condition is metabolic and hormonal [verified, PMID 42119588].
+   - Guidelines finish switching terms in 2028 [reported, Monash].</li>
+<li><strong>How common is it?</strong>
+   - About 1 in 10 to 1 in 8 women of reproductive age, depending on the criteria used: 9.2% overall in a 2024 meta-analysis, and "one in eight" in the Lancet consensus [verified, PMID 38922413, 42119588].</li>
+<li><strong>Can I have PCOS if I'm thin?</strong>
+   - Yes. In unselected community samples, average BMI in PCOS was no higher than in controls. Only clinic patients were heavier [verified, PMID 27530062].
+   - Lean women still show insulin resistance on clamp testing (75% of 20 women) [verified, PMID 23315061]. They also carry more heart and blood-clot events (HR 1.40) [verified, PMID 41439462].</li>
+<li><strong>Can I get pregnant?</strong>
+   - Most can. Letrozole gives 27.5% live birth over up to 5 cycles vs 19.1% on clomiphene [verified, PMID 25006718]. IVF is a later step.
+   - Even on placebo plus routine fertility care, 29% had a live birth within about a year in one Finnish trial [verified, PMID 22419702].</li>
+<li><strong>Do GLP-1 drugs (Ozempic, Wegovy, Mounjaro) help fertility?</strong>
+   - In 3 small RCTs vs metformin, natural pregnancy was about 3 times more likely (OR 3.10). Overall pregnancy and IVF pregnancy were not improved, and live birth was not reported [verified, PMID 42893679].
+   - The drugs must be stopped before trying to conceive.</li>
+<li><strong>Will my periods come back on a GLP-1?</strong>
+   - Often more frequent, not guaranteed. In the liraglutide RCT, bleeding improved twice as much as on placebo, but placebo improved too [verified, PMID 28479118].
+   - Forum users who lost a lot of weight sometimes still did not cycle (v1 section 6; Endo PCOS Peptides v1).</li>
+<li><strong>If my period came back, is it the drug?</strong>
+   - Not necessarily. On placebo, about 1 in 4 ovulated within 6 to 8 weeks, and 6 of 14 restarted periods in 3 months [verified, PMID 10219066, 11994052].
+   - Look for 6+ months of regular cycles, ideally with a day-21 progesterone test to confirm ovulation [inferred].</li>
+<li><strong>How long before trying to conceive should I stop semaglutide or tirzepatide?</strong>
+   - Semaglutide: at least 2 months, per its label [verified].
+   - Tirzepatide's label gives no washout. Reviews and trial protocols use about 2 months [verified, Zepbound PI; PMID 42441883; NCT05819853].</li>
+<li><strong>Does Mounjaro stop the pill working?</strong>
+   - It can reduce oral pill absorption. The label says to switch to a non-oral method, or add a barrier method for 4 weeks after starting and after each dose increase [verified, Zepbound PI].</li>
+<li><strong>Is metformin worth it?</strong><ul>
+<li>It modestly helps ovulation (OR 2.64) and live birth vs placebo (OR 1.59, low certainty) [verified, PMID 31845767].</li>
+<li>It is far weaker than clomiphene for fertility (7.2% vs 22.5% live birth) [verified, PMID 17287476].</li>
+<li>GI upset hits 22 to 40% [verified, PMID 31845767].</li>
+</ul>
+</li>
+<li><strong>Does inositol work?</strong><ul>
+<li>Possibly a small effect on ovulation. In one trial, ovulatory weeks were 23% vs 13% on placebo [verified, PMID 15206484].</li>
+<li>The guideline meta-analysis calls the evidence "limited and inconclusive" [verified, PMID 38163998]. It is low risk and low certainty.</li>
+</ul>
+</li>
+<li><strong>What helps hair loss, acne and facial hair?</strong><ul>
+<li>Acne and facial hair: the pill first, then spironolactone (with contraception) after 6 months [verified, guideline].</li>
+<li>Scalp hair: 5% topical minoxidil first [verified, PMID 30785992]. Oral low-dose minoxidil is used, but PCOS-specific trials were not found.</li>
+<li>GHK-Cu has no human scalp trial [verified absence].</li>
+</ul>
+</li>
+<li><strong>Is PCOS linked to anxiety and depression?</strong><ul>
+<li>Strongly: depression OR 3.78 and anxiety OR 5.62, still high when matched for weight [verified, PMID 28333286]. Screening is recommended for everyone.</li>
+</ul>
+</li>
+<li><strong>Does it go away with age?</strong><ul>
+<li>Cycles tend to shorten and regularise after 30 [verified, PMID 10611183]. The metabolic and cardiovascular risk does not go away, and it diverges from about age 35 [verified, PMID 42669621].</li>
+<li>Full "remission" on metabolic drugs was 12% in one clinic cohort [verified, PMID 42597837].</li>
+</ul>
+</li>
+<li><strong>Do research peptides (BPC-157, MOTS-c, CJC/ipamorelin, GHK-Cu, melanotan) help PCOS?</strong><ul>
+<li>No human PCOS data exist for any of them.</li>
+<li>MOTS-c blood levels conflict between two Turkish studies.</li>
+<li>The oral GH secretagogue MK-677 raised fasting glucose and cut insulin sensitivity in a 2-year RCT [verified, PMID 18981485]. No glucose data exist for CJC/ipamorelin.</li>
+<li>Melanotan has mole and melanoma reports [verified, PMID 28266027]. See sections 4 and 12.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="6-community-signal-weak-data-flagged">6. Community signal (weak data, flagged)</h2>
+<p>The sources here are Reddit mirrors (r/PCOS, r/TTC_PCOS), Mumsnet, and one personal blog. Reddit was read through third-party mirror front-ends, which may be incomplete. All counts are tiny and self-selected.</p>
+<ul>
+<li><strong>r/TTC_PCOS "semaglutide for PCOS" thread (2025):</strong> among GLP-1 users, about 5 positive or mixed vs 1 no change [reported, mirror].</li>
+<li>Periods returned for 3 (one on compounded semaglutide after -58 lb, one on Zepbound after -50 lb who then conceived with fertility help).</li>
+<li>Androgens reached goal on Zepbound for 1.</li>
+<li>1 pregnancy after reaching goal weight, though chin hair was unchanged.</li>
+<li><strong>1 lost 65 to 70 lb on Wegovy with no cycle change.</strong></li>
+<li>Cycles lengthened again after stopping tirzepatide and regaining weight (1).</li>
+<li>1 second-hand bowel obstruction story.</li>
+<li><strong>r/PCOS "considering Ozempic" (2026):</strong> 1 tirzepatide user lost 18 lb in 5 months but on about 1,000 kcal/day. 1 semaglutide user had a better A1C but <strong>no weight loss</strong> and constant hunger [reported].</li>
+<li><strong>Mumsnet, Mounjaro + classic PCOS (no periods):</strong> the original poster had one possible period about 2 months in, then none, after 15 kg lost at 7.5 mg. One reply described occasional light periods that faded again [reported].</li>
+<li><strong>n=1 blog (2026):</strong> low-dose semaglutide, period returned at about month 5 after 1.5 years without one. Combined with resistance training and 100 to 110 g protein. No lab numbers given [reported]. The author cites a 20 to 30% non-responder rate from the literature; source not traced [unverified].</li>
+<li><strong>Signal summary:</strong> the dominant community story is "weight off → periods back, sometimes a surprise pregnancy". <strong>Non-responders exist even with large weight loss</strong> (the 65 to 70 lb Wegovy case). Regain after stopping brings symptoms back [inferred from the pattern].</li>
+<li>Clinician-observed reports are the most convincing tier. None of the threads contained a doctor-confirmed ovulation or scan. This pass found no clinician-observed community data [flag].</li>
+<li><strong>Bias warning:</strong> pages such as formblends and trytrimi "success stories" come from compounding and telehealth sellers. They were excluded as promotional. Forum positivity skews toward people who succeeded [inferred].</li>
+</ul>
+<hr />
+<h2 id="7-pairings-and-related-conditions">7. Pairings and related conditions</h2>
+<ul>
+<li><strong>Common clinical pairings:</strong></li>
+<li>Metformin + GLP-1 (best-studied combination).</li>
+<li>COCP + spironolactone.</li>
+<li>Letrozole ± metformin.</li>
+<li>Lifestyle with everything.</li>
+<li>[verified across 2.x, 3.x]</li>
+<li><strong>Related conditions to interlink:</strong></li>
+<li>Insulin resistance and prediabetes.</li>
+<li>Fatty liver (MASLD; liraglutide cut it by two thirds in PCOS).</li>
+<li>Sleep apnoea.</li>
+<li>Subclinical hypothyroidism (~20%).</li>
+<li>Hidradenitis suppurativa (metabolic overlap; GLP-1 interest, PMID 42454220).</li>
+<li>Depression and anxiety.</li>
+<li>Gestational diabetes.</li>
+<li>Endometrial hyperplasia.</li>
+<li>[verified per cited PMIDs]</li>
+<li><strong>Peptide pairings people talk about</strong> (GLP-1 + "recovery" peptides such as BPC-157, or + MOTS-c): <strong>no PCOS data</strong>. Speculative stacking [speculated].</li>
+</ul>
+<hr />
+<h2 id="8-negative-mirror-failures-side-effects-pregnancy-risk">8. Negative mirror (failures, side effects, pregnancy risk)</h2>
+<ul>
+<li><strong>Non-response:</strong> large weight loss without cycle return happens (community). Trials report averages that hide non-responders. Pooled GLP-1 evidence is "very low" certainty [verified, PMID 40410888].</li>
+<li><strong>Regain:</strong> a 2026 systematic review (18 reports) found weight regain and loss of cardiometabolic benefit commonly follow stopping GLP-1 or GIP/GLP-1 drugs [verified, PMID 42941232, doi:10.3390/metabo16100757]. This matters for PCOS because people must stop before conception [inferred].</li>
+<li><strong>Lean mass and bone:</strong> GLP-1 drugs reduce absolute lean mass, and BMD may fall [verified as a review statement, PMID 42967192].</li>
+<li><strong>GI side effects:</strong></li>
+<li>Retatrutide diarrhoea up to 30% [verified].</li>
+<li>Bremelanotide nausea 40% [verified].</li>
+<li>Metformin GI effects exceed myo-inositol's [verified].</li>
+<li><strong>Heart rate:</strong> liraglutide raised heart rate in the PCOS RCT [verified, PMID 29295870].</li>
+<li><strong>Pregnancy exposure on GLP-1 drugs:</strong></li>
+<li>Animal data show harm [verified, label].</li>
+<li>Human data so far are reassuring for major malformations [verified]:<ul>
+<li>US cohort, adjusted RR <strong>0.95</strong> vs insulin (938 GLP-1-exposed) [PMID 38079178, doi:10.1001/jamainternmed.2023.6663].</li>
+<li>European teratology cohort, birth defects 2.6% vs 2.3% (diabetic) and 3.9% (obese). <strong>Terminations 18% vs 6 to 8%</strong> [PMID 38663923].</li>
+<li>2026 systematic review: no consistent malformation, growth-restriction or stillbirth signal; data on continued use through pregnancy are limited [PMID 41885132].</li>
+<li>Accidental exposure is not a reason to recommend termination, based on the type 2 diabetes data [verified, PMID 42262435].</li>
+</ul>
+</li>
+<li><strong>Pill failure</strong> risk on tirzepatide (gastric emptying) → unplanned pregnancy while on the drug [reported, label].</li>
+<li><strong>Anti-androgens in pregnancy:</strong> spironolactone and cyproterone carry a risk of feminising a male fetus, so contraception is mandatory [verified, guideline].</li>
+<li><strong>Letrozole:</strong> major anomalies 4 vs 1, not significant, but it was the reason for the historic caution [verified, PMID 25006718].</li>
+<li><strong>Gonadotrophins:</strong> may raise miscarriage risk (RR 2.23, low certainty) [verified].</li>
+<li><strong>Grey-market peptides:</strong> melanotan carries a melanoma/mole signal [verified]. Compounded or unregulated GLP-1 dosing errors were not researched this pass [flag].</li>
+</ul>
+<hr />
+<h2 id="9-warnings-for-the-bottom-of-the-page">9. Warnings (for the bottom of the page)</h2>
+<ol>
+<li>GLP-1 drugs are not approved for PCOS or fertility. Stop semaglutide ≥2 months before trying to conceive (label), and plan the same for tirzepatide.</li>
+<li>On tirzepatide, the pill may fail. Use a backup method for 4 weeks after starting and after each dose increase.</li>
+<li>Spironolactone and other anti-androgens need reliable contraception.</li>
+<li>Long gaps between periods (&gt;90 days) raise endometrial risk. Ask about a withdrawal bleed or progestogen.</li>
+<li>Screening: glucose (OGTT is best) at diagnosis and every 1 to 3 years, lipids, blood pressure yearly, and mood.</li>
+<li>Peptides in sections 4.4 to 4.12 have no PCOS evidence. Melanotan has a melanoma signal. None should be used while trying to conceive or while pregnant.</li>
+<li>Self-diagnosis is risky. Thyroid disease, prolactin excess and non-classic CAH mimic PCOS.</li>
+</ol>
+<hr />
+<h2 id="10-sources-not-accessible-or-not-fully-read-flags">10. Sources not accessible or not fully read (flags)</h2>
+<ul>
+<li><strong>Lancet PMOS paper</strong> (doi:10.1016/S0140-6736(26)00717-8): full text not opened. Facts come from MedicalNewsToday, Medicine Today (Aug 2026) and Medical Dialogues.</li>
+<li><strong>Monash guideline page:</strong> blocked by the allowlist. The summary PDF via monashivf.com was used instead.</li>
+<li><strong>Vink 2006 twin study</strong> (PMID 16219714): PubMed returned a captcha. The heritability figure is unverified.</li>
+<li><strong>JAMA Netw Open 2023 mental health meta-analysis:</strong> PCOS-specific depression and anxiety ORs fall in the truncated part of the abstract.</li>
+<li><strong>Reddit:</strong> read only through mirrors (lr.in.psf.lt, r.darklab.sh). Threads may be partial.</li>
+<li><strong>Wegovy label:</strong> read via drugs.com, first 100k characters only.</li>
+<li><strong>Zepbound label:</strong> read only through GoodRx (secondary).</li>
+<li>The <strong>liraglutide+metformin 69.2% vs 35.4%</strong> and <strong>exenatide 86% ovulation</strong> figures were taken from a review, not the primary trials.</li>
+<li>The <strong>MOTS-c Sci Rep correction</strong> (PMID 42716952): content unknown. It may alter the 220 vs 498 pg/mL figures.</li>
+<li><strong>v2 status of these flags:</strong></li>
+<li>Lancet: abstract and PubMed record read; full text still not opened.</li>
+<li>Vink: abstract now read via the PubMed tool.</li>
+<li>Cooney ORs: found.</li>
+<li>Zepbound label: now read directly.</li>
+<li>Liraglutide + metformin: primary opened.</li>
+<li>Exenatide 86%: still review-only.</li>
+<li>MOTS-c correction: still no content.</li>
+<li>Not reachable in v2: the Vyleesi page at the first drugs.com path (allowlist); the NEJM REDEFINE primary; abstracts for PMID 35077777 and 39863164.</li>
+</ul>
+<h2 id="11-adversarial-check-6-headline-numbers-traced-to-primary-ne">11. Adversarial check: 6 headline numbers traced to primary (new in v2)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>v1 claim</th>
+<th>Primary source checked</th>
+<th>Verdict</th>
+<th>Retag / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="v1 claim">Letrozole 27.5% vs clomiphene 19.1% live birth, n=750</td>
+<td data-l="Primary source checked">NEJM 2014 abstract, <a href="https://doi.org/10.1056/NEJMoa1313517">PMID 25006718</a>: 103/374 vs 72/376, RR 1.44 (1.10 to 1.87)</td>
+<td data-l="Verdict"><strong>Holds</strong></td>
+<td data-l="Retag / fix">[verified]. Cochrane 2018 OR 1.68 agrees</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="v1 claim">Semaglutide + metformin 6.09 vs 2.25 kg; natural pregnancy 35% vs 15%</td>
+<td data-l="Primary source checked">RB&amp;E 2025 abstract, <a href="https://doi.org/10.1186/s12958-025-01447-3">PMID 40713699</a></td>
+<td data-l="Verdict"><strong>Holds as numbers.</strong> Add: open label, single centre, 80% completion, pregnancies during the metformin-only phase, registered Oct 2024</td>
+<td data-l="Retag / fix">[verified numbers; design caveats inferred]</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="v1 claim">Tirzepatide -19.4% vs -18.7% at 10 months</td>
+<td data-l="Primary source checked">J Endocr Soc 2026 abstract, <a href="https://doi.org/10.1210/jendso/bvag177">PMID 42634795</a></td>
+<td data-l="Verdict"><strong>Holds.</strong> n=40 of 4,241 at 10 months; company authors</td>
+<td data-l="Retag / fix">[verified]; add "under 1% of PCOS users reached 10 months"</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="v1 claim">Nordic CVD HR 1.32; 1.40 at BMI &lt;25</td>
+<td data-l="Primary source checked">Eur J Endocrinol 2026 abstract, <a href="https://doi.org/10.1093/ejendo/lvaf266">PMID 41439462</a></td>
+<td data-l="Verdict"><strong>Numbers hold, label wrong.</strong> The outcome = major cardiac events + PE + DVT; the 1.40 is BMI &lt;25 <em>and no type 2 diabetes</em></td>
+<td data-l="Retag / fix">Reword to "heart and blood-clot events"; [verified]</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="v1 claim">Prevalence 9.2% (NIH 5.5%, Rotterdam 11.5%, AES 7.1%)</td>
+<td data-l="Primary source checked">Arch Gynecol Obstet 2024 abstract, <a href="https://doi.org/10.1007/s00404-024-07607-x">PMID 38922413</a></td>
+<td data-l="Verdict"><strong>Holds.</strong> Note very wide CIs (Rotterdam 6.6 to 19.4%; AES 2.3 to 20.2%) and that the search ended Feb 2021</td>
+<td data-l="Retag / fix">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="v1 claim">Insulin resistance in 75% lean / 95% overweight PCOS</td>
+<td data-l="Primary source checked">Hum Reprod 2013, <a href="https://doi.org/10.1093/humrep/des463">PMID 23315061</a></td>
+<td data-l="Verdict"><strong>Holds, but tiny base.</strong> 20 + 20 women; 62% of overweight <em>controls</em> were also insulin resistant. v1 cited the wrong journal (JCEM)</td>
+<td data-l="Retag / fix">[verified]; add n and the control figure</td>
+</tr>
+</tbody>
+</table></div>
+<p>Other corrections found while checking (all [verified] at the PMIDs shown):
+- PPCOS I: 7.2 / 22.5 / 26.8% live birth (v1 had "about 7, 22, 27"). PMID 17287476.
+- Liraglutide + metformin cumulative pregnancy: control arm <strong>35.7%</strong>, not 35.4%. n=28. PMID 29703793.
+- MOTS-c cohort: Turkish, not Australian/European. PMID 41680431.
+- Wegovy pregnancy registry: n=728, completion 2032, not "&gt;1,100, summer 2027". NCT05872022.
+- Tesamorelin: no glucose worsening in 2 RCTs. PMID 23015655, 28617838.
+- Vink twin study: the abstract gives correlations (0.71 vs 0.38), not a heritability %. PMID 16219714.</p>
+<h2 id="12-folded-in-from-endo-pcos-peptides-v1-new-in-v2">12. Folded in from Endo PCOS Peptides v1 (new in v2)</h2>
+<p>This section re-verifies the key items at primary source where possible. The source file is the "Endo PCOS Peptides v1.md" community and study pass, 3 Nov 2026.</p>
+<h3>12.1 GLP-1 vs metformin meta-analysis: natural pregnancy OR 3.10</h3>
+<ul>
+<li>Kar et al. 2026: 3 RCTs (4 reports), 252 women [verified, <a href="https://doi.org/10.1016/j.ejogrb.2026.115499">PMID 42893679</a>]:</li>
+<li>Overall pregnancy OR 1.41 (0.81 to 2.45), not significant, low certainty.</li>
+<li><strong>Natural pregnancy OR 3.10 (1.74 to 5.49), moderate certainty.</strong> Trial sequential analysis supported it.</li>
+<li>IVF pregnancy OR 1.01 (0.36 to 2.85), low certainty.</li>
+<li>Live birth was not reported.</li>
+<li>The trial list is not in the abstract. These are likely the semaglutide trial (PMID 40713699) and the liraglutide IVF pilot (PMID 29703793) plus one more [speculated; check the full text].</li>
+<li>If so, one open-label trial with a pregnancy outcome measured in a metformin-only follow-up drives much of the "natural pregnancy" signal [inferred].</li>
+<li><strong>Page line:</strong> "In three small trials, women on GLP-1 drugs were about three times as likely to conceive naturally as women on metformin. No trial has yet shown more babies born, and IVF results did not change." [inferred from verified]</li>
+</ul>
+<h3>12.2 Naltrexone (50 mg, not LDN)</h3>
+<ul>
+<li><strong>Fruzzetti 2002</strong> (open, controlled, n=10 obese PCOS, 6 months) [verified, <a href="https://doi.org/10.1016/s0015-0282(02)02955-2">PMID 12009347</a>]:</li>
+<li>Menstrual cyclicity improved in 80%. Cycle length went from 40 to 360 days to about 25 to 120 days.</li>
+<li>BMI fell from 29.9 to 26.1. Free testosterone, androstenedione, DHEAS and cortisol fell.</li>
+<li>The authors say the effect "may be weight loss".</li>
+<li><strong>Ahmed 2008</strong> (n=30 clomiphene-resistant, obese, hyperandrogenic, hyperinsulinaemic) [verified, <a href="https://doi.org/10.1093/humrep/den273">PMID 18641399</a>]:</li>
+<li>Naltrexone 50 mg daily for 6 months. Clomiphene was added at 12 weeks for those not ovulating.</li>
+<li>3 of 30 ovulated on naltrexone alone. 19 of 27 ovulated with clomiphene added.</li>
+<li><strong>9 of 27 (33%) conceived</strong>: 7 term births, 1 preterm, 1 miss.</li>
+<li>BMI, insulin, LH, LH:FSH and testosterone fell.</li>
+<li>There was <strong>no control group</strong>.</li>
+<li>The other two studies cited in Endo PCOS Peptides v1 (Hadžiomerović-Pekić 2010 RCT n=29; Fulghesu 2001 n=10) were not re-opened [reported via Endo PCOS Peptides v1].</li>
+<li><strong>Limits:</strong></li>
+<li>Every study is tiny, obese-only and mostly uncontrolled.</li>
+<li>None tested LDN (1.5 to 4.5 mg).</li>
+<li>A clinician reports about 10% of PCOS patients get <em>more</em> irregular cycles on LDN [reported, Endo PCOS Peptides v1].</li>
+<li><strong>Interaction:</strong> bremelanotide (PT-141) lowers oral naltrexone exposure, so the label says avoid combining [verified, Vyleesi PI]. Naltrexone blocks opioid painkillers at surgery [reported, Endo PCOS Peptides v1].</li>
+<li>Grade: <strong>B-</strong> for 50 mg naltrexone (small human PCOS trials), <strong>X</strong> for LDN in PCOS.</li>
+</ul>
+<h3>12.3 GH peptides and blood sugar</h3>
+<p>Endo PCOS Peptides v1 flagged this as "Grade E!" for PCOS on clinician and clinic-page reports. v2 checked the primary trials.
+| Compound | Best human glucose data | Result | Tag |
+|---|---|---|---|
+| <strong>MK-677 (ibutamoren)</strong>, oral, non-peptide | 2-year RCT, n=65 healthy adults aged 60 to 81, 25 mg daily (as reported) | <strong>Fasting glucose +0.3 mmol/L (5 mg/dL), insulin sensitivity down</strong>, weight +2.7 kg vs +0.8 kg, appetite up, oedema, cortisol up | [verified, <a href="https://doi.org/10.7326/0003-4819-149-9-200811040-00003">PMID 18981485</a>] |
+| <strong>Tesamorelin</strong> | 12-month RCT n=60 obese adults; 12-week RCT n=53 type 2 diabetes | <strong>No change</strong> in fasting glucose, 2-hour glucose or HbA1c; visceral fat and triglycerides down | [verified, PMID 23015655, 28617838] |
+| <strong>CJC-1295 / ipamorelin</strong> | No glucose RCT found in this pass | Unknown | [verified absence in a PubMed search; not exhaustive] |
+| <strong>AOD-9604</strong> | No primary data reached | Unknown | [reported] |
+- <strong>Revised verdict:</strong>
+  - Keep the PCOS warning for <strong>MK-677</strong>, where the glucose rise is verified [verified].
+  - Soften it for tesamorelin: no glucose harm in RCTs, but no PCOS data [verified].
+  - CJC/ipamorelin: unknown. GH and IGF-1 raise insulin resistance as a class, which is reasonable to flag but not demonstrated [inferred].
+- <strong>Page line:</strong> "One growth-hormone booster (MK-677) raised blood sugar in a two-year trial. That works against PCOS. Others haven't been tested in PCOS at all." [inferred from verified]</p>
+<h3>12.4 Community tally (from Endo PCOS Peptides v1, not re-checked)</h3>
+<ul>
+<li><strong>21 first-hand GLP-1 users with PCOS</strong> outside Reddit [reported]:</li>
+<li>About 18 lost weight.</li>
+<li>5 reported periods returning or regular; 1 had a one-off bleed; 1 had worse period pain; 1 had spotting.</li>
+<li>Skin and hair: 3 better, 2 the same.</li>
+<li><strong>0 had ovulation confirmed by a doctor.</strong></li>
+<li>Read alongside 3.8: about 1 in 4 to 4 in 10 untreated women bleed or ovulate in a few months anyway. With 5 of 21 reporting periods back, the forum signal cannot be told apart from baseline [inferred].</li>
+<li>Clinician view: GLP-1 drugs help insulin resistance and carb hunger but "treat symptoms, not PCOS". Expect surprise pregnancies [reported, GMA 2023, via Endo PCOS Peptides v1].</li>
+<li>MOTS-c, NAD+/NMN, SS-31: rodent or cell data only, and 0 PCOS user reports [reported via Endo PCOS Peptides v1]. Continuous kisspeptin: see 4.1.</li>
+</ul>
+<h2 id="13-negative-mirror-for-2025-to-2026-new-in-v2">13. Negative mirror for 2025 to 2026 (new in v2)</h2>
+<p>Searches were for failures, null results, harms, withdrawals and missing results.
+- <strong>Unreported trials:</strong>
+  - NCT05646199 (Hull) passed its Dec 2025 completion date, and NCT05702905 (Peking) its Jun 2025 date. Both show status "Unknown" with no results posted [verified, registry, 3 Nov 2026].
+  - NCT06222437 (US semaglutide PCOS) was <strong>withdrawn with 0 enrolled</strong> [verified, registry].
+  - Publication bias toward positive GLP-1 PCOS trials is possible [inferred].
+- <strong>Null outcomes inside positive papers:</strong>
+  - The 2026 meta-analysis found no gain in overall or IVF pregnancy [verified, PMID 42893679].
+  - The 2025 meta-analysis found most hormone measures unchanged [verified, PMID 40360648].
+  - Liraglutide 1.8 mg left HOMA-IR unchanged [verified v1, PMID 28681988].
+- <strong>Tolerability:</strong>
+  - GLP-1 monotherapy vomiting OR up to about 27 and nausea OR 6 to 9 [verified, PMID 41862977].
+  - Liraglutide 3 mg GI events 58% vs 19% [verified, PMID 35710599].
+  - CagriSema GI events 80% vs 40% [verified as reported, ACC].
+- <strong>Lean mass:</strong> across 36 RCTs, including 3 in PCOS, lean tissue made up <strong>28%</strong> of weight lost on GLP-1 or SGLT2 drugs (lean mass -1.51 kg) [verified, <a href="https://doi.org/10.1002/dmrr.70194">PMID 42319968</a>].
+- <strong>Remission is rare:</strong> 11.75% full remission in a treated cohort [verified, PMID 42597837].
+- <strong>Pregnancy safety evidence is slow:</strong> the Wegovy registry is not due until 2032 [verified, NCT05872022].
+- <strong>Name-change pushback:</strong> limited to cost, branding and the "excludes men" argument. No retraction or reversal was found. Indian clinician pushback is in v1 [verified, STAT; v1].
+- <strong>Retractions:</strong> no retraction or expression of concern was found for the key PCOS GLP-1 papers cited here (PMID 40713699, 42893679, 42634795, 29703793). A PubMed search was run, and Retraction Watch was not checked [verified absence on PubMed; partial].
+- <strong>Case-report optimism:</strong> 2026 Cureus reports of "accidental spontaneous conception" on GLP-1 + SGLT2 (n=2) are case reports only. The authors still say to stop before pregnancy [verified, <a href="https://doi.org/10.7759/cureus.102358">PMID 41769480</a>]. A 2025 pilot claiming 60% pregnancy on low-dose semaglutide + metformin had n=20 and no control [verified, <a href="https://doi.org/10.1016/j.clnesp.2025.102885">PMID 41421448</a>]. Neither should be used as headline evidence.</p>
+<h2 id="gaps-for-next-pass-v2">Gaps for next pass (v2)</h2>
+<ol>
+<li>Lancet PMOS full text: ICD-11 outcome from the October 2026 WHO meeting; patient-facing wording; the guideline's 2028 plan.</li>
+<li>Kar 2026 meta-analysis full text: which 3 RCTs, and whether one trial dominates the OR 3.10.</li>
+<li>Hull NCT05646199 and Peking NCT05702905: search conference abstracts (ESHRE 2026, ENDO 2026, ECE 2026) for unpublished results.</li>
+<li>A 12-month untreated ovulation baseline: look for observational cohorts with progesterone tracking (e.g. adolescent cohorts or the PPCOS placebo-equivalent arms).</li>
+<li>Exenatide 86% ovulation: open the Elkind-Hirsch 2008 full text.</li>
+<li>Abbara 2015 kisspeptin phase 2 (n, egg maturation, OHSS) and NCT05971849 results.</li>
+<li>Oral minoxidil in female-pattern hair loss: get the RCT numbers (PMID 35077777 full text) and any PCOS subgroup; finasteride and dutasteride data.</li>
+<li>CJC-1295 / ipamorelin human glucose data (any trial); AOD-9604 phase 2b primary.</li>
+<li>Hadžiomerović-Pekić 2010 naltrexone RCT: re-open the abstract (Endo PCOS Peptides v1 cites ovulation equal to metformin).</li>
+<li>Nordic CVD: get the split between cardiac events and blood clots, and whether pill use was adjusted for.</li>
+<li>Retraction Watch check for the key PCOS GLP-1 and inositol papers.</li>
+<li>Community (carried from v1 gap 10): the ChatGPT Reddit tab G69 and a Grok X tally, compared against the 3.8 baseline.</li>
+</ol>
+<hr />
+<h3>Gaps for next pass (v1 list, kept for reference)</h3>
+<ol>
+<li>Open the Lancet PMOS paper: author count, society endorsements, whether ICD-11 code changes, patient-facing wording.</li>
+<li>Verify the PPCOS I metformin vs clomiphene live-birth numbers (Legro 2007) and add the Cochrane metformin-for-subfertility figures.</li>
+<li>Phenotype A to D frequency in clinic vs community samples (A dominates referral clinics).</li>
+<li>Lean PCOS: find RCTs of GLP-1 drugs in BMI &lt;25 or &lt;27, plus NK3R antagonist status (any 2025/26 programme?).</li>
+<li>PCOS-specific depression and anxiety ORs (Cooney 2017 meta-analysis; the 2023 guideline review).</li>
+<li>General-population endometrial cancer risk in PCOS (Barry 2014 and any 2024 to 2026 update); breast and ovarian, for completeness.</li>
+<li>Natural history: cycle regularisation with age and menopause in PCOS (Dutch and Swedish cohorts).</li>
+<li>Kisspeptin: Abbara 2015 phase 2 (n, egg maturation %, OHSS rates) and any phase 3 or regulatory status in 2026.</li>
+<li>Semaglutide PCOS RCTs registered but unreported: NCT05646199 (Hull), NCT05702905 (Peking), NCT05819853 (Colorado, ovulation endpoint, ends 2028). Check for results.</li>
+<li>Community: run Reddit through ChatGPT and X through Grok for larger GLP-1-PCOS tallies (responders vs non-responders, time to first period, surprise pregnancies). Ask specifically for clinician-confirmed ovulation reports.</li>
+<li>Hair: real evidence for oral minoxidil in female-pattern hair loss and PCOS, finasteride/dutasteride data. Check whether any GHK-Cu human scalp trial exists.</li>
+<li>Cagrilintide / CagriSema REDEFINE numbers verified at source; check for any women-of-reproductive-age subanalyses.</li>
+<li>Tesamorelin and AOD-9604 status at source (label for glucose effects; the 2007 AOD phase 2b result).</li>
+<li>Bremelanotide label warnings verified (BP, hyperpigmentation).</li>
+<li>Baseline: what % of untreated PCOS women ovulate spontaneously over 6 to 12 months, so GLP-1 "periods came back" claims have a comparison.</li>
+</ol></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

@@ -1,0 +1,715 @@
+<!doctype html>
+<!-- Goal research notes: Hair, from Hair Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="No peptide has a placebo-controlled hair trial. GLP-1 shedding mostly recovers once weight holds steady.">
+<title>Hair · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Hair</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">No peptide has a placebo-controlled hair trial. GLP-1 shedding mostly recovers once weight holds steady. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (11)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</a></li><li><a href="#1-what-each-type-is-so-readers-can-match">1. What each type is (so readers can match)</a></li><li><a href="#2-standard-treatments-with-numbers">2. Standard treatments, with numbers</a></li><li><a href="#3-peptides-that-touch-hair-evidence-by-peptide">3. Peptides that touch hair (evidence by peptide)</a></li><li><a href="#4-what-people-report-claude-s-own-non-reddit-search">4. What people report (Claude&#x27;s own non-Reddit search)</a></li><li><a href="#5-pairings-and-related-conditions">5. Pairings and related conditions</a></li><li><a href="#6-options-ordered-by-evidence">6. Options (ordered by evidence)</a></li><li><a href="#7-sixteen-usual-questions-evidence-answers">7. Sixteen usual questions (evidence answers)</a></li><li><a href="#8-warnings-bottom-of-page">8. Warnings (bottom of page)</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li></ol></details>
+<div class="md"><h1>Hair Research v2</h1>
+<p>Goal page research for baresignals.co. v1 compiled 3 Nov 2026 (Bali); v2 community top-up same day (Pass 8).</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ul>
+<li><strong>Community section finished (section 4).</strong> New non-Reddit sources: Hair Restoration Network (3 more threads), HairLossTalk (9 more threads), Alopecia World (2 threads), Mumsnet (5 more GLP-1 threads), RealSelf (2 exosome accounts), a beauty editor test, an NPR feature, one transplant clinic blog, one podcast. New sub-sections 4.7 to 4.13 and a per-peptide tally table (4.14). Takeaway (4.6) rewritten.</li>
+<li><strong>Graft survival figure checked (1.6).</strong> "85 to 95%" now traced to primary studies: 93.1% at 9 months, 94.7% vs 88.9% by blade type, 81.0% in a control arm, "over 90%" in 158 patients, and a 2010 review that says 90% to over 100% only under ideal test-box conditions. Tag moved from [reported, recalled] to [verified], with caveats.</li>
+<li><strong>Kuceki 2025 copper peptide study now read in full (3.1).</strong> Was [reported via one secondary source]; now [verified] with the full method: retrospective, 7 men, tattoo-machine delivery, photos 1 month after the 5th session, no trichoscopy, no control; a co-author advises a compounding pharmacy.</li>
+<li><strong>Meier 2012 thymic peptide study numbers added (3.3, 3.7).</strong> Tβ4 cut hair shaft output by 10 to 20% in human follicles; thymulin raised it; thymosin α-1 slightly lowered it. Still read via a forum excerpt, not the journal.</li>
+<li><strong>Exosomes (3.12):</strong> added clinician-documented alopecia areata cases (3 patients, 2 papers) and a 2026 systematic review finding no RCTs in AA.</li>
+<li><strong>Gaps for next pass rewritten</strong> (old gaps 3 and 5 closed, 4 partly).</li>
+<li>Web searches this pass: 41 of 45 budget; about 35 page fetches; 6 PubMed calls. Bald Truth forum, Hair Transplant Network, Alopecia UK and NAAF community pages could not be fetched (not reachable from this session, and nothing peptide-related indexed by search). YouTube coverage only surfaced through vendor-run video mirrors, which were excluded.</li>
+</ul>
+<hr />
+<p>Tags: [verified] = read in the primary abstract, registry record, label, regulator page or manufacturer medical page this session. [reported] = stated by a secondary source (news, review, clinic blog, press release), or recalled from earlier literature and not re-opened today. [inferred] = reasoning from verified data. [speculated] = plausible, untested.
+Doses appear only as reported in studies. No suppliers or vendor brands are named in the page text (two cosmetic trade ingredient names, Redensyl and Capixyl, are kept because readers search them). Vendor pages, vendor "learn" hubs, Reddit and Reddit mirrors (tressless.com and its clones), MESO-Rx and AnabolicMinds were excluded from community counts.
+Work done: about 47 PubMed queries and 13 metadata pulls (about 80 abstracts read), 2 ClinicalTrials.gov searches, about 30 web searches, about 30 page fetches. The session web search cap was hit near the end; Bald Truth forum, YouTube and surgeon blogs were only partly reached (see Gaps).</p>
+<hr />
+<h2 id="0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</h2>
+<ul>
+<li>A healthy scalp has about <strong>100,000 follicles; 85 to 90% growing, 1 to 3% transitioning, 5 to 10% resting</strong>; normal shedding <strong>50 to 100 hairs a day</strong> [verified, <a href="https://dermnetnz.org/topics/hair-shedding">DermNet</a>].</li>
+<li>Shedding after a trigger (illness, crash diet, surgery, birth) typically shows <strong>about 3 months later</strong>; after COVID the median was <strong>2 months</strong> (range 1 to 11) in 181 shedding patients [verified, <a href="https://doi.org/10.1111/jocd.14883">doi:10.1111/jocd.14883</a>].</li>
+<li>GLP-1 drugs: pooled RCTs show <strong>3.25x the risk of hair loss vs placebo; about 3.9% of users</strong> report it in trials [verified, meta-analysis, 4,114 users, <a href="https://doi.org/10.1016/j.diabres.2026.113333">doi:10.1016/j.diabres.2026.113333</a>]. Tirzepatide 15 mg in SURMOUNT-1: <strong>5.7% vs 0.9% placebo</strong> [verified, manufacturer medical page, see 3.10].</li>
+<li>Low-dose oral minoxidil in 1,404 patients: only <strong>1.7% stopped for side effects</strong>; extra body/face hair <strong>15.1%</strong> [verified, <a href="https://doi.org/10.1016/j.jaad.2021.02.054">doi:10.1016/j.jaad.2021.02.054</a>].</li>
+<li>Finasteride 1 mg: durable benefit over <strong>5 years</strong> vs progressive loss on placebo [verified, Eur J Dermatol 2002, PMID 11809594]. Sexual side effects <strong>1.57x</strong> placebo across 15 RCTs [verified, <a href="https://doi.org/10.2340/00015555-3035">doi:10.2340/00015555-3035</a>].</li>
+<li>Alopecia areata JAK pills, near full scalp (SALT 20 or less): baricitinib 4 mg <strong>38.8% / 35.9% vs 6.2% / 3.3%</strong> at week 36 [verified, NEJM 2022, PMID 35334197]; ritlecitinib 50 mg <strong>23% vs 2%</strong> at week 24 [verified, <a href="https://doi.org/10.1016/S0140-6736(23)00222-2">doi:10.1016/S0140-6736(23)00222-2</a>]; deuruxolitinib 8 mg <strong>29.6% vs 0.8%</strong> [reported, <a href="https://www.ajmc.com/view/deuruxolitinib-demonstrates-efficacy-safety-in-adults-with-alopecia-areata">AJMC</a>].</li>
+<li>Clascoterone 5% scalp solution (first new topical anti-androgen): 1,465 men, two phase 3 trials; US filing targeted <strong>early 2027</strong> [reported, <a href="https://www.dermatologytimes.com/view/cosmo-pharmaceuticals-reports-positive-12-month-safety-data-for-clascoterone-5-in-male-aga">Dermatology Times Apr 2026</a>].</li>
+<li>Peptides: <strong>no peptide has a published placebo-controlled human trial for any hair loss type.</strong> The strongest human peptide data are an uncontrolled 7-man study where copper peptides were mixed with minoxidil and dutasteride, and open-label growth-factor cocktails containing copper tripeptide and thymosin β4.</li>
+<li>Thymosin β4 is the split result: it <strong>grew hair in rats and mice</strong> (NIH lab) but <strong>slowed growth and pushed human scalp follicles into the shedding phase</strong> in a dish [reported, see 3.3].</li>
+</ul>
+<hr />
+<h2 id="1-what-each-type-is-so-readers-can-match">1. What each type is (so readers can match)</h2>
+<h3>1.1 The hair cycle in plain language</h3>
+<ul>
+<li>Each follicle cycles on its own: <strong>growth (anagen) 2 to 6 years, transition (catagen) 2 to 3 weeks, rest (telogen) about 3 months</strong>, then the old hair falls as a new one pushes up [verified, <a href="https://dermnetnz.org/topics/hair-shedding">DermNet</a>].</li>
+<li>Length depends on how long growth lasts. Thickness depends on the size of the dermal papilla, the cluster of cells at the bulb that signals the follicle [verified, Sinclair, <a href="https://doi.org/10.1093/ced/llaf012">doi:10.1093/ced/llaf012</a>].</li>
+<li>Why shedding lags 2 to 3 months: a shock pushes many growing follicles into rest at once (DermNet says up to 50%). They sit in rest for about 3 months before the hair drops, so the trigger is usually forgotten by the time the brush fills [verified, DermNet]. Regrowth then needs months to reach visible length, at about 1 cm a month [reported, <a href="https://acibademinternational.com/blog/shock-loss-after-a-hair-transplant-why-hair-sheds-before-it-grows/">clinic guide</a>].</li>
+</ul>
+<h3>1.2 Male and female pattern hair loss (androgenetic alopecia, AGA)</h3>
+<ul>
+<li>Mechanism: in genetically sensitive follicles, DHT (made from testosterone by the enzyme 5α-reductase type 2) shortens each growth phase. Each cycle the follicle comes back smaller, until thick terminal hairs become fine vellus hairs. This shrinking is called miniaturisation [verified, <a href="https://doi.org/10.1016/j.jdin.2023.07.005">doi:10.1016/j.jdin.2023.07.005</a>; <a href="https://doi.org/10.3390/neurosci7010020">doi:10.3390/neurosci7010020</a>].</li>
+<li>Men: receding temples and crown. On placebo, hair keeps thinning year on year [verified, finasteride 5 year data].</li>
+<li>Women: affects <strong>nearly 50% of women in their lifetime</strong>; usually a widening part with the front line kept; underdiagnosed. Topical minoxidil is the only FDA-approved drug for it [verified, <a href="https://doi.org/10.1007/s40257-026-01009-2">doi:10.1007/s40257-026-01009-2</a>].</li>
+<li>Inflammation and blood supply: balding scalp shows micro-inflammation around follicles and less vascular support; TGF-β1 (driven by androgens) slows keratinocyte growth [reported, cell data summarised by <a href="https://perfecthairhealth.com/?p=22826">Perfect Hair Health</a>]. Minoxidil was a blood pressure drug and opens potassium channels in dermal papilla cells; its hair effect is not just "more blood flow" [verified, review <a href="https://doi.org/10.1007/s40257-025-00990-4">doi:10.1007/s40257-025-00990-4</a>].</li>
+<li>The Wnt/β-catenin pathway is the follicle's "grow" switch; a brake protein called CXXC5 is raised in miniaturised human follicles [verified, <a href="https://doi.org/10.1016/j.jid.2017.04.038">doi:10.1016/j.jid.2017.04.038</a>]. This is the target of PTD-DBM (3.5).</li>
+<li>How to tell: gradual (years), patterned, with hairs of mixed thickness under a scope [verified, women's review above].</li>
+</ul>
+<h3>1.3 Telogen effluvium (TE): diffuse shedding after a trigger</h3>
+<ul>
+<li>Triggers: illness with fever, COVID, surgery, childbirth, crash diets, low iron or protein, new medicines, big stress [verified, DermNet].</li>
+<li>Looks like: all-over shedding, handfuls in the shower, a thinner ponytail, but no bald patches; hairs come out with a small white bulb [inferred].</li>
+<li>Post-COVID TE: in a Turkish clinic, <strong>35.4% (64/181)</strong> of TE patients had COVID first; <strong>87.5% acute, 12.5% chronic</strong> [verified, <a href="https://doi.org/10.1111/jocd.14883">doi:10.1111/jocd.14883</a>]. A 2026 trichoscopy study found unusual blood vessel patterns and immune cells around follicles, and the giant vessels linked to having needed oxygen in hospital [verified, <a href="https://doi.org/10.1159/000552511">doi:10.1159/000552511</a>].</li>
+<li>GLP-1 shedding: mostly TE from fast weight loss, not the drug poisoning follicles; female sex and <strong>more than 10% weight loss</strong> were the strongest predictors [verified, review <a href="https://doi.org/10.1007/s00592-026-02812-3">doi:10.1007/s00592-026-02812-3</a>]. Some studies also log pattern loss being unmasked [verified, <a href="https://doi.org/10.1097/DSS.0000000000005176">doi:10.1097/DSS.0000000000005176</a>].</li>
+<li>Course: usually self-limits. Dermatologist timeline for GLP-1 shedding: noticed at 2 to 3 months, can plateau 2 to 3 months, regrowth over 3 to 6 more months, near normal by about a year; if pattern loss sat underneath, the hair may return thinner [reported, Dr Garshick in <a href="https://www.thezoereport.com/beauty/glp1-hair-loss">The Zoe Report, Jun 2026</a>].</li>
+<li>Chronic TE (over 6 months) is a separate diagnosis that can mimic early female pattern loss [verified, women's review].</li>
+</ul>
+<h3>1.4 Alopecia areata (AA): autoimmune patches</h3>
+<ul>
+<li>The follicle normally hides from the immune system ("immune privilege"), guarded by local signals including α-MSH, TGF-β and IL-10. In AA that shield collapses and CD8 T cells attack the bulb; interferon-γ and IL-15 signal through JAK pathways [verified, <a href="https://doi.org/10.3390/ijms25084409">doi:10.3390/ijms25084409</a>; <a href="https://doi.org/10.1016/j.jaut.2024.103217">doi:10.1016/j.jaut.2024.103217</a>].</li>
+<li>Looks like: round smooth patches, sometimes eyebrows or beard; can progress to whole scalp (totalis) or body (universalis). Course is unpredictable [verified, <a href="https://doi.org/10.1007/s40265-026-02371-5">doi:10.1007/s40265-026-02371-5</a>].</li>
+<li>Thyroid link: <strong>over 40% of AA patients carry thyroid antibodies</strong> [verified, <a href="https://doi.org/10.1016/j.msard.2026.107974">doi:10.1016/j.msard.2026.107974</a>].</li>
+</ul>
+<h3>1.5 PCOS hair loss</h3>
+<ul>
+<li>PCOS combines irregular cycles, high androgens and often insulin resistance; hair loss here is female pattern loss driven by androgen excess, often with acne and excess body hair [verified, <a href="https://doi.org/10.7759/cureus.72987">doi:10.7759/cureus.72987</a>].</li>
+<li>Male relatives of women with PCOS have <strong>1.65x the odds of pattern baldness</strong> (21 studies), supporting a shared androgen/metabolic trait [verified, <a href="https://doi.org/10.1186/s12610-025-00290-1">doi:10.1186/s12610-025-00290-1</a>].</li>
+<li>In 1,249 women with PCOS, autoimmune thyroid disease was <strong>20.3%</strong> and alopecia areata <strong>0.24%</strong> [verified, <a href="https://doi.org/10.3389/frph.2026.1806450">doi:10.3389/frph.2026.1806450</a>]. So patchy loss in PCOS needs a separate check.</li>
+<li>Cross-link: PCOS Research v1/v2 pages.</li>
+</ul>
+<h3>1.6 Hair transplant recovery</h3>
+<ul>
+<li>What happens: follicles from the back (DHT-resistant) are moved to thin areas. Most transplanted hairs <strong>shed within about 6 weeks</strong>, rest about 3 months, start growing at <strong>months 3 to 5</strong>, and the result is judged at <strong>12 to 18 months</strong> [reported, clinic guide citing MedlinePlus].</li>
+<li>Shock loss (native hair near the grafts shedding): <strong>23 of 621 FUE patients (3.7%)</strong>; women had <strong>30x the odds</strong> of men, and risk rose with age in women [verified, <a href="https://doi.org/10.1007/s00266-023-03699-z">doi:10.1007/s00266-023-03699-z</a>]. Donor-area shedding was rarer still: 1 of 2,896 patients in one surgeon's 10-year series; recipient effluvium 3 [verified, <a href="https://doi.org/10.1055/s-0041-1739255">doi:10.1055/s-0041-1739255</a>].</li>
+<li>Graft survival: in scarred scalp (inactive scarring alopecias), survival was <strong>82.7% at 7 to 12 months, falling to 39.6% at 49 to 72 months</strong> [verified, systematic review of 8 studies, 123 patients, <a href="https://doi.org/10.1097/DSS.0000000000004707">doi:10.1097/DSS.0000000000004707</a>]. A 2026 review of transplants into lichen planopilaris and frontal fibrosing alopecia found the same pattern: <strong>80 to 100% at 6 to 12 months, below 41% after year two</strong> [verified, <a href="https://doi.org/10.1016/j.abd.2026.501426">doi:10.1016/j.abd.2026.501426</a>].</li>
+<li><strong>Graft survival in normal pattern-loss scalp (v2 check of the "85 to 95%" figure):</strong> the range holds in primary studies [verified, abstracts read today]:</li>
+<li>158 men, FUE: <strong>over 90% of follicles survived; over 85% of patients exceeded 95%</strong> at 12 months [verified, <a href="https://doi.org/10.1186/s12893-024-02655-1">doi:10.1186/s12893-024-02655-1</a>].</li>
+<li>Long-hair FUE for hairlines: <strong>93.1% (±1.3) at 9 months</strong> [verified, <a href="https://doi.org/10.1111/jocd.16136">doi:10.1111/jocd.16136</a>].</li>
+<li>Sapphire vs steel blade incisions: <strong>94.7% vs 88.9%</strong> [verified, <a href="https://doi.org/10.1007/s12663-025-02874-w">doi:10.1007/s12663-025-02874-w</a>].</li>
+<li>60 patients, growth-factor soak vs none: <strong>91.1% vs 81.0% at 12 months</strong> (the 81% is the plain-surgery control arm) [verified, <a href="https://doi.org/10.1111/jocd.70464">doi:10.1111/jocd.70464</a>].</li>
+<li>2010 review of graft survival factors: published rates run from <strong>"90% to well over 100%"</strong> but come from small marked test boxes with ideal grafts; the authors note few surgeons reach that when every graft is counted [verified, Parsley and Perez-Meza, J Cutan Aesthet Surg 2010, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2956960/">PMC2956960</a>]. The same review cites grafts kept out of the body <strong>95% surviving at 2 hours, 79% at 24 hours</strong> (Limmer) [verified, same review].</li>
+<li>Packing density matters: one surgeon's 2-patient test found <strong>88 to 95% at 20 to 30 grafts/cm²</strong> but <strong>67 to 100% at 40 to 50/cm²</strong> [reported, ISHRS 2005 conference abstract summarised on a surgeon site, <a href="https://www.bernsteinmedical.com/?p=28973">Bernstein Medical</a>].</li>
+<li>Reading: <strong>about 85 to 95% is a fair page figure for a good clinic in normal scalp</strong>, with the honest caveats that most studies are single-clinic, measure in small test areas, and that 81% showed up in a modern control arm [inferred]. Use "most studies report 85 to 95%" rather than "you will keep 95%". Technique choices (stick-and-place vs premade incisions) changed shedding and density but not survival in 191 patients [verified, <a href="https://doi.org/10.1007/s00266-025-04871-3">doi:10.1007/s00266-025-04871-3</a>].</li>
+<li>Most common complication: sterile folliculitis (203 of 2,896); serious complications zero [verified, Garg 2021].</li>
+</ul>
+<hr />
+<h2 id="2-standard-treatments-with-numbers">2. Standard treatments, with numbers</h2>
+<h3>2.1 Topical minoxidil</h3>
+<ul>
+<li>Women (Cochrane, 47 RCTs): moderate to marked regrowth <strong>RR 1.93</strong>; <strong>+13.18 hairs/cm²</strong> vs placebo; 2% and 5% performed about the same in women [verified, <a href="https://doi.org/10.1002/14651858.CD007628.pub4">doi:10.1002/14651858.CD007628.pub4</a>].</li>
+<li>Side effect that matters: scalp itch and dryness in <strong>75%</strong> of topical users in one RCT [verified, Janaani 2025, below].</li>
+</ul>
+<h3>2.2 Low-dose oral minoxidil (LDOM): the 2022 to 2026 boom</h3>
+<ul>
+<li>Popularity: after a New York Times article (18 Aug 2022), first-time US prescriptions rose <strong>2.4x in men and 1.7x in women</strong> within 8 weeks; finasteride prescriptions did not move [reported, JAMA Netw Open via <a href="https://www.uspharmacist.com/article/oral-minoxidil-prescriptions-spiked-last-year-after-media-coverage">US Pharmacist</a>]. Publications on non-topical minoxidil burst after 2019 (33 papers) but only 3 RCTs by 2024 [verified, <a href="https://doi.org/10.1111/jocd.16427">doi:10.1111/jocd.16427</a>].</li>
+<li>Head-to-head RCT (n=75, 32 weeks): oral vs topical vs PRP+topical; one-grade improvement <strong>25% / 10% / 25%</strong> (not significant); terminal hair density up <strong>47.5% / 48% / 57%</strong> [verified, <a href="https://doi.org/10.1007/s00403-025-03938-0">doi:10.1007/s00403-025-03938-0</a>].</li>
+<li>Does it reverse shrinking? Sublingual minoxidil RCT: fibre diameter <strong>-2 µm placebo</strong> vs <strong>+3 µm at 1.35 mg and +6 µm at 4.05 mg</strong>; 0.45 mg did nothing [verified, <a href="https://doi.org/10.1093/ced/llaf012">doi:10.1093/ced/llaf012</a>].</li>
+<li>Consensus doses reported: start <strong>1.25 mg/day women (range 0.625 to 5), 2.5 mg/day men (1.25 to 5)</strong> [verified, <a href="https://doi.org/10.1007/s40257-025-00990-4">doi:10.1007/s40257-025-00990-4</a>]. Pediatric consensus (Sep 2026) supports use from age 4 with weight-based dosing [verified, <a href="https://doi.org/10.1001/jamadermatol.2026.3749">doi:10.1001/jamadermatol.2026.3749</a>].</li>
+<li>Also used for chemo-related persistent loss: benefit in <strong>7 of 7</strong> LDOM studies vs 7 of 12 topical [verified, <a href="https://doi.org/10.1097/SPC.0000000000000832">doi:10.1097/SPC.0000000000000832</a>].</li>
+</ul>
+<h3>2.3 Finasteride, dutasteride, topical finasteride</h3>
+<ul>
+<li>Finasteride 1 mg: 1,553 men randomised, 1,215 into 5-year extensions; durable gains vs placebo on every endpoint [verified, PMID 11809594].</li>
+<li>In women, finasteride 1 mg was <strong>no better than placebo</strong> (30/67 vs 33/70) in the Cochrane pool [verified, Cochrane 2016].</li>
+<li>Dutasteride 0.5 mg vs oral minoxidil (non-randomised, 6 months, n=46 completers): minoxidil groups improved on clinical staging; dutasteride did not change measurably in 6 months [verified, <a href="https://doi.org/10.3389/fmed.2026.1751116">doi:10.3389/fmed.2026.1751116</a>]. Six months is short for an anti-DHT drug [inferred].</li>
+<li>Topical finasteride: phase III in China (n=270, 24 weeks) beat placebo on target hair count and terminal hairs [verified, <a href="https://doi.org/10.1097/CM9.0000000000003495">doi:10.1097/CM9.0000000000003495</a>]. A European phase III found 0.25% spray about equal to oral 1 mg (<strong>+20.2 vs +21.1 hairs/cm²</strong>) but it still lowers blood DHT [verified, review <a href="https://doi.org/10.1111/jocd.14895">doi:10.1111/jocd.14895</a>]. No FDA-approved topical finasteride exists (2.11).</li>
+</ul>
+<h3>2.4 Clascoterone 5% solution (topical androgen-receptor blocker)</h3>
+<ul>
+<li>SCALP 1 and 2: 1,465 men, 51 US/EU sites, randomised 2:1 vs vehicle, twice daily. Target hair count improvement vs vehicle was <strong>5.39-fold (539%) in one trial and 1.68-fold in the other</strong>; absolute hair counts not released [reported, <a href="https://www.ajmc.com/view/clascoterone-5-delivers-strong-phase-3-results-for-androgenetic-alopecia">AJMC Dec 2025</a>; <a href="https://www.hcplive.com/view/phase-3-scalp-study-clascoterone-androgenetic-alopecia-maria-hordinsky-md">HCPLive</a>].</li>
+<li>12 months: staying on drug gave <strong>2.39x</strong> more gain than switching to vehicle at 6 months; side effects similar to vehicle, no systemic hormonal effects seen [reported, Dermatology Times Apr 2026].</li>
+<li>The scalp solution does reach the bloodstream (unlike the acne cream); a supratherapeutic dose study found no QT effect [verified, <a href="https://doi.org/10.1002/cpdd.935">doi:10.1002/cpdd.935</a>].</li>
+<li>Women: no trial announced [reported]. Percent-improvement headlines over a near-zero vehicle change can look huge; wait for absolute counts [inferred].</li>
+</ul>
+<h3>2.5 Spironolactone (women)</h3>
+<ul>
+<li>Widely used off-label for female pattern and PCOS hair loss; the Cochrane review (2016) found <strong>no RCTs</strong> and called for them [verified, Cochrane 2016].</li>
+<li>In PCOS, 5 open-label RCTs found spironolactone <strong>no better than metformin</strong> for excess hair, testosterone or BMI; hair loss itself was barely measured [verified, <a href="https://doi.org/10.1111/cen.70062">doi:10.1111/cen.70062</a>].</li>
+<li>Observational cohorts (Sinclair group) report most women stabilise or improve [reported, recalled, not re-verified]. Contraception needed (male fetus risk) [reported].</li>
+</ul>
+<h3>2.6 PRP</h3>
+<ul>
+<li>PRP vs topical minoxidil (9 RCTs, 451 people): <strong>no clear difference</strong> in density or terminal hairs; patients more satisfied with PRP (OR 2.77); negative pull test <strong>82.75% vs 52.94%</strong> [verified, <a href="https://doi.org/10.1007/s00266-025-05394-7">doi:10.1007/s00266-025-05394-7</a>].</li>
+<li>Best ranked combination in a 2025 network meta-analysis: PRP + bFGF + minoxidil, <strong>+35.12 hairs/cm²</strong> over minoxidil alone; in men, finasteride + minoxidil ranked top; in women, microneedling + minoxidil [verified, <a href="https://doi.org/10.3389/fmed.2025.1638496">doi:10.3389/fmed.2025.1638496</a>].</li>
+</ul>
+<h3>2.7 Microneedling</h3>
+<ul>
+<li>Added to minoxidil (12 RCTs, 631 people): hair count <strong>SMD 1.32</strong>, diameter <strong>SMD 0.34</strong>; depth (1 mm or under vs over) and device did not matter [verified, <a href="https://doi.org/10.1007/s00403-025-04032-1">doi:10.1007/s00403-025-04032-1</a>]. Microneedling also boosts skin penetration of topicals, which matters for copper peptides (3.1) [reported].</li>
+</ul>
+<h3>2.8 Low-level laser/light (LLLT)</h3>
+<ul>
+<li>Alone vs sham: laser comb <strong>+17.4 to +17.6 hairs</strong> in two women's trials, though users could not tell it from sham [verified, Cochrane 2016].</li>
+<li>Added to minoxidil (4 RCTs): <strong>no extra benefit</strong> in hair count or diameter [verified, <a href="https://doi.org/10.1080/09546634.2024.2447355">doi:10.1080/09546634.2024.2447355</a>]. An older network meta-analysis ranked LLLT top, but on very low quality evidence [verified, <a href="https://doi.org/10.1111/jdv.15081">doi:10.1111/jdv.15081</a>].</li>
+</ul>
+<h3>2.9 JAK inhibitors for alopecia areata (approved: baricitinib, ritlecitinib, deuruxolitinib)</h3>
+<ul>
+<li>Baricitinib (BRAVE-AA1/2): SALT 20 or less at week 36: <strong>4 mg 38.8% / 35.9%; 2 mg 22.8% / 19.4%; placebo 6.2% / 3.3%</strong>; acne, raised CK and cholesterol more common [verified, PMID 35334197].</li>
+<li>Ritlecitinib (ALLEGRO 2b/3, n=718, age 12+): week 24 <strong>50 mg 23%, 200/50 mg 31%, placebo 2%</strong>; adverse events similar across arms, no deaths [verified, Lancet 2023].</li>
+<li>Deuruxolitinib (THRIVE-AA1, n=706): week 24 <strong>8 mg twice daily 29.6%, 12 mg 41.5%, placebo 0.8%</strong>; FDA approval July 2024 [reported, AJMC].</li>
+<li>Real world tofacitinib (202 patients, 18 months): <strong>55.9% / 42.6% / 29.2%</strong> reached 50/75/90% scalp improvement; longer disease predicted worse response [verified, <a href="https://doi.org/10.1111/ajd.14325">doi:10.1111/ajd.14325</a>].</li>
+<li>A substantial share never reaches near-full regrowth and relapse on stopping is common [verified, Drugs 2026 review].</li>
+</ul>
+<h3>2.10 Hair transplant adjuncts</h3>
+<ul>
+<li>PRP at surgery: systematic review of 3 controlled studies (217 people) found better density and earlier growth, but no trichoscopy and mixed methods [verified, <a href="https://doi.org/10.7759/cureus.94116">doi:10.7759/cureus.94116</a>]. One RCT (60 men) reported <strong>100% vs 40%</strong> reaching 75% regrowth at 6 months [verified, <a href="https://doi.org/10.1007/s12663-026-02997-8">doi:10.1007/s12663-026-02997-8</a>]; the size of that gap is unusual and the journal is outside hair surgery [inferred].</li>
+<li>Fat-derived stem cells before transplanting into scars: graft survival <strong>87% vs 60%</strong> (60 patients, clinic-run) [verified, <a href="https://doi.org/10.25122/jml-2024-0303">doi:10.25122/jml-2024-0303</a>].</li>
+<li>Finasteride/minoxidil after surgery to protect native hair is standard surgeon practice [reported].</li>
+</ul>
+<h3>2.11 Biotin and collagen (non-peptide and peptide supplements)</h3>
+<ul>
+<li>Biotin: no good evidence it grows hair unless you are deficient (rare) [reported, recalled]. Real harm: doses of <strong>5 to 20 mg/day</strong> can fake thyroid blood results (falsely high T3/T4, low TSH); stop 24 to 72 hours before tests [verified, <a href="https://doi.org/10.1016/j.msard.2026.107974">doi:10.1016/j.msard.2026.107974</a>]. This matters most in AA, where thyroid disease is common.</li>
+<li>Collagen peptides (oral): in a 6-month RCT in menopausal women, <strong>5 g collagen, calcium + vitamin D, and both together all slowed shedding vs placebo</strong>; collagen's clearest effect was skin elasticity (+12.23%) [verified, <a href="https://doi.org/10.3390/clinpract15090168">doi:10.3390/clinpract15090168</a>]. Since calcium + vitamin D alone also helped, the shedding effect is not collagen-specific [inferred].</li>
+</ul>
+<hr />
+<h2 id="3-peptides-that-touch-hair-evidence-by-peptide">3. Peptides that touch hair (evidence by peptide)</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Peptide</th>
+<th>Best human evidence</th>
+<th>Animal/lab</th>
+<th>Route studied</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Peptide">GHK-Cu / copper peptides</td>
+<td data-l="Best human evidence">Uncontrolled: 7 men with minoxidil + dutasteride; 1,000-patient open-label cocktail</td>
+<td data-l="Animal/lab">Ex vivo human follicles longer (AHK-Cu); old animal data</td>
+<td data-l="Route studied">Topical, intradermal (in mixes)</td>
+<td data-l="Grade">Low (C/D)</td>
+</tr>
+<tr>
+<td data-l="Peptide">Thymosin β4 (TB-500 parent)</td>
+<td data-l="Best human evidence">Only inside open-label cocktail</td>
+<td data-l="Animal/lab">Mice/rats grew hair; human follicles in a dish grew less</td>
+<td data-l="Route studied">Topical, injected in animals</td>
+<td data-l="Grade">Conflicting (D)</td>
+</tr>
+<tr>
+<td data-l="Peptide">BPC-157</td>
+<td data-l="Best human evidence">None</td>
+<td data-l="Animal/lab">None found for hair</td>
+<td data-l="Route studied">none</td>
+<td data-l="Grade">None</td>
+</tr>
+<tr>
+<td data-l="Peptide">PTD-DBM</td>
+<td data-l="Best human evidence">None published</td>
+<td data-l="Animal/lab">Mice + human balding scalp tissue</td>
+<td data-l="Route studied">Topical</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Peptide">KPV / α-MSH</td>
+<td data-l="Best human evidence">None</td>
+<td data-l="Animal/lab">Human follicle culture (pigment)</td>
+<td data-l="Route studied">Organ culture</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Peptide">Thymosin α-1</td>
+<td data-l="Best human evidence">None for AA</td>
+<td data-l="Animal/lab">None found</td>
+<td data-l="Route studied">none</td>
+<td data-l="Grade">None</td>
+</tr>
+<tr>
+<td data-l="Peptide">Melanotan</td>
+<td data-l="Best human evidence">Harm case report only</td>
+<td data-l="Animal/lab">none</td>
+<td data-l="Route studied">Injected</td>
+<td data-l="Grade">Negative signal</td>
+</tr>
+<tr>
+<td data-l="Peptide">GH peptides / IGF-1</td>
+<td data-l="Best human evidence">Only inside cocktails</td>
+<td data-l="Animal/lab">General follicle biology</td>
+<td data-l="Route studied">none for hair</td>
+<td data-l="Grade">D</td>
+</tr>
+<tr>
+<td data-l="Peptide">GLP-1s</td>
+<td data-l="Best human evidence">Large RCT and cohort safety data</td>
+<td data-l="Animal/lab">none needed</td>
+<td data-l="Route studied">Injected</td>
+<td data-l="Grade">A (for causing shedding)</td>
+</tr>
+<tr>
+<td data-l="Peptide">Cosmetic peptides (Redensyl, Capixyl, acetyl tetrapeptide-3)</td>
+<td data-l="Best human evidence">Small RCTs, mostly industry</td>
+<td data-l="Animal/lab">in vitro</td>
+<td data-l="Route studied">Topical</td>
+<td data-l="Grade">C</td>
+</tr>
+<tr>
+<td data-l="Peptide">Exosomes</td>
+<td data-l="Best human evidence">20-man pilot RCT (plant-derived)</td>
+<td data-l="Animal/lab">Mice</td>
+<td data-l="Route studied">Topical, injected</td>
+<td data-l="Grade">D</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.1 GHK-Cu and copper peptides</h3>
+<ul>
+<li>What: a natural 3-amino-acid peptide that carries copper; levels fall with age. Developer reviews list larger hair follicle size and better hair transplant success among its effects [verified, Pickart 2008, <a href="https://doi.org/10.1163/156856208784909435">doi:10.1163/156856208784909435</a>]. That review is by the molecule's commercial developer and gives no transplant numbers [inferred].</li>
+<li>Ex vivo human follicles: a close cousin, AHK-Cu, at 10⁻¹² to 10⁻⁹ M <strong>lengthened human hair follicles in culture and increased dermal papilla cell growth</strong>, while lowering cell-death signals [verified, <a href="https://doi.org/10.1007/BF02978833">doi:10.1007/BF02978833</a>]. Note: this is AHK-Cu, not GHK-Cu.</li>
+<li>Animal: a 1993 study found a GHK-copper complex increased growing follicles, reportedly "comparable to 5% minoxidil" [reported, via <a href="https://perfecthairhealth.com/?p=22826">Perfect Hair Health, 1 Nov 2026</a>].</li>
+<li>Humans (closest): <strong>7 men (age 28 to 55, Norwood III to IV) who had an unsatisfactory response to at least a year of standard treatment</strong> had a solution of minoxidil sulfate 0.5%, dutasteride 0.1% and copper peptides 1.2% driven into the scalp with a tattoo machine (2 mm needles) monthly x5, while staying on topical minoxidil. Top-scalp bald area (SALT score) fell from a <strong>median 40% to 7.5%</strong>; <strong>median regrowth 26.5% of the top scalp; 5 of 7 over 10%</strong>. Graded by <strong>4 blinded dermatologists</strong> on photos taken at baseline and 1 month after the last session, plus an AI estimate that landed within 7.5 points of them. No scarring or infection [verified, full text read today, Kuceki 2025, <a href="https://doi.org/10.1016/j.jdin.2025.01.012">doi:10.1016/j.jdin.2025.01.012</a>].</li>
+<li>Limits the authors state: retrospective, <strong>no control arm, no trichoscopy density counts</strong> [verified]. Compared with an earlier 3-session minoxidil + dutasteride (no copper) series, the median gain was higher (10% vs 26.5%), but sessions, needle depth and copper all changed at once, so copper's share is unknown [verified/inferred]. The senior author lists advisory roles including a compounding pharmacy [verified, conflict statement].</li>
+<li>Growth factor cocktail with <strong>copper tripeptide-1 + thymosin β4 + VEGF, bFGF, IGF-1, KGF</strong>: open-label, <strong>1,000 patients</strong>, injected every 3 weeks x8; pull test improved in <strong>83%</strong>, hair count up at 1 year (p=0.002), <strong>"beneficial in post-transplant patients"</strong> [verified, <a href="https://doi.org/10.1080/14764172.2018.1439965">doi:10.1080/14764172.2018.1439965</a>]. No control group; clinic-developed product. Mouse follow-up showed hair retained around injection sites [verified, <a href="https://doi.org/10.1097/GOX.0000000000002843">doi:10.1097/GOX.0000000000002843</a>].</li>
+<li>Skin penetration: concentrated solution moved copper into skin over 48 h; lower concentration showed none in 9 h; microneedles increased it [reported, via PHH].</li>
+<li>Safety: a 2018 Cosmetic Ingredient Review panel judged copper cosmetic peptides safe as used [reported, via PHH].</li>
+<li>Transplant: copper-peptide aftercare sprays have been sold since the 1990s; a hair-loss information site found <strong>no study or numbers</strong> behind them and said hundreds of patients healed fine without [verified, <a href="https://mail.hairlosslearningcenter.org/graftcyte-necessary-healing-after-hair-transplant">HLC 2022</a>]. A 2009 forum moderator called the benefit "debatable" [verified, <a href="https://www.hairrestorationnetwork.com/topic/4392-copper-peptides/">HRN</a>].</li>
+<li>Injected GHK-Cu for hair: <strong>no human study found</strong> [verified, by absence in PubMed today].</li>
+<li>Grade: plausible mechanism, no controlled human proof of GHK-Cu alone [inferred].</li>
+</ul>
+<h3>3.2 Copper peptides in cosmetics</h3>
+<ul>
+<li>Covered above. Most commercial "copper peptide" hair serums have no product-level trial; the 2025 trichology review lists them among heavily marketed topicals with small, conflicted studies [verified, <a href="https://doi.org/10.4103/ijt.ijt_8_23">doi:10.4103/ijt.ijt_8_23</a>].</li>
+</ul>
+<h3>3.3 Thymosin β4 (TB-500's parent) and TB-500</h3>
+<ul>
+<li>Mice/rats (NIH, 2004): Tβ4 <strong>accelerated hair growth</strong> in normal rats and mice; it is made by bulge stem cell descendants during the growth cycle and, at nanomolar levels, increased stem cell migration and differentiation plus MMP-2 [verified, <a href="https://doi.org/10.1096/fj.03-0244fje">doi:10.1096/fj.03-0244fje</a>]. Confirmed in a transgenic overexpressing mouse [verified, <a href="https://doi.org/10.1196/annals.1415.009">doi:10.1196/annals.1415.009</a>].</li>
+<li>Goats: exogenous Tβ4 increased secondary follicles and cashmere output [verified, review <a href="https://doi.org/10.1111/jcmm.16241">doi:10.1111/jcmm.16241</a>].</li>
+<li>Human follicles in a dish (2012, J Invest Dermatol, Paus lab, scalp from a UK transplant clinic): <strong>Tβ4 cut hair shaft output by 10 to 20% vs control; at 1,000 ng/ml for 7 days it shortened the growth phase and pushed follicles into catagen early.</strong> In the same letter, thymulin (a different thymic peptide, 10 pg/ml) <strong>raised</strong> shaft growth and kept follicles in growth phase longer, with more dividing and fewer dying cells [reported, PubMed lists it as a letter with no abstract; numbers read via the excerpt quoted in an <a href="https://www.hairlosstalk.com/interact/threads/thymosin-beta-4.89095">HLT thread</a>; PMID 22402437, <a href="https://doi.org/10.1038/jid.2012.2">doi:10.1038/jid.2012.2</a>]. Authorship confirmed on PubMed (Meier, Farjo, Paus and others) [verified].</li>
+<li>TB-500 is a short fragment marketed as the "active" part; no hair study of the fragment itself exists [reported].</li>
+<li>Reading: the mouse result is real, the only human tissue result went the other way. Flag clearly [inferred].</li>
+</ul>
+<h3>3.4 BPC-157</h3>
+<ul>
+<li><strong>Zero PubMed results for BPC-157 and hair</strong> [verified, search today]. Any hair claim is extrapolated from wound and blood-vessel studies in rats [inferred]. Clinic blogs market it for "follicle health" without citations [verified, search result titles only].</li>
+</ul>
+<h3>3.5 PTD-DBM (Wnt-releasing peptide)</h3>
+<ul>
+<li>Mechanism: CXXC5 brakes Wnt/β-catenin by binding Dishevelled. CXXC5 was <strong>raised in miniaturised human follicles</strong>; a competitor peptide (PTD-DBM) that blocks this binding <strong>sped hair regrowth and new follicle formation after wounding in mice</strong>, and added valproic acid boosted it [verified, <a href="https://doi.org/10.1016/j.jid.2017.04.038">doi:10.1016/j.jid.2017.04.038</a>].</li>
+<li>Follow-ups by the same Yonsei group and its spin-off moved to a small molecule (KY19382) that did the same in mice and human follicle culture [verified, <a href="https://doi.org/10.1111/bph.15438">doi:10.1111/bph.15438</a>].</li>
+<li>A 2025 review says PTD-DBM has "demonstrated clinical efficacy" [verified, <a href="https://doi.org/10.3390/cells14110779">doi:10.3390/cells14110779</a>] but <strong>no published human trial or registry record was found today</strong> [verified by absence, PubMed + ClinicalTrials.gov]. Treat the review claim as unsupported until a trial appears.</li>
+</ul>
+<h3>3.6 KPV and α-MSH</h3>
+<ul>
+<li>α-MSH is one of the follicle's own immune-privilege guardians; its loss is part of AA [verified, <a href="https://doi.org/10.3390/ijms25084409">doi:10.3390/ijms25084409</a>]. IL-15 raised α-MSH and restored privilege in human follicles [verified, <a href="https://doi.org/10.1016/j.jaut.2024.103217">doi:10.1016/j.jaut.2024.103217</a>].</li>
+<li>The related tripeptide K(D)PT (a close cousin of KPV) <strong>restored pigment production in human follicles under inflammatory stress</strong> in organ culture, proposed for white regrowth after AA [verified, <a href="https://doi.org/10.1111/j.1365-2133.2008.08872.x">doi:10.1111/j.1365-2133.2008.08872.x</a>].</li>
+<li>No KPV hair-growth study in animals or people [verified by absence]. Hypothesis grade [speculated].</li>
+</ul>
+<h3>3.7 Thymosin α-1 for alopecia areata</h3>
+<ul>
+<li><strong>Zero PubMed hits</strong> for thymosin α-1/thymalfasin with alopecia areata [verified, search today]. In the 2012 human follicle study (3.3), thymosin α-1 at 100 to 1,000 ng/ml <strong>slightly lowered</strong> hair shaft growth and did not change cycling much [reported, excerpt]. It is an immune stimulator; AA is an overactive immune disease, so the logic is unclear [inferred]. Low-dose IL-2 (to boost regulatory T cells) has a completed phase 3 in AA (NCT02557074, n=44) [verified, registry], which is the nearest real "immune-rebalancing" approach.</li>
+</ul>
+<h3>3.8 Melanotan and hair</h3>
+<ul>
+<li>No hair-growth evidence. A 2026 case report described <strong>depigmented patches on face and neck after melanotan in a patient with atopic dermatitis and alopecia areata</strong> [verified title, <a href="https://doi.org/10.1093/ced/llag221">doi:10.1093/ced/llag221</a>; abstract not available]. Forum users also report darker body hair [reported, HLT, see 4.2].</li>
+</ul>
+<h3>3.9 GH peptides and IGF-1</h3>
+<ul>
+<li>IGF-1 sits in the injected cocktail above (3.1) and in cosmetic scalp serums now in trials (NCT06985121, NCT07271212) [verified, registry]. No study of GH secretagogues (CJC-1295, ipamorelin, MK-677) on hair counts found [verified by absence]. IGF-1 supports the growth phase in follicle biology [reported, recalled]. A forum post titled "GH peptides + blend saved my hair" exists on a Reddit mirror and was excluded [verified title only].</li>
+</ul>
+<h3>3.10 GLP-1s: shedding odds (sema, tirz)</h3>
+<ul>
+<li>RCT meta-analysis (9 studies, 4,114 users): <strong>RR 3.25</strong> vs placebo, <strong>3.59</strong> in obesity RCTs; event rate <strong>3.9%</strong> [verified, <a href="https://doi.org/10.1016/j.diabres.2026.113333">doi:10.1016/j.diabres.2026.113333</a>].</li>
+<li>Tirzepatide trials (manufacturer data): SURMOUNT-1 <strong>5 mg 5.1%, 10 mg 4.9%, 15 mg 5.7% vs 0.9%</strong>; SURMOUNT-2 (diabetes) <strong>2.9 to 3.2% vs 0.6%</strong>; SURMOUNT-3 <strong>7.0% vs 1.4%</strong>; diabetes program pooled <strong>0.25%</strong> [verified, <a href="https://medical.lilly.com/de/products/answers/wurde-haarausfall-in-klinischen-studien-mit-mounjaro-tirzepatid-berichtet-206526">Lilly medical information</a>]. Hair loss tracks weight loss size, not just the drug [inferred].</li>
+<li>Semaglutide: doses under 2 mg/week rarely implicated; obesity doses more often [verified, systematic review of 24 studies, <a href="https://doi.org/10.1177/00368504261444578">doi:10.1177/00368504261444578</a>].</li>
+<li>Real world vs trials: <strong>3 to 7% in trials vs over 70% in some real-world cohorts</strong> [verified, <a href="https://doi.org/10.1007/s00592-026-02812-3">doi:10.1007/s00592-026-02812-3</a>] (self-selected and differently defined).</li>
+<li>Records study vs metformin (12 months): <strong>sema RR 1.43, tirz RR 1.68</strong>, liraglutide and dulaglutide not raised [reported, via clinic blog summary with internal inconsistencies, <a href="https://cedclinic.com/glp-1-hair-loss-risk-semaglutide-tirzepatide-data/">CED Clinic</a>].</li>
+<li>FDA reports Jan 2022 to Jun 2026: alopecia relatively more reported with tirzepatide (ROR 0.74 sema vs tirz) [verified, <a href="https://doi.org/10.1007/s12020-026-04840-z">doi:10.1007/s12020-026-04840-z</a>].</li>
+<li>Paradox: some reports of <strong>improved</strong> pattern and scarring alopecias on GLP-1s, likely via metabolic and anti-inflammatory effects [verified, Acta Diabetol 2026]. Cross-link GLP1 pages.</li>
+</ul>
+<h3>3.11 Cosmetic peptides (Redensyl, Capixyl, acetyl tetrapeptide-3, Procapil)</h3>
+<ul>
+<li>Redensyl + another active vs vehicle, single-blind RCT (n=44, 24 weeks): anagen:telogen ratio <strong>2.25 to 6.02</strong>; 7.7% great, 73.1% moderate improvement [verified, <a href="https://doi.org/10.1111/dth.13734">doi:10.1111/dth.13734</a>]. Vehicle group results not given in abstract.</li>
+<li>Acetyl tetrapeptide-3 + biochanin A + ginseng (the Capixyl-type mix) vs 3% minoxidil, triple-blind RCT (n=32): terminal hairs <strong>+8.3% vs +8.7%</strong>, no significant difference [verified, J Clin Aesthet Dermatol 2020, PMID 33584955]. No placebo arm.</li>
+<li>Open-label industry studies report big percentages (e.g., hair density +37.92%) with no control [verified, <a href="https://doi.org/10.7759/cureus.77066">doi:10.7759/cureus.77066</a>; <a href="https://doi.org/10.1111/jocd.16084">doi:10.1111/jocd.16084</a>].</li>
+<li>Review verdict: small samples, no standard-therapy comparison, unspecified hair loss types, conflicts of interest; maybe an add-on [verified, <a href="https://doi.org/10.4103/ijt.ijt_8_23">doi:10.4103/ijt.ijt_8_23</a>].</li>
+<li>New: a Thai double-blind RCT of a peptide serum vs topical minoxidil (n=80) is recruiting, completion Nov 2026 [verified, NCT07536100].</li>
+</ul>
+<h3>3.12 Exosomes</h3>
+<ul>
+<li>Pilot RCT, 20 men (Norwood 2 to 3), plant-extract exosome formula vs saline x4 sessions: median hair gain <strong>9.5 vs 1.5</strong> at week 16 [verified, <a href="https://doi.org/10.3390/life15030500">doi:10.3390/life15030500</a>].</li>
+<li>At least 9 registered exosome hair trials, including a 120-man double-blind umbilical cord exosome RCT completing Nov 2026 (NCT07693244) and exosomes vs PRP (NCT06239207, completed, no results posted) [verified, registry].</li>
+<li>Regulatory: no FDA-approved exosome product; FDA warning letters to sellers in 2025 [reported, search result titles only; not fetched]. A hair dermatologist (Donovan, 2022) said exosomes for hair were not approved by FDA or Health Canada and that in North America they should only be given inside a trial; he had not used them [verified, <a href="https://donovanmedical.com/qow-posts/exosomes">Donovan Medical</a>].</li>
+<li><strong>Alopecia areata (new in v2):</strong> a 2026 systematic review found <strong>no RCTs</strong>, only 2 clinical studies (1 retrospective cohort, 1 case report) plus 5 animal AA models showing regrowth [verified, <a href="https://doi.org/10.3390/ijms27010021">doi:10.3390/ijms27010021</a>]. Clinician-documented cases with photos:</li>
+<li>2 women with severe AA who had <strong>failed JAK pills (tofacitinib, baricitinib)</strong> and other drugs: one session of fat-derived exosome injections; SALT <strong>79.6 to 59.6</strong> and <strong>70.2 to 58.6</strong> at 3 months [verified, full text, <a href="https://doi.org/10.1155/crdm/4908438">doi:10.1155/crdm/4908438</a>]. That is a 12 to 20 point improvement, real but far from full regrowth; both then started minoxidil [inferred].</li>
+<li>1 man, 35, beard AA for 4 years, failed steroid injections and minoxidil: 2 sessions; <strong>regrowth and white hairs turning dark from week 6</strong>, held at 3 months [verified, full text with photos, <a href="https://doi.org/10.1002/ccr3.71558">doi:10.1002/ccr3.71558</a>]. AA can remit by itself, so single cases cannot separate drug from course [inferred].</li>
+</ul>
+<hr />
+<h2 id="4-what-people-report-claude-s-own-non-reddit-search">4. What people report (Claude's own non-Reddit search)</h2>
+<p>Sources: HairLossTalk (HLT), Hair Restoration Network (HRN), Mumsnet, dermatologist and trichologist quotes in media and clinic blogs. Reddit and its mirrors excluded. Counts are first-hand only.</p>
+<h3>4.1 GLP-1 shedding (Mumsnet, 2025 to 2026, 3 threads, page 1 each)</h3>
+<ul>
+<li><a href="https://www.mumsnet.com/talk/weight-loss-injections/5375414-hair-loss-on-mounjaro">Thread A</a>: <strong>10 of 11</strong> tirzepatide users shed; onset ~1 month (1), ~3 months (3), ~6 months (2). <strong>3 resolved or easing</strong>, including one at 3 months who stayed on the drug; 1 said shedding stopped after moving to higher doses. 1 had no shedding and better hair.</li>
+<li><a href="https://www.mumsnet.com/talk/weight-loss-injections/5539536-is-hair-loss-inevitable-with-mounjaro">Thread B</a>: <strong>9 shed, 1 possible, 12 no shedding</strong>. 3 reported regrowth (one "a lot"), 1 said it stopped, 1 no regrowth. Several no-shedders credited <strong>slower weight loss / slower dose increases</strong>.</li>
+<li><a href="https://www.mumsnet.com/talk/weight-loss-injections/5421613-hair-loss-on-mounjaro">Thread C</a>: <strong>5 of 5</strong> shed; 2 slowing, none fully resolved yet; rosemary oil tried by 2 (1 said it helped).</li>
+<li>Total: <strong>24 shed, 1 possible, 14 no shedding</strong> (of 39). Nobody reported minoxidil or a dose cut through to outcome. None stopped the drug for hair.</li>
+<li>Clinician-observed: trichologists see onset <strong>2 to 4 months</strong> and expect it to stop within <strong>3 to 6 months</strong> [reported, <a href="https://www.philipkingsley.co.uk/hair-guide/hair-science/how-weight-loss-medication-impact-hair-loss.html">Philip Kingsley, updated May 2026</a>]. Dermatologist Dr Joyce Park checks iron/ferritin, vitamin D, zinc, thyroid and starts topical minoxidil; considers oral minoxidil, finasteride, spironolactone for severe loss; advises starting treatment before a GLP-1 if pattern loss exists [reported, The Zoe Report]. A dermatologist-written timeline: shedding slows at 3 months, near normal at 6, fullness mostly back at 12 [reported, <a href="https://www.mdhair.co/article/glp-1-hair-loss-recovery-what-comes-back-at-3-6-and-12-months">MDhair Oct 2026</a>].</li>
+</ul>
+<h3>4.2 Thymosin β4 / TB-500 (HLT)</h3>
+<ul>
+<li><a href="https://hairlosstalk.com/interact/threads/topical-tb500-thymosin-beta-4-success-with-hair-loss.136228/">Topical TB-500 in minoxidil (2022)</a>: <strong>1 positive</strong> (5+ years on minoxidil, new growth from month 1, best at 3 months, crown scar filling). Photos mentioned, not visible.</li>
+<li><a href="https://hairlosstalk.com/interact/threads/peptide-thymosin-beta-4-promotes-hair-growth.131751/">Injected (2021)</a>: <strong>1 positive</strong> ("denser", but traction alopecia, also changed diet), <strong>1 worse</strong> (scalp worse, darker body hair).</li>
+<li>Tally: 2 positive, 0 no change, 1 worse. No photos verified.</li>
+</ul>
+<h3>4.3 PTD-DBM (HLT)</h3>
+<ul>
+<li><a href="https://hairlosstalk.com/interact/threads/trying-to-explore-the-ptd-dbm-route-and-failing.127322/">2020 to 2021 thread</a>: <strong>0 positive, 2 no change</strong> (4 months; 5 to 6 weeks on top of minoxidil, dutasteride, microneedling), 1 no outcome. Sourcing problems: unstable, needs cold, possible underdosed batches.</li>
+<li><a href="https://hairlosstalk.com/interact/threads/ptd-dbm-and-ghk-cu-zn-thymulin-products.131735/">PTD-DBM + GHK-Cu-Zn (2021)</a>: <strong>1 partial</strong> (existing hair thicker, no new growth in bald areas).</li>
+</ul>
+<h3>4.4 GHK-Cu / copper peptides (HLT, HRN)</h3>
+<ul>
+<li><a href="https://hairlosstalk.com/interact/threads/copper-peptides-any-further-research-into-this.125895/">HLT 2021</a>: <strong>1 positive</strong> (topical, thicker shafts; burns, smells), <strong>2 no change</strong> (one user, years of use, plus a dermaroll attempt with dutasteride/minoxidil: "thicker but no regrowth").</li>
+<li><a href="https://www.hairlosstalk.com/interact/threads/copper-peptide.40735">HLT 2009</a>: 0 outcomes. <a href="https://www.hairrestorationnetwork.com/topic/4392-copper-peptides/">HRN 2009</a>: 1 post-transplant user of a copper spray (nightly after minoxidil) said he had never seen real evidence it helped (counted no change in v2); moderator noted post-transplant copper sprays are popular for healing but nobody showed regrowth.</li>
+<li>No non-vendor, non-Reddit injected GHK-Cu hair report was found.</li>
+<li>Transplant healing: no surgeon-documented peptide report (photos or trichoscopy) was found in this pass.</li>
+</ul>
+<h3>4.5 BPC-157, KPV, thymosin α-1, exosomes, cosmetic peptides</h3>
+<ul>
+<li>No first-hand non-Reddit hair reports found for BPC-157, KPV or Tα1. One HLT user listed BPC-157 + TB-500 + GHK-Cu + HGH together with no outcome. (v2: see 4.8 to 4.13, which add transplant BPC-157/TB-500, one Tα1 user, MK-677, cosmetic peptides and exosomes.)</li>
+</ul>
+<h3>4.7 Copper peptides for transplant healing (new in v2)</h3>
+<p>Lead with what worked. All 2009 era; aftercare copper sprays were standard post-op kit then.
+- <a href="https://www.hairrestorationnetwork.com/topic/15772-folligen-graftcyte-copper-peptides-etc/">HRN "Folligen, Graftcyte, copper peptides"</a>: <strong>3 first-hand with outcomes.</strong> One used a copper spray twice weekly for months, including after his transplant: <strong>less recipient redness</strong> and better hair feel (self-observed). One used a copper spray in the first 2 weeks after surgery: stinging on first use, green tint when wet, and a <strong>"hint" of early growth at about 6 weeks</strong> (unconfirmed). One used it about 5 months with minoxidil: <strong>less minoxidil itch</strong>, felt healthier, <strong>no growth claimed</strong>. 1 more stopped with no outcome [reported, forum].
+  - Doctors in the thread: two surgeons, relayed second-hand, called healing sprays a waste of time and warned sprays can <strong>run across the scalp and spread infection</strong>; one poster's own surgeon recommended them [reported, second-hand].
+- <a href="https://www.hairrestorationnetwork.com/topic/7447-is-graftcyte-the-only-post-op-healing-aid/">HRN "Is Graftcyte the only post-op healing aid"</a>: <strong>1 first-hand positive</strong> (vague: "it helps"). <strong>Surgeon-observed:</strong> a named transplant surgeon wrote he had seen "a few miracles", patients looking almost unoperated at <strong>6 to 8 days</strong>, but could not tell whether the copper or simply keeping the scalp moist did it; no photos posted [reported, forum post by surgeon]. A member said one clinic's patients, who all get the spray, seemed to have the fastest recoveries and least lingering pinkness (second-hand).
+- <a href="https://www.hairrestorationnetwork.com/topic/4392-copper-peptides/">HRN 2009 copper peptides</a>: <strong>1 no change</strong> (nightly spray after transplant; never saw evidence it helped).
+- <a href="https://www.hairlosstalk.com/interact/threads/graftcyte-concentrated-spray.40924">HLT Graftcyte spray</a>: 0 first-hand; one member said it is used 7 to 10 days and only speeds healing (second-hand).
+- <a href="https://www.hairlosstalk.com/interact/threads/post-hair-transplant-redness-dilemma-solutions.33055">HLT post-transplant redness (2007)</a> and <a href="https://www.hairrestorationnetwork.com/topic/12209-recommended-medicationprocedures-to-aid-healing-process/">HRN healing aids</a>: no peptide outcomes; redness typically about 3 weeks, up to 3 to 4 months [reported, forum].
+- Tally: <strong>5 first-hand: 3 positive (healing, redness, early growth hint), 1 partial (less itch, no growth), 1 no change, 0 worse</strong> (1 stinging on first use). Surgeon-observed: <strong>1 positive anecdote, no photos, cause unclear; 2 negative opinions</strong>. No trichoscopy anywhere.
+- Fits v1: the information site that looked for data behind these sprays found none [verified, 3.1].</p>
+<h3>4.8 BPC-157 and TB-500 for transplant recovery (new in v2)</h3>
+<ul>
+<li><strong>First-hand: 1 positive, inside a stack.</strong> A podcast co-host said he used BPC-157 + TB-500 injections plus a copper peptide shampoo after his own transplant and had <strong>fast results with minimal shedding</strong> [reported, <a href="https://www.podrocket.ai/podcast/f4c6c0e0-75bb-4ebb-aaba-45501e7aac50/episode/014e8032-4b2e-4691-91d5-b17bdb5ad3e1">Peptide of the Week podcast, May 2026</a>]. Not a doctor; the episode promotes a transplant clinic; no photos, no timeline numbers.</li>
+<li><strong>Surgeon view:</strong> a Turkish transplant clinic blog (May 2026) says there is <strong>no strong evidence these improve graft survival</strong>; advises <strong>not starting BPC-157, TB-500, GHK-Cu or GH peptides in the first 10 days after surgery</strong> unless the surgeon and a doctor planned it, and to disclose every injection, dose and source before surgery because sterility and concentration of informal products are unknown [verified, <a href="https://diamondhairclinic.com/bpc-157-tb-500-after-hair-transplant/">Diamond Hair Clinic blog</a>]. No patient cases reported.</li>
+<li>An HRN thread titled "Peptides for Recovery Post HT" exists but would not load this session (see Gaps).</li>
+<li><a href="https://www.hairlosstalk.com/interact/threads/anyone-ever-heard-of-bpc-157-and-its-hair-benefits.132803">HLT BPC-157 for hair</a>: <strong>0 first-hand</strong>; theory posts only, plus a question about whether promoting new blood vessels raises cancer risk.</li>
+</ul>
+<h3>4.9 Injected GHK-Cu (new in v2)</h3>
+<ul>
+<li><strong>No first-hand outcome found outside Reddit.</strong> A men's health forum guide mentions members injecting 1 mg twice daily and tracking labs with <strong>no change in DHT or estradiol</strong>, but gives no hair results [reported, <a href="https://d2huyeck7ssxf2.cloudfront.net/threads/does-ghk-cu-work-for-hair-loss-and-does-it-actually-affect-dht.34021/">ExcelMale guide, Apr 2026</a>].</li>
+<li>NPR (Sep 2026): a cosmetic dermatologist says topical copper peptides work for skin but he would <strong>not recommend injections</strong> (no published human safety or efficacy data); another dermatologist calls it marketing ahead of science; a nurse practitioner reports seeing <strong>injection-site reactions, infections and liver problems</strong> in people self-injecting, cause unclear [verified, <a href="https://www.ualrpublicradio.org/2026-09-07/the-copper-peptide-trend-has-gone-from-creams-to-injections-ahead-of-the-science">NPR via KUAR</a>]. No hair-specific user quoted.</li>
+</ul>
+<h3>4.10 Thymosin α-1 for alopecia areata (new in v2)</h3>
+<ul>
+<li><a href="https://alopeciaworld.com/forum/topics/thymosin-alpha-1">Alopecia World 2019 to 2020</a> and <a href="https://alopeciaworld.com/forum/topics/thymosin-alpha-1-update">update</a>: <strong>1 first-hand, no change.</strong> Suggested by an immunologist after about 2 years of low-dose naltrexone with little effect; 10 shots, twice weekly, first given in the immunologist's office. With about 2 weeks left: <strong>"no change"</strong>, plus <strong>new psoriasis patches</strong>. Also on naltrexone and an autoimmune diet, so neither result can be pinned on Tα1 [reported, forum].</li>
+<li>Clinician-supervised but not clinician-assessed. Tally: <strong>0 positive, 1 no change (with new psoriasis), 0 clear worse.</strong></li>
+</ul>
+<h3>4.11 GH peptides / secretagogues (new in v2)</h3>
+<ul>
+<li><a href="https://www.hairlosstalk.com/interact/threads/mk-677-any-experiences-with-it-how-did-it-help.131904">HLT MK-677 (2021)</a>: <strong>1 positive, heavily confounded</strong>: 6 to 12 mg oral, 6 weeks on/off, "I think it helps", hair "growing rapidly", while also on finasteride, a topical anti-androgen, minoxidil, weekly microneedling and retinoid. No photos [reported]. MK-677 is an oral non-peptide GH secretagogue, grouped here because readers lump it with GH peptides [verified, chemistry].</li>
+<li>No non-Reddit first-hand reports for CJC-1295, ipamorelin, sermorelin or tesamorelin and hair.</li>
+</ul>
+<h3>4.12 GLP-1 shedding and regrowth (5 more Mumsnet threads, new in v2)</h3>
+<p>Threads: <a href="https://www.mumsnet.com/talk/weight-loss-injections/5439228-mounjaro-restart-does-it-re-create-hairloss">restart</a> (Nov 2025), <a href="https://www.mumsnet.com/talk/weight-loss-injections/5463956-anyone-had-hairloss-improve-switching-from-mounjaro-to-wegovy">switch to semaglutide</a> (Dec 2025), <a href="https://www.mumsnet.com/talk/weight-loss-injections/5555491-minoxidil-for-hair-loss-with-mounjaro">minoxidil</a> (Jul 2026), <a href="https://www.mumsnet.com/talk/weight-loss-injections/5446143-does-hair-loss-ever-stop">does it ever stop</a> (Nov 2025), <a href="https://www.mumsnet.com/talk/weight-loss-injections/5417565-reduction-in-dose-because-of-shedding">dose cut</a> (Sep 2025). These are hair-loss threads, so everyone posting has shed; use them for <strong>what helped</strong>, not how common it is. One poster appeared in 4 threads and another in 2; each counted once. <strong>21 unique first-hand posters</strong>, mostly tirzepatide.
+- <strong>Improved: 8 of 21.</strong>
+  - <strong>Weight stable or out of calorie deficit: 3</strong>: shedding stopped; regrowth to pre-loss levels in one at about 6 months of maintenance, about 2 inches of new growth in one at 7 months stable, baby hairs in one.
+  - <strong>Low-dose oral minoxidil: 2</strong>: both regrew; one 0.5 mg, one 0.5 rising to 1.25 mg, less shedding and baby hairs at about 7 months; one said hair had not come back on its own after stopping the GLP-1.
+  - <strong>Waited it out: 1</strong>: shedding at month 6 of treatment, regrowth about 3 months later.
+  - <strong>Collagen + biotin: 1</strong>: stopped and lots of regrowth (no timeline).
+  - <strong>Switched tirzepatide 10 mg to semaglutide 1.7 mg: 1</strong>: shedding <strong>halved by week 2 and back to her normal by week 5 to 6</strong>, after 11+ months of shedding; calories unchanged by her account. This is the most specific single report in the set but n = 1, and her shedding had already run nearly a year, so natural easing can't be ruled out [inferred].
+- <strong>Still shedding or no regrowth yet: 13 of 21.</strong> Three had <strong>stopped the drug and were still shedding</strong> at about 7 to 12 weeks off, which fits the 2 to 3 month lag in 1.3 [inferred].
+- <strong>Dose cuts or pauses: 1 helped</strong> (stopping once in maintenance), <strong>3 did not</strong> (taper from 15 to 7.5 mg, 12.5 to 10 mg, 2 to 3 months off), 2 unclear. A 2.5 week maintenance-calorie pause did not slow one poster's loss.
+- Combined with v1 (3 threads, 24 shedders, 14 non-shedders): the repeated pattern is <strong>time once weight stabilises, and oral minoxidil when it drags</strong>. Dose cuts mostly did not help in the short term [inferred, community].</p>
+<h3>4.13 Cosmetic peptides and exosomes (new in v2)</h3>
+<p><strong>Multi-peptide topical serums (Redensyl, Procapil, Capixyl, Baicapil, AnaGain, caffeine type):</strong>
+- Beauty editor test, <a href="https://www.purewow.com/beauty/the-ordinary-hair-serum-review">PureWow May 2024</a>: <strong>3 women, 2 months, once daily.</strong> All 3 measured faster length (for example 13.75 to 15.5 inches in about 8 weeks); <strong>density: 0 clear gains</strong> (1 thought it looked fuller and credited massage and the light formula); no shedding mentioned [reported]. Length growth without a baseline period is weak evidence [inferred].
+- <a href="https://www.hairlosstalk.com/interact/threads/the-ordinary-multi-peptide-serum-for-hair-density.121587/page-13">HLT long thread on a budget multi-peptide serum</a>, pages 3, 11 and 13 of 16 read (2019 to 2020; also <a href="https://hairlosstalk.com/interact/threads/the-ordinary-multi-peptide-serum-for-hair-density.121587/page-11">page 11</a>, <a href="https://hairlosstalk.com/interact/threads/anyone-seen-this-study-outperforming-minoxidil.125166/page-3">page 3</a>): <strong>10 unique first-hand.</strong> <strong>Positive 3</strong> (thicker, darker, more temple vellus hair at 6 weeks to 2 months; 2 also microneedling, 1 at only 1 week on several products). <strong>No change 6</strong> (1 to 12+ months; 2 said scalp itch or a scalp condition improved). <strong>Worse 1</strong> (heavy shedding at week 4, easing by week 6).
+- <a href="https://www.hairlosstalk.com/interact/threads/capixyl.59025">HLT Capixyl (2014)</a>: <strong>1 worse</strong> (shedding doubled at 3 months, but he stopped finasteride at the same time). <a href="https://hairlosstalk.com/interact/threads/redensyl-has-any-of-you-guys-tried-it.139550/">HLT Redensyl (2025)</a>: <strong>1 no change</strong> (pure ingredient, "didn't really do anything"). Two other Redensyl threads had 0 first-hand.
+- Tally: <strong>positive 3 (+3 length-only), no change 7, worse 2.</strong> Matches the trial picture in 3.11: small effects at best.</p>
+<p><strong>Exosomes:</strong>
+- <strong>Positive 2 first-hand.</strong> A writer, 6 weekly microneedling sessions with exosome solution: seasonal shedding stopped, thicker at the part [reported, <a href="https://www.realself.com/news/exosome-therapy-hair-loss">RealSelf 2023</a>]. A woman of 76, 3 injection sessions 8 weeks apart: hair loss stopped after session 2, some regrowth, held about a year before mild shedding returned; rated it worth it [reported, <a href="https://www.realself.com/review/exo-xom-hair-stopped-falling">RealSelf review Jan 2025</a>].
+- <strong>Clinician-observed:</strong> a facial plastic surgeon says patients see less fall and thicker growth, full result up to 6 months, best in mild to moderate loss, maintenance needed; no numbers [reported, same RealSelf article]. <strong>Clinician-documented with photos: 3 AA patients, all improved</strong> (3.12). Hair dermatologist Donovan: had not used them, trial-only in North America [verified].
+- Tally: <strong>5 improved (2 self-reported, 3 documented cases), 0 no change, 0 worse found.</strong> Publication bias is likely: failed exosome cases are rarely written up [inferred].</p>
+<h3>4.14 Per-peptide tally, all non-Reddit sources (v1 + v2)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Peptide / product</th>
+<th>First-hand reports</th>
+<th>Positive</th>
+<th>Partial</th>
+<th>No change</th>
+<th>Worse</th>
+<th>Clinician-observed</th>
+<th>What improved</th>
+<th>How fast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Peptide / product">Copper peptides, topical (hair loss)</td>
+<td data-l="First-hand reports">3</td>
+<td data-l="Positive">1</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">2</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+<td data-l="What improved">Thicker existing shafts</td>
+<td data-l="How fast">Not stated</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">Copper peptides, transplant aftercare</td>
+<td data-l="First-hand reports">5</td>
+<td data-l="Positive">3</td>
+<td data-l="Partial">1 (itch only)</td>
+<td data-l="No change">1</td>
+<td data-l="Worse">0 (1 stinging)</td>
+<td data-l="Clinician-observed">1 surgeon anecdote (+), 2 surgeon opinions (−)</td>
+<td data-l="What improved">Healing, redness, early growth hint</td>
+<td data-l="How fast">6 to 8 days (surgeon); about 6 weeks (growth hint)</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">GHK-Cu injected</td>
+<td data-l="First-hand reports">0</td>
+<td data-l="Positive">–</td>
+<td data-l="Partial">–</td>
+<td data-l="No change">–</td>
+<td data-l="Worse">–</td>
+<td data-l="Clinician-observed">0 (NP saw complications)</td>
+<td data-l="What improved">–</td>
+<td data-l="How fast">–</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">GHK-Cu + minoxidil + dutasteride, tattooed (study)</td>
+<td data-l="First-hand reports">7 patients</td>
+<td data-l="Positive">5 over 10% regrowth</td>
+<td data-l="Partial">–</td>
+<td data-l="No change">2 under 10%</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">Yes, 4 blinded dermatologists, photos</td>
+<td data-l="What improved">New top-scalp coverage</td>
+<td data-l="How fast">5 monthly sessions</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">TB-500 / Tβ4</td>
+<td data-l="First-hand reports">3</td>
+<td data-l="Positive">2</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">1</td>
+<td data-l="Clinician-observed">0</td>
+<td data-l="What improved">Density, new growth</td>
+<td data-l="How fast">From month 1, best at 3</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">BPC-157 (+TB-500) transplant</td>
+<td data-l="First-hand reports">1</td>
+<td data-l="Positive">1 (stack)</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0 (surgeon blog cautions)</td>
+<td data-l="What improved">Less shedding, fast results</td>
+<td data-l="How fast">Not stated</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">PTD-DBM</td>
+<td data-l="First-hand reports">3</td>
+<td data-l="Positive">0</td>
+<td data-l="Partial">1</td>
+<td data-l="No change">2</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+<td data-l="What improved">Existing hair thicker</td>
+<td data-l="How fast">–</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">KPV</td>
+<td data-l="First-hand reports">0</td>
+<td data-l="Positive">–</td>
+<td data-l="Partial">–</td>
+<td data-l="No change">–</td>
+<td data-l="Worse">–</td>
+<td data-l="Clinician-observed">–</td>
+<td data-l="What improved">–</td>
+<td data-l="How fast">–</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">Thymosin α-1 (AA)</td>
+<td data-l="First-hand reports">1</td>
+<td data-l="Positive">0</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">1</td>
+<td data-l="Worse">0 (new psoriasis)</td>
+<td data-l="Clinician-observed">Given by immunologist, not assessed</td>
+<td data-l="What improved">–</td>
+<td data-l="How fast">–</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">GH secretagogue (MK-677)</td>
+<td data-l="First-hand reports">1</td>
+<td data-l="Positive">1 (confounded)</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">0</td>
+<td data-l="What improved">"Growing rapidly"</td>
+<td data-l="How fast">Not stated</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">GLP-1 shedding (v1 + v2)</td>
+<td data-l="First-hand reports">60</td>
+<td data-l="Positive">8 improved (v2) + 6 resolving (v1)</td>
+<td data-l="Partial">–</td>
+<td data-l="No change">–</td>
+<td data-l="Worse">45 shed (v1 24 + v2 21)</td>
+<td data-l="Clinician-observed">Trichologists: stops in 3 to 6 months</td>
+<td data-l="What improved">Regrowth once weight stable; oral minoxidil</td>
+<td data-l="How fast">Regrowth 3 to 7 months after weight stable</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">Redensyl / Capixyl type serums</td>
+<td data-l="First-hand reports">15</td>
+<td data-l="Positive">3 (+3 length only)</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">7</td>
+<td data-l="Worse">2</td>
+<td data-l="Clinician-observed">0</td>
+<td data-l="What improved">Thicker look, faster length</td>
+<td data-l="How fast">6 weeks to 2 months</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">Exosomes</td>
+<td data-l="First-hand reports">5</td>
+<td data-l="Positive">5</td>
+<td data-l="Partial">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse">0</td>
+<td data-l="Clinician-observed">3 documented AA cases + 1 surgeon opinion</td>
+<td data-l="What improved">Less shedding, regrowth, repigmentation</td>
+<td data-l="How fast">From week 6; after 2nd session</td>
+</tr>
+<tr>
+<td data-l="Peptide / product">GLP-1 row: v1's 14 non-shedders make up the rest of the 60; "improved" means shedding stopped or regrowth reported.</td>
+<td data-l="First-hand reports"></td>
+<td data-l="Positive"></td>
+<td data-l="Partial"></td>
+<td data-l="No change"></td>
+<td data-l="Worse"></td>
+<td data-l="Clinician-observed"></td>
+<td data-l="What improved"></td>
+<td data-l="How fast"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.6 Takeaway for the page (rewritten in v2)</h3>
+<ul>
+<li><strong>What worked, by count (non-Reddit):</strong> exosomes <strong>5 of 5</strong> (including 3 clinician-documented AA cases, likely publication bias); copper aftercare sprays <strong>3 of 5</strong> for healing and redness, with one surgeon seeing unusually fast healing but unsure it was the copper; TB-500 <strong>2 of 3</strong> (1 worse); GLP-1 shedders mostly recover once weight stabilises, faster with oral minoxidil.</li>
+<li><strong>Strongest human result with a peptide in it</strong> is still the 7-man tattooed minoxidil + dutasteride + copper series graded by blinded dermatologists (3.1). It is not a copper-alone result.</li>
+<li><strong>The pattern across hair-loss positives is unchanged from v1:</strong> thicker existing hair and less shedding, rarely new hair in bald areas [inferred].</li>
+<li><strong>Transplant patients:</strong> no peptide has graft-survival data. Normal survival is already 85 to 95% (1.6), so any add-on has little room to show a gain [inferred]. The safety point that recurs is a surgeon one: tell your clinic, avoid unknown injectables near fresh grafts in the first 10 days, and don't spray anything that runs across healing incisions without asking.</li>
+<li><strong>No first-hand outside-Reddit data</strong> for KPV, injected GHK-Cu, or GH peptides other than one confounded MK-677 post. Those gaps are real, not search failures: the volume lives on Reddit and its mirrors.</li>
+</ul>
+<hr />
+<h2 id="5-pairings-and-related-conditions">5. Pairings and related conditions</h2>
+<ul>
+<li>Most common real-world stacks: minoxidil (topical or oral) + finasteride/dutasteride; add microneedling or PRP; peptides used on top, never alone [verified, forum regimens and network meta-analysis].</li>
+<li>Strongest evidence pairing: finasteride + minoxidil in men; microneedling + minoxidil in women [verified, <a href="https://doi.org/10.3389/fmed.2025.1638496">doi:10.3389/fmed.2025.1638496</a>; combination meta-analysis <a href="https://doi.org/10.1111/dth.13741">doi:10.1111/dth.13741</a>].</li>
+<li>GLP-1 + pattern loss: shedding can unmask pattern loss; dermatologists start minoxidil early [reported].</li>
+<li>AA + JAK + oral minoxidil: 168 of 202 tofacitinib patients also took LDOM [verified].</li>
+<li>Chemo hair loss: scalp cooling is the only proven preventer of persistent loss; LDOM helped in 7 of 7 studies [verified].</li>
+<li>Related pages: PCOS, GLP-1, Acne (androgens, clascoterone), Achilles/Tendon (TB-500, BPC-157 compound pages), GHK-Cu Library page.</li>
+</ul>
+<hr />
+<h2 id="6-options-ordered-by-evidence">6. Options (ordered by evidence)</h2>
+<ol>
+<li><strong>Find the type first.</strong> Pattern vs shedding vs patches vs scarring change everything. Bloods for ferritin, thyroid, vitamin D, zinc in diffuse shedding [reported, dermatologist practice].</li>
+<li><strong>Pattern loss, men:</strong> finasteride (oral or topical) + minoxidil (topical or low-dose oral) [verified]. Clascoterone pending (filing 2027) [reported].</li>
+<li><strong>Pattern loss, women:</strong> topical minoxidil (only approved drug) or low-dose oral minoxidil; spironolactone off-label (weak trial base) [verified].</li>
+<li><strong>Add-ons with RCTs:</strong> microneedling (best), PRP (similar to minoxidil), LLLT (alone helps, adds little to minoxidil) [verified].</li>
+<li><strong>Telogen effluvium (including GLP-1, post-illness):</strong> fix trigger, protein and iron; it usually self-resolves in 3 to 12 months; slower weight loss; minoxidil if prolonged [verified/reported].</li>
+<li><strong>Alopecia areata, moderate to severe:</strong> JAK inhibitors (20 to 40% near full regrowth in 6 to 9 months) [verified].</li>
+<li><strong>Transplant:</strong> keep native hair on medical therapy; PRP adjunct has weak but positive data [verified].</li>
+<li><strong>Peptides (experimental):</strong> topical GHK-Cu (low risk, weak evidence, best paired with microneedling); TB-500 (conflicting: mice yes, human follicles no); PTD-DBM (mouse only, unstable); BPC-157, KPV, Tα1 (no hair data) [verified/inferred].</li>
+</ol>
+<hr />
+<h2 id="7-sixteen-usual-questions-evidence-answers">7. Sixteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>Is it normal to lose 100 hairs a day?</strong> Yes, 50 to 100 is normal [verified, DermNet].</li>
+<li><strong>Why did my hair fall out months after I was sick?</strong> Follicles pushed into rest wait about 3 months before dropping; COVID median 2 months [verified].</li>
+<li><strong>Will my GLP-1 hair loss stop?</strong> Usually: trichologists expect 3 to 6 months of shedding; full fullness can take about a year [reported]. Pattern loss underneath will not fix itself [reported].</li>
+<li><strong>How likely is hair loss on Ozempic/Wegovy/Mounjaro?</strong> Trials: about 3 to 7% vs about 1% placebo; higher with bigger weight loss and in women [verified].</li>
+<li><strong>Is oral minoxidil safe?</strong> In 1,404 patients only 1.7% stopped for side effects; extra hair 15%, fluid retention 1.3%, fast heart 0.9% [verified]. Pericardial effusion is rare and mostly linked to dosing errors [verified, review].</li>
+<li><strong>Oral or topical minoxidil, which is better?</strong> Similar regrowth in an RCT; oral avoids scalp irritation (75% with topical) [verified].</li>
+<li><strong>Does finasteride ruin your sex life?</strong> RCTs show a 1.57x higher rate of sexual side effects, mostly reversible; a small subset report lasting effects (post-finasteride syndrome) [verified].</li>
+<li><strong>Is topical finasteride safer?</strong> It lowers blood DHT less but not to zero; FDA received 32 adverse reports for compounded versions 2019 to 2024 [verified].</li>
+<li><strong>Does biotin work?</strong> Not unless deficient; it can fake thyroid test results [verified/reported].</li>
+<li><strong>Does collagen help hair?</strong> One RCT showed slower shedding, but calcium + vitamin D did the same [verified].</li>
+<li><strong>Do copper peptides regrow hair?</strong> No controlled human trial of GHK-Cu alone; the best data (7 men, blinded photo grading) mix it with minoxidil and dutasteride; forum users mostly report thicker existing hair, not new hair [verified/reported].</li>
+<li><strong>Does TB-500 grow hair?</strong> It did in mice; in human follicles in a dish thymosin β4 slowed growth [verified/reported].</li>
+<li><strong>What is PTD-DBM?</strong> A peptide that releases the Wnt "grow" switch; worked in mice; no published human trial [verified].</li>
+<li><strong>What works for alopecia areata?</strong> JAK pills: 23 to 41% reach near full scalp in 24 to 36 weeks vs 1 to 6% on placebo [verified].</li>
+<li><strong>Is shedding after a hair transplant normal?</strong> Yes, grafts shed within about 6 weeks and regrow from month 3 to 5; native-hair shock loss in about 4%, much more in women; most studies report 85 to 95% of grafts surviving in normal scalp [verified/reported].</li>
+<li><strong>Do BPC-157 or TB-500 help a transplant heal?</strong> No study in transplant patients; one surgeon blog advises not starting them in the first 10 days unless your surgeon plans it, and to tell the clinic about anything you inject [verified, clinic blog].</li>
+</ol>
+<hr />
+<h2 id="8-warnings-bottom-of-page">8. Warnings (bottom of page)</h2>
+<ul>
+<li><strong>Finasteride/dutasteride:</strong> sexual side effects 1.57x placebo (finasteride RR 1.66) [verified]. FDA reports show more depression, anxiety and suicidality reports for finasteride, especially young men on hair doses [verified, <a href="https://doi.org/10.3390/brainsci16040394">doi:10.3390/brainsci16040394</a>]; an observational meta-analysis found no significant link (HR 1.07) [verified, <a href="https://doi.org/10.3389/fruro.2026.1881635">doi:10.3389/fruro.2026.1881635</a>]. Post-finasteride syndrome (lasting sexual and psychiatric symptoms after stopping) is reported in a subset; mechanism proposed via lower neurosteroids [verified, <a href="https://doi.org/10.3390/neurosci7010020">doi:10.3390/neurosci7010020</a>]. A public health essay argues regulators under-studied it [verified, <a href="https://doi.org/10.1093/pubmed/fdag077">doi:10.1093/pubmed/fdag077</a>]. Screen mood before and during [verified].</li>
+<li><strong>Oral minoxidil heart effects:</strong> fluid retention 1.3 to 10%, fast heart or dizziness under 5%, pericardial effusion extremely rare, often linked to compounding dose errors [verified, <a href="https://doi.org/10.3390/jcm14061805">doi:10.3390/jcm14061805</a>]. A large records study found no association with pericardial effusion [verified title, <a href="https://doi.org/10.1016/j.jaad.2025.02.055">doi:10.1016/j.jaad.2025.02.055</a>]. Contraindicated with pericardial disease, uncontrolled blood pressure, pheochromocytoma [verified]. Early shedding in 16 to 22% is expected [verified].</li>
+<li><strong>Pregnancy:</strong> finasteride, dutasteride, spironolactone and oral minoxidil are contraindicated or avoided in pregnancy [verified for minoxidil; reported for others]. Topical finasteride can transfer to partners and children by touch [verified, FDA].</li>
+<li><strong>JAK inhibitors:</strong> acne, raised cholesterol and CK [verified]; class warnings for infection, clots and heart events, more relevant over 65 [verified, <a href="https://doi.org/10.1016/j.jaad.2026.09.075">doi:10.1016/j.jaad.2026.09.075</a>].</li>
+<li><strong>Unregulated products:</strong> no FDA-approved topical finasteride; compounded versions caused reports similar to oral side effects, many persisting after stopping [verified, <a href="https://www.fda.gov/drugs/human-drug-compounding/fda-alerts-health-care-providers-compounders-and-consumers-potential-risks-associated-compounded">FDA Apr 2025</a>]. No FDA-approved exosome products [reported]. Research peptides (GHK-Cu, TB-500, PTD-DBM, BPC-157) are not approved drugs; purity and stability vary, PTD-DBM especially unstable [reported, forum].</li>
+<li><strong>Melanotan:</strong> pigment changes and depigmented patches reported in a patient with AA [verified title].</li>
+<li><strong>Biotin:</strong> stop 24 to 72 h before thyroid or hormone blood tests [verified].</li>
+<li><strong>Thymosin β4:</strong> may push human follicles toward shedding (lab data) [reported].</li>
+<li><strong>Sudden patchy loss, scarring, pain, burning:</strong> see a dermatologist; scarring loss is permanent and transplants into scar fail over time [verified].</li>
+</ul>
+<hr />
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<p>Closed in v2: old gap 3 (Kuceki 2025 now read in full), old gap 5 (graft survival verified against primary studies). Old gap 4 partly closed (Meier 2012 numbers via excerpt; journal text still unread).
+1. <strong>HRN "Peptides for Recovery Post HT" (topic 77829)</strong> is the single most relevant thread found and would not load (site error twice). Retry, or fetch via the desktop browser with her permission.
+2. <strong>The Bald Truth forum, Hair Transplant Network (hairtransplantnetwork.com), Alopecia UK and NAAF community</strong> pages could not be fetched from this session and search indexed nothing peptide-related on them. Retry through a browser; NAAF and Alopecia UK may have private Facebook groups only.
+3. <strong>YouTube:</strong> search only returned vendor-run video mirrors (excluded). Needs direct YouTube search for dermatologist and surgeon videos on GHK-Cu, exosomes and GLP-1 shedding, reading descriptions and top comments.
+4. HLT multi-peptide serum thread: only pages 3, 11, 13 of 16 read. Read the rest for a fuller count.
+5. Meier 2012 (JID) thymic peptide letter: read the journal text directly to confirm the 10 to 20% figure and that "TYL" is thymulin.
+6. Post-transplant copper spray reports are all from 2009 and none has photos; look for a modern surgeon case series or ISHRS Forum (Hair Transplant Forum International) article on copper or peptide aftercare.
+7. KPV and thymosin α-1: no non-Reddit first-hand reports beyond one Tα1 user. Try alopecia areata Facebook public posts and Alopecia World search for "LDN + peptide" stacks.
+8. Injected GHK-Cu: no first-hand hair outcome outside Reddit; ExcelMale member threads linked from the guide were not opened.
+9. Exosome AA retrospective cohort named in the 2026 review (doi:10.3390/ijms27010021) not identified; pull its numbers.
+10. Results pending: exosome RCT NCT07693244 and peptide serum RCT NCT07536100 (both due Nov 2026).
+11. Carried from v1, still open: spironolactone observational numbers; semaglutide label alopecia rates and the TriNetX primary; THRIVE-AA2 numbers and boxed warning; clascoterone absolute counts; PTD-DBM Korean registry (CRIS); FDA exosome warning letters; pregnancy label text for finasteride and spironolactone.
+12. Reddit-sourced counts (via ChatGPT, her workflow) still needed for injected GHK-Cu, GH peptides and KPV, where most reports live.</p></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

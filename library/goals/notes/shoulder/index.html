@@ -1,0 +1,633 @@
+<!doctype html>
+<!-- Goal research notes: Shoulder, from Shoulder Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="BPC-157 has never been studied in a shoulder. Placebo surgery matched real surgery for impingement.">
+<title>Shoulder · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Shoulder</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">BPC-157 has never been studied in a shoulder. Placebo surgery matched real surgery for impingement. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (13)</summary><ol><li><a href="#what-changed-in-v2-3-nov-2026">What changed in v2 (3 Nov 2026)</a></li><li><a href="#0-headlines-for-the-page-one-line-each">0. Headlines for the page (one line each)</a></li><li><a href="#1-the-conditions">1. The conditions</a></li><li><a href="#2-standard-treatments-with-numbers">2. Standard treatments with numbers</a></li><li><a href="#3-peptides-that-touch-the-shoulder-endpoint">3. Peptides that touch the shoulder endpoint</a></li><li><a href="#4-what-people-report-community-outside-reddit">4. What people report (community, outside Reddit)</a></li><li><a href="#5-pairings-and-related-conditions">5. Pairings and related conditions</a></li><li><a href="#6-options-evidence-ordered-for-the-options-card">6. Options (evidence-ordered, for the options card)</a></li><li><a href="#7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</a></li><li><a href="#8-warnings-bottom-of-page-reuse-tendon-base-1-9-block-verbat">8. Warnings (bottom of page; reuse Tendon Base 1.9 block verbatim, plus shoulder lines)</a></li><li><a href="#inaccessible-or-partial-sources">Inaccessible or partial sources</a></li><li><a href="#gaps-for-next-pass">Gaps for next pass</a></li><li><a href="#version-log">Version log</a></li></ol></details>
+<div class="md"><h1>Shoulder Research v2</h1>
+<p>Goal page research for baresignals.co: shoulder problems people use peptides for. v1 compiled 3 Nov 2026 (Pass 4 of the Run Plan); v2 second pass 3 Nov 2026 (Pass 10).</p>
+<h2 id="what-changed-in-v2-3-nov-2026">What changed in v2 (3 Nov 2026)</h2>
+<ul>
+<li><strong>v1 kept intact as its own file.</strong> v2 = full copy of v1, then edits. New material is marked <strong>[v2]</strong>; v1 lines that were wrong are struck through or rewritten with a note.</li>
+<li><strong>Corrections from the adversarial check (new section 9):</strong> (1) Minagawa 2013 was a 664-person health check-up sample (21.3% of the village), not "a whole village"; headline 1 and 1.2 reworded. (2) Davis 2025 CI corrected to 1.916 to 3.173 from the full text, plus absolute risks added (2.0% vs 0.8% over 5 years). (3) CSAW: 42% of the placebo-arm patients had not received their assigned surgery by 6 months; added as a caveat. (4) Moews 2026 cuff repair numbers traced to their primary source (Seddio 2025, semaglutide only, PearlDiver). Zreik, Moosmayer, Hand, Holtedahl, Checketts, Bergstein confirmed as written.</li>
+<li><strong>GLP-1 and frozen shoulder (3.5):</strong> critique letter located (Cromer and Alkabbani, JSES 2026, title read, body not accessible); added the methods problems the original authors themselves concede, a new 2026 TriNetX study showing <strong>no</strong> extra frozen shoulder after cuff repair when matched on HbA1c (Lauck 2026), and a Korean 3.5 million person cohort showing weight itself raises frozen shoulder risk in under-40s (Kim 2024). Re-graded the GLP-1 harm signal from "B for association" to "C, likely confounded".</li>
+<li><strong>Imaging in pain-free overhead athletes (1.5 and new 1.8):</strong> 8 primary MRI studies added (Connor 2003, Miniaci 2002, Lesniak 2013, Del Grande 2016, Schwartzberg 2016, Cooper 2022, Hacken 2019, Johansson 2015), plus one counterpoint (Beletsky 2022).</li>
+<li><strong>Menopause and frozen shoulder (1.4):</strong> first primary studies added (Reinke 2026 HRT pilot, Yoon 2018 perimenopausal shoulder pain); two HRT frozen shoulder trials found in the registry (UCSF RCT recruiting, results due after Dec 2026; Istanbul cohort starting). Testosterone, TRT and hormonal contraceptive shoulder data added for her lifting circle.</li>
+<li><strong>Collagen (3.4):</strong> NCT07871318 still unpublished on 3 Nov 2026; added the one published shoulder collagen-peptide study found (Buda 2023, injected hydrolysed collagen, 71 patients, no control group, manufacturer-linked device).</li>
+<li><strong>Community (4.7 to 4.10):</strong> 6 new first-hand peptide shoulder reports (now 19), 2 HRT, 1 collagen, 2 GLP-1 side-effect reports; 4 more frozen shoulder patient threads (about 47 posters) tallied. New per-peptide by per-condition grid. Still zero clinician-written observations and zero follow-up scans.</li>
+<li><strong>15 questions (7):</strong> all 15 present; answers 1, 3, 7, 8, 9, 13 updated; Q8 now covers menopause.</li>
+<li><strong>Budget:</strong> 22 WebSearch calls, about 30 WebFetch, about 30 PubMed/ClinicalTrials.gov calls. WebFetch hit a usage limit near the end, so a few planned fetches were not done (listed in Inaccessible).</li>
+</ul>
+<hr />
+<p>Scope: rotator cuff tendinopathy, partial and full cuff tears, cuff repair recovery, frozen shoulder (adhesive capsulitis), labral tears (SLAP), subacromial pain ("impingement"), AC joint, plus calcific tendinitis. Readers: her circle plays padel, tennis, basketball, jiu-jitsu and lifts.
+Tags: [verified] = read in the primary abstract or registry record. [reported] = secondary source, or a detail not visible in the abstract. [inferred] = my reasoning from verified data. [speculated] = plausible, unsupported.
+Doses appear only as reported in studies or registries. No suppliers named. Tendon basics (renewal, healing phases, loading principles, cortisone pattern, WADA block, BPC-157 PK) live in <strong>Tendon Base v1.md</strong> and are referenced, not repeated. Searches and fetches this pass: about 75 (PubMed, ClinicalTrials.gov, WebSearch, WebFetch).</p>
+<hr />
+<h2 id="0-headlines-for-the-page-one-line-each">0. Headlines for the page (one line each)</h2>
+<ol>
+<li>Shoulder scans lie a lot: full-thickness cuff tears were found in 22% of 664 adults screened in one Japanese village, and two in three of those tears caused no symptoms (Minagawa 2013). In pain-free elite overhead athletes, 40% of throwing shoulders showed cuff tears on MRI and none had symptoms 5 years later (Connor 2003). [verified; v2 corrected "whole village"]</li>
+<li>Shaving bone off the acromion ("decompression") did no better than a fake operation in two placebo-surgery trials (CSAW, FIMPACT). [verified]</li>
+<li>Repairing a SLAP labral tear did no better than sham surgery in people around 40 (Schrøder 2017). [verified]</li>
+<li>Small cuff tears: physio and surgery look alike for years in over-55s (Kukkonen 2021), but a Norwegian trial found surgery pulling ahead by 15 years, and unrepaired tears roughly doubled in width (Moosmayer 2024). [verified]</li>
+<li>About 1 in 5 cuff repairs re-tears on imaging, mostly in the first months, more with age and bigger tears; re-tear does not always mean a worse shoulder. [verified]</li>
+<li>Frozen shoulder is not reliably "self-limiting": 41% still had some symptoms at about 4 years, though 94% of those were mild (Hand 2008). [verified]</li>
+<li>Diabetes makes frozen shoulder about 5 times more likely; 30% of frozen shoulder patients have diabetes (Zreik 2016). [verified]</li>
+<li>GLP-1 drugs: two database studies link them to <em>more</em> frozen shoulder, not less (OR 1.28 in type 2 diabetes; HR up to about 2.5 in obese non-diabetics, which is 2.0% vs 0.8% over 5 years). A third, matched on blood sugar, found no difference after cuff surgery. Likely confounded; not proof of harm. [verified; v2 reworded]</li>
+<li><strong>[v2]</strong> Menopause: frozen shoulder peaks in women 40 to 60, but the only direct HRT study so far (a 1,952-woman pilot) was not statistically significant (7.65% vs 3.95%, p = 0.10). A randomised HRT trial is recruiting in San Francisco. [verified]</li>
+<li>The first real human BPC-157 shoulder trial (University of Arkansas, 30 people after cuff repair, daily injections for 90 days) does not start until January 2027. No results exist. [verified registry]</li>
+<li>Best documented "drug added to cuff repair" trial so far: teriparatide (a real, approved peptide hormone) did nothing over placebo (re-tear 8.7% vs 10%). A reminder that "it worked in rats" often fails in shoulders. [verified]</li>
+</ol>
+<hr />
+<h2 id="1-the-conditions">1. The conditions</h2>
+<h3>1.1 Rotator cuff tendinopathy and subacromial pain ("impingement")</h3>
+<ul>
+<li><strong>What it is:</strong> pain from the cuff tendons (mostly supraspinatus) and the bursa above them, felt on the outside of the upper arm, worse lifting the arm, reaching overhead or lying on that side. "Impingement" was the old idea that the acromion bone pinches the tendon; the placebo-surgery trials (1.1 below and section 2.1) undermined it. [reported for symptoms; verified for trials]</li>
+<li><strong>How common:</strong> in a hospital outpatient cohort of 766 shoulder patients (Oslo), subacromial pain was the top diagnosis (36%), then myalgia (17%) and frozen shoulder (11%); subacromial pain and frozen shoulder peaked at age 40 to 60; labral tears and instability (8%) were mostly in young people and absent after 50; full-thickness cuff tears (8%) and arthritis (4%) rose after 60 (Juel 2014, <a href="https://doi.org/10.1186/1471-2474-15-89">DOI</a>). [verified]</li>
+<li><strong>Imaging:</strong> ultrasound or MRI show tendon thickening, bursal fluid, spurs. These are common without pain: in 100 pain-free volunteers aged 19 to 88, three quarters had AC joint arthritis changes on MRI and one third had subacromial spurs (Needell 1996, <a href="https://doi.org/10.2214/ajr.166.4.8610564">DOI</a>). [verified]</li>
+<li><strong>Sports angle:</strong> serving and overhead smashes (tennis, padel), shooting and rebounding (basketball), pressing (lifting). [inferred]</li>
+</ul>
+<h3>1.2 Rotator cuff tears (partial and full thickness)</h3>
+<ul>
+<li><strong>Asymptomatic tears by age</strong> (the key "do not panic about your MRI" fact):</li>
+<li>Pooled data, 30 studies, 6,112 shoulders: any cuff abnormality rose from <strong>9.7% at age 20 or younger to 62% at 80+</strong>; the same rise was seen with or without symptoms (Teunis 2014, <a href="https://doi.org/10.1016/j.jse.2014.08.001">DOI</a>). [verified]</li>
+<li>Village health check-up ultrasound, 664 residents in Japan (21.3% of the village population, so a volunteer sample, not the whole village; v2 correction): full-thickness tears in <strong>22.1%</strong>; by decade <strong>0% in the 20s to 40s, 10.7% in the 50s, 15.2% in the 60s, 26.5% in the 70s, 36.6% in the 80s</strong>; <strong>65% of tears had no symptoms</strong> (half in the 50s, two thirds over 60) (Minagawa 2013, <a href="https://doi.org/10.1016/j.jor.2013.01.008">DOI</a>). [verified]</li>
+<li><strong>Natural history:</strong> of 50 initially painless full-thickness tears followed 3 years, <strong>18 (36%) became painful</strong>; those that became painful grew more (10.6 mm vs 3.3 mm) and showed more fatty change in the muscle (Moosmayer 2013, <a href="https://doi.org/10.2106/JBJS.L.00185">DOI</a>). [verified] In people who had surgery on one painful shoulder, <strong>26% developed pain in the other (silent) torn shoulder</strong> within about 3 years, median 15 months; bigger silent tears were the only predictor (Olson 2023, <a href="https://doi.org/10.1016/j.jse.2023.09.008">DOI</a>). [verified]</li>
+<li><strong>Symptoms:</strong> pain plus weakness lifting or rotating the arm; night pain. Sudden loss of lifting after a fall or heavy pull suggests an acute traumatic tear (needs prompt assessment). [reported]</li>
+<li><strong>Traumatic vs degenerative:</strong> the big trials (Kukkonen, Moosmayer) are in older people with non-traumatic tears. In under-45s, 72% of repaired tears were traumatic (Moussa 2024, below). Traumatic tears in young athletes are a different decision. [verified]</li>
+</ul>
+<h3>1.3 Why cuff repairs re-tear</h3>
+<ul>
+<li><strong>How often:</strong> meta-analysis of level 1 and 2 studies: re-tear on imaging <strong>15% at 3 months, 21% at 3 to 6 months, 16% at 6 to 12 months, 21% at 12 to 24 months, 16% beyond 24 months</strong> (Longo 2021, <a href="https://doi.org/10.1186/s12891-021-04634-6">DOI</a>). [verified] Another meta-analysis of 83 trial arms: <strong>19.9% at median 13 months</strong> (range 10 to 30%) (Holtedahl 2021, <a href="https://doi.org/10.1016/j.arthro.2021.08.019">DOI</a>). [verified] A 2026 review states 20 to 40% fail structurally within 2 years (Dunivan 2026, below). [verified as stated by authors]</li>
+<li><strong>Why:</strong> patient factors (older age, larger tear, fatty infiltration of the muscle) and non-patient factors (rehab protocol, technique) (Longo 2021). [verified] Biology: tendon must re-grow into bone (a fibrocartilage "enthesis" that does not regenerate its original layered structure) [reported, general literature]; and see Tendon Base 1.1 on low tendon turnover.</li>
+<li><strong>Does a re-tear matter?</strong> Clinical scores were <strong>not</strong> related to re-tear rate across trials (Holtedahl 2021). [verified] But within trials, intact repairs scored clinically better than re-torn ones (ASES +14.3, Constant +10.5) (Checketts 2026, <a href="https://doi.org/10.2106/JBJS.OA.26.00248">DOI</a>). [verified] Fair wording: "re-tears are common and often still feel OK, but on average an intact repair does better." [inferred]</li>
+<li><strong>Steroid injections before repair:</strong> in 4,959 insurance claims, an injection within 6 months before repair raised the odds of revision surgery within 3 years (3 to 6 months before: adjusted OR 1.82); after 6 months the extra risk faded (Traven 2019, <a href="https://doi.org/10.1016/j.arthro.2018.10.107">DOI</a>). [verified, observational] Steroid injection within 1 month after shoulder arthroscopy was linked to more infection (OR 2.6 private, 11.2 Medicare) (Kew 2019, <a href="https://doi.org/10.1177/0363546518825348">DOI</a>). [verified, observational]</li>
+</ul>
+<h3>1.4 Frozen shoulder (adhesive capsulitis)</h3>
+<ul>
+<li><strong>What it is:</strong> the joint capsule thickens and contracts; pain then stiffness, classically losing passive outward rotation. In UK FROST the entry rule was at least 50% loss of passive external rotation (Rangan 2020). [verified] An MRI-reported capsule "10+ times normal thickness" appears in a patient story (below). [reported]</li>
+<li><strong>Who:</strong> age 40 to 60 peak (Juel 2014) [verified]; mean onset 53.4 years, women 1.6:1 men, 20% get it in both shoulders over time (Hand 2008). [verified]</li>
+<li><strong>Diabetes link:</strong> people with diabetes were <strong>5 times</strong> more likely to have it (95% CI 3.2 to 7.7); prevalence in diabetes <strong>13.4%</strong>; <strong>30%</strong> of frozen shoulder patients had diabetes; insulin vs other treatment made no difference (Zreik 2016, 18 studies, <a href="https://doi.org/10.11138/mltj/2016.6.1.026">DOI</a>). [verified] Authors suggest screening for diabetes in anyone presenting with frozen shoulder. [verified]</li>
+<li><strong>Natural history, two views:</strong></li>
+<li>Long-term cohort, 223 patients, mean 4.4 years after onset: <strong>59% normal or near normal, 41% some symptoms, of which 94% mild; only 6% severe</strong>; worst pain at onset predicted worst outcome (Hand 2008, <a href="https://doi.org/10.1016/j.jse.2007.05.009">DOI</a>). [verified]</li>
+<li>Systematic review: <strong>no evidence</strong> for the classic "freeze, frozen, thaw to full recovery without treatment" story; untreated shoulders improved partly over 1 to 4 years, and most improvement happened <strong>early, not late</strong> (Wong 2016, <a href="https://doi.org/10.1016/j.physio.2016.05.009">DOI</a>). [verified, low to moderate quality]</li>
+<li>Page wording: "Most people get most of their movement back over 1 to 3 years, but about 4 in 10 have something left at 4 years, usually mild. It is not a guaranteed full thaw." [inferred]</li>
+<li><strong>Menopause:</strong> forum posters frequently link it to perimenopause (see 4.3); no primary study read this pass. [reported; gap] <strong>[v2] Primary data now found:</strong></li>
+<li><strong>HRT pilot (Duke, Climacteric 2026):</strong> 1,952 postmenopausal women aged 40 to 60 in one health system; frozen shoulder in <strong>7.65% without HRT vs 3.95% with HRT</strong> (only 152 on HRT); <strong>OR 1.99, 95% CI 0.86 to 4.58, p = 0.10, not significant.</strong> Authors call it a design pilot and ask for larger prospective studies (Reinke 2026, <a href="https://doi.org/10.1080/13697137.2026.2615391">DOI</a>). [verified] Page wording: "a hint, not a finding." [inferred]</li>
+<li><strong>Perimenopausal shoulder pain (Korea, Menopause 2018):</strong> 197 perimenopausal vs 113 premenopausal women with shoulder pain. Frozen shoulder was the top diagnosis in both (<strong>35.4% vs 31.8%, no significant difference</strong>). What differed was <strong>shoulder synovitis (25.1% vs 6.2%)</strong>; 92.9% of 56 synovitis patients improved on a 9 to 12 week course of oral prednisolone (Yoon 2018, <a href="https://doi.org/10.1097/GME.0000000000000944">DOI</a>). [verified] So "menopause shoulder" may often be joint-lining inflammation rather than true frozen shoulder. [inferred]</li>
+<li><strong>Mechanism:</strong> in a rat immobilisation model and fibroblasts from human frozen shoulder capsule, estradiol reduced capsule fibrosis and improved motion via the GPER receptor (Wang 2025, <a href="https://doi.org/10.1016/j.jsbmb.2025.106701">DOI</a>). [verified, animal/cell] A 2025 narrative review frames frozen shoulder as an estrogen, thyroid and metabolic disorder (Navarro-Ledesma 2025, <a href="https://doi.org/10.3390/jcm14207315">DOI</a>). [verified, opinion-level]</li>
+<li><strong>Trials (ClinicalTrials.gov, read 3 Nov 2026):</strong> <strong>NCT07278323</strong> (UCSF): randomised, 60 peri/postmenopausal women 40+, steroid injection plus physio with or without HRT (patch plus daily pill), ASES score and motion at 6 months; <strong>recruiting, primary completion Dec 2026</strong>. <strong>NCT07736027</strong> (Istanbul): non-randomised, 56 postmenopausal women on vs not on HRT, same physio programme; not yet recruiting, start Sep 2026. [verified registry] Dose not stated in either.</li>
+<li><strong>Testosterone (men):</strong> in 602,438 matched men, normal-to-high testosterone (300 to 1,000 ng/dL) was linked to <em>slightly more</em> frozen shoulder than low testosterone (5 years: 0.54% vs 0.48%, RR 1.12) (Smadi 2026, <a href="https://doi.org/10.1016/j.jse.2026.01.012">DOI</a>). [verified] TRT within a year before cuff repair: more frozen shoulder (OR 1.37) and more revision repair (OR 1.53) at 2 years (Johnson 2025, <a href="https://doi.org/10.1016/j.jseint.2025.10.002">DOI</a>). [verified, database] Relevant to lifters on TRT, and explains why the BPC-157 cuff trial excludes TRT. [inferred]</li>
+<li><strong>Hormonal contraceptives:</strong> users aged 13 to 50 had 1.2 to 2.0 times higher odds of 10 shoulder diagnoses including cuff tears, SLAP tears and calcific tendinitis (Omurzakov 2026, <a href="https://doi.org/10.1002/arj.70201">DOI</a>). [verified] Every diagnosis going up together suggests more doctor visits, not biology (detection bias). [inferred]</li>
+<li><strong>[v2] Weight itself:</strong> Korean national cohort, 3.5 million adults, 8.3 years: in under-40s, frozen shoulder risk rose with BMI (HR 1.27 at BMI 23 to 25 up to 1.33 at 30+); overweight plus diabetes HR 1.53 (Kim 2024, <a href="https://doi.org/10.1016/j.jse.2024.03.063">DOI</a>). [verified] Important for reading the GLP-1 data (3.5). [inferred]</li>
+</ul>
+<h3>1.5 Labral tears (SLAP and others)</h3>
+<ul>
+<li><strong>What it is:</strong> tear of the cartilage rim; SLAP = top of the labrum where the biceps attaches. Seen with throwing and overhead sports, and falls. [reported]</li>
+<li><strong>Who:</strong> mostly young; labral/instability diagnoses absent after age 50 in the Oslo cohort (Juel 2014). [verified]</li>
+<li><strong>Imaging caveat:</strong> superior labral "tears" are common on MRI in pain-free overhead athletes [reported; primary not retrieved this pass, gap]. <strong>[v2] Now traced to primaries (see 1.8):</strong> labrum abnormal in 79% of pain-free pro pitchers' shoulders (Miniaci 2002); 10 of 21 pain-free pro pitchers had SLAP tears (Lesniak 2013); in pain-free 45 to 60 year olds, two radiologists read SLAP tears in 55% and 72%, agreeing only moderately (Schwartzberg 2016). [verified]</li>
+<li><strong>Surgery vs sham:</strong> 118 surgical candidates, mean age 40, isolated SLAP II on MR arthrography: <strong>labral repair, biceps tenodesis and sham surgery did the same at 6 months and 2 years</strong> (Rowe score differences about 1 point) (Schrøder 2017 BJSM, <a href="https://doi.org/10.1136/bjsports-2016-097098">DOI</a>). [verified] Sick leave also did not differ (Brox 2020, <a href="https://doi.org/10.1136/bmjopen-2019-035259">DOI</a>). [verified]</li>
+<li><strong>Throwers:</strong> return to pre-injury level after SLAP repair reported at 22 to 64% (Kin 2026, <a href="https://doi.org/10.1177/03635465261442967">DOI</a>) and an editorial says outcomes are "completely unpredictable"; as few as 7% of baseball players return to elite performance after SLAP repair (Tansey 2025, <a href="https://doi.org/10.1016/j.arthro.2025.03.022">DOI</a>). [verified] One Japanese case series with a less rigid technique reported 79% back to pre-injury level at about 9 months (n = 80, no control) (Kin 2026). [verified]</li>
+</ul>
+<h3>1.6 AC joint (acromioclavicular)</h3>
+<ul>
+<li><strong>Arthritis on scans is near universal:</strong> population-based prevalence of AC arthritis <strong>85% on MRI, 95% on X-ray</strong> in pain-free adults; in other samples 0 to 82% on MRI; prevalence often similar in painful and pain-free shoulders (Ibounig 2025 systematic review, very low certainty, <a href="https://doi.org/10.1186/s13018-024-05378-4">DOI</a>). [verified]</li>
+<li><strong>Lifter's shoulder (distal clavicle osteolysis):</strong> in 1,432 teen shoulder MRIs, <strong>6.5%</strong> had it; overhead sport (basketball, volleyball, tennis, swimming) <strong>plus weight training</strong> raised the odds about 38-fold; <strong>93% improved with conservative care</strong>, but 71% later showed AC arthritis vs 35% of controls (Roedl 2015, <a href="https://doi.org/10.1007/s00256-014-2092-2">DOI</a>). [verified] Directly relevant to her lifting plus padel/tennis/basketball circle. [inferred]</li>
+<li><strong>AC separation (falls, BJJ takedowns):</strong> grade-based; not researched in depth this pass. [gap]</li>
+</ul>
+<h3>1.7 Calcific tendinitis</h3>
+<p>Calcium deposit in a cuff tendon; can be acutely very painful. Prevalence and spontaneous resorption data not retrieved this pass. [gap] Treatment numbers in 2.5. <strong>[v2]</strong> One PubMed search for natural history and resorption returned nothing; still a gap.</p>
+<h3>1.8 [v2] MRI findings in pain-free athletes (the "do not panic about your scan" block)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Who (all pain-free)</th>
+<th>What the MRI showed</th>
+<th>Follow-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Study">Connor 2003 AJSM (<a href="https://doi.org/10.1177/03635465030310051501">DOI</a>)</td>
+<td data-l="Who (all pain-free)">20 elite overhead athletes (baseball, tennis)</td>
+<td data-l="What the MRI showed">Partial or full cuff tears in <strong>40% of dominant vs 0% of non-dominant</strong> shoulders; Bennett lesion 25%</td>
+<td data-l="Follow-up"><strong>None had symptoms or treatment at 5 years.</strong> Authors: MRI alone should not decide surgery</td>
+</tr>
+<tr>
+<td data-l="Study">Miniaci 2002 AJSM (<a href="https://doi.org/10.1177/03635465020300012501">DOI</a>)</td>
+<td data-l="Who (all pain-free)">14 pro pitchers, both shoulders</td>
+<td data-l="What the MRI showed"><strong>Labrum abnormal in 79%</strong> of 28 shoulders, both arms</td>
+<td data-l="Follow-up">None</td>
+</tr>
+<tr>
+<td data-l="Study">Lesniak 2013 AJSM (<a href="https://doi.org/10.1177/0363546513491093">DOI</a>)</td>
+<td data-l="Who (all pain-free)">21 pro pitchers</td>
+<td data-l="What the MRI showed">11 cuff tears (9 partial, 2 full), <strong>10 SLAP tears</strong>, 13 other labral tears</td>
+<td data-l="Follow-up">Findings tracked innings pitched</td>
+</tr>
+<tr>
+<td data-l="Study">Del Grande 2016 (<a href="https://doi.org/10.1097/RCT.0000000000000327">DOI</a>)</td>
+<td data-l="Who (all pain-free)">19 pitcher draft picks, 3T MRI</td>
+<td data-l="What the MRI showed">Tendinopathy 68%, <strong>partial supraspinatus tear 32%</strong>, AC arthritis 21%</td>
+<td data-l="Follow-up">None</td>
+</tr>
+<tr>
+<td data-l="Study">Schwartzberg 2016 OJSM (<a href="https://doi.org/10.1177/2325967115623212">DOI</a>)</td>
+<td data-l="Who (all pain-free)">53 adults 45 to 60, no injury</td>
+<td data-l="What the MRI showed"><strong>SLAP tear read in 55% (radiologist 1) and 72% (radiologist 2)</strong>; kappa 0.41; not linked to overhead sport</td>
+<td data-l="Follow-up">None. Authors: may be normal ageing</td>
+</tr>
+<tr>
+<td data-l="Study">Cooper 2022 OJSM (<a href="https://doi.org/10.1177/23259671211073137">DOI</a>)</td>
+<td data-l="Who (all pain-free)">50 elite climbers 20 to 60</td>
+<td data-l="What the MRI showed">Cuff tendinosis 80%, bursitis 79%, <strong>discrete labral tear 56%</strong>, cartilage change 57%</td>
+<td data-l="Follow-up">None</td>
+</tr>
+<tr>
+<td data-l="Study">Hacken 2019 OJSM (<a href="https://doi.org/10.1177/2325967119876865">DOI</a>)</td>
+<td data-l="Who (all pain-free)">25 pro/college ice hockey players</td>
+<td data-l="What the MRI showed">Labral 25%, AC 8%, cuff 6%</td>
+<td data-l="Follow-up">None</td>
+</tr>
+<tr>
+<td data-l="Study">Johansson 2015 J Athl Train (<a href="https://doi.org/10.4085/1062-6050-51.1.07">DOI</a>)</td>
+<td data-l="Who (all pain-free)">35 elite junior tennis players (mean 17)</td>
+<td data-l="What the MRI showed">Infraspinatus tendinosis more often in the hitting arm; strength unaffected</td>
+<td data-l="Follow-up">None</td>
+</tr>
+<tr>
+<td data-l="Study"><strong>Counterpoint:</strong> Beletsky 2022 (<a href="https://doi.org/10.1016/j.asmr.2021.10.029">DOI</a>)</td>
+<td data-l="Who (all pain-free)">38 pain-free MLB pitchers</td>
+<td data-l="What the MRI showed">Partial articular-side cuff tears on preseason MRI were linked to <strong>later surgery</strong> (p = .04)</td>
+<td data-l="Follow-up">Career follow-up</td>
+</tr>
+<tr>
+<td data-l="Study">All [verified, abstracts]. <strong>Reading [inferred]:</strong> in overhead sport (tennis, padel smash, basketball shooting, climbing) labrum and partial cuff findings are often adaptation. A scan finding matters when it matches the symptoms and the exam. The one counterpoint says some partial tears in throwers do progress, so "ignore it" is also wrong. No padel-specific or BJJ-specific MRI study found. [verified absence in PubMed searches this pass]</td>
+<td data-l="Who (all pain-free)"></td>
+<td data-l="What the MRI showed"></td>
+<td data-l="Follow-up"></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="2-standard-treatments-with-numbers">2. Standard treatments with numbers</h2>
+<h3>2.1 Subacromial pain: decompression surgery vs placebo surgery</h3>
+<ul>
+<li><strong>CSAW (UK, Lancet 2018):</strong> 313 patients with 3+ months of pain, intact cuff, already failed exercise and at least one steroid injection. Oxford Shoulder Score (0 to 48) at 6 months: <strong>decompression 32.7 vs arthroscopy only (placebo) 34.2</strong>, difference not significant; both surgical arms beat no treatment by only 2.8 to 4.2 points, below the clinically important threshold. Complications: 6 frozen shoulders (2 per group) (Beard 2018, <a href="https://doi.org/10.1016/S0140-6736(17)32457-1">DOI</a>). [verified]</li>
+<li><strong>FIMPACT (Finland, BMJ 2018):</strong> 210 patients. At 24 months, pain on activity improved <strong>55.4 points with decompression vs 47.5 with diagnostic arthroscopy</strong> (0 to 100 scale; difference 9, below the 15-point threshold, P = 0.054) (Paavola 2018, <a href="https://doi.org/10.1136/bmj.k2860">DOI</a>). [verified] Still no benefit at 10 years (Kanto 2025, see Tendon Base). [verified]</li>
+<li><strong>First line instead:</strong> shoulder exercise; adding other modalities mostly no better (Lazzarini 2026 NMA, 89 RCTs; see Tendon Base). [verified]</li>
+</ul>
+<h3>2.2 Cuff tears: physio vs surgery</h3>
+<ul>
+<li><strong>Kukkonen 2021 (Finland):</strong> small (~10 mm) non-traumatic supraspinatus tears, over 55: physio = surgery at 6.2 years; 8 of 60 physio shoulders crossed over (see Tendon Base). [verified]</li>
+<li><strong>Moosmayer 2024 (Norway, 15 years):</strong> 103 patients, full-thickness tears up to 3 cm. Primary repair beat physio by <strong>11.8 Constant points, 13.9 ASES points, 1.8 cm on a 10 cm pain scale</strong>; 15 of 51 physio patients had later surgery; <strong>unrepaired tears grew from 16.2 to 31.6 mm</strong> (Moosmayer 2024, <a href="https://doi.org/10.2106/JBJS.24.00065">DOI</a>). [verified]</li>
+<li><strong>Painful degenerative tears, observational:</strong> surgery group had lower pain (0 vs 3.5/10), higher ASES (95 vs 65.8), double the abduction strength (69.6 N vs 35.9 N) and less fatty muscle change than non-operated controls (Hill 2024, <a href="https://doi.org/10.1016/j.jse.2024.05.056">DOI</a>). [verified, non-randomised] Note: J. Ryan Hill (now University of Arkansas for Medical Sciences) is a surgeon on the BPC-157 cuff trial (3.1). [verified, affiliation in both records]</li>
+<li><strong>Reading:</strong> for small degenerative tears in older adults, physio first is reasonable; for larger tears, younger or traumatic tears, the longer the follow-up the more surgery tends to win. [inferred from both trials]</li>
+<li><strong>Return to sport after repair, under 45:</strong> 15 studies, 659 patients (mostly male athletes, mean 28.3 y, 72% traumatic): return to any sport <strong>75.2%</strong>, same or higher level <strong>56.1%</strong>; excluding non-athletes and debridement, 79.8% and 61% (Moussa 2024, <a href="https://doi.org/10.3390/jcm13133703">DOI</a>). [verified, level IV]</li>
+</ul>
+<h3>2.3 Biologic add-ons at cuff repair (PRP, patches, drugs)</h3>
+<ul>
+<li><strong>PRP or patch:</strong> re-tears <strong>26.7% to 14.8%</strong> but no clinically meaningful score gain (Checketts 2026, 20 RCTs, 1,327 shoulders, <a href="https://doi.org/10.2106/JBJS.OA.26.00248">DOI</a>). [verified]</li>
+<li><strong>Leukocyte-poor PRP:</strong> re-tear RR 0.74 overall; <strong>after trim-and-fill for publication bias RR 0.91 (CI crosses 1)</strong>; benefit clearest in medium tears; no reliable function gain; number needed to treat about 9 to prevent one re-tear (Dunivan 2026, <a href="https://doi.org/10.1016/j.jse.2026.02.018">DOI</a>). [verified]</li>
+<li><strong>Teriparatide (approved peptide hormone, rhPTH):</strong> triple-blind RCT, 50 patients aged 50 to 80, 20 µg SC daily for 3 months after repair: <strong>no difference in ASES (p = 0.87), motion or pain; re-tear 8.7% vs 10%</strong> (Guity 2025, <a href="https://doi.org/10.2106/JBJS.OA.25.00035">DOI</a>). [verified] Contrast: a 2026 review of 19 animal studies says anti-osteoporosis drugs (8 of them PTH) improved tendon-to-bone healing in 13 of 15 biomechanical studies (Xie 2026, <a href="https://doi.org/10.1302/2046-3758.152.BJR-2025-0383.R1">DOI</a>). [verified] <strong>This is the clearest shoulder example of animal success failing to show in humans; useful framing for BPC-157.</strong> [inferred]</li>
+<li><strong>Acromioplasty added to repair:</strong> same re-tear rate, fewer reoperations, ASES +4 (5 RCTs, 409 patients; authors call it fragile) (Yang 2024, <a href="https://doi.org/10.1016/j.arthro.2024.05.026">DOI</a>). [verified]</li>
+</ul>
+<h3>2.4 Frozen shoulder treatments</h3>
+<ul>
+<li><strong>UK FROST (Lancet 2020), 503 adults:</strong> Oxford score at 12 months: <strong>capsular release 40.3, manipulation under anaesthesia 38.3, early structured physio plus steroid injection 37.2</strong> (0 to 48). All differences below the clinically important threshold; capsular release had 8 serious adverse events vs 2 for manipulation; manipulation most cost-effective (Rangan 2020, <a href="https://doi.org/10.1016/S0140-6736(20)31965-6">DOI</a>). [verified] Physios and surgeons in the trial said hydrodilatation should have been a comparator (Srikesavan 2021, <a href="https://doi.org/10.1136/bmjopen-2020-040829">DOI</a>). [verified]</li>
+<li><strong>Steroid injection:</strong> network meta-analysis, <strong>66 RCTs, 4,491 patients</strong>: rotator-interval injection beat placebo with moderate to high certainty (pain SMD -1.07); distension (hydrodilatation) via rotator interval best mid-term with moderate to high certainty (pain SMD -1.10, function SMD 1.46); intra-articular, rotator interval and distension broadly equivalent (Liang 2024, <a href="https://doi.org/10.1016/j.apmr.2024.01.003">DOI</a>). [verified]</li>
+<li><strong>Hydrodilatation:</strong> NMA of 20 RCTs (n = 1,410, Nov 2026): steroid hydrodilatation through the rotator interval gave the best pain relief and <strong>+21° external rotation</strong>; intra-articular steroid hydrodilatation plus extra steroid injection gave <strong>+23° flexion and +33° abduction</strong> (Lei 2026, <a href="https://doi.org/10.1097/PHM.0000000000003197">DOI</a>). [verified] RCT (Korea, 2026, 62 randomised, 50 analysed): steroid plus 15 mL saline distension beat steroid alone at 6 months for motion and scores (Kim 2026, <a href="https://doi.org/10.1186/s13018-026-07215-2">DOI</a>). [verified] BJSM 2026 systematic review on technique exists, abstract not available. [gap]</li>
+<li><strong>Hyaluronic acid:</strong> moderate efficacy in frozen shoulder (high molecular weight) in a 2026 NMA; physio beat HA for tendinopathy pain (Marra 2026, <a href="https://doi.org/10.1016/j.apmr.2026.04.026">DOI</a>). [verified]</li>
+<li><strong>Steroid timing reminder:</strong> cortisone in tendons is short gain, possible long-term cost (Tendon Base 1.4). Frozen shoulder is a capsule problem, not a tendon, and here steroid is a standard, evidence-backed first option. [inferred]</li>
+</ul>
+<h3>2.5 Shockwave and calcific tendinitis</h3>
+<ul>
+<li><strong>Gerdesmeyer 2003 JAMA,</strong> 144 patients, chronic calcific tendinitis, 2 sessions then physio: 6-month Constant score improvement <strong>31.0 high-energy vs 15.0 low-energy vs 6.6 sham</strong>; deposits also shrank; held at 12 months (Gerdesmeyer 2003, <a href="https://doi.org/10.1001/jama.290.19.2573">DOI</a>). [verified]</li>
+<li>Cuff tendinopathy overall (16 RCTs, 1,093 patients): shockwave beat controls on pain and function; abduction not significant (Xue 2024, <a href="https://doi.org/10.1186/s12891-024-07445-7">DOI</a>). [verified] Guo 2026 NMA: shockwave beat placebo in cuff (see Tendon Base). [verified]</li>
+<li><strong>Ultrasound-guided lavage (barbotage)</strong> beat shockwave on pain and calcium clearance at 12 months in 8 RCTs (n = 617), limited quality (Zhang 2019, <a href="https://doi.org/10.1097/MD.0000000000015552">DOI</a>). [verified]</li>
+<li>Rat model: shockwave after cuff repair improved collagen orientation and tendon genes, total histology not different (Kamiyama 2026, <a href="https://doi.org/10.1038/s41598-026-35072-w">DOI</a>). [verified, animal]</li>
+</ul>
+<h3>2.6 Labral and AC treatments</h3>
+<ul>
+<li>SLAP: sham = repair = tenodesis (Schrøder 2017). Physio first is the evidence-consistent default. [verified + inferred]</li>
+<li>Distal clavicle osteolysis: 93% respond to conservative care (Roedl 2015). [verified]</li>
+<li>Arthroscopic outcomes for internal impingement in overhead athletes: return to pre-injury level 25 to 94% across 42 observational studies (Challoumas 2026, <a href="https://doi.org/10.5397/cise.2025.01123">DOI</a>). [verified]</li>
+</ul>
+<hr />
+<h2 id="3-peptides-that-touch-the-shoulder-endpoint">3. Peptides that touch the shoulder endpoint</h2>
+<p>Grade key (same as Tendon Base): A = multiple good human RCTs; B = one human RCT or consistent small human trials; C = human pilot/retrospective only; D = animal/cell only.</p>
+<h3>3.1 BPC-157. Grade D for shoulder (no shoulder study of any kind)</h3>
+<ul>
+<li><strong>PubMed:</strong> a search for BPC-157 with rotator cuff, shoulder, supraspinatus or enthesis returned <strong>one</strong> hit, and it was not about shoulders (a rat platelet study). <strong>There is no published shoulder, cuff, labrum or capsule study of BPC-157, in animals or humans.</strong> [verified absence, 3 Nov 2026] All tendon data are rat Achilles (Tendon Base 1.5; Achilles v2 5.1).</li>
+<li><strong>NCT07803250 (University of Arkansas), full registry detail</strong> [verified registry, read 3 Nov 2026]:</li>
+<li>Title: Impact of BPC-157 on Recovery From Rotator Cuff Repair Surgery. Phase 1, interventional, <strong>not yet recruiting</strong>. Start <strong>1 Jan 2027</strong>, primary completion 1 Aug 2027.</li>
+<li>Design: randomised, double-blind, placebo-controlled <strong>pilot</strong>; daily <strong>subcutaneous self-injection for 90 days</strong> after arthroscopic cuff repair; standard rehab otherwise.</li>
+<li>Size: registry enrollment <strong>30</strong>; summary text says <strong>20</strong> patients (internal discrepancy). Arms listed as "BPC-157" and "Sham (No Treatment)" while the summary says saline placebo (second discrepancy).</li>
+<li>Who: adults 18+, BMI 20 to 34.9, MRI full-thickness posterosuperior tear <strong>under 2.5 cm</strong>, operated by one of three named UAMS surgeons.</li>
+<li>Excluded: <strong>diabetics</strong>, previous cuff repair, PRP or biologic injection in that shoulder within 12 months, <strong>hormone or testosterone replacement within 12 months</strong>, autoimmune disease, pregnancy.</li>
+<li>Primary outcome: isometric abduction and external rotation strength by handheld dynamometer, blinded assessor, at baseline, <strong>12 weeks and 5 months</strong>. Summary also mentions MRI healing, PROMs, range of motion and blood collagen/inflammation markers, but no secondary outcomes are formally registered.</li>
+<li><strong>Dose: not stated.</strong></li>
+<li>Page angle: "The first controlled human test of BPC-157 in any shoulder starts in 2027. It is small, aimed at safety and feasibility, excludes diabetics and anyone on TRT, and will not report before late 2027." [inferred]</li>
+<li><strong>Reviews (2026):</strong> JAAOS Tham 2026 and AJSM Tewari 2026 (Tendon Base); JBJS Reviews May 2026: BPC-157 and thymosin derivatives investigational with product-quality and anti-doping concerns; <strong>GLP-1s are the only injectable peptide class with reproducible RCT symptom benefit in musculoskeletal care (knee OA, mostly via weight loss)</strong> (Villegas Meza 2026, <a href="https://doi.org/10.2106/JBJS.RVW.26.00027">DOI</a>). [verified] AJSM primer 2026: dosing, frequency and duration unknown (Mayfield 2026, <a href="https://doi.org/10.1177/03635465251357593">DOI</a>). [verified] Arthroscopy Association (AANA) newsletter July 2026: surgeons should not recommend BPC-157 for postoperative healing until clinical evidence exists (<a href="https://www.aana.org/education/publications/inside-aana-e-newsletter/july-2026/">AANA</a>). [verified page]</li>
+</ul>
+<h3>3.2 TB-500 / thymosin beta-4. Grade D for shoulder</h3>
+<ul>
+<li>No shoulder or cuff study found (PubMed searches combining thymosin beta-4/TB-500 with rotator cuff returned unrelated growth factor papers). [verified absence] Best tendon data: rat Achilles, Bicer 2026 (Tendon Base). Reminder: TB-500 is a 7-amino-acid fragment, not full Tβ4. [verified, see Achilles v2]</li>
+</ul>
+<h3>3.3 GHK-Cu. Grade D, no shoulder data</h3>
+<ul>
+<li>Only musculoskeletal animal paper: rat ACL, effect gone by 12 weeks (Fu 2015, Achilles v2 5.3). No shoulder, capsule or cuff study. [verified absence] No human musculoskeletal data (Mayfield 2026). [verified]</li>
+</ul>
+<h3>3.4 Collagen peptides. Grade C for shoulder (B- for tendon generally)</h3>
+<ul>
+<li><strong>No shoulder-specific published RCT found in PubMed.</strong> [verified absence for PubMed]</li>
+<li><strong>NCT07871318 (Bari/Foggia, Italy), completed May 2025, results not posted:</strong> 42 adults 18 to 60 with cuff tendinopathy (no tears) randomised to 1 month of physio plus or minus a multi-ingredient sachet (bioactive collagen peptides, astaxanthin, resveratrol, vitamin C) for 90 days (2 sachets/day for 10 days, then 1/day); assessor-blinded; pain VAS primary at 120 days. Multi-ingredient, so cannot isolate collagen. [verified registry]</li>
+<li>Two older registered trials (collagen plus PRP in partial tears, NCT04492748; oral collagen plus hyaluronic acid vs HA injection, NCT06379997) have status unknown, no results. [verified registry]</li>
+<li>Tendon general: Praet 2019 Achilles, Shaw 2017 gelatin marker study (Tendon Base 1.5). Legal food, not WADA relevant. [verified]</li>
+</ul>
+<h3>3.5 GLP-1 drugs (semaglutide, tirzepatide, liraglutide, dulaglutide). The surprising one</h3>
+<p>GLP-1s are the only peptide class here with large human shoulder data, and the signal points the <strong>wrong</strong> way for frozen shoulder.
+- <strong>Type 2 diabetes, PearlDiver database:</strong> 100,000 GLP-1 users vs 100,000 non-users, matched: GLP-1 users had <strong>higher odds of frozen shoulder (OR 1.28)</strong> and, once they had it, <strong>higher odds of needing an operation (OR 1.18)</strong>, mainly manipulation (Bergstein 2025, <a href="https://doi.org/10.1016/j.jse.2024.11.041">DOI</a>). [verified] A letter-and-reply exchange followed in JSES 2026, suggesting the finding was challenged (Bergstein 2026 reply, <a href="https://doi.org/10.1016/j.jse.2026.07.003">DOI</a>); critics' letter not read. [verified existence; content gap]
+- <strong>TriNetX, 5 years, matched:</strong> GLP-1 use linked to higher rates of frozen shoulder, shoulder arthritis and atraumatic cuff tears in every subgroup; strongest for frozen shoulder in <strong>obese non-diabetics, HR about 2.47</strong>; fewer shoulder fractures in obese diabetics (HR 0.90) (Davis 2025, <a href="https://doi.org/10.1016/j.xrrt.2025.100613">DOI</a>). [verified] (Abstract prints the CI in reversed order, 3.173 to 1.916; flag as typographical.)
+- <strong>Around cuff repair:</strong> GLP-1 use 3+ months before repair, 5,306 matched pairs: <strong>no extra reoperation risk</strong>; in GLP-1 users with diabetes vs obesity, frozen shoulder at 3 months was more common (RR 2.20) (Rasmussen 2025, <a href="https://doi.org/10.1016/j.jor.2025.08.016">DOI</a>). [verified]
+- <strong>Meta-analysis (6 studies, 43,415 patients):</strong> GLP-1 use not linked to more complications after shoulder replacement; in single studies, <strong>lower</strong> 90-day complications after cuff repair (11.0% vs 27.4%) and after frozen shoulder surgery (2.5% vs 4.8%), and <strong>lower re-tear at 2 years (12.5% vs 18.3%)</strong> (Moews 2026, <a href="https://doi.org/10.1016/j.jse.2025.12.005">DOI</a>). [verified]
+- <strong>How to read it</strong> [inferred]: all are insurance or EHR database studies; people prescribed GLP-1s differ (heavier, more metabolic disease, more doctor contact so more diagnoses). Rapid weight loss, dehydration or reduced activity are possible mechanisms but untested [speculated]. Fair page line: "GLP-1s do not prevent frozen shoulder; if anything, database studies link them to slightly more of it. They do not appear to harm cuff repair healing." Diabetes control itself is the established risk factor (Zreik 2016). [verified]
+- WADA: GLP-1s stay permitted on the 2027 List (Achilles v2 6.0). [verified via secondary]</p>
+<h3>3.6 KPV. Grade D, no shoulder or tendon data</h3>
+<ul>
+<li>KPV is a tripeptide fragment of alpha-MSH with anti-inflammatory activity in cell, gut and skin/wound models (hydrogels in wounds; adipocyte work 2026) (Adnan 2025 review, <a href="https://doi.org/10.7150/ijms.118118">DOI</a>; An 2026, <a href="https://doi.org/10.1016/j.tice.2026.103837">DOI</a>). [verified] <strong>No tendon, joint capsule or shoulder study found.</strong> [verified absence] On the HHS interim compounding list for topical and oral use only (Achilles v2 6.1). [reported]</li>
+</ul>
+<h3>3.7 GH peptides (CJC-1295, ipamorelin, MK-677, sermorelin, tesamorelin). Grade D</h3>
+<ul>
+<li>No shoulder study. Rat cuff work exists for <strong>IGF-1 delivered locally</strong> (pegylated IGF-1 in a scaffold improved enthesis structure and tensile properties at 8 weeks, Prabhath 2022, <a href="https://doi.org/10.1002/jbm.a.37378">DOI</a>; IGF-1 in stem-cell exosomes, Qi 2026, <a href="https://doi.org/10.31083/FBL47168">DOI</a>). [verified, animal] Systemic GH secretagogues are a different thing from local IGF-1 at the repair site. [inferred]</li>
+<li>MK-677 heart failure and insulin resistance concern (Tewari 2026, Tendon Base). Insulin resistance matters doubly here because diabetes drives frozen shoulder. [inferred]</li>
+</ul>
+<h3>3.8 Summary grid</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Shoulder evidence</th>
+<th>Human shoulder data</th>
+<th>Grade (shoulder)</th>
+<th>WADA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Compound">BPC-157</td>
+<td data-l="Shoulder evidence">None (only rat Achilles for tendon)</td>
+<td data-l="Human shoulder data">None; first RCT starts Jan 2027 (n = 20 to 30)</td>
+<td data-l="Grade (shoulder)">D</td>
+<td data-l="WADA">S0, banned</td>
+</tr>
+<tr>
+<td data-l="Compound">TB-500 / Tβ4</td>
+<td data-l="Shoulder evidence">None</td>
+<td data-l="Human shoulder data">None</td>
+<td data-l="Grade (shoulder)">D</td>
+<td data-l="WADA">S2.3, banned</td>
+</tr>
+<tr>
+<td data-l="Compound">GHK-Cu</td>
+<td data-l="Shoulder evidence">None (rat ACL)</td>
+<td data-l="Human shoulder data">None</td>
+<td data-l="Grade (shoulder)">D</td>
+<td data-l="WADA">Not named; status unclear</td>
+</tr>
+<tr>
+<td data-l="Compound">Collagen peptides</td>
+<td data-l="Shoulder evidence">One completed multi-ingredient RCT, unpublished</td>
+<td data-l="Human shoulder data">Small, unpublished</td>
+<td data-l="Grade (shoulder)">C</td>
+<td data-l="WADA">Allowed</td>
+</tr>
+<tr>
+<td data-l="Compound">GLP-1s</td>
+<td data-l="Shoulder evidence">Large database studies: more frozen shoulder, no harm to repair</td>
+<td data-l="Human shoulder data">Yes, observational</td>
+<td data-l="Grade (shoulder)">B for association (harm direction)</td>
+<td data-l="WADA">Allowed</td>
+</tr>
+<tr>
+<td data-l="Compound">KPV</td>
+<td data-l="Shoulder evidence">None</td>
+<td data-l="Human shoulder data">None</td>
+<td data-l="Grade (shoulder)">D</td>
+<td data-l="WADA">Likely S0 (non-approved) [speculated]</td>
+</tr>
+<tr>
+<td data-l="Compound">GH peptides</td>
+<td data-l="Shoulder evidence">Local IGF-1 rat cuff only</td>
+<td data-l="Human shoulder data">None</td>
+<td data-l="Grade (shoulder)">D</td>
+<td data-l="WADA">S2.2.4, banned</td>
+</tr>
+<tr>
+<td data-l="Compound">Teriparatide (comparison, approved)</td>
+<td data-l="Shoulder evidence">Animal positive</td>
+<td data-l="Human shoulder data">RCT negative</td>
+<td data-l="Grade (shoulder)">B (no effect)</td>
+<td data-l="WADA">Allowed with prescription [reported]</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-what-people-report-community-outside-reddit">4. What people report (community, outside Reddit)</h2>
+<p>Method: searched hunting/fitness (Rokslide), general sport (TigerDroppings), kettlebell/strength (StrongFirst), climbing (Mountain Project), motocross (VitalMX), general discussion (Straight Dope), patient communities (patient.info, Mumsnet, Diabetes UK, Diabetes.co.uk), a peptide user community (CareClinic), a paid men's health group (Skool), BJJ blogs, physio and surgeon pages, news. Searched padel, tennis and BJJ forums with several phrasings; <strong>no padel, tennis or BJJ first-hand shoulder peptide report surfaced</strong> (the BJJ page found was a knee story with no outcome). Drugs.com has no BPC-157 page; GLP-1 review search surfaced no frozen shoulder reviews. Excluded: Reddit, mirrors of Reddit, MESO-Rx, AnabolicMinds, vendor pages, vendor "experience hubs". No supplier names. All accessed 3 Nov 2026.</p>
+<h3>4.1 What worked (lead)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Condition</th>
+<th>Source, date</th>
+<th>What they did</th>
+<th>Outcome</th>
+<th>Clinician involvement</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">A</td>
+<td data-l="Condition">Torn rotator cuff, before and after surgery</td>
+<td data-l="Source, date"><a href="https://rokslide.com/forums/threads/peptides-bpc-157-and-tb-500-shoulder-pain.389864/page-2">Rokslide shoulder p2</a>, January (year not shown)</td>
+<td data-l="What they did">SC BPC-157 from 9 days before surgery</td>
+<td data-l="Outcome">Felt "fine" before surgery; off opioids by day 2 after; <strong>poster says the surgeon found the tear in better shape than expected</strong></td>
+<td data-l="Clinician involvement">Surgeon observation, relayed by patient</td>
+<td data-l="Weight">Clinician-observed (relayed), confounded by surgery</td>
+</tr>
+<tr>
+<td data-l="#">B</td>
+<td data-l="Condition">Post cuff repair, from week 8</td>
+<td data-l="Source, date"><a href="https://community.careclinic.io/t/how-i-tested-bpc-157-alone-for-rotator-cuff-before-trying-blends/19352">CareClinic</a>, Apr 2026</td>
+<td data-l="What they did">SC BPC-157, 4 weeks (reported 250 mcg twice daily near site)</td>
+<td data-l="Outcome">External rotation <strong>+8°</strong> by week 4; <strong>PT noticed less swelling</strong> at week 2</td>
+<td data-l="Clinician involvement">PT observation, relayed</td>
+<td data-l="Weight">Clinician-observed (relayed); single case; normal rehab gain expected [inferred]</td>
+</tr>
+<tr>
+<td data-l="#">C</td>
+<td data-l="Condition">Almost full supraspinatus tear</td>
+<td data-l="Source, date"><a href="https://www.mountainproject.com/forum/message/200884679">Mountain Project</a>, May 2025</td>
+<td data-l="What they did">BPC-157 plus PRP injections (2 rounds each, a month apart) plus a lot of PT</td>
+<td data-l="Outcome">Much better, climbing and hanging again, not 100%; <strong>poster cannot tell which helped</strong></td>
+<td data-l="Clinician involvement">Injections implied clinic-given; not stated</td>
+<td data-l="Weight">Self-report, triple confounded</td>
+</tr>
+<tr>
+<td data-l="#">D</td>
+<td data-l="Condition">Shoulder labral tear (MRI, surgeon advised surgery)</td>
+<td data-l="Source, date"><a href="https://www.skool.com/primal-mens-performance-1921/how-i-healed-my-torn-labrum-with-peptides">Skool group</a>, Sep 2025</td>
+<td data-l="What they did">BPC-157 plus TB-500, about 2 months</td>
+<td data-l="Outcome">Says surgery no longer needed, full motion; <strong>no repeat imaging</strong></td>
+<td data-l="Clinician involvement">MRI and surgeon at diagnosis only</td>
+<td data-l="Weight">Self-report in a paid group; note sham = repair for SLAP (Schrøder 2017)</td>
+</tr>
+<tr>
+<td data-l="#">E</td>
+<td data-l="Condition">Shoulder injury about 1 year</td>
+<td data-l="Source, date"><a href="https://www.tigerdroppings.com/rant/health-fitness/bpc-157/113807467/">TigerDroppings</a>, Jun 2024</td>
+<td data-l="What they did">BPC-157 plus TB-500 nasal, about 3 months</td>
+<td data-l="Outcome">Normal by 2 months, lifting pre-injury weights by 3; no regression after stopping</td>
+<td data-l="Clinician involvement">None (skipped planned doctor visit)</td>
+<td data-l="Weight">Self-report</td>
+</tr>
+<tr>
+<td data-l="#">F</td>
+<td data-l="Condition">Shoulder "tendinitis"</td>
+<td data-l="Source, date">Same thread, Jun 2024</td>
+<td data-l="What they did">Stack with TB-500, 6 weeks</td>
+<td data-l="Outcome">Shoulder and wrist better; knee/hip no change</td>
+<td data-l="Clinician involvement">None</td>
+<td data-l="Weight">Self-report</td>
+</tr>
+<tr>
+<td data-l="#">G</td>
+<td data-l="Condition">Biceps tendon at the shoulder (archery)</td>
+<td data-l="Source, date"><a href="https://www.strongfirst.com/community/goto/post?id=608329">StrongFirst</a>, Apr 2026</td>
+<td data-l="What they did">BPC-157, possibly with TB-500, suggested by a functional medicine doctor</td>
+<td data-l="Outcome">Pain down in 3 days, "gone" in about a week</td>
+<td data-l="Clinician involvement">Sports therapist earlier; doctor suggested, not supervising</td>
+<td data-l="Weight">Self-report; very fast for tendon (Tendon Base 1.1) [inferred]</td>
+</tr>
+<tr>
+<td data-l="#">H</td>
+<td data-l="Condition">Shoulder injury, surgery avoided</td>
+<td data-l="Source, date"><a href="https://www.rokslide.com/forums/threads/bpc-157-peptide-injury-update.407813">Rokslide injury update</a></td>
+<td data-l="What they did">Nasal BPC-157 plus PT</td>
+<td data-l="Outcome">Usable, not 100%, "impressed"</td>
+<td data-l="Clinician involvement">PT</td>
+<td data-l="Weight">Self-report, PT confounder</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 Partial, no change, worse</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Condition</th>
+<th>Source</th>
+<th>What they did</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">I</td>
+<td data-l="Condition">Slightly torn cuff (ski fall)</td>
+<td data-l="Source">Rokslide injury update</td>
+<td data-l="What they did">Oral BPC-157 plus many supplements</td>
+<td data-l="Outcome">"Moderately better" at about 6 weeks; poster credits peptide for the knee, not the shoulder</td>
+</tr>
+<tr>
+<td data-l="#">J</td>
+<td data-l="Condition">Shoulder, unspecified</td>
+<td data-l="Source">TigerDroppings Jun 2024</td>
+<td data-l="What they did">TB4</td>
+<td data-l="Outcome">Partial: more tolerable, fewer NSAIDs, not resolved</td>
+</tr>
+<tr>
+<td data-l="#">K</td>
+<td data-l="Condition">Torn cuff plus bone spurs</td>
+<td data-l="Source"><a href="https://rokslide.com/forums/threads/peptides-bpc-157-and-tb-500-shoulder-pain.389864/">Rokslide shoulder p1</a></td>
+<td data-l="What they did">BPC-157 plus ipamorelin injected, a few months</td>
+<td data-l="Outcome"><strong>No benefit</strong> ("wasted money")</td>
+</tr>
+<tr>
+<td data-l="#">L, M</td>
+<td data-l="Condition">Shoulder, tissue unspecified (2 people)</td>
+<td data-l="Source">TigerDroppings tendon thread (logged in Achilles v2 11.2)</td>
+<td data-l="What they did">Stack, 2 cycles</td>
+<td data-l="Outcome"><strong>No change</strong></td>
+</tr>
+<tr>
+<td data-l="#">Worse</td>
+<td data-l="Condition">None for shoulder. Off-topic: oral BPC-157 caused 2 weeks of bloating and constipation (Mountain Project, May 2025).</td>
+<td data-l="Source"></td>
+<td data-l="What they did"></td>
+<td data-l="Outcome"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.3 GLP-1 and frozen shoulder (patient forums)</h3>
+<ul>
+<li>One first-hand: on Ozempic 2+ years, frozen shoulder over about 2 years, now "98% of normal", poster does <strong>not</strong> credit the drug (<a href="https://boards.straightdope.com/t/anti-inflammatory-effects-of-wegovy/1028793">Straight Dope</a>, Mar 2026). Same thread: 4 people on Wegovy/Mounjaro/Ozempic noticed <strong>no</strong> anti-inflammatory or joint effect; 1 (wife's account, secondhand) said knee and hand arthritis eased. [reported]</li>
+<li>Diabetes UK and Diabetes.co.uk frozen shoulder threads: <strong>zero</strong> posts linking a named GLP-1 to frozen shoulder (onset or relief). One poster on an unnamed incretin had 3 years of shoulder pain, steroid injections did not help. [reported]</li>
+<li>Read with section 3.5: the database signal (more frozen shoulder on GLP-1s) has not surfaced as a pattern in patient forums. Absence in forums is weak evidence either way. [inferred]</li>
+</ul>
+<h3>4.4 Frozen shoulder without peptides (what patients say worked)</h3>
+<p>From <a href="https://www.mumsnet.com/talk/general_health/5528412-frozen-shoulder-experiences">Mumsnet frozen shoulder experiences</a> (about 23 people) and <a href="https://community.patient.info/t/there-is-hope-i-am-thawing-here-s-what-i-did/685960">patient.info thawing thread</a>:
+- Steroid injection: 3 helped (one "cleared in a few days", one 80% pain relief), 1 partial, 2 no change; plus 1 (patient.info) no benefit.
+- Hydrodilatation: <strong>2 of 2 helped</strong> ("virtually released it overnight", "kick-started recovery").
+- Physio: about 4 helped, about 6 little or no help or worse when very painful.
+- Capsular release: 1 detailed case (patient.info), near full motion about 9 weeks after each side.
+- Recovery times reported: from a few days (post-injection) to 3 years; most 1.5 to 2 years. Matches Hand 2008. [inferred]
+- Menopause or perimenopause raised by about 7 posters; HRT credited by 1. [reported]
+- <strong>Peptides or GLP-1s: zero mentions</strong> in these patient threads.</p>
+<h3>4.5 Counts (shoulder only)</h3>
+<ul>
+<li><strong>First-hand BPC-157 and/or TB-500 shoulder reports: 13.</strong> Helped 8 (A to H), partial 2 (I, J), no change 3 (K, L, M), worse 0.</li>
+<li>By condition: cuff tear without surgery 3 (1 helped, 1 partial, 1 no change); cuff repair recovery 2 (both helped); labral 1 (helped, unverified); biceps/shoulder tendinitis 2 (helped); unspecified 5 (2 helped, 1 partial, 2 no change). <strong>Frozen shoulder 0, AC joint 0, impingement named 0, calcific 0.</strong></li>
+<li><strong>Clinician-observed outcomes: 2, both relayed by the patient</strong> (surgeon intra-op comment in A; PT swelling comment in B). <strong>0 with follow-up imaging. 0 written by a clinician about their own patients.</strong> Clinician pages read (AANA July 2026; a chartered physio, Sports Injury Physio 2025; an internal medicine page, Ubie 2026) report <strong>no</strong> patient observations and advise against or caution. [verified pages]</li>
+<li>Confounders: 5 of 8 "helped" had surgery, PRP, PT or months of rest alongside. Several used TB-500 or other stacks, so BPC-157 alone cannot be credited. [reported + inferred]</li>
+<li><strong>First-hand collagen, GHK-Cu, KPV or GH-peptide shoulder reports: 0</strong> (ipamorelin only as part of K, no change).</li>
+<li><strong>GLP-1 shoulder: 1</strong> (frozen shoulder resolved while on drug, not credited). [reported]</li>
+<li>Not counted: secondhand ("a dozen friends all positive" on StrongFirst; "a few people, no results" same thread), AC separation where supplements were discussed but not confirmed taken (TigerDroppings 2025: fast recovery, clinicians impressed, poster unsure "what the magic was").</li>
+</ul>
+<h3>4.6 Reading [inferred]</h3>
+<ul>
+<li>Shoulder reports are more positive than the Achilles set (Achilles v2 found 1 mixed case). But nearly all are short follow-up, no imaging, and many sit alongside surgery or PT when improvement is expected anyway.</li>
+<li>The one detailed labral "healed without surgery" story is exactly the condition where sham surgery equals real surgery (Schrøder 2017), so avoiding surgery is a common good outcome regardless.</li>
+<li>Nobody reported using peptides for frozen shoulder outside Reddit, even though it is the shoulder condition with the longest, most frustrating course. Gap for the ChatGPT Reddit tab.</li>
+<li>Page line: "Of 13 first-hand shoulder stories we found, 8 felt better, 2 partly, 3 no change. Two had a clinician comment, relayed second-hand. None had a follow-up scan."</li>
+</ul>
+<hr />
+<h2 id="5-pairings-and-related-conditions">5. Pairings and related conditions</h2>
+<ul>
+<li><strong>Diabetes ↔ frozen shoulder</strong> (5x, Zreik 2016): link to the GLP-1 hub and a future diabetes/metabolic page; GLP-1 caution (3.5). [verified]</li>
+<li><strong>Menopause ↔ frozen shoulder:</strong> link to the planned Menopause page (Run Plan Pass 7) once a primary source is found. [gap]</li>
+<li><strong>Tennis elbow, golfer's elbow, Achilles, patellar:</strong> shared tendon biology on Tendon Base. [link]</li>
+<li><strong>Lifting plus overhead sport ↔ AC joint osteolysis</strong> (Roedl 2015): cross-link to a future "lifter's shoulder" card. [verified]</li>
+<li><strong>Steroid injection ↔ cuff repair revision risk</strong> (Traven 2019): cross-link to surgery-planning FAQ. [verified]</li>
+<li><strong>Peptide pairings people use:</strong> BPC-157 plus TB-500 ("stack") in 6 of 13 shoulder reports; BPC-157 plus PRP (1); BPC-157 plus ipamorelin (1, no change). No study tests any combination in the shoulder; in rat Achilles the combination added nothing over TB-500 alone (Bicer 2026, Achilles v2). [verified + reported]</li>
+</ul>
+<hr />
+<h2 id="6-options-evidence-ordered-for-the-options-card">6. Options (evidence-ordered, for the options card)</h2>
+<ol>
+<li><strong>Exercise-based physio</strong> for cuff tendinopathy, subacromial pain, small degenerative tears, SLAP lesions, AC osteolysis. [verified across trials]</li>
+<li><strong>Frozen shoulder:</strong> steroid injection or steroid hydrodilatation early, plus home exercise; manipulation if stuck (cost-effective in UK FROST); capsular release has more serious adverse events. Check blood sugar. [verified]</li>
+<li><strong>Calcific tendinitis:</strong> high-energy shockwave or ultrasound-guided lavage. [verified]</li>
+<li><strong>Larger, traumatic or younger cuff tears:</strong> surgical opinion early; long-term data favour repair (Moosmayer 2024). Avoid steroid injection within 6 months before planned repair (Traven 2019). [verified]</li>
+<li><strong>After repair:</strong> standard rehab; leukocyte-poor PRP may cut re-tears, not proven to improve function. [verified]</li>
+<li><strong>Collagen peptides plus vitamin C:</strong> legal, low risk, tendon marker and small Achilles data, shoulder data pending. [verified + inferred]</li>
+<li><strong>BPC-157, TB-500, GHK-Cu, KPV, GH peptides:</strong> no shoulder data; human trial from 2027; banned in sport (BPC-157, TB-500, GH peptides). [verified]</li>
+</ol>
+<hr />
+<h2 id="7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>My MRI shows a tear. Do I need surgery?</strong> Not automatically. Tears are common without pain (36.6% of people in their 80s; two thirds of tears silent) (Minagawa 2013). Small degenerative tears in over-55s did as well with physio for 6 years (Kukkonen 2021); larger tears and longer follow-up favour repair (Moosmayer 2024). [verified]</li>
+<li><strong>Is "impingement" surgery worth it?</strong> Two placebo-surgery trials say decompression adds nothing over a sham operation (CSAW, FIMPACT), out to 10 years. [verified]</li>
+<li><strong>Will BPC-157 heal my rotator cuff?</strong> Unknown. No shoulder study exists in animals or humans; the first human trial starts Jan 2027. [verified]</li>
+<li><strong>Can I take BPC-157 after cuff surgery?</strong> No evidence on safety around fresh repairs; AANA advises surgeons not to recommend it; the 2027 trial will test exactly this under supervision. Tell your surgeon. [verified + inferred]</li>
+<li><strong>How long does frozen shoulder last?</strong> Most improve over 1 to 3 years; 41% have some symptoms at about 4 years, mostly mild (Hand 2008); most gain comes early (Wong 2016). [verified]</li>
+<li><strong>Best frozen shoulder treatment?</strong> Early steroid injection or steroid hydrodilatation plus exercise; surgery options were not clinically better than physio plus steroid at 12 months (UK FROST). [verified]</li>
+<li><strong>Does Ozempic/Mounjaro help frozen shoulder?</strong> No evidence it helps; database studies link GLP-1 use with more frozen shoulder (OR 1.28 in diabetes). [verified, observational]</li>
+<li><strong>I am diabetic. Why do I keep getting frozen shoulder?</strong> Diabetes raises odds about 5-fold; prevalence 13.4% in diabetes (Zreik 2016). Glycaemic control is the lever people can change [inferred; direct trial evidence not found, gap].</li>
+<li><strong>Is labral (SLAP) surgery better than rehab?</strong> In people around 40, repair and tenodesis matched sham surgery (Schrøder 2017). Elite throwers are a separate, harder group. [verified]</li>
+<li><strong>Why do cuff repairs fail?</strong> Age, larger tears, fatty muscle, rehab and technique; about 1 in 5 re-tear (Longo 2021; Holtedahl 2021). [verified]</li>
+<li><strong>Does PRP help?</strong> At repair it reduces re-tears (26.7% to 14.8%) without clinically meaningful function gain (Checketts 2026); publication bias may inflate it (Dunivan 2026). [verified]</li>
+<li><strong>Will a cortisone shot hurt my tendon or surgery?</strong> Within 6 months before repair, linked to more revision surgery (Traven 2019); within 1 month after arthroscopy, more infection (Kew 2019). For frozen shoulder, steroid is a standard, effective option. [verified]</li>
+<li><strong>Collagen powder, any point?</strong> Legal and cheap; tendon evidence is small and mostly Achilles; one shoulder trial (multi-ingredient) finished but unpublished. [verified]</li>
+<li><strong>Can I keep lifting, playing padel or rolling?</strong> Exercise is the main treatment for tendinopathy; pain-monitored loading (Tendon Base 1.3). Painful lifter's AC joint usually settles with load changes (93% conservative success) (Roedl 2015). [verified + inferred]</li>
+<li><strong>Will peptides get me banned?</strong> BPC-157 (S0), TB-500 (S2.3) and GH secretagogues (S2.2.4) are banned at all times; a prescription does not protect you; sanctions have come from whistleblowers, not only tests. GLP-1s and collagen are allowed. (Tendon Base 1.6.) [verified]</li>
+</ol>
+<hr />
+<h2 id="8-warnings-bottom-of-page-reuse-tendon-base-1-9-block-verbat">8. Warnings (bottom of page; reuse Tendon Base 1.9 block verbatim, plus shoulder lines)</h2>
+<ul>
+<li><strong>WADA:</strong> BPC-157 S0, TB-500 and Tβ4 S2.3, CJC-1295/ipamorelin/MK-677 S2.2.4; prohibited at all times; no TUE for S0. 2027 wording still to read directly. See Tendon Base 1.6. [verified 2026 List]</li>
+<li><strong>Surgery interactions:</strong> no data on BPC-157 or TB-500 near fresh repairs. BPC-157 is described as angiogenic (more vessels) in rats [verified, Achilles v2]; whether that matters at a repaired enthesis is unknown [speculated]. Injecting near a surgical site adds infection risk; steroid within 1 month of arthroscopy already raised infection odds (Kew 2019). The Arkansas trial excludes anyone who had a biologic in that shoulder in the past year, showing researchers treat these as confounders. Tell the surgeon and anaesthetist about every peptide. [verified + inferred]</li>
+<li><strong>Unregulated product:</strong> identity, dose, purity, sterility and endotoxin unverified outside licensed pharmacies; AANA July 2026 flags contamination and heavy metals; FDA's 2023 concerns were impurities and characterization. The US HHS interim compounding policy (28 Oct 2026) covers licensed US pharmacies only and is not FDA approval. [verified/reported, see Achilles v2 6.1]</li>
+<li><strong>GLP-1 users:</strong> watch for shoulder stiffness; database studies show more frozen shoulder, especially early and in diabetes. [verified, observational]</li>
+<li><strong>MK-677:</strong> heart failure and insulin resistance concerns (Tewari 2026), and insulin resistance worsens frozen shoulder risk. [verified + inferred]</li>
+<li><strong>See a clinician fast for:</strong> sudden inability to lift the arm after a fall or heavy pull (possible acute tear, where early repair matters); fever with a hot painful shoulder (infection); shoulder pain with chest pain or breathlessness (not musculoskeletal). [reported, standard red flags]</li>
+</ul>
+<hr />
+<h2 id="inaccessible-or-partial-sources">Inaccessible or partial sources</h2>
+<ul>
+<li>Healio news on GLP-1 and frozen shoulder: blocked (VPN wall).</li>
+<li>vanja.io BPC-157 story: fetch failed.</li>
+<li>BJSM 2026 hydrodilatation review (Rhim 2026): no abstract in PubMed.</li>
+<li>CareClinic posts: excerpts only; replies not visible; platform commercial ties unclear.</li>
+<li>Skool labral post: truncated mid-sentence; paid community.</li>
+<li>JSES 2026 letter criticising the GLP-1 frozen shoulder study (Cromer and Alkabbani): not read, only the authors' reply metadata.</li>
+<li>Padel, tennis, BJJ forums: no relevant first-hand thread surfaced with several phrasings.</li>
+</ul>
+<h2 id="gaps-for-next-pass">Gaps for next pass</h2>
+<ol>
+<li>Read the JSES 2026 critique letter and Bergstein reply on GLP-1 and frozen shoulder; search for any prospective or trial-level GLP-1 shoulder data.</li>
+<li>Asymptomatic labral and partial cuff findings on MRI in overhead athletes (primary study for the "pain-free pitchers" claim).</li>
+<li>Calcific tendinitis prevalence and natural resorption; AC separation grading and return-to-sport data (BJJ, basketball falls).</li>
+<li>Menopause and frozen shoulder primary study (link to the Menopause page); HbA1c and frozen shoulder outcome data.</li>
+<li>Traumatic cuff tears in under-45 athletes: timing of repair (early vs delayed) trial or cohort.</li>
+<li>Publication or results for NCT07871318 (collagen nutraceutical plus physio); recheck NCT07803250 for dose or status updates.</li>
+<li>WADA 2027 List wording for BPC-157 and TB-500 read directly (carried over from Tendon Base).</li>
+<li>Community: Reddit tab via ChatGPT for frozen shoulder and AC joint peptide reports (none found outside Reddit); retry tennis/padel forums (e.g. Talk Tennis) by direct thread fetch; look for a physio or surgeon writing about their own patients who used peptides.</li>
+<li>Adversarial check of the top 5 numbers (Minagawa 22.1%, CSAW, Moosmayer 15-year, Zreik 5x, Bergstein OR 1.28) against full texts.</li>
+<li>Rat or rabbit shoulder study of any wound-healing peptide (BPC-157, TB-500, GHK-Cu): confirm absence with Embase or Google Scholar, not only PubMed.</li>
+</ol>
+<h2 id="version-log">Version log</h2>
+<ul>
+<li>v1 (3 Nov 2026): first pass; about 75 searches and fetches (about 35 PubMed/registry, about 40 web). Built on Tendon Base v1 and Achilles Research v2; no earlier shoulder file.</li>
+</ul></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>

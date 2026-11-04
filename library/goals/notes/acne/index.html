@@ -1,0 +1,850 @@
+<!doctype html>
+<!-- Goal research notes: Acne, from Acne Research v2.md (3 Nov 2026). Working notes, published for review 4 Nov 2026. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="No peptide has a controlled acne trial. Placebo creams alone cut spots by 35 to 60%.">
+<title>Acne · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.55 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:10px var(--bs-pad,16px) 40px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+h1{font:700 calc(28px*var(--k))/1.05 var(--display);margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.mt.dr{border-style:dashed;color:var(--ink-soft)}
+.lead{margin:10px 0 0;color:var(--ink-soft);font-size:calc(13px*var(--k))}
+.toc{margin:14px 0 0;padding:8px 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.toc summary{cursor:pointer;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc ol{margin:8px 0 2px;padding-left:20px;font-size:calc(13px*var(--k))}
+.md h1{display:none}
+.md h2{font:600 calc(12px*var(--k))/1.25 var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding:0 0 6px;margin:28px 0 10px;scroll-margin-top:calc(var(--bsnav-h,0px) + 10px)}
+.md h3{font:700 calc(17px*var(--k))/1.2 var(--display);margin:20px 0 6px}
+.md h4{font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 4px;color:var(--ink-soft)}
+.md p{margin:0 0 9px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:0 0 4px}
+.md strong{font-weight:700}
+.md blockquote{margin:0 0 10px;padding:0 0 0 12px;border-left:3px solid var(--rule);color:var(--ink-soft)}
+.md hr{border:0;border-top:1.5px dashed var(--rule);margin:18px 0}
+.md code{font:500 .9em var(--mono)}
+.tw{overflow-x:auto;margin:0 0 12px}
+.md table{border-collapse:collapse;font-size:calc(12.5px*var(--k));min-width:100%}
+.md th,.md td{border-bottom:1.5px dashed var(--rule);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
+.md th{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid var(--ink)}
+.md td{min-width:110px}
+@media (max-width:640px){.md table,.md tbody,.md tr,.md td{display:block;min-width:0;width:100%}.md thead{display:none}.md tr{border-bottom:1.5px solid var(--rule);padding:6px 0}.md td{border:0;padding:2px 0;min-width:0}.md td[data-l]:not([data-l=""])::before{content:attr(data-l);display:block;font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}.md td:empty{display:none}}
+.back{margin:28px 0 0;padding-top:10px;border-top:1.5px solid var(--ink);font:500 calc(10.5px*var(--k))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</head><body>
+<div class="w">
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Goals</a> · Research notes</p>
+<h1>Acne</h1>
+<div class="meta"><span class="mt">Researched 3 Nov 2026</span><span class="mt">Notes version 2</span><span class="mt dr">Draft, not yet a goal page</span></div>
+<p class="lead">No peptide has a controlled acne trial. Placebo creams alone cut spots by 35 to 60%. These are the full working notes behind a goal page still to be built: every study, number and source, not yet edited for easy reading.</p>
+<details class="toc"><summary>Sections (13)</summary><ol><li><a href="#what-changed-in-v2">What changed in v2</a></li><li><a href="#0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</a></li><li><a href="#1-what-acne-is-so-readers-can-match-their-skin">1. What acne is (so readers can match their skin)</a></li><li><a href="#2-standard-treatments-with-effect-sizes">2. Standard treatments, with effect sizes</a></li><li><a href="#3-peptides-that-touch-acne-evidence-by-peptide">3. Peptides that touch acne (evidence by peptide)</a></li><li><a href="#4-what-people-report-claude-s-own-non-reddit-search">4. What people report (Claude&#x27;s own non-Reddit search)</a></li><li><a href="#5-pairings-and-related-conditions">5. Pairings and related conditions</a></li><li><a href="#6-options-ordered-by-evidence">6. Options (ordered by evidence)</a></li><li><a href="#7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</a></li><li><a href="#8-warnings-bottom-of-page">8. Warnings (bottom of page)</a></li><li><a href="#9-adversarial-check-v2-six-biggest-numbers-traced">9. Adversarial check (v2): six biggest numbers traced</a></li><li><a href="#10-v1-gaps-status-after-v2">10. v1 gaps: status after v2</a></li><li><a href="#11-gaps-for-next-pass">11. Gaps for next pass</a></li></ol></details>
+<div class="md"><h1>Acne Research v2</h1>
+<p>Goal page research for baresignals.co. v1 compiled 3 Nov 2026 (Bali); v2 second pass 3 Nov 2026.
+Tags: [verified] = read in the primary abstract, registry record, label or guideline text this session. [reported] = stated by a secondary source (news, review, press release), or recalled from earlier literature and not re-opened today. [inferred] = reasoning from verified data. [speculated] = plausible, untested.
+Doses appear only as reported in studies. No suppliers or vendor brands are named. Vendor pages, vendor "video hubs", vendor help-desk articles and MESO-Rx/AnabolicMinds were excluded from community counts.
+Work done (v1): about 38 PubMed queries and 9 metadata pulls (about 55 abstracts read), 4 ClinicalTrials.gov lookups, 21 web searches, 24 page fetches (several blocked or empty, flagged where used).
+Work done (v2): about 16 PubMed queries, 10 metadata pulls (about 90 abstracts scanned), 2 PMC full texts read (Nass 2008 MK-677 RCT, Jabin 2026 semaglutide cohort), 7 ClinicalTrials.gov lookups, 16 web searches, about 30 page fetches. The session hit a fetch limit before the last acne.org thread; flagged in gaps.</p>
+<h2 id="what-changed-in-v2">What changed in v2</h2>
+<ol>
+<li><strong>GLP-1 "53% more acne in women":</strong> primary record confirmed (Cho et al., JAAD 2025, <a href="https://doi.org/10.1016/j.jaad.2025.02.009">doi:10.1016/j.jaad.2025.02.009</a>) and two follow-up letters found (a critique by Thang et al. and the authors' reply). The abstract is not in PubMed and the journal page was blocked, so the exact OR/CI is <strong>still unopened</strong>; stays [reported]. Added counterweights: a 34-RCT meta-analysis (84,243 people) found no cutaneous signal except hair loss, and a 2-year prospective semaglutide cohort (n=110) with doctor-graded acne improving. See 3.9.</li>
+<li><strong>Melanotan acne claim:</strong> opened the Dermatology 2021 forum study abstract (205 users, 623 posts): it names side effects as a theme but <strong>gives no acne figure</strong>. Only a 2024 Cutis letter lists acne as "common", with no rate. The one primary human acne study for this drug class (afamelanotide, n=3) found acne <strong>improved</strong>. Retagged: acne on melanotan = [reported, no rate in any primary source]. See 3.7.</li>
+<li><strong>Omiganan:</strong> found <strong>4 registered acne trials (2000 to 2016, about 977 people), none with posted results</strong>, and no journal paper reporting any of them. Its rosacea phase 2 (2007) missed its primary endpoint. See 3.4.</li>
+<li><strong>GH peptides:</strong> MK-677 2-year RCT full text: <strong>acne not listed</strong> among side effects (appetite 67% vs 36%, swelling 44% vs 27%, muscle pain 33% vs 9%). Tesamorelin FDA label: <strong>acne not listed</strong>; rash 4% vs 2%. No GH-secretagogue trial reports an acne rate. See 3.8.</li>
+<li><strong>Adversarial check of 6 big numbers (new section 9):</strong> isotretinoin relapse and triple-gel numbers upgraded from [reported] to [verified] from primary abstracts; <strong>triple-gel lesion reduction corrected</strong> (72.7 to 80.1% vs 47.6 to 59.6% on vehicle, not 75.7 to 80.1% vs 56 to 60%); GLP-1 41% given its CI (27 to 57%).</li>
+<li><strong>Community top-up (new 4.6):</strong> 6 more acne.org threads, 1 MakeupAlley page, 1 hair-loss forum, 4 Mumsnet GLP-1 threads, Drugs.com Mounjaro page, WebMD melanotan reviews, a peptide forum for BPC-157 and MK-677. GHK-Cu running total now about 30 people; first GLP-1 forum counts for acne (2 better, 2 worse, 1 unclear).</li>
+<li><strong>New 1.8 Southeast Asia note:</strong> humidity and summer flares, fungal folliculitis frequency, brown marks in Asian skin (58% of Asian acne patients; over 5 years in 22%), scarring rates in Thai, Malaysian and Singaporean cohorts.</li>
+<li>FAQ answers 11, 13 and 14 updated. Old gap list kept with a status column; new gap list at the end.</li>
+</ol>
+<hr />
+<h2 id="0-headline-numbers-for-the-page-quick-pull">0. Headline numbers for the page (quick pull)</h2>
+<ul>
+<li>Acne is not only a teen problem. In 1,013 adults surveyed, acne in the last period was reported by <strong>50.9% of women vs 42.5% of men in their 20s, 35.2% vs 20.1% in their 30s, 26.3% vs 12.0% in their 40s</strong> [verified, Collier 2008, <a href="https://doi.org/10.1016/j.jaad.2007.06.045">doi:10.1016/j.jaad.2007.06.045</a>]. Self-reported, not examined.</li>
+<li><strong>About 1 in 4 "acne" patients also had fungal (Malassezia) folliculitis</strong> under the microscope: 28.8% of 320 people diagnosed with acne; 4.1% had fungal folliculitis only. Itch made it <strong>7.4x</strong> more likely; scalp/hairline and upper back lesions <strong>~9x</strong> [verified, <a href="https://doi.org/10.2147/CCID.S395654">doi:10.2147/CCID.S395654</a>].</li>
+<li>Milk: drinking <strong>1 glass a day</strong> vs less than weekly, OR <strong>1.41</strong>; <strong>2+ glasses/day OR 1.43</strong> (14 observational studies, 78,529 people aged 7 to 30) [verified, Juhl 2018, <a href="https://doi.org/10.3390/nu10081049">doi:10.3390/nu10081049</a>]. Association, not proof; publication bias was found.</li>
+<li>Spironolactone in adult women (SAFA, n=410): <strong>82% vs 63%</strong> said their acne improved at 24 weeks; doctor-rated success at 12 weeks <strong>19% vs 6%</strong> [verified, <a href="https://doi.org/10.1136/bmj-2022-074349">doi:10.1136/bmj-2022-074349</a>].</li>
+<li>Isotretinoin: in 19,907 US patients, <strong>22.5% relapsed</strong> and <strong>8.2% needed a second course</strong> [verified v2, Lai &amp; Barbieri, JAMA Dermatol 2025, <a href="https://doi.org/10.1001/jamadermatol.2024.5416">doi:10.1001/jamadermatol.2024.5416</a>]. Relapse here means insurance-claims evidence of new acne treatment, with at least 1 year of follow-up.</li>
+<li>Triple gel (clindamycin + adapalene + benzoyl peroxide, FDA approved Oct 2023): treatment success <strong>49.6% vs 24.9%</strong> and <strong>50.5% vs 20.5%</strong> vs vehicle in two phase 3 trials (n=183 and 180) [verified v2, Stein Gold 2023, <a href="https://doi.org/10.1016/j.jaad.2022.08.069">doi:10.1016/j.jaad.2022.08.069</a>].</li>
+<li>Clascoterone (topical anti-androgen): IGA success at 12 weeks <strong>23.5% vs 7.7%</strong> in females, <strong>14.2% vs 5.2%</strong> in males [verified, post hoc of 2 phase 3 RCTs, <a href="https://doi.org/10.36849/JDD.9388">doi:10.36849/JDD.9388</a>].</li>
+<li>GLP-1 users surveyed by dermatologists: <strong>17 of 41 (41%; 95% CI 27 to 57%) with pre-existing acne said it improved</strong> [verified, Rao 2026, <a href="https://doi.org/10.1007/s13555-026-01882-z">doi:10.1007/s13555-026-01882-z</a>]. Small subgroup, self-report, no control group.</li>
+<li>Peptides: <strong>no peptide has a published, controlled human trial with acne lesion counts as the outcome.</strong> The closest is omiganan (an antimicrobial peptide gel): <strong>4 registered acne trials (about 977 people, 2000 to 2016), none with results posted or published</strong> [verified v2, registry records listed in 3.4].</li>
+</ul>
+<hr />
+<h2 id="1-what-acne-is-so-readers-can-match-their-skin">1. What acne is (so readers can match their skin)</h2>
+<h3>1.1 The four steps, in plain language</h3>
+<ol>
+<li><strong>Too much oil (sebum).</strong> Oil glands in the hair follicle get bigger and busier at puberty, driven by androgens (testosterone and its relatives) [reported, standard textbook model].</li>
+<li><strong>The pore plugs.</strong> Skin cells lining the follicle shed abnormally and stick together, forming a microcomedone, the invisible start of every spot [reported].</li>
+<li><strong>A skin bacterium thrives.</strong> <em>Cutibacterium acnes</em> (old name <em>Propionibacterium acnes</em>) lives on everyone. In acne, the mix of its strains narrows ("dysbiosis") rather than the bug simply being present [verified, review <a href="https://doi.org/10.3389/fimmu.2024.1502242">doi:10.3389/fimmu.2024.1502242</a>].</li>
+<li><strong>Inflammation.</strong> The immune system reacts inside and around the follicle. Skin's own antimicrobial peptides (LL-37, beta-defensins, dermcidin) are raised in acne skin, possibly as a compensating defence of a leaky barrier [verified, same review].
+- Newer view: inflammation may start <strong>before</strong> the visible plug, not only after [reported].</li>
+</ol>
+<h3>1.2 Hormones, insulin and IGF-1</h3>
+<ul>
+<li>Androgens switch oil glands on. IGF-1 (the growth factor GH raises) and insulin push oil-gland fat production through PI3K/Akt/FoxO1/mTORC1 signalling [verified as the proposed model, <a href="https://doi.org/10.7759/cureus.116420">doi:10.7759/cureus.116420</a>].</li>
+<li><strong>Strongest human clue:</strong> people born unable to make IGF-1 (Laron syndrome) almost never get acne. Of 13 untreated patients only 1 had slight acne. When women were treated with IGF-1 at <strong>70 to 200 µg/kg/day</strong>, 3 of 6 developed acne with signs of excess androgen, and it cleared in all 3 when the dose was cut to 50 µg/kg/day or stopped [verified, Ben-Amitai &amp; Laron 2011, <a href="https://doi.org/10.1111/j.1468-3083.2010.03896.x">doi:10.1111/j.1468-3083.2010.03896.x</a>]. Tiny study, but a clean on/off signal. This matters for GH peptides (section 3.8).</li>
+</ul>
+<h3>1.3 Diet: what the evidence actually says</h3>
+<ul>
+<li><strong>Glycaemic load (fast carbs):</strong></li>
+<li>Korea, 32 people, 10 weeks, low-GL diet vs control: fewer inflamed and non-inflamed lesions, <strong>smaller oil glands, less IL-8 and SREBP-1 on biopsy</strong> [verified, Kwon 2012, <a href="https://doi.org/10.2340/00015555-1346">doi:10.2340/00015555-1346</a>].</li>
+<li>Australia, 31 young men, 12 weeks: low-GL diet changed the fat make-up of sebum, and the change tracked lesion counts (r = -0.39) [verified, Smith 2008, <a href="https://doi.org/10.1016/j.jdermsci.2007.11.005">doi:10.1016/j.jdermsci.2007.11.005</a>].</li>
+<li>A 2026 review calls diet a <strong>"modifier, not a uniform cause"</strong>: trials are small and inconsistent; diet advice is reasonable as an add-on for selected patients [verified, <a href="https://doi.org/10.7759/cureus.116420">doi:10.7759/cureus.116420</a>].</li>
+<li><strong>Dairy:</strong> two 2018 meta-analyses agree on direction.</li>
+<li>Any dairy OR 1.25, any milk OR 1.28, skim milk OR 1.32, yogurt 1.36, cheese 1.22 (borderline) [verified, Juhl, above].</li>
+<li>Highest vs lowest: dairy OR 2.61, total milk 1.48, skim 1.82; <strong>yogurt and cheese not significant</strong> in this one [verified, Aghasi 2018, <a href="https://doi.org/10.1016/j.clnu.2018.04.015">doi:10.1016/j.clnu.2018.04.015</a>].</li>
+<li>Skim milk is often as bad or worse than whole milk, suggesting hormones/whey rather than fat [inferred].</li>
+<li>All observational. No dairy-elimination RCT with lesion counts found this pass [inferred; gap].</li>
+<li><strong>Chocolate:</strong> a small placebo-controlled cocoa trial (n=14) was terminated; no usable result [verified, <a href="https://clinicaltrials.gov/study/NCT01193764">NCT01193764</a>].</li>
+</ul>
+<h3>1.4 Stress</h3>
+<ul>
+<li>22 Stanford students: acne was worse during exams, and the worsening tracked perceived stress (<strong>r = 0.61</strong>) even after adjusting for sleep and diet [verified, Chiu 2003, <a href="https://doi.org/10.1001/archderm.139.7.897">doi:10.1001/archderm.139.7.897</a>]. Small, but prospective.</li>
+</ul>
+<h3>1.5 Types, to match your skin</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Looks like</th>
+<th>Clues</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Type">Comedonal</td>
+<td data-l="Looks like">Blackheads, whiteheads, rough texture</td>
+<td data-l="Clues">Little redness; forehead, nose</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Type">Inflammatory</td>
+<td data-l="Looks like">Red papules, pus-filled pustules</td>
+<td data-l="Clues">Tender; cheeks, jaw</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Type">Nodulocystic</td>
+<td data-l="Looks like">Deep painful lumps lasting weeks</td>
+<td data-l="Clues">High scar risk; isotretinoin territory</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Type">Adult / hormonal</td>
+<td data-l="Looks like">Jawline, chin, neck; flares before periods</td>
+<td data-l="Clues">Women 20s to 40s; often persistent from teens</td>
+<td data-l="Tag">[verified prevalence; reported pattern]</td>
+</tr>
+<tr>
+<td data-l="Type">PCOS-linked</td>
+<td data-l="Looks like">Hormonal pattern <strong>plus</strong> irregular cycles, excess hair, scalp thinning, weight around the middle</td>
+<td data-l="Clues">Needs blood tests; see PCOS page</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Type">Fungal "acne" (Malassezia folliculitis)</td>
+<td data-l="Looks like">Small, same-sized itchy bumps</td>
+<td data-l="Clues"><strong>Itch</strong>, forehead/hairline, chest, upper back; worse with heat, sweat, antibiotics or steroid creams; ignores acne creams</td>
+<td data-l="Tag">[verified, 1.6]</td>
+</tr>
+<tr>
+<td data-l="Type">Rosacea (lookalike)</td>
+<td data-l="Looks like">Flushing, red background, bumps <strong>without blackheads</strong></td>
+<td data-l="Clues">Over 30; triggers: heat, spice, alcohol</td>
+<td data-l="Tag">[verified, 3.4]</td>
+</tr>
+<tr>
+<td data-l="Type">Acne scars</td>
+<td data-l="Looks like">Ice-pick, boxcar, rolling dents; or raised (keloid)</td>
+<td data-l="Clues">Permanent texture change</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Type">Post-inflammatory marks</td>
+<td data-l="Looks like">Flat brown (PIH) or red/pink (PIE) marks</td>
+<td data-l="Clues">Not scars; fade over months</td>
+<td data-l="Tag">[verified, 1.7]</td>
+</tr>
+<tr>
+<td data-l="Type">- Drug-induced acne (steroids, testosterone, some GH/peptide use) shows as <strong>monomorphic</strong> (all-same-stage) bumps on chest and back [reported].</td>
+<td data-l="Looks like"></td>
+<td data-l="Clues"></td>
+<td data-l="Tag"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.6 Fungal acne lookalike</h3>
+<ul>
+<li>28.8% of acne patients in a Thai clinic had Malassezia folliculitis on methylene-blue smear; itch OR 7.38; scalp/hairline OR 8.89; upper back OR 9.17 [verified, above].</li>
+<li>2026 Cutis review: dermatophyte infections (tinea incognito, Majocchi granuloma) also mimic acne, especially <strong>after steroid creams</strong>, which make them worse [verified, <a href="https://doi.org/10.12788/cutis.1417">doi:10.12788/cutis.1417</a>].</li>
+<li>Why it matters for peptide users: oral antibiotics and steroid creams can feed fungal folliculitis; a "purge" that itches may not be acne at all [inferred].</li>
+</ul>
+<h3>1.7 Marks and scars</h3>
+<ul>
+<li><strong>Up to 85% of people with darker skin (Fitzpatrick IV to VI) get brown marks</strong> after inflamed acne; marks can bother people more than active acne [verified, 2026 review, <a href="https://doi.org/10.1007/s40257-026-01044-z">doi:10.1007/s40257-026-01044-z</a>]. Relevant to Bali/SE Asian readers.</li>
+<li>Risk factors: female, darker skin, severe acne, face, sun, picking [verified, same].</li>
+<li>Treatments listed: azelaic acid, retinoids, antioxidants, hydroquinone, oral tranexamic acid, peels, lasers, microneedling, and <strong>sunscreen as non-negotiable</strong> [verified, same].</li>
+</ul>
+<h3>1.8 Southeast Asia note (v2)</h3>
+<ul>
+<li><strong>Heat and humidity flare acne.</strong> In 171 acne patients in tropical Delhi, 40.4% said acne worsened in summer vs 6.4% in winter; monthly temperature and humidity tracked the flares [verified, Narang 2018, <a href="https://doi.org/10.1111/jocd.12777">doi:10.1111/jocd.12777</a>]. India, not SE Asia, but same climate band [inferred relevance].</li>
+<li><strong>Fungal folliculitis is common in hot, humid places.</strong> The 28.8% figure (1.6) comes from a Bangkok clinic [verified]. A 2026 review names hot, humid weather and occlusion (tight clothes, sweat) as risk factors [verified, <a href="https://doi.org/10.36849/JDD.9751">doi:10.36849/JDD.9751</a>]. In subtropical Shantou, China, Malassezia was the leading fungus (42%) and pityrosporum folliculitis the single most common diagnosis (17.6% of 2,635 culture-positive patients, 2022 to 2024) [verified, <a href="https://doi.org/10.62347/ELKP5340">doi:10.62347/ELKP5340</a>]. No Indonesian or Bali prevalence study found [gap].</li>
+<li><strong>Brown marks hit Asian skin hardest.</strong> In 324 acne patients across 7 Asian countries, <strong>58.2% had post-inflammatory hyperpigmentation</strong>; in more than half it lasted at least 1 year and in <strong>22.3% five years or more</strong>; picking was common and modifiable [verified, Asian Acne Board, <a href="https://doi.org/10.1111/1346-8138.13263">doi:10.1111/1346-8138.13263</a>]. In 419 Jakarta women, PIH prevalence was above about 50% at ages 20 to 30 [verified, <a href="https://doi.org/10.1111/srt.13189">doi:10.1111/srt.13189</a>].</li>
+<li><strong>Scarring is frequent.</strong> 52.8% of acne cases among 6,225 young Chinese adults in Singapore and Malaysia had scars [verified, <a href="https://doi.org/10.1159/000547009">doi:10.1159/000547009</a>]; 61.3% of 225 Thai acne patients had scars, with severe acne (OR 8.98), lingering red marks (OR 4.46) and picking as risk factors [verified, <a href="https://doi.org/10.1111/jocd.16695">doi:10.1111/jocd.16695</a>].</li>
+<li><strong>Laser in darker Asian skin:</strong> in Thai patients (mostly skin type 4 to 5), brown marks after fractional CO2 laser occurred in 42% of those not on isotretinoin vs 24% of those on it [verified, <a href="https://doi.org/10.1002/lsm.70056">doi:10.1002/lsm.70056</a>]. Small study.</li>
+<li><strong>Retinoids work in Asian skin</strong> but are underused for fear of irritation; Asian skin is described as more irritation-prone and more prone to sequelae [verified as stated, reviews <a href="https://doi.org/10.1111/1346-8138.14314">doi:10.1111/1346-8138.14314</a>, <a href="https://doi.org/10.1111/ijd.17141">doi:10.1111/ijd.17141</a>].</li>
+<li>Page message for Bali readers: itchy uniform bumps in heat = think fungal first; protect against brown marks from day one (sunscreen, no picking, treat inflammation early) [inferred from verified data].</li>
+</ul>
+<hr />
+<h2 id="2-standard-treatments-with-effect-sizes">2. Standard treatments, with effect sizes</h2>
+<h3>2.1 Guideline grades (AAD, Jan 2024)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Strength</th>
+<th>Treatment</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Strength"><strong>Strong</strong></td>
+<td data-l="Treatment">Topical benzoyl peroxide, retinoids, antibiotics, fixed combinations</td>
+<td data-l="Tag">[reported, <a href="https://dermatologytimes.com/view/aad-releases-updated-guidelines-for-the-management-of-acne-vulgaris">Dermatology Times</a>]</td>
+</tr>
+<tr>
+<td data-l="Strength"><strong>Strong</strong></td>
+<td data-l="Treatment">Oral doxycycline</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Strength"><strong>Strong</strong></td>
+<td data-l="Treatment">Isotretinoin for severe, scarring, distressing, or treatment-resistant acne</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Strength">Conditional</td>
+<td data-l="Treatment">Clascoterone, salicylic acid, azelaic acid, minocycline, sarecycline, combined pill, spironolactone</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Strength">Conditional <strong>against</strong></td>
+<td data-l="Treatment">Adding broadband light to adapalene 0.3%</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+<tr>
+<td data-l="Strength">Good practice</td>
+<td data-l="Treatment">Limit oral antibiotics; always pair them with benzoyl peroxide; steroid injection into big cysts</td>
+<td data-l="Tag">[reported]</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 Topicals</h3>
+<ul>
+<li><strong>Triple gel (clindamycin 1.2% / BPO 3.1% / adapalene 0.15%):</strong> phase 3 (two trials, n=183 and 180, ages 9+), success ~50% vs 20 to 25% on vehicle; inflammatory and non-inflammatory lesions down <strong>72.7 to 80.1% vs 47.6 to 59.6%</strong> on vehicle [verified v2, corrected from v1, <a href="https://doi.org/10.1016/j.jaad.2022.08.069">doi:10.1016/j.jaad.2022.08.069</a>]. In 394 children and teens (phase 2 post hoc): success <strong>55.8% vs 5.7%</strong>; beat each two-drug combo (30.8 to 33.9%) [verified, <a href="https://doi.org/10.1111/pde.15283">doi:10.1111/pde.15283</a>]. Main side effects: application pain, dryness.</li>
+<li><strong>Clascoterone 1% cream (androgen blocker in the skin):</strong> see section 0 numbers; works in both sexes; adults responded more than teens; side effects mild local [verified, <a href="https://doi.org/10.36849/JDD.9388">doi:10.36849/JDD.9388</a>; review <a href="https://doi.org/10.3390/ph19081304">doi:10.3390/ph19081304</a>].</li>
+<li>Note vehicle (placebo cream) arms improve 35 to 60% on lesion counts by 12 weeks. <strong>Acne has a big placebo/natural-fluctuation effect.</strong> Any single "it cleared in 8 weeks" story needs this baseline [inferred from verified trial arms].</li>
+</ul>
+<h3>2.3 Antibiotics and resistance</h3>
+<ul>
+<li>Meta-analysis of 2,046 <em>C. acnes</em> isolates (2005 to 2025): resistance <strong>roxithromycin 48%, azithromycin 43%, erythromycin 29%, clindamycin 22%</strong>, vs <strong>doxycycline 2.4%, minocycline 0.2%</strong>; erythromycin/clindamycin resistance <strong>rising over time</strong> [verified, <a href="https://doi.org/10.3389/fmicb.2025.1565111">doi:10.3389/fmicb.2025.1565111</a>].</li>
+<li>Practical meaning: clindamycin alone on the skin is a resistance factory; benzoyl peroxide alongside prevents it [reported, guideline good practice].</li>
+</ul>
+<h3>2.4 Hormonal options</h3>
+<ul>
+<li><strong>Spironolactone (SAFA trial, women ≥18, 50 mg/day to week 6 then 100 mg/day):</strong> benefit grows with time; quality-of-life gap 1.27 points at week 12 and <strong>3.45 at week 24</strong>; more headaches (20% vs 12%); no serious reactions [verified, above]. Alternative to antibiotics.</li>
+<li><strong>PCOS:</strong> spironolactone did not beat metformin for hirsutism or testosterone in a meta-analysis of small open-label RCTs [verified, <a href="https://doi.org/10.1111/cen.70062">doi:10.1111/cen.70062</a>]. Cochrane: evidence on metformin vs the pill for PCOS acne is low to very low quality [verified, <a href="https://doi.org/10.1002/14651858.CD005552.pub3">doi:10.1002/14651858.CD005552.pub3</a>].</li>
+<li><strong>Combined pill:</strong> conditional AAD recommendation [reported]. Effect sizes not re-read this pass [gap].</li>
+</ul>
+<h3>2.5 Isotretinoin</h3>
+<ul>
+<li>Standard dose <strong>0.5 to 1.0 mg/kg/day to a cumulative 120 to 150 mg/kg</strong> [verified as stated in <a href="https://doi.org/10.1111/dth.15311">doi:10.1111/dth.15311</a>].</li>
+<li><strong>Relapse:</strong> 22.5% overall in 19,907 patients (MarketScan claims 2017 to 2020, age 12+, at least 4 months of isotretinoin); higher cumulative dose = lower relapse (HR 0.996 per mg/kg); <strong>women relapsed more (HR 1.43)</strong>; daily dose did not matter once the total reached 120 mg/kg [verified v2, <a href="https://doi.org/10.1001/jamadermatol.2024.5416">doi:10.1001/jamadermatol.2024.5416</a>].</li>
+<li><strong>Low dose (≤0.5 mg/kg/day):</strong> 4 RCTs (n=210), no difference in 24-week results or post-treatment worsening, <strong>better tolerated and higher satisfaction</strong> (SMD 0.99) [verified, <a href="https://doi.org/10.3389/fmed.2026.1771320">doi:10.3389/fmed.2026.1771320</a>]. An older meta-analysis found conventional dosing gave more lasting remission in adults [verified, Al Muqarrab 2022]. Evidence quality low in both.</li>
+<li><strong>Mental health:</strong> meta-analysis, 25 studies, 1.6 million people: no increased risk of psychiatric disorders overall (RR 1.08, CI 0.99 to 1.19); suicide attempts <strong>lower</strong> at 2 to 4 years (RR 0.86 at 3 yrs); 1-year depression absolute risk 3.83% [verified, <a href="https://doi.org/10.1001/jamadermatol.2023.4579">doi:10.1001/jamadermatol.2023.4579</a>]. Monitoring still advised.</li>
+<li>Pregnancy rules: section 7.</li>
+</ul>
+<h3>2.6 Newer options (2025 to 2026)</h3>
+<ul>
+<li><strong>Denifanstat (oral fatty-acid-synthase blocker, cuts oil-gland fat production):</strong> phase 2 (n=179), total lesions <strong>-61.3% (50 mg) vs -34.2% placebo</strong> at 12 weeks; IGA ≥2-grade not significant [verified, <a href="https://doi.org/10.1111/jdv.70119">doi:10.1111/jdv.70119</a>]. Phase 3 in China (n=480) met all endpoints, success "more than double" placebo [reported, <a href="https://ir.sagimet.com/news-releases/news-release-details/denifanstat-achieved-all-endpoints-treatment-moderate-severe">press release Oct 2025</a>]. China NDA accepted Dec 2025 [reported, <a href="https://www.ascletis.com/data/upload/admin/20251210/6939373b47c8e.pdf">company filing</a>]. Approval status as of Nov 2026 not confirmed [gap].</li>
+<li>Clascoterone and triple gel are the newest approved topicals in the US [reported].</li>
+</ul>
+<h3>2.7 Scar treatments</h3>
+<ul>
+<li><strong>Lasers vs needling (27 studies, 1,137 people, 2026):</strong> fractional CO2 (and some Er:YAG) lasers often beat plain microneedling for atrophic acne scars; needling has less downtime and <strong>fewer pigment problems</strong>; radiofrequency microneedling gets close to laser [verified, <a href="https://doi.org/10.1111/phpp.70121">doi:10.1111/phpp.70121</a>].</li>
+<li><strong>Network meta-analysis (56 RCTs, 1,488 patients):</strong> combinations beat single treatments; <strong>CO2 laser + subcision</strong> and <strong>CO2 laser + PRP</strong> were most consistent [verified, <a href="https://doi.org/10.1007/s00266-026-06165-8">doi:10.1007/s00266-026-06165-8</a>].</li>
+<li>A second 2026 network analysis found <strong>no reliable ranking</strong> exists; all intervals crossed zero [verified, <a href="https://doi.org/10.3389/fsurg.2026.1943995">doi:10.3389/fsurg.2026.1943995</a>]. Honest message: several work, none clearly best.</li>
+<li><strong>Subcision</strong> (cutting the tethering bands under rolling scars): in a 60-patient pilot RCT, subcision + fat-derived stromal cells + PRP gave "marked" improvement in 53.3% vs 0% for subcision alone at 12 months [verified, <a href="https://doi.org/10.1007/s00266-026-05871-7">doi:10.1007/s00266-026-05871-7</a>]. Small, single centre.</li>
+<li>Darker skin: favour needling/RF needling over aggressive ablative laser due to brown-mark risk [verified direction, phpp.70121].</li>
+</ul>
+<hr />
+<h2 id="3-peptides-that-touch-acne-evidence-by-peptide">3. Peptides that touch acne (evidence by peptide)</h2>
+<p>Grade key: A = human RCT on acne endpoint; B = human data on skin/wound/related endpoint; C = animal/lab; D = theory/anecdote only.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Peptide</th>
+<th>Acne grade</th>
+<th>Scars/marks grade</th>
+<th>Route studied</th>
+<th>One-line verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Peptide">GHK-Cu</td>
+<td data-l="Acne grade">D (acne)</td>
+<td data-l="Scars/marks grade">B (topical skin ageing) / C (scars)</td>
+<td data-l="Route studied">Topical</td>
+<td data-l="One-line verdict">Best skin-repair data of any peptide, none on acne itself</td>
+</tr>
+<tr>
+<td data-l="Peptide">KPV</td>
+<td data-l="Acne grade">C</td>
+<td data-l="Scars/marks grade">C</td>
+<td data-l="Route studied">Lab, gut (oral, mice)</td>
+<td data-l="One-line verdict">Anti-inflammatory signal, zero acne humans</td>
+</tr>
+<tr>
+<td data-l="Peptide">BPC-157</td>
+<td data-l="Acne grade">D</td>
+<td data-l="Scars/marks grade">C (rat skin wounds, burns)</td>
+<td data-l="Route studied">Animal injection/topical</td>
+<td data-l="One-line verdict">No acne data</td>
+</tr>
+<tr>
+<td data-l="Peptide">LL-37</td>
+<td data-l="Acne grade">Involved in disease</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Body's own</td>
+<td data-l="One-line verdict">Raised in acne and rosacea; can <strong>drive</strong> rosacea</td>
+</tr>
+<tr>
+<td data-l="Peptide">Thymosin β4</td>
+<td data-l="Acne grade">D</td>
+<td data-l="Scars/marks grade">B (chronic wounds, phase 2)</td>
+<td data-l="Route studied">Topical gel</td>
+<td data-l="One-line verdict">Wound healing only</td>
+</tr>
+<tr>
+<td data-l="Peptide">Cosmetic peptides (Matrixyl etc.)</td>
+<td data-l="Acne grade">D</td>
+<td data-l="Scars/marks grade">D/B (wrinkles)</td>
+<td data-l="Route studied">Topical</td>
+<td data-l="One-line verdict">No acne trials found</td>
+</tr>
+<tr>
+<td data-l="Peptide">Omiganan</td>
+<td data-l="Acne grade">A pending (never reported)</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Topical gel</td>
+<td data-l="One-line verdict">4 acne trials 2000 to 2016, results never posted or published</td>
+</tr>
+<tr>
+<td data-l="Peptide">Melanotan II</td>
+<td data-l="Acne grade">Side-effect claim, no rate</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Injection</td>
+<td data-l="One-line verdict">Acne listed as common in one letter, no number anywhere; licensed cousin improved acne in 3 people; mole/melanoma concern is the real issue</td>
+</tr>
+<tr>
+<td data-l="Peptide">GH peptides / IGF-1</td>
+<td data-l="Acne grade"><strong>Causes</strong> acne at high IGF-1 doses</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Injection/oral</td>
+<td data-l="One-line verdict">IGF-1 signal clean; MK-677 and tesamorelin trials list no acne</td>
+</tr>
+<tr>
+<td data-l="Peptide">GLP-1 drugs</td>
+<td data-l="Acne grade">B (mixed)</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Injection</td>
+<td data-l="One-line verdict">41% of users with acne said better; doctor-graded cohort improved; one claims cohort says women's acne risk up</td>
+</tr>
+<tr>
+<td data-l="Peptide">Larazotide</td>
+<td data-l="Acne grade">C (skin barrier cells)</td>
+<td data-l="Scars/marks grade">-</td>
+<td data-l="Route studied">Lab</td>
+<td data-l="One-line verdict">Nothing on acne</td>
+</tr>
+<tr>
+<td data-l="Peptide">Collagen peptides</td>
+<td data-l="Acne grade">D</td>
+<td data-l="Scars/marks grade">D</td>
+<td data-l="Route studied">Oral</td>
+<td data-l="One-line verdict">One registered trial with acne secondary outcome, no results</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.1 GHK-Cu (copper peptide)</h3>
+<ul>
+<li><strong>What it is:</strong> a 3-amino-acid copper peptide in plasma, saliva and urine that <strong>falls with age</strong>; stimulates both building and breakdown of collagen and glycosaminoglycans; attracts immune and blood-vessel cells to wounds [verified as stated in review, Pickart 2015, <a href="https://doi.org/10.1155/2015/648108">doi:10.1155/2015/648108</a>]. Conflict: authors work at a company selling GHK skincare [verified affiliation].</li>
+<li><strong>Human skin data (topical, ageing):</strong> cosmetic trials report tighter skin, better elasticity and density, fewer fine lines, less sun damage and hyperpigmentation [reported in Pickart review]. One secondary summary lists a 12-week thigh study where <strong>70% improved collagen production vs 50% on vitamin C and 40% on retinoic acid</strong> [reported, uncited secondary site; primary not re-opened, gap].</li>
+<li><strong>Scars:</strong> a 2026 systematic review (64 records) says the preclinical base is deep but <strong>no adequately powered human RCT of GHK-Cu with microneedling exists</strong>, and it lists atrophic acne scarring as a trial it recommends running [verified, <a href="https://doi.org/10.26502/aimr.0255">doi:10.26502/aimr.0255</a>].</li>
+<li><strong>Acne itself:</strong> no human acne trial found [verified absence across PubMed and ClinicalTrials.gov searches this pass].</li>
+<li><strong>Injected vs topical:</strong> all human data is topical. Two RealSelf doctors: a facial plastic surgeon says there is no rigorous clinical evidence for injectable GHK-Cu; a dermatologist says injectable efficacy is "less documented" [reported, <a href="https://www.realself.com/question/ghk-cu-skin-rejuvenation-benefits-injectable-evidence">RealSelf Q&amp;A</a>].</li>
+<li><strong>Social media check:</strong> a 2023 study of YouTube copper-peptide videos found many unsubstantiated dermatology claims [verified title/journal, letter, <a href="https://doi.org/10.1177/12034754231188560">doi:10.1177/12034754231188560</a>].</li>
+<li><strong>Breakouts:</strong> a US dermatology clinic page lists "breakouts in acne-prone individuals" as a possible side effect and says highly acne-prone skin may not be ideal [reported, <a href="https://westlakedermatology.com/trends/ghk-cu-copper-peptides-for-skin-care">Westlake Dermatology</a>]. Copper + strong acids/vitamin C in the same routine is a common irritation complaint [reported].</li>
+</ul>
+<h3>3.2 KPV</h3>
+<ul>
+<li>KPV is the last 3 amino acids of α-MSH. It keeps <strong>almost all of α-MSH's anti-inflammatory action without tanning</strong>, acting on NF-κB and cytokines [verified, Brzoska 2010 review, <a href="https://doi.org/10.1007/978-1-4419-6354-3_8">doi:10.1007/978-1-4419-6354-3_8</a>].</li>
+<li>KPV-loaded hydrogels reduce inflammation and fight MRSA in wound models [verified as stated in 2025 review, <a href="https://doi.org/10.7150/ijms.118118">doi:10.7150/ijms.118118</a>].</li>
+<li>Gut: an oral KPV conjugate reached the colon 3.8x better than free KPV and worked at 20x lower dose <strong>in mice with colitis</strong> [verified, <a href="https://doi.org/10.1126/sciadv.aea2989">doi:10.1126/sciadv.aea2989</a>]. The "gut-skin" acne link is plausible but <strong>no KPV acne study exists</strong> [verified absence].</li>
+<li>The top web result on "KPV for acne" is a seller's blog with no citations and no human data [reported, fetched].</li>
+</ul>
+<h3>3.3 BPC-157</h3>
+<ul>
+<li>Rat studies: heals incisional and excisional wounds, deep burns, diabetic ulcers and alkali burns; same dose range across routes [verified as stated in review by the originating Zagreb group, <a href="https://doi.org/10.3389/fphar.2021.627533">doi:10.3389/fphar.2021.627533</a>].</li>
+<li>No human skin trial, no acne data [verified absence]. Any acne claim is extrapolation [inferred].</li>
+</ul>
+<h3>3.4 LL-37 (cathelicidin): the double-edged peptide</h3>
+<ul>
+<li><strong>Acne:</strong> LL-37 and other antimicrobial peptides are <strong>elevated</strong> in acne skin. Reviewers think this is a compensating defence for a leaky barrier, and that AMPs link immune and metabolic (insulin/IGF-1/mTOR) drivers [verified, <a href="https://doi.org/10.3389/fimmu.2024.1502242">doi:10.3389/fimmu.2024.1502242</a>]. In mice injected with <em>C. acnes</em>, LL-37 rose with inflammation [verified, <a href="https://doi.org/10.5021/ad.2015.27.3.257">doi:10.5021/ad.2015.27.3.257</a>].</li>
+<li><strong>Rosacea:</strong> people with rosacea have <strong>abnormally high cathelicidin</strong> and an enzyme (SCTE/KLK5) chops it into <strong>pro-inflammatory fragments</strong>; injecting those fragments into mouse skin <strong>caused</strong> rosacea-like redness and inflammation [verified, Yamasaki 2007, Nature Medicine, <a href="https://doi.org/10.1038/nm1616">doi:10.1038/nm1616</a>]. Rosacea is now framed as a disease of cathelicidin and innate immunity [verified, <a href="https://doi.org/10.1038/jidsymp.2011.4">doi:10.1038/jidsymp.2011.4</a>].</li>
+<li><strong>Page message:</strong> applying or injecting LL-37 to "kill acne bacteria" could inflame skin, and in anyone with rosacea tendency could worsen it [inferred from verified mechanism; no human LL-37 dosing study for acne found].</li>
+<li>Related: <strong>omiganan</strong>, a synthetic antimicrobial peptide (from indolicidin), went through acne trials; an older review says trials "proved efficiency" [reported, <a href="https://doi.org/10.2174/157489106777452638">doi:10.2174/157489106777452638</a>], but the 2015-16 phase 2 (320 women) has <strong>no results posted</strong> 10 years on [verified].</li>
+<li><strong>v2 full trail:</strong> four acne trials are registered: NCT00211523 (2000, n=75, 6 weeks), NCT00211497 (2003, n=255, 12 weeks), NCT02066545 (2014, n=327, three strengths 1%, 1.75%, 2.5%), NCT02571998 (2015-16, n=320 women) [verified, ClinicalTrials.gov records: <a href="https://clinicaltrials.gov/study/NCT00211523">00211523</a>, <a href="https://clinicaltrials.gov/study/NCT00211497">00211497</a>, <a href="https://clinicaltrials.gov/study/NCT02066545">02066545</a>, <a href="https://clinicaltrials.gov/study/NCT02571998">02571998</a>]. <strong>None has results posted</strong>, and PubMed holds no paper reporting any of them (6 omiganan + acne/rosacea records, all reviews or lab work) [verified absence].</li>
+<li>The "effective in acne" line in reviews traces back to company statements, not a published trial [inferred from the citation trail].</li>
+<li>A 2003 trade-press "positive phase IIb acne" item concerned <strong>MBI 594AN</strong>, a different peptide from the same company, not omiganan (MBI 226) [reported, <a href="https://www.manufacturingchemist.com/efficacy-from-phase-iib-acne-study-34228">Manufacturing Chemist</a>]. Easy to confuse; do not cite it for omiganan.</li>
+<li>In rosacea, the 2007 phase 2 (n=240) <strong>missed its primary endpoint</strong> (31% vs 14% lesion reduction, not significant) [reported, <a href="https://www.biospace.com/cutanea-announces-promising-phase-ii-results-in-rosacea-with-omiganan-plans-to-move-forward-with-phase-iii">company release</a>]; one phase 3 rosacea trial has posted results on the registry but the page would not load [gap]. No omiganan product is approved anywhere [inferred from absence].</li>
+<li>Unposted results after 4 acne trials usually mean a miss or a dropped programme [speculated].</li>
+</ul>
+<h3>3.5 Thymosin β4 (TB-500 parent molecule)</h3>
+<ul>
+<li>Topical Tβ4 sped repair in <strong>phase 2 trials</strong> of pressure ulcers, venous stasis ulcers and epidermolysis bullosa wounds; safe and well tolerated [verified as stated, Kleinman &amp; Sosne 2016 review, <a href="https://doi.org/10.1016/bs.vh.2016.04.005">doi:10.1016/bs.vh.2016.04.005</a>]. Authors are linked to its development [reported].</li>
+<li>No acne or acne-scar data. TB-500 (a fragment) is not the molecule in those trials [reported].</li>
+</ul>
+<h3>3.6 Matrixyl and cosmetic peptides</h3>
+<ul>
+<li>Palmitoyl pentapeptide (Matrixyl) and others have wrinkle data in cosmetic studies [reported]. PubMed search for acne trials returned nothing specific [verified absence this pass]. Mainly fine if non-comedogenic base; not an acne treatment [inferred].</li>
+</ul>
+<h3>3.7 Melanotan (I and II)</h3>
+<ul>
+<li>Afamelanotide (licensed melanotan I analogue) is listed as being explored for several skin conditions including acne vulgaris; listed harms from melanotan use include <strong>new and darkening moles, moles turning into melanoma, systemic toxicity, rhabdomyolysis, brain swelling syndrome (PRES), priapism</strong> and oral pigmentation; numerous reports to the Dutch pharmacovigilance centre [verified, de Baat 2020 abstract, <a href="https://doi.org/10.5177/ntvt.2020.04.19115">doi:10.5177/ntvt.2020.04.19115</a>].</li>
+<li>A US derm clinic lists nausea, flushing, priapism, mole darkening and new pigmented spots that make melanoma harder to spot [reported, <a href="https://www.westlakedermatology.com/trends/melanotan-II/">Westlake</a>].</li>
+<li><strong>Acne as a side effect (v2 traced):</strong></li>
+<li>The Irish forum study (Gilhooley 2021, 205 UK/Irish users, 623 posts) lists side effects as a theme but the abstract <strong>names no acne figure</strong>; its concerns are moles, infection, contaminated product and sunbeds [verified, <a href="https://doi.org/10.1159/000514492">doi:10.1159/000514492</a>]. Full text not reachable [gap].</li>
+<li>A 2024 Cutis letter lists acne among the <strong>common</strong> melanotan II side effects (with flushing, stomach upset, sun sensitivity), <strong>no rate given</strong> [reported, <a href="https://cdn.mdedge.com/files/s3fs-public/CT113001003_e.pdf">Cutis PDF</a>].</li>
+<li>A 2017 review of unregulated melanotan centres on mole changes and <strong>4 case reports of melanoma</strong> from existing moles; acne not mentioned in the abstract [verified, <a href="https://doi.org/10.1111/ijd.13585">doi:10.1111/ijd.13585</a>].</li>
+<li>Bremelanotide (licensed relative, 3,500 trial subjects): top side effects nausea 40%, flushing 20%, headache 11%; focal dark patches in over a third after 16 daily doses; <strong>acne not in the reported list</strong> [verified, <a href="https://doi.org/10.1089/jwh.2021.0191">doi:10.1089/jwh.2021.0191</a>].</li>
+<li>The opposite signal: afamelanotide implants in <strong>3 people with acne reduced lesions in all 3</strong> at day 56 [verified, Böhm 2012, <a href="https://doi.org/10.1111/j.1468-3083.2012.04658.x">doi:10.1111/j.1468-3083.2012.04658.x</a>].</li>
+<li>Verdict: acne on melanotan II is <strong>plausible and commonly claimed, but no primary source gives a rate</strong> [reported]. Mechanism (MC5R on oil glands raising sebum) remains [reported].</li>
+</ul>
+<h3>3.8 GH peptides and IGF-1 (CJC-1295, ipamorelin, sermorelin, tesamorelin, MK-677)</h3>
+<ul>
+<li>Direct human signal: <strong>IGF-1 overdose caused acne in 3 of 6 women, which resolved on dose cut</strong> [verified, Laron study above].</li>
+<li>MK-677 raises GH and IGF-1 to young-adult levels in older people [verified v2, Nass 2008].</li>
+<li><strong>v2 trial adverse-event check:</strong></li>
+<li>MK-677 2-year RCT (65 healthy adults aged 60 to 81, 25 mg/day as studied): IGF-1 up 1.5x; side effects reported were increased appetite <strong>67% vs 36%</strong> placebo, mild swelling <strong>44% vs 27%</strong>, muscle pain <strong>33% vs 9%</strong>, small rises in fasting glucose and HbA1c; <strong>acne or oily skin not reported</strong> [verified, full text, <a href="https://doi.org/10.7326/0003-4819-149-9-200811040-00003">doi:10.7326/0003-4819-149-9-200811040-00003</a>].</li>
+<li>MK-677 in 563 Alzheimer patients for 12 months (25 mg/day): IGF-1 up 60 to 73%, no benefit; abstract lists no acne [verified, <a href="https://doi.org/10.1212/01.wnl.0000335163.88054.e7">doi:10.1212/01.wnl.0000335163.88054.e7</a>]. Hip-fracture RCT (n=123) <strong>stopped early for a heart-failure signal</strong> [verified, <a href="https://doi.org/10.1016/j.archger.2010.10.004">doi:10.1016/j.archger.2010.10.004</a>].</li>
+<li>Tesamorelin FDA label (543 vs 263 patients, 26 weeks): rash 4% vs 2%, itch 2% vs 1%, injection-site reactions 17% vs 6%; <strong>acne not listed</strong> [verified, <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022505s020lbl.pdf">FDA label 2025</a>].</li>
+<li>CJC-1295, ipamorelin: no trial adverse-event table with skin outcomes found [gap].</li>
+<li>Caveat: these trials enrolled older or ill adults, whose oil glands are far less active than a 20 to 35 year old gym user's; absence of acne there does not prove absence in young users [inferred].</li>
+<li>Expect a mechanistic risk for oily skin and breakouts, especially stacked with testosterone [inferred]; the only proven human link is IGF-1 itself at high doses [verified].</li>
+<li>Community first-hand reports outside vendor pages: none found this pass (all top results were vendor help-desk pages, excluded).</li>
+</ul>
+<h3>3.9 GLP-1 drugs (semaglutide, tirzepatide, retatrutide)</h3>
+<ul>
+<li><strong>Better:</strong> in 1,226 GLP-1 programme patients (survey designed with dermatologists), improvement was reported in <strong>acne 17/41 (41%)</strong>, hidradenitis 13/15 (87%), acanthosis nigricans 9/12 (75%), hirsutism 4/14 (29%). Same survey: skin sagging 72% and hair loss 52% when weight loss &gt;20% [verified, <a href="https://doi.org/10.1007/s13555-026-01882-z">doi:10.1007/s13555-026-01882-z</a>]. Self-report, no control group.</li>
+<li><strong>Better, doctor-graded (v2):</strong> prospective single-arm cohort, Peshawar, 110 adults on semaglutide (titrated 0.25 to 1.0 or 2.0 mg/week as studied) for 24 months: acne grade (IGA) fell from <strong>1.92 to 1.21</strong>, measured oil output fell <strong>186 to 139 µg/cm²</strong>; improvement tracked falls in BMI, HbA1c and insulin [verified, full text, Jabin 2026, <a href="https://doi.org/10.7759/cureus.101212">doi:10.7759/cureus.101212</a>]. Quality flag: no control group, and the tables grade every participant for both acne and HS, which is unusual for a cohort enrolled with "acne, HS, or oily skin" [inferred]; treat as weak.</li>
+<li><strong>Better, clinic records (v2):</strong> 58 obese women with PCOS on semaglutide for a median 12 months, 11.4% weight loss: <strong>33% of those with acne reported improvement</strong> [verified abstract, <a href="https://doi.org/10.1007/s11845-025-04194-x">doi:10.1007/s11845-025-04194-x</a>].</li>
+<li><strong>Worse:</strong> a JAAD research letter (Feb 2025) found non-diabetic obese <strong>women on GLP-1s were 53% more likely to get an acne diagnosis</strong> at 90 days and 1 year; no increase in men [reported, <a href="https://www.medicalrepublic.com.au/?p=115335">Medical Republic</a>]. v2: primary confirmed as Cho et al., J Am Acad Dermatol 2025, <a href="https://doi.org/10.1016/j.jaad.2025.02.009">doi:10.1016/j.jaad.2025.02.009</a> (semaglutide, liraglutide, tirzepatide vs obese non-users); a critique letter (Thang et al., <a href="https://doi.org/10.1016/j.jaad.2025.03.102">doi:10.1016/j.jaad.2025.03.102</a>) and the authors' reply (<a href="https://doi.org/10.1016/j.jaad.2025.04.085">doi:10.1016/j.jaad.2025.04.085</a>) exist [verified titles]. No abstract in PubMed; journal page blocked; database, n and CI still unopened [gap]. "53% more likely" is a relative figure; on a small baseline rate the absolute rise may be small [inferred].</li>
+<li><strong>Neutral, strongest design (v2):</strong> meta-analysis of <strong>34 placebo-controlled RCTs, 84,243 people</strong>: GLP-1s raised hair-loss risk (RR 3.40) but <strong>no other skin outcome was significantly linked</strong>, acne included by implication; skin events were not pre-set endpoints and may be under-reported [reported, repository abstract, Yu et al., JAAD Reviews 2025, <a href="https://scholar.rochesterregional.org/rrhpubs/3031">link</a>].</li>
+<li><strong>Acne in the side-effect lists:</strong> a 2026 JAAD CME review lists acne among possible GLP-1 skin reactions with itch, drug eruptions and hair loss, without a rate [verified, <a href="https://doi.org/10.1016/j.jaad.2025.12.116">doi:10.1016/j.jaad.2025.12.116</a>].</li>
+<li><strong>Neutral:</strong> a 2024 review of 45 papers found no conclusive acne signal for any of 6 GLP-1s; authors suggest weight-loss hormonal shifts, not the drug, explain new acne [reported, <a href="https://pubmed.ncbi.nlm.nih.gov/38586157/">PubMed 38586157</a>].</li>
+<li><strong>Mechanism both ways:</strong> lower insulin and IGF-1 signalling should calm oil glands; rapid fat loss can shift sex hormones (fat converts androgens to oestrogen; less fat may unmask androgens) [inferred/speculated].</li>
+<li><strong>Hidradenitis (acne inversa)</strong>, the nearest relative: observational data and a 2026 systematic review support GLP-1s as add-ons in HS with obesity; a Danish register found fewer surgeries after GLP-1 start but <strong>the same decline in matched non-users</strong> [verified, <a href="https://doi.org/10.1111/jdv.70769">doi:10.1111/jdv.70769</a>; <a href="https://doi.org/10.12788/cutis.1385">doi:10.12788/cutis.1385</a>; <a href="https://doi.org/10.1177/00368504261464855">doi:10.1177/00368504261464855</a>].</li>
+<li>PCOS doctors: acne is not the main GLP-1 target; some women see mild improvement as metabolism improves [reported, reproductive endocrinologist in <a href="https://www.newbeauty.com/pcos-symptom-relief-glp1/">NewBeauty</a>]. A Colorado PCOS trial's early read: weight loss itself, by drug or diet, is what helps [reported, <a href="https://news.cuanschutz.edu/pediatrics/can-ozempic-help-with-pcos-symptoms">CU Anschutz</a>].</li>
+</ul>
+<h3>3.10 Larazotide</h3>
+<ul>
+<li>In keratinocyte cultures it reduced histamine-driven barrier leak (PAR2 blocker); proposed for eczema; skin penetration unknown [verified, <a href="https://doi.org/10.1016/j.xjidi.2025.100369">doi:10.1016/j.xjidi.2025.100369</a>]. Nothing on acne; gut-skin rationale only [inferred].</li>
+</ul>
+<h3>3.11 Collagen peptides (oral)</h3>
+<ul>
+<li>One 264-person Indian trial (2023) of four collagen types at 2.5, 5, 10 g/day listed acne severity as a secondary outcome in a subset; <strong>no results posted</strong> [verified, <a href="https://clinicaltrials.gov/study/NCT05613660">NCT05613660</a>]. No acne evidence either way.</li>
+</ul>
+<hr />
+<h2 id="4-what-people-report-claude-s-own-non-reddit-search">4. What people report (Claude's own non-Reddit search)</h2>
+<p>Method: acne.org reviews and forums, MakeupAlley, Drugs.com, RealSelf, Reddit-mirror threads only where already surfaced (counted separately), dermatology clinic pages, news. Vendor sites excluded. Each person counted once. Positive reports listed first, per goal-page rule.</p>
+<h3>4.1 GHK-Cu (all topical; no non-vendor injected reports found)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Improved</th>
+<th>Mixed</th>
+<th>No change</th>
+<th>Worse / breakouts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Source"><a href="https://www.acne.org/reviews/copper-peptides-reviews-354">acne.org reviews p1</a> (4 shown)</td>
+<td data-l="Improved">4 (scar "almost gone" after 1+ yr with needling; redness ~40% down; rolling scars "slowly filling"; texture better at 2 months)</td>
+<td data-l="Mixed">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse / breakouts">0</td>
+</tr>
+<tr>
+<td data-l="Source"><a href="https://www.acne.org/reviews/copper-peptides-reviews-354/2">acne.org reviews p2</a> (6 shown; product avg 3.8/5 from 19)</td>
+<td data-l="Improved">3 (scars faster with peels; fewer breakouts and blackheads; "good results with persistence")</td>
+<td data-l="Mixed">1 (cysts and red marks better, regular acne up)</td>
+<td data-l="No change">1</td>
+<td data-l="Worse / breakouts">1 (scars looked worse with microneedling, stopped at 1 week)</td>
+</tr>
+<tr>
+<td data-l="Source">acne.org forums (<a href="https://www.acne.org/forums/7-scar-treatments/383937-ghk-copper-peptide">383937</a>, <a href="https://www.acne.org/forums/7-scar-treatments/384158-copper-peptides-for-indented-scars">384158</a>, <a href="https://www.acne.org/forums/topic/375008-copper-peptides">375008</a>)</td>
+<td data-l="Improved">0</td>
+<td data-l="Mixed">1 (post-needling redness better, scars and texture no change)</td>
+<td data-l="No change">1 (same user across 2 threads, counted once)</td>
+<td data-l="Worse / breakouts">0</td>
+</tr>
+<tr>
+<td data-l="Source"><a href="https://mua-frontend-v4-prod.makeupalley.com/product/showreview.asp/ItemId=4437/CP-Serum/Skin-Biology/Treatments-(Face)?page=3">MakeupAlley copper serum p3</a> (20 shown; avg 3.7 from 104)</td>
+<td data-l="Improved">3 (fewer breakouts; scars "some"; scars nothing else helped)</td>
+<td data-l="Mixed">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse / breakouts">2 (painful cyst-like pimples; daily chin breakouts) + 1 vague</td>
+</tr>
+<tr>
+<td data-l="Source"><a href="https://makeupalley.com/product/showreview.asp/ItemId=203137/The-Ordinary-Buffet-+-Copper-Peptides-1/Deciem/Treatments-(Face)">MakeupAlley mass-market copper serum</a> (avg 4.5)</td>
+<td data-l="Improved">1 (with prescription retinoid)</td>
+<td data-l="Mixed">0</td>
+<td data-l="No change">0</td>
+<td data-l="Worse / breakouts">1 (breakouts at night with retinol; stopped when moved to morning)</td>
+</tr>
+<tr>
+<td data-l="Source"><strong>Total (~21 people)</strong></td>
+<td data-l="Improved"><strong>11</strong></td>
+<td data-l="Mixed"><strong>2</strong></td>
+<td data-l="No change"><strong>2</strong></td>
+<td data-l="Worse / breakouts"><strong>4 (+1 vague)</strong></td>
+</tr>
+<tr>
+<td data-l="Source">- Read: about half improved, mostly <strong>scars, redness and texture</strong>, usually with microneedling, peels or a retinoid alongside, so the peptide's share cannot be isolated [inferred]. Breakouts cluster in acne-prone users and in routines layering copper with retinol/acids [inferred]. Many reports are 2007 to 2016 [reported].</td>
+<td data-l="Improved"></td>
+<td data-l="Mixed"></td>
+<td data-l="No change"></td>
+<td data-l="Worse / breakouts"></td>
+</tr>
+<tr>
+<td data-l="Source">- <strong>Dermatologist-observed:</strong> none found where a dermatologist saw a GHK-Cu acne or scar result. Clinician statements are cautious: possible breakouts (Westlake), no rigorous evidence for injection (RealSelf, 2 doctors) [reported].</td>
+<td data-l="Improved"></td>
+<td data-l="Mixed"></td>
+<td data-l="No change"></td>
+<td data-l="Worse / breakouts"></td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 GLP-1s</h3>
+<ul>
+<li>Dermatologist-designed survey: <strong>17/41 acne better</strong> (strongest "community" figure, counts as clinician-collected) [verified].</li>
+<li>Drugs.com semaglutide obesity reviews page 2: <strong>0 of reviews mention acne</strong> [reported, fetched].</li>
+<li>Reddit mirrors (counted separately for the ChatGPT tab to reconcile): r/Mounjaro "unexpected benefits" thread: 0 acne reports, 1 rosacea "less noticeable" (also on tretinoin, confounded); r/PCOS Ozempic thread: 0 acne reports, 1 "did nothing except weight" [reported, fetched].</li>
+</ul>
+<h3>4.3 Melanotan</h3>
+<ul>
+<li>RealSelf: 3 reviews shown, all "worth it"; 0 mention acne; 1 nausea and flushing for a week [reported, <a href="https://www.realself.com/Melanotan/reviews">RealSelf</a>].</li>
+</ul>
+<h3>4.4 KPV, BPC-157, TB-500, GH peptides, LL-37</h3>
+<ul>
+<li><strong>0 non-vendor first-hand acne reports found</strong> for each. Search results were dominated by vendor blogs, vendor "video hubs" and spam mirror sites [verified by search; excluded]. Gap for Grok/ChatGPT tabs.</li>
+</ul>
+<h3>4.5 Takeaway for the page</h3>
+<ul>
+<li>The only peptide with a community signal for skin outcomes is <strong>topical GHK-Cu, and the signal is for scars, red marks and texture, not active acne.</strong></li>
+<li>The only peptide class with clinician-collected acne improvement is <strong>GLP-1s (41% of users with acne)</strong>, balanced by one cohort showing more acne diagnoses in women.</li>
+</ul>
+<h3>4.6 v2 community top-up (outside Reddit; own use only; vendors, MESO-Rx and AnabolicMinds excluded)</h3>
+<p>Each person counted once across threads. Positive reports first.</p>
+<p><strong>GHK-Cu, topical</strong> (no non-vendor injected reports found again)
+| Source | Better | Mixed | No change | Worse |
+|---|---|---|---|---|
+| <a href="https://www.acne.org/forums/7-scar-treatments/337961-can-copper-peptide-be-used-as-a-standalone">acne.org 337961</a> (Jan 2014) | 0 | 0 | 3 (old scars unchanged; "takes a really long time"; 6 months with dermaroller, nothing) | 0 |
+| <a href="https://www.acne.org/forums/7-scar-treatments/340409-copper-peptides-question">acne.org 340409</a> and <a href="https://www.acne.org/forums/7-scar-treatments/343383-which-copper-peptides-are-the-best-and-most-effective">343383</a> (2014; 2 users repeat from 337961, counted once) | 0 | 0 | 1 new ("did absolutely nothing" after rolling) | 0 |
+| <a href="https://www.acne.org/forums/7-scar-treatments/375669-best-copper-peptide-serum">acne.org 375669</a> (Feb 2018) | 0 | 0 | 1 (years of use, scars no smaller) | 0 |
+| <a href="https://www.acne.org/forums/7-scar-treatments/372305-open-pores-after-using-copper-peptides">acne.org 372305</a> (Sep 2017) | 0 | 0 | 0 | 1 (open pores, then rough skin after 1 month) |
+| <a href="https://mua-frontend-v4-prod.makeupalley.com/product/showreview.asp/ItemId=42260/Super-CP-Serum/Skin-Biology/Treatments-(Face)">MakeupAlley Super CP serum</a> (17 reviews, avg ~4.1; 5 mention acne) | 2 (helped acne more than expected; used daily as an acne treatment) | 0 | 0 | 0 (+2 cut off, +1 no outcome) |
+| <a href="https://hairlosstalk.com/interact/threads/skin-quality-pimples-acne-finasteride-cu-peptides.14457">HairLossTalk 2005</a> | 1 (vague "good results") | 0 | 0 | 0 |
+| <strong>v2 new total (9)</strong> | <strong>3</strong> | <strong>0</strong> | <strong>5</strong> | <strong>1</strong> |
+| <strong>v1 + v2 running total (~30)</strong> | <strong>14</strong> | <strong>2</strong> | <strong>7</strong> | <strong>5 (+1 vague)</strong> |
+- Read: about half improved, but the new forum users who used it <strong>for scars</strong> mostly saw <strong>no change</strong>; the "better" reports skew to older MakeupAlley reviews of active acne and redness [reported]. Possible overlap of 1 user between v1 forum threads and v2 threads (names not recorded in v1) [flag].
+- Dermatologist-observed: still <strong>none</strong>. A dermatologist "reacts" video on copper peptides vs tretinoin exists but its summary page was empty [gap]. The 2023 YouTube study already shows most copper-peptide video claims are unsupported [verified, v1].</p>
+<p><strong>GLP-1s</strong> (Mumsnet, first-hand)
+| Source | Acne better | Acne worse | No change/unclear | Other skin better |
+|---|---|---|---|---|
+| <a href="https://www.mumsnet.com/talk/weight-loss-injections/5386101-mounjaro-and-better-healing">Mounjaro and better healing</a> | 2 (fewer spots, "not even whiteheads") | 1 (more spots, jawline acne, blamed on hormones) | 1 (rarely gets spots, no change noted) | 0 |
+| <a href="https://www.mumsnet.com/talk/weight-loss-injections/5474816-mounjaro-and-hormone-related-side-effects">Mounjaro and hormone side effects</a> | 0 | 1 (acne after moving to 5 mg) | 0 | 0 |
+| <a href="https://www.mumsnet.com/talk/weight-loss-injections/5301591-other-advantages-to-taking-mounjaro?page=3">Other advantages of Mounjaro, p3</a> (25 posters) | 0 | 0 | 0 | 5 (psoriasis x3, seborrhoeic dermatitis, "clear skin"; +1 husband, excluded) |
+| <a href="https://www.mumsnet.com/talk/weight-loss-injections/5177422-skin-broken-out-really-badly">Skin broken out really badly</a> | 0 | 0 (1 second-hand: daughter's acne flared on 2.5 mg after 11 lb in 3 weeks; excluded) | 0 | 0 |
+| <a href="https://www.drugs.com/comments/tirzepatide/mounjaro.html?page=2">Drugs.com Mounjaro reviews p2</a> | 0 of 25 reviews mention skin | | | |
+| <strong>Total</strong> | <strong>2</strong> | <strong>2</strong> | <strong>1</strong> | <strong>5</strong> |
+- Read: acne goes <strong>both ways in equal small numbers</strong>; worse reports cluster around dose increases and rapid weight loss, which fits the "hormone shift" theory [inferred]. Inflammatory skin (psoriasis, seb derm) improves more consistently than acne, matching Rao 2026 [reported/verified].
+- <strong>Clinician-collected counts (weigh most):</strong> Rao 2026 17/41 better [verified]; Jabin 2026 doctor-graded IGA 1.92 to 1.21 in 110 [verified, weak design]; Alawami 2025 33% of PCOS women with acne better [verified]; Cho 2025 more diagnoses in women [reported].</p>
+<p><strong>Melanotan</strong>
+- <a href="https://reviews.webmd.com/vitamins-supplements/ingredientreview-884-melanotan">WebMD reviews</a> (20 of 82 shown): <strong>0 mention acne</strong>; 13 nausea; 3 new or darker moles/spots/freckles; 9 net positive, 9 net negative, 2 mixed [reported]. With v1 RealSelf (0 of 3), <strong>0 of 23 user reviews mention acne</strong>. The acne claim is not visible in user reviews either.</p>
+<p><strong>GH peptides (MK-677)</strong>
+- <a href="https://forum.propeciahelp.com/t/mk-677-worth-a-try/44375">PropeciaHelp thread</a>: 1 first-hand user (2 weeks, 15 mg at night as reported): "better skin", bloating, evening tiredness; <strong>no breakouts</strong> [reported]. Thread cut off. Looksmax and Longecity results were vendor-polluted or not reachable [flag].</p>
+<p><strong>BPC-157, KPV, LL-37</strong>
+- <a href="https://forum.propeciahelp.com/t/anyone-try-bpc-157-or-other-healing-peptides/30512">PropeciaHelp healing-peptides thread</a>: 4 first-hand users (only 1 clearly BPC-157), <strong>0 skin reports</strong> [reported].
+- KPV, LL-37: <strong>0 non-vendor first-hand acne reports</strong> again; every search result was vendor help desks, vendor "video hubs" or spam mirrors [verified by search]. Longecity searches returned no Longecity pages.</p>
+<p><strong>Combined first-hand tally (v1 + v2, own use)</strong>
+| Compound | Better | Mixed | No change | Worse |
+|---|---|---|---|---|
+| GHK-Cu topical | 14 | 2 | 7 | 5 |
+| GHK-Cu injected | 0 | 0 | 0 | 0 (none found) |
+| GLP-1 (acne) | 2 forum + 17/41 survey | 0 | 1 | 2 forum |
+| GH peptides | 1 ("better skin") | 0 | 0 | 0 |
+| Melanotan (acne) | 0 | 0 | 23 reviews silent on acne | 0 |
+| BPC-157 / KPV / LL-37 | 0 | 0 | 0 | 0 (no skin reports) |</p>
+<hr />
+<h2 id="5-pairings-and-related-conditions">5. Pairings and related conditions</h2>
+<ul>
+<li><strong>PCOS:</strong> hormonal-pattern acne plus cycle problems; androgens and insulin both drive it; spironolactone, the pill, metformin and GLP-1s are the usual levers [verified, 2.4, 3.9]. Cross-link to PCOS Research v2.</li>
+<li><strong>Insulin resistance:</strong> acanthosis nigricans and skin tags are skin signs dermatologists use to spot it [verified, <a href="https://doi.org/10.1177/12034754261467034">doi:10.1177/12034754261467034</a>].</li>
+<li><strong>Hidradenitis suppurativa ("acne inversa"):</strong> different disease, shares follicle-plugging and metabolic drivers; GLP-1 data strongest here [verified, 3.9].</li>
+<li><strong>Rosacea:</strong> overlaps in looks; LL-37 matters (3.4) [verified].</li>
+<li><strong>Common stacks people describe:</strong> topical GHK-Cu + microneedling; GHK-Cu + retinoid (separate times of day); GLP-1 + spironolactone for PCOS [reported from 4.1 and PCOS file]. "Glow" or "Klow" blends (GHK-Cu + BPC-157 + TB-500 ± KPV) appear only on vendor or spam pages; no independent reports [verified by search].</li>
+<li><strong>Things that worsen acne in peptide users:</strong> GH secretagogues/IGF-1 (verified signal), testosterone/anabolic stacks [reported], melanotan [reported], high-dairy protein shakes (whey) [reported; dairy association verified].</li>
+</ul>
+<hr />
+<h2 id="6-options-ordered-by-evidence">6. Options (ordered by evidence)</h2>
+<ol>
+<li><strong>Mild comedonal/inflammatory:</strong> adapalene or another retinoid + benzoyl peroxide; azelaic acid if marks or sensitive skin [verified guideline strength].</li>
+<li><strong>Moderate:</strong> triple or double combination gel; add doxycycline short-term with benzoyl peroxide; women: spironolactone or pill [verified].</li>
+<li><strong>Severe, scarring, or failed 2 rounds:</strong> isotretinoin; low-dose is an option with similar 24-week results [verified].</li>
+<li><strong>Hormonal/PCOS:</strong> spironolactone, pill, clascoterone; address insulin (diet, metformin, GLP-1 if eligible) [verified/reported].</li>
+<li><strong>Diet as an add-on:</strong> cut milk (especially skim) and high-glycaemic foods for 10 to 12 weeks; track lesion counts [verified small RCTs].</li>
+<li><strong>Fungal lookalike:</strong> antifungal, not acne cream; get a smear if itchy [verified].</li>
+<li><strong>Marks:</strong> sunscreen daily; azelaic acid, retinoid; tranexamic acid for stubborn brown marks [verified].</li>
+<li><strong>Scars:</strong> subcision for rolling; laser or RF microneedling; combinations best [verified].</li>
+<li><strong>Peptide angle, honestly:</strong> topical GHK-Cu as a texture/redness/scar-support add-on after microneedling has the most real-world support; test on a patch if acne-prone; keep away from same-night retinoid/acid use [reported/inferred]. No peptide should replace a retinoid or benzoyl peroxide for active acne [inferred from absence of data].</li>
+</ol>
+<hr />
+<h2 id="7-fifteen-usual-questions-evidence-answers">7. Fifteen usual questions (evidence answers)</h2>
+<ol>
+<li><strong>Does milk cause acne?</strong> Associated, not proven. Drinking milk daily raises odds about 40%; skim milk at least as strongly as whole [verified meta-analyses].</li>
+<li><strong>Does sugar/white carbs cause acne?</strong> Two small RCTs found low-GL diets reduced lesions and oil-gland size in 10 to 12 weeks; reviews call diet a modifier [verified].</li>
+<li><strong>Is my adult acne hormonal?</strong> Jawline/chin flares around periods in women 20s to 40s fit; 1 in 2 women in their 20s and 1 in 4 in their 40s report acne [verified prevalence].</li>
+<li><strong>Could it be fungal?</strong> If itchy, uniform, on forehead/hairline/chest/back and not responding to acne creams, yes; 1 in 4 acne patients had fungal folliculitis in one study [verified].</li>
+<li><strong>Does GHK-Cu clear acne?</strong> No trial says so. Reports favour scars, redness and texture; about 1 in 5 report breakouts [verified absence; reported counts].</li>
+<li><strong>Is a GHK-Cu "purge" real?</strong> Purging is a retinoid concept (faster turnover). GHK-Cu does not clearly speed turnover; new breakouts in new places are more likely irritation or clogging [inferred].</li>
+<li><strong>Is injected GHK-Cu better than topical for scars?</strong> No human data for injected; all published human data is topical [verified/reported].</li>
+<li><strong>Will BPC-157 or TB-500 help acne?</strong> No acne data; animal wound-healing only [verified].</li>
+<li><strong>What about KPV?</strong> Strong anti-inflammatory lab data, colitis in mice, nothing in human skin acne [verified].</li>
+<li><strong>Can LL-37 kill acne bacteria for me?</strong> It's already raised in acne skin, and in rosacea its fragments cause inflammation; adding more is not supported [verified mechanism; inferred advice].</li>
+<li><strong>Will Ozempic/Mounjaro fix my acne?</strong> About 4 in 10 GLP-1 users with acne reported improvement, a doctor-graded cohort improved over 2 years, and 1 in 3 PCOS women with acne improved; one claims cohort found more new acne diagnoses in women, and forum reports split evenly. Big trials show no clear acne signal either way [verified/reported].</li>
+<li><strong>Do GH peptides cause acne?</strong> IGF-1 at high doses caused acne that went away on dose reduction; expect the same direction with GH secretagogues [verified/inferred].</li>
+<li><strong>Does melanotan cause acne?</strong> Often claimed, but no study gives a rate and 23 user reviews never mention it; its licensed cousin actually reduced acne in a 3-person pilot. The real concern is moles and melanoma [reported/verified].</li>
+<li><strong>Does isotretinoin cure acne permanently?</strong> In nearly 20,000 US patients, 22.5% needed acne treatment again and 8.2% a second course; women relapse more, and a higher total dose lowers relapse [verified v2].</li>
+<li><strong>What works best for acne scars?</strong> Combinations: laser + subcision or PRP; needling is gentler for darker skin; no single best treatment proven [verified].</li>
+</ol>
+<hr />
+<h2 id="8-warnings-bottom-of-page">8. Warnings (bottom of page)</h2>
+<ul>
+<li><strong>Isotretinoin and pregnancy:</strong> birth defects in <strong>35% or more</strong> of exposed pregnancies; miscarriage up to <strong>40%</strong> [verified, <a href="https://mothertobaby.org/fact-sheets/isotretinoin/">MotherToBaby</a>]. US iPLEDGE: two forms of contraception from 1 month before, during, and 1 month after; 2 negative tests before starting and monthly tests [verified, same]. Wait 1 month after the last dose before trying to conceive [verified].</li>
+<li><strong>Spironolactone:</strong> not for pregnancy (anti-androgen effects on a male fetus) [reported]; headaches more common [verified].</li>
+<li><strong>Melanotan:</strong> mole changes, melanoma concern, priapism, PRES, rhabdomyolysis; unlicensed tanning products vary in dose and purity [verified/reported].</li>
+<li><strong>GH peptides/IGF-1:</strong> acne signal; also raise blood sugar (MK-677) [verified IGF-1 acne; MK-677 glucose verified in PCOS v2].</li>
+<li><strong>GLP-1s:</strong> skin sagging, hair loss and facial volume loss rise with weight lost (72% / 52% / 50% at &gt;20% loss) [verified]; pregnancy washout per PCOS v2.</li>
+<li><strong>Unregulated peptides:</strong> research-labelled products are not made for human use; purity, dose and sterility are unverified; copper peptides in particular can arrive with free copper or wrong concentration [inferred].</li>
+<li><strong>Injecting vs topical:</strong> injection adds infection, abscess and lump risk, bypasses the skin barrier, and has <strong>no human acne or scar data</strong> for any peptide; topical has the only human skin data [inferred/verified].</li>
+<li><strong>Antibiotic resistance:</strong> never use clindamycin or erythromycin alone on skin [verified resistance data].</li>
+<li><strong>Steroid creams on "acne":</strong> can turn a fungal infection into a worse one [verified].</li>
+</ul>
+<hr />
+<h2 id="9-adversarial-check-v2-six-biggest-numbers-traced">9. Adversarial check (v2): six biggest numbers traced</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Number</th>
+<th>Primary source opened</th>
+<th>Result</th>
+<th>Tag now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="#">1</td>
+<td data-l="Number">Adult acne 50.9% vs 42.5% (20s)</td>
+<td data-l="Primary source opened">Collier 2008 abstract</td>
+<td data-l="Result">Exact. Convenience sample on a US university campus, self-report; also 15.3% vs 7.3% at 50+</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">2</td>
+<td data-l="Number">28.8% fungal folliculitis in "acne"</td>
+<td data-l="Primary source opened">Paichitrojjana 2022 abstract</td>
+<td data-l="Result">Exact (95% CI 23.8 to 33.7%); Bangkok clinic, single centre, methylene-blue smear</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">3</td>
+<td data-l="Number">Milk OR 1.41 (1 glass/day)</td>
+<td data-l="Primary source opened">Juhl 2018 abstract</td>
+<td data-l="Result">Exact; <strong>adjusted results were weaker</strong> than unadjusted and publication bias was present; v1 already flagged bias</td>
+<td data-l="Tag now">[verified, caution added]</td>
+</tr>
+<tr>
+<td data-l="#">4</td>
+<td data-l="Number">Spironolactone 82% vs 63%</td>
+<td data-l="Primary source opened">SAFA BMJ 2023 abstract</td>
+<td data-l="Result">Exact at week 24; at week 12 <strong>72% vs 68%, not significant</strong> (add to page so readers expect a slow start)</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">5</td>
+<td data-l="Number">Isotretinoin 22.5% relapse</td>
+<td data-l="Primary source opened">Lai &amp; Barbieri 2025 abstract</td>
+<td data-l="Result">Exact; relapse = claims-based retreatment signal, not a skin exam</td>
+<td data-l="Tag now">upgraded to [verified]</td>
+</tr>
+<tr>
+<td data-l="#">6</td>
+<td data-l="Number">Triple gel 49.6/50.5% vs 24.9/20.5%</td>
+<td data-l="Primary source opened">Stein Gold 2023 abstract</td>
+<td data-l="Result">Success figures exact; <strong>lesion-reduction range corrected</strong> to 72.7 to 80.1% vs 47.6 to 59.6%</td>
+<td data-l="Tag now">upgraded to [verified], corrected</td>
+</tr>
+<tr>
+<td data-l="#">+</td>
+<td data-l="Number">GLP-1 41% better</td>
+<td data-l="Primary source opened">Rao 2026 abstract</td>
+<td data-l="Result">Exact; CI 27 to 57%, n=41</td>
+<td data-l="Tag now">[verified]</td>
+</tr>
+<tr>
+<td data-l="#">+</td>
+<td data-l="Number">GLP-1 53% more acne (women)</td>
+<td data-l="Primary source opened">Not openable</td>
+<td data-l="Result">Record and debate letters confirmed; numbers unopened</td>
+<td data-l="Tag now">[reported]</td>
+</tr>
+<tr>
+<td data-l="#">+</td>
+<td data-l="Number">85% PIH in dark skin</td>
+<td data-l="Primary source opened">Lopez-Estebaranz 2026 abstract</td>
+<td data-l="Result">Exact wording "up to 85%"; it is an upper bound from a review, not one study; Asian Acne Board's measured figure is 58.2%</td>
+<td data-l="Tag now">[verified as stated]</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="10-v1-gaps-status-after-v2">10. v1 gaps: status after v2</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>v1 gap</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="v1 gap">1 JAAD GLP-1 letter numbers</td>
+<td data-l="Status">Partly: record and letters confirmed, numbers still unopened</td>
+</tr>
+<tr>
+<td data-l="v1 gap">2 Melanotan forum study</td>
+<td data-l="Status">Done: abstract has no acne figure</td>
+</tr>
+<tr>
+<td data-l="v1 gap">3 GHK-Cu thigh collagen primary</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">4 Isotretinoin relapse study</td>
+<td data-l="Status">Done, verified</td>
+</tr>
+<tr>
+<td data-l="v1 gap">5 Combined pill effect sizes</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">6 Retinoid/BPO single-agent sizes</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">7 Denifanstat China approval</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">8 Dairy elimination RCT; whey</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">9 MK-677/GH acne rates</td>
+<td data-l="Status">Done: none reported in MK-677 RCT or tesamorelin label</td>
+</tr>
+<tr>
+<td data-l="v1 gap">10 Afamelanotide label acne</td>
+<td data-l="Status">Partly: afamelanotide acne pilot found (improved); label not opened</td>
+</tr>
+<tr>
+<td data-l="v1 gap">11 Community KPV/BPC/GH/injected GHK</td>
+<td data-l="Status">Done for non-Reddit: still zero for KPV, LL-37, injected GHK-Cu</td>
+</tr>
+<tr>
+<td data-l="v1 gap">12 Dermatologist-observed peptide outcomes</td>
+<td data-l="Status">Open: none found</td>
+</tr>
+<tr>
+<td data-l="v1 gap">13 Natural-history figure</td>
+<td data-l="Status">Open</td>
+</tr>
+<tr>
+<td data-l="v1 gap">14 Negative mirror searches</td>
+<td data-l="Status">Partly: Mumsnet and Drugs.com Mounjaro done; GHK-Cu "worse" threads added</td>
+</tr>
+<tr>
+<td data-l="v1 gap">15 Omiganan outcome</td>
+<td data-l="Status">Done: no outcome ever reported across 4 trials</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="11-gaps-for-next-pass">11. Gaps for next pass</h2>
+<ol>
+<li>Cho 2025 JAAD letter: get the database, n, OR and CI, and read the Thang critique (try a library proxy or ask for the PDF).</li>
+<li>Yu 2025 JAAD Reviews meta-analysis: open the full text to see whether acne was analysed separately.</li>
+<li>Omiganan rosacea phase 3 (NCT02576860) posted results: open the registry results tab.</li>
+<li>Gilhooley 2021 melanotan forum full text: check whether acne appears among the side-effect quotes.</li>
+<li>Afamelanotide (SCENESSE) label: confirm whether acne is listed.</li>
+<li>Dermatologist YouTube transcripts on copper peptides (the "dermatologist reacts" video) and any clinician reporting GHK-Cu after microneedling in patients.</li>
+<li>Indonesia or Bali-specific data: acne, fungal folliculitis or PIH prevalence; none found.</li>
+<li>Last acne.org copper thread (337543) was not fetched (session limit); check it, plus acne.org's GLP-1 threads.</li>
+<li>CJC-1295 / ipamorelin trial adverse-event tables.</li>
+<li>Carry-over: GHK-Cu thigh collagen primary, combined pill and single-agent effect sizes, denifanstat approval, dairy elimination RCT, teen natural history.</li>
+<li>Quality check the Jabin 2026 cohort (enrolment versus the tables) before quoting it on the page.
+ GLP-1 acne-in-women letter (exact OR, n, CI).</li>
+<li>Open Melanotan II forum qualitative study (Dermatology 2021, PMID 34464955) for acne frequency.</li>
+<li>Primary source for the 12-week GHK-Cu thigh collagen study (70/50/40%) and the topical cosmetic trials; check for any acne-prone subgroup.</li>
+<li>Isotretinoin JAMA Dermatol 2025 relapse study: confirm relapse definition and dose bands from the abstract.</li>
+<li>Combined pill effect sizes (Cochrane COC for acne) and pill vs antibiotics comparison.</li>
+<li>Retinoid and benzoyl peroxide single-agent effect sizes (lesion reduction %) for the treatment table.</li>
+<li>Denifanstat approval status in China as of Nov 2026.</li>
+<li>Dairy elimination RCT search (none found yet); whey protein and acne case series (gym-goer angle).</li>
+<li>MK-677 / GH secretagogue acne rates from trial adverse-event tables (MK-677 trials in elderly; tesamorelin label).</li>
+<li>Afamelanotide label adverse events: is acne listed? (Would convert 3.7 from reported to verified.)</li>
+<li>Community: KPV, BPC-157, GHK-Cu injected and GH peptides had zero non-vendor reports; hand to ChatGPT (Reddit) and Grok (X), and try Acne.org forum search pages directly, beauty blog first-person reviews, and dermatologist YouTube transcripts.</li>
+<li>Dermatologist-observed peptide outcomes: none found; search derm podcasts/YouTube for named clinicians commenting on GHK-Cu after microneedling.</li>
+<li>Baseline: placebo/vehicle arms improve 35 to 60% in 12 weeks; add a sentence-level natural-history figure for teen acne (age at resolution).</li>
+<li>Negative mirror: search "copper peptide made my acne worse" and "GLP-1 acne flare" beyond Drugs.com page 2; scan more Drugs.com pages.</li>
+<li>Omiganan: check whether Maruho or any publication reported the 2016 phase 2 outcome.</li>
+</ol></div>
+<p class="back"><a href="/library/goals/">All goals</a></p>
+</div>
+<script src="/nav.js" defer></script>
+</body></html>
