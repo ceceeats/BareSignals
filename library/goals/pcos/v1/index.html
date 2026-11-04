@@ -1,0 +1,919 @@
+<!doctype html>
+<!-- PCOS v1 (4 Nov 2026): first version, built from PCOS Research v2, Endo PCOS Peptides v1, GLP1 Claims Hormones v1 and the G69 Reddit tab. Template: Endometriosis v2 (on Tennis Elbow v20). -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>PCOS · Bare Signals</title>
+<meta name="description" content="PCOS (now PMOS): what GLP-1 drugs, metformin, inositol, naltrexone, kisspeptin, MOTS-c and research peptides have shown in studies and what people report, with every standard option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* pcos v1 additions */
+.pht th,.pht td{padding:5px 6px}
+@media (max-width:759px){.pht th,.pht td{padding:4px 3px;font-size:calc(10.5px*var(--k))}.pht th{font-size:calc(8px*var(--k))}}
+.bl1{grid-template-columns:118px 1fr}
+#p0+.grid .col>.sec:not(:last-child){flex:none}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>PCOS</h1><p class="aka">Polycystic ovary syndrome. Renamed PMOS, polyendocrine metabolic ovarian syndrome, in May 2026.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><path d="M12 30C20 22 30 24 34 32" fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round"/><path d="M10 26C8 30 10 35 14 34" fill="none" stroke="#3E4A80" stroke-width="1.3" stroke-linecap="round"/><ellipse cx="46" cy="48" rx="25" ry="19" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.6"/><g fill="#FF99D8" stroke="#3E4A80" stroke-width="1"><circle cx="27" cy="46" r="3.6"/><circle cx="31" cy="36.5" r="3.4"/><circle cx="40" cy="31.5" r="3.6"/><circle cx="51" cy="31" r="3.4"/><circle cx="61" cy="35" r="3.6"/><circle cx="66" cy="45" r="3.4"/><circle cx="64" cy="56" r="3.6"/><circle cx="55" cy="63" r="3.4"/><circle cx="44" cy="64.5" r="3.6"/><circle cx="33" cy="59" r="3.4"/></g><circle cx="46" cy="48" r="5" fill="#FFCBAA" stroke="#3E4A80" stroke-width="1"/></svg>
+ <div class="meta"><span class="mt">Researched 3–4 Nov 2026</span><span class="mt">99 sources</span><span class="mt">Version 1</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Reproductive, Glucose and insulin, Endocrine and growth"><i style="width:70%;background:#FF99D8"></i><i style="width:18%;background:#FFCBAA"></i><i style="width:12%;background:#FFDE59"></i></div>
+<div class="tags"><span class="rtg" style="background:#FF99D8">Reproductive</span><span class="rtg" style="background:#FFCBAA">Glucose &amp; insulin</span><span class="rtg" style="background:#FFDE59">Endocrine &amp; growth</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> A hormone and metabolic condition in about 1 in 10 women of reproductive age: irregular cycles, too much male-type hormone, and ovaries full of small stalled follicles.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup> In May 2026 it was renamed PMOS; the condition and how it is diagnosed did not change.<sup><a href="#s3">3</a></sup></p>
+ <p><b>What studies found.</b> GLP-1 drugs help weight, androgens and cycle frequency in women carrying extra weight, and in 3 small trials natural pregnancy was about 3 times more likely than on metformin. No trial has yet counted more babies born.<sup><a href="#s4">4</a></sup> Letrozole is still the best fertility pill.<sup><a href="#s5">5</a></sup> No research peptide has a single PCOS treatment study.</p>
+ <p><b>What people report.</b> Of 9 Reddit GLP-1 users, 4 were clearly better, 3 partly, 1 unchanged and 1 worse; periods usually came back after months and a lot of weight lost.<sup><a href="#s6">6</a></sup> Nobody had ovulation confirmed by a doctor, and on a dummy pill about 1 in 4 women ovulate within 6 to 8 weeks anyway.<sup><a href="#s7">7</a></sup></p>
+ <p><b>Watch out.</b> Semaglutide is stopped at least 2 months before trying to conceive, and tirzepatide lowers how much of the contraceptive pill gets absorbed.<sup><a href="#s8">8</a>,<a href="#s9">9</a></sup> The growth hormone booster MK-677 raised blood sugar in a 2-year trial, the wrong direction for PCOS.<sup><a href="#s10">10</a></sup></p>
+</div>
+
+<div class="nums6" aria-label="PCOS in numbers">
+ <div class="nm"><b>9.2%</b><span>of women worldwide, across 35 studies</span><i class="ev e-m">Meta</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>6 of 22</b><span>ovulated on a dummy pill within 6 to 8 weeks</span><i class="ev e-rct">RCT</i><sup><a href="#s7">7</a></sup></div>
+ <div class="nm"><b>OR 3.10</b><span>natural pregnancy, GLP-1 vs metformin, 3 trials</span><i class="ev e-m">Meta</i><sup><a href="#s4">4</a></sup></div>
+ <div class="nm"><b>27.5%</b><span>live births on letrozole vs 19.1% on clomiphene</span><i class="ev e-rct">RCT</i><sup><a href="#s5">5</a></sup></div>
+ <div class="nm"><b>2.9×</b><span>the odds of type 2 diabetes</span><i class="ev e-m">Review</i><sup><a href="#s11">11</a></sup></div>
+ <div class="nm"><b>0</b><span>PCOS treatment studies of BPC-157, MOTS-c, GHK-Cu, CJC/ipamorelin</span><i class="ev e-c">Search</i></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#diag">Diagnosis</a><a href="#lean">Lean vs higher weight</a><a href="#name">PMOS</a><a href="#inside">How it works</a><a href="#baseline">Without treatment</a><a href="#p1">2 · Studies</a><a href="#glp">GLP-1s</a><a href="#human">Other compounds</a><a href="#nostudy">Research peptides</a><a href="#gh">GH peptides</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#treat">All treatments</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#glossary">Glossary</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What PCOS is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Signs</h2>
+ <p>PCOS is the leading cause of infertility from not ovulating.<sup><a href="#s12">12</a></sup> It looks different from person to person. The usual signs:</p>
+ <ul class="tight">
+  <li><b>Irregular or missing periods.</b> Adult cycles normally run 21 to 35 days; any cycle longer than 90 days is abnormal from a year after the first period.<sup><a href="#s2">2</a></sup></li>
+  <li><b>Acne,</b> in about half (48 to 53% across studies), a little more often in leaner women.<sup><a href="#s13">13</a></sup></li>
+  <li><b>Extra hair</b> on the face, chest or belly (hirsutism), the most common outward sign of high androgens.<sup><a href="#s2">2</a></sup></li>
+  <li><b>Thinning scalp hair</b> on the crown. On its own it does not prove high androgens if blood levels are normal.<sup><a href="#s14">14</a></sup></li>
+  <li><b>Weight gain,</b> especially around the middle. Extra weight makes every feature worse, but it is not needed for the diagnosis.<sup><a href="#s2">2</a></sup></li>
+  <li><b>Low mood and anxiety.</b> Across 30 studies, depression was about 3.8 times and anxiety about 5.6 times more common, and still about 3.3 and 6.3 times when weight was matched.<sup><a href="#s15">15</a></sup></li>
+  <li><b>Also common:</b> sleep apnoea, and a mildly underactive thyroid in about 1 in 5.<sup><a href="#s2">2</a>,<a href="#s16">16</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="diag">
+ <h2 class="st">How it is diagnosed</h2>
+ <p>The 2023 international guideline keeps the Rotterdam rule: <b>2 of these 3</b>, once look-alikes such as thyroid disease, high prolactin and a mild adrenal enzyme condition (non-classic CAH) are ruled out.<sup><a href="#s2">2</a></sup></p>
+ <ul class="tight">
+  <li><b>High androgens,</b> seen on the body (acne, hair) or in blood. Testosterone is best measured by mass spectrometry rather than a quick immunoassay.</li>
+  <li><b>Irregular or absent ovulation.</b></li>
+  <li><b>Polycystic ovaries</b> on ultrasound (20 or more follicles per ovary) <b>or a raised AMH</b> blood test. AMH as an alternative to the scan is new in 2023, for adults only.</li>
+ </ul>
+ <p>With irregular cycles plus high androgens, no scan or AMH is needed. Teenagers need <b>both</b> of those, because a busy ovary and high AMH are normal for the first 8 years after periods start; a girl with one feature is called "at risk" and followed up.<sup><a href="#s17">17</a></sup></p>
+ <p class="sub">Four types, A to D</p>
+ <div class="tw"><table class="cmp grd pht">
+  <tr><th>Type</th><th>Androgens</th><th>Cycles</th><th>Ovaries</th><th>Clinics</th><th>Community</th></tr>
+  <tr><td>A · full</td><td>High</td><td>Irregular</td><td>Polycystic</td><td>50%</td><td>19%</td></tr>
+  <tr><td>B · classic</td><td>High</td><td>Irregular</td><td>Normal</td><td>13%</td><td>25%</td></tr>
+  <tr><td>C · ovulatory</td><td>High</td><td>Regular</td><td>Polycystic</td><td>14%</td><td>34%</td></tr>
+  <tr><td>D · no androgens</td><td>Normal</td><td>Irregular</td><td>Polycystic</td><td>17%</td><td>19%</td></tr>
+ </table></div>
+ <p>Types A and B carry the most metabolic risk. In a meta-analysis of 13,796 women, half of clinic patients were type A, but in the general community the milder types dominate.<sup><a href="#s18">18</a></sup> So the PCOS you read about in studies is often the heavier, full-blown version.</p>
+</section>
+<section class="sec" id="lean">
+ <h2 class="st">Lean and higher-weight PCOS</h2>
+ <p>Lean PCOS is common. In unselected community samples, women with PCOS were no heavier than women without it; only clinic patients were.<sup><a href="#s18">18</a></sup> Lean PCOS tends to be driven more by LH and adrenal androgens, higher-weight PCOS more by insulin.<sup><a href="#s19">19</a></sup></p>
+ <ul class="tight">
+  <li><b>Insulin resistance in lean women.</b> A clamp study found it in 75% of 20 lean and 95% of 20 overweight women with PCOS, but also in 62% of overweight women <b>without</b> PCOS. Weight carries much of it.<sup><a href="#s20">20</a></sup></li>
+  <li><b>The other side.</b> In 4,768 women in a Boston biobank, lean women with PCOS showed no metabolic blood-marker differences from lean women without it.<sup><a href="#s21">21</a></sup></li>
+  <li><b>But risk is still there.</b> In 127,517 Nordic women, lean women with PCOS and no diabetes had 40% more heart and blood-clot events (HR 1.40).<sup><a href="#s22">22</a></sup></li>
+  <li><b>Treatment differs.</b> Metformin is recommended for metabolic features at BMI 25 and over and is only a weaker option below that. Lifestyle advice applies at every weight, without weight stigma.<sup><a href="#s2">2</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="name">
+ <h2 class="st">The new name · PMOS</h2>
+ <p>On 12 May 2026 The Lancet published the new name, <b>polyendocrine metabolic ovarian syndrome</b>. The reasoning: the "cysts" are not the problem, and the condition is hormonal and metabolic, not only about the ovary.<sup><a href="#s3">3</a></sup></p>
+ <ul class="tight">
+  <li>14,360 people answered the final surveys (10,411 patients, 3,949 clinicians), with 56 organisations involved; 86% of patients and 71% of clinicians wanted a symptom-based name.<sup><a href="#s3">3</a></sup></li>
+  <li>88 of 90 voters backed it. The two who did not, heads of two US patient and nutrition groups, objected to rebranding costs and to a name that still leaves out a possible male form.<sup><a href="#s23">23</a></sup></li>
+  <li>The criteria did not change. A proposal to reclassify it in the WHO's ICD-11 went in on 18 June 2026 (outcome not found), and the guideline's full switch of terms is planned for 2028.<sup><a href="#s24">24</a></sup></li>
+ </ul>
+ <p class="hint">This page says PCOS because that is still what most people search for.</p>
+</section>
+<section class="sec" id="inside">
+ <h2 class="st">How it works inside</h2>
+ <div class="dg in"><svg viewBox="0 0 340 262" role="img" aria-label="How PCOS works. The brain sends faster pulses, giving more LH and less FSH to the ovary. High insulin from the pancreas acts with LH on the ovary and lowers SHBG made by the liver. The ovary makes more androgen; with less SHBG more of it is free. Follicles stall, giving irregular periods; free androgen gives acne and hair changes.">
+  <defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3E4A80"/></marker></defs>
+  <g stroke="#3E4A80" stroke-width="1.3">
+   <rect x="8" y="8" width="150" height="44" fill="#FFDE59" fill-opacity=".45"/>
+   <rect x="182" y="8" width="150" height="44" fill="#FFCBAA" fill-opacity=".7"/>
+   <rect x="8" y="98" width="150" height="44" fill="#FF99D8" fill-opacity=".45"/>
+   <rect x="182" y="98" width="150" height="44" fill="#FFFFE2"/>
+   <rect x="8" y="190" width="150" height="44" fill="#FFFFE2"/>
+   <rect x="182" y="190" width="150" height="44" fill="#FFFFE2"/>
+  </g>
+  <g stroke="#3E4A80" stroke-width="1.3" fill="none" marker-end="url(#ar)">
+   <path d="M83 52V96"/><path d="M232 52L156 98"/><path d="M290 52V96"/><path d="M58 142V188"/><path d="M118 142L200 188"/><path d="M290 142V188"/>
+  </g>
+  <g font-size="10.5" fill="#3E4A80">
+   <text x="16" y="25" class="m" font-size="8.5" letter-spacing=".6">BRAIN</text><text x="16" y="42">Faster GnRH pulses</text>
+   <text x="190" y="25" class="m" font-size="8.5" letter-spacing=".6">PANCREAS</text><text x="190" y="42">High insulin</text>
+   <text x="16" y="115" class="m" font-size="8.5" letter-spacing=".6">OVARY</text><text x="16" y="132">Makes more androgen</text>
+   <text x="190" y="115" class="m" font-size="8.5" letter-spacing=".6">LIVER</text><text x="190" y="132">Makes less SHBG</text>
+   <text x="16" y="207">Follicles stall</text><text x="16" y="224" fill="#6B76A8">high AMH, no ovulation</text>
+   <text x="190" y="207">More free androgen</text><text x="190" y="224" fill="#6B76A8">acne, hair growth, hair loss</text>
+   <text x="90" y="70" fill="#6B76A8" font-size="9.5">more LH,</text><text x="90" y="82" fill="#6B76A8" font-size="9.5">less FSH</text>
+   <text x="240" y="70" fill="#6B76A8" font-size="9.5">acts</text><text x="240" y="82" fill="#6B76A8" font-size="9.5">with LH</text>
+   <text x="296" y="78" fill="#6B76A8" font-size="9.5">lowers</text>
+  </g>
+  <text x="170" y="254" text-anchor="middle" class="m" font-size="7" letter-spacing=".5" fill="#6B76A8">SIMPLIFIED · ARROWS = WHAT PUSHES WHAT</text>
+ </svg></div>
+ <ul class="how">
+  <li><b>Insulin.</b> High insulin works alongside LH on the ovary's androgen-making cells, and it tells the liver to make less SHBG, the protein that holds testosterone in check. Less SHBG means more free, active testosterone.<sup><a href="#s11">11</a></sup></li>
+  <li><b>LH pulses.</b> The brain's pulse generator (kisspeptin, neurokinin B and dynorphin cells) fires too fast. Fast pulses favour LH over FSH: high LH drives androgens, low FSH leaves follicles half-grown. Blocking neurokinin B cut LH pulses and testosterone by 28.7% in a trial, which shows the switch is real.<sup><a href="#s25">25</a></sup></li>
+  <li><b>Androgens.</b> Mostly from the ovary, sometimes the adrenal glands too.<sup><a href="#s19">19</a></sup></li>
+  <li><b>Three patterns.</b> Rather than the four letters, a 2025 analysis of 975 women found three natural groups: metabolic (30%), reproductive and leaner with high LH (43%), and in between (27%).<sup><a href="#s19">19</a></sup></li>
+  <li><b>AMH.</b> The many small stalled follicles push AMH up, which is why it can stand in for a scan in adults.<sup><a href="#s2">2</a></sup></li>
+  <li><b>Genes.</b> It runs in families: identical twins share PCOS about twice as strongly as non-identical sisters (correlation 0.71 vs 0.38),<sup><a href="#s26">26</a></sup> yet the gene variants found so far explain under a tenth of that.<sup><a href="#s27">27</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">How it behaves without treatment</h2>
+ <p>Every "my period came back" story needs this comparison. Placebo groups in trials show what happens with no active drug.</p>
+ <div class="grid two" style="margin-top:4px">
+ <div>
+ <p class="sub" style="margin-top:0">Ovulated or bled on a dummy pill</p>
+ <div class="bars">
+  <div class="bl1"><span>Ovulated · 6–8 wk</span><div class="bt"><i style="width:27%"></i><em>27%</em></div></div>
+  <div class="bl1"><span>Periods back · 3 mo</span><div class="bt"><i style="width:43%"></i><em>43%</em></div></div>
+  <div class="bl1"><span>Live birth · trial</span><div class="bt"><i style="width:19%"></i><em>19%</em></div></div>
+ </div>
+ <p class="hint">6 of 22 women,<sup><a href="#s7">7</a></sup> 6 of 14 women,<sup><a href="#s28">28</a></sup> pooled placebo groups.<sup><a href="#s29">29</a></sup></p>
+ </div>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">Placebo</span><p><b>Ovulation comes and goes.</b> With blood tests twice a week, 13% of observed weeks on placebo were ovulatory, and the first ovulation came at about 42 days.<sup><a href="#s30">30</a></sup> In the liraglutide trial, bleeding improved on placebo too, by half as much as on the drug.<sup><a href="#s31">31</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">Placebo</span><p><b>Pregnancy happens without drugs.</b> With placebo plus routine fertility care, 28.8% had a live birth within about a year.<sup><a href="#s32">32</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Cohort</span><p><b>Cycles settle with age.</b> In 205 Dutch women over 30, cycles shortened steadily with age, whatever their weight or treatment.<sup><a href="#s33">33</a></sup> Only 11.75% reached full remission over a year on metabolic drugs.<sup><a href="#s34">34</a></sup></p></div>
+ </div>
+ </div>
+ <p><b>What this means:</b> in any 3 months, roughly 1 in 4 to 4 in 10 women with PCOS ovulate or bleed with no active drug. One period after starting something is not proof it worked. Six months or more of regular cycles, ideally with a progesterone blood test showing ovulation, is the real bar.</p>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: GLP-1 drugs have real PCOS trials, but only in women carrying extra weight.</b> All 28 registered GLP-1 PCOS trials found (registry search, 3 Nov 2026) require overweight or obesity, though up to half of women with PCOS are lean,<sup><a href="#s35">35</a></sup> and none is approved for PCOS or fertility.<sup><a href="#s36">36</a></sup> After GLP-1s come the non-peptide compounds with PCOS trials, then the research peptides, which have none.</p>
+
+<div class="grid"><section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · liraglutide, semaglutide, tirzepatide</h2>
+ <div class="cp">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide card</a> · <a href="/library/#/p/tirzepatide">Tirzepatide card</a> · <a href="/library/#/p/liraglutide">Liraglutide card</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <div class="stripe"><i style="width:55%;background:#DDD0F6"></i><i style="width:30%;background:#FFCBAA"></i><i style="width:15%;background:#FF99D8"></i></div>
+  <p class="lead">Weight-loss drugs that copy the gut hormone GLP-1 (tirzepatide also copies GIP). The 2023 guideline allows liraglutide and semaglutide for higher weight in adults with PCOS, alongside lifestyle and with contraception.<sup><a href="#s2">2</a></sup> The full GLP-1 story is on the <a href="/library/goals/glp-1/">GLP-1s case</a>.</p>
+  <div class="grid two" style="margin-top:4px">
+  <div>
+  <p class="sub">How it may help</p>
+  <ul class="how">
+   <li><b>Lower insulin, less androgen.</b> Less fat and lower insulin let SHBG rise and free testosterone fall, so a follicle can mature and release. Liraglutide raised SHBG by 19%.<sup><a href="#s37">37</a></sup> <i class="ev e-rct">RCT</i></li>
+   <li><b>Drug or weight?</b> Mostly weight, as far as anyone can tell. Every trial is in women with overweight, and none matched weight loss by diet against a GLP-1.<sup><a href="#s36">36</a></sup></li>
+   <li><b>A hint of more.</b> In one IVF pilot, pregnancy rose on liraglutide with the same weight loss as metformin alone.<sup><a href="#s38">38</a></sup> <i class="ev e-rct">Pilot</i></li>
+   <li><b>Lean PCOS:</b> nobody has tested GLP-1 drugs in lean women with PCOS yet.<sup><a href="#s35">35</a></sup></li>
+  </ul>
+  <p class="sub">Every key study, oldest first</p>
+  <ol class="tline">
+   <li><span class="ty">2008 <i class="ev e-rct">RCT</i></span><p class="th">Exenatide plus metformin beat either alone on cycles.</p><p class="tb">60 women with overweight, 24 weeks; only 42 finished. The combination gave more periods and more ovulation than either drug alone. An "86% ovulation" figure quoted online is not in the published summary.<sup><a href="#s39">39</a></sup></p></li>
+   <li><span class="ty">2017 <i class="ev e-rct">RCT</i></span><p class="th">Liraglutide 1.8 mg: 5.2 kg lost, liver fat down 44%.</p><p class="tb">72 women, 26 weeks, against placebo. Weight fell 5.6%, belly fat 18%, and fatty liver became two thirds less common. SHBG rose 19% and free testosterone fell 19% (borderline). Insulin resistance by the HOMA test did not change.<sup><a href="#s37">37</a></sup> Bleeding improved by 0.28 on the drug and 0.14 on placebo, so about half the cycle gain happened without it.<sup><a href="#s31">31</a></sup></p></li>
+   <li><span class="ty">2018 <i class="ev e-rct">Pilot</i></span><p class="th">Before IVF: 69.2% vs 35.7% pregnant at a year.</p><p class="tb">28 women with obesity who had done poorly in earlier fertility treatment took metformin with or without liraglutide 1.2 mg for 12 weeks, then IVF. Weight loss was the same (7.0 vs 7.5 kg). With 28 people, one or two women swing the percentages.<sup><a href="#s38">38</a></sup></p></li>
+   <li><span class="ty">2022 <i class="ev e-rct">RCT</i></span><p class="th">Liraglutide 3 mg: 5.7% vs 1.4% weight lost.</p><p class="tb">82 women, 32 weeks. The free androgen index fell on the drug. Stomach side effects hit 58.2% vs 18.5% on placebo.<sup><a href="#s40">40</a></sup></p></li>
+  </ol>
+  </div>
+  <div>
+  <ol class="tline tl2">
+   <li><span class="ty">2025 <i class="ev e-rct">RCT</i></span><p class="th">Semaglutide plus metformin: natural pregnancy 35% vs 15%.</p><p class="tb">100 women with overweight took metformin with or without semaglutide 1 mg weekly for 16 weeks, then metformin alone to week 40. Weight fell 6.1 vs 2.3 kg, with bigger drops in testosterone and CRP and more cycles back. Caveats: open label, one centre in China, 80% finished, and the pregnancies came in the metformin-only phase.<sup><a href="#s41">41</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-h">Cohort</i></span><p class="th">Tirzepatide: 19.4% weight lost, same as without PCOS.</p><p class="tb">In a UK online clinic, women with self-reported PCOS lost 19.4% at 10 months vs 18.7% without PCOS. But only 40 of 4,241 women with PCOS reached 10 months, and the authors work for the clinic.<sup><a href="#s42">42</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-m">Meta</i></span><p class="th">Natural pregnancy about 3 times as likely as on metformin.</p><p class="tb">3 trials, 252 women. Natural pregnancy OR 3.10 (range 1.74 to 5.49, moderate certainty). Overall pregnancy (OR 1.41) and IVF pregnancy (OR 1.01) did not improve, and live births were not reported.<sup><a href="#s4">4</a></sup> The trial list is not in the summary, so how much one open-label trial drives it is unknown.</p></li>
+   <li><span class="ty">2025–26 <i class="ev e-m">Meta</i></span><p class="th">More periods and less androgen, at low certainty.</p><p class="tb">27 trials: GLP-1s improved period frequency, weight, free androgens and SHBG, with very low certainty.<sup><a href="#s43">43</a></sup> 7 liraglutide trials: period frequency up.<sup><a href="#s44">44</a></sup> Another found weight and insulin better but most hormones unchanged.<sup><a href="#s45">45</a></sup> Metformin plus a GLP-1 lowered testosterone most, while a GLP-1 alone carried the most nausea (OR 6 to 9) and vomiting (OR up to about 27).<sup><a href="#s46">46</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-h">Records</i></span><p class="th">Fewer pregnancy problems after GLP-1s than after metformin.</p><p class="tb">48,126 women per group in health records: GLP-1 use before conception went with 62% fewer bad pregnancy outcomes (HR 0.38). An effect this large in records data suggests other differences between the groups; the authors say it does not support use in pregnancy.<sup><a href="#s47">47</a></sup></p></li>
+  </ol>
+  <p class="hint"><b>Trials to watch:</b> PERIODS, tirzepatide vs placebo in 198 women in Germany, with a year off the drug to see if cycles last (main results Dec 2028);<sup><a href="#s48">48</a></sup> RESTORE, semaglutide with daily ovulation tests (Feb 2028);<sup><a href="#s49">49</a></sup> and 890 women in Beijing (2029).<sup><a href="#s50">50</a></sup> Two semaglutide trials passed their end dates with no results posted, and one was withdrawn with nobody enrolled.<sup><a href="#s51">51</a>,<a href="#s52">52</a></sup></p>
+  </div>
+  </div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="human">
+ <h2 class="st">Other compounds with human studies</h2>
+ <p class="hint" style="margin:0 0 8px">Some are peptides, most are not, and each has at least one human PCOS study. Tap to open.</p>
+ <div class="studies tri">
+  <details class="sd"><summary><i class="ev e-m">Meta</i><span class="t">Inositol · low risk, low certainty</span><span class="yr">1999–2025</span></summary><div class="bd">
+   <p><b>The guideline's own review, 30 trials, 2,230 women:</b> "limited and inconclusive". Some metabolic benefit and possibly ovulation for D-chiro-inositol; metformin did better for hirsutism and waist-hip ratio; fewer stomach side effects than metformin.<sup><a href="#s53">53</a></sup></p>
+   <p><b>D-chiro-inositol, 44 women:</b> 19 of 22 ovulated vs 6 of 22 on placebo in 6 to 8 weeks.<sup><a href="#s7">7</a></sup></p>
+   <p><b>Myo-inositol, 283 women:</b> ovulatory weeks 23% vs 13% on placebo.<sup><a href="#s30">30</a></sup></p>
+   <p>The strongest claims for the 40:1 mix come from industry-linked groups and are not backed by the guideline review.<sup><a href="#s54">54</a></sup></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-m">Cochrane</i><span class="t">Metformin · modest for ovulation, weak for babies</span><span class="yr">2007–22</span></summary><div class="bd">
+   <p><b>41 trials, 4,552 women:</b> against placebo, ovulation OR 2.64 and live birth OR 1.59 (a 19% chance becomes 19 to 37%, low certainty). Stomach side effects in 22 to 40% vs 10%.<sup><a href="#s29">29</a></sup></p>
+   <p><b>PPCOS I, 626 women:</b> live births 7.2% on metformin, 22.5% on clomiphene, 26.8% on both.<sup><a href="#s55">55</a></sup></p>
+   <p>It lowered total testosterone by 0.41 nmol/L across 47 trials.<sup><a href="#s56">56</a></sup></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-m">Meta</i><span class="t">Berberine · good lab numbers, no proof of more babies</span><span class="yr">2013–19</span></summary><div class="bd">
+   <p><b>Meta-analysis:</b> no solid evidence of more live births. Against metformin it did better on insulin resistance, cholesterol, androgens and waist (2.7 cm), not on BMI, with stomach side effects like placebo. Most trials were published in Chinese.<sup><a href="#s57">57</a></sup></p>
+   <p><b>Before IVF, one trial:</b> berberine and metformin both raised pregnancy over placebo; berberine gave more live births with fewer stomach effects.<sup><a href="#s58">58</a></sup></p>
+   <p>Not in the international guideline, and not for use in pregnancy.</p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-h">Small trials</i><span class="t">Naltrexone 50 mg · not the low dose</span><span class="yr">2002–08</span></summary><div class="bd">
+   <p><b>10 women with obesity, 6 months:</b> cycles improved in 8 of 10, BMI fell from 29.9 to 26.1, androgens fell. The authors could not separate it from weight loss.<sup><a href="#s59">59</a></sup></p>
+   <p><b>30 clomiphene-resistant women:</b> 3 ovulated on naltrexone alone; with clomiphene added, 19 of 27 ovulated and 9 of 27 conceived (7 term births). No comparison group.<sup><a href="#s60">60</a></sup></p>
+   <p>These used 50 mg daily. Low-dose naltrexone (LDN, 1.5 to 4.5 mg) has no PCOS study, and one clinician reports about 10% of her PCOS patients get <b>more</b> irregular cycles on it.<sup><a href="#s61">61</a></sup></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-rct">Phase 2</i><span class="t">Kisspeptin · an IVF trigger, not a PCOS treatment</span><span class="yr">2017–24</span></summary><div class="bd">
+   <p>Used to trigger egg maturation in IVF for women at risk of ovarian overstimulation, often women with PCOS. A second dose at 10 hours improved egg yield, with moderate overstimulation in 1 of 31 vs 0 of 31.<sup><a href="#s62">62</a></sup></p>
+   <p>As a daily treatment it makes little sense: in PCOS the pulse generator is already too fast. A small study gave it <b>continuously</b> to try to calm the pulses (8 women, finished 2024, no results posted).<sup><a href="#s63">63</a></sup> <a href="/library/#/p/kisspeptin-10">Library card</a></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-rct">Phase 2</i><span class="t">NK3R blockers · hit the root, then stalled</span><span class="yr">2016–21</span></summary><div class="bd">
+   <p><b>AZD4901, 67 women, 28 days:</b> LH down 52%, total testosterone down 28.7%.<sup><a href="#s25">25</a></sup></p>
+   <p><b>Fezolinetant, 73 women, 12 weeks:</b> testosterone down 0.80 vs 0.05 nmol/L on placebo, LH down 10.2 vs 3.2 IU/L, well tolerated.<sup><a href="#s12">12</a></sup></p>
+   <p>The most direct drug for lean, LH-driven PCOS, yet no PCOS trial is registered for 2024 to 2026. Fezolinetant was later approved for menopausal hot flushes.</p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-h">Blood levels</i><span class="t">MOTS-c · two studies disagree</span><span class="yr">2026</span></summary><div class="bd">
+   <p><b>40 vs 40 Turkish women:</b> MOTS-c lower in PCOS (220 vs 498 pg/mL), weakly tied to testosterone (r = −0.22). A correction was later issued; its content is not available.<sup><a href="#s64">64</a></sup></p>
+   <p><b>121 vs 125 Turkish teenagers:</b> no significant difference, if anything a trend higher.<sup><a href="#s65">65</a></sup></p>
+   <p>No one has given MOTS-c to people with PCOS; a 2026 perspective calls the link "initial, unreplicated".<sup><a href="#s66">66</a></sup> <a href="/library/#/p/mots-c">Library card</a></p>
+  </div></details>
+ </div>
+</section></div>
+
+<div class="grid two" id="nostudy">
+<div class="col">
+<section class="sec" id="others">
+ <h2 class="st">Research peptides · no PCOS data</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/bpc-157">BPC-157</a>.</b> No PCOS study and no reason in its biology to expect an effect on ovulation or androgens. Across every use, human data total 3 small studies.<sup><a href="#s67">67</a></sup></p></div>
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/ghk-cu">GHK-Cu</a> for hair.</b> A PubMed search for a human scalp hair trial returned 0 results. The main review is by its developer.<sup><a href="#s68">68</a></sup> Topical minoxidil is the tested first step.<sup><a href="#s14">14</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">Not PCOS</span><p><b><a href="/library/#/p/pt-141">PT-141</a> (bremelanotide).</b> Approved for low desire after trials in 1,202 women, never studied in PCOS. Nausea in 40%.<sup><a href="#s69">69</a>,<a href="#s70">70</a></sup></p></div>
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/retatrutide">Retatrutide</a>, <a href="/library/#/p/cagrilintide">cagrilintide</a>.</b> Large obesity trials, but no PCOS data and no PCOS trial registered.</p></div>
+  <div class="sr"><span class="ev e-a">Rats</span><p><b><a href="/library/#/p/nadplus">NAD+</a>/NMN, <a href="/library/#/p/ss-31">SS-31</a>.</b> NMN reversed PCOS features in rats;<sup><a href="#s71">71</a></sup> SS-31 has only ovarian ageing work in mice. Nothing in people.</p></div>
+  <div class="sr"><span class="ev e-c">Harm</span><p><b><a href="/library/#/p/melanotan-1">Melanotan</a>.</b> No role in PCOS; mole changes and melanoma reports (see warnings).<sup><a href="#s72">72</a></sup></p></div>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="gh">
+ <h2 class="st">GH peptides and blood sugar</h2>
+ <p>Growth hormone boosters are popular for body composition. PCOS already comes with insulin resistance, so their effect on blood sugar matters. No one has tested any of them in PCOS.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b><a href="/library/#/p/mk-677">MK-677</a> raised blood sugar.</b> 65 adults aged 60 to 81, 25 mg daily for 2 years (as used in the trial): fasting glucose up 0.3 mmol/L (5 mg/dL), insulin sensitivity down, weight up 2.7 vs 0.8 kg, more appetite and swelling.<sup><a href="#s10">10</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCTs</span><p><b><a href="/library/#/p/tesamorelin">Tesamorelin</a> did not.</b> 12 months in 60 adults with obesity and 12 weeks in 53 with type 2 diabetes: no change in fasting glucose, 2-hour glucose or HbA1c.<sup><a href="#s73">73</a>,<a href="#s74">74</a></sup></p></div>
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/cjc-ipamorelin">CJC-1295 + ipamorelin</a>, <a href="/library/#/p/aod-9604">AOD-9604</a>:</b> no human glucose trial found. Growth hormone and IGF-1 tend to raise insulin resistance as a class, a reasonable flag but not shown.</p></div>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every compound, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Compound</th><th>In people with PCOS</th><th>Main finding</th><th>Direction</th></tr>
+  <tr><td>GLP-1s</td><td>RCTs, overweight only</td><td>Weight, androgens, cycles; natural pregnancy OR 3.10</td><td>Helps, low certainty</td></tr>
+  <tr><td>Metformin</td><td>Many RCTs</td><td>Ovulation OR 2.64</td><td>Modest</td></tr>
+  <tr><td>Inositol</td><td>RCTs</td><td>"Limited and inconclusive"</td><td>Small, low risk</td></tr>
+  <tr><td>Berberine</td><td>RCTs, mostly Chinese</td><td>Better labs, no proven births</td><td>Weak</td></tr>
+  <tr><td>Naltrexone 50 mg</td><td>2 tiny open trials</td><td>Cycles in 8 of 10</td><td>Weak, weight mixed in</td></tr>
+  <tr><td>NK3R blockers</td><td>2 phase 2 RCTs</td><td>LH and testosterone down</td><td>Stalled</td></tr>
+  <tr><td>Kisspeptin</td><td>IVF trigger trials</td><td>Egg maturation</td><td>IVF only</td></tr>
+  <tr><td>MOTS-c</td><td>2 blood-level studies</td><td>Conflicting</td><td>Unknown</td></tr>
+  <tr><td>MK-677</td><td>None</td><td>Glucose up in older adults</td><td class="bad">Raises blood sugar</td></tr>
+  <tr><td>BPC-157, GHK-Cu, CJC</td><td>None</td><td>None</td><td>Unknown</td></tr>
+  <tr><td>Melanotan</td><td>None</td><td>Mole and melanoma reports</td><td class="bad">Harm signal</td></tr>
+ </table></div>
+ <p class="hint">Red = the known effect works against PCOS or carries a harm signal.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">What worked for them</h2>
+ <p class="hint" style="margin:0 0 6px">Nearly every positive first-hand report found was for a GLP-1 drug or metformin. Bars count people, by what happened to their cycles.</p>
+ <div class="pool"><p class="sub" style="margin-top:0">Reddit · 9 GLP-1 users</p>
+  <div class="sbar" role="img" aria-label="4 better, 3 partly, 1 no change, 1 worse"><i class="g1" style="width:44.4%">4</i><i class="g2" style="width:33.3%">3</i><i class="g3" style="width:11.1%">1</i><i class="g4" style="width:11.1%">1</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Reddit · 18 metformin users</p>
+  <div class="sbar" role="img" aria-label="8 better, 2 partly, 6 no change, 2 worse"><i class="g1" style="width:44.4%">8</i><i class="g2" style="width:11.1%">2</i><i class="g3" style="width:33.3%">6</i><i class="g4" style="width:11.1%">2</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Forums and news · 8 of 21 GLP-1 users described cycles</p>
+  <div class="sbar" role="img" aria-label="5 better, 2 partly, 1 worse"><i class="g1" style="width:62.5%">5</i><i class="g2" style="width:25%">2</i><i class="g4" style="width:12.5%">1</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Partly or mixed</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>Periods back:</b> the main story. On GLP-1s, cycles went from 1 or 2 a year to about every 60 days, or from absent to regular once a higher dose was reached. One forum user went from 3 or 4 periods in 10 years to monthly.<sup><a href="#s6">6</a>,<a href="#s75">75</a></sup></li>
+  <li><b>How fast:</b> cravings changed in days, weight in weeks, periods usually after months and a lot of weight lost. On metformin, several had a first period within 3 to 6 weeks; one user went from 167 days without a period to cycles of 66, then 33, then 31 days.<sup><a href="#s75">75</a>,<a href="#s6">6</a></sup></li>
+  <li><b>On, off, on again:</b> one user's cycles were regular on semaglutide and tirzepatide, irregular after stopping, and regular again after restarting. A within-person pattern, the most telling kind of report.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Skin and hair:</b> 3 forum users said acne or facial hair improved ("spots and unwanted hair gone"), 2 saw no change.<sup><a href="#s75">75</a></sup></li>
+  <li><b>Blood sugar:</b> 2 forum users reported better glucose; one with type 2 diabetes was off insulin within 2 weeks.<sup><a href="#s75">75</a></sup></li>
+ </ul>
+ <p class="sub">In their words (shortened)</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">Tirzepatide</span><p>1 to 2 periods a year, now about every 60 days.</p></div>
+  <div class="sr"><span class="ev e-r">GLP-1</span><p>No period for almost a year; first one at week 6.</p></div>
+  <div class="sr"><span class="ev e-r">Mounjaro</span><p>3 or 4 periods in 10 years, now monthly.</p></div>
+  <div class="sr"><span class="ev e-r">Metformin</span><p>167 days with none, then 66, 33 and 31-day cycles.</p></div>
+ </div>
+ <p class="hint">Self-reported, collected 3 to 4 Nov 2026. Reddit posts are one person per row; 4 more were not counted (on the pill, PCOS not confirmed, or no cycle outcome). Forum reports come from Mumsnet, HealthUnlocked, a TV feature and a blog. No inositol user was logged on Reddit. People who post are self-selected, unblinded and often on other treatments.</p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="nochange">
+ <h2 class="st">No change or worse</h2>
+ <ul class="tight">
+  <li><b>Big weight loss, no cycles.</b> One lost 65 to 70 lb on Wegovy with no cycle change; another lost 15 kg on Mounjaro, had one bleed at about 8 weeks and none since.<sup><a href="#s76">76</a>,<a href="#s75">75</a></sup></li>
+  <li><b>Early response that faded.</b> On tirzepatide for 7 months, one had 40-day cycles, then a missed period and a very light one, with negative ovulation tests.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Worse bleeding or pain.</b> A 22-day bleed on compounded tirzepatide; period pain "doubled over" for 3 cycles on a GLP-1.<sup><a href="#s6">6</a>,<a href="#s75">75</a></sup></li>
+  <li><b>Metformin did nothing for 6.</b> Including a healthy-weight user on 2,000 mg for a year and others at 3, 8 and 9 months. 2 stopped or got worse with nausea, fatigue or acne; severe stomach effects were common.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Lean posters:</b> 3 lean or healthy-weight metformin users (1 better, 1 unchanged, 1 worse). No lean GLP-1 user was logged.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Regain:</b> cycles lengthened again after stopping tirzepatide and regaining weight.<sup><a href="#s76">76</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="confirm">
+ <h2 class="st">Was ovulation confirmed?</h2>
+ <p><b>Not by a doctor, in any pool.</b> Among GLP-1 users: 0 positive tests, 1 with negative ovulation kits, 1 who "felt" ovulating. Among metformin users: 1 said a progesterone blood test rose, 2 judged it themselves. One forum user said she was "ovulating again" without saying how she knew.<sup><a href="#s6">6</a>,<a href="#s75">75</a></sup></p>
+ <p>Set against the baseline (43% had periods restart on a dummy pill within 3 months), these reports cannot be told apart from what happens anyway.<sup><a href="#s28">28</a></sup></p>
+</section>
+<section class="sec" id="doctor">
+ <h2 class="st">Seen by a doctor</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-h">US endocrinologist</span><p>Has prescribed GLP-1s for PCOS for over a decade. Helps insulin resistance and carb hunger, "treats symptoms, not PCOS". Expect surprise pregnancies.</p></div>
+  <div class="sr"><span class="ev e-h">LDN prescriber</span><p>About 10% of PCOS patients get more irregular cycles on LDN. No data published.</p></div>
+ </div>
+ <p class="hint">From a TV news feature and a clinician's own account.<sup><a href="#s61">61</a></sup></p>
+</section>
+<section class="sec" id="zero">
+ <h2 class="st">The research peptides</h2>
+ <p><b>Zero first-hand PCOS reports</b> for MOTS-c, NAD+/NMN, SS-31, GH peptides, kisspeptin, BPC-157, GHK-Cu or the blends. A podcast host who sells peptides recommends MOTS-c for PCOS, with no patient numbers; it was left out.<sup><a href="#s75">75</a></sup></p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>Metformin + GLP-1:</b> the best-studied pair, and best for lowering testosterone in a 29-trial analysis.<sup><a href="#s46">46</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Pill + spironolactone:</b> spironolactone is added after 6 months if the pill alone is not enough. Spironolactone plus metformin ranked first for lowering testosterone.<sup><a href="#s2">2</a>,<a href="#s77">77</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Spironolactone + pioglitazone + metformin (SPIOMET), teenagers:</b> periods back in up to 91%, hair scores halved, liver and belly fat down without weight change, lasting a year after stopping. Small trials.<sup><a href="#s78">78</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Letrozole or clomiphene + metformin:</b> adding metformin to clomiphene gave live birth OR 1.27, uncertain.<sup><a href="#s29">29</a></sup> <span class="ev e-m">Cochrane</span></li>
+  <li><b>GLP-1 + "recovery" peptides or MOTS-c:</b> talked about online, no PCOS data at all.</li>
+  <li><b>PT-141 + naltrexone:</b> bremelanotide lowers naltrexone levels; the label says avoid the pair.<sup><a href="#s70">70</a></sup> <span class="ev e-h">Label</span></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="elsewhere">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><b>Endometriosis:</b> in 2,579 people with pelvic pain, 20% had PCOS,<sup><a href="#s79">79</a></sup> and one review frames the two as opposite ends of the same hormone system.<sup><a href="#s80">80</a></sup> See the <a href="/library/goals/endometriosis/">endometriosis case</a>.</li>
+  <li><b>Acne:</b> about half of women with PCOS have it; the pill, then spironolactone, are the androgen-side treatments.<sup><a href="#s13">13</a>,<a href="#s2">2</a></sup></li>
+  <li><b>Hair:</b> scalp thinning starts with 5% minoxidil, adding anti-androgens if androgens are high.<sup><a href="#s14">14</a></sup></li>
+  <li><b>Menopause:</b> cycles settle with age, but heart and diabetes risk stays and starts rising from about 35.<sup><a href="#s33">33</a>,<a href="#s11">11</a></sup></li>
+  <li><b>Gut:</b> in PCOS trials a GLP-1 alone carried the most nausea (OR 6 to 9) and vomiting.<sup><a href="#s46">46</a></sup></li>
+  <li><b>Fatty liver and sleep apnoea</b> are both more common; liraglutide cut fatty liver by two thirds in PCOS.<sup><a href="#s37">37</a>,<a href="#s2">2</a></sup></li>
+ </ul>
+ <div class="chips"><a class="chip" href="/library/goals/endometriosis/"><i class="sq" style="background:#87CFC5"></i>Endometriosis</a><a class="chip" href="/library/goals/glp-1/"><i class="sq" style="background:#DDD0F6"></i>GLP-1s</a><a class="chip" href="/library/goals/notes/acne/"><i class="sq" style="background:#FFEEEE"></i>Acne notes</a><a class="chip" href="/library/goals/notes/hair/"><i class="sq" style="background:#924C1C"></i>Hair notes</a><a class="chip" href="/library/goals/notes/menopause/"><i class="sq" style="background:#FF99D8"></i>Menopause notes</a><a class="chip" href="/library/goals/notes/gut/"><i class="sq" style="background:#AACC96"></i>Gut notes</a></div>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, compared</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="fert">
+ <h2 class="st">Fertility pills · live births</h2>
+ <p class="sub">PPCOS II · 750 women, up to 5 cycles<sup><a href="#s5">5</a></sup></p>
+ <div class="bars">
+  <div class="bl1"><span>Clomiphene</span><div class="bt"><i style="width:19.1%"></i><em>19.1%</em></div></div>
+  <div class="bl1"><span>Letrozole</span><div class="bt yr"><i style="width:27.5%"></i><em>27.5%</em></div></div>
+ </div>
+ <p class="sub">PPCOS I · 626 women, up to 6 months<sup><a href="#s55">55</a></sup></p>
+ <div class="bars">
+  <div class="bl1"><span>Metformin</span><div class="bt"><i style="width:7.2%"></i><em>7.2%</em></div></div>
+  <div class="bl1"><span>Clomiphene</span><div class="bt"><i style="width:22.5%"></i><em>22.5%</em></div></div>
+  <div class="bl1"><span>Both</span><div class="bt yr"><i style="width:26.8%"></i><em>26.8%</em></div></div>
+ </div>
+ <p>Letrozole ovulated women in 61.7% of cycles vs 48.3% on clomiphene, with fewer twins (3.4% vs 7.4%) and no difference in miscarriage.<sup><a href="#s5">5</a></sup> Across 42 trials it gave about 1 extra live birth for every 10 women treated (OR 1.68, moderate certainty).<sup><a href="#s81">81</a></sup> The guideline puts letrozole first, then clomiphene, injected hormones (gonadotrophins) or ovarian drilling, then IVF.<sup><a href="#s2">2</a></sup> After clomiphene fails, gonadotrophins raise a 41% live-birth chance to 43 to 60%, with more miscarriage (low certainty).<sup><a href="#s82">82</a></sup></p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="life">
+ <h2 class="st">Lifestyle · first for everyone</h2>
+ <p>The guideline says diet and exercise work as well in PCOS as in anyone else and apply at every weight.<sup><a href="#s2">2</a></sup></p>
+ <ul class="tight">
+  <li><b>No single best diet.</b> Three diets each took off more than 5% in 8 weeks; the high-protein ones kept more muscle.<sup><a href="#s83">83</a></sup></li>
+  <li><b>Exercise:</b> the best dose in a 2026 analysis was about 60 minutes of moderate to hard exercise 3 times a week for 13 to 17 weeks. High-intensity intervals and mind-body exercise helped several heart and sugar markers. Low certainty.<sup><a href="#s84">84</a></sup></li>
+  <li><b>"Lose 5 to 10% and ovulation returns"</b> is widely quoted, but it is an expert estimate, not a measured trial result.</li>
+ </ul>
+</section>
+<section class="sec" id="trials">
+ <h2 class="st">Trials to watch</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-t">Dec 2028</span><p><b>PERIODS:</b> tirzepatide vs placebo, 198 women, periods, ovulation and a year off the drug.<sup><a href="#s48">48</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Feb 2028</span><p><b>RESTORE:</b> semaglutide with daily urine progesterone, 80 people aged 12 to 35.<sup><a href="#s49">49</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">2029</span><p><b>Beijing:</b> liraglutide plus metformin, 890 women with infertility.<sup><a href="#s50">50</a></sup></p></div>
+ </div>
+</section>
+</div>
+</div>
+<div class="grid"><section class="sec" id="treat">
+ <h2 class="st">All treatments, compared</h2>
+ <div class="tr th"><span>Option</span><span>What the numbers say</span><span>Evidence</span><span>Note</span></div>
+ <div class="tr"><span><b>Lifestyle</b> <i class="ev e-m">Guideline</i></span><span>First line at any weight; exercise helps heart and sugar markers.<sup><a href="#s2">2</a>,<a href="#s84">84</a></sup></span><span>Low certainty</span><span>For everyone</span></div>
+ <div class="tr"><span><b>Letrozole</b> <i class="ev e-rct">RCT</i></span><span>27.5% vs 19.1% live births over clomiphene; fewer twins.<sup><a href="#s5">5</a></sup></span><span>Strong</span><span>Fertility first line</span></div>
+ <div class="tr"><span><b>Clomiphene</b> <i class="ev e-rct">RCT</i></span><span>22.5% live births in PPCOS I; more twins and hot flushes.<sup><a href="#s55">55</a>,<a href="#s5">5</a></sup></span><span>Strong</span><span>Second line</span></div>
+ <div class="tr"><span><b>Metformin</b> <i class="ev e-m">Cochrane</i></span><span>Ovulation OR 2.64, live birth OR 1.59 vs placebo; 7.2% live births alone.<sup><a href="#s29">29</a>,<a href="#s55">55</a></sup></span><span>Low certainty</span><span class="bad">Stomach effects 22–40%</span></div>
+ <div class="tr"><span><b>The pill</b> <i class="ev e-m">Guideline</i></span><span>First line for hirsutism and irregular cycles, low-dose preferred. Lifts SHBG and lowers ovarian androgens, but does not treat insulin resistance.<sup><a href="#s2">2</a></sup></span><span>Strong use</span><span>First line</span></div>
+ <div class="tr"><span><b>Spironolactone</b> <i class="ev e-m">Meta</i></span><span>Added after 6 months; with metformin ranked first for lowering testosterone.<sup><a href="#s2">2</a>,<a href="#s77">77</a></sup></span><span>Guideline</span><span class="bad">Needs contraception</span></div>
+ <div class="tr"><span><b>Gonadotrophins</b> <i class="ev e-m">Cochrane</i></span><span>41% becomes 43 to 60% live births after clomiphene fails.<sup><a href="#s82">82</a></sup></span><span>Low</span><span>More miscarriage</span></div>
+ <div class="tr"><span><b>IVF</b> <i class="ev e-m">Guideline</i></span><span>Third line, after ovulation pills and injections.<sup><a href="#s2">2</a></sup></span><span>Standard</span><span>Cost</span></div>
+ <div class="tr"><span><b>Inositol</b> <i class="ev e-m">Meta</i></span><span>"Limited and inconclusive"; 23% vs 13% ovulatory weeks in one trial.<sup><a href="#s53">53</a>,<a href="#s30">30</a></sup></span><span>Low</span><span>Low risk</span></div>
+ <div class="tr"><span><b>Statins</b> <i class="ev e-m">Cochrane</i></span><span>Uncertain for cycles, hair, acne or testosterone; use for cholesterol by usual rules.<sup><a href="#s85">85</a></sup></span><span>Very low</span><span>Stop before pregnancy</span></div>
+ <div class="tr pep"><span><b>GLP-1s</b> <i class="ev e-rct">RCT</i></span><span>Weight, androgens, cycles; natural pregnancy OR 3.10; no live-birth data.<sup><a href="#s4">4</a>,<a href="#s43">43</a></sup></span><span>Low</span><span>Overweight only</span></div>
+ <div class="tr pep"><span><b>Research peptides</b> <i class="ev e-c">None</i></span><span>No PCOS study for BPC-157, MOTS-c, GHK-Cu, CJC/ipamorelin; MK-677 raised blood sugar.<sup><a href="#s10">10</a></sup></span><span>None</span><span class="bad">Glucose concern</span></div>
+</section></div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="glpwarn">
+ <h2 class="st rdt">GLP-1s, pregnancy and the pill</h2>
+ <div class="box rd">
+  <ul class="tight">
+   <li><b>Stop before trying.</b> The semaglutide label says stop at least 2 months before a planned pregnancy; animal studies showed fetal loss and malformations.<sup><a href="#s8">8</a></sup> The tirzepatide label gives no washout and says stop when pregnancy is found;<sup><a href="#s9">9</a></sup> reviews and trials use about 2 months (8 to 10 weeks).<sup><a href="#s86">86</a>,<a href="#s49">49</a></sup></li>
+   <li><b>Tirzepatide and the pill.</b> In 40 women it cut the peak level of a pill's hormones by 59 to 66%. Switch to a non-oral method, or add a barrier method, for 4 weeks after starting and after each dose increase.<sup><a href="#s87">87</a>,<a href="#s9">9</a>,<a href="#s88">88</a></sup> Vomiting on any GLP-1 can also make the pill fail.</li>
+   <li><b>If it happens anyway.</b> Early exposure has not shown more birth defects so far (RR 0.95 in 938 infants; 2.6% vs 2.3 to 3.9% in another cohort), and it is not a reason to end a pregnancy.<sup><a href="#s89">89</a>,<a href="#s90">90</a>,<a href="#s91">91</a></sup> The Wegovy pregnancy registry will not finish until 2032.<sup><a href="#s92">92</a></sup></li>
+   <li><b>Stopping costs.</b> Weight and metabolic gains commonly reverse after stopping,<sup><a href="#s93">93</a></sup> and stopping is exactly what conceiving requires. Lean tissue made up 28% of the weight lost across 36 trials.<sup><a href="#s94">94</a></sup></li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="gh2">
+ <h2 class="st">Growth hormone peptides and melanotan</h2>
+ <div class="box or">
+  <p>MK-677 raised fasting glucose and lowered insulin sensitivity over 2 years.<sup><a href="#s10">10</a></sup> In a condition built on insulin resistance, that pushes the wrong way. Tesamorelin did not raise glucose in two trials,<sup><a href="#s73">73</a>,<a href="#s74">74</a></sup> and CJC-1295 with ipamorelin has no glucose data. None has been tested in PCOS. <a href="/library/#/p/mk-677">MK-677 card</a> · <a href="/library/#/p/cjc-ipamorelin">CJC + ipamorelin card</a></p>
+  <p><b>Melanotan</b> has no role in PCOS. Case reports describe changing moles, new atypical moles and 4 melanomas during or shortly after use.<sup><a href="#s72">72</a></sup></p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="risks">
+ <h2 class="st">Long-term risks</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>Type 2 diabetes:</b> about 2.9 times the odds.<sup><a href="#s11">11</a></sup> The guideline advises a glucose test (ideally an OGTT) at diagnosis and every 1 to 3 years.<sup><a href="#s2">2</a></sup></li>
+   <li><b>Heart and blood-clot events:</b> HR 1.32 overall and 1.40 in lean women without diabetes. The measure includes leg and lung clots, so part of the excess may come from the pill, not the heart.<sup><a href="#s22">22</a></sup></li>
+   <li><b>Womb lining cancer:</b> about 3 times the risk (OR 2.79; RR 3.46), higher under 54.<sup><a href="#s95">95</a>,<a href="#s96">96</a></sup> In absolute terms it is about 2 in 100 vs 1 in 200 (1.7% vs 0.5% in the US).<sup><a href="#s96">96</a></sup> A figure of OR 6.98 seen online comes from women already having abnormal bleeding and overstates the general risk.<sup><a href="#s97">97</a></sup> Regular withdrawal bleeds protect; gaps of more than 90 days deserve a talk about it.<sup><a href="#s2">2</a></sup></li>
+   <li><b>Ovarian and breast cancer:</b> ovarian not raised overall (higher under 54), breast not raised.<sup><a href="#s95">95</a></sup></li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="fine">
+ <h2 class="st">Before you trust a vial or a label</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>Spironolactone and other anti-androgens</b> can affect a male baby's development; reliable contraception is required.<sup><a href="#s2">2</a></sup></li>
+   <li><b>The vial is not the study.</b> Purity and contamination of grey-market peptides are unknown.<sup><a href="#s98">98</a></sup> No peptide here has pregnancy safety data, and many readers are trying to conceive.</li>
+   <li><b>Banned in tested sport.</b> BPC-157 is banned at all times under WADA rules.<sup><a href="#s99">99</a></sup></li>
+   <li><b>Self-diagnosis misleads.</b> Thyroid disease, high prolactin and non-classic CAH can look like PCOS.<sup><a href="#s2">2</a></sup></li>
+  </ul>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Is PCOS the same as PMOS?</summary><div class="bd"><p>Yes. Same condition, same criteria; only the name changed in May 2026, because the "cysts" are not the problem and the condition is hormonal and metabolic. Guidelines finish switching terms in 2028.<sup><a href="#s3">3</a>,<a href="#s24">24</a></sup></p></div></details>
+  <details class="fq" open><summary>How common is it?</summary><div class="bd"><p>About 1 in 10 to 1 in 8 women of reproductive age, depending on the criteria: 9.2% overall in a 2024 meta-analysis, "one in eight" in the Lancet consensus.<sup><a href="#s1">1</a>,<a href="#s3">3</a></sup></p></div></details>
+  <details class="fq"><summary>Can I have PCOS if I'm thin?</summary><div class="bd"><p>Yes. In community samples women with PCOS were no heavier than others.<sup><a href="#s18">18</a></sup> Lean women still showed insulin resistance on clamp testing (75% of 20) and more heart and blood-clot events (HR 1.40).<sup><a href="#s20">20</a>,<a href="#s22">22</a></sup></p></div></details>
+  <details class="fq"><summary>Can I get pregnant?</summary><div class="bd"><p>Most can, often with help. Letrozole gave 27.5% live births over up to 5 cycles.<sup><a href="#s5">5</a></sup> Even on placebo plus routine fertility care, 29% had a baby within about a year in one trial.<sup><a href="#s32">32</a></sup></p></div></details>
+  <details class="fq"><summary>Do Ozempic, Wegovy or Mounjaro help fertility?</summary><div class="bd"><p>In 3 small trials against metformin, natural pregnancy was about 3 times as likely (OR 3.10). Overall and IVF pregnancy did not improve, and live births were not reported.<sup><a href="#s4">4</a></sup> The drugs must be stopped before trying.</p></div></details>
+  <details class="fq"><summary>If my period came back on a GLP-1, was it the drug?</summary><div class="bd"><p>Not necessarily. On placebo about 1 in 4 ovulated within 6 to 8 weeks, and 6 of 14 had periods restart in 3 months.<sup><a href="#s7">7</a>,<a href="#s28">28</a></sup> Six months of regular cycles, ideally with a progesterone test, is a better sign.</p></div></details>
+  <details class="fq"><summary>How long before trying should I stop semaglutide or tirzepatide?</summary><div class="bd"><p>Semaglutide: at least 2 months, per its label. Tirzepatide's label gives no washout; reviews and trials use about 2 months.<sup><a href="#s8">8</a>,<a href="#s9">9</a>,<a href="#s86">86</a></sup></p></div></details>
+  <details class="fq"><summary>Does Mounjaro stop the pill working?</summary><div class="bd"><p>It can lower how much is absorbed. Switch to a non-oral method or add a barrier method for 4 weeks after starting and after each dose increase.<sup><a href="#s9">9</a>,<a href="#s87">87</a></sup></p></div></details>
+  <details class="fq"><summary>Is metformin worth it?</summary><div class="bd"><p>It modestly helps ovulation (OR 2.64) and live birth against placebo (low certainty), but is far weaker than clomiphene for fertility (7.2% vs 22.5%). Stomach upset hits 22 to 40%.<sup><a href="#s29">29</a>,<a href="#s55">55</a></sup></p></div></details>
+  <details class="fq"><summary>Does inositol work?</summary><div class="bd"><p>Possibly a small effect on ovulation (23% vs 13% ovulatory weeks in one trial). The guideline review calls the evidence "limited and inconclusive". Low risk, low certainty.<sup><a href="#s30">30</a>,<a href="#s53">53</a></sup></p></div></details>
+  <details class="fq"><summary>What helps acne, facial hair and hair loss?</summary><div class="bd"><p>Acne and facial hair: the pill first, then spironolactone with contraception after 6 months.<sup><a href="#s2">2</a></sup> Scalp hair: 5% minoxidil first.<sup><a href="#s14">14</a></sup> GHK-Cu has no human scalp trial.</p></div></details>
+  <details class="fq"><summary>Is PCOS linked to anxiety and depression?</summary><div class="bd"><p>Strongly: depression about 3.8 times and anxiety about 5.6 times as common, still high when weight is matched. Screening is recommended for everyone.<sup><a href="#s15">15</a>,<a href="#s2">2</a></sup></p></div></details>
+  <details class="fq"><summary>Does it go away with age?</summary><div class="bd"><p>Cycles tend to shorten and settle after 30, but heart and diabetes risk stays and diverges from about 35.<sup><a href="#s33">33</a>,<a href="#s11">11</a></sup> Full remission on metabolic drugs was 12% in one clinic.<sup><a href="#s34">34</a></sup></p></div></details>
+  <details class="fq"><summary>Does it raise cancer risk?</summary><div class="bd"><p>Womb lining cancer about 3 times (about 2 in 100 vs 1 in 200). Breast cancer is not raised. Regular bleeds protect the lining.<sup><a href="#s95">95</a>,<a href="#s96">96</a></sup></p></div></details>
+  <details class="fq"><summary>Do research peptides help PCOS?</summary><div class="bd"><p>No human PCOS data exist for BPC-157, MOTS-c, CJC/ipamorelin, GHK-Cu or melanotan. MK-677 raised blood sugar in a 2-year trial, and melanotan has mole and melanoma reports.<sup><a href="#s10">10</a>,<a href="#s72">72</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy or another drug</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-m">Review</i></dt><dd>a summary of past studies</dd></div><div><dt><i class="ev e-a">Animal</i></dt><dd>rats or mice</dd></div><div><dt><i class="ev e-c">None</i></dt><dd>no study found</dd></div><div><dt><i class="ev e-t">Trial</i></dt><dd>registered, results not out yet</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>self-reported online, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>Androgens</dt><dd>male-type hormones such as testosterone, present in everyone</dd></div><div><dt>SHBG</dt><dd>a liver protein that holds testosterone inactive</dd></div><div><dt>LH, FSH</dt><dd>brain hormones that drive the ovary; LH pushes androgens, FSH grows follicles</dd></div><div><dt>AMH</dt><dd>a hormone made by small follicles; high in PCOS</dd></div><div><dt>Follicle</dt><dd>a small sac in the ovary holding one egg</dd></div><div><dt>OR, HR, RR</dt><dd>how many times more likely; 1 means no difference</dd></div><div><dt>Live birth rate</dt><dd>the share of women who had a baby, the result that matters most</dd></div><div><dt>Withdrawal bleed</dt><dd>a bleed brought on by stopping a hormone, which clears the womb lining</dd></div></dl></div>
+</section>
+<section class="sec" id="sources">
+ <div class="srcs" id="srcd"><h2 class="st">Sources <span class="cnt">99</span></h2>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/pcos/">full research notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">2024 meta-analysis, 35 studies: global PCOS prevalence 9.2% (NIH 5.5%, Rotterdam 11.5%, AES 7.1%), Arch Gynecol Obstet. <a href="https://pubmed.ncbi.nlm.nih.gov/38922413/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s2">Teede 2023, Recommendations from the 2023 International Evidence-based Guideline for PCOS, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/37580314/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">Teede 2026, The Lancet consensus: renaming PCOS to polyendocrine metabolic ovarian syndrome (PMOS). <a href="https://pubmed.ncbi.nlm.nih.gov/42119588/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Kar 2026, meta-analysis of 3 RCTs, 252 women: GLP-1 drugs vs metformin for pregnancy in PCOS, Eur J Obstet Gynecol Reprod Biol. <a href="https://pubmed.ncbi.nlm.nih.gov/42893679/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s5">Legro 2014, PPCOS II: letrozole vs clomiphene, 750 women, NEJM. <a href="https://pubmed.ncbi.nlm.nih.gov/25006718/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s6">Reddit pass, r/PCOS, r/TTC_PCOS, r/TirzepatidePCOS and related, 31 first-hand posts logged in the Bare Signals research log, Nov 2026. <a href="https://www.reddit.com/r/TirzepatidePCOS/comments/1jbcmi7/help_bring_my_period_back/" target="_blank" rel="noopener">thread 1</a> · <a href="https://www.reddit.com/r/PCOS/comments/1rylvm1/period_and_glp1/" target="_blank" rel="noopener">thread 2</a> · <a href="https://www.reddit.com/r/TTC_PCOS/comments/1fsjwm1/people_who_didntarent_getting_periods_has/" target="_blank" rel="noopener">thread 3</a> · <a href="https://www.reddit.com/r/PCOS/comments/1jwoobg/tirzepatide_ozempic_really_is_that_good_for_pcos/" target="_blank" rel="noopener">thread 4</a></li>
+   <li id="s7">Nestler 1999, D-chiro-inositol vs placebo, 44 women: 19 of 22 vs 6 of 22 ovulated, NEJM. <a href="https://pubmed.ncbi.nlm.nih.gov/10219066/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Wegovy (semaglutide) prescribing information, section 8.3, read via drugs.com: stop at least 2 months before a planned pregnancy. <a href="/library/goals/notes/pcos/">research notes</a></li>
+   <li id="s9">Zepbound (tirzepatide) prescribing information, sections 7.2 and 8.3. <a href="https://www.drugs.com/pro/zepbound.html" target="_blank" rel="noopener">link</a></li>
+   <li id="s10">Nass 2008, MK-677 for 2 years in 65 adults aged 60 to 81: glucose and insulin sensitivity, Ann Intern Med. <a href="https://pubmed.ncbi.nlm.nih.gov/18981485/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">2026 review of PMOS: type 2 diabetes OR 2.9, cardiovascular risk diverging from about age 35. <a href="https://pubmed.ncbi.nlm.nih.gov/42669621/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s12">Fraser 2021, fezolinetant in 73 women with PCOS: testosterone and LH fell, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/34000049/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">2025 meta-analysis: acne prevalence in PCOS (48 to 53%), Med J Islam Repub Iran. <a href="https://pubmed.ncbi.nlm.nih.gov/41089626/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s14">Androgen Excess and PCOS Society 2019: female pattern hair loss, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/30785992/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s15">Cooney 2017, 30 studies, 3,050 women: depression and anxiety in PCOS, Hum Reprod. <a href="https://pubmed.ncbi.nlm.nih.gov/28333286/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s16">2025 study: subclinical hypothyroidism in about 20% of women with PCOS, BMC Endocr Disord. <a href="https://pubmed.ncbi.nlm.nih.gov/40102852/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s17">2025 review, BMC Med: diagnosing PCOS in adolescents (both features needed, no ultrasound or AMH in teens). <a href="https://pubmed.ncbi.nlm.nih.gov/40069730/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s18">Lizneva 2016, meta-analysis of 13,796 women: phenotypes A to D in clinic vs community samples, Fertil Steril. <a href="https://pubmed.ncbi.nlm.nih.gov/27530062/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">2025 cluster analysis of 975 women: metabolic, reproductive and intermediate PCOS subtypes, Front Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/41180187/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s20">Stepto 2013, clamp study of 20 lean and 20 overweight women with PCOS: insulin resistance 75% and 95%, Hum Reprod. <a href="https://pubmed.ncbi.nlm.nih.gov/23315061/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">2026 Boston biobank, 4,768 women: lean PMOS showed no metabolomic differences from lean controls, J Assist Reprod Genet. <a href="https://pubmed.ncbi.nlm.nih.gov/42658451/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s22">2026 Nordic cohort, 127,517 women: heart and blood-clot events HR 1.32, 1.40 at BMI under 25, Eur J Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/41439462/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s23">STAT, 12 May 2026: PCOS now called PMOS (vote count and the two dissents). <a href="https://www.statnews.com/2026/05/12/pcos-now-called-pmos-polyendocrine-metabolic-ovarian-syndrome/" target="_blank" rel="noopener">link</a></li>
+   <li id="s24">Monash Centre for Health Research and Implementation, PMOS impact report, Aug 2026 (ICD-11 proposal, 2028 terminology update). <a href="https://www.mchri.org.au/wp-content/uploads/2026/08/PMOS-Impact-Report-August.pdf" target="_blank" rel="noopener">PDF</a></li>
+   <li id="s25">George 2016, AZD4901 (NK3R blocker), 67 women with PCOS: LH and testosterone fell, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/27459523/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s26">Vink 2006, Dutch twin-family study: PCOS correlation 0.71 in identical twins vs 0.38 in sisters, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/16219714/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s27">2018 review: known gene variants explain under 10% of PCOS heritability. <a href="https://pubmed.ncbi.nlm.nih.gov/29972435/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s28">Sturrock 2002, metformin vs placebo in clomiphene-resistant PCOS: periods resumed in 6 of 14 on placebo, Br J Clin Pharmacol. <a href="https://pubmed.ncbi.nlm.nih.gov/11994052/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s29">Sharpe 2019, Cochrane: metformin for ovulation induction, 41 RCTs, 4,552 women. <a href="https://pubmed.ncbi.nlm.nih.gov/31845767/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s30">Gerli 2003, myo-inositol vs placebo, 283 women: ovulatory weeks 23% vs 13%. <a href="https://pubmed.ncbi.nlm.nih.gov/15206484/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s31">Nylander 2017, liraglutide vs placebo, 72 women: bleeding ratio and ovarian volume, Reprod Biomed Online. <a href="https://pubmed.ncbi.nlm.nih.gov/28479118/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s32">Morin-Papunen 2012, metformin vs placebo with routine fertility care, 320 women: live birth 41.9% vs 28.8%, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/22419702/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s33">Elting 2000, 205 Dutch women with PCOS: cycles shorten with age, Hum Reprod. <a href="https://pubmed.ncbi.nlm.nih.gov/10611183/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s34">2026 Chinese clinic cohort on metabolic drugs: 11.75% full remission over about 13 months, Front Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/42597837/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s35">2023 review: up to half of women with PCOS are lean, yet GLP-1 trials enrolled almost only women with overweight, J Endocrinol Invest. <a href="https://pubmed.ncbi.nlm.nih.gov/37093453/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s36">La Vignera 2026 review: GLP-1 drugs not approved or guideline-recommended for fertility in PCOS; evidence limited to women with overweight. <a href="https://pubmed.ncbi.nlm.nih.gov/42278283/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s37">Frøssing 2018, liraglutide 1.8 mg vs placebo, 72 women, 26 weeks: weight, liver fat, SHBG, Diabetes Obes Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/28681988/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s38">Salamun 2018, liraglutide plus metformin before IVF, 28 women, Eur J Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/29703793/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s39">Elkind-Hirsch 2008, exenatide, metformin or both, 60 women, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/18460557/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s40">Elkind-Hirsch 2022, liraglutide 3 mg vs placebo, 82 women, 32 weeks, Fertil Steril. <a href="https://pubmed.ncbi.nlm.nih.gov/35710599/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s41">Chen 2025, semaglutide plus metformin vs metformin, 100 women, Reprod Biol Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/40713699/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s42">2026 UK digital-clinic cohort, 54,114 women on tirzepatide (4,241 with self-reported PCOS), J Endocr Soc. <a href="https://pubmed.ncbi.nlm.nih.gov/42634795/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s43">2025 network meta-analysis, 27 RCTs, 1,642 women: GLP-1 drugs and other diabetes drugs in PCOS, Diabetol Metab Syndr. <a href="https://pubmed.ncbi.nlm.nih.gov/40410888/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s44">Lu 2026, meta-analysis of 7 liraglutide RCTs, 330 women: menstrual frequency, Diabetes Obes Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/41508932/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s45">2025 meta-analysis: GLP-1 drugs lowered BMI and HOMA-IR; most hormones unchanged, Sci Rep. <a href="https://pubmed.ncbi.nlm.nih.gov/40360648/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s46">2026 network meta-analysis, 29 RCTs, 1,771 women: androgens and side effects of GLP-1 combinations, J Ovarian Res. <a href="https://pubmed.ncbi.nlm.nih.gov/41862977/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s47">Henney 2026, target-trial emulation, 48,126 women per arm: GLP-1 drugs vs metformin before conception, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/42857939/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s48">PERIODS: tirzepatide vs placebo in PCOS with overweight, 198 women, Germany (registry record read 4 Nov 2026). <a href="https://clinicaltrials.gov/study/NCT07326111" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s49">RESTORE: semaglutide and ovulation, ages 12 to 35, 80 people, Colorado. <a href="https://clinicaltrials.gov/study/NCT05819853" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s50">Liraglutide plus metformin vs metformin, 890 women with infertility, Peking University Third Hospital. <a href="https://clinicaltrials.gov/study/NCT06742710" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s51">Semaglutide vs metformin, 60 women, Hull: completion due Dec 2025, no results posted. <a href="https://clinicaltrials.gov/study/NCT05646199" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s52">Semaglutide in PCOS, US: withdrawn, 0 enrolled. <a href="https://clinicaltrials.gov/study/NCT06222437" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s53">2023 meta-analysis informing the guideline, 30 trials, 2,230 women: inositol in PCOS, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/38163998/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s54">2025 narrative review favouring 40:1 inositol (industry-linked authors). <a href="https://pubmed.ncbi.nlm.nih.gov/40420946/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s55">Legro 2007, PPCOS I: clomiphene, metformin or both, 626 women, NEJM. <a href="https://pubmed.ncbi.nlm.nih.gov/17287476/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s56">2022 network meta-analysis of 47 RCTs: drugs and testosterone in PCOS, Drugs. <a href="https://pubmed.ncbi.nlm.nih.gov/36129662/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s57">2019 meta-analysis: berberine in PCOS, Evid Based Complement Alternat Med. <a href="https://pubmed.ncbi.nlm.nih.gov/31915452/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s58">An 2013, berberine vs metformin vs placebo before IVF, RCT, Clin Endocrinol. <a href="https://pubmed.ncbi.nlm.nih.gov/23869585/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s59">Fruzzetti 2002, naltrexone 50 mg in 10 women with obesity and PCOS, Fertil Steril. <a href="https://pubmed.ncbi.nlm.nih.gov/12009347/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s60">Ahmed 2008, naltrexone then clomiphene, 30 clomiphene-resistant women, Hum Reprod. <a href="https://pubmed.ncbi.nlm.nih.gov/18641399/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s61">Clinician comments: a US endocrinologist on a TV news feature (Jun 2023) and an LDN-prescribing clinician, logged 3 Nov 2026. <a href="/library/goals/notes/endo-pcos-peptides/">research notes</a></li>
+   <li id="s62">Abbara 2017, a second kisspeptin-54 dose as an IVF trigger, phase 2 RCT, Hum Reprod. <a href="https://pubmed.ncbi.nlm.nih.gov/28854728/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s63">Continuous kisspeptin in PCOS, 8 women, Massachusetts General Hospital, completed Apr 2024, no results posted. <a href="https://clinicaltrials.gov/study/NCT05971849" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s64">2026 Turkish study, 40 women with PCOS vs 40 controls: lower MOTS-c, Sci Rep (a correction exists, content not available). <a href="https://pubmed.ncbi.nlm.nih.gov/41680431/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s65">2026 Turkish adolescent study, 121 with PCOS vs 125 controls: no MOTS-c difference. <a href="https://pubmed.ncbi.nlm.nih.gov/41945630/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s66">2026 perspective: the MOTS-c and PCOS link is initial and unreplicated. <a href="https://pubmed.ncbi.nlm.nih.gov/42880137/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s67">Acta Orthop Belg 2026, every human BPC-157 study (3 studies, 30 people). <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s68">Pickart 2008 review of GHK-Cu, written by the compound's developer, J Biomater Sci Polym Ed. <a href="https://pubmed.ncbi.nlm.nih.gov/18644225/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s69">2022 integrated analysis of the RECONNECT trials, 1,202 women: bremelanotide for low desire. <a href="https://pubmed.ncbi.nlm.nih.gov/35230162/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s70">Vyleesi (bremelanotide) prescribing information: blood pressure, skin darkening, naltrexone interaction. <a href="https://www.drugs.com/pro/vyleesi-injection.html" target="_blank" rel="noopener">link</a></li>
+   <li id="s71">2026 rat study: NMN in a PCOS model. <a href="https://pubmed.ncbi.nlm.nih.gov/42892420/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s72">2017 review: melanotan, mole changes and melanoma case reports, Int J Dermatol. <a href="https://pubmed.ncbi.nlm.nih.gov/28266027/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s73">Makimura 2012, tesamorelin for 12 months in 60 adults with obesity: no glucose change, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/23015655/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s74">Clemmons 2017, tesamorelin for 12 weeks in 53 people with type 2 diabetes, PLoS One. <a href="https://pubmed.ncbi.nlm.nih.gov/28617838/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s75">First-hand GLP-1 reports from Mumsnet, HealthUnlocked, a TV news feature and a blog, logged 3 Nov 2026 (21 people). <a href="/library/goals/notes/endo-pcos-peptides/">research notes</a></li>
+   <li id="s76">Earlier Reddit and blog pass read through mirror sites (r/TTC_PCOS, r/PCOS, Mumsnet, one blog), 3 Nov 2026. <a href="/library/goals/notes/pcos/">research notes</a></li>
+   <li id="s77">2023 network meta-analysis: drugs ranked for lowering testosterone in PCOS. <a href="https://pubmed.ncbi.nlm.nih.gov/37832133/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s78">2026 review of SPIOMET (spironolactone, pioglitazone, metformin) in adolescents. <a href="https://pubmed.ncbi.nlm.nih.gov/41506442/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s79">Tordoff 2024: chronic pelvic pain, IBS and PCOS in 2,579 people. <a href="https://pubmed.ncbi.nlm.nih.gov/39011578/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s80">2023 review: kisspeptin, PCOS and endometriosis at opposite ends. <a href="https://pubmed.ncbi.nlm.nih.gov/37505370/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s81">Franik 2018, Cochrane: letrozole vs clomiphene, 42 RCTs, 7,935 women. <a href="https://pubmed.ncbi.nlm.nih.gov/29797697/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s82">Cochrane 2025: gonadotrophins vs more clomiphene after clomiphene failure. <a href="https://pubmed.ncbi.nlm.nih.gov/40193219/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s83">2024 RCT, 90 women, 8 weeks: three diets in PCOS. <a href="https://pubmed.ncbi.nlm.nih.gov/38988067/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s84">2026 network meta-analysis: diet and exercise in PCOS, Hum Reprod Update. <a href="https://pubmed.ncbi.nlm.nih.gov/42854088/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s85">Cochrane 2023: statins for PCOS. <a href="https://pubmed.ncbi.nlm.nih.gov/37462232/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s86">Becker 2026 review: stop semaglutide and tirzepatide 8 to 10 weeks before conception. <a href="https://pubmed.ncbi.nlm.nih.gov/42441883/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s87">CoSRH guidance, oral contraceptives with tirzepatide and semaglutide (summarises a 40-woman tirzepatide study). <a href="https://www.cosrh.org/Common/Uploaded%20files/documents/Guidance%20on%20oral%20contraceptive%20use%20with%20GLP-1%20agonists%20tirzepatide%20and%20semaglutide.pdf" target="_blank" rel="noopener">PDF</a></li>
+   <li id="s88">Tirzepatide manufacturer medical answer: oral contraceptives and hormone therapy. <a href="https://medical.lilly.com/us/products/answers/can-zepbound-tirzepatide-be-used-with-oral-contraceptives-or-hormone-replacement-therapy-211019" target="_blank" rel="noopener">link</a></li>
+   <li id="s89">Cesta 2024, 938 infants exposed to GLP-1 drugs in early pregnancy: malformation RR 0.95, JAMA Intern Med. <a href="https://pubmed.ncbi.nlm.nih.gov/38079178/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s90">Dao 2024, teratology services cohort: birth defects 2.6% vs 2.3% and 3.9%, BMJ Open. <a href="https://pubmed.ncbi.nlm.nih.gov/38663923/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s91">Amiri 2026: accidental GLP-1 exposure is not a reason to recommend ending a pregnancy, Curr Diab Rep. <a href="https://pubmed.ncbi.nlm.nih.gov/42262435/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s92">Wegovy pregnancy registry: 728 pregnancies, primary completion Oct 2032. <a href="https://clinicaltrials.gov/study/NCT05872022" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s93">Marchetti 2026, 18 reports: weight regain after stopping GLP-1 drugs, Metabolites. <a href="https://pubmed.ncbi.nlm.nih.gov/42941232/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s94">2026 meta-analysis of 36 RCTs: lean mass was 28% of weight lost on GLP-1 or SGLT2 drugs, Diabetes Metab Res Rev. <a href="https://pubmed.ncbi.nlm.nih.gov/42319968/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s95">Barry 2014 meta-analysis: endometrial, ovarian and breast cancer in PCOS, Hum Reprod Update. <a href="https://pubmed.ncbi.nlm.nih.gov/24688118/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s96">Pace 2024: endometrial cancer in PCOS, pooled RR 3.46, J Clin Endocrinol Metab. <a href="https://pubmed.ncbi.nlm.nih.gov/39106216/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s97">2026 meta-analysis, 9 studies of women with abnormal bleeding: endometrial hyperplasia and cancer in PCOS. <a href="https://pubmed.ncbi.nlm.nih.gov/41847749/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s98">Mo Med 2026: risks of unapproved peptides including BPC-157 and TB-500. <a href="https://pubmed.ncbi.nlm.nih.gov/42757290/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s99">USADA, BPC-157 substance page. <a href="https://www.usada.org/substance/bpc-157/" target="_blank" rel="noopener">link</a></li>
+  </ol>
+ </div>
+ </div>
+</section>
+<section class="sec" id="method">
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov, guidelines and drug labels, read from the abstracts and summarised in our words. First-hand reports come from forums, news features and a Reddit pass, one person per count, with seller pages left out. <span class="ev e-h">Human</span><span class="ev e-rct">RCT</span><span class="ev e-m">Meta</span><span class="ev e-a">Animal</span><span class="ev e-c">None</span><span class="ev e-t">Trial</span><span class="ev e-r">Reports</span> show where each finding was seen. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+</div>
+
+<script src="/nav.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>

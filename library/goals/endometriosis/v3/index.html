@@ -1,0 +1,944 @@
+<!doctype html>
+<!-- Endometriosis v3 (4 Nov 2026), built on v2 (kept): notes that all three human BPC-157 studies come from one clinician at a clinic that sells it; PCOS links now go to the PCOS case page. No numbers changed. -->
+<!-- Endometriosis v2 (4 Nov 2026), built on v1 (kept): Goals renamed Cases. -->
+<!-- Endometriosis v1 (4 Nov 2026): first version, built from Endometriosis Research v2, Endo PCOS Peptides v1 and GLP1 Claims Hormones v1 (plus Gut Research v2 for the IBS overlap and the G68 Reddit tab of the research log, 25 posts). Template: Tennis Elbow v19. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Endometriosis · Bare Signals</title>
+<meta name="description" content="Endometriosis: what GLP-1 drugs, thymosin alpha-1, BPC-157, TB-500 and other compounds have shown in studies and what people report, with every standard option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Endometriosis</h1><p class="aka">Also called endo. Adenomyosis is its sister condition inside the womb wall.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M31 30C31 24 53 24 53 30C54 41 49 50 46 56L45 64H39L38 56C35 50 30 41 31 30Z" fill="#FFFFE2"/><path d="M36 32C36 29 48 29 48 32C48 39 45 45 42 48C39 45 36 39 36 32Z" fill="#FFD3EE" stroke-width="1.2"/><path d="M31 31C25 29 20 30 17 35"/><path d="M53 31C59 29 64 30 67 35"/><path d="M16 37C13 37 12 41 14 43"/><path d="M68 37C71 37 72 41 70 43"/></g><ellipse cx="16" cy="44" rx="5.5" ry="4" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.4"/><ellipse cx="68" cy="44" rx="5.5" ry="4" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.4"/><circle class="pl" cx="25" cy="58" r="3.2" fill="#FF99D8" stroke="#3E4A80" stroke-width="1"/><circle cx="60" cy="60" r="2.2" fill="#FF99D8" stroke="#3E4A80" stroke-width="1"/><circle cx="68" cy="44" r="2" fill="#9E1B32"/></svg>
+ <div class="meta"><span class="mt">Researched 3–4 Nov 2026</span><span class="mt">108 sources</span><span class="mt">Version 3</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Pain and sensory, Reproductive, Inflammatory signaling"><i style="width:70%;background:var(--pain)"></i><i style="width:18%;background:#FF99D8"></i><i style="width:12%;background:var(--infl)"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--pain)">Pain &amp; sensory</span><span class="rtg" style="background:#FF99D8">Reproductive</span><span class="rtg" style="background:var(--infl)">Inflammatory signaling</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Tissue like the womb lining growing outside the womb, in about 1 in 10 women of reproductive age.<sup><a href="#s1">1</a></sup> Pain often does not match how much is found,<sup><a href="#s2">2</a></sup> and diagnosis takes anywhere from months to 12 years.<sup><a href="#s3">3</a></sup></p>
+ <p><b>What studies found.</b> Hormone drugs work: GnRH antagonists help 1 extra person in every 2 treated with period pain.<sup><a href="#s4">4</a></sup> No research peptide (BPC-157, TB-500, KPV, GHK-Cu, LL-37) has a single endometriosis study. GLP-1 drugs have surveys, not trials.</p>
+ <p><b>What people report.</b> GLP-1s carry the only real signal: in a 227-person survey 63% said they improved,<sup><a href="#s5">5</a></sup> and of 22 Reddit users 8 were clearly better, 7 partly, 5 unchanged and 2 worse.<sup><a href="#s6">6</a></sup> No one had a scan or surgery showing lesions shrank.</p>
+ <p><b>Watch out.</b> BPC-157, TB-500 and GHK-Cu push new blood vessel growth, which lesions need to survive, and the body's own Tβ4 is linked to more invasive endometriosis cells.<sup><a href="#s7">7</a>,<a href="#s8">8</a></sup> Low-dose naltrexone blocks opioid painkillers after surgery.</p>
+</div>
+
+<div class="nums6" aria-label="Endometriosis in numbers">
+ <div class="nm"><b>1 in 10</b><span>women of reproductive age, about 190 million</span><i class="ev e-m">Review</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>0.3–12</b><span>years from first symptoms to a diagnosis</span><i class="ev e-m">Review</i><sup><a href="#s3">3</a></sup></div>
+ <div class="nm"><b>NNT 2</b><span>GnRH antagonists for period pain</span><i class="ev e-m">Meta</i><sup><a href="#s4">4</a></sup></div>
+ <div class="nm"><b>10.8%</b><span>have another operation after surgery</span><i class="ev e-m">Meta</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>63%</b><span>improved on a GLP-1, in a 227-person survey</span><i class="ev e-r">Survey</i><sup><a href="#s5">5</a></sup></div>
+ <div class="nm"><b>0</b><span>endometriosis studies of BPC-157, TB-500, KPV, GHK-Cu</span><i class="ev e-c">Search</i></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#baseline">Without treatment</a><a href="#p1">2 · Studies</a><a href="#glp">GLP-1s</a><a href="#ta1">Thymosin α1</a><a href="#human">Other compounds</a><a href="#nostudy">BPC-157, TB-500</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#treat">All treatments</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#glossary">Glossary</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What endometriosis is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Signs</h2>
+ <p>Endometriosis is tissue similar to the womb lining (glands and supporting cells) growing where it should not: mostly on the lining of the pelvis, the ovaries and the ligaments behind the womb. It feeds on estrogen and it keeps the area inflamed.<sup><a href="#s10">10</a></sup> The usual signs:</p>
+ <ul class="tight">
+  <li><b>Period pain</b> that is severe or getting worse over the years.</li>
+  <li><b>Pelvic pain between periods.</b></li>
+  <li><b>Pain during or after sex,</b> often deep rather than at the entrance.</li>
+  <li><b>Pain when opening the bowels or passing urine,</b> worse around a period.</li>
+  <li><b>Trouble getting pregnant.</b><sup><a href="#s11">11</a></sup></li>
+  <li><b>Bloating, tiredness, low mood and anxiety</b> come along often.<sup><a href="#s2">2</a></sup></li>
+ </ul>
+ <p>Period pain that ordinary painkillers barely touch is a reason to get checked. About 18% of people with painful periods do not respond to anti-inflammatory painkillers like ibuprofen. That does not prove endometriosis, but it is a signal worth following up.<sup><a href="#s12">12</a></sup> It runs in families: in 2.1 million Korean women, having an affected sister raised the risk about 2.75 times, and an affected twin about 7 times.<sup><a href="#s13">13</a></sup></p>
+ <p class="sub">The main types</p>
+ <div class="dg in"><svg viewBox="0 0 340 228" role="img" aria-label="Simplified pelvis showing the womb with tubes and ovaries. A: small superficial spots on the pelvic lining. B: a blood-filled cyst on one ovary. C: a deep nodule behind the womb against the bowel. D: adenomyosis, lining tissue inside the womb muscle wall.">
+  <path d="M14 196 C80 214 260 214 326 196" fill="none" stroke="#6B76A8" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <path d="M208 176 C230 168 262 172 282 190 C292 200 300 214 302 226" fill="none" stroke="#3E4A80" stroke-width="10" stroke-linecap="round" opacity=".12"/>
+  <path d="M208 176 C230 168 262 172 282 190 C292 200 300 214 302 226" fill="none" stroke="#3E4A80" stroke-width="1.2"/>
+  <path d="M134 62 C134 44 206 44 206 62 C210 98 196 128 186 150 L182 178 L158 178 L154 150 C144 128 130 98 134 62 Z" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.5"/>
+  <path d="M146 66 C146 58 194 58 194 66 C194 92 184 112 170 128 C156 112 146 92 146 66 Z" fill="#FFD3EE" stroke="#3E4A80" stroke-width="1"/>
+  <g fill="#9E1B32" opacity=".75"><circle cx="198" cy="96" r="2.2"/><circle cx="202" cy="84" r="1.8"/><circle cx="194" cy="110" r="1.8"/><circle cx="204" cy="72" r="1.5"/></g>
+  <path d="M136 64 C112 56 90 60 74 76" fill="none" stroke="#3E4A80" stroke-width="1.4"/>
+  <path d="M204 64 C228 56 250 60 266 76" fill="none" stroke="#3E4A80" stroke-width="1.4"/>
+  <path d="M74 76 C66 72 58 78 62 86 M266 76 C274 72 282 78 278 86" fill="none" stroke="#3E4A80" stroke-width="1.2"/>
+  <ellipse cx="72" cy="102" rx="20" ry="14" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.4"/>
+  <ellipse cx="268" cy="102" rx="24" ry="17" fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.4"/>
+  <circle cx="272" cy="103" r="10" fill="#7A3B2E" opacity=".75" stroke="#3E4A80" stroke-width="1"/>
+  <g fill="#FF99D8" stroke="#3E4A80" stroke-width=".9"><circle cx="64" cy="188" r="3.2"/><circle cx="92" cy="196" r="2.6"/><circle cx="126" cy="190" r="2.8"/><circle cx="40" cy="182" r="2.4"/></g>
+  <path d="M196 170 C204 160 218 162 220 172 C224 182 210 190 202 186 C194 184 192 176 196 170 Z" fill="#9E1B32" opacity=".7" stroke="#3E4A80" stroke-width="1"/>
+  <g font-size="10.5" fill="#3E4A80">
+   <text x="10" y="150" class="m" font-weight="700">A</text><text x="22" y="150">Superficial spots</text>
+   <text x="22" y="163" fill="#6B76A8">most common, hard to scan</text>
+   <path d="M60 168 L62 184" stroke="#3E4A80" stroke-width=".8" stroke-dasharray="2 2"/>
+   <text x="232" y="24" class="m" font-weight="700">B</text><text x="244" y="24">Ovarian cyst</text>
+   <text x="244" y="37" fill="#6B76A8">"chocolate cyst"</text>
+   <path d="M270 42 L272 92" stroke="#3E4A80" stroke-width=".8" stroke-dasharray="2 2"/>
+   <text x="236" y="146" class="m" font-weight="700">C</text><text x="248" y="146">Deep nodule</text>
+   <text x="248" y="159" fill="#6B76A8">on bowel, bladder</text>
+   <path d="M244 152 L220 168" stroke="#3E4A80" stroke-width=".8" stroke-dasharray="2 2"/>
+   <text x="10" y="24" class="m" font-weight="700">D</text><text x="22" y="24">Adenomyosis</text>
+   <text x="22" y="37" fill="#6B76A8">inside the womb wall</text>
+   <path d="M96 20 C150 18 192 44 199 78" fill="none" stroke="#3E4A80" stroke-width=".8" stroke-dasharray="2 2"/>
+  </g>
+  <text x="170" y="222" text-anchor="middle" class="m" font-size="7" letter-spacing=".5" fill="#6B76A8">PELVIS, SIMPLIFIED · DASHED LINE = PELVIC LINING</text>
+ </svg></div>
+ <ul class="tight">
+  <li><b>A · Superficial:</b> small spots on the pelvic lining. The most common type, and largely invisible on ultrasound and MRI.<sup><a href="#s14">14</a></sup></li>
+  <li><b>B · Ovarian endometrioma:</b> a cyst full of old blood on an ovary. Ultrasound shows it well.<sup><a href="#s14">14</a></sup></li>
+  <li><b>C · Deep:</b> lesions reaching more than about 5 mm into the bowel, bladder, ligaments or vaginal wall. Expert ultrasound and MRI can map it.<sup><a href="#s14">14</a></sup> Rarely it sits in a caesarean scar, the diaphragm or chest.</li>
+  <li><b>D · Adenomyosis</b> is the same kind of tissue growing into the muscle wall of the womb instead of outside it. It brings heavy, painful periods and a larger, tender womb. The muscle over-contracts, and its oxytocin receptors rise with how hard it contracts and how bad the period pain is.<sup><a href="#s15">15</a>,<a href="#s16">16</a></sup> The two often occur together, but a result for one should not be assumed for the other.</li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="diag">
+ <h2 class="st">Getting a diagnosis</h2>
+ <p>Across 17 studies, the time from first symptoms to a diagnosis ranged from 0.3 to 12 years, depending on the country and how delay was measured. The figure you often see, 8 to 12 years, is a commonly quoted average rather than one measured number.<sup><a href="#s3">3</a></sup> Both sides add to it: people are taught that bad periods are normal and wait, and doctors misdiagnose or rely on tests that cannot see it.<sup><a href="#s17">17</a></sup></p>
+ <p><b>Surgery is no longer required to be told you have it.</b> The 2022 European guideline challenged keyhole surgery (laparoscopy) as the only gold standard.<sup><a href="#s18">18</a></sup> The first US guideline (March 2026) and the UK's NICE (updated 2024) agree: history, examination and imaging are enough to start treatment, transvaginal ultrasound comes first and MRI for deep disease.<sup><a href="#s19">19</a>,<a href="#s20">20</a></sup></p>
+ <p><b>A normal scan does not rule it out.</b> Scans find cysts and deep nodules well, but superficial spots, the most common type, often do not show. No blood, urine or saliva test is ready, and blood CA125 is not recommended for diagnosis.<sup><a href="#s14">14</a></sup></p>
+ <p class="sub">Why the stage does not match the pain</p>
+ <p>Stages I (minimal) to IV (severe) are scored during surgery by how much disease is seen. Stage describes the anatomy, not the pain, and newer systems do not score pain either.<sup><a href="#s21">21</a></sup> Some people have severe symptoms and little or nothing is found; others have extensive disease and little pain.<sup><a href="#s2">2</a></sup> Three things drive pain apart from size: inflammation, nerves growing into lesions alongside new blood vessels, and <b>central sensitisation</b>, where the nervous system itself turns the volume up. Central sensitisation shows up in 11 to 58% of people with endometriosis and up to 75% in specialist centres, and higher scores before surgery go with more pain after it.<sup><a href="#s22">22</a></sup></p>
+</section>
+<section class="sec" id="inside">
+ <h2 class="st">How it works inside</h2>
+ <ul class="how">
+  <li><b>How it gets there.</b> The leading theory is backflow: period blood flows backwards through the tubes into the pelvis. It is far more common when the womb's exit is blocked from birth, which supports the idea, but backflow itself is seen in very different shares of people across studies, so it is not the whole story.<sup><a href="#s23">23</a>,<a href="#s24">24</a></sup></li>
+  <li><b>Estrogen keeps it alive.</b> Lesions make some of their own estrogen and resist progesterone, the hormone that normally calms the lining. This is why hormone treatments work.<sup><a href="#s25">25</a></sup></li>
+  <li><b>It needs new blood vessels.</b> VEGF, the body's build-a-vessel signal, is central to lesions settling in and surviving, and drugs that block it shrink lesions in animals.<sup><a href="#s7">7</a></sup> <i class="ev e-a">Animal</i> Keep this in mind for the peptide section.</li>
+  <li><b>It runs hot.</b> Inflammatory signals (TNF-α, IL-1, IL-6) and oxidative stress are raised.<sup><a href="#s26">26</a></sup> There are more regulatory T cells, the immune system's brakes, in pelvic fluid.<sup><a href="#s27">27</a></sup></li>
+  <li><b>It burns sugar differently.</b> Pelvic lining cells in affected women make more lactate, which feeds lesions.<sup><a href="#s28">28</a></sup> <i class="ev e-c">Cells</i><i class="ev e-a">Mice</i></li>
+  <li><b>Nerves join in.</b> Blood levels of CGRP, a pain messenger, were higher in endometriosis and fell on the hormone dienogest.<sup><a href="#s29">29</a></sup> IGF-1 made by immune cells drives nerve sprouting, and its level in pelvic fluid tracked with pain in women.<sup><a href="#s30">30</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">How it behaves without treatment</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">Placebo</span><p><b>A dummy pill helps a fifth to a third.</b> In the large elagolix trials, 20 to 23% on placebo had a real drop in period pain and 37% in pain between periods.<sup><a href="#s31">31</a></sup> In the CBD trial about 40% in both groups had their pain halved.<sup><a href="#s32">32</a></sup> Pain also swings from cycle to cycle, so any "I felt better" needs to beat this.</p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>Pregnancy is not a cure.</b> The only symptom data are 14 women from 1965 (3 better, 2 worse). Ovarian cysts disappeared in 15 to 50% but grew in 8.8 to 39%, and placenta praevia was about 9 times more likely. The authors advise against presenting pregnancy as a treatment.<sup><a href="#s33">33</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>Menopause mostly quiets it, not always.</b> 2 to 5% of women after menopause are still affected. Estrogen-only HRT should be avoided, even after a hysterectomy; combined HRT is preferred.<sup><a href="#s34">34</a>,<a href="#s35">35</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: almost nothing here has a placebo trial in endometriosis.</b> The only proven treatments are hormones and surgery (part 5). Below, each compound is tagged by where the evidence comes from. GLP-1 drugs come first because they carry the only real signal, then the non-peptide compounds that have small human trials, and last the popular research peptides, which have no endometriosis studies at all.</p>
+
+<div class="grid"><section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · semaglutide, tirzepatide</h2>
+ <div class="cp">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide card</a> · <a href="/library/#/p/tirzepatide">Tirzepatide card</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <div class="stripe"><i style="width:55%;background:var(--pain)"></i><i style="width:25%;background:var(--infl)"></i><i style="width:20%;background:var(--gut)"></i></div>
+  <p class="lead">Weight-loss drugs that copy the gut hormone GLP-1 (tirzepatide also copies GIP). No endometriosis trial exists or is registered,<sup><a href="#s36">36</a></sup> but people keep reporting less pain, and early, before much weight is lost. The full GLP-1 story is on the <a href="/library/goals/glp-1/">GLP-1s case</a>.</p>
+  <div class="grid two" style="margin-top:4px">
+  <div>
+  <p class="sub">How it may help</p>
+  <ul class="how">
+   <li><b>Calmer immune cells.</b> GLP-1 receptors sit on macrophages and in spinal pain cells. Switching them on lowers inflammatory signals (NF-κB, TNF, IL-6). <i class="ev e-a">Animal</i><i class="ev e-c">Cells</i></li>
+   <li><b>Less gut pain signalling.</b> In 6,665 people per group with IBS, those on GLP-1s had fewer abdominal pain records (31.6% vs 35.8%).<sup><a href="#s37">37</a></sup> <i class="ev e-h">Human</i></li>
+   <li><b>Not just weight.</b> Endometriosis is more common in lean women,<sup><a href="#s38">38</a></sup> and in the survey below weight lost did not predict who improved. <i class="ev e-r">Survey</i></li>
+   <li><b>A possible shortfall.</b> One study found less GLP-1 in pelvic fluid of women with endometriosis. Never repeated.<sup><a href="#s39">39</a></sup> <i class="ev e-h">Human tissue</i></li>
+  </ul>
+  <p class="sub">Every study, oldest first</p>
+  <ol class="tline">
+   <li><span class="ty">2022 <i class="ev e-h">Human tissue</i></span><p class="th">Less GLP-1 in pelvic fluid.</p><p class="tb">Fluid from 54 women with endometriosis had less GLP-1 than fluid from 30 women with fibroids, with more of the enzymes that break it down on immune cells. It is the one study the whole "GLP-1 shortfall" idea rests on.<sup><a href="#s39">39</a></sup></p><details class="tm"><summary>Human tissue · Int J Mol Sci</summary><div class="tmb"><p>Krasnyi 2022. <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/36142272/">PubMed</a></p></div></details></li>
+   <li><span class="ty">2025 <i class="ev e-h">1 person</i></span><p class="th">Period pain 12/10 to 3/10, back on a break, gone again on restart.</p><p class="tb">A lean 20-year-old with severe period pain (endometriosis not confirmed) took low-dose semaglutide. Pain fell within about a month with no weight change, returned during a 3-month break and improved again on restarting. One person, but stop and restart is a useful within-person test.<sup><a href="#s40">40</a></sup></p><details class="tm"><summary>Case report · Cureus</summary><div class="tmb"><p>Tran 2025. <a target="_blank" rel="noopener" href="https://assets.cureus.com/uploads/case_report/pdf/323277/20250114-1738341-6qk2tf.pdf">PDF</a></p></div></details></li>
+  </ol>
+  </div>
+  <div>
+  <ol class="tline tl2">
+   <li><span class="ty">2026 <i class="ev e-m">Hypothesis</i></span><p class="th">A paper proposing tirzepatide for hard cases.</p><p class="tb">It suggests tirzepatide as an add-on for endometriosis that resists treatment, and openly says its key idea rests on the single 2022 study above, never repeated.<sup><a href="#s36">36</a></sup></p><details class="tm"><summary>Hypothesis · Int J Mol Sci</summary><div class="tmb"><p>Jacobsen 2026. <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/42449952/">PubMed</a></p></div></details></li>
+   <li><span class="ty">2026 <i class="ev e-r">Survey</i></span><p class="th">GLEAM: 63% improved, and weight loss did not explain it.</p><p class="tb">227 people with endometriosis or adenomyosis who had used a GLP-1 answered an anonymous online survey. 63% (95% range 57 to 69%) rated themselves better overall plus in at least one symptom area, and 84% improved in at least one area. How much weight they lost did not predict improvement, and people with a higher starting weight improved <b>less</b>. Among normal-weight people who lost under 5% of their weight, 12 of 14 improved. Not peer reviewed, no comparison group, and people who felt better are more likely to answer.<sup><a href="#s5">5</a></sup></p><details class="tm"><summary>Preprint · Research Square</summary><div class="tmb"><p>Baudoin and van Bakel 2026. <a target="_blank" rel="noopener" href="https://www.researchsquare.com/article/rs-10323555/v1">Preprint</a></p></div></details></li>
+   <li><span class="ty">2026 <i class="ev e-r">Survey</i></span><p class="th">A second survey: 2 in 3 better, symptoms back after stopping.</p><p class="tb">A Canadian university survey reported 64.6% improved in at least one symptom and 33.7% had one symptom fully resolve; 60.3% of those who stopped said symptoms came back. How many people answered is unknown, the preprint could not be opened, and it must not be added to GLEAM.<sup><a href="#s41">41</a></sup></p></li>
+  </ol>
+  </div>
+  </div>
+ </div>
+</section></div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="ta1">
+ <h2 class="st">Thymosin alpha-1 · a trial only in a patent</h2>
+ <div class="cp">
+  <div class="cph"><h3>Thymosin α1</h3><a href="/library/#/p/thymosin-alpha-1">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:#6777B6"></i><i style="width:30%;background:var(--infl)"></i></div>
+  <p class="lead">An immune-signalling peptide. PubMed has no endometriosis study of it. The idea: endometriosis involves faulty T cells and NK cells, so tuning immunity might help. It could cut either way, since extra brake T cells already favour lesions.<sup><a href="#s27">27</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2023–2025 <i class="ev e-h">Human · open-label</i></span><p class="th">Pain score 6.35 → 1.88 with it, 5.88 → 2.5 without.</p><p class="tb">An Indian drug maker ran a randomised trial: thymosin alpha-1 (1.6 mg under the skin twice a week for 90 days, as used in the trial) plus standard care, against standard care alone, in 120 women with endometriosis up to stage III. The results appear only in the company's patent filing. Pain fell a lot in <b>both</b> groups (about 3.4 points with standard care alone), so the extra effect is about 0.6 points on a 10-point scale, with no test between groups shown. Pelvic pain between periods improved only on thymosin (p = 0.023 vs 0.135).<sup><a href="#s42">42</a></sup></p><p class="tb"><b>Why to doubt it.</b> Not peer reviewed; the trial was open, so everyone knew what they got; the starting scores have different labels; group sizes and side effects are not given; and the registry record still shows 0 enrolled and "start date TBD".<sup><a href="#s43">43</a></sup></p></li>
+  </ol>
+  <p class="hint">No first-hand endometriosis reports found.</p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="ldn">
+ <h2 class="st">Low-dose naltrexone · not a peptide</h2>
+ <div class="cp" style="--repair:#87CFC5">
+  <div class="cph"><h3>LDN</h3><span class="sci">No Library card</span></div>
+  <p class="lead">A small dose of an opioid blocker, used off-label for chronic pain. PubMed has no endometriosis study.</p>
+  <ul class="how">
+   <li><b>The only trial stopped at 9 people.</b> LDN with the progestin norethindrone against placebo; results are posted but could not be read, and with 9 people split in two any result would mean little.<sup><a href="#s44">44</a></sup> <i class="ev e-t">Trial</i></li>
+   <li><b>Closest study:</b> in a pain clinic, 53.8% of 93 people responded, and 66.7% of a pelvic pain group of unstated size; endometriosis was not named. About half had side effects (nausea, tiredness, vivid dreams, poor sleep); 25 stopped for side effects and 21 because it did nothing.<sup><a href="#s45">45</a></sup> <i class="ev e-h">Human</i></li>
+   <li><b>On Reddit</b>, 2 people with endometriosis said LDN helped another condition but not their endometriosis; 1 said it helped while also starting metformin and changing diet.<sup><a href="#s6">6</a></sup> <i class="ev e-r">Reports</i></li>
+   <li><b>Elsewhere online:</b> 1 patient story on a charity site that promotes LDN (she was also on ovulation drugs) and 1 case described by a clinician, both uncontrolled.<sup><a href="#s46">46</a></sup> <i class="ev e-r">Reports</i></li>
+  </ul>
+  <p class="hint">Blocks opioid painkillers: see warnings.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="human">
+ <h2 class="st">Other compounds with human studies</h2>
+ <p class="hint" style="margin:0 0 8px">Not peptides, but often asked about, and each has at least one human study in endometriosis. Tap to open.</p>
+ <div class="studies tri">
+  <details class="sd"><summary><i class="ev e-rct">4 RCTs</i><span class="t">Melatonin · mixed: 2 positive, 1 null, 1 partly</span><span class="yr">2013–26</span></summary><div class="bd">
+   <p><b>10 mg for 8 weeks, 40 women:</b> daily pain down 39.8% and period pain down 38% compared with placebo, 80% less painkiller use, better sleep.<sup><a href="#s47">47</a></sup></p>
+   <p><b>20 mg at bedtime, 40 women:</b> no difference (pain 2.9 vs 3.3).<sup><a href="#s48">48</a></sup></p>
+   <p><b>Added to dienogest for 6 months, 94 women:</b> period pain 1.2 to 1.3 points better, nothing else; dizziness in 53.8% vs 7.7%.<sup><a href="#s49">49</a></sup></p>
+   <p><b>5 mg for 2 months, 80 women with poor sleep:</b> pelvic pain fell more than on placebo; sleep improved a little.<sup><a href="#s50">50</a></sup></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-h">Cohorts</i><span class="t">NAC · good uncontrolled results, null when controlled</span><span class="yr">2013–26</span></summary><div class="bd">
+   <p><b>92 women who chose NAC or not:</b> cysts shrank 1.5 mm on NAC and grew 6.6 mm without; 24 vs 1 cancelled planned surgery. Not randomised.<sup><a href="#s51">51</a></sup></p>
+   <p><b>120 women, no comparison group:</b> pain, cyst size and CA125 improved over 3 months.<sup><a href="#s52">52</a></sup></p>
+   <p><b>The only randomised comparison,</b> after surgery: no added benefit over the continuous pill.<sup><a href="#s53">53</a></sup></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-rct">RCT null</i><span class="t">Cannabis and CBD · open studies positive, the placebo trial failed</span><span class="yr">2026</span></summary><div class="bd">
+   <p><b>THC:CBD oil, 30 women, open-label:</b> pain fell over 3 months, with less use of anti-inflammatories and opioids.<sup><a href="#s54">54</a></sup></p>
+   <p><b>UK registry, 101 women over 2 years:</b> pain, sleep and anxiety better; opioid dose fell from 19.9 to 14.8 mg a day (morphine equivalent); 17.8% had side effects (tiredness, headache).<sup><a href="#s55">55</a></sup></p>
+   <p><b>First placebo trial, CBD oil alone, 102 women:</b> about 40% in <b>both</b> groups had pain halved; end pain 41.6 vs 36.8 mm on placebo. Stopped early for no benefit and more stomach and weight side effects on CBD.<sup><a href="#s32">32</a></sup> It tested CBD, not the THC products above.</p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-h">Feasibility</i><span class="t">Dichloroacetate · fixes lactate, real trial starts late 2026</span><span class="yr">2019–26</span></summary><div class="bd">
+   <p><b>In mice</b> it lowered lactate and shrank lesions.<sup><a href="#s28">28</a></sup> <i class="ev e-a">Mice</i></p>
+   <p><b>EPiC1, 30 women, stage I to II:</b> a test of whether a trial is doable. 18 (60%) finished 12 weeks. 6 developed temporary nerve tingling and 2 stopped; both carried a slow-processing gene variant. Pain results are not in the published summary.<sup><a href="#s56">56</a></sup></p>
+   <p><b>EPiC2,</b> a placebo trial of about 100 women with the dose set by that gene, is due to start recruiting in late 2026.<sup><a href="#s57">57</a></sup> <i class="ev e-t">Trial</i></p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-rct">RCTs null</i><span class="t">Drugs that failed in 2025–26</span><span class="yr">2025–26</span></summary><div class="bd">
+   <p><b>Linustedastat,</b> a pill blocking local estrogen production: 353 women, no difference on any pain measure; the programme was stopped.<sup><a href="#s58">58</a></sup></p>
+   <p><b>Quinagolide vaginal ring:</b> 67 women, no change in lesion size, pain or bleeding. The "61% of lesions regressed" figure quoted online is an after-the-fact count inside one group, not a result.<sup><a href="#s59">59</a></sup></p>
+   <p><b>Cabergoline</b> (blocks vessel growth): a 9-woman pilot did about as well as a progestin.<sup><a href="#s60">60</a></sup> Too small to judge.</p>
+   <p class="hint">A reminder that good lab reasons often fail in people.</p>
+  </div></details>
+  <details class="sd"><summary><i class="ev e-a">Animal</i><span class="t">Kisspeptin and oxytocin · lab only</span><span class="yr">2012–26</span></summary><div class="bd">
+   <p><b>Kisspeptin</b> is lower in endometriosis tissue and blocked invasion and vessel growth of lesion cells in the lab.<sup><a href="#s61">61</a></sup> But in the body it is the master switch for sex hormones, so injecting it raises estrogen, the fuel endometriosis runs on.<sup><a href="#s62">62</a></sup> <a href="/library/#/p/kisspeptin-10">Library card</a></p>
+   <p><b>Oxytocin:</b> research points the other way, to oxytocin <b>blockers</b>, especially for adenomyosis.<sup><a href="#s16">16</a></sup> Taking oxytocin would push in the wrong direction. <a href="/library/#/p/oxytocin">Library card</a></p>
+  </div></details>
+ </div>
+</section></div>
+
+<div class="grid two" id="nostudy">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · no endometriosis studies</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--heart)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <p class="lead">No endometriosis study exists, in people or animals. Across every use, human data are 3 small studies with 30 people (knee 16, bladder 12, vein 2). All three come from the same clinician, at a US clinic that sells the treatment, and a 2026 review rated the evidence very low and said it should only be used in trials.<sup><a href="#s63">63</a></sup></p>
+  <p class="sub">Why it is a concern here</p>
+  <ol class="tline">
+   <li><span class="ty">2009 <i class="ev e-a">Rat</i></span><p class="th">Raised VEGF in healing muscle and tendon.</p><p class="tb">The build-a-vessel signal went up where tissue was healing.<sup><a href="#s64">64</a></sup></p></li>
+   <li><span class="ty">2015 <i class="ev e-a">Rat</i></span><p class="th">More VEGF in burned skin.</p><p class="tb">It raised VEGF-a and made vessel-lining cells multiply and move.<sup><a href="#s65">65</a></sup></p></li>
+   <li><span class="ty">2016 <i class="ev e-a">Rat</i><i class="ev e-c">Cells</i></span><p class="th">Switched on the VEGF receptor.</p><p class="tb">More vessels in chick embryo and tube tests, and more VEGFR2, the receptor that carries the vessel signal, in rat legs and human vessel cells.<sup><a href="#s66">66</a></sup></p></li>
+  </ol>
+  <p class="mech">Lesions need VEGF-driven vessels to settle in and survive.<sup><a href="#s7">7</a></sup> So a peptide that boosts that signal has a plausible path to feed them. <b>Nobody has tested whether it does.</b> The possible upside, calmer gut and bladder, is also untested; the bladder pilot in interstitial cystitis is the closest human study.</p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="tb">
+ <h2 class="st">TB-500 &amp; T<span class="ng">β</span>4 · the most direct red flag</h2>
+ <div class="cp">
+  <div class="cph"><h3>TB-500</h3><span><a href="/library/#/p/tb-500-frag-17-23">Fragment card</a> · <a href="/library/#/p/thymosin-beta-4">Full T<span class="ng">β</span>4 card</a></span></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:30%;background:var(--heart)"></i></div>
+  <p class="lead">TB-500 is a 7 amino acid piece of thymosin beta-4 (Tβ4). No one has tested either as a treatment for endometriosis. But the body's own Tβ4 shows up on the wrong side.</p>
+  <ol class="tline">
+   <li><span class="ty">2003 <i class="ev e-a">Mice</i></span><p class="th">Raised in adenomyosis, strongest at the invading edge.</p><p class="tb">In mice given adenomyosis, the Tβ4 gene was switched up most where lining tissue pushed into the womb muscle. The authors suggest it may help break the wall down.<sup><a href="#s67">67</a></sup></p></li>
+   <li><span class="ty">2021 <i class="ev e-c">Human cells</i></span><p class="th">More Tβ4, more invasive endometriosis cells.</p><p class="tb">In human endometriosis tissue and cells, a pathway that raises the Tβ4 gene made lesion cells multiply, move and invade faster; silencing it reduced all three.<sup><a href="#s8">8</a></sup></p></li>
+   <li><span class="ty">2023 <i class="ev e-m">Review</i></span><p class="th">Known for vessels, cell movement and spread.</p><p class="tb">Tβ4 broadly promotes new vessels and cell migration, including in tumour spread.<sup><a href="#s68">68</a></sup></p></li>
+  </ol>
+  <p class="mech">The same cell-moving power that helps a tendon heal is what endometriosis cells use to invade. TB-500 is only a fragment and has not been tested, so this is a warning sign, not proof.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="others">
+ <h2 class="st">KPV, GHK-Cu, LL-37 and blends · no endometriosis studies</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/kpv">KPV</a>.</b> A calming fragment of α-MSH. Its anti-inflammatory action (NF-κB) makes sense on paper, but no endometriosis or womb study exists, and no one reported using it for endometriosis.</p></div>
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/ghk-cu">GHK-Cu</a>.</b> No endometriosis study. In cells it releases VEGF,<sup><a href="#s69">69</a></sup> the same direction as BPC-157 but weaker evidence; mostly used on skin, and injecting it carries the same theoretical concern.</p></div>
+  <div class="sr"><span class="ev e-c">None</span><p><b><a href="/library/#/p/ll-37">LL-37</a>.</b> No endometriosis study. The one near hit tested a related peptide in <b>endometritis</b>, a womb infection in cows and mice, a different disease.<sup><a href="#s70">70</a></sup></p></div>
+ </div>
+ <p class="hint">Blends like <a href="/library/#/p/klow">KLOW</a>, <a href="/library/#/p/glow">GLOW</a> and <a href="/library/#/p/bpc-157-tb-500">BPC + TB-500</a> contain BPC-157 and TB-500 (GLOW and KLOW also GHK-Cu), so they carry the vessel concern several times over. Searches across forums found zero first-hand endometriosis reports for any of them.<sup><a href="#s46">46</a></sup></p>
+</section></div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every compound, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Compound</th><th>In people with endo</th><th>In animals or cells</th><th>Direction</th></tr>
+  <tr><td>GLP-1s</td><td>2 surveys, 1 case, no trial</td><td>Theory papers</td><td>Promising, unproven</td></tr>
+  <tr><td>Thymosin α1</td><td>1 open trial, patent only</td><td>None</td><td>Unclear, biased source</td></tr>
+  <tr><td>Melatonin</td><td>4 RCTs, mixed</td><td>Yes</td><td>Mixed</td></tr>
+  <tr><td>NAC</td><td>Cohorts; 1 null RCT</td><td>Yes</td><td>Weak</td></tr>
+  <tr><td>THC:CBD / CBD</td><td>Open studies; CBD RCT null</td><td>Yes</td><td>Weak</td></tr>
+  <tr><td>Dichloroacetate</td><td>Feasibility, 30</td><td>Mice</td><td>RCT from late 2026</td></tr>
+  <tr><td>LDN</td><td>RCT stopped at 9</td><td>None</td><td>Anecdote only</td></tr>
+  <tr><td>Kisspeptin</td><td>None</td><td>Cells, animals</td><td class="bad">Raises estrogen</td></tr>
+  <tr><td>BPC-157</td><td>None</td><td>None</td><td class="bad">Vessel growth</td></tr>
+  <tr><td>TB-500 / Tβ4</td><td>None</td><td>Tβ4 raised in disease</td><td class="bad">Vessels, invasion</td></tr>
+  <tr><td>GHK-Cu</td><td>None</td><td>None</td><td class="bad">Vessel growth (weak)</td></tr>
+  <tr><td>KPV, LL-37</td><td>None</td><td>None</td><td>Unknown</td></tr>
+ </table></div>
+ <p class="hint">In people with endo = studies in people who have endometriosis. Red = the known mechanism could plausibly make endometriosis worse; untested either way.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">What worked for them · GLP-1s</h2>
+ <p class="hint" style="margin:0 0 6px">Nearly every positive first-hand report found was for a GLP-1 drug, mostly tirzepatide. LDN is covered in part 2.</p>
+ <div class="pool"><p class="sub" style="margin-top:0">Reddit · 22 GLP-1 users</p>
+  <div class="sbar" role="img" aria-label="8 better, 7 partly or mixed, 5 no change, 2 worse"><i class="g1" style="width:36.4%">8</i><i class="g2" style="width:31.8%">7</i><i class="g3" style="width:22.7%">5</i><i class="g4" style="width:9.1%">2</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Forums and news · 9 users</p>
+  <div class="sbar" role="img" aria-label="7 better, 1 no change, 1 worse"><i class="g1" style="width:77.8%">7</i><i class="g3" style="width:11.1%">1</i><i class="g4" style="width:11.1%">1</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Partly or mixed</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>What changed:</b> daily pelvic pain, period pain, bloating, flares, tiredness and brain fog. Two forum users had their first pain-free period; one came off long-term morphine (other conditions too).<sup><a href="#s46">46</a></sup></li>
+  <li><b>How fast:</b> often within the first cycle or first weeks, sometimes days, before much weight was lost. That fits the survey finding that weight did not explain it, but it also fits placebo and cycle swings.<sup><a href="#s5">5</a>,<a href="#s31">31</a></sup></li>
+  <li><b>Diagnosis:</b> 5 of the 22 Reddit users had surgery-confirmed endometriosis; most were self-reported and one only suspected.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Confirmed by a scan or surgery:</b> none, in any pool.</li>
+  <li><b>Retatrutide,</b> an unapproved trial drug, in 1 Reddit report: daily pain from 5/10 to 0/10 over months, with diet changes.<sup><a href="#s6">6</a></sup></li>
+ </ul>
+ <p class="sub">In their words (shortened, Reddit and forums)</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">Surgery confirmed</span><p>Pelvic pressure eased within 10 days; hiked 8 miles.</p></div>
+  <div class="sr"><span class="ev e-r">Deep endo</span><p>Night leg and hip pain gone by 3 months; "back to normal life".</p></div>
+  <div class="sr"><span class="ev e-r">Endo + adenomyosis</span><p>First ever pain-free period; tiredness stayed.</p></div>
+  <div class="sr"><span class="ev e-r">Bowel endo</span><p>First period on it had about 10% of the usual pain.</p></div>
+  <div class="sr"><span class="ev e-r">Paused it</span><p>Pain and tiredness less often; came back weeks after a pause.</p></div>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="nochange">
+ <h2 class="st">No change or worse</h2>
+ <ul class="tight">
+  <li><b>Weight down, endo unchanged.</b> One Reddit user lost 95 lb over 2 years on two GLP-1s with no change in symptoms; another felt nothing on semaglutide.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Other symptoms better, periods worse.</b> Two had daily pain or bloating ease while period pain got worse; one had her worst period since surgery, with nausea and leg numbness.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Worse over time.</b> One had ovulation pain about 4 months in, then constant pain with bowel and bladder symptoms after almost 2 years; another had more regular cycles but severe pain all month. Timing, not proof of cause.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Gut side effects.</b> Constipation in 3 Reddit users, severe in 2, one with bleeding. Slowed gut emptying can mimic or worsen endometriosis bloating.<sup><a href="#s6">6</a>,<a href="#s71">71</a></sup></li>
+  <li><b>Bleeding with oral hormones.</b> One forum user had a 21-day bleed after starting tirzepatide and a combined hormone pill together; one Reddit user's relief faded and her clinician raised whether her progestin pill was being absorbed.<sup><a href="#s46">46</a>,<a href="#s6">6</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="doctor">
+ <h2 class="st">Seen by a doctor</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-h">US doctor</span><p>"Many patients" have less inflammation on low doses. No count given.</p></div>
+  <div class="sr"><span class="ev e-h">OB-GYN chair</span><p>Has seen improvements she "can't explain"; says it will not work for everyone.</p></div>
+  <div class="sr"><span class="ev e-h">Endo surgeon</span><p>Some patients have fewer flares and less bloating; others no change or worse gut symptoms. Not an endometriosis treatment, in his view.</p></div>
+  <div class="sr"><span class="ev e-h">UK consultant</span><p>"Some women report a benefit, others have not." Asked if women should request it: "Absolutely not."</p></div>
+ </div>
+ <p class="hint">From news features and a clinic blog.<sup><a href="#s71">71</a></sup> Doctors described what patients told them; none reported a scan or surgery showing lesion change.</p>
+</section>
+<section class="sec" id="zero">
+ <h2 class="st">The research peptides</h2>
+ <p><b>Zero first-hand endometriosis reports</b> for BPC-157, TB-500, KPV, GHK-Cu, LL-37, thymosin alpha-1 or the blends, across forums, blogs and podcasts. Searches turned up only seller pages, which were left out.<sup><a href="#s46">46</a></sup></p>
+ <p class="hint">Self-reported, collected 3 to 4 Nov 2026. Reddit posts were logged one person per row; 3 LDN posts are counted under LDN, not here. Forum and news reports come from Mumsnet, HealthUnlocked and news features. People who post are self-selected, unblinded and usually on other treatments.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>Hormones + pain education + pelvic floor physio + talking therapy.</b> The German 2025 guideline's step-by-step approach to pain.<sup><a href="#s72">72</a></sup> <span class="ev e-m">Guideline</span></li>
+  <li><b>Melatonin + dienogest:</b> period pain 1.2 to 1.3 points better than dienogest alone, but dizziness in over half.<sup><a href="#s49">49</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Nanocurcumin or selenium + dienogest:</b> benefit reported in single trials; ordinary curcumin did nothing.<sup><a href="#s73">73</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>GLP-1 + oral hormones:</b> the combination most reported online, but tirzepatide lowers how much of an oral hormone pill gets absorbed, especially early on.<sup><a href="#s74">74</a></sup> <span class="ev e-h">Human</span></li>
+  <li><b>Hormones after surgery:</b> reoperation 4.4% with vs 11.2% without, from studies that reported it rather than a randomised test.<sup><a href="#s9">9</a></sup> <span class="ev e-m">Meta</span></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="elsewhere">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><b>IBS:</b> about 3 times more likely (OR 2.97, 11 studies, 96,119 people), and about 1 in 4 women with endometriosis meet IBS criteria. Endometriosis on the bowel is often mislabelled IBS.<sup><a href="#s75">75</a>,<a href="#s76">76</a></sup></li>
+  <li><b>Bladder pain syndrome:</b> found in 15.5 to 78.3% of women with chronic pelvic pain.<sup><a href="#s77">77</a></sup> It is also the closest human BPC-157 study (bladder instillation, 12 women).<sup><a href="#s63">63</a></sup></li>
+  <li><b>PCOS:</b> in 2,579 people with pelvic pain, 37% had IBS and 20% PCOS.<sup><a href="#s78">78</a></sup> One review frames PCOS and endometriosis as opposite ends of the same hormone system.<sup><a href="#s79">79</a></sup> In PCOS, GLP-1s tripled natural pregnancy compared with metformin (OR 3.10).<sup><a href="#s80">80</a></sup></li>
+  <li><b>Fertility:</b> see part 5.</li>
+ </ul>
+ <div class="chips"><a class="chip" href="/library/goals/glp-1/"><i class="sq" style="background:#DDD0F6"></i>GLP-1s</a><a class="chip" href="/library/goals/notes/gut/"><i class="sq" style="background:var(--gut)"></i>Gut notes</a><a class="chip" href="/library/goals/pcos/"><i class="sq" style="background:#FF99D8"></i>PCOS notes</a><a class="chip" href="/library/goals/notes/menopause/"><i class="sq" style="background:#FF99D8"></i>Menopause notes</a><span class="chip off">Bladder pain</span><span class="chip off">Adenomyosis</span></div>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, compared</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="gnrhbars">
+ <h2 class="st">Hormone pills vs placebo</h2>
+ <p class="sub">Share with a real drop in period pain at 3 months · elagolix, 872 women<sup><a href="#s31">31</a></sup></p>
+ <div class="bars">
+  <div class="bl1"><span>Placebo</span><div class="bt"><i style="width:20%"></i><em>20%</em></div></div>
+  <div class="bl1"><span>Lower dose</span><div class="bt yr"><i style="width:46%"></i><em>46%</em></div></div>
+  <div class="bl1"><span>Higher dose</span><div class="bt yr"><i style="width:76%"></i><em>76%</em></div></div>
+ </div>
+ <p>Pooled across 5 large trials (2,060 women), GnRH antagonists have an <b>NNT of 2</b> for period pain: treat 2 people and 1 more gets relief than on placebo. For pain between periods the NNT is 5. No drug clearly beat another.<sup><a href="#s4">4</a></sup> The price is lower estrogen: hot flushes, higher cholesterol and bone loss without "add-back" hormones.<sup><a href="#s31">31</a></sup> With add-back, bone density fell under 1% and then held steady over 2 years.<sup><a href="#s81">81</a></sup></p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="surg">
+ <h2 class="st">Surgery · excision vs burning</h2>
+ <ul class="tight">
+  <li><b>Ovarian cysts:</b> cutting the cyst out beat draining and burning it. Period pain came back in 10 to 34% vs 49%, painful sex in 4 to 23% vs 58%. Only 2 studies, 140 women, low certainty.<sup><a href="#s82">82</a></sup></li>
+  <li><b>Superficial spots:</b> 4 trials (346 women) found no pain difference between cutting out and burning at 12 months or more, despite strong online preference for excision.<sup><a href="#s83">83</a></sup></li>
+  <li><b>Does surgery help at all?</b> Against a look-only operation, the pain benefit is uncertain (14 trials, low quality).<sup><a href="#s84">84</a></sup> A UK trial, ESPriT2, is testing this for superficial disease; results are due.<sup><a href="#s85">85</a></sup></li>
+  <li><b>Coming back:</b> 10.8% have another operation (57 studies, 22,644 people), less after bowel (5.1%) or urinary (4.0%) surgery.<sup><a href="#s9">9</a></sup></li>
+  <li><b>Hysterectomy is not a sure cure:</b> in 990 women, reoperation was 19.2% keeping the ovaries and 4.9% removing both, but pain visits and opioid use did not differ.<sup><a href="#s86">86</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+<div class="grid"><section class="sec" id="treat">
+ <h2 class="st">All treatments, compared</h2>
+ <div class="tr th"><span>Option</span><span>What the numbers say</span><span>Evidence</span><span>Note</span></div>
+ <div class="tr"><span><b>NSAIDs</b> <i class="ev e-m">Cochrane</i></span><span>The usual first step, but the only usable trial had 24 women and showed no clear benefit. Not studied, more than proven to fail.<sup><a href="#s87">87</a></sup></span><span>Very thin</span><span>Cheap</span></div>
+ <div class="tr"><span><b>Pill or progestin</b> <i class="ev e-m">Guideline</i></span><span>First choice in the European guideline, strongly so for teenagers.<sup><a href="#s18">18</a></sup></span><span>Strong use</span><span>First line</span></div>
+ <div class="tr"><span><b>Dienogest</b> <i class="ev e-rct">RCT</i></span><span>Pain down 27.4 vs 15.1 points (of 100) on placebo in 198 women; kept improving to a year, 2.4% stopped for side effects. Matched elagolix head to head.<sup><a href="#s88">88</a>,<a href="#s89">89</a>,<a href="#s90">90</a></sup></span><span>Good</span><span>Some resist it</span></div>
+ <div class="tr"><span><b>GnRH antagonists</b> <i class="ev e-m">Meta</i></span><span>NNT 2 for period pain, NNT 5 for pain between periods. Linzagolix with add-back: 72.9% vs 23.5% period pain responders.<sup><a href="#s4">4</a>,<a href="#s91">91</a></sup></span><span>Strong</span><span class="bad">Bone without add-back</span></div>
+ <div class="tr"><span><b>Excision surgery</b> <i class="ev e-m">Cochrane</i></span><span>Better than burning for ovarian cysts; equal for superficial spots.<sup><a href="#s82">82</a>,<a href="#s83">83</a></sup></span><span>Low certainty</span><span>10.8% repeat</span></div>
+ <div class="tr"><span><b>Hysterectomy</b> <i class="ev e-h">Cohort</i></span><span>Fewer repeat operations with ovaries out, same pain care use. Use combined HRT after, not estrogen alone.<sup><a href="#s86">86</a>,<a href="#s35">35</a></sup></span><span>Cohort</span><span>Not a sure cure</span></div>
+ <div class="tr"><span><b>Pelvic floor + exercise</b> <i class="ev e-rct">RCT</i></span><span>Worst pain unchanged; current pain 1.1 points better at 4 months, 1.5 at 12, in 81 women.<sup><a href="#s92">92</a></sup></span><span>One trial</span><span>Low risk</span></div>
+ <div class="tr"><span><b>Supplements</b> <i class="ev e-m">Meta</i></span><span>9 placebo trials, 545 women: no benefit for any pain type. Omega-3, ordinary curcumin and resveratrol showed nothing.<sup><a href="#s93">93</a>,<a href="#s73">73</a></sup></span><span>Null</span><span>Not advised</span></div>
+ <div class="tr"><span><b>Diet</b> <i class="ev e-m">Review</i></span><span>Mediterranean and low-inflammation eating go with less pain; red and processed meat with higher risk. Observational only; trials running.<sup><a href="#s94">94</a></sup></span><span>Weak</span><span>Trials due</span></div>
+ <div class="tr pep"><span><b>GLP-1s</b> <i class="ev e-r">Survey</i></span><span>63% improved in a 227-person survey; no trial.<sup><a href="#s5">5</a></sup></span><span>Very weak</span><span>Unknown</span></div>
+ <div class="tr pep"><span><b>Research peptides</b> <i class="ev e-c">None</i></span><span>No endometriosis study for BPC-157, TB-500, KPV, GHK-Cu or LL-37.<sup><a href="#s63">63</a></sup></span><span>None</span><span class="bad">Vessel concern</span></div>
+</section></div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="fert">
+ <h2 class="st">Fertility</h2>
+ <ul class="tight">
+  <li><b>IVF works about as well.</b> Women with an ovarian cyst had the same live birth rate as women without (OR 0.98), though fewer eggs and more cancelled cycles. Removing the cyst first did not raise live births (OR 0.90).<sup><a href="#s95">95</a></sup></li>
+  <li><b>Each extra operation costs.</b> Natural pregnancy odds were 2.1 times higher after one surgery than after two or more.<sup><a href="#s96">96</a></sup></li>
+  <li><b>After deep disease surgery,</b> 61.1% of 507 women got pregnant during follow-up, 70% of them naturally; one expert centre, no comparison group.<sup><a href="#s97">97</a></sup></li>
+  <li><b>Long hormone shutdown before IVF</b> is no longer supported: across 8 small trials (640 women) it is uncertain whether it changes live births.<sup><a href="#s98">98</a></sup></li>
+  <li>The often-quoted "30 to 50% are infertile" traces back to a weak citation chain, so it is not used here.</li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="trials">
+ <h2 class="st">Trials to watch</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-t">Due 2026</span><p><b>ESPriT2:</b> does removing superficial spots help pelvic pain? Recruitment finished, results due.<sup><a href="#s85">85</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Starts 2026</span><p><b>EPiC2:</b> dichloroacetate vs placebo, about 100 women.<sup><a href="#s57">57</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Due 2027</span><p><b>NOVA:</b> vipoglanstat, a non-hormonal pill that cuts prostaglandin E2, about 190 women.<sup><a href="#s99">99</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Recruiting</span><p><b>Surgery first or IVF first</b> in advanced disease, 350 women, Sweden.<sup><a href="#s100">100</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">None</span><p><b>GLP-1s:</b> no endometriosis trial registered as of 3 Nov 2026.</p></div>
+ </div>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="vessels">
+ <h2 class="st rdt">Blood-vessel growth</h2>
+ <div class="box rd">
+  <p>Endometriosis lesions need new blood vessels to settle in and survive, and research drugs try to <b>block</b> that signal.<sup><a href="#s7">7</a></sup> BPC-157 raised VEGF and its receptor in rats and cells,<sup><a href="#s66">66</a>,<a href="#s65">65</a></sup> GHK-Cu released VEGF in cells,<sup><a href="#s69">69</a></sup> and Tβ4 promotes vessels and cell spread.<sup><a href="#s68">68</a></sup> They push in the same direction lesions need.</p>
+  <p><b>Tβ4 is the most direct flag:</b> raised at the invading edge of mouse adenomyosis and driving human endometriosis cells to invade.<sup><a href="#s67">67</a>,<a href="#s8">8</a></sup> A 2026 review lists unwanted vessel growth and cancer promotion among the concerns for unapproved peptides including BPC-157 and TB-500.<sup><a href="#s101">101</a></sup></p>
+  <p class="hint">No case of endometriosis growth on these peptides has been reported; it has never been studied. A warning sign from biology, not a measured harm.</p>
+ </div>
+</section>
+<section class="sec" id="glpwarn">
+ <h2 class="st">The pill, pregnancy and masking</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>Pill absorption:</b> in 40 women, tirzepatide cut the peak level of a contraceptive pill's hormones by 59 to 66%. The label advises a non-oral or barrier method for 4 weeks after starting and after each dose increase.<sup><a href="#s74">74</a>,<a href="#s102">102</a></sup> Endometriosis is often treated with oral progestins, which may be affected too.</li>
+   <li><b>GLP-1s in pregnancy:</b> not recommended; reviews report fetal harm in animals, and semaglutide is stopped about 2 months before trying.<sup><a href="#s103">103</a></sup></li>
+   <li><b>Masking:</b> nausea, constipation and belly pain can be confused with an endometriosis flare.<sup><a href="#s71">71</a></sup></li>
+   <li><b>No pregnancy safety data</b> for any peptide here, and many readers are trying to conceive.</li>
+  </ul>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="gh">
+ <h2 class="st">Growth hormone peptides and IGF-1</h2>
+ <div class="box or">
+  <p>CJC-1295, ipamorelin, MK-677 and similar reliably raise growth hormone and IGF-1.<sup><a href="#s104">104</a></sup> IGF-1 is higher in the pelvic fluid and blood of women with endometriosis,<sup><a href="#s105">105</a></sup> and IGF-1 from immune cells drives nerve sprouting and pain; blocking its receptor reversed pain in mice.<sup><a href="#s30">30</a></sup> No one has tested a GH peptide in endometriosis, so this is a pathway concern, not a result. No case report links GH peptides, BPC-157 or TB-500 to endometriosis growth (PubMed screen, 2024 to 2026), and there is no study of growth hormone as an IVF add-on in endometriosis either. <a href="/library/#/p/cjc-ipamorelin">CJC + ipamorelin card</a> · <a href="/library/#/p/mk-677">MK-677 card</a></p>
+ </div>
+</section>
+<section class="sec" id="ldnwarn">
+ <h2 class="st">LDN and surgery</h2>
+ <div class="box or">
+  <p>Naltrexone blocks opioid painkillers. One forum poster on naltrexone woke from endometriosis surgery in severe pain that took a long time to control. Anyone on LDN should tell the surgical team.<sup><a href="#s46">46</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="fine">
+ <h2 class="st">Before you trust a vial or a number</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>The vial is not the study.</b> Purity and contamination of grey-market peptides are unknown; the BPC-157 review limits use to regulated trials.<sup><a href="#s63">63</a>,<a href="#s101">101</a></sup></li>
+   <li><b>Pain relief can hide disease.</b> Feeling better can delay finding deep disease on the bowel, ureter or ovary.</li>
+   <li><b>Kisspeptin</b> raises estrogen, the opposite of what treatment aims for.<sup><a href="#s62">62</a></sup></li>
+   <li><b>Banned in tested sport.</b> BPC-157 is banned at all times under WADA rules, as are Tβ4 and its fragments.<sup><a href="#s106">106</a></sup></li>
+  </ul>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Can I be diagnosed without surgery?</summary><div class="bd"><p>Yes. The US (2026), UK (2024) and European (2022) guidelines all allow a diagnosis from symptoms, examination and imaging, and starting treatment without keyhole surgery.<sup><a href="#s19">19</a>,<a href="#s20">20</a>,<a href="#s18">18</a></sup></p></div></details>
+  <details class="fq" open><summary>My scan was normal. Does that rule it out?</summary><div class="bd"><p>No. Scans find cysts and deep disease well, but superficial spots, the most common type, often do not show. No blood or saliva test is ready.<sup><a href="#s14">14</a></sup></p></div></details>
+  <details class="fq"><summary>Is it genetic?</summary><div class="bd"><p>It runs in families: an affected sister raised risk about 2.75 times and an affected twin about 7 times in 2.1 million Korean women.<sup><a href="#s13">13</a></sup></p></div></details>
+  <details class="fq"><summary>Will I be able to get pregnant?</summary><div class="bd"><p>Endometriosis is linked to infertility, but with IVF, live birth rates with an ovarian cyst match those without (OR 0.98). Egg numbers are lower, and each extra operation lowers natural pregnancy odds.<sup><a href="#s95">95</a>,<a href="#s96">96</a></sup></p></div></details>
+  <details class="fq"><summary>Does pregnancy cure it?</summary><div class="bd"><p>No. Some cysts shrink or vanish, but 8.8 to 39% grow, and placenta praevia is more likely. Pregnancy should not be presented as a treatment.<sup><a href="#s33">33</a></sup></p></div></details>
+  <details class="fq"><summary>Does menopause end it?</summary><div class="bd"><p>Mostly it quiets down, but 2 to 5% stay affected. Avoid estrogen-only HRT, even after a hysterectomy.<sup><a href="#s34">34</a>,<a href="#s35">35</a></sup></p></div></details>
+  <details class="fq"><summary>Can it come back after surgery?</summary><div class="bd"><p>Yes. About 1 in 10 have another operation, fewer with hormones afterwards (4.4% vs 11.2%).<sup><a href="#s9">9</a></sup></p></div></details>
+  <details class="fq"><summary>Excision or ablation?</summary><div class="bd"><p>For ovarian cysts, cutting them out lowers pain and cyst return (low certainty). For superficial spots, 4 trials found no pain difference.<sup><a href="#s82">82</a>,<a href="#s83">83</a></sup></p></div></details>
+  <details class="fq"><summary>Will a hysterectomy cure it?</summary><div class="bd"><p>Not reliably. Removing the ovaries too cut repeat surgery (4.9% vs 19.2%) but not pain-related visits or opioid use.<sup><a href="#s86">86</a></sup></p></div></details>
+  <details class="fq"><summary>Which hormone treatment?</summary><div class="bd"><p>Dienogest and elagolix did equally well head to head.<sup><a href="#s90">90</a></sup> Guidelines put the pill or a progestin first and GnRH antagonists second; the choice comes down to side effects, bleeding and pregnancy plans.<sup><a href="#s18">18</a></sup></p></div></details>
+  <details class="fq"><summary>Do GnRH drugs thin my bones?</summary><div class="bd"><p>Without add-back hormones, yes. With add-back, bone density fell under 1% and then held steady over 2 years.<sup><a href="#s31">31</a>,<a href="#s81">81</a></sup> Untreated endometriosis does not seem to cause meaningful bone loss.<sup><a href="#s107">107</a></sup></p></div></details>
+  <details class="fq"><summary>Do Ozempic or Mounjaro help endometriosis?</summary><div class="bd"><p>Unknown. Two unreviewed surveys and many forum stories report improvement, often early and not tied to weight loss. There is no trial and no scan-confirmed lesion change.<sup><a href="#s5">5</a>,<a href="#s6">6</a></sup></p></div></details>
+  <details class="fq"><summary>Does CBD or cannabis help?</summary><div class="bd"><p>Open studies of THC:CBD products report less pain and opioid use. The first placebo trial of CBD oil alone found no benefit; placebo helped about 40%.<sup><a href="#s54">54</a>,<a href="#s32">32</a></sup></p></div></details>
+  <details class="fq"><summary>Does diet or a supplement help?</summary><div class="bd"><p>Possibly a little for diet; trials are running. For supplements, 9 placebo trials found no pain benefit.<sup><a href="#s94">94</a>,<a href="#s93">93</a></sup></p></div></details>
+  <details class="fq"><summary>Does it cause cancer?</summary><div class="bd"><p>It raises the risk of two ovarian cancer types, mainly with ovarian cysts or deep disease, but the absolute risk is low and routine screening is not recommended.<sup><a href="#s108">108</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-m">Review</i></dt><dd>a summary of past studies</dd></div><div><dt><i class="ev e-a">Animal</i></dt><dd>rats or mice</dd></div><div><dt><i class="ev e-c">Cells</i></dt><dd>cells in a lab dish</dd></div><div><dt><i class="ev e-t">Trial</i></dt><dd>registered, results not out yet</dd></div><div><dt><i class="ev e-r">Survey</i></dt><dd>self-reported, online, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>Laparoscopy</dt><dd>keyhole surgery through the belly to look and remove lesions</dd></div><div><dt>Endometrioma</dt><dd>a cyst of old blood on an ovary, the "chocolate cyst"</dd></div><div><dt>Adenomyosis</dt><dd>lining tissue growing into the womb's muscle wall</dd></div><div><dt>Excision</dt><dd>cutting a lesion out; ablation burns its surface</dd></div><div><dt>VEGF</dt><dd>the body's main signal to build new blood vessels</dd></div><div><dt>NNT</dt><dd>how many people must be treated for one extra to benefit</dd></div><div><dt>Add-back</dt><dd>low-dose hormones given with GnRH drugs to protect bone</dd></div><div><dt>Sensitisation</dt><dd>the nervous system amplifying pain on its own</dd></div></dl></div>
+</section>
+<section class="sec" id="sources">
+ <div class="srcs" id="srcd"><h2 class="st">Sources <span class="cnt">108</span></h2>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/endometriosis/">full research notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">WHO fact sheet, endometriosis, 24 Mar 2023 (read in Spanish). <a href="https://www.who.int/es/news-room/fact-sheets/detail/endometriosis/" target="_blank" rel="noopener">link</a></li>
+   <li id="s2">2026 study, symptoms, lesion burden and cannabis use in endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/42926793/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">BJOG 2024, systematic review of diagnostic delay, 17 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/39373298/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">J Minim Invasive Gynecol 2026, meta-analysis of 5 phase 3 GnRH antagonist trials. <a href="https://pubmed.ncbi.nlm.nih.gov/42025872/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s5">GLEAM survey, Baudoin and van Bakel, Research Square preprint, 14 Jul 2026 (not peer reviewed). <a href="https://www.researchsquare.com/article/rs-10323555/v1" target="_blank" rel="noopener">link</a></li>
+   <li id="s6">Reddit pass, r/Endo and r/endometriosis, 25 first-hand posts logged in the Bare Signals research log, Nov 2026. <a href="https://www.reddit.com/r/endometriosis/comments/1twhp1q/glp1gip_endometriosis_inflammation_relief/" target="_blank" rel="noopener">thread 1</a> · <a href="https://www.reddit.com/r/Endo/comments/1p51h2q/glp1/" target="_blank" rel="noopener">thread 2</a> · <a href="https://www.reddit.com/r/Endo/comments/1wpr6q0/tirzepatide_for_endo/" target="_blank" rel="noopener">thread 3</a> · <a href="https://www.reddit.com/r/endometriosis/comments/1ttggxo/low_dose_naltrexone/" target="_blank" rel="noopener">LDN thread</a></li>
+   <li id="s7">Front Reprod Health 2026, VEGF-directed drugs, network meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/41668890/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Bioengineered 2021: circRNA raising TMSB4X drives endometriosis cells. <a href="https://pubmed.ncbi.nlm.nih.gov/34546850/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s9">JMIG 2026: reoperation after surgery, 57 studies, 22,644 people. <a href="https://pubmed.ncbi.nlm.nih.gov/42498214/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s10">Zondervan 2020, NEJM review: endometriosis (title and index terms only). <a href="https://pubmed.ncbi.nlm.nih.gov/32212520/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">2026 review, symptoms and pain mechanisms. <a href="https://pubmed.ncbi.nlm.nih.gov/42941690/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s12">AJOG 2017, painful periods that do not respond to NSAIDs. <a href="https://pubmed.ncbi.nlm.nih.gov/28888592/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">BJOG 2021, family risk in 2.1 million Korean women. <a href="https://pubmed.ncbi.nlm.nih.gov/34028167/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s14">2026 review, imaging and biomarkers for diagnosis, Int J Gynaecol Obstet. <a href="https://pubmed.ncbi.nlm.nih.gov/42885805/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s15">Int J Med Sci 2026, adenomyosis review. <a href="https://pubmed.ncbi.nlm.nih.gov/42910152/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s16">Hum Reprod Open 2026, oxytocin receptor and contractions in adenomyosis. <a href="https://pubmed.ncbi.nlm.nih.gov/41836349/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s17">Front Med 2025, meta-analysis of patient and provider causes of delay. <a href="https://pubmed.ncbi.nlm.nih.gov/40766070/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s18">Becker 2022, ESHRE guideline: endometriosis, Hum Reprod Open. <a href="https://pubmed.ncbi.nlm.nih.gov/35350465/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">ACOG 2026, Clinical Practice Guideline: Diagnosis of Endometriosis, Obstet Gynecol. <a href="https://pubmed.ncbi.nlm.nih.gov/41712950/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s20">NICE NG73, endometriosis: update information (Nov 2024 diagnosis, Apr 2024 fertility). <a href="https://www.nice.org.uk/guidance/NG73/chapter/update-information" target="_blank" rel="noopener">link</a></li>
+   <li id="s21">2025 review, staging systems (rASRM, #Enzian, AAGL) and pain. <a href="https://pubmed.ncbi.nlm.nih.gov/42211905/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s22">J Clin Med 2026, central sensitisation in endometriosis, 71 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/42452647/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s23">Hum Reprod Open 2024, retrograde menstruation systematic review. <a href="https://pubmed.ncbi.nlm.nih.gov/39055487/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s24">Hum Reprod 2024, Müllerian anomalies and endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/38733102/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s25">2023 review, progesterone resistance and local estrogen (also quinagolide and vilaprisan notes). <a href="https://pubmed.ncbi.nlm.nih.gov/37416064/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s26">2026 review, inflammation and JAK/STAT in endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/41439725/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s27">2014: regulatory T cells in peritoneal fluid in endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/25275597/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s28">PNAS 2019: lactate metabolism and dichloroacetate in endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/31792175/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s29">2024 study, CGRP blood levels in endometriosis and on dienogest. <a href="https://pubmed.ncbi.nlm.nih.gov/38658933/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s30">FASEB J 2019: macrophage IGF-1, nerve growth and pain. <a href="https://pubmed.ncbi.nlm.nih.gov/31291762/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s31">Taylor 2017, NEJM: elagolix, Elaris EM-I and EM-II. <a href="https://pubmed.ncbi.nlm.nih.gov/28525302/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s32">Cannabis Cannabinoid Res 2026: DREAMLAND, CBD oil vs placebo, 102 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42261989/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s33">Leeners 2018, Hum Reprod Update 24(3):290-299, pregnancy and endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Leeners+2018+endometriosis+pregnancy+Hum+Reprod+Update" target="_blank" rel="noopener">PubMed search</a></li>
+   <li id="s34">Curr Opin Obstet Gynecol 2026, endometriosis after menopause. <a href="https://pubmed.ncbi.nlm.nih.gov/42647142/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s35">EMAS 2025 statement, menopause and endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/40907339/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s36">Jacobsen 2026, tirzepatide hypothesis paper, Int J Mol Sci. <a href="https://pubmed.ncbi.nlm.nih.gov/42449952/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s37">Khan 2026, GLP-1 drugs and abdominal pain codes in IBS, 6,665 per group. <a href="https://pubmed.ncbi.nlm.nih.gov/42570075/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s38">Desai 2026, GLP-1 and endometriosis review, Cureus. <a href="https://pubmed.ncbi.nlm.nih.gov/41798441/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s39">Krasnyi 2022, lower GLP-1 in peritoneal fluid in endometriosis, Int J Mol Sci. <a href="https://pubmed.ncbi.nlm.nih.gov/36142272/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s40">Tran 2025, Cureus case report: low-dose semaglutide and severe period pain. <a href="https://assets.cureus.com/uploads/case_report/pdf/323277/20250114-1738341-6qk2tf.pdf" target="_blank" rel="noopener">PDF</a></li>
+   <li id="s41">McMaster international GLP-1 survey (Leonardi 2026, Authorea preprint), reported by a secondary source; preprint could not be opened and its size is unknown. </li>
+   <li id="s42">Indian patent application 202321069111 (filed Oct 2023, published 2025), thymosin alpha-1 in endometriosis. <a href="https://www.quickcompany.in/patents/202321069111-b1b1" target="_blank" rel="noopener">link</a></li>
+   <li id="s43">CTRI/2023/06/054279, thymosin alpha-1 endometriosis trial, read via a registry mirror (0 enrolled, last updated 27 May 2024). <a href="https://trial.medpath.com/clinical-trial/52f79e2f4f07aa40/ctri/2023/06/054279-thymosin-alpha-one-endometriosis-trial" target="_blank" rel="noopener">link</a></li>
+   <li id="s44">ClinicalTrials.gov NCT03970330, low-dose naltrexone with norethindrone, terminated at 9 people. <a href="https://clinicaltrials.gov/study/NCT03970330" target="_blank" rel="noopener">link</a></li>
+   <li id="s45">Aalto 2025, J Pain Res 18:6637, low-dose naltrexone in a pain clinic, 93 people. </li>
+   <li id="s46">First-hand GLP-1 reports from Mumsnet, HealthUnlocked and news features, logged 3 Nov 2026 (9 people). <a href="/library/goals/notes/endo-pcos-peptides/">research notes</a></li>
+   <li id="s47">Schwertner 2013, Pain: melatonin 10 mg in endometriosis, 40 women. <a href="https://pubmed.ncbi.nlm.nih.gov/23602498/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s48">2023 PLoS One: melatonin 20 mg, 40 women, no difference. <a href="https://pubmed.ncbi.nlm.nih.gov/37267394/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s49">Obstet Gynecol Sci 2026: melatonin added to dienogest, 94 women. <a href="https://pubmed.ncbi.nlm.nih.gov/41914017/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s50">PLoS One 2025: melatonin 5 mg, sleep and pelvic pain, 80 women. <a href="https://pubmed.ncbi.nlm.nih.gov/40238733/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s51">Porpora 2013: NAC and ovarian cysts, 92 women. <a href="https://pubmed.ncbi.nlm.nih.gov/23737821/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s52">2023 single-arm NAC cohort, 120 women. <a href="https://pubmed.ncbi.nlm.nih.gov/36981595/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s53">Antioxidants 2026, NAC systematic review, 22 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/42510611/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s54">PLoS One 2026: oral THC:CBD open-label pilot, 30 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42771648/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s55">Aust NZ J Obstet Gynaecol 2026: UK Medical Cannabis Registry, 101 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42576801/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s56">EPiC1 2025, dichloroacetate feasibility study, Lancet Obstet Gynaecol Womens Health 1(3):e189-e197. <a href="https://doi.org/10.1016/j.lanogw.2025.100028" target="_blank" rel="noopener">doi</a></li>
+   <li id="s57">University of Edinburgh, EPiC2 trial page (due to start recruiting late 2026). <a href="https://reproductive-health.ed.ac.uk/endometriosis/our-research/epic2-clinical-trial" target="_blank" rel="noopener">link</a></li>
+   <li id="s58">Int J Womens Health 2026: linustedastat (OG-6219) phase 2, 353 women, no effect. <a href="https://pubmed.ncbi.nlm.nih.gov/42733850/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s59">Eur J Obstet Gynecol Reprod Biol 2025: QLARITY quinagolide ring, 67 women. <a href="https://pubmed.ncbi.nlm.nih.gov/40188683/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s60">F&amp;S Rep 2021: cabergoline vs norethindrone pilot, 9 women. <a href="https://pubmed.ncbi.nlm.nih.gov/34934987/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s61">Int J Med Sci 2026: kisspeptin and invasion of endometriotic cells. <a href="https://pubmed.ncbi.nlm.nih.gov/41399389/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s62">2024 review: kisspeptin therapies and the reproductive axis. <a href="https://pubmed.ncbi.nlm.nih.gov/39768606/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s63">Acta Orthop Belg 2026, every human BPC-157 study (3 studies, 30 people). <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s64">Brcic 2009: BPC-157, VEGF in muscle and tendon healing. <a href="https://pubmed.ncbi.nlm.nih.gov/20388964/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s65">2015: BPC-157 raised VEGF-a in burned rat skin. <a href="https://pubmed.ncbi.nlm.nih.gov/25995620/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s66">J Mol Med 2016: BPC-157 and VEGFR2-Akt-eNOS, vessel growth. <a href="https://pubmed.ncbi.nlm.nih.gov/27847966/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s67">In Vivo 2003: thymosin beta-4 raised in mouse adenomyosis. <a href="https://pubmed.ncbi.nlm.nih.gov/14758721/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s68">2023 review: thymosin beta-4, vessels, cell movement and metastasis. <a href="https://pubmed.ncbi.nlm.nih.gov/36464872/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s69">2025: GHK-copper complexes release VEGF, BDNF and BMP-2 in cells. <a href="https://pubmed.ncbi.nlm.nih.gov/40123442/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s70">Vet Res 2025: LL-37-containing peptide in endometritis (uterine infection), cows and mice. <a href="https://pubmed.ncbi.nlm.nih.gov/40713896/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s71">Clinician comments in news features and a surgeon's clinic blog (NBC Connecticut Aug 2026, Women's Fitness Aug 2026, Dec 2025 to Jun 2026), logged 3 Nov 2026. <a href="/library/goals/notes/endo-pcos-peptides/">research notes</a></li>
+   <li id="s72">Schmerz 2026: German S2k guideline, multimodal pain care. <a href="https://pubmed.ncbi.nlm.nih.gov/42274745/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s73">Reprod Fertil 2026: diet and supplement RCTs, 24 trials. <a href="https://pubmed.ncbi.nlm.nih.gov/42900597/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s74">CoSRH guidance, oral contraceptives with tirzepatide and semaglutide (summarises a 40-woman tirzepatide study). <a href="https://www.cosrh.org/Common/Uploaded%20files/documents/Guidance%20on%20oral%20contraceptive%20use%20with%20GLP-1%20agonists%20tirzepatide%20and%20semaglutide.pdf" target="_blank" rel="noopener">PDF</a></li>
+   <li id="s75">Nabi 2022: endometriosis and IBS, 11 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/35957857/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s76">Zheng 2026: endometriosis and gut disorders, meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/42901254/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s77">Healthcare 2024: bladder pain syndrome in chronic pelvic pain. <a href="https://pubmed.ncbi.nlm.nih.gov/39685025/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s78">Tordoff 2024: chronic pelvic pain, IBS and PCOS in 2,579 people. <a href="https://pubmed.ncbi.nlm.nih.gov/39011578/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s79">2023 review: kisspeptin, PCOS and endometriosis at opposite ends. <a href="https://pubmed.ncbi.nlm.nih.gov/37505370/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s80">Kar 2026: GLP-1 drugs vs metformin for pregnancy in PCOS, 3 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/42893679/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s81">Hum Reprod 2024: SPIRIT extension, relugolix combination for 2 years. <a href="https://pubmed.ncbi.nlm.nih.gov/38243752/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s82">Cochrane 2024: excision vs drain-and-burn for endometrioma. <a href="https://pubmed.ncbi.nlm.nih.gov/39588841/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s83">JMIG 2020: excision vs ablation for superficial disease, 4 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/33310168/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s84">Cochrane 2020: laparoscopic surgery vs diagnostic laparoscopy, 14 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/33095458/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s85">University of Edinburgh, ESPriT2 trial page (results due 2026). <a href="https://reproductive-health.ed.ac.uk/endometriosis/our-research/esprit2-clinical-trial" target="_blank" rel="noopener">link</a></li>
+   <li id="s86">J Obstet Gynaecol Can 2026: hysterectomy cohort, 990 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42962755/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s87">Cochrane 2017: NSAIDs for endometriosis pain. <a href="https://pubmed.ncbi.nlm.nih.gov/28114727/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s88">Strowitzki 2010: dienogest vs placebo, 198 women. <a href="https://pubmed.ncbi.nlm.nih.gov/20444534/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s89">Petraglia 2011: dienogest extension to 53 weeks. <a href="https://pubmed.ncbi.nlm.nih.gov/21681516/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s90">BJOG 2026: dienogest vs elagolix, 230 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42116589/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s91">Hum Reprod 2024: EDELWEISS 3, linzagolix, 486 women. <a href="https://pubmed.ncbi.nlm.nih.gov/38648863/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s92">J Physiother 2025: exercise and pelvic floor training RCT, 81 women. <a href="https://pubmed.ncbi.nlm.nih.gov/41006088/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s93">Gynecol Obstet Invest 2025: meta-analysis of 9 placebo supplement RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/40288359/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s94">2026 review: diet patterns and endometriosis (observational). <a href="https://pubmed.ncbi.nlm.nih.gov/41515258/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s95">Hum Reprod Update 2015: endometrioma and IVF outcomes. <a href="https://pubmed.ncbi.nlm.nih.gov/26168799/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s96">2026: repeat surgery and natural pregnancy. <a href="https://pubmed.ncbi.nlm.nih.gov/41702301/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s97">J Clin Med 2026: fertility after deep endometriosis surgery, 507 women. <a href="https://pubmed.ncbi.nlm.nih.gov/42513298/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s98">Cochrane 2019: long GnRH agonist before IVF. <a href="https://pubmed.ncbi.nlm.nih.gov/31747470/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s99">ClinicalTrials.gov NCT07260669, vipoglanstat NOVA phase 2. <a href="https://clinicaltrials.gov/study/NCT07260669" target="_blank" rel="noopener">link</a></li>
+   <li id="s100">ClinicalTrials.gov NCT07240363, surgery first vs IVF first, 350 women. <a href="https://clinicaltrials.gov/study/NCT07240363" target="_blank" rel="noopener">link</a></li>
+   <li id="s101">Mo Med 2026: risks of unapproved peptides including BPC-157 and TB-500. <a href="https://pubmed.ncbi.nlm.nih.gov/42757290/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s102">Tirzepatide manufacturer medical answer: oral contraceptives and hormone therapy. <a href="https://medical.lilly.com/us/products/answers/can-zepbound-tirzepatide-be-used-with-oral-contraceptives-or-hormone-replacement-therapy-211019" target="_blank" rel="noopener">link</a></li>
+   <li id="s103">GLP-1 hormones research notes: pregnancy washout and animal data as reported in reviews. <a href="/library/goals/notes/glp-1-hormones/">research notes</a></li>
+   <li id="s104">Sex Med Rev 2026: growth hormone secretagogues raise GH and IGF-1. <a href="https://pubmed.ncbi.nlm.nih.gov/42862021/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s105">BMC Womens Health 2021: IGF-1 in peritoneal fluid and blood. <a href="https://pubmed.ncbi.nlm.nih.gov/34930225/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s106">USADA, BPC-157 substance page. <a href="https://www.usada.org/substance/bpc-157/" target="_blank" rel="noopener">link</a></li>
+   <li id="s107">2026: bone density and fractures in endometriosis. <a href="https://pubmed.ncbi.nlm.nih.gov/42688833/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s108">Cancers 2026: endometriosis and ovarian cancer risk. <a href="https://pubmed.ncbi.nlm.nih.gov/42882935/" target="_blank" rel="noopener">PubMed</a></li>
+  </ol>
+ </div>
+ </div>
+</section>
+<section class="sec" id="method">
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov, guideline pages and one patent, read from the abstracts and summarised in our words. First-hand reports come from forums, news features and a Reddit pass, one person per count, with seller pages left out. <span class="ev e-h">Human</span><span class="ev e-rct">RCT</span><span class="ev e-m">Meta</span><span class="ev e-a">Animal</span><span class="ev e-c">Cells</span><span class="ev e-t">Trial</span><span class="ev e-r">Survey</span> show where each finding was seen. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+</div>
+
+<script src="/nav.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
