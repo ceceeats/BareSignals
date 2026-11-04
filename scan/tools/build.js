@@ -6,13 +6,19 @@
    Rerun after any Library or Protocol release so scan pages carry the new data. */
 const fs=require('fs'),path=require('path'),vm=require('vm');
 const ROOT=path.resolve(__dirname,'../..');
-const V='v2'; /* v2: community dose first (never the label dose), dose diary */
+const V=process.env.SCAN_V||'v20'; /* v20 (4 Nov 2026): reads Library page.js too (dose tiers moved there in Library v50), writes into an existing scan folder copied from the last version. v2: community dose first (never the label dose), dose diary */
+if(!fs.existsSync(ROOT+'/scan/'+V+'/app.js'))throw new Error('copy the last scan version to /scan/'+V+'/ first (app.js, vials.js, pop.js, save.js, scan.css)');
 const LIB=(fs.readFileSync(ROOT+'/library/index.html','utf8').match(/replace\('(v\d+)\//)||[])[1];
 const PRO=(fs.readFileSync(ROOT+'/protocol/index.html','utf8').match(/(v\d+)\//)||[])[1];
 if(!LIB||!PRO)throw new Error('could not find live Library or Protocol version');
 const ctx={window:{}};vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(ROOT+'/library/'+LIB+'/data.js','utf8'),ctx);
 vm.runInContext(fs.readFileSync(ROOT+'/S/codes.js','utf8'),ctx);
+/* Library v50+ moved the dose tiers (and long text) from data.js into page.js. Merge them back first, or the scan
+   loses the community tiers and falls back to the card headline (that broke the start-low rule: Retatrutide would start at 2 mg). */
+if(fs.existsSync(ROOT+'/library/'+LIB+'/page.js')){vm.runInContext(fs.readFileSync(ROOT+'/library/'+LIB+'/page.js','utf8'),ctx);
+ const PG=ctx.window.BS_PAGE||{};for(const d of ctx.window.BS_DATA){const p=PG[d.slug];if(!p)continue;
+  for(const k in p){if(k==='dose')d.dose=Object.assign({},p.dose,d.dose||{});else if(d[k]===undefined)d[k]=p[k]}}}
 const D=ctx.window.BS_DATA,PAL=ctx.window.BS_PALETTE,CODES=ctx.window.BS_CODES,ALIAS=ctx.window.BS_CODE_ALIAS;
 const proto=fs.readFileSync(ROOT+'/protocol/'+PRO+'/index.html','utf8');
 function grab(name){const m=proto.match(new RegExp('const '+name+'=(\\{[\\s\\S]*?\\});'));if(!m)throw new Error('no '+name);return vm.runInNewContext('('+m[1]+')')}
@@ -92,6 +98,9 @@ function page(code,title){return `<!doctype html>
 <script>window.BS_CODE=${JSON.stringify(code)};</script>
 <script src="/S/codes.js"></script>
 <script src="/scan/${V}/data.js"></script>
+<script src="/scan/${V}/vials.js"></script>
+<script src="/scan/${V}/pop.js"></script>
+<script src="/scan/${V}/save.js" defer></script>
 <script src="/scan/${V}/app.js" defer></script>
 <script src="/nav.js" defer></script>
 </head><body><main id="app"><noscript><p class="nojs">This page needs JavaScript. <a href="/library/">Open the Library</a>.</p></noscript></main></body></html>
