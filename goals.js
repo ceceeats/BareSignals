@@ -1,3 +1,4 @@
+/* Bare Signals goals v6 (4 Nov 2026): a Cases tab joins the Peptides / Supplements switch on the Library and Supplements pages; on the Guide the Cases line moves out of the body box to just above the peptide search, and a tapped case opens its card in place there (never over the body); Endometriosis no longer listed under BPC-157, TB-500 or KPV (that page says they have no endometriosis data). v5 kept at /goals/v5.js.
 /* Bare Signals goals v5 (4 Nov 2026): section renamed Cases; GLP-1s, Endometriosis and PCOS added as live cases with teasers; the Library strip ends with an All cases link to /library/goals/. v4 kept at /goals/v4.js.
 /* Bare Signals goals v4 (2 Nov 2026): on the Guide body map, a small Uses line sits under Read more in the compound summary; tapping a live use opens a teaser card (one line, three numbers, Read the full research). v3 kept at /goals/v3.js.
    Bare Signals goals v3 (2 Nov 2026): on the Guide body map, picking Bones & joints shows the goal pages (tennis elbow, Achilles, knee) above the peptide list. v2 kept at /goals/v2.js.
@@ -12,7 +13,7 @@
   var G=[
     {id:'tennis-elbow',name:'Tennis elbow',url:'/library/goals/tennis-elbow/',live:true,line:'Outer elbow tendon wear: studies, numbers, every option',for:TENDON,teaser:{t:'Wear where the wrist tendon meets the outer elbow. 9 in 10 get better within a year anyway, so anything has to beat that.',n:[['14 days','a cut rat Achilles rejoined on BPC-157','Rat'],['8 of 13','elbow tendon tears closed after collagen shots','Human'],['14 of 33','clear Reddit reports felt clearly better','Reports']]}},
     {id:'glp-1',name:'GLP-1s',url:'/library/goals/glp-1/',live:true,line:'65 effects beyond weight loss, each asking: the drug, or the weight?',for:['semaglutide','tirzepatide','retatrutide','cagrilintide','eloralintide','liraglutide','ecnoglutide','reta-cagri'],teaser:{t:'Everything people report on GLP-1 drugs beyond weight loss, from endometriosis to cravings, each graded and asking whether it is the drug or the weight.',n:[['20%','fewer heart attacks, strokes and heart deaths on semaglutide','RCT'],['2.5 h','for brain pressure to fall, too fast for weight loss','RCT'],['3,808','people in the Alzheimer trials that found no effect','RCT']]}},
-    {id:'endometriosis',name:'Endometriosis',url:'/library/goals/endometriosis/',live:true,line:'Pain, studies and reports; GLP-1s carry the only signal',for:['semaglutide','tirzepatide','thymosin-alpha-1','bpc-157','tb-500-frag-17-23','kpv'],teaser:{t:'Womb-like tissue growing outside the womb, in about 1 in 10 women. No research peptide has an endometriosis study yet.',n:[['63%','of 227 GLP-1 users in a survey said they improved','Survey'],['8 of 22','Reddit GLP-1 users were clearly better','Reports'],['NNT 2','GnRH antagonists for period pain','Meta']]}},
+    {id:'endometriosis',name:'Endometriosis',url:'/library/goals/endometriosis/',live:true,line:'Pain, studies and reports; GLP-1s carry the only signal',for:['semaglutide','tirzepatide','thymosin-alpha-1'],teaser:{t:'Womb-like tissue growing outside the womb, in about 1 in 10 women. No research peptide has an endometriosis study yet.',n:[['63%','of 227 GLP-1 users in a survey said they improved','Survey'],['8 of 22','Reddit GLP-1 users were clearly better','Reports'],['NNT 2','GnRH antagonists for period pain','Meta']]}},
     {id:'pcos',name:'PCOS',url:'/library/goals/pcos/',live:true,line:'Cycles, fertility and the 2026 rename to PMOS',for:['semaglutide','tirzepatide','liraglutide','kisspeptin-10','mots-c'],teaser:{t:'Irregular cycles, high androgens and stalled follicles, renamed PMOS in May 2026. Only GLP-1s have PCOS trials.',n:[['3x','natural pregnancy on GLP-1s vs metformin, 3 small trials','Meta'],['1 in 4','ovulate on a dummy pill within 6 to 8 weeks','RCT'],['27.5%','live births on letrozole, vs 19.1% on clomiphene','RCT']]}},
     {id:'achilles',name:'Achilles',url:'',live:false,line:'',for:TENDON},
     {id:'knee',name:'Knee',url:'',live:false,line:'',for:TENDON.concat(['cartalax','cartalax-tb4-bpc'])},
@@ -37,6 +38,10 @@
   '.goteaser h4{margin:0 22px 4px 0;font:700 15px/1.2 "Bricolage Grotesque",system-ui,sans-serif}.goteaser p{margin:0 0 6px}.goteaser ul{list-style:none;margin:0 0 8px;padding:0}.goteaser li{display:grid;grid-template-columns:62px 1fr;gap:6px;padding:4px 0;border-top:1px solid rgba(62,74,128,.12)}.goteaser li b{font:700 13px/1.2 "JetBrains Mono",ui-monospace,monospace}.goteaser li i{font-style:normal;font:500 8.5px/1 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.05em;background:#ECE9D2;padding:2px 4px;margin-left:4px}'+
   '.goteaser a.go{display:inline-block;font:600 11px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#2F5BE0;text-decoration:underline;text-underline-offset:3px}.goteaser .x{position:absolute;top:6px;right:6px;appearance:none;border:0;background:none;font:400 18px/1 system-ui;color:#6B76A8;cursor:pointer;padding:2px 6px}'+
   '.bsgoh{display:inline;margin-left:8px;white-space:nowrap}.bsgoh a{font:500 10.5px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#6777B6;text-decoration:underline;text-underline-offset:2px}';
+  css+='.gouse.goside{margin:10px 0 12px;padding:8px 0;border-top:1.5px solid #3E4A80;border-bottom:1.5px solid #3E4A80}.goteaser.inl{position:relative;left:auto!important;top:auto!important;width:auto;box-shadow:inset 4px 0 0 #E1DE62;margin:8px 0 0;flex-basis:100%}'+
+  '.tsw a.bscases{display:flex;align-items:center;gap:6px;color:#3E4A80;text-decoration:none;font:500 10.5px/1 "JetBrains Mono",monospace;letter-spacing:.05em;text-transform:uppercase;padding:8px 10px;white-space:nowrap}.tsw a.bscases svg{width:14px;height:14px;flex:none}.tsw a.bscases[aria-current=page]{background:#3E4A80;color:#FFFFE2}'+
+  '@media (max-width:640px){.tsw a.bscases{padding:7px 7px;font-size:9.5px;letter-spacing:.03em;gap:4px}.tsw a.bscases svg{display:none}}';
+  function addTab(){D.querySelectorAll('.tsw').forEach(function(t){if(t.querySelector('.bscases'))return;var prev=t.lastElementChild,a=D.createElement('a');a.className='bscases';a.href='/library/goals/';a.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="2" width="11" height="14"></rect><path d="M6.5 6h5M6.5 9h5M6.5 12h3"></path></svg><span data-bsw="1">Cases</span>';a.style.borderLeft=(prev&&prev.classList.contains('tsa'))?'1.5px solid #3E4A80':'0';t.appendChild(a)})}
   function addCss(){if(D.getElementById('bsg-css'))return;var s=D.createElement('style');s.id='bsg-css';s.textContent=css;D.head.appendChild(s)}
   function goalsFor(slug){return G.filter(function(g){return g.for.indexOf(slug)>=0})}
   var IC={
@@ -67,15 +72,17 @@
   function openT(btn,g){var was=btn.getAttribute('aria-expanded')==='true';closeT();if(was)return;var st=D.getElementById('stage');if(!st)return;var tz=g.teaser||{t:g.line,n:[]};
     var c=D.createElement('div');c.className='goteaser';c.setAttribute('role','dialog');c.setAttribute('aria-label',g.name+' research');
     c.innerHTML='<button type="button" class="x" aria-label="Close">×</button><h4>'+g.name+'</h4><p>'+tz.t+'</p><ul>'+tz.n.map(function(x){return '<li><b>'+x[0]+'</b><span>'+x[1]+'<i>'+x[2]+'</i></span></li>'}).join('')+'</ul><a class="go" href="'+g.url+'">Read the full research →</a>';
+    var host=btn.closest('.goside');if(host){c.classList.add('inl');host.appendChild(c);btn.setAttribute('aria-expanded','true');c.querySelector('.x').addEventListener('click',closeT);return}
     var sr=st.getBoundingClientRect(),br=btn.getBoundingClientRect();if(getComputedStyle(st).position==='static')st.style.position='relative';
     c.style.left=Math.max(8,Math.min(br.left-sr.left,sr.width-308))+'px';c.style.top=(br.bottom-sr.top+6)+'px';st.appendChild(c);btn.setAttribute('aria-expanded','true');
     c.querySelector('.x').addEventListener('click',closeT)}
   function runUses(){var ct=D.getElementById('ctags');if(!ct||ct.hidden)return;var rm=ct.querySelector('.rmt');if(!rm)return;
-    var ch=D.querySelector('#list .cchip[aria-pressed="true"]'),sl=ch&&ch.dataset.s;if(!sl)return;var ex=ct.querySelector('.gouse');if(ex&&ex.dataset.slug===sl)return;if(ex)ex.remove();
+    var ch=D.querySelector('#list .cchip[aria-pressed="true"]'),sl=ch&&ch.dataset.s;if(!sl)return;var ex=D.querySelector('.gouse.goside')||ct.querySelector('.gouse');if(ex&&ex.dataset.slug===sl)return;if(ex)ex.remove();
     var L=goalsFor(sl);if(!L.length)return;var w=D.createElement('div');w.className='gouse';w.dataset.slug=sl;w.innerHTML='<span class="gul">'+LABEL+'</span>';
     var soon=[];L.forEach(function(g){if(g.live){var b=D.createElement('button');b.type='button';b.textContent=g.name;b.setAttribute('aria-expanded','false');b.addEventListener('click',function(e){e.stopPropagation();openT(b,g)});w.appendChild(b)}else soon.push(g.name)});
     if(soon.length){var s=D.createElement('span');s.className='gsoon';s.textContent=soon.join(' · ')+' soon';w.appendChild(s)}
-    rm.insertAdjacentElement('afterend',w);closeT();relay();[150,400,800,1300,2000,3000].forEach(function(ms){setTimeout(relay,ms)});setTimeout(function(){try{dispatchEvent(new Event('resize'))}catch(e){}},60)}
+    var side=D.querySelector('.side');w.classList.add('goside');var nm=ch.textContent.replace(/\u2060/g,'').trim();w.querySelector('.gul').textContent=LABEL+' · '+nm;var old=D.querySelector('.gouse.goside');if(old)old.remove();
+    if(side)side.insertBefore(w,side.firstChild);else rm.insertAdjacentElement('afterend',w);closeT()}
   /* the Guide places its little round pictures under the summary; move them down past the Uses line */
   function relay(){var sg=D.querySelector('.stage'),ct=D.getElementById('ctags');if(!sg||!ct||ct.hidden)return;var A=sg.getBoundingClientRect(),cb=ct.getBoundingClientRect().bottom-A.top;
     var cm=D.getElementById('cmini');if(cm&&!cm.hidden)cm.style.top=Math.round(cb+6)+'px';
@@ -86,9 +93,9 @@
     var syn=D.getElementById('cardsyn');if(syn){var card=syn.closest('.bscard')||syn.parentNode,a2=card.querySelector('a[href*="/library/#/p/"]');if(a2){var m=a2.getAttribute('href').match(/#\/p\/([^/?#]+)/),sl=m&&m[1],ex=card.querySelector('.bsgo');
       if(!(ex&&ex.dataset.slug===sl)){if(ex)ex.remove();var e3=strip(sl,'',true);if(e3){var bd=card.querySelector('.bd');if(bd)bd.insertBefore(e3,bd.firstChild);else place(e3,syn,'before')}}}}
   }
-  var isLib=/^\/library\/(v\d+\/)?$/.test(P)||/^\/library\/v\d+\//.test(P),isHome=P==='/'||P==='/index.html'||/^\/home\//.test(P);
-  if(!isLib&&!isHome)return;
-  var t=0;function tick(){clearTimeout(t);t=setTimeout(function(){try{addCss();isLib?runLibrary():runHome()}catch(e){}},60)}
+  var isLib=/^\/library\/(v\d+\/)?$/.test(P)||/^\/library\/v\d+\//.test(P),isHome=P==='/'||P==='/index.html'||/^\/home\//.test(P),isSupp=/^\/supplements\//.test(P);
+  if(!isLib&&!isHome&&!isSupp)return;
+  var t=0;function tick(){clearTimeout(t);t=setTimeout(function(){try{addCss();if(isLib||isSupp)addTab();if(isLib)runLibrary();else if(isHome)runHome()}catch(e){}},60)}
   function start(){tick();new MutationObserver(tick).observe(D.body,{childList:true,subtree:true});addEventListener('hashchange',tick)}
   if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',start);else start();
 })();
