@@ -41,6 +41,11 @@ let BB=null;try{const h=location.hash.match(/b=(X\d+[a-z]?)/i);if(h)BB=h[1].toUp
 function blBatch(c){const b=BL[c];if(!b)return '';const k=Object.keys(b.batches||{});if(BB!==null&&(BB===''||k.includes(BB)))return BB;return k.length?k[k.length-1]:''}
 function blParts(c,vial){const b=BL[c];const bt=blBatch(c);const tot=b.parts.reduce((a,q)=>a+q[2],0);
  return b.parts.map((q,i)=>{const mg=bt?b.batches[bt][i]:q[2]*(+vial||tot)/tot;return {c:q[0],n:q[1],mg,rg:b.range[q[0]]}})}
+const RL=window.BS_REAL||{};let RB=null;
+function rbDef(x){const a=RL[x.c];if(!a)return -1;if(RB!==null)return RB;const dv=defVial(x);let i=-1;a.forEach((e,j)=>{if(e[1]===dv)i=j});if(BB){const k=a.findIndex(e=>e[0]===BB&&e[1]===dv);if(k>=0)i=k}return i}
+function rbRow(x){const a=RL[x.c];if(!a)return '';const i=rbDef(x);
+ return `<div class="row"><div class="k"><i style="background:var(--ink)"></i>Batch on your vial</div><div class="chips">${a.map((e,j)=>`<button class="cp" data-rb="${j}" aria-pressed="${i===j}">${e[0]} · ${e[1]} → ${nf(e[2],2)} mg</button>`).join('')}<button class="cp" data-rb="-1" aria-pressed="${i===-1}">Label only</button></div></div>
+ ${i>=0?`<p class="bln" style="margin:-2px 0 8px">Tested ${nf(a[i][2],2)} mg in a ${a[i][1]} mg vial (${a[i][2]>=a[i][1]?'+':''}${nf((a[i][2]/a[i][1]-1)*100,0)}%). The maths below uses the tested amount.</p>`:''}`}
 function blTotal(c){const b=BL[c];const bt=blBatch(c);return bt?Math.round(b.batches[bt].reduce((a,v)=>a+v,0)*100)/100:0}
 /* Cece approved 28 Oct 2026: Glutathione IM/Sub-Q 200 to 600 mg, 2 to 3x a week (scan data still had the oral dose) */
 /* Cece 28 Oct 2026: BPC-157 starts on 5 days on, 2 days off (weekends off); people can still tap the days to change it */
@@ -151,7 +156,7 @@ function startMix(x){
  const p=parseDose(x.st)||{v:0,u:'mg'};
  let kind=p.u==='U'?'units':p.u==='IU'?'iu':p.u==='mL'?'liquid':'mass';
  if(!x.st)kind='mass';
- const vial=vialHint||(BL[x.c]&&blTotal(x.c))||defVial(x)||(kind==='iu'?5000:10);
+ const vial=vialHint||(BL[x.c]&&blTotal(x.c))||(RL[x.c]&&rbDef(x)>=0?RL[x.c][rbDef(x)][2]:0)||defVial(x)||(kind==='iu'?5000:10);
  return {kind,vial,water:BL[x.c]?Math.min(x.vw||2,3):(x.vw||2),dose:p.v||'',unit:kind==='mass'?(p.u==='mcg'?'mcg':'mg'):p.u,syr:100};
 }
 function calc(m,x){
@@ -326,13 +331,14 @@ function chipsFor(x){
  return [...ch].sort((a,b)=>a-b)}
 function mixHTML(x){
  const m=M,r=calc(m,x),w=warns(m,r);
- const vialChips=VS[x.c]&&VS[x.c].length?[...new Set([...(BL[x.c]&&blTotal(x.c)?[blTotal(x.c)]:[]),...VS[x.c]])].slice(0,7):m.kind==='iu'?[2000,5000,10000]:[...new Set([x.vm,5,10,20,30,50].filter(v=>v>0))].sort((a,b)=>a-b).slice(0,6);
+ const vialChips=VS[x.c]&&VS[x.c].length?[...new Set([...(BL[x.c]&&blTotal(x.c)?[blTotal(x.c)]:[]),...(RL[x.c]&&rbDef(x)>=0?[RL[x.c][rbDef(x)][2]]:[]),...VS[x.c]])].slice(0,7):m.kind==='iu'?[2000,5000,10000]:[...new Set([x.vm,5,10,20,30,50].filter(v=>v>0))].sort((a,b)=>a-b).slice(0,6);
  const waterChips=[1,2,3,5];
  const nasal=x.rt==='nasal'?`<p class="side">Using it as a nasal spray instead? <a href="/nasal/">Nasal calculator →</a></p>`:'';
  const liquid=m.kind==='liquid';
- const LQx=LQ[x.c]||{};const rows=liquid?`<p class="side" style="margin-top:0">Ready-made liquid, nothing to mix.${LQx.ml?` <b>${LQx.ml} mL</b> vial${LQx.mg?`, <b>${LQx.mg} mg</b> in it (${nf(LQx.mg/LQx.ml,2)} mg per mL)`:''}.`:''}</p>`:`
+ const LQx=LQ[x.c]||{};const rows0=liquid?`<p class="side" style="margin-top:0">Ready-made liquid, nothing to mix.${LQx.ml?` <b>${LQx.ml} mL</b> vial${LQx.mg?`, <b>${LQx.mg} mg</b> in it (${nf(LQx.mg/LQx.ml,2)} mg per mL)`:''}.`:''}</p>`:`
  <div class="row"><div class="k"><i style="background:#FFFFF0"></i>Vial</div><div class="chips">${vialChips.map(v=>`<button class="cp" data-vial="${v}" aria-pressed="${+m.vial===v}">${v}</button>`).join('')}<label class="inp"><input inputmode="decimal" data-in="vial" value="${esc(m.vial)}" aria-label="Vial size"><span>${vialUnit(m)}</span></label></div></div>
  <div class="row"><div class="k"><i style="background:var(--water)"></i>BAC water</div><div class="chips">${waterChips.map(v=>`<button class="cp" data-water="${v}" aria-pressed="${+m.water===v}">${v}</button>`).join('')}<label class="inp"><input inputmode="decimal" data-in="water" value="${esc(m.water)}" aria-label="Water"><span>ml</span></label></div></div>`;
+ const rows=liquid?rows0:rbRow(x)+rows0;
  const dc=chipsFor(x);
  const doseRow=`<div class="row"><div class="k"><i style="background:var(--dose)"></i>Dose${x.st?' · recommended start '+esc(x.st):''}</div><div class="chips">${dc.map(v=>`<button class="cp" data-dose="${v}" aria-pressed="${+m.dose===v}">${nf(v,3)}</button>`).join('')}<label class="inp"><input inputmode="decimal" data-in="dose" value="${esc(m.dose)}" aria-label="Dose" placeholder="dose"><span>${esc(m.kind==='units'?'U':m.kind==='iu'?'IU':m.kind==='liquid'?'mL':m.unit)}</span></label>${m.kind==='mass'?`<span class="seg">${['mcg','mg'].map(u=>`<button data-unit="${u}" aria-pressed="${m.unit===u}">${u}</button>`).join('')}</span>`:''}</div></div>`;
  const syrRow=`<div class="row"><div class="k"><i style="background:var(--draw)"></i>Syringe</div><div class="chips">${[100,50,30].map(v=>`<button class="cp" data-syr="${v}" aria-pressed="${m.syr===v}">${v} U</button>`).join('')}</div></div>`;
@@ -364,7 +370,7 @@ function blHTML(x){const b=BL[x.c];const bt=blBatch(x.c);const ks=Object.keys(b.
  <p class="bln">Green = what people report per shot for each part on its own. ${bt?'Using tested mg for batch '+esc(bt)+'.':'Using the label split. Tested batches show their real mg.'}</p></div>`}
 function resHTML(x){
  const m=M,r=calc(m,x),w=warns(m,r),liquid=m.kind==='liquid';
- if(!r.ok)return '<div class="res"><p class="math">Fill in vial, water and dose.</p></div>';
+ if(!r.ok)return `<div class="res"><p class="math">${BL[x.c]&&+m.vial>0&&+m.water>0?'No set dose for this blend. Slide the draw below to set one.':'Fill in vial, water and dose.'}</p></div>`;
  const rd=roundDraws(m,r);
  const amt=m.kind==='units'?`<b>${nf(r.units,1)} U</b> holds <b>${fmtMass(r.amt)}</b> of the blend${x.bl&&x.bl.length?' ('+x.bl.map(p=>esc(p[0])+' '+fmtMass(r.amt*p[1]/x.bl.reduce((a,q)=>a+q[1],0))).join(' + ')+')':''}`:'';
  return `<div class="res" aria-live="polite">
@@ -575,15 +581,16 @@ app.addEventListener('click',e=>{
  const ss=e.target.closest('[data-ssort]');if(ss){SS=ss.dataset.ssort;SR='';const b=$('#aqres');if(b){b.innerHTML=pickBody();b.scrollTop=0}$$('[data-ssort]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ssort===SS));track('stack-sort:'+SS);return}
  const sr=e.target.closest('[data-srole]');if(sr){SR=SR===sr.dataset.srole?'':sr.dataset.srole;const b=$('#aqres');if(b){b.innerHTML=pickBody();b.scrollTop=0}return}
  const tp=e.target.closest('[data-top]');if(tp){if(tp.dataset.top===CODE){e.preventDefault();history.pushState(null,'',location.pathname);render();scrollTo({top:0,behavior:'smooth'})}return}
- const b=e.target.closest('[data-when],[data-lgdose],[data-also],[data-dellog],[data-go],[data-bb],[data-vial],[data-water],[data-dose],[data-unit],[data-syr],[data-tick],[data-rm],[data-setdose],[data-tm],[data-dy],[data-note],[data-pick],[data-ck],[data-ex],[data-vm],[data-vw],[data-bd],[data-t]');if(!b)return;
+ const b=e.target.closest('[data-when],[data-lgdose],[data-also],[data-dellog],[data-go],[data-bb],[data-rb],[data-vial],[data-water],[data-dose],[data-unit],[data-syr],[data-tick],[data-rm],[data-setdose],[data-tm],[data-dy],[data-note],[data-pick],[data-ck],[data-ex],[data-vm],[data-vw],[data-bd],[data-t]');if(!b)return;
  const g=b.dataset.go;
  if(b.dataset.t){track('scan-'+b.dataset.t+':'+CODE);return}
  if(b.dataset.when){LG.earlier=b.dataset.when==='earlier';if(LG.earlier&&!LG.t)LG.t=localDT(Date.now()-60*60*1000);return render()}
  if(b.dataset.lgdose){LG.dose=b.dataset.lgdose;return render()}
  if(b.dataset.also){const a=LG.also=LG.also||[];const i=a.indexOf(b.dataset.also);i>=0?a.splice(i,1):a.push(b.dataset.also);return render()}
  if(b.dataset.dellog){if(confirm('Delete this entry?')){L.log=L.log.filter(x=>x.id!==b.dataset.dellog);saveL();render()}return}
+ if(b.dataset.rb!==undefined){RB=+b.dataset.rb;const a=RL[X.c];M.vial=RB>=0?a[RB][2]:defVial(X);track('scan-batch:'+X.c+':'+(RB>=0?a[RB][0]:'label'));return render()}
  if(b.dataset.bb!==undefined){BB=b.dataset.bb;const t=blTotal(X.c);M.vial=t||(BL[X.c]?BL[X.c].parts.reduce((a,q)=>a+q[2],0):M.vial);track('scan-batch:'+X.c+':'+(BB||'label'));return render()}
- if(b.dataset.vial){M.vial=+b.dataset.vial;return render()}
+ if(b.dataset.vial){M.vial=+b.dataset.vial;if(RL[X.c]){const k=RL[X.c].findIndex(e=>Math.abs(e[2]-M.vial)<1e-6);RB=k}return render()}
  if(b.dataset.water){M.water=+b.dataset.water;return render()}
  if(b.dataset.dose){M.dose=+b.dataset.dose;return render()}
  if(b.dataset.unit){const u=b.dataset.unit;if(u!==M.unit&&+M.dose>0)M.dose=u==='mcg'?+M.dose*1000:+M.dose/1000;M.unit=u;return render()}

@@ -14,6 +14,47 @@ window.BS_BLENDS={
  range:{GHK:[1000,2000,"lib"],BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"]}},
 "CJI":{parts:[["CJC","CJC-1295 no DAC",5],["IPA","Ipamorelin",5]],
  batches:{"X02":[5.33,5.83]},
- range:{CJC:[100,100,"lib"],IPA:[100,300,"lib"]}}
+ range:{CJC:[100,100,"lib"],IPA:[100,300,"lib"]}},
+"BTB":{parts:[["BPC","BPC-157",10],["TB4","TB-500 (Tβ4)",10]],
+ batches:{},
+ range:{BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"]}},
+"TBK":{parts:[["TB4","TB-500 (Tβ4)",25],["KPV","KPV",10],["BPC","BPC-157",10]],
+ batches:{},
+ range:{TB4:[2000,2500,"lib2w"],KPV:[200,500,"lib"],BPC:[250,500,"lib"]}},
+"CTB":{parts:[["CTX","Cartalax",10],["TB4","TB-500 (Tβ4)",5],["BPC","BPC-157",5]],
+ batches:{},
+ range:{CTX:[2000,5000,"lib"],TB4:[2000,2500,"lib2w"],BPC:[250,500,"lib"]}},
+"GKP":{parts:[["GHK","GHK-Cu",50],["KPV","KPV",20]],
+ batches:{},
+ range:{GHK:[1000,2000,"lib"],KPV:[200,500,"lib"]}},
+"TIC":{parts:[["TES","Tesamorelin",6],["IPA","Ipamorelin",3],["CJC","CJC-1295 no DAC",3]],
+ batches:{},
+ range:{TES:[1000,1000,"lib"],IPA:[200,300,"lib"],CJC:[100,100,"lib"]}},
+"TSI":{parts:[["TES","Tesamorelin",5],["IPA","Ipamorelin",5]],
+ batches:{},
+ range:{TES:[1000,1000,"lib"],IPA:[200,300,"lib"]}},
+"RTC":{parts:[["RTA","Retatrutide",12.5],["CAG","Cagrilintide",2.5]],
+ batches:{},
+ range:{RTA:[500,8000,"libw"],CAG:[250,2400,"libw"]}}
 };
-window.BS_BLSRC={lib:"Library",subq:"SubQ reports",lib2w:"Library, 2× a week"};
+window.BS_BLSRC={lib:"Library",subq:"SubQ reports",lib2w:"Library, 2× a week",libw:"Library, weekly, titrated"};
+/* v21 single vials: tested mg per batch, [our batch code, label mg, tested mg]. Glutathione left out (its COA is not matched to the box). */
+window.BS_REAL={
+"5AM":[["X01",50,58.64]],
+"BPC":[["X01",10,13.40],["X01",20,25.24],["X02",20,25.24]],
+"GHK":[["X01",100,121.68],["X02",50,59.20],["X02",100,120.80]],
+"KPV":[["X01",10,11.56],["X02",10,11.56]],
+"NAD":[["X01",1000,993.81]],
+"OXT":[["X01",10,11.90]],
+"PNL":[["X01",20,24.07]],
+"RTA":[["X01",10,11.53]],
+"TB4":[["X01",10,11.89],["X01",20,20.72],["X02",20,20.72]],
+"TA1":[["X01",10,11.97]],
+"LL37":[["X02",5,5.42]],
+"NSL":[["X02",10,12.21]],
+"NSX":[["X02",10,11.37]],
+"SEM":[["X02",10,11.42]],
+"SMX":[["X02",10,10.14]],
+"SLK":[["X02",10,12.18]],
+"SS31":[["X02",50,51.05]]
+};
