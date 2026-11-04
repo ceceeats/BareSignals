@@ -1,3 +1,4 @@
+/* Bare Signals goals v5 (4 Nov 2026): section renamed Cases; GLP-1s, Endometriosis and PCOS added as live cases with teasers; the Library strip ends with an All cases link to /library/goals/. v4 kept at /goals/v4.js.
 /* Bare Signals goals v4 (2 Nov 2026): on the Guide body map, a small Uses line sits under Read more in the compound summary; tapping a live use opens a teaser card (one line, three numbers, Read the full research). v3 kept at /goals/v3.js.
    Bare Signals goals v3 (2 Nov 2026): on the Guide body map, picking Bones & joints shows the goal pages (tennis elbow, Achilles, knee) above the peptide list. v2 kept at /goals/v2.js.
    Bare Signals goals v2 (2 Nov 2026): chips carry small elbow / Achilles / knee drawings instead of a colour square. v1 kept at /goals/v1.js.
@@ -6,10 +7,13 @@
    To rename the door, change LABEL. To add a page, add a row and set live:true once the page exists. */
 (function(){
   if(window.BS_GOALS_ON)return;window.BS_GOALS_ON=1;
-  var LABEL='Uses';
+  var LABEL='Cases';
   var TENDON=['bpc-157','tb-500-frag-17-23','thymosin-beta-4','bpc-157-tb-500','glow','klow','tb4-bpc-kpv','ghk-cu-bpc-157','collagen-peptides'];
   var G=[
     {id:'tennis-elbow',name:'Tennis elbow',url:'/library/goals/tennis-elbow/',live:true,line:'Outer elbow tendon wear: studies, numbers, every option',for:TENDON,teaser:{t:'Wear where the wrist tendon meets the outer elbow. 9 in 10 get better within a year anyway, so anything has to beat that.',n:[['14 days','a cut rat Achilles rejoined on BPC-157','Rat'],['8 of 13','elbow tendon tears closed after collagen shots','Human'],['14 of 33','clear Reddit reports felt clearly better','Reports']]}},
+    {id:'glp-1',name:'GLP-1s',url:'/library/goals/glp-1/',live:true,line:'65 effects beyond weight loss, each asking: the drug, or the weight?',for:['semaglutide','tirzepatide','retatrutide','cagrilintide','eloralintide','liraglutide','ecnoglutide','reta-cagri'],teaser:{t:'Everything people report on GLP-1 drugs beyond weight loss, from endometriosis to cravings, each graded and asking whether it is the drug or the weight.',n:[['20%','fewer heart attacks, strokes and heart deaths on semaglutide','RCT'],['2.5 h','for brain pressure to fall, too fast for weight loss','RCT'],['3,808','people in the Alzheimer trials that found no effect','RCT']]}},
+    {id:'endometriosis',name:'Endometriosis',url:'/library/goals/endometriosis/',live:true,line:'Pain, studies and reports; GLP-1s carry the only signal',for:['semaglutide','tirzepatide','thymosin-alpha-1','bpc-157','tb-500-frag-17-23','kpv'],teaser:{t:'Womb-like tissue growing outside the womb, in about 1 in 10 women. No research peptide has an endometriosis study yet.',n:[['63%','of 227 GLP-1 users in a survey said they improved','Survey'],['8 of 22','Reddit GLP-1 users were clearly better','Reports'],['NNT 2','GnRH antagonists for period pain','Meta']]}},
+    {id:'pcos',name:'PCOS',url:'/library/goals/pcos/',live:true,line:'Cycles, fertility and the 2026 rename to PMOS',for:['semaglutide','tirzepatide','liraglutide','kisspeptin-10','mots-c'],teaser:{t:'Irregular cycles, high androgens and stalled follicles, renamed PMOS in May 2026. Only GLP-1s have PCOS trials.',n:[['3x','natural pregnancy on GLP-1s vs metformin, 3 small trials','Meta'],['1 in 4','ovulate on a dummy pill within 6 to 8 weeks','RCT'],['27.5%','live births on letrozole, vs 19.1% on clomiphene','RCT']]}},
     {id:'achilles',name:'Achilles',url:'',live:false,line:'',for:TENDON},
     {id:'knee',name:'Knee',url:'',live:false,line:'',for:TENDON.concat(['cartalax','cartalax-tb4-bpc'])},
     {id:'gut',name:'Gut',url:'',live:false,line:'',for:['bpc-157','kpv','tb4-bpc-kpv','bpc-157-tb-500']}
@@ -44,7 +48,7 @@
   function chips(list){return list.map(function(g){return g.live?'<a href="'+g.url+'">'+ico(g.id)+g.name+' →</a>':'<span class="so">'+ico(g.id)+g.name+' · soon</span>'}).join('')}
   function strip(slug,cls,withLine){var L=slug?goalsFor(slug):G;if(!L.length)return null;var d=D.createElement('div');d.className='bsgo'+(cls?' '+cls:'');d.dataset.slug=slug||'all';
     var live=L.filter(function(g){return g.live});
-    d.innerHTML='<span class="bsgol">'+LABEL+' · full research reads</span><div class="bsgoc">'+chips(L)+'</div>'+(withLine&&live.length?'<span class="bsgox">'+live.map(function(g){return '<b>'+g.name+':</b> '+g.line}).join('<br>')+'</span>':'');return d}
+    d.innerHTML='<span class="bsgol">'+LABEL+' · full research reads</span><div class="bsgoc">'+chips(L)+(slug?'':'<a href="/library/goals/">All cases →</a>')+'</div>'+(withLine&&live.length?'<span class="bsgox">'+live.map(function(g){return '<b>'+g.name+':</b> '+g.line}).join('<br>')+'</span>':'');return d}
   function place(el,ref,where){if(!ref||!ref.parentNode)return;if(where==='after')ref.parentNode.insertBefore(el,ref.nextSibling);else ref.parentNode.insertBefore(el,ref)}
   function libSlug(){var h=location.hash,m=h.match(/^#\/p\/([^/?#]+)/);if(m)return{s:decodeURIComponent(m[1]),full:1};m=h.match(/^#\/([^/?#]+)$/);if(m&&m[1]!=='p'&&m[1]!=='c'&&m[1]!=='t'&&m[1]!=='d')return{s:decodeURIComponent(m[1]),full:0};return null}
   function runLibrary(){
