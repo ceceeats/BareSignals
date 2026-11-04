@@ -6,7 +6,7 @@
    Rerun after any Library or Protocol release so scan pages carry the new data. */
 const fs=require('fs'),path=require('path'),vm=require('vm');
 const ROOT=path.resolve(__dirname,'../..');
-const V=process.env.SCAN_V||'v20'; /* v20 (4 Nov 2026): reads Library page.js too (dose tiers moved there in Library v50), writes into an existing scan folder copied from the last version. v2: community dose first (never the label dose), dose diary */
+const V=process.env.SCAN_V||'v22'; /* v22 (4 Nov 2026): pages also load blends.js (split slider, tested mg per batch) */ /* v20 (4 Nov 2026): reads Library page.js too (dose tiers moved there in Library v50), writes into an existing scan folder copied from the last version. v2: community dose first (never the label dose), dose diary */
 if(!fs.existsSync(ROOT+'/scan/'+V+'/app.js'))throw new Error('copy the last scan version to /scan/'+V+'/ first (app.js, vials.js, pop.js, save.js, scan.css)');
 const LIB=(fs.readFileSync(ROOT+'/library/index.html','utf8').match(/replace\('(v\d+)\//)||[])[1];
 const PRO=(fs.readFileSync(ROOT+'/protocol/index.html','utf8').match(/(v\d+)\//)||[])[1];
@@ -101,6 +101,7 @@ function page(code,title){return `<!doctype html>
 <script src="/S/codes.js"></script>
 <script src="/scan/${V}/data.js"></script>
 <script src="/scan/${V}/vials.js"></script>
+<script src="/scan/${V}/blends.js"></script>
 <script src="/scan/${V}/pop.js"></script>
 <script src="/scan/${V}/save.js" defer></script>
 <script src="/scan/${V}/app.js" defer></script>

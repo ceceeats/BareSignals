@@ -1,43 +1,43 @@
-/* Bare Signals Scan v21 blend split (4 Nov 2026). Hand kept.
+/* Bare Signals Scan v22 blend split (ranges re-matched to Library v85 approved doses, 4 Nov 2026); v21 (4 Nov 2026). Hand kept.
    CODE -> parts [part code, name, label mg], per batch tested mg (Purchase Logbook, Real dose tab; only our own batch codes, never supplier codes),
    and the per shot range each part is shown against (mcg) with where it comes from.
    lib = the single compound's Library card dose. subq = reported SubQ community doses (Library card is a nasal range). */
 window.BS_BLENDS={
 "ILN":{parts:[["NSX","NA Semax",20],["PE22","PE-22-28",10],["PNL","Pinealon",10],["NSL","NA Selank",8]],
  batches:{"X01":[29.41,12.43,11.43,8.39]},
- range:{NSX:[100,800,"subq"],PE22:[50,200,"lib"],PNL:[100,500,"lib"],NSL:[250,500,"subq"]}},
+ range:{NSX:[100,800,"subq"],PE22:[50,200,"lib"],PNL:[100,1000,"lib"],NSL:[250,500,"subq"]}},
 "KLOW":{parts:[["GHK","GHK-Cu",50],["BPC","BPC-157",10],["TB4","TB-500 (Tβ4)",10],["KPV","KPV",10]],
  batches:{"X01":[63.12,12.88,12.16,11.68]},
- range:{GHK:[1000,2000,"lib"],BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"],KPV:[200,500,"lib"]}},
+ range:{GHK:[1000,3000,"lib"],BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"],KPV:[250,1000,"lib"]}},
 "GLOW":{parts:[["GHK","GHK-Cu",50],["BPC","BPC-157",10],["TB4","TB-500 (Tβ4)",10]],
  batches:{},
- range:{GHK:[1000,2000,"lib"],BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"]}},
+ range:{GHK:[1000,3000,"lib"],BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"]}},
 "CJI":{parts:[["CJC","CJC-1295 no DAC",5],["IPA","Ipamorelin",5]],
  batches:{"X02":[5.33,5.83]},
- range:{CJC:[100,100,"lib"],IPA:[100,300,"lib"]}},
+ range:{CJC:[100,300,"lib"],IPA:[100,300,"lib"]}},
 "BTB":{parts:[["BPC","BPC-157",10],["TB4","TB-500 (Tβ4)",10]],
  batches:{},
  range:{BPC:[250,500,"lib"],TB4:[2000,2500,"lib2w"]}},
 "TBK":{parts:[["TB4","TB-500 (Tβ4)",25],["KPV","KPV",10],["BPC","BPC-157",10]],
  batches:{},
- range:{TB4:[2000,2500,"lib2w"],KPV:[200,500,"lib"],BPC:[250,500,"lib"]}},
+ range:{TB4:[2000,2500,"lib2w"],KPV:[250,1000,"lib"],BPC:[250,500,"lib"]}},
 "CTB":{parts:[["CTX","Cartalax",10],["TB4","TB-500 (Tβ4)",5],["BPC","BPC-157",5]],
  batches:{},
  range:{CTX:[2000,5000,"lib"],TB4:[2000,2500,"lib2w"],BPC:[250,500,"lib"]}},
 "GKP":{parts:[["GHK","GHK-Cu",50],["KPV","KPV",20]],
  batches:{},
- range:{GHK:[1000,2000,"lib"],KPV:[200,500,"lib"]}},
+ range:{GHK:[1000,3000,"lib"],KPV:[250,1000,"lib"]}},
 "TIC":{parts:[["TES","Tesamorelin",6],["IPA","Ipamorelin",3],["CJC","CJC-1295 no DAC",3]],
  batches:{},
- range:{TES:[1000,1000,"lib"],IPA:[200,300,"lib"],CJC:[100,100,"lib"]}},
+ range:{TES:[1000,2000,"lib"],IPA:[200,300,"lib"],CJC:[100,300,"lib"]}},
 "TSI":{parts:[["TES","Tesamorelin",5],["IPA","Ipamorelin",5]],
  batches:{},
- range:{TES:[1000,1000,"lib"],IPA:[200,300,"lib"]}},
+ range:{TES:[1000,2000,"lib"],IPA:[200,300,"lib"]}},
 "RTC":{parts:[["RTA","Retatrutide",12.5],["CAG","Cagrilintide",2.5]],
  batches:{},
- range:{RTA:[500,8000,"libw"],CAG:[250,2400,"libw"]}}
+ range:{RTA:[500,12000,"libw"],CAG:[250,2400,"libw"]}}
 };
-window.BS_BLSRC={lib:"Library",subq:"SubQ reports",lib2w:"Library, 2× a week",libw:"Library, weekly, titrated"};
+window.BS_BLSRC={lib:"Library",subq:"SubQ reports",lib2w:"Library, 2–3× a week",libw:"Library, weekly, titrated"};
 /* v21 single vials: tested mg per batch, [our batch code, label mg, tested mg]. Glutathione left out (its COA is not matched to the box). */
 window.BS_REAL={
 "5AM":[["X01",50,58.64]],
