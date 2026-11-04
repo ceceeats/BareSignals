@@ -53,7 +53,9 @@ for(const d of D){
  const ds0=d.dose||{};const pr=PREC[d.slug]||{};
  /* Cece's rule (24 Oct 2026): people here self-experiment with grey-market peptides, so the recommended dose is always the
     community dose: the first tier that is not a label or trial tier. Label doses are never the default. */
- const tier=(ds0.tiers||[]).find(t=>!/label|trial|clinical|fda|rx/i.test(t.label||'')&&t.tag!=='label')||null;
+ /* APPROVED HEADLINE (Library v85+, Cece 4 Nov 2026): a dose with a status was approved as the community headline, so the scan uses it and its start dose as they are. */
+ const APP=!!ds0.status;
+ const tier=APP?null:((ds0.tiers||[]).find(t=>!/label|trial|clinical|fda|rx/i.test(t.label||'')&&t.tag!=='label')||null);
  const ds=Object.assign({},ds0,tier?{dose:tier.dose,freq:tier.freq||ds0.freq,cycle:tier.dur||ds0.cycle,route:tier.route||ds0.route}:{dose:String(ds0.dose||'').replace(/;\s*[^;]*\(label[^)]*\)\s*$/i,'').replace(/\s*\(?community\)?/i,'')});
  /* v2.3 (24 Oct 2026), Cece's standing rule: start at the LOWEST COMMON dose, the low end of the community average
     (Common tier), not the lowest dose possible. Titrated compounds (Common tier is the dose held after titration) start at
@@ -69,7 +71,7 @@ for(const d of D){
  const route=pr.route||routeOf(ds);
  const chips=pr.chips||doseChips(ds.dose);
  const bd=d.blend&&d.blend.draw;
- let start=pr.start||tstart||chips[0]||'';
+ let start=pr.start||(APP&&ds0.start)||tstart||chips[0]||'';
  const vial=STOCK[d.slug]||VIAL[d.slug]||(d.blend&&parseFloat(d.blend.total))||0;
  const water=bd&&bd.ml?bd.ml:(vial?waterFor(d.slug):0);
  const all=(d.roles||[]).concat((d.reported||[]).filter(r=>(d.roles||[]).indexOf(r)<0));
