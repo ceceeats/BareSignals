@@ -354,7 +354,7 @@ function blRows(x,U){const m=M;const w=+m.water||0;const ps=blParts(x.c,m.vial);
   const tx=st==='lo'?'Below':st==='hi'?'Above':'In range';
   return `<div class="blr"><div class="blt"><span><i style="background:${IT[p.c]?col(IT[p.c].p):'var(--cream)'}"></i>${esc(p.n)}</span><b>${fmtMass(v/1000)}</b></div>
   <div class="blb"><i class="bnd" style="left:${rg[0]/sc*100}%;width:${Math.max((rg[1]-rg[0])/sc*100,1.2)}%"></i><i class="bdt ${st}" style="left:${Math.min(v/sc*100,100)}%"></i></div>
-  <div class="bls"><em class="${st}">${tx} · ${nf(rg[0],0)===nf(rg[1],0)?nf(rg[0],0):nf(rg[0],0)+' to '+nf(rg[1],0)} mcg</em><span>${lo&&lo>U?'Starts '+nf(lo,1)+' U · ':''}Top ${nf(top,1)} U · ${esc(BLS[rg[2]]||'')}</span></div></div>`}).join('')}
+  <div class="bls"><em class="${st}">${tx} · ${nf(rg[0],0)===nf(rg[1],0)?nf(rg[0],0):nf(rg[0],0)+' to '+nf(rg[1],0)} mcg</em><span>${lo&&lo>U?'Starts '+nf(lo,1)+' U · ':''}Top ${nf(top,1)} U · ${esc(BLS[rg[2]]||'')}</span></div>${rg[2]==='lib2w'?`<p class="blw">On its own, TB-500 is usually taken <b>twice weekly</b> at 2 to 2.5 mg. In a daily blend you get a small amount every day, so it reads far below that range. That gap is expected, not an underfill.</p>`:''}</div>`}).join('')}
 function blHTML(x){const b=BL[x.c];const bt=blBatch(x.c);const ks=Object.keys(b.batches||{});const U=blU(x);
  const bch=ks.map(k=>`<button class="cp" data-bb="${k}" aria-pressed="${bt===k}">${k} · ${nf(b.batches[k].reduce((a,v)=>a+v,0),2)} mg</button>`).join('')+`<button class="cp" data-bb="" aria-pressed="${bt===''}">Label · ${b.parts.map(q=>q[2]).join('+')}</button>`;
  return `<div class="bl"><div class="row"><div class="k"><i style="background:var(--ink)"></i>Batch on your vial</div><div class="chips">${bch}</div></div>
