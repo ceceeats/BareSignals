@@ -1,3 +1,4 @@
+/* Bare Signals goals v17 (5 Nov 2026): on Case and Goal pages (/library/goals/, /library/aims/), loads /drawer.js so compound links open the Library card in a drawer instead of leaving the article. v16 kept at /goals/v16.js.
 /* Bare Signals goals v16 (5 Nov 2026): Library and Supplements switch gains a fourth tab, Goals (/library/aims/), after Cases. v15 kept at /goals/v15.js.
 /* Bare Signals goals v15 (4 Nov 2026): Quick look summary uses the Library card summary (card.js, Library v86) when one exists, so the drawer and the card say the same thing. v14 kept at /goals/v14.js.
 /* Bare Signals goals v14 (4 Nov 2026): What it does boxes back to the lighter type of the Library and Case tags (regular weight, site ink); red boxes (Inflammation) use cream text so they read without the box shouting. v13 kept at /goals/v13.js.
@@ -185,6 +186,7 @@
       if(!(ex&&ex.dataset.slug===sl)){if(ex)ex.remove();var e3=strip(sl,'',true);if(e3){var bd=card.querySelector('.bd');if(bd)bd.insertBefore(e3,bd.firstChild);else place(e3,syn,'before')}}}}
   }
   var isLib=/^\/library\/(v\d+\/)?$/.test(P)||/^\/library\/v\d+\//.test(P),isHome=P==='/'||P==='/index.html'||/^\/home\//.test(P),isSupp=/^\/supplements\//.test(P);
+  if(/^\/library\/(goals|aims|cases)\//.test(P)&&!D.getElementById('bsx-js')){var dj=D.createElement('script');dj.id='bsx-js';dj.src='/drawer.js';dj.defer=true;D.head.appendChild(dj)}
   if(!isLib&&!isHome&&!isSupp)return;
   var t=0;function tick(){clearTimeout(t);t=setTimeout(function(){try{addCss();if(isLib||isSupp)addTab();if(isLib)runLibrary();else if(isHome){runHome();renameGuide()}}catch(e){}},60)}
   function start(){tick();if(isHome){renameGuide();new MutationObserver(renameGuide).observe(D.body,{childList:true,subtree:true,characterData:true})}new MutationObserver(tick).observe(D.body,{childList:true,subtree:true});addEventListener('hashchange',tick)}
