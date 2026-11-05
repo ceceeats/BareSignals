@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Goals index v1 update (5 Nov 2026): clipboard symbol for the Cases tab, switch symbols shown on phones and the switch spans the full width up to 640px (hidden only under 370px); original v1 kept at /library/aims/v1/. -->
 <!-- Goals index (live = v1, kept at /library/aims/v1/) (5 Nov 2026): fourth Library tab. One page per goal people stack peptides for (weight and appetite live as GLPs; energy, muscle, brain next). -->
 <html lang="en"><head>
 <meta charset="utf-8">
@@ -31,14 +32,14 @@ ul.goals li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;p
 .tsw a:last-child{border-right:0}
 .tsw a svg{width:14px;height:14px;flex:none}
 .tsw a[aria-current="page"]{background:#3E4A80;color:#FFFFE2}
-@media (max-width:640px){.tsw a{padding:7px 7px;font-size:9.5px;letter-spacing:.03em;gap:4px}.tsw a svg{display:none}}
+@media (max-width:640px){.tsw a{padding:7px 7px;font-size:9.5px;letter-spacing:.03em;gap:4px}}@media (max-width:370px){.tsw a svg{display:none}}
 .note{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:16px 0 0}
-</style>
+@media (max-width:640px){.tsw{display:flex;width:100%;margin-left:0;box-sizing:border-box}.tsw>*{flex:1 1 auto;justify-content:center}}</style>
 <script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
 </head><body>
 <div class="w">
 <p class="crumb"><a href="/library/">Library</a> · Goals</p>
-<div class="hdr"><h1>Goals</h1><div class="tsw" role="group" aria-label="Show"><a href="/library/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"></path></svg>Peptides</a><a href="/supplements/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="6" width="13" height="6" rx="3" transform="rotate(-35 9 9)"></rect><path d="M7.3 5.2l3.4 7.6" transform="rotate(-35 9 9)"></path></svg>Supplements</a><a href="/library/goals/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="2" width="11" height="14"></rect><path d="M6.5 6h5M6.5 9h5M6.5 12h3"></path></svg>Cases</a><a href="/library/aims/" aria-current="page"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="6.5"></circle><circle cx="9" cy="9" r="3"></circle><circle cx="9" cy="9" r=".6" fill="currentColor"></circle></svg>Goals</a></div></div>
+<div class="hdr"><h1>Goals</h1><div class="tsw" role="group" aria-label="Show"><a href="/library/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"></path></svg>Peptides</a><a href="/supplements/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="6" width="13" height="6" rx="3" transform="rotate(-35 9 9)"></rect><path d="M7.3 5.2l3.4 7.6" transform="rotate(-35 9 9)"></path></svg>Supplements</a><a href="/library/goals/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3" width="11" height="13.5"></rect><path d="M6.5 1.8h5v2.7h-5z M6.5 8h5M6.5 11h5M6.5 14h3"></path></svg>Cases</a><a href="/library/aims/" aria-current="page"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="6.5"></circle><circle cx="9" cy="9" r="3"></circle><circle cx="9" cy="9" r=".6" fill="currentColor"></circle></svg>Goals</a></div></div>
 <p class="lead">Cases start from a problem to heal. Goals start from what people want more of: less fat, more energy, more muscle, a sharper brain. Each page explains how the compounds people stack work, how they differ, and what they pair.</p>
 <h2 class="part"><span>1</span>Goal pages</h2>
 <ul class="goals"><li><span class="gn"><a href="/library/aims/glp/">GLPs</a></span><span class="gs gs-live">Page</span><span class="gl">Weight and appetite. GLP-1, GIP, glucagon and amylin, what each drug copies, and why people pair them. <a href="/library/goals/notes/glp-map/">Full notes</a></span></li></ul>
