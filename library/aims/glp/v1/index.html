@@ -1,0 +1,350 @@
+<!doctype html>
+<!-- GLPs v1 (5 Nov 2026): first Goals page. Explains GLP-1, GIP, glucagon and amylin; which drug copies which (semaglutide, tirzepatide, retatrutide, brenipatide, cagrilintide, eloralintide, amycretin, survodutide, mazdutide); a tap-a-drug body map of what hits what; fullness vs appetite suppression; cagrilintide vs eloralintide; pairings (CagriSema, EloraTZP, Tirz + Cagri, Reta + Cagri, Reta + Elora, Reta + Tesa); alcohol and reward; muscle and protein; warnings. Built from GLP Map Research v1. Layout from GLP-1s Case v3. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="GLP-1, GIP, glucagon and amylin explained: how Ozempic, Mounjaro, retatrutide, cagrilintide and eloralintide differ, and why people pair them.">
+<title>GLPs · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#3F5BD6;--accent:#DB6830;--warn:#C4202B;
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;
+--glp:#DDD0F6;--gip:#FFCBAA;--gcg:#FFA51F;--amy:#AACC96;--gh:#FFDE59;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--body)}
+.w{max-width:760px;margin:0 auto;padding-block:10px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+p{margin:0 0 8px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 10px}
+.crumb{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0}
+.share{font:600 10px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);background:none;border:1.5px solid var(--accent);padding:6px 8px;cursor:pointer;white-space:nowrap}
+h1{font:700 30px/1 var(--display);margin:0;text-wrap:balance}
+.aka{font-size:12.5px;color:var(--ink-soft);margin:6px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 0}
+.mt{font:500 9.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:11px 0 0}.stripe i{display:block;height:100%}
+.kt{margin:14px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 6px}.kt p:last-child{margin:0}.kt b{color:var(--accent)}
+.part{scroll-margin-top:calc(var(--bsnav-h,0px) + 12px);display:flex;align-items:center;gap:8px;margin:30px 0 0;font:600 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:var(--paper)}
+.q{font:700 18px/1.2 var(--display);margin:14px 0 5px;text-wrap:balance}
+.sub{font:600 10.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 5px}
+.toc{display:flex;flex-wrap:wrap;gap:4px 12px;margin:12px 0 0;font-size:12.5px}
+.sq{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);vertical-align:-1px;margin-right:4px}
+.h-glp{background:var(--glp)}.h-gip{background:var(--gip)}.h-gcg{background:var(--gcg)}.h-amy{background:var(--amy)}.h-gh{background:var(--gh)}
+.ev{font:500 8.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 4px;border:1px solid var(--ink-soft);color:var(--ink-soft);white-space:nowrap;vertical-align:1px}
+sup a{font:500 9px/1 var(--mono);text-decoration:none;padding:0 1px}
+/* hormones */
+.hm{display:grid;grid-template-columns:1fr;gap:0}
+.hm>div{padding:10px 0;border-bottom:1.5px dashed var(--rule)}
+.hm h3{font:700 16px/1.2 var(--display);margin:0 0 3px;display:flex;align-items:center;gap:7px}
+.hm h3 .sq{width:14px;height:14px;margin:0}
+.hm .from{font:500 10px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 4px}
+.hm .feel{font-size:13px;margin:4px 0 0}.hm .feel b{font-weight:600}
+/* map */
+.pick{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0}
+.pick button{border:1.5px solid var(--ink);background:var(--chip);padding:6px 8px;font:500 11px/1 var(--mono);letter-spacing:.02em;cursor:pointer;display:inline-flex;align-items:center;gap:5px;touch-action:manipulation}
+.pick button i{display:inline-flex;gap:1px}.pick button i b{width:6px;height:9px;border:1px solid var(--ink)}
+.pick button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.pick button[aria-pressed=true] i b{border-color:var(--paper)}
+.pick .lab{flex-basis:100%;font:600 9.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:6px 0 1px}
+.sel{margin:10px 0 0;font-size:13.5px;min-height:40px}
+.sel b{font-weight:700}
+.map{margin:6px 0 0;border-top:1.5px solid var(--ink)}
+.site{display:grid;grid-template-columns:96px 1fr auto;gap:2px 10px;align-items:center;padding:8px 0;border-bottom:1.5px dashed var(--rule);transition:opacity .35s}
+.site .nm{font:600 10px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.site .tx{font-size:13px;line-height:1.35}
+.site .dots{display:flex;gap:3px}
+.site .dots b{width:13px;height:13px;border:1.5px solid var(--rule);background:transparent;transition:background .35s,border-color .35s,transform .35s}
+.site .dots b.in{border-color:var(--ink-soft);border-style:dashed}
+.site .dots b.on{border-style:solid;border-color:var(--ink);transform:scale(1.08)}
+.site .dots b.on.h-glp{background:var(--glp)}.site .dots b.on.h-gip{background:var(--gip)}.site .dots b.on.h-gcg{background:var(--gcg)}.site .dots b.on.h-amy{background:var(--amy)}.site .dots b.on.h-gh{background:var(--gh)}
+.site.off{opacity:.32}
+.site.lit .nm{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.site,.site .dots b{transition:none}}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;margin:8px 0 0;color:var(--ink-soft)}
+/* feelings */
+.fe{list-style:none;margin:6px 0 0;padding:0}
+.fe li{padding:8px 0;border-bottom:1.5px dashed var(--rule)}
+.fe li b{font-weight:700}
+.fe .who{display:block;font:500 10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin-top:2px}
+/* drug table */
+.dw{margin:8px 0 0}
+table.dt{border-collapse:collapse;width:100%;font-size:12.5px}
+.dt th,.dt td{padding:7px 3px;border-bottom:1.5px dashed var(--rule);text-align:left;vertical-align:middle}
+.dt thead th{font:600 8.5px/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1.5px solid var(--ink);text-align:center;padding:5px 1px}
+.dt thead th:first-child,.dt thead th:last-child{text-align:left}
+.dt th[scope=row] a{display:block;font:700 14px/1.15 var(--display);color:var(--ink);text-decoration:none}
+.dt th[scope=row] span{display:block;font-size:11px;color:var(--ink-soft);font-weight:400}
+.dt td.c{text-align:center;width:34px}
+.dt td.c i{display:inline-block;width:13px;height:13px;border:1.5px solid var(--rule)}
+.dt td.c i.on{border-color:var(--ink)}
+.dt td.ls{font:500 11px/1.25 var(--mono);width:78px}
+.fnote{font-size:11.5px;color:var(--ink-soft);margin:6px 0 0}
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;margin:8px 0 0}
+.cmp>div{border-top:1.5px solid var(--ink);padding:8px 0 0}
+.cmp h3{font:700 16px/1.15 var(--display);margin:0 0 4px}
+.cmp p{font-size:13px;margin:0 0 6px}
+.cmp .k{font:600 9px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-top:6px}
+/* pairs */
+.pr{padding:12px 0;border-bottom:1.5px dashed var(--rule)}
+.pr h3{font:700 17px/1.2 var(--display);margin:0 0 4px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.pr h3 .hs{display:inline-flex;gap:2px}.pr h3 .hs .sq{margin:0;width:10px;height:10px}
+.pr .st{font:500 9.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.pr .st.tr{background:var(--chip)}.pr .st.cm{border-style:dashed;color:var(--ink-soft)}
+.pr p{margin:0 0 6px}
+.pr .k{font-weight:700}
+.nums{display:flex;flex-wrap:wrap;gap:4px 14px;margin:4px 0 6px;font:500 11.5px/1.3 var(--mono)}
+.nums b{font-weight:600}
+/* warnings */
+.warn{margin:12px 0 0;border:1.5px solid var(--warn);padding:10px 12px;background:#FFF6F4}
+.warn h2{font:600 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin:0 0 8px}
+.warn ul{margin:0;padding-left:18px}.warn li{margin:0 0 6px}
+/* faq */
+.faq details{border-bottom:1.5px dashed var(--rule);padding:8px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 14px/1 var(--mono);color:var(--blue)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:6px 0 0;font-size:13.5px}
+ol.src{font-size:11.5px;padding-left:20px;margin:8px 0 0;columns:1}
+ol.src li{margin:0 0 4px;break-inside:avoid;overflow-wrap:anywhere}
+.foot{margin:24px 0 0;font-size:11.5px;color:var(--ink-soft);border-top:1.5px solid var(--ink);padding-top:8px}
+.foot .sb{margin-top:8px}
+@media (max-width:420px){.site{grid-template-columns:78px 1fr auto;gap:2px 8px}.site .nm{font-size:9.5px}.dt td.c{width:26px}.dt td.ls{width:62px;font-size:10.5px}.dt th[scope=row] a{font-size:13px}.cmp{grid-template-columns:1fr}.cmp>div+div{margin-top:8px}}
+@media (min-width:900px){
+ .w{max-width:1040px}
+ body{font-size:15px}
+ h1{font-size:40px}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+ .hm{grid-template-columns:1fr 1fr;gap:0 28px}
+ .two{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;align-items:start}
+ .site{grid-template-columns:130px 80px 1fr}
+ .site .dots{order:-1;grid-column:2;grid-row:1}
+ .site .nm{grid-column:1;grid-row:1}
+ .site .tx{grid-column:3;grid-row:1}
+ .prs{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+ ol.src{columns:2;column-gap:32px}
+}
+</style>
+</head><body>
+<div class="w">
+<div class="top"><p class="crumb"><a href="/library/">Library</a> · <a href="/library/aims/">Goals</a></p><button class="share" type="button" data-share>Copy link</button></div>
+
+<h1>GLPs</h1>
+<p class="aka">GLP-1, GIP, glucagon and amylin. Ozempic, Mounjaro, retatrutide, cagrilintide, eloralintide, brenipatide, and how people pair them.</p>
+<div class="meta"><span class="mt">Goal · Weight &amp; appetite</span><span class="mt">Researched 5 Nov 2026</span><span class="mt">Version 1</span></div>
+<div class="stripe" aria-hidden="true"><i style="flex:7;background:#DDD0F6"></i><i style="flex:1.2;background:#FFCBAA"></i><i style="flex:1;background:#FFA51F"></i><i style="flex:.8;background:#EA5E86"></i></div>
+
+<div class="kt">
+<p><b>What it is.</b> Four meal hormones, each with its own switch in the body. GLP-1 quiets hunger, GIP helps insulin and fat storage, glucagon burns fuel in the liver, amylin ends meals sooner. Each drug copies one or more of them.</p>
+<p><b>What studies found.</b> The more hormones a drug copies, the more weight goes in trials: about 15% on semaglutide, 20% on tirzepatide, 28% on retatrutide 12 mg, 20% on semaglutide plus cagrilintide.</p>
+<p><b>What people pair.</b> A GLP drug with an amylin drug (cagrilintide or eloralintide), because they act on different brain cells and add up. Some add tesamorelin to target deep belly fat.</p>
+<p><b>Watch out.</b> A quarter to two fifths of the weight lost can be lean tissue. Protein and strength training are what keep it muscle. Pairing two appetite drugs also doubles the stomach side effects.</p>
+</div>
+
+<nav class="toc" aria-label="On this page"><a href="#hormones">The four hormones</a><a href="#map">What hits what</a><a href="#full">Full vs not hungry</a><a href="#drugs">Each drug</a><a href="#amylin">Cagri vs Elora</a><a href="#pairs">Pairings</a><a href="#alcohol">Alcohol</a><a href="#muscle">Muscle</a><a href="#warn">Warnings</a></nav>
+
+<h2 class="part" id="hormones"><span>1</span>The four hormones</h2>
+<p style="margin-top:10px">Your gut and pancreas release these around meals. Each one turns on its own receptor, like a key in its own lock. The natural hormones last minutes. The drugs are built to last about a week, so one weekly shot keeps the lock turned.</p>
+<div class="hm">
+<div><h3><span class="sq h-glp"></span>GLP-1</h3><p class="from">Made in the gut after eating, and in the brainstem</p>
+<p>Tells the pancreas to release insulin only when blood sugar is high. Slows the stomach. Turns down the hunger centre in the brain and the dopamine reward response to food, which is why "food noise" goes quiet.</p>
+<p class="feel"><b>Feels like:</b> not thinking about food, small meals feel enough, cravings and urges go quiet.</p></div>
+<div><h3><span class="sq h-gip"></span>GIP</h3><p class="from">Made in the upper gut after eating</p>
+<p>Also boosts insulin when sugar is high. Works on fat tissue, helping fat cells store fat safely instead of letting it spill into the liver and muscle. In animals it calms the brainstem's nausea centre, one reason tirzepatide's nausea isn't worse than semaglutide's despite more weight loss.<sup><a href="#s14">14</a></sup></p>
+<p class="feel"><b>Feels like:</b> nothing on its own. It makes GLP-1 stronger and gentler.</p></div>
+<div><h3><span class="sq h-gcg"></span>Glucagon</h3><p class="from">Made in the pancreas when fasting</p>
+<p>The "use stored fuel" hormone. Tells the liver to release sugar, burn its own fat and take in amino acids. In a drug, it's added to burn liver fat and raise the energy you use. On its own it raises blood sugar and heart rate, so it's always paired with GLP-1.</p>
+<p class="feel"><b>Feels like:</b> people on retatrutide describe feeling warmer and a faster resting pulse.<sup><a href="#s18">18</a></sup></p></div>
+<div><h3><span class="sq h-amy"></span>Amylin</h3><p class="from">Made in the pancreas with insulin, after meals</p>
+<p>Not a GLP at all, a separate hormone family. It acts on the brainstem's fullness centre, a spot outside the brain's protective barrier. Meals end sooner, the stomach slows, and glucagon stays down after eating.<sup><a href="#s9">9</a></sup></p>
+<p class="feel"><b>Feels like:</b> full after a few bites. Hunger may still be there, the meal just stops.</p></div>
+</div>
+
+<h2 class="part" id="map"><span>2</span>What hits what</h2>
+<p style="margin-top:10px">Tap a drug or a pairing. The body sites it reaches light up, with a square for each hormone it copies there.</p>
+<div class="pick" id="pick" role="group" aria-label="Pick a drug">
+<span class="lab">Single drugs</span>
+<button type="button" data-d="sema">Semaglutide</button><button type="button" data-d="tirz">Tirzepatide</button><button type="button" data-d="reta">Retatrutide</button><button type="button" data-d="bren">Brenipatide</button><button type="button" data-d="cagri">Cagrilintide</button><button type="button" data-d="elora">Eloralintide</button>
+<span class="lab">Pairings</span>
+<button type="button" data-d="cagrisema">Sema + Cagri</button><button type="button" data-d="eloratzp">Tirz + Elora</button><button type="button" data-d="tirzcagri">Tirz + Cagri</button><button type="button" data-d="retacagri">Reta + Cagri</button><button type="button" data-d="retaelora">Reta + Elora</button><button type="button" data-d="retatesa">Reta + Tesa</button>
+</div>
+<p class="sel" id="sel" aria-live="polite"></p>
+<div class="map" id="mapgrid">
+<div class="site" data-h="glp gip"><span class="nm">Hunger centre</span><span class="tx">Less drive to start eating, less thinking about food</span><span class="dots"></span></div>
+<div class="site" data-h="amy glp"><span class="nm">Fullness centre</span><span class="tx">Meals end after less food</span><span class="dots"></span></div>
+<div class="site" data-h="glp amy gip"><span class="nm">Nausea centre</span><span class="tx">GLP-1 and amylin can cause nausea; GIP may calm it</span><span class="dots"></span></div>
+<div class="site" data-h="glp amy"><span class="nm">Reward circuit</span><span class="tx">Quieter food noise, less pull from alcohol</span><span class="dots"></span></div>
+<div class="site" data-h="glp amy"><span class="nm">Stomach</span><span class="tx">Empties slower, you stay full for hours</span><span class="dots"></span></div>
+<div class="site" data-h="glp gip amy"><span class="nm">Pancreas</span><span class="tx">Insulin only when sugar is high; glucagon held down after meals</span><span class="dots"></span></div>
+<div class="site" data-h="gcg"><span class="nm">Liver</span><span class="tx">Burns liver fat, uses more energy</span><span class="dots"></span></div>
+<div class="site" data-h="gip gh"><span class="nm">Fat tissue</span><span class="tx">Fat stored more safely (GIP); deep belly fat shrinks (growth hormone)</span><span class="dots"></span></div>
+<div class="site" data-h="gh"><span class="nm">Pituitary</span><span class="tx">More growth hormone and IGF-1</span><span class="dots"></span></div>
+</div>
+<div class="legend"><span><span class="sq h-glp"></span>GLP-1</span><span><span class="sq h-gip"></span>GIP</span><span><span class="sq h-gcg"></span>Glucagon</span><span><span class="sq h-amy"></span>Amylin</span><span><span class="sq h-gh"></span>Growth hormone</span></div>
+<p class="fnote">Dashed square: a hormone that acts there but isn't in this drug. Brain sites are where each hormone mainly acts in animal and human studies; how strongly each drug reaches them differs.</p>
+
+<h2 class="part" id="full"><span>3</span>Full vs not hungry vs appetite suppressant</h2>
+<p style="margin-top:10px">"Appetite suppressant" gets used for four different feelings. They come from different places, which is why two drugs can both "kill appetite" and feel nothing alike.</p>
+<ul class="fe">
+<li><b>Not hungry.</b> No drive to start eating, food doesn't cross your mind.<span class="who">Hunger centre · mainly GLP-1</span></li>
+<li><b>Full sooner.</b> You start a plate and stop halfway because you're done.<span class="who">Brainstem fullness centre · mainly amylin, also GLP-1</span></li>
+<li><b>Staying full.</b> Breakfast still sits there at 3 pm.<span class="who">Slower stomach · GLP-1 and amylin</span></li>
+<li><b>Quiet urges.</b> Snacking, the evening wine, the "just one more" all lose their pull.<span class="who">Dopamine reward circuit · mainly GLP-1</span></li>
+</ul>
+<p style="margin-top:10px">Old-school appetite suppressants like phentermine or tesofensine are a fifth kind. They raise brain stimulants (noradrenaline, dopamine), so hunger drops because you're wired, often with a faster heart and worse sleep. GLP and amylin drugs work through the body's own fullness signals instead.</p>
+
+<h2 class="part" id="drugs"><span>4</span>Which drug copies which hormone</h2>
+<div class="dw">
+<table class="dt">
+<thead><tr><th>Drug</th><th>GLP&#8209;1</th><th>GIP</th><th>Gluca&shy;gon</th><th>Amy&shy;lin</th><th>Avg loss</th></tr></thead>
+<tbody>
+<tr><th scope="row"><a href="/library/#/p/semaglutide">Semaglutide</a><span>Ozempic · Wegovy</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="ls">~15%</td></tr>
+<tr><th scope="row"><a href="/library/#/p/tirzepatide">Tirzepatide</a><span>Mounjaro · Zepbound</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i class="on h-gip"></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="ls">~20%</td></tr>
+<tr><th scope="row"><a href="/library/#/p/retatrutide">Retatrutide</a><span>No brand, phase 3</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i class="on h-gip"></i></td><td class="c"><i class="on h-gcg"></i></td><td class="c"><i></i></td><td class="ls">19 to 28%</td></tr>
+<tr><th scope="row"><a href="/library/#/p/brenipatide">Brenipatide</a><span>Built for addiction</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i class="on h-gip"></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="ls">not tested</td></tr>
+<tr><th scope="row"><a href="/library/#/p/survodutide">Survodutide</a><span>Also mazdutide</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i></i></td><td class="c"><i class="on h-gcg"></i></td><td class="c"><i></i></td><td class="ls">phase 3</td></tr>
+<tr><th scope="row"><a href="/library/#/p/cagrilintide">Cagrilintide</a><span>Half of CagriSema</span></th><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i class="on h-amy"></i></td><td class="ls">~12%</td></tr>
+<tr><th scope="row"><a href="/library/#/p/eloralintide">Eloralintide</a><span>Lilly, phase 3</span></th><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i class="on h-amy"></i></td><td class="ls">up to 20%</td></tr>
+<tr><th scope="row"><a href="/library/#/p/amycretin">Amycretin</a><span>Both in one molecule</span></th><td class="c"><i class="on h-glp"></i></td><td class="c"><i></i></td><td class="c"><i></i></td><td class="c"><i class="on h-amy"></i></td><td class="ls">phase 3</td></tr>
+</tbody></table>
+</div>
+<p class="fnote">Average weight lost in each drug's main trials, people without diabetes. Trials differ in length (48 to 80 weeks), so read these as rough ranks. Placebo arms lost 0.4 to 3% with diet advice alone.<sup><a href="#s1">1</a> <a href="#s3">3</a> <a href="#s5">5</a></sup></p>
+<div class="two">
+<div><p class="q">Ozempic vs Mounjaro vs retatrutide</p>
+<p>Ozempic (semaglutide) is one key: GLP-1. Mounjaro (tirzepatide) adds GIP, and is actually tuned more toward GIP than GLP-1. Retatrutide adds a third key, glucagon. Each extra key added weight loss in trials: about 15%, then 20%, then 28% on retatrutide 12 mg at 80 weeks, where 45% of people lost 30% or more.<sup><a href="#s5">5</a></sup> Glucagon is the reason retatrutide also clears liver fat so strongly.</p></div>
+<div><p class="q">Where brenipatide fits</p>
+<p>Brenipatide copies the same two hormones as tirzepatide, but Lilly built it for the brain's reward and inflammation pathways, not weight. It's in phase 3 for alcohol use disorder (two 56-week trials, 2,200 people) and for depression. In its first trial, skin tingling showed up in 15% of people on it and none on placebo.<sup><a href="#s12">12</a> <a href="#s13">13</a></sup></p></div>
+</div>
+
+<h2 class="part" id="amylin"><span>5</span>Cagrilintide vs eloralintide</h2>
+<p style="margin-top:10px">Both copy amylin, so both work on fullness, not hunger. The difference is how picky they are. Amylin's lock is the calcitonin receptor with a helper protein attached. Without the helper, it's a plain calcitonin receptor, which amylin drugs can also hit.</p>
+<div class="cmp">
+<div><h3><a href="/library/#/p/cagrilintide">Cagrilintide</a></h3><p>Novo Nordisk. Turns on amylin receptors and the plain calcitonin receptor too.</p>
+<span class="k">Alone in trials</span><p>About 11.5% weight loss at 68 weeks.<sup><a href="#s3">3</a></sup></p>
+<span class="k">Main pairing</span><p>Semaglutide (CagriSema), under FDA review.</p></div>
+<div><h3><a href="/library/#/p/eloralintide">Eloralintide</a></h3><p>Lilly. Built to turn on amylin receptors only, leaving the calcitonin receptor mostly alone.</p>
+<span class="k">Alone in trials</span><p>9% at 1 mg up to 20% at 9 mg over 48 weeks, close to semaglutide alone. Nausea and fatigue were the most common side effects; a slower step-up helped.<sup><a href="#s1">1</a></sup></p>
+<span class="k">Main pairing</span><p>Tirzepatide (EloraTZP), phase 3 from late 2026.</p></div>
+</div>
+<p style="margin-top:8px">The idea that eloralintide is gentler because it skips the calcitonin receptor is still a theory. No trial has put the two side by side, and the trials differ in length and people.<sup><a href="#s17">17</a></sup> <span class="ev">Plausible</span></p>
+
+<h2 class="part" id="pairs"><span>6</span>Pairings</h2>
+<p style="margin-top:10px">The reason pairing works: GLP drugs mostly act on the hunger centre and reward circuit, amylin drugs on the brainstem fullness centre. Different cells, so the effects add up instead of overlapping. Two of these pairings have trials. The rest are community stacks with no human data on the pair.</p>
+<div class="prs">
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-amy"></span></span>Sema + Cagri <span class="st tr">Trial · FDA review</span></h3>
+<div class="nums"><span><b>20.4%</b> together</span><span>14.9% sema alone</span><span>11.5% cagri alone</span><span>3% placebo</span></div>
+<p>CagriSema, 3,417 adults, 68 weeks.<sup><a href="#s3">3</a></sup> The pair beat either drug alone, though not by the full sum of both. About a third of the weight lost was lean tissue.<sup><a href="#s7">7</a></sup> Filed with the FDA in December 2025, decision expected late 2026.<sup><a href="#s4">4</a></sup></p></div>
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-gip"></span><span class="sq h-amy"></span></span>Tirz + Elora <span class="st tr">Trial · phase 3 next</span></h3>
+<div class="nums"><span><b>23.3%</b> together</span><span>14.8% tirz 15 mg alone</span></div>
+<p>EloraTZP, 367 adults with obesity and type 2 diabetes, 48 weeks.<sup><a href="#s2">2</a></sup> People with diabetes lose less on every drug, so this likely runs higher without diabetes. The cost: up to 27% of people on the highest combination stopped for side effects, against 3% on tirzepatide alone.</p></div>
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-gip"></span><span class="sq h-amy"></span></span>Tirz + Cagri <span class="st cm">Community</span></h3>
+<p>Same logic as EloraTZP, using Novo's amylin drug instead of Lilly's. No trial exists, because each company only pairs its own drugs. The closest data is EloraTZP above.</p></div>
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-gip"></span><span class="sq h-gcg"></span><span class="sq h-amy"></span></span>Reta + Cagri <span class="st cm">Community</span></h3>
+<p>All four hormones at once. Retatrutide covers hunger, insulin and liver fat; cagrilintide adds the brainstem "meal ends" signal. Sold as a factory blend (<a href="/library/#/p/reta-cagri">Reta + Cagri</a>). No human trial of the pair, and a rat study some sites cite could not be found. The risk is eating far too little.</p></div>
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-gip"></span><span class="sq h-gcg"></span><span class="sq h-amy"></span></span>Reta + Elora <span class="st cm">Community</span></h3>
+<p>The newer version of Reta + Cagri, swapping in the pickier amylin drug in the hope of less nausea. No trial of the pair. Whether it truly works better in community use is still being checked against reports.</p></div>
+<div class="pr"><h3><span class="hs"><span class="sq h-glp"></span><span class="sq h-gip"></span><span class="sq h-gcg"></span><span class="sq h-gh"></span></span>Reta + Tesa <span class="st cm">Community</span></h3>
+<p>A different idea: not more appetite control, but body shape. <a href="/library/#/p/tesamorelin">Tesamorelin</a> tells the pituitary to release more growth hormone. In its trial (HIV patients with belly fat), deep visceral fat fell about 18% at 12 months, and came back fast after stopping.<sup><a href="#s11">11</a></sup> People add it hoping to target belly fat and keep muscle while retatrutide drives weight down. Whether it protects muscle on a GLP drug has never been tested. Growth hormone can push blood sugar up and cause water retention and joint aches.</p></div>
+</div>
+
+<h2 class="part" id="alcohol"><span>7</span>Why drinking loses its pull</h2>
+<p style="margin-top:10px">GLP-1 receptors sit on the brain's dopamine reward circuit, the same circuit that makes alcohol, sugar and nicotine feel good. In animals, GLP-1 drugs blunt the dopamine surge alcohol causes. So the drink still works chemically, it just stops feeling worth it. In people, the best trial (108 adults with alcohol use disorder and obesity) cut heavy drinking days by 41 points on semaglutide against 26 on placebo.<sup><a href="#s15">15</a> <a href="#s16">16</a></sup> <span class="ev">Likely</span></p>
+<p>Amylin may do the same. An amylin-type drug cut alcohol's dopamine release in mice and cut drinking about 39% in heavy-drinking rats.<sup><a href="#s10">10</a></sup> No human data yet. <span class="ev">Plausible</span> More on cravings and the 65 effects beyond weight on the <a href="/library/goals/glp-1/">GLP-1s Case</a>.</p>
+
+<h2 class="part" id="muscle"><span>8</span>The real goal: lose fat, keep muscle</h2>
+<p style="margin-top:10px">The scale is the easy part. What people actually want is less fat and the same muscle. On every drug, part of the weight lost is lean tissue (muscle, organ, water), measured by body scans:</p>
+<div class="nums" style="font-size:12px"><span>Tirzepatide <b>~25%</b></span><span>Orforglipron <b>~27%</b></span><span>CagriSema <b>~33%</b></span><span>Retatrutide <b>~35%</b></span><span>Semaglutide <b>~40%</b></span></div>
+<p>Different trials, different people, so these aren't a ranking.<sup><a href="#s7">7</a></sup> Dieting without a drug also loses roughly a fifth to a third as lean. Lean tissue isn't all muscle, so the real muscle loss is smaller than these numbers.</p>
+<p>The four US obesity and nutrition societies' 2025 advice for people on these drugs:<sup><a href="#s8">8</a></sup></p>
+<ul class="fe">
+<li><b>Protein 1.2 to 1.6 g per kg a day</b> while losing weight, about 80 to 120 g a day. Hard to reach when you're rarely hungry.</li>
+<li><b>Strength training at least 3 times a week</b>, plus 150 minutes of moderate cardio. Cardio alone protects muscle less.</li>
+<li><b>Eating too little.</b> Below about 1,200 kcal (women) or 1,800 kcal (men), vitamins and minerals run short: iron, calcium, magnesium, zinc, B12, vitamin D among them.</li>
+<li><b>Signs you're short:</b> tiredness beyond normal, hair shedding, dry itchy skin, weakness, slow healing, easy bruising.</li>
+</ul>
+<p style="margin-top:10px">Stacks aimed at building muscle (growth hormone peptides and others) will get their own Goals page.</p>
+
+<div class="warn" id="warn"><h2>Warnings</h2>
+<ul>
+<li>Pairing two appetite drugs stacks the side effects. On the highest tirzepatide plus eloralintide dose, more than 1 in 4 people stopped.<sup><a href="#s2">2</a></sup></li>
+<li>Community pairings (Tirz + Cagri, Reta + Cagri, Reta + Elora, Reta + Tesa) have no human safety data as a pair.</li>
+<li>Retatrutide: faster resting heart rate in community reports, and skin tingling or burning (dysesthesia) in trials.<sup><a href="#s5">5</a> <a href="#s18">18</a></sup> Brenipatide showed tingling in 15% too.</li>
+<li>Very low intake means muscle, hair and nutrient losses. Protein first at every meal.</li>
+<li>Known class warnings on the labels: pancreatitis, gallbladder problems, dehydration from vomiting, and not for pregnancy or a family history of medullary thyroid cancer.</li>
+<li>Growth hormone (tesamorelin) can raise blood sugar, cause swelling and joint aches; gains reverse after stopping.<sup><a href="#s11">11</a></sup></li>
+<li>Retatrutide, eloralintide, cagrilintide and brenipatide are not approved anywhere. Grey-market vials vary in what's inside. See <a href="/made/">how peptides are made</a>.</li>
+</ul></div>
+
+<h2 class="part"><span>?</span>Quick answers</h2>
+<div class="faq">
+<details><summary>Is cagrilintide a GLP?</summary><p>No. Cagrilintide and eloralintide copy amylin, a different hormone made with insulin. They're often lumped in with GLPs because they're paired with them.</p></details>
+<details><summary>Why does Mounjaro feel gentler than Ozempic for some people?</summary><p>One reason may be GIP, which calms the nausea centre in animal studies. Tirzepatide's nausea rates in trials are similar to semaglutide's even though weight loss is bigger.</p></details>
+<details><summary>Is retatrutide just a stronger Mounjaro?</summary><p>It adds glucagon, which works on the liver rather than appetite. That's why it clears liver fat strongly and why people feel warmer, but also why heart rate can rise.</p></details>
+<details><summary>Why add an amylin drug instead of raising the GLP dose?</summary><p>A higher GLP dose pushes the same cells harder, with more nausea. An amylin drug works on different cells, so it adds fullness without doubling the same signal.</p></details>
+<details><summary>Do these drugs stop people drinking?</summary><p>They reduce how much and how often for many, without forcing it. The strongest trial showed fewer heavy drinking days, not full abstinence. Brenipatide is the first one tested specifically for alcohol.</p></details>
+<details><summary>What happens when you stop?</summary><p>In the semaglutide trial that followed people after stopping, about two thirds of the lost weight came back within a year, because the hormones' effect ends when the drug does. Tesamorelin's belly fat loss also reversed quickly.</p></details>
+</div>
+
+<h2 class="part"><span>#</span>Sources</h2>
+<ol class="src">
+<li id="s1">Billings et al., eloralintide phase 2, <a href="https://doi.org/10.1016/S0140-6736(25)02155-5" target="_blank" rel="noopener">Lancet 2025</a>; summary <a href="https://www.drugtopics.com/view/eloralintide-reduces-weight-by-9-5-to-20-1-for-patients-with-obesity" target="_blank" rel="noopener">Drug Topics</a></li>
+<li id="s2">Lilly, EloraTZP phase 2b (NCT06603571), <a href="https://investor.lilly.com/news-releases/news-release-details/lillys-eloratzp-combination-eloralintide-and-tirzepatide" target="_blank" rel="noopener">press release, Oct 2026</a></li>
+<li id="s3">Garvey et al., REDEFINE 1, <a href="https://doi.org/10.1056/NEJMoa2502081" target="_blank" rel="noopener">NEJM 2025</a></li>
+<li id="s4"><a href="https://lifesciencedaily.news/cagrisema-fda-review-novo-nordisk-nda-timeline-explained/" target="_blank" rel="noopener">CagriSema FDA review timeline</a>, LifeScience Daily</li>
+<li id="s5">Lilly TRIUMPH-1 topline, <a href="https://www.pharmacytimes.com/view/retatrutide-delivers-bariatric-level-weight-loss-pivotal-phase-3-triumph-1-trial" target="_blank" rel="noopener">Pharmacy Times, 21 May 2026</a></li>
+<li id="s6">Retatrutide body composition, type 2 diabetes, <a href="https://doi.org/10.1016/S2213-8587(25)00092-0" target="_blank" rel="noopener">Lancet Diabetes Endocrinol 2025</a></li>
+<li id="s7"><a href="https://therxindex.com/research/glp1-lean-mass-by-drug/" target="_blank" rel="noopener">Lean mass by drug</a>, The RX Index (table of primary DXA papers)</li>
+<li id="s8">Mozaffarian et al., Nutritional priorities to support GLP-1 therapy, <a href="https://doi.org/10.1002/oby.24336" target="_blank" rel="noopener">Obesity 2025</a></li>
+<li id="s9">Carvas et al., cagrilintide needs amylin receptors 1 and 3, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12270663/" target="_blank" rel="noopener">eBioMedicine 2025</a></li>
+<li id="s10">Kalafateli et al., amylin receptors and alcohol in rodents, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6585842/" target="_blank" rel="noopener">Addiction Biology 2018</a></li>
+<li id="s11">Falutz et al., tesamorelin 12 months, <a href="https://pubmed.ncbi.nlm.nih.gov/20101189/" target="_blank" rel="noopener">PMID 20101189</a>; <a href="https://natap.org/2010/HIV/020810_06.htm" target="_blank" rel="noopener">NATAP summary</a></li>
+<li id="s12"><a href="https://www.genengnews.com/topics/translational-medicine/lillys-gip-glp-1-candidate-brenipatide-shows-early-clinical-promise-in-substance-psych-disorders/" target="_blank" rel="noopener">Brenipatide early data</a>, GEN</li>
+<li id="s13">RENEW-ALC-1, <a href="https://clinicaltrials.gov/study/NCT07219966" target="_blank" rel="noopener">NCT07219966</a>; RENEW-ALC-2, <a href="https://clinicaltrials.gov/study/NCT07219953" target="_blank" rel="noopener">NCT07219953</a></li>
+<li id="s14">Borner et al., GIP receptor and nausea, <a href="https://doi.org/10.2337/db21-0848" target="_blank" rel="noopener">Diabetes 2022</a></li>
+<li id="s15">Klausen et al., semaglutide in alcohol use disorder, <a href="https://pubmed.ncbi.nlm.nih.gov/42070571/" target="_blank" rel="noopener">Lancet 2026</a></li>
+<li id="s16">Hendershot et al., <a href="https://pubmed.ncbi.nlm.nih.gov/39937469/" target="_blank" rel="noopener">JAMA Psychiatry 2025</a></li>
+<li id="s17"><a href="https://huntershealthhacks.beehiiv.com/p/will-this-replace-cagrilintide" target="_blank" rel="noopener">Eloralintide vs cagrilintide</a>, commentary (selectivity theory)</li>
+<li id="s18"><a href="https://www.peptideprotocolwiki.com/peptides/retatrutide/community" target="_blank" rel="noopener">Retatrutide community reports</a>, Peptide Protocol Wiki (100 aggregated reports)</li>
+</ol>
+
+<div class="foot"><p>Bare Signals · Library · Goals · GLPs version 1, 5 Nov 2026. Not medical advice. Related: <a href="/library/goals/glp-1/">GLP-1s Case</a> (65 effects beyond weight), <a href="/library/goals/notes/glp-map/">research notes</a>.</p>
+<p class="sb"><button class="share" type="button" data-share>Copy link</button></p></div>
+</div>
+<script>
+(function(){
+ var D={
+  sema:{h:['glp'],t:'<b>Semaglutide</b> (Ozempic, Wegovy) copies one hormone, GLP-1. Hunger, reward and stomach.',s:'semaglutide'},
+  tirz:{h:['glp','gip'],t:'<b>Tirzepatide</b> (Mounjaro, Zepbound) copies GLP-1 and GIP, leaning GIP. Adds fat tissue and a possible nausea brake.',s:'tirzepatide'},
+  reta:{h:['glp','gip','gcg'],t:'<b>Retatrutide</b> copies GLP-1, GIP and glucagon. Glucagon lights the liver: liver fat burned, more energy used.',s:'retatrutide'},
+  bren:{h:['glp','gip'],t:'<b>Brenipatide</b> copies the same pair as tirzepatide, built to target the brain’s reward circuit. Tested for alcohol and depression, not weight.',s:'brenipatide'},
+  cagri:{h:['amy'],t:'<b>Cagrilintide</b> copies amylin (and also hits the calcitonin receptor). Fullness and stomach, not hunger.',s:'cagrilintide'},
+  elora:{h:['amy'],t:'<b>Eloralintide</b> copies amylin only, the pickier amylin drug. Fullness and stomach.',s:'eloralintide'},
+  cagrisema:{h:['glp','amy'],t:'<b>Semaglutide + cagrilintide</b> (CagriSema): hunger centre plus fullness centre. 20.4% in its trial.'},
+  eloratzp:{h:['glp','gip','amy'],t:'<b>Tirzepatide + eloralintide</b> (EloraTZP): three hormones. 23.3% in people with diabetes.'},
+  tirzcagri:{h:['glp','gip','amy'],t:'<b>Tirzepatide + cagrilintide</b>: same map as EloraTZP with Novo’s amylin drug. No trial.'},
+  retacagri:{h:['glp','gip','gcg','amy'],t:'<b>Retatrutide + cagrilintide</b>: all four meal hormones. No trial of the pair.',s:'reta-cagri'},
+  retaelora:{h:['glp','gip','gcg','amy'],t:'<b>Retatrutide + eloralintide</b>: all four, with the pickier amylin drug. No trial.'},
+  retatesa:{h:['glp','gip','gcg','gh'],t:'<b>Retatrutide + tesamorelin</b>: three meal hormones plus growth hormone for deep belly fat. No trial.'}
+ };
+ var ORDER=['glp','gip','gcg','amy','gh'],sel=document.getElementById('sel'),sites=[].slice.call(document.querySelectorAll('.site'));
+ sites.forEach(function(s){var hs=s.dataset.h.split(' '),d=s.querySelector('.dots');ORDER.forEach(function(h){if(hs.indexOf(h)>-1){var b=document.createElement('b');b.className='h-'+h;b.dataset.h=h;d.appendChild(b)}})});
+ function pick(k){var o=D[k];[].forEach.call(document.querySelectorAll('#pick button'),function(b){b.setAttribute('aria-pressed',b.dataset.d===k)});
+  sel.innerHTML=o.t+(o.s?' <a href="/library/#/p/'+o.s+'">Card</a>':'');
+  sites.forEach(function(s){var n=0;[].forEach.call(s.querySelectorAll('.dots b'),function(b){var on=o.h.indexOf(b.dataset.h)>-1;b.classList.toggle('on',on);b.classList.toggle('in',!on);if(on)n++});s.classList.toggle('off',!n);s.classList.toggle('lit',!!n)});}
+ [].forEach.call(document.querySelectorAll('#pick button'),function(b){b.addEventListener('click',function(){pick(b.dataset.d)})});
+ pick('reta');
+ [].forEach.call(document.querySelectorAll('[data-share]'),function(b){b.addEventListener('click',function(){var t=location.href.split('#')[0];
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy link'},1600)}
+  try{navigator.clipboard.writeText(t).then(done,function(){b.textContent='Link in address bar'})}catch(e){b.textContent='Link in address bar'}})});
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body></html>
