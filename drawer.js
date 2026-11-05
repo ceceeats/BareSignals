@@ -1,4 +1,4 @@
-/* Bare Signals drawer v1 (5 Nov 2026): on Case and Goal pages, tapping a compound link (/library/#/p/slug or /library/#/slug) opens that compound's Library card in a drawer, so the reader stays in the article. Phone: sheet from the bottom, swipe down or tap outside to close. Laptop: panel on the right. Data from the live Library version (data.js, card.js, punch.js), loaded on first tap. "Open full page" still goes to the Library. */
+/* Bare Signals drawer v1.1 (5 Nov 2026): exposes window.BSDRAWER_OPEN(slug,name) so other pages (Library preview shelf) can open a card in the drawer; dose box cells now flex to fill the row. drawer v1 (5 Nov 2026): on Case and Goal pages, tapping a compound link (/library/#/p/slug or /library/#/slug) opens that compound's Library card in a drawer, so the reader stays in the article. Phone: sheet from the bottom, swipe down or tap outside to close. Laptop: panel on the right. Data from the live Library version (data.js, card.js, punch.js), loaded on first tap. "Open full page" still goes to the Library. */
 (function(){
 var D=document,W=window;if(W.BSDRAWER)return;W.BSDRAWER=1;
 var css='.bsx-bg{position:fixed;inset:0;background:rgba(62,74,128,.28);z-index:60;opacity:0;transition:opacity .25s}.bsx-bg.on{opacity:1}'+
@@ -61,6 +61,7 @@ function open(slug,name,a){if(!D.getElementById('bsx-css')){var st=D.createEleme
   if(!cur||cur.s!==s)return;
   if(!o){bd.innerHTML='<p>This card isn’t in the Library yet.</p>';return}
   s.querySelector('.hd h3').firstChild.nodeValue=o.name;s.querySelector('.u').textContent=(o.dose&&o.dose.use)||'';render(o,bd,s.querySelector('.ft'))})}
+W.BSDRAWER_OPEN=function(s,n){open(s,n||s,D.activeElement)};
 D.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
  var m=a.getAttribute('href').match(/^(?:https?:\/\/(?:www\.)?baresignals\.co)?\/library\/#\/(?:p\/)?([a-z0-9-]+)$/i);if(!m)return;
  e.preventDefault();open(decodeURIComponent(m[1]),(a.textContent||m[1]).trim(),a)},true);

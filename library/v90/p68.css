@@ -1,0 +1,21 @@
+/* Library v68 (25 Oct 2026, built on v67): full page top bar shows Previous and Next beside Back to full library; swipe left for the next compound, right for the one before; one-line hint until the first swipe. v67 kept. */
+.pb68{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap}
+.pb68 .back.b4{flex:none}
+.pn68{display:flex;gap:6px;min-width:0;flex:1 1 auto;justify-content:flex-end}
+.pn68 a{display:inline-flex;align-items:center;gap:5px;min-width:0;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);text-decoration:none;padding:5px 9px;font:500 calc(10.5px*var(--k)) var(--mono);letter-spacing:.04em}
+.pn68 a span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pn68 .pv68 span{max-width:14ch}
+.pn68 .nx68{flex:0 1 auto;border-color:var(--accent);color:var(--accent)}
+.pn68 .nx68 small{font:500 calc(8px*var(--k)) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.sw68{margin:-4px 0 8px;font:500 calc(8.5px*var(--k)) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.sw68d .sw68{display:none}
+@media (hover:hover) and (pointer:fine){.sw68{display:none}}
+@media (max-width:599px){.pb68 .back.b4{font-size:calc(9.5px*var(--k))!important;padding:6px 7px!important;letter-spacing:.03em}.pn68 .nx68 small{display:none}.pn68 .pv68 span{display:none}.pn68 a{padding:5px 7px}}
+#pagev{transition:transform .14s ease,opacity .14s ease}
+#pagev.out-l{transform:translateX(-24px);opacity:0}
+#pagev.out-r{transform:translateX(24px);opacity:0}
+#pagev.in-l{animation:in68l .25s ease}
+#pagev.in-r{animation:in68r .25s ease}
+@keyframes in68l{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+@keyframes in68r{from{transform:translateX(-24px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){#pagev{transition:none}#pagev.in-l,#pagev.in-r{animation:none}}
