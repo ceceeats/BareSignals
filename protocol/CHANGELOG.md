@@ -2,6 +2,11 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v39 (6 Nov 2026) at /protocol/v39/
+- Starting doses now match the Real Dose v11 sticker page: Cartalax 1 mg (was 2), Epitalon 1 mg (was 5), Humanin 0.5 mg (was 1), NAD+ 25 mg (was 50), Pinealon 0.5 mg (was 100 mcg), Vilon 200 mcg (was 100), VIP 100 mcg (was 50), Thymulin 1 mg (was 1 mcg, a research dose that drew 0 U), IllumiNeuro 0.5 mg (was 100 mcg).
+- Water: IllumiNeuro, Vilon, VIP and Thymogen mix in 3 ml so the small draws are measurable.
+- v38 kept.
+
 ## v38 (6 Nov 2026) at /protocol/v38/
 - Every stack card shows how long a vial lasts: "48 doses · 48 days" (weekly ones in weeks).
 - Every routine row in the protocol shows it in full: "48 full doses · 48 days if once daily" (or "5 weeks if once a week", "at 2× a day" etc.). Full doses only, the leftover in the vial isn't counted. Format from a friend's IllumiNeuro chart Cece liked.
