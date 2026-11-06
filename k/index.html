@@ -17,5 +17,5 @@ return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u
 async function un(pw,rem){let d;try{d=await op(pw)}catch(e){return false}if(rem)try{localStorage.setItem('kb',pw)}catch(e){}
 document.open();document.write(d);document.close();return true}
 document.getElementById('lock').onsubmit=async e=>{e.preventDefault();document.getElementById('w').hidden=false;if(!await un(document.getElementById('pw').value,true)){document.getElementById('w').hidden=true;document.getElementById('err').hidden=false}};
-(async()=>{let s=null;try{s=localStorage.getItem('kb')}catch(e){};if(s)await un(s,false)})();
+(async()=>{if(/[?&]out\b/.test(location.search)){try{localStorage.removeItem('kb')}catch(e){}history.replaceState(null,'','/k/')}let s=null;try{s=localStorage.getItem('kb')}catch(e){};if(s)await un(s,false)})();
 </script></body></html>
