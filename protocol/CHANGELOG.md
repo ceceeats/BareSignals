@@ -2,6 +2,12 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v40 (6 Nov 2026) at /protocol/v40/
+- NAD+ starts at 50 mg again (range 50–100 mg; 25 mg was not in the Library).
+- NA Semax Amidate starts at 250 mcg nasal (was 100 mcg), as on the sticker.
+- Thymosin Alpha-1 stays at 1.6 mg 2× a week. Oxytocin stays at 18 IU.
+- v39 kept.
+
 ## v39 (6 Nov 2026) at /protocol/v39/
 - Starting doses now match the Real Dose v11 sticker page: Cartalax 1 mg (was 2), Epitalon 1 mg (was 5), Humanin 0.5 mg (was 1), NAD+ 25 mg (was 50), Pinealon 0.5 mg (was 100 mcg), Vilon 200 mcg (was 100), VIP 100 mcg (was 50), Thymulin 1 mg (was 1 mcg, a research dose that drew 0 U), IllumiNeuro 0.5 mg (was 100 mcg).
 - Water: IllumiNeuro, Vilon, VIP and Thymogen mix in 3 ml so the small draws are measurable.
