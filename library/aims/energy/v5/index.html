@@ -114,9 +114,9 @@ table.dt{border-collapse:collapse;width:100%;font-size:calc(12.5px*var(--k))}
  .dt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
  .dt tr{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px;padding:4px 10px}
  .dt th[scope=row]{border-bottom:1.5px solid var(--ink);padding:7px 0 5px;font-size:calc(15px*var(--k))}
- .dt td{display:grid;grid-template-columns:42% 1fr;gap:8px;border-bottom:1px dashed var(--rule);padding:6px 0}
+ .dt td{position:relative;padding:6px 0 6px 44%;border-bottom:1px dashed var(--rule);min-height:26px}
  .dt tr td:last-child{border-bottom:0}
- .dt td::before{content:attr(data-label);font:600 9.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft)}
+ .dt td::before{content:attr(data-label);position:absolute;left:0;top:6px;width:40%;font:600 9.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft)}
 }
 .deep{margin:8px 0 2px;border-left:2px solid var(--rule);padding-left:10px}
 .deep summary{cursor:pointer;font:600 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--blue);list-style:none}
