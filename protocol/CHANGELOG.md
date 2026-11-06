@@ -2,6 +2,13 @@
 
 /protocol/ always opens the newest version. Older versions stay live at their own path.
 
+## v38 (6 Nov 2026) at /protocol/v38/
+- Every stack card shows how long a vial lasts: "48 doses · 48 days" (weekly ones in weeks).
+- Every routine row in the protocol shows it in full: "48 full doses · 48 days if once daily" (or "5 weeks if once a week", "at 2× a day" etc.). Full doses only, the leftover in the vial isn't counted. Format from a friend's IllumiNeuro chart Cece liked.
+- Factory blends (IllumiNeuro and any Library blend with listed parts) show what each part gives per dose in the routine, e.g. NA Semax 417 mcg · PE-22-28 208 mcg · Pinealon 208 mcg · NA Selank 167 mcg. Uses the Library version matching the vial (48 mg = 20 · 10 · 10 · 8).
+- The blend editor (More) gets a "What each draw gives" table at 5, 10, 15 and 20 units: each part's amount, full doses and days.
+- v37 kept.
+
 ## v32 (27 Oct 2026)
 - 27 Oct 2026: every stripe gives the main role about 70%; the other roles share the last 30%, fading in the old 25 : 15 : 11 order. A role that is the main role of a blend part shares the 70% (Wolverine-style blends keep two big blocks). Previous version kept.
 
