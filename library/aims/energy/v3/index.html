@@ -1,0 +1,405 @@
+<!doctype html>
+<!-- Energy (Goals) v3 (repo, live nav+drawer), 6 Nov 2026. Built on v2 (kept at /library/aims/energy/v2/). Rebuilt the ATP animation into a full electron transport chain: Complexes I to V, moving CoQ10 and cytochrome c carriers, NADH/FADH2 docking, proton pumping, spinning ATP synthase; the tap buttons now each play and narrate a real part (NADH/I, CoQ10 & cyt c, the pumps, SS-31 membrane, ATP synthase). Everything else as v2. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Energy compounds compared: 5-Amino-1MQ, MOTS-c, SS-31, NAD+, CoQ10, creatine, urolithin A, PQQ and more. How a cell makes ATP, what studies show, what stays unknown.">
+<title>Energy · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--warn:#C4202B;
+--nad:#74BCFF;--coq:#DBFAB3;--ss:#99ACFF;--cre:#F28E79;--sig:#B493E8;--uro:#CCA300;
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--k:var(--bs-k,1);color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.5 var(--body)}
+.w{max-width:760px;margin:0 auto;padding-block:10px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+p{margin:0 0 10px}
+h1{font:700 calc(32px*var(--k))/1 var(--display);margin:0;text-wrap:balance}
+.aka{font-size:calc(13px*var(--k));color:var(--ink-soft);margin:8px 0 0;max-width:62ch}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:11px 0 0}.stripe i{display:block;height:100%}
+.kt{margin:16px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:12px 14px}
+.kt p{margin:0 0 7px}.kt p:last-child{margin:0}.kt b{color:var(--accent)}
+.toc{display:flex;flex-wrap:wrap;gap:4px 12px;margin:14px 0 0;font-size:calc(12.5px*var(--k))}
+.part{scroll-margin-top:60px;display:flex;align-items:center;gap:8px;margin:34px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:var(--paper)}
+.cq{font:700 calc(19px*var(--k))/1.15 var(--display);margin:22px 0 0;scroll-margin-top:60px}
+.aka2{font-size:calc(12.5px*var(--k));color:var(--ink-soft);margin:7px 0 7px}
+.note{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:12px 0 0}
+.c{white-space:nowrap}
+sup a{font:500 9px/1 var(--mono);text-decoration:none;padding:0 1px;color:var(--blue)}
+.defs{margin:12px 0 0}
+.defs>div{padding:10px 0;border-bottom:1.5px dashed var(--rule)}
+.dn{font:700 calc(15px*var(--k))/1.2 var(--display)}
+.dd{font-size:calc(13px*var(--k));margin-top:3px}
+.dx{font-size:calc(12.5px*var(--k));color:var(--ink-soft);margin-top:3px}
+/* from-scratch cards */
+.plain{margin:12px 0 0}
+.plain>div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.plain .pn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1.5px solid var(--ink);background:var(--coq);font:700 13px var(--display);border-radius:50%}
+.plain p{margin:0;font-size:calc(13px*var(--k))}
+.plain b{color:var(--accent)}
+/* theory levers */
+.lev{margin:12px 0 0}
+.lv{border:1.5px solid var(--ink);background:var(--chip);padding:10px 12px;margin:0 0 9px;border-left-width:5px}
+.lv-ok{border-left-color:#AACC96}.lv-load{border-left-color:#DBFAB3}.lv-mix{border-left-color:#FFCBAA}.lv-no{border-left-color:#C4C4C4}
+.lvh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lvh b{font:700 calc(16px*var(--k))/1.15 var(--display)}
+.vd{font:600 9px/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:3px 6px;border:1.5px solid var(--ink);white-space:nowrap}
+.vd-ok{background:#AACC96}.vd-load{background:#DBFAB3}.vd-mix{background:#FFCBAA}.vd-no{background:#EDEDED;color:var(--ink-soft)}
+.lvt{margin:6px 0 0;font-size:calc(12.5px*var(--k))}
+.lvw{color:var(--ink-soft);font-size:calc(11.5px*var(--k))}
+.lvd{margin:5px 0 0;font-size:calc(12.5px*var(--k))}
+@media (min-width:900px){.lev{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px}.lv{margin:0}}
+
+.atp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:6px}
+.atp svg{display:block;width:100%;height:auto;max-width:540px;margin:0 auto}
+.zone{font:600 8px var(--mono);letter-spacing:.05em;fill:var(--ink-soft)}
+.cx{fill:#EAF2FF;stroke:var(--ink);stroke-width:1.5}
+.cxl{font:700 11px var(--display);fill:var(--ink)}
+.sub{font:400 7.5px var(--body);fill:var(--ink-soft)}
+.mem{stroke:var(--ss);stroke-width:2;opacity:.55}
+.tl{font:700 7px var(--mono);fill:#fff}
+.st{transition:opacity .3s}
+.atp.focus .st{opacity:.15}.atp.focus .st.on{opacity:1}
+.ring{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:0}
+.atp.focus .st.on .ring{opacity:1;animation:ringp 1.4s ease-in-out infinite}
+.atp.focus .st.on .mem{stroke-width:4;opacity:1}
+@keyframes ringp{0%,100%{opacity:.4}50%{opacity:1}}
+.e{fill:var(--nad);stroke:var(--ink);stroke-width:.7;opacity:0}
+.atp.run .e{animation:eflow 4s linear infinite}.e2{animation-delay:-1.33s}.e3{animation-delay:-2.66s}
+@keyframes eflow{0%{transform:translate(0,0);opacity:0}5%{opacity:1}25%{transform:translate(58px,0)}45%{transform:translate(116px,0)}65%{transform:translate(180px,-22px)}85%{transform:translate(180px,0)}95%{opacity:1}100%{transform:translate(180px,0);opacity:0}}
+.atp.run .coq{animation:qshut 4s ease-in-out infinite}
+@keyframes qshut{0%,100%{transform:translateX(0)}50%{transform:translateX(64px)}}
+.atp.run .cytc{animation:cshut 4s ease-in-out infinite}
+@keyframes cshut{0%,100%{transform:translateX(0)}50%{transform:translateX(32px)}}
+.p{fill:var(--h);stroke:var(--ink);stroke-width:.6;opacity:0}
+.atp.run .p{animation:prise 3s ease-in infinite}.pa{animation-delay:-1s}.pb{animation-delay:-2s}
+@keyframes prise{0%{transform:translate(0,0);opacity:0}20%{opacity:1}60%{transform:translate(0,-46px);opacity:1}100%{transform:translate(250px,-46px);opacity:0}}
+.atp.run .rotor{animation:spin 2.2s linear infinite;transform-origin:308px 196px;transform-box:view-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tok{opacity:0}.atp.run .tok{animation:pop 2.6s ease-out infinite}.tok2{animation-delay:-1.3s}
+@keyframes pop{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:1}75%{opacity:1}100%{transform:translateY(34px) scale(1);opacity:0}}
+.atp.run .nadh{animation:dock 4s ease-in-out infinite}
+@keyframes dock{0%,100%{transform:translateY(0);opacity:.55}15%,30%{transform:translateY(-8px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.atp *{animation:none!important}.atp .e,.atp .tok{opacity:1}}
+.atpcap{font-size:calc(11px*var(--k));color:var(--ink-soft);padding:6px 4px 2px}
+.atpk{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.atpk button{border:1.5px solid var(--ink);background:var(--chip);padding:6px 9px;font:500 11px/1 var(--mono);cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;touch-action:manipulation}
+.atpk button i{width:11px;height:11px;border:1.5px solid var(--ink);display:block}
+.atpk button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.atpk button[aria-pressed=true] i{border-color:var(--paper)}
+.atpc{font-size:calc(13px*var(--k));margin:10px 0 0;min-height:48px}
+
+/* scorecard table */
+.tw{margin:12px 0 0}
+table.dt{border-collapse:collapse;width:100%;font-size:calc(12.5px*var(--k))}
+.dt th,.dt td{padding:8px 9px;border-bottom:1.5px dashed var(--rule);text-align:left;vertical-align:top}
+.dt thead th{font:600 9px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1.5px solid var(--ink)}
+.dt th[scope=row]{font:700 calc(13px*var(--k))/1.2 var(--display);color:var(--ink);white-space:nowrap}
+.dt tbody td{font-weight:500}
+@media (max-width:640px){
+ .dt,.dt tbody,.dt tr,.dt th,.dt td{display:block}
+ .dt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .dt tr{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px;padding:4px 10px}
+ .dt th[scope=row]{border-bottom:1.5px solid var(--ink);padding:7px 0 5px;font-size:calc(15px*var(--k))}
+ .dt td{display:grid;grid-template-columns:42% 1fr;gap:8px;border-bottom:1px dashed var(--rule);padding:6px 0}
+ .dt tr td:last-child{border-bottom:0}
+ .dt td::before{content:attr(data-label);font:600 9.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft)}
+}
+.deep{margin:8px 0 2px;border-left:2px solid var(--rule);padding-left:10px}
+.deep summary{cursor:pointer;font:600 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--blue);list-style:none}
+.deep summary::-webkit-details-marker{display:none}
+.deep summary::before{content:"+ "}.deep[open] summary::before{content:"\2212 "}
+.deep>div{font-size:calc(12.5px*var(--k));margin-top:8px}
+.deep b{color:var(--ink)}
+.read{font-size:calc(12.5px*var(--k));margin:10px 0 0}
+.cof{margin:10px 0 0}
+.cof>div{padding:9px 0;border-bottom:1.5px dashed var(--rule);font-size:calc(12.5px*var(--k))}
+.cof b{font-weight:700}
+.hyp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:11px 13px}.hyp b{color:var(--accent)}
+.rep{display:grid;grid-template-columns:1fr;gap:0;margin:12px 0 0}
+.rep>div{padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.rh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+.rh b{font:700 15px var(--display)}.rh span{font:500 9.5px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft)}
+.rep p{font-size:calc(12.5px*var(--k));margin:0}
+.warn{margin:12px 0 0;border:1.5px solid var(--warn);background:#FFF6F4;padding:12px 14px}
+.warn h3{font:600 11px/1.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--warn);margin:0 0 8px}
+.warn ul{margin:0;padding-left:18px}.warn li{margin:0 0 7px;font-size:calc(12.5px*var(--k))}
+.wf{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:8px 0 0}
+.faq details{border-bottom:1.5px dashed var(--rule);padding:9px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 15px/1 var(--mono);color:var(--blue)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:7px 0 0;font-size:calc(13px*var(--k))}
+.srcs{font-size:calc(11.5px*var(--k));padding-left:22px;margin:10px 0 0}
+.srcs li{margin:0 0 7px;break-inside:avoid}
+.srcs .st{display:inline-block;font:500 8.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--rule);padding:2px 4px;margin-right:4px;vertical-align:1px}
+.srcs .sl{font:500 10px/1 var(--mono);text-transform:uppercase}
+.foot{margin:22px 0 0;font-size:calc(11.5px*var(--k));color:var(--ink-soft);border-top:1.5px solid var(--ink);padding-top:10px}
+@media (min-width:900px){
+ .w{max-width:1000px}body{font-size:calc(15px*var(--k))}h1{font-size:calc(42px*var(--k))}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:7px 26px}
+ .defs{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+ .rep{grid-template-columns:1fr 1fr;gap:0 28px}
+ .srcs{columns:2;column-gap:30px}
+ .atp{padding:14px}
+}
+</style>
+<script>addEventListener("bs-text",function(e){document.documentElement.style.setProperty("--bs-k",e.detail.k)})</script>
+</head><body>
+
+<div class="w"><p class="crumb"><a href="/library/">Library</a> &middot; <a href="/library/aims/">Goals</a> &middot; Energy</p>
+<h1>Energy</h1>
+<p class="aka">Everyone files these under one word. They are not doing one thing. What actually makes energy in a cell, which compounds touch it, and which of them have anything real behind them.</p>
+<div class="meta"><span class="mt">Goal &middot; Cellular energy</span><span class="mt">Research page &middot; v3</span><span class="mt">Compiled 6 Nov 2026</span></div>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#FFA51F"></i><i style="flex:10.0;background:#99ACFF"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<div class="kt"><p><b>What they are.</b> One enzyme blocker, two signal peptides, a membrane patch, a coenzyme, and a shelf of supplements. They plug into different points of the same assembly line, so none of them is a swap for another.</p><p><b>What studies show.</b> The strongest human evidence here is not a peptide. It is exercise, then CoQ10 and creatine. SS-31 is the only approved drug and only for a rare disease. The rest is mice, cells, or still running.</p><p><b>What people report.</b> A clean daytime lift for 5-Amino-1MQ and MOTS-c. CoQ10 and creatine are everyday supplements. For injected NAD+, the most common report is feeling nothing.</p><p><b>Watch out.</b> A lab number is not a feeling, a short time in the blood is not a short effect, and fatigue with normal bloods is often iron, B12, thyroid or sleep, not a peptide.</p></div>
+<nav class="toc" aria-label="On this page"><a href="#which">Which energy?</a><a href="#atp">How energy works</a><a href="#baseline">Which theory works</a><a href="#scan">Every option at a glance</a><a href="#peptides">The peptides</a><a href="#supps">The supplements</a><a href="#together">Do they add up?</a><a href="#reports">What people report</a><a href="#first">Check these first</a><a href="#safe">Safety</a><a href="#faq">FAQ</a><a href="#src">Sources</a></nav>
+<h2 class="part" id="which"><span>1</span>Which kind of energy are we talking about?</h2>
+<p style="margin-top:10px">“Energy” is one word for at least six different things, and these compounds touch different ones. This is the whole reason they are not interchangeable.</p>
+<div class="defs">
+<div><div class="dn">ATP production</div><div class="dd">The actual fuel a cell spends, made in the mitochondria.</div><div class="dx">NAD+ carries the electrons in; SS-31 steadies the machine that runs it.</div></div>
+<div><div class="dn">Mitochondrial function</div><div class="dd">How well the power plants are built and sealed.</div><div class="dx">SS-31 on the membrane; MOTS-c signalling the cell to adapt.</div></div>
+<div><div class="dn">Metabolic signalling</div><div class="dd">Messages to burn fat, take up sugar, build mitochondria.</div><div class="dx">MOTS-c, 5-Amino-1MQ, PQQ, and exercise live here.</div></div>
+<div><div class="dn">Exercise capacity</div><div class="dd">How far or long you can work before you stop.</div><div class="dx">Shown for MOTS-c and SS-31 in mice; a single SS-31 dose lifted muscle ATP capacity in older adults.</div></div>
+<div><div class="dn">Fatigue</div><div class="dd">Whether you tire out, in a disease or with age.</div><div class="dx">SS-31 was tested head-on and did not beat placebo; CoQ10 helps mainly in heart failure or statin users.</div></div>
+<div><div class="dn">The feeling of energy</div><div class="dd">The subjective lift people describe.</div><div class="dx">Almost all of the community reports, almost none of the trial data.</div></div>
+</div>
+<p class="note">A compound can move one of these and leave the rest flat. SS-31 raised a mitochondrial number in older adults in two hours<span class="c"><sup><a href="#s14">14</a></sup></span> yet changed nothing about how tired people with a mitochondrial disease felt over 24 weeks.<span class="c"><sup><a href="#s11">11</a></sup></span> That gap is the honest centre of this page.</p>
+<h2 class="part" id="atp"><span>2</span>How energy actually works, from scratch</h2>
+<p style="margin-top:10px">If none of the words below mean anything yet, good, start here. The whole thing is four parts.</p>
+<div class="plain"><div><span class="pn">1</span><p><b>ATP is the cash.</b> Your body cannot spend food directly. Every cell runs on one molecule, ATP, the only currency it takes, and you make and burn roughly your own body weight in it every day.</p></div><div><span class="pn">2</span><p><b>Mitochondria are the mint.</b> Tiny power plants inside almost every cell. They take the raw material from food and stamp out ATP, on a folded inner wall called the membrane.</p></div><div><span class="pn">3</span><p><b>NAD+ is the delivery van.</b> Food is pulled apart into electrons, and NAD+ is the van that carries those electrons to the plant. The plant uses their energy to mint ATP. That is why NAD+ comes up again and again.</p></div><div><span class="pn">4</span><p><b>NNMT is a slow leak.</b> An enzyme called NNMT quietly drains the pool of NAD+ vans. Block it, which is what 5-Amino-1MQ tries to do, and more vans stay on the road. That one idea sits behind half the compounds here.</p></div></div>
+<p style="margin:14px 0 0">Now watch it run. Food goes in, NAD+ carries the electrons, they move down a chain of stations (CoQ10 is one of the ferries), the flow spins a turbine, and out comes ATP. Tap a compound to see exactly where it plugs in.</p>
+<figure class="atp run" id="atp">
+<svg viewBox="0 0 360 300" role="img" aria-labelledby="atpt"><title id="atpt">The electron transport chain: how a cell makes ATP and where each thing acts</title>
+<rect x="4" y="4" width="352" height="292" rx="14" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/>
+<text x="12" y="20" class="zone">INTERMEMBRANE SPACE &middot; fills with H+</text>
+<text x="12" y="200" class="zone">MATRIX &middot; NADH comes in, ATP is made</text>
+<g class="st s-ss" data-k="ss"><line class="mem" x1="14" y1="118" x2="346" y2="118"/><line class="mem" x1="14" y1="150" x2="346" y2="150"/></g>
+<g class="st s-nad" data-k="nad"><rect class="ring" x="30" y="106" width="30" height="56" rx="5"/><rect class="cx" x="33" y="110" width="24" height="48" rx="3"/><text x="45" y="138" text-anchor="middle" class="cxl">I</text>
+ <g class="nadh"><rect x="31" y="168" width="28" height="12" rx="2" fill="var(--nad)" stroke="#3E4A80" stroke-width="1"/><text x="45" y="177" text-anchor="middle" class="tl" style="fill:#1b2a5e">NADH</text></g></g>
+<g class="st s-chain" data-k="chain"><rect class="cx" x="86" y="118" width="22" height="40" rx="3"/><text x="97" y="142" text-anchor="middle" class="cxl">II</text>
+ <rect x="85" y="168" width="24" height="12" rx="2" fill="#F6E27A" stroke="#3E4A80" stroke-width="1"/><text x="97" y="177" text-anchor="middle" class="tl" style="fill:#5a4a00">FADH2</text></g>
+<g class="st s-coq" data-k="coq"><g class="coq"><circle cx="78" cy="134" r="10" fill="var(--coq)" stroke="#3E4A80" stroke-width="1.4"/><text x="78" y="137.5" text-anchor="middle" class="cxl" style="font-size:9px">Q</text></g><text x="78" y="103" text-anchor="middle" class="sub">CoQ10</text></g>
+<g class="st s-chain" data-k="chain"><rect class="cx" x="150" y="106" width="26" height="52" rx="4"/><text x="163" y="138" text-anchor="middle" class="cxl">III</text></g>
+<g class="st s-coq" data-k="coq"><g class="cytc"><circle cx="186" cy="112" r="8" fill="#FFD9A0" stroke="#3E4A80" stroke-width="1.3"/><text x="186" y="115" text-anchor="middle" class="cxl" style="font-size:8px">c</text></g><text x="198" y="100" class="sub">cyt c</text></g>
+<g class="st s-chain" data-k="chain"><rect class="cx" x="212" y="106" width="26" height="52" rx="4"/><text x="225" y="138" text-anchor="middle" class="cxl">IV</text>
+ <circle cx="225" cy="176" r="8" fill="var(--o2)" stroke="#3E4A80" stroke-width="1"/><text x="225" y="179" text-anchor="middle" class="sub" style="font-weight:700">O2</text><text x="225" y="194" text-anchor="middle" class="sub">&rarr; water</text></g>
+<g class="st s-cre" data-k="cre"><rect class="ring" x="290" y="102" width="36" height="62" rx="6"/>
+ <rect x="303" y="106" width="10" height="46" rx="3" fill="#EAF2FF" stroke="#3E4A80" stroke-width="1.4"/>
+ <circle cx="308" cy="196" r="20" fill="#FFF4D6" stroke="#3E4A80" stroke-width="1.6"/>
+ <g class="rotor"><path d="M308 180 v32 M292 196 h32 M296 184 l24 24 M320 184 l-24 24" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/></g>
+ <text x="308" y="236" text-anchor="middle" class="cxl" style="font-size:9px">V</text><text x="308" y="248" text-anchor="middle" class="sub">ATP synthase</text>
+ <g transform="translate(308,218)"><rect class="tok" x="-12" y="0" width="24" height="13" rx="3" fill="var(--accent)"/><text class="tok tl" x="0" y="10" text-anchor="middle">ATP</text><rect class="tok tok2" x="-12" y="0" width="24" height="13" rx="3" fill="var(--accent)"/><text class="tok tok2 tl" x="0" y="10" text-anchor="middle">ATP</text></g></g>
+<g transform="translate(58,120)"><circle class="e" r="3.2"/><circle class="e e2" r="3.2"/><circle class="e e3" r="3.2"/></g>
+<g transform="translate(45,138)"><circle class="p" r="3"/><circle class="p pa" r="3"/><circle class="p pb" r="3"/></g>
+<g transform="translate(163,138)"><circle class="p" r="3"/><circle class="p pa" r="3"/></g>
+<g transform="translate(225,138)"><circle class="p" r="3"/><circle class="p pb" r="3"/></g>
+</svg>
+<figcaption class="atpcap">NADH drops electrons at Complex I. CoQ10 (Q) and cytochrome c (c) ferry them to III and IV, where oxygen becomes water. Each stop pumps H+ up top, and the H+ rushing back spins Complex V to make ATP.</figcaption>
+</figure>
+<div class="atpk" id="atpk">
+<button data-k="all" aria-pressed="true">Play all</button>
+<button data-k="nad"><i style="background:var(--nad)"></i>NADH &amp; I</button>
+<button data-k="coq"><i style="background:var(--coq)"></i>CoQ10 &amp; cyt c</button>
+<button data-k="chain"><i style="background:#EAF2FF"></i>The pumps</button>
+<button data-k="ss"><i style="background:var(--ss)"></i>SS-31</button>
+<button data-k="cre"><i style="background:var(--accent)"></i>ATP synthase</button>
+</div>
+<p class="atpc" id="atpc">The whole chain, running. Follow one blue electron from NADH on the left all the way to oxygen on the right, then watch the turbine spin.</p>
+<p class="note">Most compounds touch this line at a single point. Only exercise builds more of the line itself. The picture shows where each one is thought to act, not how well it works.</p>
+<h2 class="part" id="baseline"><span>3</span>The ways people try to boost it, and which hold up</h2>
+<p style="margin-top:10px">There is not one theory of energy, there are six, each tugging a different part of that line. This is the honest scorecard of the theory itself, before any single product.</p>
+<div class="lev">
+<div class="lv lv-ok"><div class="lvh"><b>Build more plants</b><span class="vd vd-ok">Proven, but only exercise</span></div><p class="lvt">Make the cell grow new mitochondria (the PGC-1a switch). <span class="lvw">Exercise, MOTS-c, PQQ, SLU-PP-332</span></p><p class="lvd">Endurance training reliably builds new mitochondria in people<span class="c"><sup><a href="#s26">26</a></sup></span>. The compounds that claim to copy it are mice and markers, not proof.</p></div>
+<div class="lv lv-load"><div class="lvh"><b>Store the cash</b><span class="vd vd-load">Works under load</span></div><p class="lvt">Keep a quick-release copy of ATP on the bench. <span class="lvw">Creatine</span></p><p class="lvd">Solid for strength, and real for the brain when you are short on sleep or older<span class="c"><sup><a href="#s32">32</a></sup></span>; close to nothing in a rested young adult.</p></div>
+<div class="lv lv-load"><div class="lvh"><b>Ferry the electrons</b><span class="vd vd-load">Works if you are low</span></div><p class="lvt">Top up CoQ10, the shuttle in the middle of the chain. <span class="lvw">CoQ10</span></p><p class="lvd">A real mortality win in heart failure<span class="c"><sup><a href="#s27">27</a></sup></span> and help for statin users; little evidence in the already well-stocked.</p></div>
+<div class="lv lv-mix"><div class="lvh"><b>Protect the plant</b><span class="vd vd-mix">Real effect, did not translate</span></div><p class="lvt">Stop the membrane leaking so the chain runs clean. <span class="lvw">SS-31</span></p><p class="lvd">A single dose lifted a mitochondrial number in older adults<span class="c"><sup><a href="#s14">14</a></sup></span>, yet it did not change fatigue in disease trials<span class="c"><sup><a href="#s11">11</a></sup></span>. The machine ran better; people did not feel it.</p></div>
+<div class="lv lv-no"><div class="lvh"><b>Feed the carrier</b><span class="vd vd-no">Unproven in people</span></div><p class="lvt">Raise NAD+, the delivery van, or stop it leaking. <span class="lvw">5-Amino-1MQ, injected NAD+</span></p><p class="lvd">The mouse and mechanism story is good; in humans injected NAD+ is broken down before it lands<span class="c"><sup><a href="#s17">17</a></sup></span>, and even the oral precursors give mixed functional results<span class="c"><sup><a href="#s18">18</a></sup></span>.</p></div>
+<div class="lv lv-mix"><div class="lvh"><b>Recycle old plants</b><span class="vd vd-mix">Housekeeping, not a jolt</span></div><p class="lvt">Clear worn mitochondria so the good ones work. <span class="lvw">Urolithin A</span></p><p class="lvd">Improved endurance and inflammation over months, but missed its energy endpoints<span class="c"><sup><a href="#s35">35</a></sup></span>. Quality, not a lift.</p></div>
+<div class="lv lv-ok"><div class="lvh"><b>Fix a shortage</b><span class="vd vd-ok">Reliable, if you are short</span></div><p class="lvt">Replace a cofactor the line genuinely lacks. <span class="lvw">B12, magnesium, iron</span></p><p class="lvd">The most dependable of all, and the most ignored: correcting a real iron or B12 shortfall beats every compound here<span class="c"><sup><a href="#s49">49</a></sup></span>, and does nothing if you are not short.</p></div>
+</div>
+<p class="note">The pattern: the theories that work best are the least exciting (move, sleep, fix a deficiency, train), and the most exciting ones (raise NAD+, build mitochondria with a shot) are exactly where the human proof runs thin.</p>
+<h2 class="part" id="scan"><span>4</span>Every option at a glance</h2>
+<p style="margin-top:10px">The whole field on one screen, strongest human evidence first. “Energy verdict” is how much a healthy person should expect, not a safety rating.</p>
+<div class="tw"><table class="dt"><thead><tr><th scope="col">Compound</th><th scope="col">What it does</th><th scope="col">Status</th><th scope="col">Best human evidence</th><th scope="col">Energy verdict</th></tr></thead><tbody>
+<tr><th scope="row" data-row="Compound">Exercise</th><td data-label="What it does">Endurance training</td><td data-label="Status">Builds new mitochondria</td><td data-label="Best human evidence">Large human meta</td><td data-label="Energy verdict">The real thing</td></tr>
+<tr><th scope="row" data-row="Compound">CoQ10</th><td data-label="What it does">Electron ferry in the chain</td><td data-label="Status">Supplement</td><td data-label="Best human evidence">Strong (heart failure)</td><td data-label="Energy verdict">Helps if depleted</td></tr>
+<tr><th scope="row" data-row="Compound">Creatine</th><td data-label="What it does">ATP battery buffer</td><td data-label="Status">Supplement</td><td data-label="Best human evidence">Strong (strength, aged brain)</td><td data-label="Energy verdict">Real, under load</td></tr>
+<tr><th scope="row" data-row="Compound">Urolithin A</th><td data-label="What it does">Recycles worn mitochondria</td><td data-label="Status">Supplement</td><td data-label="Best human evidence">Mixed (endpoints missed)</td><td data-label="Energy verdict">Housekeeping, not a jolt</td></tr>
+<tr><th scope="row" data-row="Compound">SS-31</th><td data-label="What it does">Patches the membrane</td><td data-label="Status">Approved (Barth only)</td><td data-label="Best human evidence">Mixed / mostly negative</td><td data-label="Energy verdict">Unproven outside Barth</td></tr>
+<tr><th scope="row" data-row="Compound">MOTS-c</th><td data-label="What it does">Exercise signal peptide</td><td data-label="Status">Unapproved, WADA-banned</td><td data-label="Best human evidence">Animal; human ongoing</td><td data-label="Energy verdict">Untested in people</td></tr>
+<tr><th scope="row" data-row="Compound">5-Amino-1MQ</th><td data-label="What it does">Unblocks NAD+ supply</td><td data-label="Status">Unapproved</td><td data-label="Best human evidence">Animal only</td><td data-label="Energy verdict">Untested in people</td></tr>
+<tr><th scope="row" data-row="Compound">NAD+ (injected)</th><td data-label="What it does">The energy coenzyme</td><td data-label="Status">Unapproved</td><td data-label="Best human evidence">Broken down fast</td><td data-label="Energy verdict">Not shown</td></tr>
+<tr><th scope="row" data-row="Compound">PQQ</th><td data-label="What it does">Claims to build mitochondria</td><td data-label="Status">Supplement</td><td data-label="Best human evidence">Thin (one cell study)</td><td data-label="Energy verdict">Promising, unproven</td></tr>
+<tr><th scope="row" data-row="Compound">Methylene blue</th><td data-label="What it does">Backup electron carrier</td><td data-label="Status">Approved (other use)</td><td data-label="Best human evidence">Small human signals</td><td data-label="Energy verdict">Risky, not for energy</td></tr>
+<tr><th scope="row" data-row="Compound">Humanin</th><td data-label="What it does">Protective mito signal</td><td data-label="Status">Research peptide</td><td data-label="Best human evidence">Human levels only</td><td data-label="Energy verdict">No dosing trials</td></tr>
+<tr><th scope="row" data-row="Compound">SLU-PP-332 / BAM15</th><td data-label="What it does">Exercise-mimic / uncoupler</td><td data-label="Status">Research chemicals</td><td data-label="Best human evidence">Mouse only</td><td data-label="Energy verdict">No human data</td></tr>
+</tbody></table></div>
+<p class="note">Read top to bottom: the further down you go, the more the evidence thins out and the more the claims rest on animals or on nobody having tested it yet.</p>
+<h2 class="part" id="peptides"><span>5</span>The peptides and research compounds</h2>
+<p style="margin-top:10px">These are injected or experimental. None is a proven energy treatment in a healthy person. They run from “real drug, wrong job” to “mice only.”</p>
+<h3 class="cq" id="amq">5-Amino-1MQ</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#FFA51F"></i><i style="flex:10.0;background:#DBFAB3"></i><i style="flex:10.0;background:#E1DE62"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">Not a peptide, a small molecule.</p>
+<p>Your cells keep a pool of NAD+, the thing that carries energy, and an enzyme called NNMT quietly drains it. 5-Amino-1MQ is the plug for that drain: slow NNMT down, and more NAD+ and methyl groups stay in the cell to be spent. In obese mice it took off about 5% of body weight in eleven days while untreated mice gained, with roughly a third smaller fat cells<span class="c"><sup><a href="#s1">1</a></sup></span>, and in old mice it beat exercise for grip strength.<span class="c"><sup><a href="#s2">2</a></sup></span> It is not a peptide, and no person has been in a trial yet.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> none. No registered trial, no human pharmacokinetics. <b>Animal/cell:</b> fat loss in obese mice without eating less<span class="c"><sup><a href="#s1">1</a></sup></span>; ~40% more grip strength in aged mice, more than exercise alone and additive with it<span class="c"><sup><a href="#s2">2</a></sup></span>; bigger regrown fibres and ~70% more force in injured old-mouse muscle.<span class="c"><sup><a href="#s3">3</a></sup></span> Much of the work comes from the group commercialising NNMT inhibitors. <b>In the body:</b> rat only, oral bioavailability ~38%, half-life ~6.9 h; human numbers not established.<span class="c"><sup><a href="#s4">4</a></sup></span> <b>Status:</b> unapproved research chemical; dosed in milligrams because it acts on an enzyme, so microgram injectable doses may do nothing.</div></details>
+<p class="read">Full card: <a href="/library/#/p/5-amino-1mq">5-Amino-1MQ in the Library</a></p>
+<h3 class="cq" id="mots">MOTS-c</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#FFCBAA"></i><i style="flex:10.0;background:#FFA51F"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">A peptide your own mitochondria write when you exercise.</p>
+<p>When you work out, your mitochondria write a tiny note called MOTS-c that tells the body to burn fat and take up sugar like a trained athlete. Injecting it is an attempt to send that note without the workout. Given to old mice it let them run about twice as far as untreated ones<span class="c"><sup><a href="#s5">5</a></sup></span>, and in people MOTS-c climbs roughly twelve-fold in muscle during hard exercise.<span class="c"><sup><a href="#s5">5</a></sup></span> The catch: the note your cells write and a shot in the fat are not proven to be the same thing, and no finished human trial of injected MOTS-c exists yet.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> measured, not given. Exercise raises it ~12-fold in muscle, ~1.5x in blood.<span class="c"><sup><a href="#s7">7</a></sup></span> No completed trial of injected MOTS-c; the nearest finished human data is for a modified analog, CB4211, safe over four weeks in fatty liver but both arms improved and the programme was dropped<span class="c"><sup><a href="#s8">8</a></sup></span>, and a Phase 2a of MOTS-c itself began recruiting in 2026.<span class="c"><sup><a href="#s9">9</a></sup></span> <b>Animal:</b> old mice ran ~2x farther; blocked diet-induced weight gain, mainly through muscle.<span class="c"><sup><a href="#s6">6</a></sup></span> <b>In the body:</b> cleared in minutes; human half-life not established. <b>Status:</b> unapproved, banned in sport at all times by WADA as an AMPK activator<span class="c"><sup><a href="#s23">23</a></sup></span>, and recommended 7-5 for pharmacy compounding by an FDA panel in July 2026 (advisory only).<span class="c"><sup><a href="#s24">24</a></sup></span></div></details>
+<p class="read">Full card: <a href="/library/#/p/mots-c">MOTS-c in the Library</a></p>
+<h3 class="cq" id="ss31">SS-31 (elamipretide)</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#99ACFF"></i><i style="flex:10.0;background:#F28E79"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">The only approved drug here, for one rare disease.</p>
+<p>Every cell makes energy on a folded membrane, and when that fold frays the energy leaks out. SS-31 binds the fold and holds it steady, like patching a leaking power line so the current flows again. It is the only one of these that is an approved drug, cleared in 2025 for the rare disease Barth syndrome<span class="c"><sup><a href="#s10">10</a></sup></span>, and a single dose lifted muscle energy capacity in healthy older adults within two hours.<span class="c"><sup><a href="#s14">14</a></sup></span> The honest part: in its bigger trials, for mitochondrial myopathy and for heart failure, it did not beat placebo.<span class="c"><sup><a href="#s11">11</a></sup>,<sup><a href="#s12">12</a></sup></span></p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> the most data, and mixed. Approved for Barth syndrome on a muscle-strength endpoint; the randomized phase did not beat placebo.<span class="c"><sup><a href="#s10">10</a></sup></span> Negative in primary mitochondrial myopathy (218 people, no change in walking or fatigue at 24 weeks)<span class="c"><sup><a href="#s11">11</a></sup></span> and in heart failure (safe, no change in pumping).<span class="c"><sup><a href="#s12">12</a></sup>,<sup><a href="#s13">13</a></sup></span> A single 2-hour infusion raised older adults’ muscle ATP capacity, gone by day 7.<span class="c"><sup><a href="#s14">14</a></sup></span> <b>Animal:</b> a single dose restored ATP toward young levels within an hour; weeks improved exercise tolerance.<span class="c"><sup><a href="#s15">15</a></sup>,<sup><a href="#s16">16</a></sup></span> <b>In the body:</b> peak ~0.5 to 1 h under the skin, cleared to urine within 48 h, dose halved in severe kidney impairment.<span class="c"><sup><a href="#s10">10</a></sup></span> <b>Status:</b> approved only for Barth; grey-market SS-31 is not the approved product.</div></details>
+<p class="read">Full card: <a href="/library/#/p/ss-31">SS-31 (elamipretide) in the Library</a></p>
+<h3 class="cq" id="nad">NAD+ (injected or infused)</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#74BCFF"></i><i style="flex:10.0;background:#C2DCFF"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">The energy coenzyme itself. Not NADH, NR or NMN.</p>
+<p>NAD+ is the molecule that actually carries energy through every cell, and it is thought to run lower with age, so the pitch is to top it straight up by drip or shot. The problem sits at the front door: whole NAD+ put into the blood is taken apart within minutes, so how much ever reaches a cell as NAD+ is unknown.<span class="c"><sup><a href="#s17">17</a></sup></span> The trials that clearly raise NAD+ used the precursors NR and NMN, by mouth, which are different molecules on a different path.<span class="c"><sup><a href="#s20">20</a></sup>,<sup><a href="#s22">22</a></sup></span> Keep them apart: a precursor study is not evidence for an NAD+ drip.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human (injected NAD+ itself):</b> a 6-hour IV infusion showed no plasma rise for 2 hours as it was broken apart<span class="c"><sup><a href="#s17">17</a></sup></span>; a 2026 systematic review found no outcome trials of IV or IM NAD+ for anti-aging and judged it unproven<span class="c"><sup><a href="#s18">18</a></sup></span>; a 2026 pilot compared IV NAD+ with IV NR for tolerability only.<span class="c"><sup><a href="#s19">19</a></sup></span> <b>Kept separate (precursors, oral):</b> NR raises NAD+ and lowers blood-pressure markers<span class="c"><sup><a href="#s20">20</a></sup></span>, NR in aged muscle<span class="c"><sup><a href="#s21">21</a></sup></span>, NMN and muscle insulin sensitivity in prediabetic women.<span class="c"><sup><a href="#s22">22</a></sup></span> None used injected NAD+. <b>In the body:</b> cleared in minutes to hours; subcutaneous route has no published human trial. <b>Status:</b> not approved, not on the FDA 503A list, one injection recalled for endotoxins, a death reported in 2026 after an unlicensed IV infusion.<span class="c"><sup><a href="#s25">25</a></sup></span></div></details>
+<p class="read">Full card: <a href="/library/#/p/nadplus">NAD+ (injected or infused) in the Library</a></p>
+<h3 class="cq" id="humanin">Humanin</h3><div class="stripe" aria-hidden="true"><i style="flex:70;background:#99ACFF"></i><i style="flex:10.0;background:#DBFAB3"></i><i style="flex:10.0;background:#CCA300"></i><i style="flex:10.0;background:#B493E8"></i></div><p class="aka2">MOTS-c’s sibling, a distress flare, not a fuel.</p><p>Humanin is another peptide the mitochondria write, but it works like a distress flare: it summons protection for a stressed cell rather than making energy. The interesting human fact is who has a lot of it. Children of people who reached 100 carry much higher levels, and it falls with age and in Alzheimer’s.<span class="c"><sup><a href="#s40">40</a></sup></span> That is a correlation, not a treatment. There are no trials of giving humanin to people, and the age link does not prove that raising it helps.</p>
+<h3 class="cq" id="research">SLU-PP-332, BAM15, methylene blue</h3><div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#FFA51F"></i><i style="flex:10.0;background:#99ACFF"></i><i style="flex:10.0;background:#B493E8"></i></div><p class="aka2">The frontier: exciting in mice, thin or risky in people.</p><p><b>SLU-PP-332</b> forges the muscle’s “I just ran” memo without the run. Sedentary mice on it ran about 70% longer, with more mitochondria, and in obese mice it raised energy burn and improved metabolism<span class="c"><sup><a href="#s42">42</a></sup></span>, but there is not a single human trial.<span class="c"><sup><a href="#s41">41</a></sup></span> <b>BAM15</b> is an uncoupler: it makes mitochondria burn fuel less efficiently, like idling an engine with the heater on, so mice lost about 15% of body weight as fat at the same calories.<span class="c"><sup><a href="#s43">43</a></sup></span> It has no human data, and its whole class carries the lethal history of DNP, which is why uncouplers are dangerous. <b>Methylene blue</b> is the one approved drug of the three, a backup electron carrier that at low dose nudged memory in a small human trial (about 7% better retrieval).<span class="c"><sup><a href="#s44">44</a></sup></span> But it is a strong MAO inhibitor that can cause serotonin toxicity with antidepressants<span class="c"><sup><a href="#s45">45</a></sup></span>, must be avoided in G6PD deficiency<span class="c"><sup><a href="#s46">46</a></sup></span>, and flips to harmful at higher doses. None of these is an energy supplement.</p>
+<h2 class="part" id="supps"><span>6</span>The supplements with human data</h2>
+<p style="margin-top:10px">Less glamorous than peptides, better evidence. These are the ones a doctor would reach for first, and two of them have stronger human trials than anything above.</p>
+<h3 class="cq" id="coq10">CoQ10 (ubiquinol)</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#99ACFF"></i><i style="flex:10.0;background:#CCA300"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">The electron ferry you can top up by mouth.</p>
+<p>Your energy chain has a little ferry in the middle that carries electrons between the big stations, and that ferry is CoQ10. Your body makes it, statins lower it, and it drops with age, which is why topping it up sometimes helps. It is the one on this page with the strongest human evidence: in a 420-person heart-failure trial, 300 mg a day for two years cut deaths from 18% to 10%.<span class="c"><sup><a href="#s27">27</a></sup></span> It will not do much for an already well-stocked young person, and the statin-muscle-pain trials disagree with each other.<span class="c"><sup><a href="#s29">29</a></sup>,<sup><a href="#s30">30</a></sup></span></p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> Q-SYMBIO (420 with heart failure), 300 mg/day for 2 years, major cardiac events 15% vs 26%, all-cause death 10% vs 18%; no change in the short 16-week symptoms.<span class="c"><sup><a href="#s27">27</a></sup></span> Statins lower circulating CoQ10, and two meta-analyses on statin muscle pain flatly disagree, one null<span class="c"><sup><a href="#s29">29</a></sup></span>, one positive<span class="c"><sup><a href="#s30">30</a></sup></span>. <b>In the body:</b> absorbed slowly (fat-soluble), peak ~6 h, half-life ~33 h; ubiquinol and solubilised forms absorb better.<span class="c"><sup><a href="#s28">28</a></sup></span> <b>Status:</b> dietary supplement, good safety record; may blunt warfarin. Plain truth: a real win in heart failure and statin users, little evidence it lifts energy in the already-healthy.</div></details>
+<h3 class="cq" id="creatine">Creatine monohydrate</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#F28E79"></i><i style="flex:10.0;background:#DBFAB3"></i><i style="flex:10.0;background:#C2DCFF"></i><i style="flex:10.0;background:#B493E8"></i></div>
+<p class="aka2">The rechargeable battery for instant ATP.</p>
+<p>ATP gets spent in a flash, and creatine is the rechargeable battery pack that snaps a fresh copy back onto it, in muscle and in brain. It is one of the most studied and cheapest supplements there is. Beyond strength, it shows up for the brain when you are short on sleep or older: a memory review found a clear gain in people aged 66 to 76 and almost none in the young and rested.<span class="c"><sup><a href="#s32">32</a></sup></span> It is not in the energy chain itself, and the mental effect is modest and mostly shows when you are depleted.<span class="c"><sup><a href="#s33">33</a></sup></span></p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> with resistance training, meaningful strength gains (meta-analysis of 23 studies)<span class="c"><sup><a href="#s31">31</a></sup></span>; memory meta-analysis overall small, but a real effect in older adults (66 to 76) and essentially none in rested young people<span class="c"><sup><a href="#s32">32</a></sup></span>; a single dose blunted cognitive decline during sleep deprivation by up to 12%.<span class="c"><sup><a href="#s33">33</a></sup></span> <b>In the body:</b> oral, raises muscle creatine over days of loading; the acute brain effect appears within hours under stress. <b>Status:</b> supplement; safe up to 30 g/day for 5 years in trials; causes a little water-weight gain.<span class="c"><sup><a href="#s34">34</a></sup></span> Plain truth: rock-solid for strength, real for the brain mainly under load, close to nothing in a rested young adult.</div></details>
+<h3 class="cq" id="urolithin">Urolithin A (Mitopure)</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#CCA300"></i><i style="flex:10.0;background:#DBFAB3"></i><i style="flex:10.0;background:#F28E79"></i><i style="flex:10.0;background:#99ACFF"></i></div>
+<p class="aka2">The signal to take out the mitochondrial trash.</p>
+<p>Old, worn-out mitochondria clog a cell like dead batteries in a drawer, and urolithin A is the signal to take out the trash, a process called mitophagy. It is a gut metabolite of pomegranate and berries that many people cannot make on their own. In a four-month trial in older adults it did not move the headline numbers, walk distance or peak ATP, but it did improve muscle endurance and lower inflammation.<span class="c"><sup><a href="#s35">35</a></sup></span> Read it as mitochondrial house-cleaning, not an energy jolt, and note most of its trials come from the company that sells it.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> first-in-human showed it is safe and shifts mitochondrial gene markers<span class="c"><sup><a href="#s36">36</a></sup></span>; the older-adult RCT missed both primary endpoints (6-minute walk, max ATP) but improved muscle endurance and lowered CRP<span class="c"><sup><a href="#s35">35</a></sup></span>; a maker-authored trial improved strength but missed its primary power endpoint.<span class="c"><sup><a href="#s37">37</a></sup></span> The pattern repeats across trials: secondary wins, primary misses, mostly maker-affiliated. <b>In the body:</b> oral; circulates as conjugates; clean human half-life not established. <b>Status:</b> supplement (FDA GRAS). Plain truth: best read as mitochondrial quality and endurance over months, not acute energy.</div></details>
+<h3 class="cq" id="pqq">PQQ</h3>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#DBFAB3"></i><i style="flex:10.0;background:#C2DCFF"></i><i style="flex:10.0;background:#CCA300"></i><i style="flex:10.0;background:#99ACFF"></i></div>
+<p class="aka2">Sold as the one that builds new mitochondria. The proof is thin.</p>
+<p>Most things on this list help the mitochondria you already have; PQQ is sold as the one that makes new ones. The honest version is thinner than the pitch: the “build new mitochondria” story rests on a single 2009 study in mouse liver cells<span class="c"><sup><a href="#s38">38</a></sup></span>, and no human trial has shown more mitochondria. The small human studies that exist are mostly funded by the makers, with modest signals for inflammation and cognition.<span class="c"><sup><a href="#s39">39</a></sup></span> Promising mechanism, early evidence, not a proven cornerstone.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Cell/animal:</b> in mouse liver cells PQQ switched on the CREB to PGC-1a biogenesis program.<span class="c"><sup><a href="#s38">38</a></sup></span> <b>Human:</b> a 10-person crossover lowered inflammation markers with biogenesis only inferred from urine<span class="c"><sup><a href="#s39">39</a></sup></span>; other small trials (cognition, cholesterol) are mostly industry-funded and not about ATP. No human trial shows more mitochondria. <b>In the body:</b> oral ~20 mg/day studied; human half-life not established. <b>Status:</b> supplement (FDA GRAS).</div></details>
+<h3 class="cq" id="cofactors">The cofactors: carnitine, ALA, magnesium, B2, B12</h3>
+<p class="aka2" style="margin-top:9px">The parts the assembly line genuinely needs. They help most when you are short on them.</p>
+<div class="cof">
+<div><b>Acetyl-L-carnitine.</b> Shuttles fat into the mitochondria to be burned. Fatigue trials exist in frail elderly, but the standard view is no clear benefit in healthy people who make their own.<span class="c"><sup><a href="#s50">50</a></sup></span></div>
+<div><b>Alpha-lipoic acid.</b> A cofactor and antioxidant for the enzymes that feed the chain. Its real evidence is in diabetic nerve pain (symptoms down about half at 600 mg), not energy in healthy people.<span class="c"><sup><a href="#s47">47</a></sup></span></div>
+<div><b>Magnesium.</b> ATP only works as Mg-ATP, so you cannot run the line without it, and low magnesium is common. But topping up a replete person has no clean fatigue trial behind it.<span class="c"><sup><a href="#s51">51</a></sup></span></div>
+<div><b>Riboflavin (B2).</b> The raw material for two electron carriers in the chain. Its best trial is migraine prevention (responders 59% vs 15%), not everyday tiredness.<span class="c"><sup><a href="#s48">48</a></sup></span></div>
+<div><b>Vitamin B12.</b> A cofactor whose deficiency genuinely causes fatigue and anemia, and quiet shortfalls are common with age. Correcting a real deficiency helps; dosing a replete person does not.<span class="c"><sup><a href="#s52">52</a></sup></span></div>
+</div>
+<p class="note">The thread through all five: they fix a shortage. If your level is already fine, another dose does little, which is the opposite of how they are usually sold.</p>
+<h2 class="part" id="together"><span>7</span>Do they add up?</h2>
+<p style="margin-top:10px">People stack these and call it a mitochondrial or energy stack. On paper the pieces fit: 5-Amino-1MQ frees the raw material for NAD+, NAD+ is that material arriving ready-made, CoQ10 ferries the electrons, SS-31 protects the machine, creatine stores the output, and MOTS-c, PQQ and exercise tell the cell to build more. You can see why the story sells.</p>
+<div class="hyp"><p><b>This is a hypothesis, not a finding.</b> There is no human study of any two of these given together, let alone the whole stack. The pieces looking complementary is a reasonable guess from the mechanisms, nothing more, and mechanisms that look like they fit often do nothing extra, or get in each other’s way, once they meet in a real body. Nothing here is a recommended stack.</p></div>
+<h2 class="part" id="reports"><span>8</span>What people report</h2>
+<p style="margin-top:10px">First-hand reports from forums, kept with the no-change and worse ones. Not a trial, not an effectiveness rate: people choose what to post, many stack several things, and nobody checks the vial.</p>
+<div class="rep">
+<div><div class="rh"><b>5-Amino-1MQ</b><span>53 logged</span></div><p>A fast clean lift is the most consistent theme (15+), often within an hour, plus some fat loss (6). Split overall. Doses ran from under 1 mg to 50 mg, so “worked” and “nothing” are often different doses. Injection lumps and jitters at the top end.</p></div>
+<div><div class="rh"><b>MOTS-c</b><span>56 logged</span></div><p>Clean daytime energy and pre-workout without jitters lead (15+), with more endurance (9). About two-thirds of the clear reports said it worked. The standout downside is an injection-site histamine reaction in about 11 people.</p></div>
+<div><div class="rh"><b>SS-31</b><span>small pool</span></div><p>Mental clarity and energy top a smaller set; some describe a few hours of a lift. Too thin for a rate.</p></div>
+<div><div class="rh"><b>NAD+ (injected)</b><span>67 logged</span></div><p>Felt nothing is the single most common outcome (15, some after months). Most positive reports sit inside stacks. IV drips bring nausea and chest tightness run fast; shots sting.</p></div>
+<div><div class="rh"><b>CoQ10 &amp; creatine</b><span>mainstream</span></div><p>Not grey-market. Decades of everyday use and real trials; creatine for training and the aged brain, CoQ10 for statin users and heart failure. Both low-drama, both better evidenced than the peptides.</p></div>
+</div>
+<p class="note">Peptide figures come from the Bare Signals research log, kept raw, positive and negative together, with duplicates removed and vial doubts flagged.</p>
+<h2 class="part" id="first"><span>9</span>Check these before a peptide</h2>
+<p style="margin-top:10px">The most common fixable cause of low energy is not a missing peptide. It is a missing nutrient or a bad night. Fatigue with “normal” bloods is often low iron, low B12, an underactive thyroid, poor sleep, or low mood, and correcting a real shortfall beats any compound on this page.</p>
+<div class="defs"><div><div class="dn">Iron (ferritin)</div><div class="dd">A normal blood count does not rule it out. In tired women who were not anemic but had low ferritin, iron cut fatigue about 29% vs 13% on placebo.<span class="c"><sup><a href="#s49">49</a></sup></span></div></div><div><div class="dn">Vitamin B12</div><div class="dd">Quiet shortfalls are common with age and on plant-based diets, and deficiency genuinely causes fatigue. Worth testing before supplementing blindly.<span class="c"><sup><a href="#s52">52</a></sup></span></div></div><div><div class="dn">Thyroid</div><div class="dd">An underactive thyroid is a classic, treatable cause of persistent tiredness. A simple test rules it in or out.</div></div><div><div class="dn">Sleep and mood</div><div class="dd">The least glamorous and most common. No mitochondrial supplement competes with fixing short or broken sleep, or treating low mood.</div></div></div>
+<h2 class="part" id="safe"><span>10</span>Safety and uncertainty</h2>
+<div class="warn"><h3>Read before you trust any of this</h3><ul><li><b>A lab number is not a feeling.</b> SS-31 can lift a mitochondrial measurement in hours and still not change how tired someone feels over months.</li><li><b>Short in the blood is not short in effect, and detection is not benefit.</b> NAD+ clears in minutes; that tells you nothing either way.</li><li><b>Mice are not people.</b> The strongest results for the peptides, SLU-PP-332 and BAM15 are in rodents; human doses are estimated.</li><li><b>Precursors are not injected NAD+.</b> The good NAD+ trials used oral NR or NMN. They do not show a drip works.</li><li><b>Uncouplers are dangerous.</b> BAM15’s class includes DNP, which has killed people. No human has safely used BAM15 for energy.</li><li><b>Methylene blue is a drug, not a supplement.</b> It can cause serotonin toxicity with antidepressants and must be avoided in G6PD deficiency.<span class="c"><sup><a href="#s45">45</a></sup>,<sup><a href="#s46">46</a></sup></span></li><li><b>Supplements help a shortage, not a surplus.</b> CoQ10, magnesium, B12 and the rest do most when you are low. Topping up a replete, rested young person does little.</li><li><b>Legality and purity.</b> Only SS-31 and methylene blue are approved drugs, each for something else. MOTS-c is banned in sport; grey-market material has unknown purity; a death followed an unlicensed IV NAD+ infusion.</li></ul><p class="wf">This page reports what has and has not been shown. It is not medical advice and not a dosing, cycling or combination protocol. Study doses are given only to explain an experiment.</p></div>
+<h2 class="part" id="faq"><span>11</span>Common questions</h2><div class="faq">
+<details><summary>Are all these doing the same thing?</summary><p>No. They hit different points of the ATP line, an enzyme, a signal, a membrane, a coenzyme, a buffer, plus supplements that fix shortages. Grouped under one word, not interchangeable.</p></details>
+<details><summary>Which has the best human evidence?</summary><p>Exercise, then CoQ10 and creatine. SS-31 is the only approved drug but only for Barth syndrome, and its bigger trials were negative. The injected peptides have no completed human energy trial.</p></details>
+<details><summary>What should I try first for low energy?</summary><p>Rule out the boring causes: iron, B12, thyroid, sleep, mood. Fixing a real shortfall beats every compound here. Exercise is the only thing proven to build new mitochondria.</p></details>
+<details><summary>Does injecting NAD+ raise my NAD+?</summary><p>Unclear. Infused NAD+ is broken apart before it can be measured rising. The trials that clearly raise NAD+ used oral precursors (NR, NMN), different molecules.</p></details>
+<details><summary>Does PQQ really build new mitochondria?</summary><p>In a dish, in mouse cells. No human trial has shown more mitochondria. Treat the biogenesis claim as promising, not proven.</p></details>
+<details><summary>Is CoQ10 worth it if I am healthy?</summary><p>Mostly if you are on a statin or over 50, or have heart failure. In an already well-stocked young person the evidence for an energy lift is weak.</p></details>
+<details><summary>Do they work better together?</summary><p>Unknown. No human combination study exists. The complementary-stack idea is a hypothesis, and this page is deliberately not a stack recommendation.</p></details>
+</div>
+<h2 class="part" id="src"><span>12</span>Sources</h2>
+<p class="note">Primary papers, trial registries and regulator or authority pages, with the evidence type beside each. Precursor (NR/NMN) studies are labelled so they are not read as injected-NAD+ evidence. Community figures are from the Bare Signals research log, not listed here.</p>
+<ol class="srcs">
+<li id="s1"><span class="st">animal/cell</span> Neelakantan H, et al. Selective, membrane-permeable NNMT inhibitors reverse diet-induced obesity in mice. <i>Biochem Pharmacol</i> 2018. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/29155147/" target="_blank" rel="noopener">link</a></li>
+<li id="s2"><span class="st">animal</span> Dimet-Wiley AL, et al. NNMT inhibition mimics and boosts exercise-mediated muscle improvements in aged mice. <i>Sci Rep</i> 2024. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/38969654/" target="_blank" rel="noopener">link</a></li>
+<li id="s3"><span class="st">animal</span> Neelakantan H, et al. NNMT inhibitor activates senescent muscle stem cells in aged mice. <i>Biochem Pharmacol</i> 2019. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/30753815/" target="_blank" rel="noopener">link</a></li>
+<li id="s4"><span class="st">animal PK</span> Awosemo O, et al. LC-MS/MS assay for 5-amino-1-methylquinolinium: rat pharmacokinetics and oral bioavailability. <i>J Pharm Biomed Anal</i> 2021. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/34304009/" target="_blank" rel="noopener">link</a></li>
+<li id="s5"><span class="st">human obs.+animal</span> Reynolds JC, et al. MOTS-c is an exercise-induced mitochondrial-encoded regulator of physical decline. <i>Nat Commun</i> 2021. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/33473109/" target="_blank" rel="noopener">link</a></li>
+<li id="s6"><span class="st">animal</span> Lee C, et al. The mitochondrial-derived peptide MOTS-c reduces obesity and insulin resistance. <i>Cell Metab</i> 2015. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/25738459/" target="_blank" rel="noopener">link</a></li>
+<li id="s7"><span class="st">human obs.</span> von Walden F, et al. Acute endurance exercise stimulates circulating mitochondrial-derived peptides in humans. <i>J Appl Physiol</i> 2021. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/34351816/" target="_blank" rel="noopener">link</a></li>
+<li id="s8"><span class="st">human (analog)</span> CohBar, Inc. Phase 1a/1b of CB4211 (a MOTS-c analog) in NAFLD. ClinicalTrials.gov NCT03998514; topline Aug 2021; later discontinued. <a class="sl" href="https://clinicaltrials.gov/study/NCT03998514" target="_blank" rel="noopener">link</a></li>
+<li id="s9"><span class="st">human (ongoing)</span> Hudson Biotech. Phase 2a of MOTS-c in prediabetes and overweight/obesity. ClinicalTrials.gov NCT07505745 (recruiting). <a class="sl" href="https://clinicaltrials.gov/study/NCT07505745" target="_blank" rel="noopener">link</a></li>
+<li id="s10"><span class="st">human (approved)</span> FORZINITY (elamipretide) U.S. Prescribing Information. Stealth BioTherapeutics; initial U.S. approval 2025 (DailyMed). <a class="sl" href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=146bf34c-76f2-48db-ac07-fb29cce2cd75" target="_blank" rel="noopener">link</a></li>
+<li id="s11"><span class="st">human (negative)</span> Karaa A, et al. Elamipretide in primary mitochondrial myopathy: the MMPOWER-3 randomized trial. <i>Neurology</i> 2023. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/37268435/" target="_blank" rel="noopener">link</a></li>
+<li id="s12"><span class="st">human (negative)</span> Butler J, et al. Elamipretide in heart failure (PROGRESS-HF), phase 2. <i>J Card Fail</i> 2020. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/32068002/" target="_blank" rel="noopener">link</a></li>
+<li id="s13"><span class="st">human</span> Daubert MA, et al. A single elamipretide infusion in heart failure, phase 1. <i>Circ Heart Fail</i> 2017. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/29217757/" target="_blank" rel="noopener">link</a></li>
+<li id="s14"><span class="st">human</span> Roshanravan B, et al. A single dose of elamipretide improves in vivo muscle ATP production in older adults: a randomized trial. <i>PLoS ONE</i> 2021. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/34264994/" target="_blank" rel="noopener">link</a></li>
+<li id="s15"><span class="st">animal</span> Siegel MP, et al. SS-31 rapidly improves mitochondrial energetics and muscle performance in aged mice. <i>Aging Cell</i> 2013. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/23692570/" target="_blank" rel="noopener">link</a></li>
+<li id="s16"><span class="st">animal</span> Campbell MD, et al. SS-31 reverses age-related redox stress and improves exercise tolerance in aged mice. <i>Free Radic Biol Med</i> 2018. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/30597195/" target="_blank" rel="noopener">link</a></li>
+<li id="s17"><span class="st">human PK</span> Grant R, et al. Human plasma and urine NAD+ metabolome during a 6-hour IV infusion of NAD+. <i>Front Aging Neurosci</i> 2019. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/31572171/" target="_blank" rel="noopener">link</a></li>
+<li id="s18"><span class="st">review</span> Gallagher C, Emmanuel OO. NAD+ supplementation for anti-aging and wellness: a PRISMA systematic review. <i>Ageing Res Rev</i> 2026. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/41655607/" target="_blank" rel="noopener">link</a></li>
+<li id="s19"><span class="st">human (tolerability)</span> Reyna K, et al. Intravenous NAD+ versus nicotinamide riboside: a retrospective tolerability pilot. <i>Front Aging</i> 2026. <a class="sl" href="https://doi.org/10.3389/fragi.2026.1652582" target="_blank" rel="noopener">link</a></li>
+<li id="s20"><span class="st">human (precursor)</span> Martens CR, et al. Chronic nicotinamide riboside elevates NAD+ in healthy middle-aged and older adults. <i>Nat Commun</i> 2018. [NR precursor, not injected NAD+] <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/29599478/" target="_blank" rel="noopener">link</a></li>
+<li id="s21"><span class="st">human (precursor)</span> Elhassan YS, et al. Nicotinamide riboside augments the aged human muscle NAD+ metabolome. <i>Cell Rep</i> 2019. [NR precursor, not injected NAD+] <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/31412242/" target="_blank" rel="noopener">link</a></li>
+<li id="s22"><span class="st">human (precursor)</span> Yoshino M, et al. Nicotinamide mononucleotide increases muscle insulin sensitivity in prediabetic women. <i>Science</i> 2021. [NMN precursor, not injected NAD+] <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/33888596/" target="_blank" rel="noopener">link</a></li>
+<li id="s23"><span class="st">regulatory</span> World Anti-Doping Agency. 2026 Prohibited List, S4.4.1 (AMPK activators, incl. MOTS-c). <a class="sl" href="https://www.wada-ama.org/en/prohibited-list" target="_blank" rel="noopener">link</a></li>
+<li id="s24"><span class="st">regulatory</span> U.S. FDA Pharmacy Compounding Advisory Committee, 23 Jul 2026: MOTS-c recommended for the 503A bulks list, 7-5 (advisory). <a class="sl" href="https://www.fda.gov/advisory-committees/human-drug-advisory-committees/pharmacy-compounding-advisory-committee" target="_blank" rel="noopener">link</a></li>
+<li id="s25"><span class="st">regulatory</span> U.S. FDA / Federal Register (2019): NAD+ considered and not proposed for the 503A bulks list; Class I recall of an NAD+ injection for endotoxins. <a class="sl" href="https://www.govinfo.gov/content/pkg/FR-2019-09-05/html/2019-18951.htm" target="_blank" rel="noopener">link</a></li>
+<li id="s26"><span class="st">human meta</span> Abrego-Guandique DM, et al. Effect of endurance exercise on PGC-1a and mitochondrial biogenesis: a systematic review and meta-analysis. <i>Biomol Concepts</i> 2025. <a class="sl" href="https://doi.org/10.1515/bmc-2025-0055" target="_blank" rel="noopener">link</a></li>
+<li id="s27"><span class="st">human RCT</span> Mortensen SA, et al. The effect of coenzyme Q10 on morbidity and mortality in chronic heart failure (Q-SYMBIO). <i>JACC Heart Fail</i> 2014. <a class="sl" href="https://doi.org/10.1016/j.jchf.2014.06.008" target="_blank" rel="noopener">link</a></li>
+<li id="s28"><span class="st">human PK</span> Bhagavan HN, Chopra RK. Coenzyme Q10: absorption, tissue uptake, metabolism and pharmacokinetics. <i>Free Radic Res</i> 2006. <a class="sl" href="https://doi.org/10.1080/10715760600617843" target="_blank" rel="noopener">link</a></li>
+<li id="s29"><span class="st">human meta (null)</span> Kennedy C, et al. Coenzyme Q10 for statin-associated myopathy: a meta-analysis (null). <i>Atherosclerosis</i> 2020. <a class="sl" href="https://doi.org/10.1016/j.atherosclerosis.2020.03.006" target="_blank" rel="noopener">link</a></li>
+<li id="s30"><span class="st">human meta (positive)</span> Qu H, et al. Coenzyme Q10 and statin-induced muscle symptoms: a meta-analysis (positive). <i>J Am Heart Assoc</i> 2018. <a class="sl" href="https://doi.org/10.1161/JAHA.118.009835" target="_blank" rel="noopener">link</a></li>
+<li id="s31"><span class="st">human meta</span> Wang Z, et al. Creatine plus resistance training on muscle strength: a meta-analysis. <i>Nutrients</i> 2024. <a class="sl" href="https://doi.org/10.3390/nu16213665" target="_blank" rel="noopener">link</a></li>
+<li id="s32"><span class="st">human meta</span> Prokopidis K, et al. Effects of creatine supplementation on memory: a meta-analysis. <i>Nutr Rev</i> 2023. <a class="sl" href="https://doi.org/10.1093/nutrit/nuac064" target="_blank" rel="noopener">link</a></li>
+<li id="s33"><span class="st">human RCT</span> Gordji-Nejad A, et al. Single-dose creatine during sleep deprivation and cognition. <i>Nutrients</i> 2026. <a class="sl" href="https://doi.org/10.3390/nu18081192" target="_blank" rel="noopener">link</a></li>
+<li id="s34"><span class="st">review</span> Kreider RB, et al. ISSN position stand: safety and efficacy of creatine supplementation. <i>J Int Soc Sports Nutr</i> 2017. <a class="sl" href="https://doi.org/10.1186/s12970-017-0173-z" target="_blank" rel="noopener">link</a></li>
+<li id="s35"><span class="st">human RCT</span> Liu S, et al. Urolithin A in older adults: a randomized clinical trial (primary endpoints not met). <i>JAMA Netw Open</i> 2022. <a class="sl" href="https://doi.org/10.1001/jamanetworkopen.2021.44279" target="_blank" rel="noopener">link</a></li>
+<li id="s36"><span class="st">human (phase 1)</span> Andreux PA, et al. The mitophagy activator urolithin A is safe and induces a molecular signature of improved mitochondrial health. <i>Nat Metab</i> 2019. <a class="sl" href="https://doi.org/10.1038/s42255-019-0073-4" target="_blank" rel="noopener">link</a></li>
+<li id="s37"><span class="st">human RCT</span> Singh A, et al. Urolithin A improves muscle strength and exercise performance (primary power endpoint not met; maker-authored). <i>Cell Rep Med</i> 2022. <a class="sl" href="https://doi.org/10.1016/j.xcrm.2022.100633" target="_blank" rel="noopener">link</a></li>
+<li id="s38"><span class="st">cell/animal</span> Chowanadisai W, et al. Pyrroloquinoline quinone stimulates mitochondrial biogenesis through CREB and PGC-1a (mouse cells). <i>J Biol Chem</i> 2010. <a class="sl" href="https://doi.org/10.1074/jbc.M109.030130" target="_blank" rel="noopener">link</a></li>
+<li id="s39"><span class="st">human (n=10)</span> Harris CB, et al. Dietary PQQ alters indicators of inflammation and mitochondrial-related metabolism in humans. <i>J Nutr Biochem</i> 2013. <a class="sl" href="https://doi.org/10.1016/j.jnutbio.2013.07.008" target="_blank" rel="noopener">link</a></li>
+<li id="s40"><span class="st">human obs.+animal</span> Yen K, et al. Humanin prevents age-related cognitive decline and associates with longevity. <i>Aging</i> 2020. <a class="sl" href="https://doi.org/10.18632/aging.103534" target="_blank" rel="noopener">link</a></li>
+<li id="s41"><span class="st">animal/cell</span> Billon C, et al. Synthetic ERR agonist SLU-PP-332 as an exercise mimetic. <i>ACS Chem Biol</i> 2023. <a class="sl" href="https://doi.org/10.1021/acschembio.2c00720" target="_blank" rel="noopener">link</a></li>
+<li id="s42"><span class="st">animal</span> Billon C, et al. SLU-PP-332 increases energy expenditure and improves metabolism in obese mice. <i>J Pharmacol Exp Ther</i> 2024. <a class="sl" href="https://doi.org/10.1124/jpet.123.001733" target="_blank" rel="noopener">link</a></li>
+<li id="s43"><span class="st">animal</span> Alexopoulos SJ, et al. Mitochondrial uncoupler BAM15 reverses diet-induced obesity in mice. <i>Nat Commun</i> 2020. <a class="sl" href="https://doi.org/10.1038/s41467-020-16298-2" target="_blank" rel="noopener">link</a></li>
+<li id="s44"><span class="st">human RCT</span> Rodriguez P, et al. Multimodal randomized trial of low-dose methylene blue on brain activity and memory. <i>Radiology</i> 2016. <a class="sl" href="https://doi.org/10.1148/radiol.2016152893" target="_blank" rel="noopener">link</a></li>
+<li id="s45"><span class="st">human review</span> Ng BKW, Cameron AJ. The role of methylene blue in serotonin toxicity. <i>Can J Hosp Pharm</i> 2013. <a class="sl" href="https://doi.org/10.4212/cjhp.v66i4.1279" target="_blank" rel="noopener">link</a></li>
+<li id="s46"><span class="st">human review</span> Youngster I, et al. Medications and glucose-6-phosphate dehydrogenase deficiency. <i>Drug Saf</i> 2010. <a class="sl" href="https://doi.org/10.2165/11536520-000000000-00000" target="_blank" rel="noopener">link</a></li>
+<li id="s47"><span class="st">human RCT</span> Ziegler D, et al. Oral alpha-lipoic acid in diabetic polyneuropathy (SYDNEY 2). <i>Diabetes Care</i> 2006. <a class="sl" href="https://doi.org/10.2337/dc06-1216" target="_blank" rel="noopener">link</a></li>
+<li id="s48"><span class="st">human RCT</span> Schoenen J, et al. High-dose riboflavin for migraine prophylaxis: a randomized trial. <i>Neurology</i> 1998. <a class="sl" href="https://doi.org/10.1212/wnl.50.2.466" target="_blank" rel="noopener">link</a></li>
+<li id="s49"><span class="st">human RCT</span> Verdon F, et al. Iron supplementation for unexplained fatigue in non-anaemic women: a randomized trial. <i>BMJ</i> 2003. <a class="sl" href="https://doi.org/10.1136/bmj.326.7399.1124" target="_blank" rel="noopener">link</a></li>
+<li id="s50"><span class="st">authority</span> NIH Office of Dietary Supplements. Carnitine health professional fact sheet. <a class="sl" href="https://ods.od.nih.gov/factsheets/Carnitine-HealthProfessional/" target="_blank" rel="noopener">link</a></li>
+<li id="s51"><span class="st">authority</span> NIH Office of Dietary Supplements. Magnesium health professional fact sheet. <a class="sl" href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/" target="_blank" rel="noopener">link</a></li>
+<li id="s52"><span class="st">authority</span> NIH Office of Dietary Supplements. Vitamin B12 health professional fact sheet. <a class="sl" href="https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/" target="_blank" rel="noopener">link</a></li>
+</ol>
+<p class="foot">Bare Signals &middot; Energy research page v3 &middot; compiled 6 Nov 2026. Reports what is supported and what is not; not medical advice.</p></div>
+<script>
+(function(){var box=document.getElementById('atp'),cap=document.getElementById('atpc');if(!box)return;
+var caps={all:'The whole chain, running. Follow one blue electron from NADH on the left all the way to oxygen on the right, then watch the turbine spin.',
+ nad:'It starts here. NADH, the delivery van from your food, docks at Complex I and drops its electrons into the chain. This is the step the NAD+ compounds are trying to feed.',
+ coq:'These two are the ferries. CoQ10 (Q) slides the electrons from Complex I and II across to III, and cytochrome c (c) carries them from III to IV. CoQ10 is the one you can top up by mouth.',
+ chain:'Complexes I, III and IV are pumps. As the electrons pass through, each one pushes H+ up into the top space, building the pressure that will drive the turbine.',
+ ss:'None of the chain works loose in water. It is all pinned into a folded membrane, and SS-31 is the one compound that acts here, keeping that membrane from leaking so the chain runs clean.',
+ cre:'Complex V is the turbine. All the trapped H+ rushes back down through it, spinning it like water through a mill, and that spin is what bolts ATP together. Creatine keeps a quick-release copy of that ATP on hand.'};
+var sts=[].slice.call(box.querySelectorAll('.st'));
+[].slice.call(document.querySelectorAll('#atpk button')).forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-k');
+ document.querySelectorAll('#atpk button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+ if(k==='all'){box.classList.remove('focus');sts.forEach(function(s){s.classList.remove('on')});}
+ else{box.classList.add('focus');sts.forEach(function(s){s.classList.toggle('on',s.getAttribute('data-k')===k)});}
+ cap.textContent=caps[k];});});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){box.classList.toggle('run',e.isIntersecting)})},{threshold:.15}).observe(box);}
+})();</script>
+<script src="/nav.js" defer></script>
+</body></html>
