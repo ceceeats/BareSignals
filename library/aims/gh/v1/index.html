@@ -1,0 +1,491 @@
+<!doctype html>
+<!-- Growth hormones (Goals) v1, 7 Nov 2026. New Goals-tab page built on the Energy v5 shell (head + CSS reused). From-scratch GH-axis explainer with its own animation (GHRH go-lever, somatostatin brake, ghrelin second trigger, pituitary pulse, liver to IGF-1, feedback), two-ends split, glance table, per-compound reads for CJC-1295 (DAC and no-DAC), Ipamorelin, Sermorelin, Tesamorelin, GHRP-2/6, Hexarelin, MK-677, IGF-1 LR3, HGH; why they pair (Bowers 1990 synergy), GH vs anabolic steroids, a does-it-work section (Rudman 1990 to Liu 2007), a large layered FAQ, and dated sources. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Growth hormone peptides explained for people: CJC-1295, Ipamorelin, Sermorelin, Tesamorelin, GHRP-2/6, Hexarelin, MK-677, IGF-1 LR3 and HGH. The two switches, why they pair, how they differ from steroids, and whether a higher number means anything.">
+<title>Growth hormones · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--warn:#C4202B;
+--nad:#74BCFF;--coq:#DBFAB3;--ss:#99ACFF;--cre:#F28E79;--sig:#B493E8;--uro:#CCA300;
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--k:var(--bs-k,1);color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.5 var(--body)}
+.w{max-width:760px;margin:0 auto;padding-block:10px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+p{margin:0 0 10px}
+h1{font:700 calc(32px*var(--k))/1 var(--display);margin:0;text-wrap:balance}
+.aka{font-size:calc(13px*var(--k));color:var(--ink-soft);margin:8px 0 0;max-width:62ch}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:11px 0 0}.stripe i{display:block;height:100%}
+.kt{margin:16px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:12px 14px}
+.kt p{margin:0 0 7px}.kt p:last-child{margin:0}.kt b{color:var(--accent)}
+.lead{margin:12px 0 0;font-weight:500}.lead b{color:var(--accent)}
+.feel{font-size:calc(12.5px*var(--k));margin:8px 0 0;color:var(--ink)}.feel b{color:var(--accent)}
+.toc{display:flex;flex-wrap:wrap;gap:4px 12px;margin:14px 0 0;font-size:calc(12.5px*var(--k))}
+.part{scroll-margin-top:60px;display:flex;align-items:center;gap:8px;margin:34px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:var(--paper)}
+.cq{font:700 calc(19px*var(--k))/1.15 var(--display);margin:22px 0 0;scroll-margin-top:60px}
+.aka2{font-size:calc(12.5px*var(--k));color:var(--ink-soft);margin:7px 0 7px}
+.note{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:12px 0 0}
+.c{white-space:nowrap}
+sup a{font:500 9px/1 var(--mono);text-decoration:none;padding:0 1px;color:var(--blue)}
+.defs{margin:12px 0 0}
+.defs>div{padding:10px 0;border-bottom:1.5px dashed var(--rule)}
+.dn{font:700 calc(15px*var(--k))/1.2 var(--display)}
+.dd{font-size:calc(13px*var(--k));margin-top:3px}
+.dx{font-size:calc(12.5px*var(--k));color:var(--ink-soft);margin-top:3px}
+/* from-scratch cards */
+.plain{margin:12px 0 0}
+.plain>div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.plain .pn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1.5px solid var(--ink);background:var(--coq);font:700 13px var(--display);border-radius:50%}
+.plain p{margin:0;font-size:calc(13px*var(--k))}
+.plain b{color:var(--accent)}
+/* theory levers */
+.lev{margin:12px 0 0}
+.lv{border:1.5px solid var(--ink);background:var(--chip);padding:10px 12px;margin:0 0 9px;border-left-width:5px}
+.lv-ok{border-left-color:#AACC96}.lv-load{border-left-color:#DBFAB3}.lv-mix{border-left-color:#FFCBAA}.lv-no{border-left-color:#C4C4C4}
+.lvh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lvh b{font:700 calc(16px*var(--k))/1.15 var(--display)}
+.vd{font:600 9px/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:3px 6px;border:1.5px solid var(--ink);white-space:nowrap}
+.vd-ok{background:#AACC96}.vd-load{background:#DBFAB3}.vd-mix{background:#FFCBAA}.vd-no{background:#EDEDED;color:var(--ink-soft)}
+.lvt{margin:6px 0 0;font-size:calc(12.5px*var(--k))}
+.lvw{color:var(--ink-soft);font-size:calc(11.5px*var(--k))}
+.lvd{margin:5px 0 0;font-size:calc(12.5px*var(--k))}
+@media (min-width:900px){.lev{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px}.lv{margin:0}}
+
+.atp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:6px}
+.atp svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
+.zone{font:600 8px var(--mono);letter-spacing:.05em;fill:var(--ink-soft)}
+.cx{stroke:var(--ink);stroke-width:1.5}
+.cxl{font:700 12px var(--display);fill:var(--ink)}
+.sub{font:400 7.5px var(--body);fill:var(--ink-soft)}
+.lh{fill:#CFE0F5;stroke:#8aa0c8;stroke-width:.5}
+.lt{stroke:#B9C7DF;stroke-width:.8;fill:none}
+.tl{font:700 7px var(--mono);fill:#fff}
+.inset .sub{font-size:7px}
+.st{transition:opacity .3s}
+.atp.focus .st{opacity:.14}.atp.focus .st.on{opacity:1}
+.ring{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:0}
+.atp.focus .st.on .ring{opacity:1;animation:ringp 1.4s ease-in-out infinite}
+.atp.focus .st.on .lh{fill:var(--ss);stroke:var(--ink)}
+@keyframes ringp{0%,100%{opacity:.4}50%{opacity:1}}
+.e{fill:var(--nad);stroke:var(--ink);stroke-width:.7;opacity:0}
+.atp.run .e{animation:eflow 4s linear infinite}.e2{animation-delay:-1.33s}.e3{animation-delay:-2.66s}
+@keyframes eflow{0%{transform:translate(0,0);opacity:0}5%{opacity:1}26%{transform:translate(50px,0)}46%{transform:translate(112px,0)}66%{transform:translate(166px,-30px)}86%{transform:translate(166px,0)}95%{opacity:1}100%{transform:translate(166px,0);opacity:0}}
+.atp.run .coq{animation:qshut 4s ease-in-out infinite}
+@keyframes qshut{0%,100%{transform:translateX(0)}50%{transform:translateX(66px)}}
+.atp.run .cytc{animation:cshut 4s ease-in-out infinite}
+@keyframes cshut{0%,100%{transform:translateX(0)}50%{transform:translateX(34px)}}
+.p{fill:var(--h);stroke:var(--ink);stroke-width:.6;opacity:0}
+.atp.run .p{animation:prise 3s ease-in infinite}.pa{animation-delay:-1s}.pb{animation-delay:-2s}
+@keyframes prise{0%{transform:translate(0,0);opacity:0}20%{opacity:1}60%{transform:translate(0,-40px);opacity:1}100%{transform:translate(258px,-40px);opacity:0}}
+.atp.run .rotor{animation:spin 2.2s linear infinite;transform-origin:306px 214px;transform-box:view-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tok{opacity:0}.atp.run .tok{animation:pop 2.6s ease-out infinite}.tok2{animation-delay:-1.3s}
+@keyframes pop{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:1}75%{opacity:1}100%{transform:translateY(36px) scale(1);opacity:0}}
+.atp.run .nadh{animation:dock 4s ease-in-out infinite}
+@keyframes dock{0%,100%{transform:translateY(0);opacity:.55}15%,30%{transform:translateY(-8px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.atp *{animation:none!important}.atp .e,.atp .tok{opacity:1}}
+.atpcap{font-size:calc(11px*var(--k));color:var(--ink-soft);padding:6px 4px 2px}
+.atpk{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.atpk button{border:1.5px solid var(--ink);background:var(--chip);padding:6px 9px;font:500 11px/1 var(--mono);cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;touch-action:manipulation}
+.atpk button i{width:11px;height:11px;border:1.5px solid var(--ink);display:block}
+.atpk button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.atpk button[aria-pressed=true] i{border-color:var(--paper)}
+.atpc{font-size:calc(13px*var(--k));margin:10px 0 0;min-height:44px}
+.keyg{margin:10px 0 0;display:grid;grid-template-columns:1fr;gap:0}
+.keyg>div{display:grid;grid-template-columns:26px 1fr;gap:9px;align-items:start;padding:7px 0;border-bottom:1.5px dashed var(--rule);font-size:calc(12px*var(--k))}
+.keyg .kc{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1.5px solid var(--ink);font:700 11px var(--display)}
+.keyg b{color:var(--ink)}
+@media (min-width:900px){.keyg{grid-template-columns:1fr 1fr;gap:0 26px}}
+
+/* scorecard table */
+.tw{margin:12px 0 0}
+table.dt{border-collapse:collapse;width:100%;font-size:calc(12.5px*var(--k))}
+.dt th,.dt td{padding:8px 9px;border-bottom:1.5px dashed var(--rule);text-align:left;vertical-align:top}
+.dt thead th{font:600 9px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1.5px solid var(--ink)}
+.dt th[scope=row]{font:700 calc(13px*var(--k))/1.2 var(--display);color:var(--ink);white-space:nowrap}
+.dt tbody td{font-weight:500}
+@media (max-width:640px){
+ .dt,.dt tbody,.dt tr,.dt th,.dt td{display:block}
+ .dt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .dt tr{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px;padding:4px 10px}
+ .dt th[scope=row]{border-bottom:1.5px solid var(--ink);padding:7px 0 5px;font-size:calc(15px*var(--k))}
+ .dt td{position:relative;padding:6px 0 6px 44%;border-bottom:1px dashed var(--rule);min-height:26px}
+ .dt tr td:last-child{border-bottom:0}
+ .dt td::before{content:attr(data-label);position:absolute;left:0;top:6px;width:40%;font:600 9.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft)}
+}
+.deep{margin:8px 0 2px;border-left:2px solid var(--rule);padding-left:10px}
+.deep summary{cursor:pointer;font:600 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--blue);list-style:none}
+.deep summary::-webkit-details-marker{display:none}
+.deep summary::before{content:"+ "}.deep[open] summary::before{content:"\2212 "}
+.deep>div{font-size:calc(12.5px*var(--k));margin-top:8px}
+.deep b{color:var(--ink)}
+.read{font-size:calc(12.5px*var(--k));margin:10px 0 0}
+.cof{margin:10px 0 0}
+.cof>div{padding:9px 0;border-bottom:1.5px dashed var(--rule);font-size:calc(12.5px*var(--k))}
+.cof b{font-weight:700}
+.hyp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:11px 13px}.hyp b{color:var(--accent)}
+.rep{display:grid;grid-template-columns:1fr;gap:0;margin:12px 0 0}
+.rep>div{padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.rh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+.rh b{font:700 15px var(--display)}.rh span{font:500 9.5px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft)}
+.rep p{font-size:calc(12.5px*var(--k));margin:0}
+.warn{margin:12px 0 0;border:1.5px solid var(--warn);background:#FFF6F4;padding:12px 14px}
+.warn h3{font:600 11px/1.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--warn);margin:0 0 8px}
+.warn ul{margin:0;padding-left:18px}.warn li{margin:0 0 7px;font-size:calc(12.5px*var(--k))}
+.wf{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:8px 0 0}
+.faq details{border-bottom:1.5px dashed var(--rule);padding:9px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 15px/1 var(--mono);color:var(--blue)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:7px 0 0;font-size:calc(13px*var(--k))}
+.srcs{font-size:calc(11.5px*var(--k));padding-left:22px;margin:10px 0 0}
+.srcs li{margin:0 0 7px;break-inside:avoid}
+.srcs .st{display:inline-block;font:500 8.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--rule);padding:2px 4px;margin-right:4px;vertical-align:1px}
+.srcs .sl{font:500 10px/1 var(--mono);text-transform:uppercase}
+.foot{margin:22px 0 0;font-size:calc(11.5px*var(--k));color:var(--ink-soft);border-top:1.5px solid var(--ink);padding-top:10px}
+@media (min-width:900px){
+ .w{max-width:1000px}body{font-size:calc(15px*var(--k))}h1{font-size:calc(42px*var(--k))}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:7px 26px}
+ .defs{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+ .rep{grid-template-columns:1fr 1fr;gap:0 28px}
+ .srcs{columns:2;column-gap:30px}
+ .atp{padding:14px}
+}
+
+/* GH axis animation (reuses .atp/.st/.atpk/.atpc/.keyg/.ring from the Energy shell) */
+.orgl{font:700 10px var(--display);fill:var(--ink)}
+.orgs{font:400 7.5px var(--body);fill:var(--ink-soft)}
+.lvr{font:600 8px var(--mono);letter-spacing:.04em;fill:var(--ink-soft)}
+.gh{fill:var(--coq);stroke:var(--ink);stroke-width:.7;opacity:0}
+.atp.run .gh{animation:ghfall 3s ease-in infinite}.gh2{animation-delay:-1s}.gh3{animation-delay:-2s}
+@keyframes ghfall{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1;transform:translateY(6px) scale(1)}85%{opacity:1}100%{transform:translateY(58px) scale(1);opacity:0}}
+.igf{fill:var(--nad);stroke:var(--ink);stroke-width:.7;opacity:0}
+.atp.run .igf{animation:igffall 3s ease-in infinite}.igf2{animation-delay:-1.5s}
+@keyframes igffall{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1;transform:translateY(6px) scale(1)}85%{opacity:1}100%{transform:translateY(54px) scale(1);opacity:0}}
+.fb{fill:none;stroke:var(--sig);stroke-width:1.5;stroke-dasharray:4 3;opacity:.5}
+.fbdot{fill:var(--sig);opacity:0}
+.atp.run .fbdot{animation:fbfade 5s linear infinite}
+@keyframes fbfade{0%,92%{opacity:0}40%,60%{opacity:1}}
+.goarrow{stroke:#7Fae5e;stroke-width:2.2;marker-end:url(#goh)}
+.stoparrow{stroke:var(--warn);stroke-width:2.2;marker-end:url(#stoph)}
+.lever-go circle{fill:#AACC96}.lever-stop circle{fill:#F4B6B6}.lever-gh2 circle{fill:var(--sig)}
+/* two ends side-by-side */
+.ends{margin:12px 0 0;display:grid;grid-template-columns:1fr;gap:10px}
+.end{border:1.5px solid var(--ink);background:var(--chip);padding:11px 13px;border-top-width:5px}
+.end-go{border-top-color:#AACC96}.end-gr{border-top-color:var(--sig)}
+.end h4{font:700 calc(16px*var(--k))/1.15 var(--display);margin:0 0 2px}
+.end .el{font:600 9px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+.end p{margin:7px 0 0;font-size:calc(12.5px*var(--k))}
+.end .mem{margin:8px 0 0;font-size:calc(12px*var(--k))}
+.end .mem b{color:var(--ink)}
+@media(min-width:760px){.ends{grid-template-columns:1fr 1fr}}
+/* synergy bars */
+.syn{margin:12px 0 0;display:grid;gap:6px}
+.synrow{display:grid;grid-template-columns:96px 1fr;gap:9px;align-items:center;font-size:calc(11.5px*var(--k))}
+.synbar{height:16px;border:1.5px solid var(--ink);background:repeating-linear-gradient(90deg,var(--chip),var(--chip))}
+.synbar i{display:block;height:100%;background:var(--coq)}
+.synrow.hi .synbar i{background:var(--sig)}
+.synlab{font:600 9px/1.2 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+/* compact compound meta line */
+.cmeta{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.cmeta span{font:500 9px/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
+</style>
+<script>addEventListener("bs-text",function(e){document.documentElement.style.setProperty("--bs-k",e.detail.k)})</script>
+</head><body>
+
+<div class="w"><p class="crumb"><a href="/library/">Library</a> &middot; <a href="/library/aims/">Goals</a> &middot; Growth hormones</p>
+<h1>Growth hormones</h1>
+<p class="aka">So many names for one idea: get your body to make more of its own growth hormone. Here is the one axis they all push on, what each compound actually does, why they get paired, how they differ from steroids, and whether a bigger number means anything.</p>
+<div class="meta"><span class="mt">Goal &middot; Growth &amp; the GH axis</span><span class="mt">Research page &middot; v1</span><span class="mt">Compiled 7 Nov 2026</span></div>
+<div class="stripe" aria-hidden="true"><i style="flex:60;background:#DBFAB3"></i><i style="flex:13;background:#B493E8"></i><i style="flex:13;background:#74BCFF"></i><i style="flex:14;background:#99ACFF"></i></div>
+<div class="kt"><p><b>What they are.</b> Not one thing. A row of compounds that nudge the same production line, most of them telling your pituitary to release more of your own growth hormone, a couple feeding the line from the other end. None of them is growth hormone itself except HGH.</p><p><b>What studies show.</b> The mechanisms are well mapped and the short-term hormone bumps are real. What is thin is proof that any of this changes how a healthy person looks, performs or ages. Tesamorelin is the one with a real approved use, and only for one condition.</p><p><b>What people report.</b> Better sleep and slow recovery and fat-loss over months, not dramatic muscle. The recurring downsides are water, puffy joints, tingling hands and, with the oral one, hunger and higher blood sugar.</p><p><b>Watch out.</b> A higher IGF-1 number is not the same as a benefit, these are not steroids and do not work like them, and grey-market vials are not the approved drugs.</p></div>
+<p class="lead"><b>If you take one thing from this page:</b> almost all of these just raise your own growth hormone for a while. That moves a number reliably and changes how you look or feel far less reliably, which is the whole story.</p>
+<nav class="toc" aria-label="On this page"><a href="#how">How it works</a><a href="#ends">The two switches</a><a href="#scan">Every option at a glance</a><a href="#go">The GHRH side</a><a href="#ghrp">The ghrelin side</a><a href="#down">IGF-1 and HGH</a><a href="#pair">Why they pair</a><a href="#steroid">Vs steroids</a><a href="#work">Does it work?</a><a href="#reports">What people report</a><a href="#safe">Safety</a><a href="#faq">FAQ</a><a href="#src">Sources</a></nav>
+
+<h2 class="part" id="how"><span>1</span>How growth hormone actually works, from scratch</h2>
+<p style="margin-top:10px">If the names mean nothing yet, start here. Almost every compound on this page is pushing one four-step line, and once you see the line, the whole field sorts itself out.</p>
+<div class="plain"><div><span class="pn">1</span><p><b>The pituitary is the factory.</b> A pea-sized gland under your brain makes growth hormone (GH) and releases it in bursts, called pulses, mostly at night. Not a steady drip, short sharp bursts.</p></div><div><span class="pn">2</span><p><b>Two levers upstairs set the bursts.</b> The hypothalamus, the control room above the factory, runs a GO lever called GHRH and a STOP brake called somatostatin. GH comes out when GO is up and the brake is off. That rhythm, GO then brake then GO, is what makes the pulses.</p></div><div><span class="pn">3</span><p><b>Ghrelin is a second GO button.</b> Your hunger hormone, ghrelin, hits a different switch on the factory, fires GH through another door, and quietly lifts the brake at the same time. This is the button the GHRPs and MK-677 copy.</p></div><div><span class="pn">4</span><p><b>The liver turns GH into IGF-1, where the effects live.</b> GH does not do much to muscle directly. It mostly travels to the liver, which makes IGF-1, and IGF-1 is the messenger that actually reaches muscle, bone and tissue. IGF-1 also feeds back up to the control room and tells it to ease off.</p></div></div>
+<p style="margin:14px 0 0">Now watch it run. The control room decides, the factory fires a pulse of GH, the liver turns it into IGF-1, IGF-1 goes to work and then loops back to calm the control room. Tap a part to see exactly what each compound grabs.</p>
+<figure class="atp run" id="axisfig">
+<svg viewBox="0 0 380 372" role="img" aria-labelledby="axt"><title id="axt">The growth-hormone axis: hypothalamus, pituitary, liver and IGF-1 feedback</title>
+<defs>
+<marker id="goh" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L6 3.5 L0 7 z" fill="#7Fae5e"/></marker>
+<marker id="stoph" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L6 3.5 L0 7 z" fill="#C4202B"/></marker>
+</defs>
+<rect x="4" y="4" width="372" height="364" rx="14" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/>
+<!-- feedback curve (drawn first, behind) -->
+<path id="fbpath" class="fb st s-feedback" data-k="feedback" d="M300 300 C360 250 360 70 250 54" />
+<text x="352" y="180" class="lvr" text-anchor="middle" transform="rotate(90 352 180)">IGF-1 feedback</text>
+<circle class="fbdot" r="3.4"><animateMotion dur="5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#fbpath"/></animateMotion></circle>
+<!-- hypothalamus control room -->
+<g><rect x="36" y="26" width="208" height="62" rx="9" fill="#EAF7D7" stroke="#3E4A80" stroke-width="1.3"/>
+<text x="46" y="42" class="orgl">HYPOTHALAMUS</text><text x="46" y="53" class="orgs">the control room</text>
+<g class="st s-ghrh lever-go" data-k="ghrh"><path class="ring" d="M58 60 h52 v22 h-52 z"/><circle cx="70" cy="71" r="8"/><text x="70" y="74" text-anchor="middle" class="orgs" style="font-weight:700;fill:#2f5a1f">GO</text><text x="118" y="68" class="orgs" style="font-weight:700">GHRH</text><text x="118" y="79" class="orgs">the go lever</text></g>
+<g class="st s-sst lever-stop" data-k="sst"><path class="ring" d="M150 60 h86 v22 h-86 z"/><circle cx="162" cy="71" r="8"/><text x="162" y="74" text-anchor="middle" class="orgs" style="font-weight:700;fill:#8a1f26">STOP</text><text x="176" y="68" class="orgs" style="font-weight:700">Somatostatin</text><text x="176" y="79" class="orgs">the brake</text></g></g>
+<!-- ghrelin second button, to the side -->
+<g class="st s-ghrelin lever-gh2" data-k="ghrelin"><path class="ring" d="M250 96 h116 v34 h-116 z"/><circle cx="264" cy="113" r="9"/><text x="264" y="116" text-anchor="middle" class="orgs" style="font-weight:700;fill:#fff">2nd</text><text x="280" y="109" class="orgs" style="font-weight:700">Ghrelin button</text><text x="280" y="120" class="orgs">GHRPs, MK-677 act here</text><text x="280" y="129" class="orgs">also lifts the brake</text></g>
+<!-- arrows down from control room to pituitary -->
+<line class="goarrow" x1="92" y1="90" x2="92" y2="118"/>
+<line class="stoparrow" x1="150" y1="90" x2="150" y2="118"/>
+<path class="goarrow" d="M258 130 C210 150 180 124 150 120" fill="none"/>
+<!-- pituitary factory -->
+<g class="st s-pulse" data-k="pulse"><path class="ring" d="M60 120 h150 v52 h-150 z"/>
+<rect x="64" y="122" width="142" height="48" rx="8" fill="#C2DCFF" stroke="#3E4A80" stroke-width="1.4"/>
+<text x="74" y="140" class="orgl">PITUITARY</text><text x="74" y="151" class="orgs">the GH factory, fires in pulses</text>
+<g transform="translate(135,168)"><rect class="gh" x="-12" y="0" width="24" height="12" rx="3"/><text class="gh" x="0" y="9" text-anchor="middle" style="font:700 7px var(--mono);fill:#3b5a1a;stroke:none">GH</text><rect class="gh gh2" x="-12" y="0" width="24" height="12" rx="3"/><text class="gh gh2" x="0" y="9" text-anchor="middle" style="font:700 7px var(--mono);fill:#3b5a1a;stroke:none">GH</text><rect class="gh gh3" x="-12" y="0" width="24" height="12" rx="3"/><text class="gh gh3" x="0" y="9" text-anchor="middle" style="font:700 7px var(--mono);fill:#3b5a1a;stroke:none">GH</text></g></g>
+<!-- liver -->
+<g class="st s-liver" data-k="liver"><path class="ring" d="M60 220 h150 v52 h-150 z"/>
+<path d="M66 232 q80 -16 138 0 q6 26 -4 40 q-70 10 -130 0 q-10 -18 -4 -40 z" fill="#E7C9A0" stroke="#3E4A80" stroke-width="1.4"/>
+<text x="80" y="250" class="orgl">LIVER</text><text x="80" y="261" class="orgs">turns GH into IGF-1</text>
+<g transform="translate(135,268)"><circle class="igf" r="7"/><text class="igf" x="0" y="2.5" text-anchor="middle" style="font:700 6px var(--mono);fill:#143a66;stroke:none">IGF-1</text><circle class="igf igf2" r="7"/><text class="igf igf2" x="0" y="2.5" text-anchor="middle" style="font:700 6px var(--mono);fill:#143a66;stroke:none">IGF-1</text></g></g>
+<!-- effects -->
+<g><rect x="60" y="316" width="150" height="40" rx="8" fill="#F3EFD6" stroke="#3E4A80" stroke-width="1.2"/>
+<text x="135" y="333" text-anchor="middle" class="orgl" style="font-size:9px">MUSCLE &middot; BONE &middot; FAT &middot; SKIN</text>
+<text x="135" y="347" text-anchor="middle" class="orgs">where IGF-1 does its work</text></g>
+<line x1="135" y1="172" x2="135" y2="218" stroke="#3E4A80" stroke-width="1" stroke-dasharray="3 2"/>
+<line x1="135" y1="272" x2="135" y2="314" stroke="#3E4A80" stroke-width="1" stroke-dasharray="3 2"/>
+</svg>
+<figcaption class="atpcap">The whole axis. The control room (GHRH go, somatostatin brake) sets the pituitary's pulses of GH; ghrelin is a second button into the same factory; the liver turns GH into IGF-1, which does the work and loops back to calm the control room.</figcaption>
+</figure>
+<div class="atpk" id="axisk">
+<button data-k="all" aria-pressed="true">Play all</button>
+<button data-k="ghrh"><i style="background:#AACC96"></i>GHRH (go)</button>
+<button data-k="sst"><i style="background:#F4B6B6"></i>Brake</button>
+<button data-k="ghrelin"><i style="background:var(--sig)"></i>Ghrelin &amp; GHRPs</button>
+<button data-k="pulse"><i style="background:#C2DCFF"></i>The pulse</button>
+<button data-k="liver"><i style="background:#E7C9A0"></i>Liver &rarr; IGF-1</button>
+<button data-k="feedback"><i style="background:var(--sig)"></i>Feedback</button>
+</div>
+<p class="atpc" id="axisc">The whole axis, running. Follow a pulse of GH down from the pituitary to the liver, watch it become IGF-1, and see the purple feedback loop back up to the control room.</p>
+<div class="keyg">
+<div><span class="kc" style="background:#AACC96">GO</span><span class="kt"><b>GHRH, the go lever.</b> The hypothalamus's signal to fire a bigger pulse. Sermorelin, CJC-1295 and Tesamorelin copy this.</span></div>
+<div><span class="kc" style="background:#F4B6B6">ST</span><span class="kt"><b>Somatostatin, the brake.</b> The stop signal that ends each pulse. Nothing here targets it directly, but the ghrelin side lifts it.</span></div>
+<div><span class="kc" style="background:var(--sig)">2</span><span class="kt"><b>The ghrelin button.</b> A second trigger on the factory. Ipamorelin, GHRP-2, GHRP-6, Hexarelin and oral MK-677 all press it.</span></div>
+<div><span class="kc" style="background:#C2DCFF">GH</span><span class="kt"><b>The pulse.</b> The burst of growth hormone itself. HGH skips the factory and injects this directly.</span></div>
+<div><span class="kc" style="background:#E7C9A0">L</span><span class="kt"><b>Liver to IGF-1.</b> Where GH becomes the messenger that reaches tissue. IGF-1 LR3 skips here and injects the end product.</span></div>
+<div><span class="kc" style="background:var(--sig)">FB</span><span class="kt"><b>Feedback.</b> IGF-1 loops back and tells the control room to ease off, which is why your own system cannot be pushed forever.</span></div>
+</div>
+<p class="note">Read the line once and the rest of the page is just: which part does this compound grab, and does grabbing it actually do anything.</p>
+
+<h2 class="part" id="ends"><span>2</span>The two switches, and why there are so many names</h2>
+<p style="margin-top:10px">Nearly every injectable here is one of two kinds. This single split is the most useful thing to hold in your head, because it explains the whole catalogue and the famous pairing.</p>
+<div class="ends">
+<div class="end end-go"><p class="el">Side one &middot; the go lever</p><h4>GHRH copies</h4><p>Press the GO lever. They raise how much GH comes out in each pulse and keep your own night-time rhythm, because they work through your normal releasing hormone.</p><p class="mem"><b>Who lives here:</b> Sermorelin (the original), CJC-1295 (with or without DAC), Tesamorelin (the approved one).</p></div>
+<div class="end end-gr"><p class="el">Side two &middot; the second button</p><h4>Ghrelin copies (GHRPs)</h4><p>Press the separate ghrelin button and lift the brake at the same time. A different door into the same factory, which is why adding one to a GHRH copy does more than either alone.</p><p class="mem"><b>Who lives here:</b> Ipamorelin (the clean one), GHRP-2, GHRP-6, Hexarelin, and MK-677, the one you swallow.</p></div>
+</div>
+<p class="note">Two more sit outside the factory entirely: <b>IGF-1 LR3</b> injects the liver's end product directly, and <b>HGH</b> injects the growth hormone itself. Those skip your own control room, which is exactly why they are stronger and riskier.</p>
+
+<h2 class="part" id="scan"><span>3</span>Every option at a glance</h2>
+<p style="margin-top:10px">The whole field on one screen, the ones with real human grounding first. "Verdict" is what a healthy person should realistically expect, not a safety rating.</p>
+<div class="tw"><table class="dt"><thead><tr><th scope="col">Compound</th><th scope="col">Side</th><th scope="col">Route</th><th scope="col">Status</th><th scope="col">Verdict for a healthy person</th></tr></thead><tbody>
+<tr><th scope="row" data-row="Compound">HGH (somatropin)</th><td data-label="Side">The hormone itself</td><td data-label="Route">Injection</td><td data-label="Status">Approved, specific uses</td><td data-label="Verdict">Works, but risky and not for anti-aging</td></tr>
+<tr><th scope="row" data-row="Compound">Tesamorelin</th><td data-label="Side">GHRH (go)</td><td data-label="Route">Injection</td><td data-label="Status">Approved (HIV belly fat only)</td><td data-label="Verdict">Proven for one job, off-label otherwise</td></tr>
+<tr><th scope="row" data-row="Compound">MK-677 (oral)</th><td data-label="Side">Ghrelin button</td><td data-label="Route">Pill</td><td data-label="Status">Unapproved</td><td data-label="Verdict">Raises the numbers; appetite, water, sugar</td></tr>
+<tr><th scope="row" data-row="Compound">Sermorelin</th><td data-label="Side">GHRH (go)</td><td data-label="Route">Injection</td><td data-label="Status">Formerly approved, now compounded</td><td data-label="Verdict">Gentle, thin adult evidence</td></tr>
+<tr><th scope="row" data-row="Compound">CJC-1295</th><td data-label="Side">GHRH (go)</td><td data-label="Route">Injection</td><td data-label="Status">Unapproved</td><td data-label="Verdict">Reliable GH bump, no outcome trials</td></tr>
+<tr><th scope="row" data-row="Compound">Ipamorelin</th><td data-label="Side">Ghrelin button</td><td data-label="Route">Injection</td><td data-label="Status">Unapproved</td><td data-label="Verdict">The clean pulse; human results thin</td></tr>
+<tr><th scope="row" data-row="Compound">GHRP-2</th><td data-label="Side">Ghrelin button</td><td data-label="Route">Injection</td><td data-label="Status">Unapproved</td><td data-label="Verdict">Stronger pulse, some cortisol</td></tr>
+<tr><th scope="row" data-row="Compound">GHRP-6</th><td data-label="Side">Ghrelin button</td><td data-label="Route">Injection</td><td data-label="Status">Unapproved</td><td data-label="Verdict">Big hunger, historically important</td></tr>
+<tr><th scope="row" data-row="Compound">Hexarelin</th><td data-label="Side">Ghrelin button</td><td data-label="Route">Injection</td><td data-label="Status">Unapproved</td><td data-label="Verdict">Strongest, but fades fast</td></tr>
+<tr><th scope="row" data-row="Compound">IGF-1 LR3</th><td data-label="Side">Downstream product</td><td data-label="Route">Injection</td><td data-label="Status">Research chemical</td><td data-label="Verdict">Potent, no human data, hypoglycaemia</td></tr>
+</tbody></table></div>
+<p class="note">The pattern repeats from the Energy page: the ones with a real approved use sit at the top, and the further down you go, the more the claims rest on mechanism and community reports rather than trials.</p>
+
+<h2 class="part" id="go"><span>4</span>The GHRH side: the go lever</h2>
+<p style="margin-top:10px">These copy your own releasing hormone and lift how much GH each pulse delivers. They keep your rhythm and your feedback, so they are the gentler, more physiological half.</p>
+
+<h3 class="cq" id="sermorelin">Sermorelin</h3>
+<div class="cmeta"><span>GHRH analog</span><span>29 amino acids</span><span>t&frac12; ~10-12 min</span><span>Formerly approved</span></div>
+<p class="aka2">The original, and the honest grandparent of CJC-1295.</p>
+<p>Sermorelin is just the first 29 amino acids of your own GHRH, the minimum piece that still works the go lever. It was a real FDA-approved drug (Geref) in the 1990s for testing and treating growth failure in children, pulled from the market in 2008 for business reasons, not safety. Its half-life is only about ten minutes, so it gives a brief tap rather than a sustained push, which is also why it feels gentle. CJC-1295 is literally this molecule with tweaks to make it last longer.</p>
+<p class="feel"><b>What people feel.</b> Subtle. Better sleep and slow recovery over weeks, dosed at night; nobody describes it as dramatic.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> genuine pediatric approval for growth-hormone-deficient children, plus a validated diagnostic test of pituitary reserve. The adult anti-aging use that dominates marketing today is off-label with thin long-term outcome data. <b>In the body:</b> cleared in ~10-12 minutes by the DPP-IV enzyme, the same family that clears GLP-1 drugs; the GH it releases lasts longer, and IGF-1 longer still. <b>Status:</b> brand (Geref) discontinued 2008, approval withdrawn 2009, explicitly not for safety; all sermorelin today is compounded, which is not itself FDA-approved.</div></details>
+
+<h3 class="cq" id="cjc">CJC-1295 (with DAC, and without)</h3>
+<div class="cmeta"><span>GHRH analog</span><span>DAC: t&frac12; ~6-8 days</span><span>No-DAC: t&frac12; ~30 min</span><span>Unapproved</span></div>
+<p class="aka2">One name, two very different drugs. This is the confusion worth clearing up.</p>
+<p>CJC-1295 is sermorelin's backbone with four changes that stop it being chewed up so fast. Then comes the fork. <b>With DAC</b> (a Drug Affinity Complex) it latches onto a blood protein and hangs around for six to eight days, giving a steady, round-the-clock lift, which is convenient but flattens your natural pulse into a constant bleed. <b>Without DAC</b> (also sold as Mod GRF 1-29) it clears in about thirty minutes, so it gives one sharp pulse and preserves your rhythm. People who care about staying physiological pick the no-DAC version and inject it alongside a ghrelin-button peptide; people who want convenience pick DAC. Same name on the vial, genuinely different behaviour.</p>
+<p class="feel"><b>What people feel.</b> A reliable sense of deeper sleep and slow body-recomposition over a couple of months; the no-DAC version timed with Ipamorelin is the reported "backbone".</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> a 2006 phase-1 trial (Teichman, JCEM) showed a single injection of CJC-1295 with DAC raised GH and IGF-1 for days. There is no outcome trial, in healthy people or anyone, showing it changes body composition, strength or aging. <b>Pulsatile debate:</b> continuous DAC stimulation raises a fair question of whether you get tonic rather than pulsatile GH; pulsatility does persist under continuous GHRH, but the no-DAC form is still preferred when a clean pulse is the goal. <b>Status:</b> not approved anywhere; grey-market only.</div></details>
+
+<h3 class="cq" id="tesamorelin">Tesamorelin</h3>
+<div class="cmeta"><span>Stabilized GHRH</span><span>Injection, daily</span><span>FDA-approved 2010</span><span>One indication</span></div>
+<p class="aka2">The only one here that is a real, approved drug, for one narrow job.</p>
+<p>Tesamorelin is a GHRH copy built to survive in the body, and it is the single compound on this page with a proper FDA approval: since 2010, under the name Egrifta, to shrink the deep abdominal fat that builds up in people with HIV on older antiretroviral drugs. In its trials it cut visceral fat by roughly 15 to 18 percent while leaving limb fat alone, which is a striking, specific effect. It raises your own GH and IGF-1 to do it. The honest edges: it is approved only for that population, it is weight-neutral rather than a weight-loss drug, and its label carries real cautions, raised IGF-1 to monitor, fluid retention, higher blood sugar, and a neoplasm warning.</p>
+<p class="feel"><b>What people feel.</b> In its approved use, flatter abdominal fat over months; the fat returns if you stop.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> two pivotal phase-3 trials (Falutz, NEJM 2007; pooled 806 patients, JCEM 2010) and a 52-week extension showed sustained visceral-fat reduction (about 15% at 6 months, ~18% at 12) with parallel IGF-1 rises; a 2014 JAMA trial added a modest liver-fat reduction. <b>Label (Egrifta WR, 2025):</b> increased risk of neoplasms, elevated IGF-1 (47% of patients over 2 SDS at 26 weeks; monitor and stop if persistent), fluid retention, glucose intolerance; long-term cardiovascular safety not established. <b>Status:</b> FDA-approved for HIV-associated lipodystrophy only; any other use is off-label.</div></details>
+
+<h2 class="part" id="ghrp"><span>5</span>The ghrelin side: the second button (GHRPs)</h2>
+<p style="margin-top:10px">These copy ghrelin, your hunger hormone, pressing a different switch and lifting the brake. They range from surgically clean to strong-but-dirty, and the differences between them are almost entirely about what else they switch on besides GH.</p>
+
+<h3 class="cq" id="ipamorelin">Ipamorelin</h3>
+<div class="cmeta"><span>Selective GHRP</span><span>5 amino acids</span><span>t&frac12; ~2 h</span><span>Unapproved</span></div>
+<p class="aka2">The clean one, and the reason people pick it over the older peptides.</p>
+<p>Ipamorelin presses the ghrelin button for growth hormone and almost nothing else. The 1998 paper that introduced it called it the first selective growth-hormone secretagogue, because even at doses two hundred times what it needs, it did not raise cortisol, prolactin or the stress hormone ACTH, the off-target effects that make the older peptides unpleasant over time. It barely touches hunger. That clean profile, plus a two-hour half-life that is forgiving on timing, is why it became the default ghrelin-side peptide and the usual partner for CJC-1295.</p>
+<p class="feel"><b>What people feel.</b> A gentle version of the GH-peptide report card: better sleep, slow recovery, little hunger and no jitter. Its single human trial, for something unrelated, missed its goal.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Preclinical:</b> Raun 1998 (Eur J Endocrinol) showed GH release comparable to GHRP-6 with no cortisol, prolactin or ACTH rise, the benchmark for selectivity. <b>Human:</b> thin. Its one registered trial was for post-operative bowel recovery and showed a numerical but non-significant improvement, so the clean selectivity is a preclinical result, not proof of a human benefit. <b>In the body:</b> ~2-hour half-life, protease-resistant, produces a single discrete pulse. <b>Status:</b> unapproved.</div></details>
+
+<h3 class="cq" id="ghrp2">GHRP-2 and GHRP-6</h3>
+<div class="cmeta"><span>GHRPs</span><span>t&frac12; ~15-30 min</span><span>Unapproved</span><span>Raise cortisol &amp; prolactin</span></div>
+<p class="aka2">The older, stronger, less tidy cousins. One is GH-focused, one is a hunger machine.</p>
+<p>These came first and still release more GH than Ipamorelin, but they also lean on the stress and milk-hormone pathways, nudging cortisol and prolactin up by a fifth to a half, which is fine briefly and a problem over months. <b>GHRP-2</b> is the GH-focused one, strong pulse with less appetite. <b>GHRP-6</b> is famous for the opposite: it triggers intense hunger within about fifteen minutes, because it leans hard on the same ghrelin appetite circuit. GHRP-6 is also a piece of history, it was the tool used to discover the ghrelin receptor, and through it, ghrelin itself.</p>
+<p class="feel"><b>What people feel.</b> GHRP-2: a solid GH push and improved sleep. GHRP-6: a wave of hunger 15 to 20 minutes after the shot, used deliberately by people trying to eat more.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Mechanism:</b> both are ghrelin-receptor agonists that also raise ACTH, cortisol (roughly +20 to 40%) and prolactin (1.5 to 3x baseline); GHRP-6 additionally drives appetite hard through hypothalamic NPY/AgRP neurons. <b>Evidence:</b> decades of acute GH-release data in humans but no body-composition outcome trials. <b>Desensitization:</b> the GH response fades with continuous use, so community practice cycles on and off, with no validated schedule. <b>Status:</b> unapproved.</div></details>
+
+<h3 class="cq" id="hexarelin">Hexarelin</h3>
+<div class="cmeta"><span>GHRP</span><span>Most potent</span><span>Fast desensitization</span><span>Unapproved</span></div>
+<p class="aka2">The strongest pulse in the family, with the shortest shelf life.</p>
+<p>Hexarelin produces the biggest single GH spike of any of these peptides. The catch is that your receptors stop answering quickly: the GH response can drop by half or more after about eight weeks of continuous use, so it only works in short cycles. It also raises cortisol and prolactin the most. Its one genuinely interesting side-story is a heart one, it binds a receptor called CD36 and protected heart tissue in animal studies, independent of growth hormone, but that is a different research lane, not a reason to use it for body composition.</p>
+<p class="feel"><b>What people feel.</b> A strong early effect that tapers; most reports mention cycling off before it stops working.</p>
+
+<h3 class="cq" id="mk677">MK-677 (ibutamoren)</h3>
+<div class="cmeta"><span>Oral ghrelin mimetic</span><span>Pill, daily</span><span>Long-acting</span><span>Unapproved</span></div>
+<p class="aka2">The one you swallow, the one with the most human data, and the one with the clearest warning.</p>
+<p>MK-677 is not a peptide and not an injection, it is an oral molecule that presses the same ghrelin button all day. That is its appeal and its problem. In the best study, a two-year trial in healthy older adults, it pushed growth hormone and IGF-1 back up to young-adult levels and held them there, which no injected peptide has shown over that long. But the same trial found blood sugar creeping up and insulin sensitivity falling, and a separate trial in frail hip-fracture patients was stopped early because more people on it developed heart failure. In younger, healthy people that extreme is unlikely, but the signal points the right way: all-day ghrelin signalling brings all-day appetite, water retention and a metabolic cost.</p>
+<p class="feel"><b>What people feel.</b> The most talked-about of the group: deeper sleep and real hunger, often with puffy water weight, next-day grogginess and, for some, numb or tingling hands.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Human:</b> Nass 2008 (Annals of Internal Medicine), a 2-year RCT in 65 healthy adults aged 60-81, raised GH pulse amplitude ~97% and IGF-1 into the young-adult range, sustained and reversible; fasting glucose rose about 5 mg/dL and insulin sensitivity fell. Murphy 2001 (18 months, postmenopausal women) raised IGF-1 39-45%. <b>Safety signal:</b> a phase-2b hip-fracture trial (Adunsky 2011) was terminated early for congestive heart failure (6.5% vs 1.7% on placebo) with no functional benefit, concluding an "unfavourable safety profile" in that frail group. <b>Status:</b> unapproved; raises appetite, water retention and blood sugar.</div></details>
+
+<h2 class="part" id="down"><span>6</span>Skipping the factory: IGF-1 LR3 and HGH itself</h2>
+<p style="margin-top:10px">Two compounds do not press any switch. They inject a later step directly, which makes them stronger, blunter and harder to control, because they bypass your own feedback.</p>
+
+<h3 class="cq" id="igf">IGF-1 LR3</h3>
+<div class="cmeta"><span>Downstream product</span><span>t&frac12; ~20-30 h</span><span>Research chemical</span><span>WADA-banned</span></div>
+<p class="aka2">The liver's end product, modified to last, and built for a lab dish, not a body.</p>
+<p>IGF-1 LR3 is the messenger from step four, injected directly, with two changes that stop your binding proteins from mopping it up so it stays active far longer and hits about two to three times harder than natural IGF-1. It was actually designed as a cell-culture reagent for bioreactors, which tells you how little of its use was ever meant for people. There are no human trials for muscle or performance. Its predictable acute danger is low blood sugar, because IGF-1 overlaps with insulin's job, and the longer-term worry is that a potent growth signal is also a potent growth signal for things you do not want growing.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Structure:</b> native IGF-1 is 70 amino acids; LR3 is 83, with arginine swapped in at position 3 and a 13-amino-acid extension, which cuts binding-protein affinity roughly 2000-fold. <b>Evidence:</b> zero human efficacy or safety trials for the LR3 form; human data exists only for native rhIGF-1 (mecasermin), which consistently raises lean mass without improving strength or function. <b>Risks:</b> hypoglycaemia (reported in ~42% of rhIGF-1 trial subjects) and theoretical cancer-signalling concern; WADA-prohibited. <b>Status:</b> research chemical, unregulated grey-market supply.</div></details>
+
+<h3 class="cq" id="hgh">HGH (somatropin)</h3>
+<div class="cmeta"><span>The hormone itself</span><span>191 amino acids</span><span>t&frac12; 15-20 min</span><span>Approved, specific uses</span></div>
+<p class="aka2">The real thing, injected. The reference point every other compound is trying to approach indirectly.</p>
+<p>HGH is growth hormone itself, made by recombinant DNA, identical to what your pituitary produces. It works, which is exactly why it is prescription-only and tightly controlled. It is approved for real conditions, growth-hormone deficiency in children and adults, some genetic syndromes, HIV wasting, short-bowel syndrome, and in those cases it genuinely helps. What it is not approved for is anti-aging or bodybuilding, and in the United States distributing it for those uses is a federal crime. Injecting the hormone directly skips your control room and your feedback, so the dose is whatever you give, which is how the misuse problems appear: it reinforces tendon and connective tissue more than it builds raw muscle, much of the early "gain" is water, and pushed high and long it drifts toward acromegaly, insulin resistance and swollen, aching joints.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>Mechanism:</b> 191-amino-acid peptide acting on a cell-surface receptor (JAK-STAT) and, mostly, through liver IGF-1; half-life 15-20 minutes. <b>Approved uses:</b> pediatric GH deficiency, small-for-gestational-age, Turner, Noonan, Prader-Willi, chronic kidney disease, idiopathic short stature; adult GH deficiency, HIV wasting (Serostim), short-bowel syndrome (Zorbtive). <b>Cancer:</b> high circulating IGF-1 is epidemiologically linked to some cancers, but large reviews of GH treatment itself (24 studies, ~255,000 people) found no overall increase in cancer risk or death, except a higher new-cancer risk in those with a prior cancer. <b>Status:</b> prescription-only; non-medical distribution is a federal felony; WADA-banned.</div></details>
+
+<h2 class="part" id="pair"><span>7</span>Why people pair them (CJC-1295 + Ipamorelin)</h2>
+<p style="margin-top:10px">The most common stack is a GHRH copy plus a ghrelin-button peptide, almost always CJC-1295 with Ipamorelin. This is not marketing. It rests on a real and old piece of human science.</p>
+<p>Back in 1990, Cyril Bowers showed in healthy men that a GHRH and a ghrelin-type peptide given together released more growth hormone than you would get by adding their separate effects. The reason is exactly the two-switch picture above: they work through independent systems, the go lever and the second button, so pressing both amplifies rather than overlaps. One lifts how much GH each pulse makes; the other adds a second trigger and lifts the brake. Together they produce a bigger, cleaner pulse than either alone.</p>
+<div class="syn">
+<div class="synrow"><span class="synlab">GHRH alone</span><span class="synbar"><i style="width:34%"></i></span></div>
+<div class="synrow"><span class="synlab">GHRP alone</span><span class="synbar"><i style="width:46%"></i></span></div>
+<div class="synrow hi"><span class="synlab">Both together</span><span class="synbar"><i style="width:100%"></i></span></div>
+</div>
+<p class="note">Illustrative shape of the synergy, not exact values. The honest caveat: the human proof used GHRH plus GHRP-6 or GHRP-2. CJC-1295 with Ipamorelin specifically is extrapolated from that class-level result, not from a dedicated trial of those two. And this is a bigger GH pulse, which is not the same as a proven change in how you look or feel.</p>
+
+<h2 class="part" id="steroid"><span>8</span>Growth hormone is not a steroid</h2>
+<p style="margin-top:10px">This is the single most common confusion, and clearing it up is half of understanding the whole topic. They get lumped together because both are injected to change the body, but they work in different places, through different receptors, with different risks.</p>
+<div class="tw"><table class="dt"><thead><tr><th scope="col">&nbsp;</th><th scope="col">GH and these peptides</th><th scope="col">Anabolic steroids</th></tr></thead><tbody>
+<tr><th scope="row" data-row="Feature">What it is</th><td data-label="GH side">A protein (chain of amino acids)</td><td data-label="Steroid side">A fat-based molecule, built from cholesterol</td></tr>
+<tr><th scope="row" data-row="Feature">Where it acts</th><td data-label="GH side">On the outside of the cell, then via the liver</td><td data-label="Steroid side">Inside the cell, straight onto the DNA</td></tr>
+<tr><th scope="row" data-row="Feature">How it reaches muscle</th><td data-label="GH side">Indirectly, through IGF-1</td><td data-label="Steroid side">Directly, through the androgen receptor</td></tr>
+<tr><th scope="row" data-row="Feature">Main effect</th><td data-label="GH side">Recovery, connective tissue, fat, sleep</td><td data-label="Steroid side">Raw muscle size and strength</td></tr>
+<tr><th scope="row" data-row="Feature">The simple picture</th><td data-label="GH side">Pushes the gas pedal a little harder</td><td data-label="Steroid side">Makes the engine itself bigger</td></tr>
+<tr><th scope="row" data-row="Feature">Signature risks</th><td data-label="GH side">Insulin resistance, swelling, carpal tunnel</td><td data-label="Steroid side">Shuts down testosterone, lipids, liver, heart</td></tr>
+</tbody></table></div>
+<p class="note">So the honest line people miss: on its own, growth hormone is not very good at building muscle, which is the one thing most people assume it is for. It is better understood as a recovery and body-composition lever than a mass builder, and it carries its own distinct dangers rather than a milder version of a steroid's.</p>
+
+<h2 class="part" id="work"><span>9</span>Does any of this work in a healthy person?</h2>
+<p style="margin-top:10px">This is the question the whole industry is built on, and it has a surprisingly clear answer, so it is worth walking through honestly.</p>
+<p>Start with the real fact underneath it: growth hormone genuinely falls with age, by roughly 14 percent per decade of adult life, and your IGF-1 falls with it. That decline is real, and it is tempting to read it as a deficiency to top up. In 1990 a famous small study (Rudman, in the New England Journal of Medicine) gave growth hormone to older men with low IGF-1 and reported almost 9 percent more lean mass and 14 percent less fat in six months. That single study launched the entire anti-aging growth-hormone industry.</p>
+<p>Then the rest of the evidence came in. When researchers pooled every controlled trial of growth hormone in healthy older adults (Liu and colleagues, Annals of Internal Medicine, 2007), the body-composition shuffle was real but small, and it did not translate into anything that matters: no gain in strength, stamina, bone density or cholesterol, and no evidence of a longer or better life. What did show up, in 17 of 18 trials, were the side effects, swollen tissue, joint pain, carpal-tunnel symptoms and a drift toward diabetes. Geriatric guidelines now specifically recommend against using growth hormone for aging.</p>
+<div class="hyp"><p><b>The honest centre of this page.</b> A higher IGF-1 number is the easiest thing in the world to buy, and the hardest thing to turn into a real-world benefit. These compounds reliably move the number. Whether that number does anything you can feel, in a person who is not actually deficient, is exactly where the evidence thins out, and often disappears.</p></div>
+
+<h2 class="part" id="reports"><span>10</span>What people report</h2>
+<p style="margin-top:10px">First-hand accounts from forums and clinics, kept with the no-change ones. This section is still preliminary, drawn from aggregators and clinic notes rather than a full community sweep, so read it as a direction, not a count.</p>
+<div class="rep">
+<div><div class="rh"><b>CJC-1295 + Ipamorelin</b><span>the backbone</span></div><p>The most common stack. The steady themes are deeper sleep within the first weeks and slow recovery and body-recomposition over months. Effects are described as subtle and cumulative, not dramatic. Dosed at night or fasted.</p></div>
+<div><div class="rh"><b>MK-677</b><span>most discussed</span></div><p>Deeper sleep and strong appetite lead, which people use for or against depending on their goal. The recurring downsides are water weight and puffiness, next-day grogginess, and numb or tingling hands; several mention higher fasting glucose.</p></div>
+<div><div class="rh"><b>GHRP-6 vs Ipamorelin</b><span>clean vs hungry</span></div><p>GHRP-6's signature is a hunger wave 15 to 20 minutes after the shot. Ipamorelin's signature is the absence of that, which is why people who are not chasing appetite prefer it.</p></div>
+<div><div class="rh"><b>Across the board</b><span>the shared note</span></div><p>Two things recur regardless of compound: a "GH gut" or water-retention look at higher doses, and carpal-tunnel-type tingling. Both track dose, and both ease off when people lower it.</p></div>
+</div>
+<p class="note">A full non-Reddit forum pass and a Reddit pass are still to be run before any report counts go on this page.</p>
+
+<h2 class="part" id="safe"><span>11</span>Safety and uncertainty</h2>
+<div class="warn"><h3>Read before you trust any of this</h3><ul><li><b>A higher number is not a benefit.</b> Every compound here can raise IGF-1. In healthy people, that number moving has never reliably translated into strength, performance or longevity.</li><li><b>These are not steroids.</b> They do not build muscle the way steroids do, and treating them as a milder steroid misunderstands both the effect and the risks.</li><li><b>Insulin and blood sugar.</b> Growth hormone opposes insulin. MK-677 and higher GH doses raise blood sugar and can push toward insulin resistance over time.</li><li><b>Water, joints and nerves.</b> Swelling, aching joints and carpal-tunnel-type tingling are the most common dose-related effects across the whole class.</li><li><b>MK-677's heart signal.</b> A trial in frail elderly patients was stopped early for heart failure. Unlikely in young healthy people, but a real signal that all-day stimulation has a cost.</li><li><b>IGF-1 LR3 is the sharp end.</b> No human trials, real hypoglycaemia risk, and a growth signal that does not discriminate. The least understood and most potent thing on this page.</li><li><b>Deficiency is a different story.</b> Everything here is about healthy people. In genuine growth-hormone deficiency, diagnosed by a doctor, replacement is a real and beneficial treatment.</li><li><b>Legality and purity.</b> Only HGH and Tesamorelin are approved drugs, each for specific conditions; the rest are unapproved or research chemicals, and grey-market vials are not the approved products.</li></ul><p class="wf">This page explains what has and has not been shown. It is not medical advice and not a dosing, cycling or combination protocol. Study doses are given only to describe an experiment.</p></div>
+
+<h2 class="part" id="faq"><span>12</span>Questions people actually ask</h2>
+<p style="margin-top:10px">From the basic to the detailed, grouped so you can skim to what you want.</p>
+<p class="aka2" style="margin-top:12px">The basics</p>
+<div class="faq">
+<details><summary>Is HGH a steroid?</summary><p>No. Steroids are fat-based molecules that act inside the cell on the androgen receptor and build muscle directly. Growth hormone is a protein that acts on the cell surface and works mostly through liver IGF-1. Different molecule, different receptor, different effects and risks. See the comparison above.</p></details>
+<details><summary>Do these make you taller?</summary><p>Not in an adult. Growth plates in the long bones fuse after puberty, and once they are closed, no amount of growth hormone adds height. In children with genuine deficiency it does. In adults it changes body composition and tissue, not stature.</p></details>
+<details><summary>Which one is "the" growth hormone peptide?</summary><p>There isn't one. The most common starting point is the CJC-1295 plus Ipamorelin pairing, because it covers both switches cleanly. But "best" depends entirely on the goal, and for most goals the honest answer is that the evidence for a real-world benefit is thin.</p></details>
+<details><summary>Will they build muscle like steroids?</summary><p>No. On its own, growth hormone is not very anabolic, which surprises people. It supports recovery, connective tissue and fat loss more than raw size. Bodybuilders who use it stack it with steroids and insulin, and even then much of the early visible change is water.</p></details>
+<details><summary>Do they help you lose fat?</summary><p>Growth hormone does mobilise fat, and Tesamorelin is actually approved to shrink one specific kind of belly fat. But in healthy people the fat change is modest, comes with side effects, and is not a shortcut to the results people imagine.</p></details>
+<details><summary>Do they help sleep?</summary><p>This is the most consistent thing people report, especially with the ghrelin-side peptides and MK-677, which makes sense because your biggest natural GH pulse happens in deep sleep and these press on that system. It is also the effect with the least downside.</p></details>
+<details><summary>Are any of these legal or approved?</summary><p>Only two are approved drugs: HGH, for specific deficiency and wasting conditions, and Tesamorelin, for HIV-related belly fat. Sermorelin used to be approved and is now compounded. Everything else is unapproved or sold as a research chemical. Using the approved ones for anti-aging or performance is off-label, and for HGH, distributing it that way is a federal crime.</p></details>
+</div>
+<p class="aka2" style="margin-top:16px">How they work, and how they differ</p>
+<div class="faq">
+<details><summary>What is the difference between the GHRH side and the ghrelin side?</summary><p>Two different switches on the same pituitary. GHRH copies (Sermorelin, CJC-1295, Tesamorelin) press the main go lever and raise how much GH each pulse makes. Ghrelin copies (Ipamorelin, the GHRPs, MK-677) press a separate button and also lift the off-brake. Because they are independent, pressing both does more than either alone.</p></details>
+<details><summary>Why is CJC-1295 paired with Ipamorelin?</summary><p>Because they hit the two different switches, and hitting both is synergistic: you get a bigger, cleaner GH pulse than from either one. CJC raises the size of the pulse, Ipamorelin adds a second trigger and lifts the brake, and Ipamorelin is the "clean" ghrelin peptide that does not drag cortisol or hunger along with it.</p></details>
+<details><summary>What is the difference between CJC-1295 "with DAC" and "without DAC"?</summary><p>They are almost different drugs sold under one name. With DAC, it binds a blood protein and lasts six to eight days, giving steady round-the-clock GH but flattening your natural pulse. Without DAC (also called Mod GRF 1-29), it lasts about thirty minutes, giving one sharp pulse that preserves your rhythm. No-DAC is preferred when staying physiological matters; DAC is chosen for convenience.</p></details>
+<details><summary>What does "pulsatile" mean and why does everyone care?</summary><p>Your body releases growth hormone in short bursts, not a constant stream, and that rhythm seems to matter for how it works and for keeping the system responsive. Compounds that preserve the pulse (short-acting ones, the ghrelin peptides) are seen as more physiological; long-acting ones that flatten it into steady elevation are more convenient but less natural.</p></details>
+<details><summary>What is IGF-1, and why does everyone measure it?</summary><p>IGF-1 is the messenger your liver makes in response to growth hormone, and it carries out most of GH's actual effects on tissue. It is also the number people track, because growth hormone itself swings minute to minute while IGF-1 reflects your average GH activity over days. Raising IGF-1 is easy; making that rise mean something is the hard part.</p></details>
+<details><summary>Why inject before bed or fasted?</summary><p>Two reasons. Your largest natural GH pulse comes in early deep sleep, so a bedtime dose rides that wave. And food, especially carbohydrate and the insulin it raises, blunts the GH response, so people dose away from meals to avoid working against themselves.</p></details>
+<details><summary>Ipamorelin, GHRP-2, GHRP-6, Hexarelin: what's the real difference?</summary><p>All press the same ghrelin button; the difference is what else they switch on. Ipamorelin is selective and clean. GHRP-2 is stronger with some cortisol. GHRP-6 brings intense hunger. Hexarelin is the most potent but raises cortisol most and stops working fastest. More potency generally means more off-target mess.</p></details>
+<details><summary>Why does GHRP-6 make you so hungry?</summary><p>Because it copies ghrelin, which is literally your hunger hormone, and GHRP-6 leans hard on the appetite circuit as well as the GH one. Some people use that on purpose to eat more in a bulking phase; others avoid it for exactly that reason and pick Ipamorelin instead.</p></details>
+<details><summary>Is MK-677 just an oral version of the injectable peptides?</summary><p>Roughly, yes, with one important twist. It presses the same ghrelin button, but as a pill it lasts all day rather than giving a pulse, so it raises GH and IGF-1 around the clock. That is why it has the strongest sleep and appetite effects, and also the clearest downsides: water retention, higher blood sugar and a heart-failure signal in frail patients.</p></details>
+<details><summary>What is IGF-1 LR3, and is it the same as IGF-1?</summary><p>It is a modified, longer-lasting, more potent version of IGF-1, engineered to dodge the proteins that normally rein IGF-1 in. It was built as a lab reagent, not a drug, has no human trials for performance, and carries a real risk of dangerously low blood sugar. It is the sharp, least-understood end of this page.</p></details>
+<details><summary>What is Tesamorelin approved for?</summary><p>One thing: reducing the deep abdominal fat that builds up in people with HIV on certain older medications. It is a GHRH analog that raises your own GH, it works well for that specific job, and it is the only compound here with a real FDA approval. Any other use is off-label.</p></details>
+</div>
+<p class="aka2" style="margin-top:16px">The honest, detailed questions</p>
+<div class="faq">
+<details><summary>Do these actually work in a healthy adult, or just raise a number?</summary><p>Mostly the latter, on the current evidence. They reliably raise GH and IGF-1. But the one place this has been studied properly, growth hormone in healthy older adults, the number moved without producing gains in strength, stamina, bone or longevity, and with a clear rise in side effects. Mechanism is not the same as benefit.</p></details>
+<details><summary>Does a higher IGF-1 mean it's working?</summary><p>It means the compound is doing its direct job. It does not mean you are getting a benefit. This is the central trap of the whole field: IGF-1 is easy to raise and is treated as proof, but the thing you actually want, better body, recovery or aging, does not reliably follow the number in people who are not deficient.</p></details>
+<details><summary>Can these cause cancer?</summary><p>The honest answer is "unresolved, and worth respecting." High IGF-1 is statistically linked to some cancers, because IGF-1 is a growth signal. But large reviews of actual growth-hormone treatment have not found an overall increase in cancer, except in people with a prior cancer. IGF-1 LR3 is the real concern here, because it is a potent, uncontrolled growth signal with no human safety data.</p></details>
+<details><summary>Can they give you diabetes or raise blood sugar?</summary><p>Growth hormone works against insulin, so yes, raising it can push blood sugar up and reduce insulin sensitivity. MK-677 is the clearest example, with measurable glucose rises in its trials. This is one of the more real, measurable downsides, not a theoretical one.</p></details>
+<details><summary>What is "GH gut" and do these cause water retention?</summary><p>Water retention is common across the class and tracks dose. The puffy, bloated look people call "GH gut" in heavy bodybuilding is usually attributed to very high doses of growth hormone and insulin together, not to these peptides at ordinary doses, but mild water retention and a softer look are frequently reported even at modest doses.</p></details>
+<details><summary>Do you have to cycle them, and why do the GHRPs stop working?</summary><p>The ghrelin-side peptides, Hexarelin especially, desensitize: the receptor stops answering with continuous use, so the GH response fades over weeks. People cycle on and off to limit this, though there is no validated schedule. The GHRH side and MK-677 hold up better over time.</p></details>
+<details><summary>Do they shut down your own growth hormone?</summary><p>The secretagogues work with your own system, so they do not suppress it the way injecting the hormone can; your feedback loop still runs. Injecting HGH or IGF-1 directly bypasses that loop, which is part of why those two are the stronger and less self-regulating options.</p></details>
+<details><summary>Are grey-market peptides the same as the approved drugs?</summary><p>No. Approved HGH and Tesamorelin are manufactured and tested to pharmaceutical standards. Grey-market vials of CJC-1295, Ipamorelin, the GHRPs and the rest have no such guarantee of identity, purity or dose, and that uncertainty is itself one of the real risks of using them.</p></details>
+<details><summary>Do they show up on a drug test or get banned in sport?</summary><p>Yes. Growth hormone and its secretagogues sit under one section of the WADA prohibited list, anabolic steroids under another, and both are banned at all times in tested sport. Detection methods exist and keep improving.</p></details>
+<details><summary>Why did the Rudman study get everyone so excited, and why is it misleading?</summary><p>Because in 1990 it showed older men gaining lean mass and losing fat on growth hormone in six months, which sounded like reversing aging. The problem is that body-composition numbers are not the same as function or health, and every careful study since has found the real-world benefits do not follow, while the side effects do. The study was real; the interpretation built on it was not.</p></details>
+</div>
+
+<h2 class="part" id="src"><span>13</span>Sources</h2>
+<p class="note">Primary papers, trial registries and regulator or authority pages, with the evidence type beside each. Community observations are noted as preliminary and are not listed here.</p>
+<ol class="srcs">
+<li id="g1"><span class="st">human (axis)</span> Veldhuis JD, et al. Human GH pulsatility: an ensemble property regulated by age and gender. <i>J Clin Endocrinol Metab</i> / Endocrine review. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/14964431/" target="_blank" rel="noopener">link</a></li>
+<li id="g2"><span class="st">animal (axis)</span> Interrelationship between ghrelin and somatostatin/GHRH in pulsatile GH secretion. <i>Endocrinology</i> 2003. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/12586774/" target="_blank" rel="noopener">link</a></li>
+<li id="g3"><span class="st">review (axis)</span> Dickson SL. Ghrelin's effects on growth hormone release: to pulse or not to pulse? <i>Nat Rev Endocrinol</i> 2022. <a class="sl" href="https://www.nature.com/articles/s41574-022-00698-z" target="_blank" rel="noopener">link</a></li>
+<li id="g4"><span class="st">preclinical</span> Raun K, et al. Ipamorelin, the first selective growth hormone secretagogue. <i>Eur J Endocrinol</i> 1998. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/9849822/" target="_blank" rel="noopener">link</a></li>
+<li id="g5"><span class="st">human synergy</span> Bowers CY, et al. GHRP stimulates GH release in normal men and acts synergistically with GHRH. <i>J Clin Endocrinol Metab</i> 1990. <a class="sl" href="https://doi.org/10.1210/jcem-70-4-975" target="_blank" rel="noopener">link</a></li>
+<li id="g6"><span class="st">human synergy</span> Penalva A, et al. GH secretion after GHRP-6 or GHRH+GHRP-6 does not decline in late adulthood. <i>Clin Endocrinol</i> 1995. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/7734029/" target="_blank" rel="noopener">link</a></li>
+<li id="g7"><span class="st">human synergy</span> Bowers CY, et al. Sustained GH and IGF-1 during 30-day GHRP-2 infusion in older adults. <i>J Clin Endocrinol Metab</i> 2004. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/15126555/" target="_blank" rel="noopener">link</a></li>
+<li id="g8"><span class="st">human approved</span> EGRIFTA WR (tesamorelin) U.S. Prescribing Information, 2025 (DailyMed/FDA). <a class="sl" href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022505s020lbl.pdf" target="_blank" rel="noopener">link</a></li>
+<li id="g9"><span class="st">human RCT</span> Falutz J, et al. Tesamorelin in HIV-associated abdominal fat accumulation. <i>N Engl J Med</i> 2007 (pivotal trial). <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/18057338/" target="_blank" rel="noopener">link</a></li>
+<li id="g10"><span class="st">human RCT</span> Nass R, et al. Oral ghrelin mimetic (MK-677) on body composition in healthy older adults, 2-year trial. <i>Ann Intern Med</i> 2008. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/18981485/" target="_blank" rel="noopener">link</a></li>
+<li id="g11"><span class="st">human (safety signal)</span> Adunsky A, et al. MK-0677 in hip-fracture patients (terminated early, CHF). <i>Arch Gerontol Geriatr</i> 2011. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/21067829/" target="_blank" rel="noopener">link</a></li>
+<li id="g12"><span class="st">human RCT</span> Rudman D, et al. Effects of human growth hormone in men over 60 years old. <i>N Engl J Med</i> 1990. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/2355952/" target="_blank" rel="noopener">link</a></li>
+<li id="g13"><span class="st">human meta</span> Liu H, et al. Systematic review: the safety and efficacy of growth hormone in the healthy elderly. <i>Ann Intern Med</i> 2007. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/17227934/" target="_blank" rel="noopener">link</a></li>
+<li id="g14"><span class="st">human (decline)</span> Toogood AA, et al. GH secretion declines ~14%/decade; GHD in the elderly is distinct from somatopause. <i>J Clin Endocrinol Metab</i> 1996. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/8636250/" target="_blank" rel="noopener">link</a></li>
+<li id="g15"><span class="st">review (sermorelin)</span> Prakash A, Goa KL. Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency. <i>BioDrugs</i> 1999. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/18031173/" target="_blank" rel="noopener">link</a></li>
+<li id="g16"><span class="st">mechanism (IGF-1 LR3)</span> Francis GL, et al. Novel recombinant fusion protein analogues of IGF-I (Long [Arg3]-IGF-I; IGFBP evasion). <i>J Mol Endocrinol</i> 1992. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/1378742/" target="_blank" rel="noopener">link</a></li>
+<li id="g17"><span class="st">epidemiology</span> Renehan AG, et al. IGF-I, IGFBP-3 and cancer risk: systematic review and meta-regression analysis. <i>Lancet</i> 2004. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/15110491/" target="_blank" rel="noopener">link</a></li>
+<li id="g18"><span class="st">regulatory (sport)</span> World Anti-Doping Agency. Prohibited List, S2 (Peptide Hormones, Growth Factors) and S1 (Anabolic Agents). <a class="sl" href="https://www.wada-ama.org/en/prohibited-list" target="_blank" rel="noopener">link</a></li>
+</ol>
+<p class="foot">Bare Signals &middot; Growth hormones research page v1 &middot; compiled 7 Nov 2026. Explains what is supported and what is not; not medical advice.</p></div>
+<script>
+(function(){var box=document.getElementById('axisfig'),cap=document.getElementById('axisc');if(!box)return;
+var caps={all:"The whole axis, running. Follow a pulse of GH down from the pituitary to the liver, watch it become IGF-1, and see the purple feedback loop back up to the control room.",
+ ghrh:"GHRH, the go lever. The hypothalamus tells the pituitary to fire a bigger pulse. Sermorelin, CJC-1295 and Tesamorelin are all copies of this one signal.",
+ sst:"Somatostatin, the brake. It ends each pulse and keeps the rhythm. Nothing here presses it directly, but the ghrelin side quietly lifts it so more GH gets out.",
+ ghrelin:"The ghrelin button. A second, separate trigger on the same factory that also lifts the brake. Ipamorelin, GHRP-2, GHRP-6, Hexarelin and the oral MK-677 all press here.",
+ pulse:"The pulse. The burst of growth hormone itself, released mostly at night. HGH skips the whole control room and injects this directly.",
+ liver:"The liver turns GH into IGF-1, the messenger that actually reaches muscle, bone and skin. IGF-1 LR3 skips even this step and injects the end product.",
+ feedback:"Feedback. IGF-1 loops back and tells the control room to ease off. This is why your own system has a ceiling, and why injecting GH or IGF-1 directly, which skips the loop, hits harder."};
+var sts=[].slice.call(box.querySelectorAll('.st'));
+[].slice.call(document.querySelectorAll('#axisk button')).forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-k');
+ document.querySelectorAll('#axisk button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+ if(k==='all'){box.classList.remove('focus');sts.forEach(function(s){s.classList.remove('on')});}
+ else{box.classList.add('focus');sts.forEach(function(s){s.classList.toggle('on',s.getAttribute('data-k')===k)});}
+ cap.textContent=caps[k];});});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){box.classList.toggle('run',e.isIntersecting)})},{threshold:.15}).observe(box);}
+})();</script>
+<script src="/nav.js" defer></script>
+</body></html>
