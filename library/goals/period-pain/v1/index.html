@@ -1,0 +1,705 @@
+<!doctype html>
+<!-- Period pain v1 (7 Nov 2026): first version, built from Period Pain Research v5 (studies, Mumsnet, Reddit research passes, X sweep). Template: Endometriosis v3. Compound links open the Library card in a drawer (drawer.js). The friend's personal account is left out until she agrees to share it. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Period pain · Bare Signals</title>
+<meta name="description" content="Period pain: what GLP-1 drugs, BPC-157, KPV, TB-500, GHK-Cu and supplements have shown in studies and what people report, with every standard option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Period pain</h1><p class="aka">Also called menstrual cramps or dysmenorrhoea. Primary means no disease is found; secondary means something like endometriosis, adenomyosis or fibroids is behind it.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M31 28C31 22 53 22 53 28C54 39 49 48 46 54L45 62H39L38 54C35 48 30 39 31 28Z" fill="#FFFFE2"/><path d="M36 30C36 27 48 27 48 30C48 37 45 43 42 46C39 43 36 37 36 30Z" fill="#FFD3EE" stroke-width="1.2"/><path d="M31 29C25 27 20 28 17 33"/><path d="M53 29C59 27 64 28 67 33"/></g><g fill="none" stroke="#FF5050" stroke-width="1.6" stroke-linecap="round"><path d="M16 50l4-3 4 3 4-3"/><path d="M56 50l4-3 4 3 4-3"/><path d="M36 72l3-3 3 3 3-3 3 3"/></g><circle cx="42" cy="64" r="2.4" fill="#9E1B32"/></svg>
+ <div class="meta"><span class="mt">Researched 7 Nov 2026</span><span class="mt">34 sources</span><span class="mt">Version 1</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Pain and sensory, Reproductive, Inflammatory signaling"><i style="width:70%;background:var(--pain)"></i><i style="width:18%;background:#FF99D8"></i><i style="width:12%;background:var(--infl)"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--pain)">Pain &amp; sensory</span><span class="rtg" style="background:#FF99D8">Reproductive</span><span class="rtg" style="background:var(--infl)">Inflammatory signaling</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Cramping pain from the womb around a period, in more than half of people who menstruate; 10 to 12% lose 1 to 3 days a month to it.<sup><a href="#s1">1</a></sup> The womb lining releases prostaglandins, which squeeze the muscle and cut its blood flow.</p>
+ <p><b>What studies found.</b> Ibuprofen-type painkillers give good relief to 45 to 53%, against 18% on a dummy pill.<sup><a href="#s2">2</a></sup> Ginger has the best supplement trials. No research peptide (BPC-157, TB-500, KPV, GHK-Cu) has a single period-pain study.<sup><a href="#s21">21</a></sup></p>
+ <p><b>What people report.</b> GLP-1 drugs have by far the most reports, in both directions, and 8 people say their relief turned back into pain when they stopped. BPC-157 has 4 first-hand reports of relief and KPV 3. GHK-Cu blends (GLOW, KLOW) have 7 bleeding or worse reports and no relief reports.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></p>
+ <p><b>Watch out.</b> New or worsening period pain is a reason to get checked for endometriosis, adenomyosis or fibroids.<sup><a href="#s3">3</a></sup> Unusual bleeding has been reported on GHK-Cu blends. Tirzepatide lowers how much of an oral contraceptive pill is absorbed.<sup><a href="#s29">29</a></sup></p>
+</div>
+
+<div class="nums6" aria-label="Period pain in numbers">
+ <div class="nm"><b>&gt;50%</b><span>of people who menstruate have period pain</span><i class="ev e-m">Review</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>18%</b><span>get good relief from a dummy pill</span><i class="ev e-m">Meta</i><sup><a href="#s2">2</a></sup></div>
+ <div class="nm"><b>45–53%</b><span>get good relief from NSAID painkillers</span><i class="ev e-m">Meta</i><sup><a href="#s2">2</a></sup></div>
+ <div class="nm"><b>8</b><span>GLP-1 users whose relief turned back into pain after stopping</span><i class="ev e-r">Reports</i><sup><a href="#s24">24</a></sup></div>
+ <div class="nm"><b>4</b><span>first-hand BPC-157 relief reports, no trial</span><i class="ev e-r">Reports</i><sup><a href="#s25">25</a></sup></div>
+ <div class="nm"><b>0</b><span>period-pain studies of BPC-157, TB-500, KPV, GHK-Cu</span><i class="ev e-c">Search</i><sup><a href="#s21">21</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#baseline">Without treatment</a><a href="#p1">2 · Studies</a><a href="#glp">GLP-1s</a><a href="#supp">Supplements</a><a href="#nostudy">Peptides</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#onoff">On and off</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#glossary">Glossary</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What period pain is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Signs</h2>
+ <p>Cramping in the lower belly that starts just before or with bleeding and lasts 1 to 3 days. It can spread to the lower back and thighs and come with nausea, loose stools, headache or tiredness.<sup><a href="#s1">1</a>,<a href="#s3">3</a></sup> There are two kinds:</p>
+ <ul class="tight">
+  <li><b>Primary:</b> no disease to find. It usually starts within 6 to 12 months of the first period, and about 88% of teens with it have their first painful period within 2 years.<sup><a href="#s1">1</a></sup></li>
+  <li><b>Secondary:</b> caused by something else, most often endometriosis, plus adenomyosis and fibroids.<sup><a href="#s3">3</a></sup> See the <a href="/library/goals/endometriosis/">Endometriosis case</a>.</li>
+ </ul>
+ <p class="sub">Signs it may be secondary</p>
+ <ul class="tight">
+  <li>Pain that starts years after periods began, or gets worse over time.</li>
+  <li>Pain between periods, during sex, or when opening the bowels or passing urine.</li>
+  <li>Pain that NSAIDs or the pill do not help.</li>
+  <li>New heavy bleeding or bleeding between periods.<sup><a href="#s3">3</a>,<a href="#s32">32</a></sup></li>
+ </ul>
+ <p>Where it hurts does not reliably say where it comes from: bowel, bladder and pelvic floor muscle pain can all sit alongside womb cramps, and back or thigh pain can be referred from pelvic organs.<sup><a href="#s32">32</a></sup></p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="inside">
+ <h2 class="st">How it works inside</h2>
+ <div class="dg in"><svg viewBox="0 0 340 120" role="img" aria-label="Four steps: A, progesterone drops at the end of the cycle. B, the lining releases prostaglandins (PGs). C, the womb muscle squeezes and its blood vessels tighten. D, low oxygen and sensitised nerves are felt as cramps.">
+  <g font-size="10" fill="#3E4A80">
+   <rect x="4" y="18" width="74" height="62" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="10" y="32" class="m" font-weight="700">A</text><text x="10" y="50">Progesterone</text><text x="10" y="64">drops</text>
+   <rect x="88" y="18" width="74" height="62" fill="#FFD3EE" stroke="#3E4A80" stroke-width="1.3"/><text x="94" y="32" class="m" font-weight="700">B</text><text x="94" y="50">Lining</text><text x="94" y="64">releases PGs</text>
+   <rect x="172" y="18" width="74" height="62" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="178" y="32" class="m" font-weight="700">C</text><text x="178" y="50">Muscle</text><text x="178" y="64">squeezes</text>
+   <rect x="256" y="18" width="80" height="62" fill="#87CFC5" stroke="#3E4A80" stroke-width="1.3"/><text x="262" y="32" class="m" font-weight="700">D</text><text x="262" y="50">Less oxygen</text><text x="262" y="64">= cramps</text>
+   <path d="M78 49h10M162 49h10M246 49h10" stroke="#3E4A80" stroke-width="1.6"/>
+  </g>
+  <text x="170" y="106" text-anchor="middle" class="m" font-size="7.5" letter-spacing=".5" fill="#6B76A8">NSAIDS BLOCK STEP B · THE PILL LARGELY STOPS STEP A</text>
+ </svg></div>
+ <ul class="how">
+  <li><b>A · The trigger.</b> When no pregnancy starts, progesterone falls at the end of the cycle, and the lining starts to break down.<sup><a href="#s1">1</a></sup></li>
+  <li><b>B · The messengers.</b> The lining makes prostaglandins (PGF2α and PGE2). Lining primed by progesterone holds more of them, and people with severe pain have markedly higher levels in menstrual fluid.<sup><a href="#s1">1</a></sup></li>
+  <li><b>C, D · The squeeze.</b> The muscle contracts harder, resting pressure rises and blood flow drops. The low oxygen is a large part of the pain.<sup><a href="#s1">1</a></sup></li>
+  <li><b>Is ovulation needed?</b> The textbook view says primary period pain only happens in cycles where an egg is released, and the pill helps by stopping ovulation.<sup><a href="#s1">1</a></sup> But in 168 tracked cycles, pain peaked just as high without ovulation (4.4 vs 4.8 out of 10), and a year-long study of 53 women found the same.<sup><a href="#s4">4</a>,<a href="#s5">5</a></sup> Estrogen can drive prostaglandins too. So "a drug restarted ovulation, so periods hurt more" is a guess, not a finding.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">How it behaves without treatment</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>A dummy pill helps about 1 in 5.</b> Across 35 painkiller trials, 18% on placebo had moderate or excellent relief.<sup><a href="#s2">2</a></sup> Any "it worked for me" has to beat that.</p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>It swings month to month.</b> Stress, sleep, travel and hormones move it, so one good or bad period proves nothing. The fairest test is 2 or more cycles scored the same way.<sup><a href="#s1">1</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>It often eases with time.</b> Primary period pain is most common at 20 to 24, with most severe episodes before 25, and it commonly lessens after a first delivery.<sup><a href="#s1">1</a>,<a href="#s5">5</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: no peptide has ever been tested for period pain.</b> What is proven is NSAID painkillers and hormonal contraception (part 5). Below, GLP-1 drugs come first because they have the most human signal, then supplements with real trials, then the research peptides, which have none.</p>
+
+<div class="grid"><section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · semaglutide, tirzepatide, retatrutide</h2>
+ <div class="cp">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide</a> · <a href="/library/#/p/tirzepatide">Tirzepatide</a> · <a href="/library/#/p/retatrutide">Retatrutide</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <div class="stripe"><i style="width:55%;background:var(--pain)"></i><i style="width:25%;background:var(--infl)"></i><i style="width:20%;background:var(--gut)"></i></div>
+  <p class="lead">Weight-loss drugs that copy the gut hormone GLP-1 (tirzepatide also GIP; retatrutide also GIP and glucagon). No period-pain trial exists. What exists is one case report, app surveys, drug-safety reports and a lot of first-hand accounts, which split both ways.</p>
+  <div class="grid two" style="margin-top:4px">
+  <div>
+  <ol class="tline">
+   <li><span class="ty">2025 <i class="ev e-h">1 person</i></span><p class="th">Period pain 12/10 to 3/10, back on a break, better again on restart.</p><p class="tb">A 20-year-old with severe period pain took low-dose semaglutide. Pain fell, returned during a break and improved again when she restarted. Stop and restart is a useful within-person test, but vitamin D was started at the same time and pelvic disease was not ruled out.<sup><a href="#s6">6</a></sup></p><details class="tm"><summary>Case report · Cureus</summary><div class="tmb"><p>Tran 2025. <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11821293/">Full text</a></p></div></details></li>
+   <li><span class="ty">2025 <i class="ev e-r">Survey</i></span><p class="th">27% noticed cycle changes.</p><p class="tb">Of about 1,700 users of a period-tracking app on GLP-1s, 27% noticed their cycle change, 43% of those with PCOS. Mostly more predictable, more frequent or shorter periods. Self-reported, with other causes possible.<sup><a href="#s7">7</a></sup></p></li>
+  </ol>
+  </div>
+  <div>
+  <ol class="tline tl2">
+   <li><span class="ty">2026 <i class="ev e-h">Safety reports</i></span><p class="th">Heavy bleeding and clots flagged for semaglutide.</p><p class="tb">An analysis of the US FDA side-effect database found semaglutide reports over-represented for heavy bleeding, bleeding between periods, clots, infrequent periods and cycles without ovulation; tirzepatide had a narrower set and liraglutide none. These are reporting signals, not rates or proof of cause.<sup><a href="#s8">8</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-r">Survey</i></span><p class="th">In endometriosis, 63% felt better.</p><p class="tb">In a 227-person online survey of people with endometriosis or adenomyosis, 63% said they improved on a GLP-1, and weight lost did not predict who did. Full story on the <a href="/library/goals/endometriosis/">Endometriosis case</a>.<sup><a href="#s33">33</a></sup></p></li>
+  </ol>
+  </div>
+  </div>
+  <p class="mech"><b>How it might help, unproven:</b> less body-wide inflammation, changed estrogen as fat is lost, and in insulin-resistant people steadier cycles. <b>How it might hurt:</b> early cycles can be disrupted, and gut cramps and constipation from the drug can feel like period pain or add to it. No study has looked at GLP-1 drugs acting on the womb muscle directly.<sup><a href="#s21">21</a></sup></p>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="supp">
+ <h2 class="st">Supplements with real trials</h2>
+ <p class="hint" style="margin:0 0 6px">Small trials, mostly low quality, but more human data than any peptide has.</p>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Ginger.</b> Pooled trials found less pain severity than placebo, but no change in how long pain lasts. In one 100-woman trial, ginger four times a day was not significantly different from ibuprofen. High risk of bias.<sup><a href="#s10">10</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Vitamin D.</b> A pooled drop in pain at 2 months (a large effect size, −1.02) from a few small trials.<sup><a href="#s11">11</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Vitamin E.</b> Contradicts itself: one pooled analysis found a small benefit,<sup><a href="#s11">11</a></sup> Cochrane found none across 2 trials.<sup><a href="#s9">9</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Vitamin B1 and zinc.</b> B1 beat fish oil by 1.6 points in one 120-woman trial; zinc did as well as ginger in another. Single trials.<sup><a href="#s9">9</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Melatonin (endometriosis).</b> 10 mg for 8 weeks cut pain and the need for painkillers by 80% in 40 women;<sup><a href="#s12">12</a></sup> 20 mg for 2 cycles did nothing in another 40.<sup><a href="#s13">13</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>PEA + polydatin, NAC (endometriosis).</b> PEA pooled data showed less pelvic and period pain;<sup><a href="#s14">14</a></sup> NAC only has studies without a placebo group.<sup><a href="#s15">15</a></sup></p></div>
+ </div>
+ <p class="hint">Low-dose naltrexone, often suggested online, has one placebo trial in endometriosis, stopped at 9 people with no usable result.<sup><a href="#s16">16</a></sup></p>
+</section></div>
+
+<div class="grid two" id="nostudy">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · no period-pain studies</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--heart)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <p class="lead">No period-pain or womb study, in people or animals. Across every use, human data are 3 small studies with 30 people, all from one clinician at a clinic that sells it.<sup><a href="#s22">22</a></sup></p>
+  <p class="mech">Its best-known animal actions are on blood flow (nitric oxide) and new blood vessels. Better blood flow could in theory ease the low-oxygen part of a cramp; new vessels are a concern in endometriosis. <b>Neither has been tested in the womb.</b> A seller article claiming "trials in 186 women, 58% less pain" could not be found on PubMed; treat it as invented.<sup><a href="#s21">21</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="kpv">
+ <h2 class="st">KPV · gut studies only</h2>
+ <div class="cp">
+  <div class="cph"><h3>KPV</h3><a href="/library/#/p/kpv">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--infl)"></i><i style="width:30%;background:var(--gut)"></i></div>
+  <ol class="tline">
+   <li><span class="ty">2008 <i class="ev e-c">Human cells</i><i class="ev e-a">Mice</i></span><p class="th">Calmed inflammation in gut cells and colitis.</p><p class="tb">The three-amino-acid end of α-MSH entered human gut cells, lowered the NF-κB inflammation switch and cytokines, and taken by mouth reduced colitis in mice.<sup><a href="#s19">19</a></sup></p></li>
+   <li><span class="ty">2008 <i class="ev e-a">Mice</i></span><p class="th">Worked even without its usual receptor.</p><p class="tb">Anti-inflammatory in two mouse colitis models, partly independent of the MC1 receptor.<sup><a href="#s20">20</a></sup></p></li>
+  </ol>
+  <p class="mech">If it calms the same inflammation in pelvic tissue at doses people use, it could in theory ease pain. Nobody has shown it reaches the womb, lowers prostaglandins, or relaxes the muscle.</p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="tb">
+ <h2 class="st">TB-500 &amp; T<span class="ng">β</span>4 · signals both ways</h2>
+ <div class="cp">
+  <div class="cph"><h3>TB-500</h3><span><a href="/library/#/p/tb-500-frag-17-23">Fragment card</a> · <a href="/library/#/p/thymosin-beta-4">Full T<span class="ng">β</span>4 card</a></span></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:30%;background:var(--heart)"></i></div>
+  <ol class="tline">
+   <li><span class="ty">2003 <i class="ev e-a">Mice</i></span><p class="th">Raised in adenomyosis.</p><p class="tb">Tβ4 was switched up in mouse wombs with adenomyosis, strongest where lining invaded the muscle. Adenomyosis is itself a cause of painful periods.<sup><a href="#s18">18</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-a">Mice</i></span><p class="th">Helped scarred womb lining heal.</p><p class="tb">A gel slowly releasing Tβ4 restored scarred lining in mice and nearly restored fertility. About repair after injury, not pain.<sup><a href="#s17">17</a></sup></p></li>
+  </ol>
+  <p class="mech">TB-500 is only a 7 amino acid piece of Tβ4 and has never been tested on the womb.</p>
+ </div>
+</section>
+<section class="sec" id="ghk">
+ <h2 class="st">GHK-Cu and blends · no studies</h2>
+ <div class="cp">
+  <div class="cph"><h3>GHK-Cu, GLOW, KLOW</h3><span><a href="/library/#/p/ghk-cu">GHK-Cu</a> · <a href="/library/#/p/glow">GLOW</a> · <a href="/library/#/p/klow">KLOW</a></span></div>
+  <p class="lead">No period study for GHK-Cu or any blend. GLOW is BPC-157 + TB-500 + GHK-Cu; KLOW adds KPV. A common KLOW vial is 50 mg GHK-Cu and 10 mg each of the other three, so about 62% of each shot is GHK-Cu and about 12% KPV.<sup><a href="#s28">28</a></sup> The blend itself has never been studied in people.</p>
+  <p class="mech">This matters for anyone on GLOW or KLOW: most of each shot is GHK-Cu, the part with the bleeding reports and no relief reports (part 3). The parts with relief reports, BPC-157 and KPV, are the smaller shares.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every compound, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Compound</th><th>Period-pain studies</th><th>First-hand reports</th><th>Direction</th></tr>
+  <tr><td>NSAID painkillers</td><td>35+ RCTs</td><td>Common</td><td>Proven</td></tr>
+  <tr><td>GLP-1s</td><td>1 case, surveys</td><td>Many, both ways</td><td>Split; strongest on/off signal</td></tr>
+  <tr><td>Ginger</td><td>Several RCTs</td><td>Not counted</td><td>Likely helps</td></tr>
+  <tr><td>Vitamin D</td><td>Few small RCTs</td><td>Not counted</td><td>Plausible</td></tr>
+  <tr><td>BPC-157</td><td>None</td><td>4 better, 1 no change, 1 possibly worse</td><td>Unproven</td></tr>
+  <tr><td>BPC-157 + TB-500</td><td>None</td><td>3 worse</td><td class="bad">Worse reports</td></tr>
+  <tr><td>KPV</td><td>None (gut only)</td><td>3 better, 1 mixed</td><td>Unproven</td></tr>
+  <tr><td>GHK-Cu, GLOW, KLOW</td><td>None</td><td>0 better, 7 worse or bleeding</td><td class="bad">Bleeding reports</td></tr>
+  <tr><td>LDN</td><td>Trial stopped at 9</td><td>Mostly no change</td><td>Anecdote only</td></tr>
+ </table></div>
+ <p class="hint">First-hand reports are counted one person per row, across Reddit, X and forums (part 3). Red = more bad than good reports; nothing here is tested either way.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">The peptides, counted</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">BPC-157 alone · 6 people</p>
+  <div class="sbar" role="img" aria-label="4 better, 1 no change, 1 possibly worse"><i class="g1" style="width:66.7%">4</i><i class="g3" style="width:16.7%">1</i><i class="g4" style="width:16.6%">1</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">KPV · 4 people</p>
+  <div class="sbar" role="img" aria-label="3 better, 1 mixed"><i class="g1" style="width:75%">3</i><i class="g2" style="width:25%">1</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">BPC-157 + TB-500 · 3 people</p>
+  <div class="sbar" role="img" aria-label="3 worse or disrupted"><i class="g4" style="width:100%">3</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">GHK-Cu, GLOW, KLOW · 7 people</p>
+  <div class="sbar" role="img" aria-label="7 worse or bleeding"><i class="g4" style="width:100%">7</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Mixed</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>BPC-157:</b> one woman on X says her period pain goes to 0 whenever she takes it, and it held again after on-and-off use; she normally needs codeine for 2 days. Another, with endometriosis, says doctor-supervised oral BPC-157 eased her pain within 2 weeks. Two more report painless periods on oral capsules whose contents were never checked.<sup><a href="#s25">25</a>,<a href="#s24">24</a></sup></li>
+  <li><b>KPV:</b> easier periods after about a week (daily pain only eased once tirzepatide was added); a first period without the usual severe back pain; less bloating and pain between periods. All in one Reddit thread. One more was on retatrutide, KPV and earlier GLOW and KLOW and could not tell which helped.<sup><a href="#s27">27</a></sup></li>
+  <li><b>BPC-157 + TB-500:</b> back pain and painful urination after 2 weeks of injections; worse by day 4; three periods in one month after 5 days. One more felt BPC-157 alone may have made symptoms worse.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></li>
+  <li><b>GHK-Cu, GLOW, KLOW:</b> five women had bleeding: mid-cycle bleeding turning heavy, spotting with cramps, new bleeding after a month of KLOW, and one with 16 days of heavy bleeding, an ER visit and a thickened lining on scan. One GLOW user had more pain, then did better on tirzepatide and KPV, and one had her worst cramps on retatrutide plus KLOW.<sup><a href="#s26">26</a>,<a href="#s24">24</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="glpreports">
+ <h2 class="st">GLP-1 drugs, counted</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">Mumsnet · period pain · 10 people</p>
+  <div class="sbar" role="img" aria-label="5 better, 5 worse"><i class="g1" style="width:50%">5</i><i class="g4" style="width:50%">5</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Reddit · cramps, PMDD and bleeding · 96 people</p>
+  <div class="sbar" role="img" aria-label="34 better, 27 mixed or came back, 16 no change, 19 worse"><i class="g1" style="width:35.4%">34</i><i class="g2" style="width:28.1%">27</i><i class="g3" style="width:16.7%">16</i><i class="g4" style="width:19.8%">19</i></div></div>
+ <ul class="tight">
+  <li><b>Better:</b> a first ever pain-free period; codeine and time off replaced by ibuprofen; periods back after years and "much less painful".<sup><a href="#s23">23</a>,<a href="#s24">24</a></sup></li>
+  <li><b>Worse:</b> doubled over for 3 cycles; pain "off the scale" and heavier; worse cramps in the first months, sometimes settling by month 9 or 10.<sup><a href="#s23">23</a>,<a href="#s24">24</a></sup></li>
+  <li><b>The common split:</b> bloating, daily pelvic pain and tiredness ease, but period-day pain stays the same or worsens. Seen in about 6 people.<sup><a href="#s24">24</a></sup></li>
+  <li><b>Retatrutide:</b> almost painless periods; pain about halved; barely any cramps in the first month; and one severe first period while also on KLOW.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></li>
+ </ul>
+ <p class="hint">The Reddit bar mixes cramps, PMDD mood and bleeding, so it is not a pain success rate.</p>
+</section>
+<section class="sec" id="onoff">
+ <h2 class="st">On and off · the strongest kind of anecdote</h2>
+ <p>When pain goes on a drug, comes back off it, and goes again on restart, coincidence becomes less likely.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">GLP-1</span><p><b>8 people.</b> Relief turned back into pain after stopping or skipping doses, including a Mounjaro user with 6 manageable months, then terrible periods again 2 months after stopping.<sup><a href="#s23">23</a>,<a href="#s24">24</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Case</span><p><b>GLP-1, 1 published case.</b> Better, back on a break, better on restart.<sup><a href="#s6">6</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">BPC-157</span><p><b>1 person.</b> Pain at 0 on days she takes it, after sporadic use.<sup><a href="#s25">25</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">GLP-1</span><p><b>2 people, the reverse:</b> periods worse on the drug, better after stopping.<sup><a href="#s24">24</a></sup></p></div>
+ </div>
+ <p class="hint">Collected 7 Nov 2026 from Mumsnet, Reddit and X, one person per count, sellers left out. Reddit and X were gathered in separate research passes. People who post are self-selected and usually on other things too.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>GLP-1 + KPV:</b> the pairing behind two of the better reports. One woman had more pain on GLOW and did better on tirzepatide plus KPV; another had period relief from KPV and daily relief only after adding tirzepatide.<sup><a href="#s24">24</a>,<a href="#s27">27</a></sup> <span class="ev e-r">Reports</span></li>
+  <li><b>GLP-1 + KLOW:</b> one severe first period on retatrutide plus KLOW and testosterone; one good result on retatrutide plus KPV after past GLOW and KLOW. Neither can say which part did it.<sup><a href="#s24">24</a></sup> <span class="ev e-r">Reports</span></li>
+  <li><b>GLP-1 + the oral pill:</b> tirzepatide cut the peak level of pill hormones by 59 to 66% in 40 women, mostly early on and after dose increases.<sup><a href="#s29">29</a></sup> <span class="ev e-h">Human</span></li>
+  <li><b>Stacks in general:</b> the more things taken at once, the harder it is to tell what helps. One woman in a 2026 feature on women using peptides said she could not tell which of her "17 things" was working.<sup><a href="#s34">34</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="elsewhere">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/endometriosis/"><b>Endometriosis</b></a>: the most common cause of secondary period pain, with its own case page.</li>
+  <li><a href="/library/goals/pcos/"><b>PCOS</b></a>: GLP-1s often make cycles regular again, which can change how periods feel.</li>
+  <li><b>PMS and PMDD:</b> GLP-1 reports split three ways: better, no change, worse. Mood and cramps do not move together.<sup><a href="#s24">24</a></sup></li>
+  <li><b>Bowel, bladder and pelvic floor pain</b> can sit alongside cramps and need different treatment.<sup><a href="#s32">32</a></sup></li>
+  <li><a href="/library/goals/notes/menopause/"><b>Perimenopause</b></a>: cramps can return when estrogen runs high against progesterone.<sup><a href="#s5">5</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, compared</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="treat">
+ <h2 class="st">What works best</h2>
+ <ul class="tight">
+  <li><b>NSAIDs</b> (ibuprofen, naproxen, mefenamic acid) block prostaglandin production. Across 35 trials they gave good relief to 45 to 53% vs 18% on placebo, and beat paracetamol. No single NSAID was clearly best. They carry more side effects than placebo, mainly gut.<sup><a href="#s2">2</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Hormonal contraception</b> relieves primary period pain largely by stopping ovulation.<sup><a href="#s1">1</a></sup> <span class="ev e-m">Review</span></li>
+  <li><b>When neither works</b>, that is a reason to look for a secondary cause.<sup><a href="#s3">3</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="test">
+ <h2 class="st">Finding what works for you</h2>
+ <p>For anyone already on a stack, the only data that answers "which one is it" are your own cycles:</p>
+ <ul class="tight">
+  <li>Score the worst day 0 to 10 and note the painkillers taken.</li>
+  <li>Change one thing per cycle, ideally for 2 cycles each.</li>
+  <li>Log dose changes, other medicines, diet and stress.</li>
+  <li>Keep a note of any new bleeding.</li>
+ </ul>
+ <p class="hint">A method for observing, not a dosing plan. No doses are given except those used in studies.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="bleed">
+ <h2 class="st rdt">Bleeding on GHK-Cu blends</h2>
+ <div class="box rd">
+  <p>Five women reported unusual bleeding on GHK-Cu or KLOW: mid-cycle bleeding turning heavy, spotting with cramps after a period had ended, new bleeding after a month, bloody discharge, and one with 16 days of heavy bleeding, an ER visit and a thickened lining on scan treated with progesterone.<sup><a href="#s26">26</a></sup></p>
+  <p class="hint">Self-reported, doses unknown, some with fibroids or endometriosis. Never studied. But bleeding between periods, very heavy bleeding, or a period much longer than usual needs checking whatever the cause.<sup><a href="#s3">3</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="glpwarn">
+ <h2 class="st">GLP-1 drugs and periods</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>The first cycles can be worse:</b> heavier, later, more painful, sometimes settling over months.<sup><a href="#s24">24</a></sup></li>
+   <li><b>Pill absorption:</b> tirzepatide lowers oral contraceptive levels; the maker advises a non-oral or barrier method for 4 weeks after starting and after each dose increase.<sup><a href="#s29">29</a>,<a href="#s30">30</a></sup></li>
+   <li><b>Gut cramps can mimic period pain:</b> constipation and bloating are common on GLP-1s.<sup><a href="#s31">31</a></sup></li>
+   <li><b>Retatrutide</b> is an unapproved trial drug.</li>
+  </ul>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="redflags">
+ <h2 class="st">When to get checked</h2>
+ <ul class="tight">
+  <li>Period pain that is new, getting worse, or "not like usual".</li>
+  <li>Pain NSAIDs or the pill do not help.</li>
+  <li>Pain between periods, with sex, or on the toilet.</li>
+  <li>Bleeding between periods or very heavy bleeding.<sup><a href="#s3">3</a>,<a href="#s32">32</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="claims">
+ <h2 class="st">Before you trust a vial or a number</h2>
+ <ul class="tight">
+  <li><b>Invented numbers:</b> seller articles cite "trials in 186 women" for BPC-157 and a "23% menstrual disorder" rate for tirzepatide. Neither could be found in a real study.<sup><a href="#s21">21</a></sup></li>
+  <li><b>Unchecked products:</b> two of the four BPC-157 relief reports were oral capsules bought online, contents never tested.</li>
+  <li><b>No trial of any blend:</b> GLOW and KLOW have never been studied in people.<sup><a href="#s28">28</a></sup></li>
+  <li><b>Secondhand stories left out:</b> a husband reporting his wife's pain halved on BPC-157, GHK-Cu and KPV, and a "cyst grew" story on BPC-157, were not counted either way.</li>
+  <li><b>One bad month is not a verdict:</b> pain swings cycle to cycle, so judge any change over 2 or more periods.<sup><a href="#s1">1</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Which peptide helps period pain?</summary><div class="bd"><p>None has been tested. Among first-hand reports, BPC-157 (4 better) and KPV (3 better) have small positive clusters. GHK-Cu blends have bleeding reports and no relief reports. GLP-1 drugs have the most reports, in both directions.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></p></div></details>
+  <details class="fq" open><summary>Why did my period hurt more after starting a GLP-1?</summary><div class="bd"><p>It is commonly reported in the first months. Possible reasons: cycles changing as weight drops, gut cramps adding to the pain, or chance. Some say it settled after a few months; some had it continue.<sup><a href="#s24">24</a>,<a href="#s23">23</a></sup></p></div></details>
+  <details class="fq"><summary>My bloating got better but my period still hurts. Is that normal?</summary><div class="bd"><p>It is the most common split in reports: daily pain and bloating ease on a GLP-1 while period-day pain stays. Cramps are driven by prostaglandins, which these drugs may not touch much.<sup><a href="#s24">24</a>,<a href="#s1">1</a></sup></p></div></details>
+  <details class="fq"><summary>Does ovulating make cramps worse?</summary><div class="bd"><p>Textbooks say yes, but tracked cycles found pain just as high without ovulation. It is not a settled explanation.<sup><a href="#s4">4</a>,<a href="#s5">5</a></sup></p></div></details>
+  <details class="fq"><summary>How can I tell which part of my stack is helping?</summary><div class="bd"><p>Score each period, change one thing per cycle and give each change 2 cycles. One good or bad month is within normal swings, and a dummy pill helps about 1 in 5.<sup><a href="#s2">2</a></sup></p></div></details>
+  <details class="fq"><summary>Is spotting on GHK-Cu normal?</summary><div class="bd"><p>Nobody knows; it has never been studied. Five women reported it, one severely. Bleeding between periods should be checked by a doctor.<sup><a href="#s26">26</a>,<a href="#s3">3</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-m">Review</i></dt><dd>a summary of past studies</dd></div><div><dt><i class="ev e-a">Animal</i></dt><dd>rats or mice</dd></div><div><dt><i class="ev e-c">Cells</i></dt><dd>cells in a lab dish</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>first-hand posts, self-reported, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>Dysmenorrhoea</dt><dd>the medical word for period pain</dd></div><div><dt>Prostaglandins</dt><dd>local messengers that make the womb squeeze</dd></div><div><dt>NSAID</dt><dd>painkillers like ibuprofen that block prostaglandin making</dd></div><div><dt>Adenomyosis</dt><dd>lining tissue growing into the womb's muscle wall</dd></div><div><dt>PMDD</dt><dd>severe mood symptoms before a period</dd></div><div><dt>On and off</dt><dd>a symptom that follows starting, stopping and restarting something</dd></div></dl></div>
+</section></div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources <span class="cnt">34</span></h2></summary>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/period-pain/">full research notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">Dawood, Dysmenorrhea, Global Library of Women's Medicine (2008). <a href="https://www.glowm.com/section-view/heading/Dysmenorrhea/item/9" target="_blank" rel="noopener">link</a></li>
+   <li id="s2">Cochrane 2015, NSAIDs for dysmenorrhoea, 80 RCTs, 5,820 women. <a href="https://pubmed.ncbi.nlm.nih.gov/26224322/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">ACOG patient FAQ, Dysmenorrhea: painful periods. <a href="https://www.acog.org/womens-health/faqs/dysmenorrhea-painful-periods" target="_blank" rel="noopener">link</a></li>
+   <li id="s4">J Pediatr Adolesc Gynecol 2018, anovulation in young women with and without primary dysmenorrhea, 168 cycles. <a href="https://doi.org/10.1016/j.jpag.2017.09.014" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s5">CeMCOR, University of British Columbia, painful periods page (year-long study of 53 women). <a href="https://cemcor.ubc.ca/?p=1215" target="_blank" rel="noopener">link</a></li>
+   <li id="s6">Tran 2025, Cureus, semaglutide for severe dysmenorrhea, case report. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11821293/" target="_blank" rel="noopener">Full text</a></li>
+   <li id="s7">Natural Cycles, GLP-1 menstrual cycle survey (about 1,700 users). <a href="https://www.naturalcycles.com/research-library/do-glp-1-weight-loss-drugs-affect-the-menstrual-cycle" target="_blank" rel="noopener">link</a></li>
+   <li id="s8">FAERS menstrual adverse event analysis, Obstet Gynecol 2026, interview summary, Contemporary OB/GYN, 21 Jul 2026. <a href="https://www.contemporaryobgyn.net/view/connor-frey-md-glp-1-ras-menstrual-adverse-event-signals" target="_blank" rel="noopener">link</a></li>
+   <li id="s9">Cochrane 2016, dietary supplements for dysmenorrhoea. <a href="https://pubmed.ncbi.nlm.nih.gov/27000311/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s10">Negi 2021, Cureus, ginger for primary dysmenorrhea, meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/33842121/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">Saei Ghare Naz 2020, J Caring Sci, micronutrients for primary dysmenorrhea, meta-analysis. <a href="https://doi.org/10.34172/jcs.2020.008" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s12">Schwertner 2013, Pain, melatonin in endometriosis, RCT, 40 women. <a href="https://pubmed.ncbi.nlm.nih.gov/23602498/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">Söderman 2023, PLoS One, melatonin 20 mg in endometriosis pain, RCT, 40 women. <a href="https://doi.org/10.1371/journal.pone.0286182" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s14">Indraccolo 2017, Ann Ist Super Sanità, PEA/polydatin meta-analysis. <a href="https://doi.org/10.4415/ANN_17_02_08" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s15">Anastasi 2023, IJERPH, NAC in endometriosis, single-group study. <a href="https://doi.org/10.3390/ijerph20064686" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s16">NCT03970330, low-dose naltrexone in endometriosis, terminated at 9 participants. <a href="https://clinicaltrials.gov/study/NCT03970330" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s17">Liang 2026, Nat Commun, Tβ4-releasing hydrogel in mouse intrauterine adhesions. <a href="https://doi.org/10.1038/s41467-026-68677-w" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s18">Kawahara 2003, In Vivo, Tβ4 raised in mouse adenomyosis. <a href="https://pubmed.ncbi.nlm.nih.gov/14758721/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">Dalmasso 2008, Gastroenterology, KPV in gut cells and mouse colitis. <a href="https://pubmed.ncbi.nlm.nih.gov/18061177/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s20">Kannengiesser 2008, Inflamm Bowel Dis, KPV in two mouse colitis models. <a href="https://pubmed.ncbi.nlm.nih.gov/18092346/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">Searches 7 Nov 2026: PubMed for BPC-157, Tβ4, KPV or GHK-Cu with period pain, womb or menstruation (11 hits, none on pain); web searches for seller claims; no study found on GLP-1 drugs and womb muscle contraction.</li>
+   <li id="s22">Acta Orthop Belg 2026, every human BPC-157 study (3 studies, 30 people). <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s23">Mumsnet weight-loss injection boards, first-hand Mounjaro period reports, 2024 to 2026. <a href="https://www.mumsnet.com/talk/weight-loss-injections/5290558-mounjaropainful-periods" target="_blank" rel="noopener">painful periods</a> · <a href="https://www.mumsnet.com/talk/weight-loss-injections/5119709-mounjaro-endometriosis-short-cycles" target="_blank" rel="noopener">endometriosis</a> · <a href="https://www.mumsnet.com/talk/weight-loss-injections/5474816-mounjaro-and-hormone-related-side-effects" target="_blank" rel="noopener">hormones</a></li>
+   <li id="s24">Reddit research passes, 3 to 7 Nov 2026: 25 endometriosis GLP-1 users plus a 100-account pass on peptides and menstrual symptoms, one person per row. <a href="/library/goals/notes/period-pain/">research notes</a></li>
+   <li id="s25">X posts, first-hand, collected 7 Nov 2026: BPC-157 period pain <a href="https://x.com/MomaBera/status/2043450628694065357" target="_blank" rel="noopener">1</a> · <a href="https://x.com/MomaBera/status/2112251285001150591" target="_blank" rel="noopener">2</a>; supervised oral BPC-157 in endometriosis <a href="https://x.com/jefftangx/status/2084449307181142339" target="_blank" rel="noopener">3</a>; BPC-157 + TB-500 cycle change <a href="https://x.com/pepfessions/status/2062816710411919549" target="_blank" rel="noopener">4</a>; retatrutide cramps <a href="https://x.com/pepfessions/status/2100731549704388671" target="_blank" rel="noopener">5</a>.</li>
+   <li id="s26">Reddit, GHK-Cu and KLOW bleeding reports. <a href="https://www.reddit.com/r/Peptides_for_Women/comments/1qx2ol6/ghkcu_spotting_bleeding/" target="_blank" rel="noopener">thread 1</a> · <a href="https://www.reddit.com/r/endometriosis/comments/1widmbn/ghkcu_copper_peptide_and_endometriosiswhat_was/" target="_blank" rel="noopener">thread 2</a></li>
+   <li id="s27">Reddit r/endometriosis, peptides thread with KPV reports, Aug to Sep 2026. <a href="https://www.reddit.com/r/endometriosis/comments/1v4eo0c/peptides/" target="_blank" rel="noopener">thread</a></li>
+   <li id="s28">KLOW blend makeup from seller listings and dosing references (not linked); no published human or animal trial of the blend.</li>
+   <li id="s29">CoSRH guidance, oral contraceptives with tirzepatide and semaglutide (summarises a 40-woman tirzepatide study). <a href="https://www.cosrh.org/Common/Uploaded%20files/documents/Guidance%20on%20oral%20contraceptive%20use%20with%20GLP-1%20agonists%20tirzepatide%20and%20semaglutide.pdf" target="_blank" rel="noopener">PDF</a></li>
+   <li id="s30">Tirzepatide manufacturer medical answer: oral contraceptives and hormone therapy. <a href="https://medical.lilly.com/us/products/answers/can-zepbound-tirzepatide-be-used-with-oral-contraceptives-or-hormone-replacement-therapy-211019" target="_blank" rel="noopener">link</a></li>
+   <li id="s31">GLP-1 gut side effects in endometriosis reports and clinician comments. <a href="/library/goals/endometriosis/#nochange">Endometriosis case</a></li>
+   <li id="s32">ACOG patient FAQ, Chronic pelvic pain. <a href="https://www.acog.org/womens-health/faqs/chronic-pelvic-pain" target="_blank" rel="noopener">link</a></li>
+   <li id="s33">GLEAM survey, Baudoin and van Bakel, Research Square preprint, 14 Jul 2026 (not peer reviewed). <a href="https://www.researchsquare.com/article/rs-10323555/v1" target="_blank" rel="noopener">link</a></li>
+   <li id="s34">Yahoo Lifestyle 2026, feature on women using peptides. <a href="https://www.yahoo.com/lifestyle/articles/cure-hormonal-health-issues-just-100000195.html" target="_blank" rel="noopener">link</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, Cochrane, ClinicalTrials.gov and guideline pages, read from the abstracts and summarised in our words. First-hand reports come from Mumsnet, Reddit and X, one person per count, with seller pages and secondhand stories left out. <span class="ev e-h">Human</span><span class="ev e-rct">RCT</span><span class="ev e-m">Meta</span><span class="ev e-a">Animal</span><span class="ev e-c">Cells</span><span class="ev e-r">Reports</span> show where each finding was seen. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
