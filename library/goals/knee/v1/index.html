@@ -1,0 +1,664 @@
+<!doctype html>
+<!-- Knee v1 (10 Nov 2026): first case page, built from Knee Research v2 notes and a 10 Nov update pass (TRIUMPH-1 NEJM knee group, Sept 2026, replaces the company-only retatrutide figure as the lead number). Reddit count still to come (Research Log G72). Template: Period pain v1. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Knee · Bare Signals</title>
+<meta name="description" content="Knee problems (ACL, meniscus, jumper's knee, MCL, osteoarthritis, after surgery): what BPC-157, TB-500, GHK-Cu, collagen and GLP-1 drugs have shown in studies and what people report, with every standard option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* case additions */
+.cp .mech{margin-top:8px}
+.cp .tline{margin-top:2px}
+#collagen .cp,#col .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+@media (max-width:759px){.grd{table-layout:fixed}.grd th,.grd td{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}.grd td:first-child,.grd th:first-child{width:25%}}
+
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Knee</h1><p class="aka">ACL tear, meniscus tear, jumper's knee (patellar tendon), MCL sprain, knee osteoarthritis and recovery after knee surgery. One page because people use the same peptides for all of them.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6V30C32 34 28 36 28 40C28 44 34 46 42 46C50 46 56 44 56 40C56 36 52 34 52 30V6" fill="#FFFFE2"/><path d="M30 54C30 50 36 50 42 50C48 50 54 50 54 54C54 58 50 60 50 64V80M34 80V64C34 60 30 58 30 54Z" fill="#FFFFE2"/><ellipse cx="42" cy="36" rx="6" ry="7" fill="#FFFFF4"/></g><path d="M30 48h24" stroke="#C782A5" stroke-width="3" stroke-linecap="round"/><path class="pl" d="M38 44L46 52" stroke="#E1DE62" stroke-width="4" stroke-linecap="round"/><path d="M38 44L46 52" stroke="#3E4A80" stroke-width="1.3" stroke-linecap="round"/></svg>
+ <div class="meta"><span class="mt">Researched 3 to 10 Nov 2026</span><span class="mt">42 sources</span><span class="mt">Version 1</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Tissue repair, Bone and cartilage, Pain and sensory"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:#C782A5"></i><i style="width:12%;background:var(--pain)"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--repair)">Tissue repair</span><span class="rtg" style="background:#C782A5">Bone &amp; cartilage</span><span class="rtg" style="background:var(--pain)">Pain &amp; sensory</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Six different knee problems that heal very differently. Ligament outside the joint (MCL) heals by itself in weeks; the ACL inside the joint rarely bridges, because joint fluid dissolves the healing clot.<sup><a href="#s9">9</a></sup></p>
+ <p><b>What studies found.</b> About half of young adults with a torn ACL who started with rehab never needed surgery, with the same results at 11 years.<sup><a href="#s1">1</a></sup> Collagen peptides have the best human knee data of anything called a peptide, from 35 trials.<sup><a href="#s24">24</a></sup> BPC-157's only human knee data is one phone survey with no comparison group.<sup><a href="#s20">20</a></sup></p>
+ <p><b>What people report.</b> Outside Reddit, 10 of 12 people on BPC-157 or TB-500 said their knee felt better, and all 10 collagen users did. No single diagnosis reaches 5 people, and no doctor or scan confirmed a peptide effect.<sup><a href="#s38">38</a></sup></p>
+ <p><b>Watch out.</b> Over half of people get relief from a salt-water knee injection in arthritis trials, so "it worked" needs a comparison.<sup><a href="#s16">16</a></sup> A knee that locks, gives way or swells fast after a pop needs a doctor.</p>
+</div>
+
+<div class="nums6" aria-label="Knee in numbers">
+ <div class="nm"><b>~50%</b><span>of rehab-first torn ACLs never needed surgery</span><i class="ev e-rct">RCT</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>&gt;50%</b><span>respond to salt-water injections in knee arthritis</span><i class="ev e-m">Meta</i><sup><a href="#s16">16</a></sup></div>
+ <div class="nm"><b>61%</b><span>of people with a meniscus tear on MRI had no knee pain</span><i class="ev e-h">Human</i><sup><a href="#s7">7</a></sup></div>
+ <div class="nm"><b>35</b><span>trials of collagen peptides for knee arthritis, small real benefit</span><i class="ev e-m">Meta</i><sup><a href="#s24">24</a></sup></div>
+ <div class="nm"><b>14 of 16</b><span>said BPC-157 knee shots helped, no comparison group</span><i class="ev e-h">Survey</i><sup><a href="#s20">20</a></sup></div>
+ <div class="nm"><b>10 of 12</b><span>forum BPC-157 or TB-500 users felt better</span><i class="ev e-r">Reports</i><sup><a href="#s38">38</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#baseline">Without peptides</a><a href="#p1">2 · Studies</a><a href="#bpc">BPC-157</a><a href="#col">Collagen</a><a href="#glp">GLP-1s</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What the knee problem is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Which one is it</h2>
+ <ul class="tight">
+  <li><b>ACL tear:</b> a pop on landing, cutting or a sudden stop, fast swelling within hours, and a knee that gives way when turning. Many can walk within days, which fools people into thinking it is minor. In jiu-jitsu, matches with heel hooks had about 12 times the knee injury rate.<sup><a href="#s30">30</a></sup></li>
+  <li><b>Meniscus tear:</b> pain on the inside or outside joint line, swelling the next day, catching. True locking, where the knee gets stuck and won't straighten, is the one sign that changes the plan toward surgery.<sup><a href="#s5">5</a></sup></li>
+  <li><b>Jumper's knee:</b> pain just below the kneecap on jumping, landing, squats and stairs. 32% of elite basketball players and 45% of volleyball players had it.<sup><a href="#s11">11</a></sup> Over 15 years, half of affected athletes quit their sport because of it.<sup><a href="#s35">35</a></sup></li>
+  <li><b>MCL sprain:</b> pain on the inside of the knee after a blow or a knee pushed inward: tackles, guard passes, padel lunges. Grade III often comes with an ACL tear; elite players with both returned at about 12 months.<sup><a href="#s12">12</a>,<a href="#s34">34</a></sup></li>
+  <li><b>Osteoarthritis:</b> wear and remodelling of cartilage and bone; pain on loading, short morning stiffness, swelling. 44% of young adults had it on X-ray 11 years after an ACL tear, and a rebuilt ACL did not clearly prevent it.<sup><a href="#s1">1</a>,<a href="#s14">14</a></sup> Losing meniscus is the most consistent risk.<sup><a href="#s13">13</a></sup></li>
+  <li><b>After surgery:</b> a rebuilt ACL takes many months to turn into ligament-like tissue; most are cleared for sport at 9 to 12 months.<sup><a href="#s4">4</a></sup> Surgery itself keeps joint inflammation higher for months than rehab alone.<sup><a href="#s15">15</a></sup></li>
+ </ul>
+ <p class="sub">The MRI trap</p>
+ <p>In 991 people over 50, meniscus tears showed on MRI in 19% to 56%, and 61% of those with a tear had no knee pain that month. After 40, a tear on a scan is often not the cause of the pain.<sup><a href="#s7">7</a></sup></p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="inside">
+ <h2 class="st">Why the ACL doesn't knit</h2>
+ <div class="dg in"><svg viewBox="0 0 340 132" role="img" aria-label="Left, the MCL outside the joint: blood forms a clot that bridges the torn ends and it heals. Right, the ACL inside the joint: joint fluid carries plasmin which dissolves the clot, so the ends never bridge.">
+  <g font-size="10" fill="#3E4A80">
+   <rect x="4" y="8" width="160" height="96" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="10" y="23" class="m" font-weight="700">MCL · OUTSIDE</text>
+   <path d="M20 60h52M96 60h52" stroke="#E1DE62" stroke-width="8" stroke-linecap="round"/>
+   <path class="pl" d="M70 60h28" stroke="#9E1B32" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+   <text x="10" y="86">Clot bridges the gap</text><text x="10" y="98" class="m" font-size="8" fill="#6B76A8">HEALS IN 3 TO 12 WEEKS</text>
+   <rect x="176" y="8" width="160" height="96" fill="#DDF4F5" stroke="#3E4A80" stroke-width="1.3"/><text x="182" y="23" class="m" font-weight="700">ACL · IN JOINT FLUID</text>
+   <path d="M192 60h44M276 60h44" stroke="#E1DE62" stroke-width="8" stroke-linecap="round"/>
+   <g class="pl" fill="#9E1B32" opacity=".5"><circle cx="248" cy="56" r="2.5"/><circle cx="256" cy="64" r="2"/><circle cx="263" cy="55" r="1.6"/></g>
+   <text x="182" y="86">Joint fluid dissolves it</text><text x="182" y="98" class="m" font-size="8" fill="#6B76A8">ENDS NEVER BRIDGE</text>
+  </g>
+  <text x="170" y="122" text-anchor="middle" class="m" font-size="7.5" letter-spacing=".5" fill="#6B76A8">THE MISSING PIECE IS THE SCAFFOLD, NOT THE CELLS</text>
+ </svg></div>
+ <ul class="how">
+  <li><b>No bridge ever forms.</b> 23 torn human ACLs examined under the microscope went through the usual stages of repair, but at no point did tissue join the two torn ends; a lining grew over each stump instead.<sup><a href="#s9">9</a></sup></li>
+  <li><b>The clot gets dissolved.</b> Fluid in an injured knee carries more clot-dissolving plasmin than the blood does, made inside the joint.<sup><a href="#s9">9</a></sup></li>
+  <li><b>Give it a scaffold and it can heal.</b> A protein sponge stitched between the torn ends (BEAR) gave the same 2-year results as reconstruction in 100 teens, but more needed a second operation, 14% vs 6%.<sup><a href="#s10">10</a></sup></li>
+  <li><b>Cartilage has no blood vessels</b> and few cells, so adult damage is mostly not replaced.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">What happens without peptides</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Torn ACL, rehab first.</b> 121 young adults: rehab first or early surgery scored the same at 2, 5 and 11 years (a 1.6-point gap on a 100-point scale; about 9 is a change people notice). 52% of the rehab group were eventually reconstructed, so about half never were.<sup><a href="#s1">1</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Meniscus tear, physio first.</b> In 321 people aged 45 to 70, 16 physio sessions did as well as keyhole surgery over 2 years; 29% later chose surgery.<sup><a href="#s5">5</a></sup> Trimming a worn meniscus equalled fake surgery,<sup><a href="#s6">6</a></sup> and in 18 to 40 year olds surgery was not clearly better than exercise.<sup><a href="#s36">36</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Arthritis and placebo.</b> Across 73 trials, salt-water knee injections gave real relief at 1 to 6 months, with more than half responding.<sup><a href="#s16">16</a></sup> MCL sprains: 70 to 98% do well with exercise, back in 3 to 12 weeks.<sup><a href="#s12">12</a></sup></p></div>
+ </div>
+ <p class="hint">What this means for stories: a knee that "felt better within weeks" is the expected course for MCL sprains, meniscus flares and arthritis flares. Only a comparison group can separate a peptide from that.</p>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: no research peptide has a controlled knee trial.</b> The real human knee data belongs to collagen peptides and GLP-1 drugs. BPC-157 has one uncontrolled phone survey; everything else is rats.</p>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · one survey, rats</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--heart)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <ol class="tline">
+   <li><span class="ty">2021 <i class="ev e-h">16 people</i></span><p class="th">14 of 16 said knee pain improved.</p><p class="tb">A Florida hormone clinic injected 17 knees (one 4 mg shot in most; 4 people also got thymosin beta-4) and phoned 16 of them 6 to 12 months later. 14 said pain was clearly better, and 9 said relief lasted 6 months or more. Mixed causes, no scores, no scans, no comparison group, and the clinic sells it.<sup><a href="#s20">20</a></sup></p></li>
+   <li><span class="ty">2010 <i class="ev e-a">Rats</i></span><p class="th">A cut MCL healed better, by any route.</p><p class="tb">Rats with a cut MCL healed with better function, strength and tissue over 90 days whether BPC-157 was injected, rubbed on as cream or put in drinking water. Zagreb group.<sup><a href="#s21">21</a></sup></p></li>
+   <li><span class="ty">2018 <i class="ev e-a">Rats</i></span><p class="th">Less arthritis after a wrecked knee.</p><p class="tb">Rats with cut ACL and MCL and a removed meniscus walked better with less arthritis at 4 and 8 weeks; starting late helped less. 5 rats per group, a thesis, not a published paper.<sup><a href="#s21">21</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Missing:</b> no rat or human study of BPC-157 in an ACL, meniscus or patellar tendon. No knee trial is registered.<sup><a href="#s22">22</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="tb">
+ <h2 class="st">TB-500 and GHK-Cu · thin</h2>
+ <div class="cp">
+  <div class="cph"><h3>TB-500, GHK-Cu</h3><span><a href="/library/#/p/tb-500-frag-17-23">TB-500</a> · <a href="/library/#/p/thymosin-beta-4">Tβ4</a> · <a href="/library/#/p/ghk-cu">GHK-Cu</a></span></div>
+  <ol class="tline">
+   <li><span class="ty">2021 <i class="ev e-h">4 people</i></span><p class="th">TB-500: the 4 people in the survey above.</p><p class="tb">3 of 4 given BPC-157 plus thymosin beta-4 improved. No cartilage, ACL or meniscus study of TB-500 exists, even in animals.<sup><a href="#s20">20</a></sup></p></li>
+   <li><span class="ty">2015 <i class="ev e-a">72 rats</i></span><p class="th">GHK-Cu: a tighter rebuilt ACL, gone when shots stopped.</p><p class="tb">Weekly GHK-Cu shots into the knee made a rebuilt rat ACL less loose and stiffer at 6 weeks. By 12 weeks, after stopping, there was no difference, and pull-out strength and walking never differed.<sup><a href="#s23">23</a></sup></p></li>
+  </ol>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="col">
+ <h2 class="st">Collagen · the best human peptide data</h2>
+ <div class="cp">
+  <div class="cph"><h3>Collagen peptides</h3><a href="/library/#/p/collagen-peptides">Library card</a></div>
+  <ol class="tline">
+   <li><span class="ty">2024 <i class="ev e-m">35 trials</i></span><p class="th">Small to moderate pain relief in knee arthritis.</p><p class="tb">35 randomised trials, 3,165 people: pain and function improved more than control, with no more side effects. Moderate to high certainty.<sup><a href="#s24">24</a></sup></p></li>
+   <li><span class="ty">2021 <i class="ev e-rct">180 people</i></span><p class="th">Young active knees hurt a bit less.</p><p class="tb">5 g a day for 12 weeks in 18 to 30 year olds with activity knee pain: pain fell 21.9 vs 15.6 points out of 100, and doctors' scores agreed. About 6 points more than placebo is small. An earlier 139-athlete trial found the same. Industry-linked.<sup><a href="#s25">25</a></sup></p></li>
+  </ol>
+ </div>
+</section>
+<section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · big pain drops, mostly weight</h2>
+ <div class="cp">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide</a> · <a href="/library/#/p/retatrutide">Retatrutide</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <ol class="tline">
+   <li><span class="ty">2024 <i class="ev e-rct">407 people</i></span><p class="th">Semaglutide: knee pain down 41.7 vs 27.5 points.</p><p class="tb">In knee arthritis with obesity, 68 weeks of semaglutide cut weight 13.7% and pain 41.7 points out of 100, against 27.5 on placebo. Mostly through weight loss.<sup><a href="#s26">26</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-rct">574 people</i></span><p class="th">Retatrutide: published, smaller than the press release.</p><p class="tb">In the knee group of the main retatrutide trial (NEJM, Sept 2026), pain fell 3.6 points out of 10 on the top dose against 1.9 on placebo, with about 25% weight loss. The earlier company release from a separate knee trial claimed a 75.8% drop; that one is still not peer reviewed, and 12 to 18% stopped for side effects.<sup><a href="#s27">27</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Drug or weight?</b> A 2026 review found liraglutide gave extra weight loss without extra knee relief, so these are not proven painkillers apart from the weight. A tirzepatide trial testing whether people avoid knee replacement reports in 2027.<sup><a href="#s28">28</a></sup></p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every option, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Option</th><th>Knee evidence</th><th>First-hand reports</th><th>Direction</th></tr>
+  <tr><td>Supervised rehab</td><td>Many RCTs, 11-year follow-up</td><td>Common</td><td>Proven first line</td></tr>
+  <tr><td>GLP-1 drugs (arthritis)</td><td>Large RCTs</td><td>Not counted</td><td>Less pain, mostly via weight</td></tr>
+  <tr><td>Collagen peptides</td><td>35 RCTs (arthritis)</td><td>10 better</td><td>Small real benefit</td></tr>
+  <tr><td>BPC-157 (± TB-500)</td><td>1 uncontrolled survey, rats</td><td>10 better, 2 no change</td><td>Unproven, positive reports</td></tr>
+  <tr><td>TB-500 alone</td><td>None</td><td>1 better</td><td>Unproven</td></tr>
+  <tr><td>GHK-Cu</td><td>1 rat ACL study</td><td>None found</td><td>Unproven</td></tr>
+  <tr><td>Hyaluronic acid shots</td><td>169 trials</td><td>Not counted</td><td class="bad">No meaningful benefit</td></tr>
+  <tr><td>PRP (arthritis)</td><td>Large RCT</td><td>Not counted</td><td class="bad">Same as salt water</td></tr>
+  <tr><td>Cortisone every 3 months</td><td>RCT, 2 years</td><td>Not counted</td><td class="bad">More cartilage loss</td></tr>
+ </table></div>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">Forums outside Reddit, counted</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">BPC-157, alone or with TB-500 · 12 people</p>
+  <div class="sbar" role="img" aria-label="10 better, 2 no change"><i class="g1" style="width:83.3%">10</i><i class="g3" style="width:16.7%">2</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Collagen · 10 people</p>
+  <div class="sbar" role="img" aria-label="10 better"><i class="g1" style="width:100%">10</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Partly</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <p class="sub">By diagnosis, BPC-157 or TB-500</p>
+ <div class="tw"><table class="cmp hum">
+  <tr><th>Problem</th><th>Better</th><th>No change</th></tr>
+  <tr><td>Jumper's knee</td><td>3</td><td>0</td></tr>
+  <tr><td>Meniscus</td><td>1</td><td>1 (other peptides)</td></tr>
+  <tr><td>Osteoarthritis</td><td>1 (TB-500)</td><td>0</td></tr>
+  <tr><td>MCL</td><td>1</td><td>0</td></tr>
+  <tr><td>After surgery</td><td>1</td><td>1</td></tr>
+  <tr><td>Knee pain, not named</td><td>4</td><td>1</td></tr>
+  <tr><td>ACL tear</td><td>0</td><td>0</td></tr>
+ </table></div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="voices">
+ <h2 class="st">What they said</h2>
+ <ul class="tight">
+  <li><b>Jumper's knee:</b> painless bodyweight squats and no night pain after a month of daily BPC-157 near the tendon, alongside eccentric squats, massage and a week off; he says he can't credit it alone. Another man's tendon pain eased each time he used it over 8 years, except with one batch from a different source.<sup><a href="#s38">38</a></sup></li>
+  <li><b>Meniscus flare:</b> settled in about 3 weeks on oral BPC-157, against about 3 months for the other knee earlier, while also on curcumin and glucosamine.<sup><a href="#s38">38</a></sup></li>
+  <li><b>Arthritis:</b> TB-500 alone "really helped knee pain".<sup><a href="#s38">38</a></sup></li>
+  <li><b>No change:</b> 2 months of BPC-157 into the knee, where a steroid shot later helped more; and a knee after meniscus surgery that improved later with rest.<sup><a href="#s38">38</a></sup></li>
+  <li><b>Collagen:</b> mostly women on Mumsnet with "creaky" or painful knees, taking it for 1 to 2 years: "pain has gone", "90% reduced", and one whose knee twinged again when she ran out.<sup><a href="#s39">39</a></sup></li>
+ </ul>
+ <p class="sub">Seen by a doctor</p>
+ <p>Two surgeon remarks: a man with both knees replaced on BPC-157 + TB-500, whose surgeon and physio said he healed faster than most, and a broken knee on collagen with a surgeon noting the speed. Both were also doing physio and other care, and neither credited the supplement alone.<sup><a href="#s38">38</a></sup> Physios interviewed in 2026 said some patients feel better and they credit part of it to rehab time and placebo; one physio says relief often fades.<sup><a href="#s40">40</a></sup></p>
+ <p class="hint">Sherdog, LongeCity, T-Nation, Rokslide, Teton Gravity, VitalMX, TigerDroppings, Slowtwitch, Mumsnet and WebMD, 3 to 4 Nov 2026, one person per count, seller posts left out. Reddit is still being counted. In the same threads, other body parts ran about 38 better, 11 no change, 4 mixed and 2 worse.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>BPC-157 + TB-500:</b> the most common knee pairing. In the one survey, 3 of 4 on both improved against 11 of 12 on BPC-157 alone: too few to compare.<sup><a href="#s20">20</a></sup> <span class="ev e-h">16 people</span></li>
+  <li><b>Peptide with a cortisone, PRP or hyaluronic shot</b> at the same visit is offered by clinics, with no data. Cortisone every 3 months for 2 years thinned cartilage with no extra relief.<sup><a href="#s19">19</a></sup></li>
+  <li><b>Collagen with vitamin C before loading:</b> doubled a collagen-building marker in a small study.<sup><a href="#s29">29</a></sup> <span class="ev e-h">Human</span></li>
+  <li><b>GLP-1 with exercise:</b> both arms of the semaglutide trial got activity advice, so exercise is part of every result.<sup><a href="#s26">26</a></sup></li>
+  <li><b>Growth hormone after ACL surgery:</b> real GH in 19 men raised thigh strength 29% over placebo in a pilot, with no change in patient scores. The peptides that release GH have no knee data.<sup><a href="#s32">32</a></sup> <span class="ev e-rct">Pilot</span></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/achilles/"><b>Achilles</b></a>: the same tendon biology lower down, with its own case.</li>
+  <li><a href="/library/goals/tennis-elbow/"><b>Tennis elbow</b></a>: tendon pain in the arm.</li>
+  <li><a href="/library/goals/notes/tendons/"><b>Tendons, the shared base</b></a>: jumper's knee loading plans, shockwave and cortisone in full.</li>
+  <li><a href="/library/goals/notes/muscle/"><b>Muscle injury</b></a> and <a href="/library/goals/notes/shoulder/"><b>Shoulder</b></a>: where the first BPC-157 trials are running.</li>
+  <li><a href="/library/goals/glp-1/"><b>GLP-1s</b></a>: every effect beyond weight loss, knee pain included.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, with numbers</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="treat">
+ <h2 class="st">What works best</h2>
+ <ul class="tight">
+  <li><b>Supervised, progressive rehab</b> for every problem here; give it 12 weeks before judging; it is first line in every guideline.<sup><a href="#s37">37</a></sup> Rehab first is a trial-backed choice for a torn ACL and a meniscus tear without locking.<sup><a href="#s1">1</a>,<a href="#s5">5</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>After ACL surgery, wait and test.</b> Re-injury risk fell about 51% for each month return was delayed, up to 9 months; equal thigh strength on both legs was the other clear protector.<sup><a href="#s3">3</a></sup> About 1 in 4 under-25s who return to sport tear an ACL again.<sup><a href="#s4">4</a></sup></li>
+  <li><b>Weight loss for arthritis,</b> including GLP-1 drugs where prescribed.<sup><a href="#s26">26</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Collagen peptides,</b> 5 to 10 g a day in trials: low risk, small benefit.<sup><a href="#s24">24</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Surgery when needed:</b> a locked knee, repeated giving way despite rehab, a grade III MCL that is unstable, or no progress after 3 to 6 months.<sup><a href="#s2">2</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="notwork">
+ <h2 class="st">What did not beat placebo</h2>
+ <ul class="tight">
+  <li><b>Hyaluronic acid shots:</b> 169 trials; in the big ones, 2 points out of 100 better than placebo, with more serious side effects.<sup><a href="#s17">17</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>PRP for arthritis:</b> same pain and cartilage as salt water in 288 people.<sup><a href="#s18">18</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Trimming a worn meniscus:</b> same as fake surgery.<sup><a href="#s6">6</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Bracing a torn ACL to heal it:</b> unproven. One comparison found 70% of braced knees still unstable at 2 years vs 2.5% after surgery; its developers dispute the method, and a 180-person trial reports around 2029.<sup><a href="#s8">8</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="redflags">
+ <h2 class="st rdt">See a doctor</h2>
+ <div class="box rd">
+  <ul class="tight">
+   <li>The knee is locked and can't straighten.</li>
+   <li>Fast swelling within hours of a pop, or the knee gives way.</li>
+   <li>A hot, red, swollen knee with fever, especially after any injection: joint infection is an emergency.</li>
+   <li>Calf swelling after knee surgery or weeks in a brace (a clot).</li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="sport">
+ <h2 class="st">Banned in sport</h2>
+ <p>BPC-157 (S0), TB-500 and thymosin beta-4 (S2) and GH peptides are banned at all times; from 2027 peptides are named as a group. Collagen is food, and semaglutide and tirzepatide are only monitored.<sup><a href="#s41">41</a></sup> The BPC-157 hamstring trial excluded drug-tested athletes for this reason.</p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="claims">
+ <h2 class="st">Before you trust a vial or a number</h2>
+ <ul class="tight">
+  <li><b>Injecting into a joint</b> carries infection risk even with medical products; unregulated vials add sterility and identity risk. Injection into a joint is also not a route in the draft US pharmacy policy.<sup><a href="#s42">42</a></sup></li>
+  <li><b>Pain relief is not strength.</b> A peptide that dulls pain can tempt a return to pivoting sport before strength tests are passed, the biggest re-injury risk.<sup><a href="#s3">3</a></sup></li>
+  <li><b>Around surgery:</b> tell the surgeon and anaesthetist. GLP-1 drugs slow the stomach, which matters under anaesthesia; no peptide has surgical data.</li>
+  <li><b>Pentosan</b>, sometimes grouped with peptides, is linked to eye damage after years of daily use for bladder pain; short knee courses have not been studied for this.<sup><a href="#s31">31</a></sup> Its injected knee trial measured joint-fluid markers, not pain.<sup><a href="#s33">33</a></sup></li>
+  <li><b>MK-677</b> has heart failure and blood sugar warnings.<sup><a href="#s22">22</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Do I need surgery for a torn ACL?</summary><div class="bd"><p>Not necessarily. In two trials about half of people who started with rehab never needed surgery, with the same results at 2, 5 and 11 years. Younger, very active people with a knee that keeps giving way more often end up rebuilt.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup></p></div></details>
+  <details class="fq" open><summary>Does BPC-157 heal an ACL or meniscus?</summary><div class="bd"><p>Unknown. It has never been studied in either, even in rats. The one human knee study was a phone survey with no comparison group, and in arthritis trials more than half respond to salt water.<sup><a href="#s20">20</a>,<a href="#s16">16</a></sup></p></div></details>
+  <details class="fq"><summary>Can a torn ACL heal by itself?</summary><div class="bd"><p>Sometimes on MRI: about half of rehab-only knees looked continuous at 2 years. At 11 years that group scored worse than rebuilt knees, though in only 24 knees, and had the least arthritis.<sup><a href="#s1">1</a></sup></p></div></details>
+  <details class="fq"><summary>When can I play padel, basketball or jiu-jitsu again?</summary><div class="bd"><p>Most are cleared at 9 to 12 months after ACL surgery. 81% return to some sport, 65% to their old level and 55% to competition.<sup><a href="#s3">3</a>,<a href="#s4">4</a></sup></p></div></details>
+  <details class="fq"><summary>My MRI shows a meniscus tear. Is that why it hurts?</summary><div class="bd"><p>Maybe not. Over 50, tears are common on MRI and 61% of people with one had no knee pain that month.<sup><a href="#s7">7</a></sup></p></div></details>
+  <details class="fq"><summary>Is collagen worth it for knees?</summary><div class="bd"><p>It has the best human data of any peptide here: small to moderate relief in 35 trials, and about 6 points out of 100 more than placebo in young active people. Low risk.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></p></div></details>
+  <details class="fq"><summary>Do GLP-1 drugs help knee arthritis?</summary><div class="bd"><p>For people with obesity, yes for pain, mostly through weight loss. Neither semaglutide nor retatrutide is proven to rebuild cartilage.<sup><a href="#s26">26</a>,<a href="#s27">27</a></sup></p></div></details>
+  <details class="fq"><summary>Is cortisone bad for my knee?</summary><div class="bd"><p>Shots every 3 months for 2 years thinned cartilage more than salt water with no extra relief. One shot for a flare was not tested there.<sup><a href="#s19">19</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-a">Rats</i></dt><dd>an animal study</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>first-hand posts, self-reported, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>ACL</dt><dd>the ligament in the middle of the knee that stops the shin sliding and twisting</dd></div><div><dt>MCL</dt><dd>the ligament on the inside of the knee</dd></div><div><dt>Meniscus</dt><dd>the two C-shaped shock absorbers between thigh and shin bone</dd></div><div><dt>Reconstruction</dt><dd>replacing a torn ACL with a tendon graft</dd></div><div><dt>Placebo</dt><dd>a dummy treatment, here often salt water</dd></div></dl></div>
+</section></div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources <span class="cnt">42</span></h2></summary>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/knee/">full research notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">KANON trial: Frobell 2010 NEJM, Frobell 2013 BMJ, Lohmander 2023 NEJM Evidence (11 years), Filbay 2022 and 2025 on ACL healing. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Lohmander+2023+anterior+cruciate+ligament+11+years" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s2">Reijman 2021, BMJ, COMPARE trial, 167 people; van der Graaff 2022 on who needed surgery. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Reijman+2021+early+surgical+reconstruction+COMPARE" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">Grindem 2016, Br J Sports Med, return-to-sport timing and re-injury, 106 athletes; Ardern 2014 return rates, 7,556 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Grindem+2016+simple+decision+rules+reinjury" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Wiggins 2016, Am J Sports Med, second ACL injury, 19 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Wiggins+2016+second+ACL+injury+meta-analysis" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s5">van de Graaf 2018, JAMA, ESCAPE: physio vs surgery for meniscal tears, 321 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=van+de+Graaf+2018+ESCAPE+meniscal+physical+therapy" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s6">Sihvonen 2013, NEJM, FIDELITY: meniscectomy vs sham surgery, 146 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Sihvonen+2013+arthroscopic+partial+meniscectomy+sham" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s7">Englund 2008, NEJM, incidental meniscal findings on MRI, 991 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Englund+2008+incidental+meniscal+findings" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Porter and Shadbolt 2026, Clin J Sport Med, cross bracing vs surgery, 80 people; EMBRACE trial NCT06956339. <a href="https://clinicaltrials.gov/study/NCT06956339" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s9">Murray 2000, JBJS Am, histology of 23 ruptured ACLs; Rość 2002, plasmin in injured joint fluid. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Murray+2000+histologic+changes+ruptured+anterior+cruciate" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s10">Murray 2020, Am J Sports Med, BEAR vs hamstring reconstruction, 100 patients. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Murray+2020+bridge-enhanced+anterior+cruciate+ligament+repair" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">Lian 2005, Am J Sports Med, jumper's knee in 613 elite athletes; Bahr 2006, surgery vs eccentric training. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Lian+2005+prevalence+jumper%27s+knee+elite+athletes" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s12">Svantesson 2024, BMJ Open Sport Exerc Med, MCL injury treatment, 26 reports. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Svantesson+2024+medial+collateral+ligament" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">Lie 2019, Br J Sports Med, risk factors for arthritis after ACL injury.</li>
+   <li id="s14">Shah 2026, Am J Sports Med, arthritis in ACL-deficient vs reconstructed knees.</li>
+   <li id="s15">KANON synovial fluid 2017 and Roemer 2021: more joint inflammation after reconstruction.</li>
+   <li id="s16">Previtali 2025, EFORT Open Rev, placebo response in 73 knee injection trials. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Previtali+2025+placebo+intra-articular+knee+osteoarthritis" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s17">Pereira 2022, BMJ, hyaluronic acid, 169 trials. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Pereira+2022+viscosupplementation+knee+osteoarthritis+BMJ" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s18">Bennell 2021, JAMA, RESTORE: PRP vs saline, 288 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Bennell+2021+platelet-rich+plasma+knee+RESTORE" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">McAlindon 2017, JAMA, triamcinolone every 3 months for 2 years, 140 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=McAlindon+2017+intra-articular+triamcinolone+cartilage" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s20">Lee and Padgett 2021, Altern Ther Health Med, BPC-157 knee injections, 17 patients (full text read). <a href="https://pubmed.ncbi.nlm.nih.gov/34324435/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">Cerovecki 2010, J Orthop Res, BPC-157 and the cut rat MCL; Krstonijević 2018 thesis, rat knee arthritis. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=BPC+157+medial+collateral+ligament+rat" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s22">Poolton 2026, Acta Orthop Belg (all human BPC-157 data); Tewari 2026, Am J Sports Med scoping review (MK-677 warnings). <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/" target="_blank" rel="noopener">Poolton</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/42578445/" target="_blank" rel="noopener">Tewari</a></li>
+   <li id="s23">Fu 2015, J Orthop Res, GHK-Cu in rat ACL reconstruction, 72 rats. <a href="https://pubmed.ncbi.nlm.nih.gov/25731775/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s24">Liang 2024, Osteoarthritis Cartilage, collagen for osteoarthritis, 35 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Liang+2024+collagen+osteoarthritis+meta-analysis" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s25">Zdzieblik 2021, Nutrients, collagen peptides and activity knee pain, 180 people; Zdzieblik 2017, 139 athletes. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Zdzieblik+2021+collagen+peptides+knee+pain" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s26">Bliddal 2024, NEJM, STEP 9: semaglutide in knee osteoarthritis with obesity, 407 people. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Bliddal+2024+semaglutide+knee+osteoarthritis" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s27">Jastreboff 2026, NEJM, TRIUMPH-1 (knee group 574 people); TRIUMPH-4 company release, 11 Dec 2025. <a href="https://doi.org/10.1056/NEJMoa2604169" target="_blank" rel="noopener">DOI</a> · <a href="https://www.patientcareonline.com/view/retatrutide-achieves-up-to-28-7-weight-loss-and-marked-knee-pain-reduction-in-phase-3-triumph-4-trial" target="_blank" rel="noopener">TRIUMPH-4</a></li>
+   <li id="s28">GLP-1 and knee pain beyond weight, J Clin Med 2026 review; STOP KNEE-OA trial NCT06191848. <a href="https://clinicaltrials.gov/study/NCT06191848" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s29">Shaw 2017, Am J Clin Nutr, vitamin C enriched gelatin and collagen synthesis. <a href="https://pubmed.ncbi.nlm.nih.gov/27852613/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s30">Piekarski 2026, Sports Health, heel hooks and knee injuries in jiu-jitsu competition. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Piekarski+2026+heel+hook" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s31">Pearce 2018, Ophthalmology, and Jain 2019, Br J Ophthalmol, pentosan and maculopathy. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Pearce+2018+pentosan+maculopathy" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s32">Mendias 2020, Am J Sports Med, growth hormone after ACL reconstruction, 19 men.</li>
+   <li id="s33">Skerrett 2026, Arthritis Res Ther, injected pentosan, 61 people.</li>
+   <li id="s34">Abdul 2026, Am J Sports Med, elite ACL with MCL injury, 238 knees.</li>
+   <li id="s35">Kettunen 2002, Am J Sports Med, jumper's knee 15 years on.</li>
+   <li id="s36">Damsted 2024, JOSPT, DREAM trial, meniscus tears age 18 to 40.</li>
+   <li id="s37">Habib 2026, review of knee osteoarthritis guidelines.</li>
+   <li id="s38">Forum pass outside Reddit, 3 to 4 Nov 2026: Sherdog, LongeCity, T-Nation, Rokslide, Teton Gravity, VitalMX, TigerDroppings, Slowtwitch, BJJ pages. <a href="/library/goals/notes/knee/">research notes, section 4</a></li>
+   <li id="s39">Mumsnet collagen threads and WebMD collagen reviews (non-promotional only), 2022 to 2026. <a href="/library/goals/notes/knee/">research notes, section 4.4</a></li>
+   <li id="s40">Physio commentary 2025 to 2026 (Reinold and Macrina podcast, a physio-informed equipment blog). <a href="/library/goals/notes/knee/">research notes, section 4.3</a></li>
+   <li id="s41">USADA, BPC-157 prohibited; FoxMandal, 2027 WADA list changes. <a href="https://www.usada.org/spirit-of-sport/bpc-157-peptide-prohibited/" target="_blank" rel="noopener">USADA</a> · <a href="https://foxmandal.in/news/2027-wada-prohibited-list-what-changes/" target="_blank" rel="noopener">2027 list</a></li>
+   <li id="s42">Venable, HHS draft enforcement discretion for six peptides (routes listed per peptide), Nov 2026. <a href="https://www.venable.com/insights/publications/2026/11/hhs-announces-interim-enforcement-discretion" target="_blank" rel="noopener">link</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov and journal pages, read from the abstracts (the BPC-157 survey in full) and summarised in our words. First-hand reports come from forums outside Reddit and Mumsnet, one person per count, with seller pages and secondhand stories left out. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>

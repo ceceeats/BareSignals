@@ -1,0 +1,694 @@
+<!doctype html>
+<!-- Gut v1 (10 Nov 2026): first case page, built from Gut Research v2 notes (studies, FDA BPC-157 briefing, about 75 first-hand reports outside Reddit). Reddit count still to come (Research Log G73). Template: Period pain v1. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Gut · Bare Signals</title>
+<meta name="description" content="Gut problems (IBS, colitis, Crohn's, ulcers, reflux, leaky gut): what BPC-157, KPV, LL-37, glutamine, GLP-1 drugs and approved gut peptides have shown in studies and what people report, with every option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* case additions */
+.cp .mech{margin-top:8px}
+.cp .tline{margin-top:2px}
+#collagen .cp,#col .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+@media (max-width:759px){.grd{table-layout:fixed}.grd th,.grd td{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}.grd td:first-child,.grd th:first-child{width:25%}}
+
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Gut</h1><p class="aka">IBS, inflammatory bowel disease (ulcerative colitis, Crohn's), gastritis and ulcers, reflux, SIBO and the idea of a "leaky gut". BPC-157 was first found in stomach juice, which is why people try it here.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M38 8V16C38 22 26 22 24 30C22 38 32 40 40 38C46 36 50 32 50 28" /><path d="M20 46H64V68H52V56H32V68H20Z" fill="#FFFFE2"/><path d="M28 50C34 46 36 54 42 50C48 46 50 54 56 50" stroke-width="1.2"/></g><path class="pl" d="M24 30C22 38 32 40 40 38C46 36 50 32 50 28" stroke="#AACC96" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/><g class="pl" fill="#FF5050" opacity=".55" style="animation-delay:1.2s"><circle cx="36" cy="60" r="2"/><circle cx="46" cy="61" r="1.6"/></g></svg>
+ <div class="meta"><span class="mt">Researched 3 to 10 Nov 2026</span><span class="mt">38 sources</span><span class="mt">Version 1</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Digestive and gut, Inflammatory signaling, Immunity"><i style="width:70%;background:var(--gut)"></i><i style="width:18%;background:var(--infl)"></i><i style="width:12%;background:#6777B6"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--gut)">Digestive &amp; gut</span><span class="rtg" style="background:var(--infl)">Inflammatory signaling</span><span class="rtg" style="background:#6777B6;color:#FFFFE2">Immunity</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Several conditions with very different stakes. IBS hurts but leaves no damage on a scope; IBD is real inflammation and ulcers that can scar. A "leaky gut" can be measured in some people with IBS-D, post-infection IBS, celiac and IBD, but it is not a diagnosis on its own.<sup><a href="#s3">3</a></sup></p>
+ <p><b>What studies found.</b> The strongest gut peptide evidence belongs to approved drugs: linaclotide helps IBS with constipation and teduglutide grows lining in short bowel.<sup><a href="#s11">11</a>,<a href="#s19">19</a></sup> BPC-157's one patient trial, an enema in 53 people with colitis, did not clearly beat placebo.<sup><a href="#s14">14</a></sup> KPV has only mouse studies.<sup><a href="#s17">17</a></sup></p>
+ <p><b>What people report.</b> GLP-1 drugs dominate: 20 of 21 people with IBS on Mumsnet say it got better, usually at the price of constipation. Research peptides have just 3 first-hand gut reports outside Reddit.<sup><a href="#s32">32</a></sup></p>
+ <p><b>Watch out.</b> Blood in the stool, weight loss or waking at night with pain need a doctor, not a peptide. Never swap IBD medicine for an untested one.</p>
+</div>
+
+<div class="nums6" aria-label="Gut in numbers">
+ <div class="nm"><b>NNT 5</b><span>linaclotide, an approved gut peptide, for IBS with constipation</span><i class="ev e-rct">RCT</i><sup><a href="#s11">11</a></sup></div>
+ <div class="nm"><b>3.2 vs 1.6</b><span>BPC-157 enema vs placebo in colitis, not clearly different</span><i class="ev e-rct">RCT</i><sup><a href="#s14">14</a></sup></div>
+ <div class="nm"><b>0</b><span>human gut trials of KPV, LL-37 or TB-500</span><i class="ev e-c">Search</i><sup><a href="#s17">17</a></sup></div>
+ <div class="nm"><b>~1 in 3</b><span>IBS patients improve on placebo in big drug trials</span><i class="ev e-rct">RCT</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>20 of 21</b><span>Mumsnet IBS users better on a GLP-1</span><i class="ev e-r">Reports</i><sup><a href="#s32">32</a></sup></div>
+ <div class="nm"><b>0</b><span>gut improvements on a research peptide confirmed by a test or scope</span><i class="ev e-r">Reports</i><sup><a href="#s33">33</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#leaky">Leaky gut</a><a href="#baseline">Without peptides</a><a href="#p1">2 · Studies</a><a href="#approved">Approved peptides</a><a href="#bpc">BPC-157</a><a href="#kpv">KPV</a><a href="#glp">GLP-1s</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What the gut problem is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Which one is it</h2>
+ <ul class="tight">
+  <li><b>IBS:</b> belly pain tied to bowel habit with nothing visible on a scope. Types: constipation (IBS-C), diarrhoea (IBS-D) or mixed. About 1 in 8 people develop it after a bad bacterial gut infection.<sup><a href="#s1">1</a></sup></li>
+  <li><b>IBD:</b> ulcerative colitis (colon only, from the rectum up) or Crohn's (anywhere, patchy, can tunnel through the wall). Measured with a stool test (calprotectin) and a scope.</li>
+  <li><b>Gastritis and ulcers:</b> stomach lining inflamed or broken through, mainly from H. pylori, painkillers like ibuprofen, or alcohol. This is where BPC-157's rat work began.<sup><a href="#s13">13</a></sup></li>
+  <li><b>Reflux:</b> acid backs up into the gullet. Up to 40% still have symptoms on acid-blocking pills.<sup><a href="#s2">2</a></sup></li>
+  <li><b>SIBO:</b> too many bacteria in the small intestine, found with a breath test; can follow long-term acid blockers or gut surgery.<sup><a href="#s7">7</a></sup></li>
+ </ul>
+ <p class="sub">Endometriosis and the gut</p>
+ <p>Endometriosis roughly triples the odds of IBS, and about 1 in 4 women with it meet IBS criteria. Endometriosis on the bowel causes painful bowel movements and is often mislabelled as IBS.<sup><a href="#s8">8</a>,<a href="#s37">37</a></sup> See the <a href="/library/goals/endometriosis/">Endometriosis case</a>.</p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="leaky">
+ <h2 class="st">Leaky gut: what is real</h2>
+ <div class="dg in"><svg viewBox="0 0 340 132" role="img" aria-label="Gut lining, one cell thick. Left: tight junctions closed, mucus layer keeps bacteria away. Right: junctions loose, particles slip between cells.">
+  <g font-size="10" fill="#3E4A80">
+   <rect x="4" y="8" width="160" height="98" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="10" y="22" class="m" font-weight="700">SEALED</text>
+   <path d="M12 44h144" stroke="#AACC96" stroke-width="6" opacity=".45"/>
+   <g fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.1"><rect x="14" y="50" width="30" height="34"/><rect x="48" y="50" width="30" height="34"/><rect x="82" y="50" width="30" height="34"/><rect x="116" y="50" width="30" height="34"/></g>
+   <g stroke="#3E4A80" stroke-width="3"><path d="M46 50v6M80 50v6M114 50v6"/></g>
+   <g fill="#FF5050"><circle cx="40" cy="32" r="2.5"/><circle class="pl" cx="100" cy="30" r="2.5"/></g>
+   <text x="10" y="100" class="m" font-size="8" fill="#6B76A8">MUCUS AND TIGHT SEAMS</text>
+   <rect x="176" y="8" width="160" height="98" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="182" y="22" class="m" font-weight="700">LEAKY</text>
+   <path d="M184 44h144" stroke="#AACC96" stroke-width="3" opacity=".35"/>
+   <g fill="#FFFFE2" stroke="#3E4A80" stroke-width="1.1"><rect x="186" y="50" width="28" height="34"/><rect x="222" y="50" width="28" height="34"/><rect x="258" y="50" width="28" height="34"/><rect x="294" y="50" width="28" height="34"/></g>
+   <g fill="#FF5050"><circle cx="218" cy="40" r="2.5"/><circle class="pl" cx="218" cy="62" r="2.5"/><circle class="pl" cx="290" cy="76" r="2.5" style="animation-delay:1s"/></g>
+   <text x="182" y="100" class="m" font-size="8" fill="#6B76A8">SEAMS OPEN, THINGS SLIP IN</text>
+  </g>
+  <text x="170" y="122" text-anchor="middle" class="m" font-size="7.5" letter-spacing=".5" fill="#6B76A8">MEASURED BY DRINKING TWO SUGARS AND TESTING URINE</text>
+ </svg></div>
+ <ul class="how">
+  <li><b>Real in some groups.</b> Across 66 studies, a leaky barrier showed up in 17 to 50% of post-infection IBS and 37 to 62% of IBS-D, but only 4 to 25% of IBS-C. Leakier guts went with more pain in 9 of 13 studies.<sup><a href="#s3">3</a></sup></li>
+  <li><b>The zonulin blood test doesn't work.</b> Most commercial kits measure other proteins, not zonulin. The one study with a truly specific test found zonulin lower in IBS.<sup><a href="#s4">4</a></sup></li>
+  <li><b>"Leaky gut causes everything"</b> (fatigue, autism, every skin problem) is not shown; those links mostly used the same faulty kits.<sup><a href="#s4">4</a></sup></li>
+  <li><b>The gut makes its own peptides.</b> LL-37 sits in the mucus and kills bacteria; vitamin D and fibre-fed bacteria switch it on.<sup><a href="#s20">20</a>,<a href="#s21">21</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">What happens without peptides</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>About 1 in 3 IBS patients improve on a dummy.</b> In the big rifaximin trials, 31.7% felt adequate relief on placebo.<sup><a href="#s9">9</a></sup> Any gut story has to beat that.</p></div>
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Diet and the brain move IBS a lot.</b> Low FODMAP halved the chance of not improving; gut-directed hypnotherapy or CBT cut the number still unwell by about a third.<sup><a href="#s5">5</a>,<a href="#s6">6</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Human</span><p><b>IBS comes and goes.</b> Flares follow food, stress, periods and infection, so a few good weeks prove little. IBD flares and settles too, which is why trials use scopes and stool tests, not feelings.</p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: peptides already work in the gut, but they are approved drugs.</b> Linaclotide and plecanatide treat IBS with constipation; teduglutide treats short bowel. The research peptides people buy (BPC-157, KPV, LL-37, TB-500) have one weak patient trial between them.</p>
+
+<div class="grid"><section class="sec" id="approved">
+ <h2 class="st">Approved gut peptides · the proof it can work</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Linaclotide.</b> A 14 amino acid peptide swallowed once a day that barely gets absorbed: it pulls water into the bowel and calms pain nerves. In 804 people with IBS-C, 33.7% responded against 13.9% on placebo over 26 weeks. Diarrhoea made 4.5% stop.<sup><a href="#s11">11</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Pooled</span><p><b>Plecanatide.</b> Same receptor, copied from the body's own uroguanylin. Better stools and frequency than placebo at 12 weeks across 4 trials and 4,815 people.<sup><a href="#s12">12</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Teduglutide (GLP-2).</b> Grows gut lining. In short bowel, 16 of 35 needed at least 20% less IV feeding against 1 of 16 on placebo; 3 came off IV feeding entirely.<sup><a href="#s19">19</a></sup> In Crohn's, better numbers that were not a proven win.</p></div>
+ </div>
+ <p class="hint">Why this matters: a swallowed peptide can work in the gut when it acts on the lining and doesn't need to reach the blood.</p>
+</section></div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · born in the gut, one trial</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--heart)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <p class="lead">A 15 amino acid piece of a protein first isolated from human stomach juice, developed in the 2000s as a colitis drug (PL 14736).<sup><a href="#s13">13</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2005 <i class="ev e-rct">53 people</i></span><p class="th">Colitis enema: not clearly better than placebo.</p><p class="tb">People with mild to moderate ulcerative colitis had an 80 mg BPC-157 enema or placebo daily for 2 weeks. Disease scores fell 3.2 points against 1.6, but the gap could have been chance. Dropouts for worsening colitis were 3 vs 2. Only ever a meeting abstract; the FDA called it inadequate.<sup><a href="#s14">14</a></sup></p></li>
+   <li><span class="ty">1990s on <i class="ev e-a">Rats</i></span><p class="th">Ulcers, colitis, fistulas, joins after surgery.</p><p class="tb">Alcohol and painkiller stomach damage, colitis, short bowel, many surgical joins and fistulas healed in rats, almost all from one Zagreb lab. An independent 2026 review calls it short, single-dose studies with unclear bias: worth testing, not established.<sup><a href="#s13">13</a>,<a href="#s15">15</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Oral or injected?</b> Its developers say it survives stomach juice for over 24 hours. Nobody has measured it in human blood after swallowing; a 42-person oral study from 2015 never posted results. For the gut, oral makes more sense than for tendons, because the target is the lining itself, as with linaclotide. Unproven.<sup><a href="#s14">14</a></sup></p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="kpv">
+ <h2 class="st">KPV · mice only</h2>
+ <div class="cp">
+  <div class="cph"><h3>KPV</h3><a href="/library/#/p/kpv">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--infl)"></i><i style="width:18%;background:var(--repair)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <ol class="tline">
+   <li><span class="ty">2008 <i class="ev e-a">Mice</i> <i class="ev e-c">Cells</i></span><p class="th">Swallowed, it calmed colitis.</p><p class="tb">The three-amino-acid tail of α-MSH is carried into gut and immune cells by PepT1, a transporter that switches on in inflamed colon. Tiny amounts shut down the NF-κB inflammation switch, and it eased two kinds of mouse colitis given in drinking water.<sup><a href="#s17">17</a></sup></p></li>
+   <li><span class="ty">2017 <i class="ev e-a">Mice</i></span><p class="th">Packed in nanoparticles, it healed more.</p><p class="tb">Wrapped in hyaluronic acid particles and swallowed, it healed mouse colitis better than the carrier alone.<sup><a href="#s18">18</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>No human gut trial exists.</b> The draft US pharmacy policy lists KPV for oral and topical use only.<sup><a href="#s38">38</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="lara">
+ <h2 class="st">Larazotide · the cautionary tale</h2>
+ <div class="cp">
+  <div class="cph"><h3>Larazotide</h3><a href="/library/#/p/larazotide">Library card</a></div>
+  <p class="lead">An oral peptide built to close the gut's seams in celiac disease. In early tests it stopped gluten raising leakiness by 70%; in a 342-person trial only the lowest dose helped; pooled, it didn't change leakiness; the big trial was stopped in 2022 because the drug-placebo gap was too small.<sup><a href="#s16">16</a></sup> "Seals a leaky gut" in early data didn't survive a big trial.</p>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · the biggest signal, both ways</h2>
+ <div class="cp">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide</a> · <a href="/library/#/p/tirzepatide">Tirzepatide</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <ol class="tline">
+   <li><span class="ty">2026 <i class="ev e-h">300 people</i></span><p class="th">Colitis remission 67% vs 25%.</p><p class="tb">150 people with ulcerative colitis on a GLP-1 against 150 matched: symptom remission at 12 weeks 66.7% vs 25.3%, not explained by weight; in those scoped, 58% vs 38% healed lining. One centre, looking back.<sup><a href="#s22">22</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-h">4,000+ pairs</i></span><p class="th">But no fewer serious relapses.</p><p class="tb">In stable IBD, starting semaglutide or tirzepatide didn't change hard relapse (steroids, hospital, surgery) over a year: 7.9% vs 7.9%. Nearly half stopped the drug within a year. Both can be true: calmer symptoms without a change in disease course.<sup><a href="#s23">23</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-h">13,330 people</i></span><p class="th">IBS: slightly fewer new gut complaints.</p><p class="tb">GLP-1 users had a little less new diarrhoea (8.9% vs 10.6%), bloating and belly pain than matched non-users. Small gaps, coded records.<sup><a href="#s24">24</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Why it might help IBS-D:</b> it slows the gut, which is also why constipation is the common cost, and why IBS-C could get worse.<sup><a href="#s32">32</a></sup></p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="supp">
+ <h2 class="st">Glutamine and others</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Glutamine, post-infection IBS-D.</b> In 106 people with diarrhoea after a gut infection and a proven leaky gut, 5 g three times a day for 8 weeks: 80% responded against 6% on placebo, and leakiness normalised. But the placebo was whey protein, which can upset IBS, the 6% placebo rate is unusually low, and nobody has repeated it.<sup><a href="#s25">25</a></sup> No benefit in Crohn's.</p></div>
+  <div class="sr"><span class="ev e-a">Mice</span><p><b>LL-37.</b> The body's own version, and a piece of it, reduced colitis in 4 mouse models. No human gut trial.<sup><a href="#s21">21</a></sup></p></div>
+  <div class="sr"><span class="ev e-a">Mice</span><p><b>Thymosin alpha-1, VIP.</b> Only animal or review mentions for the gut. Too much VIP, from a rare tumour, causes severe watery diarrhoea.<sup><a href="#s26">26</a></sup></p></div>
+  <div class="sr"><span class="ev e-c">Search</span><p><b>TB-500, collagen.</b> No gut healing studies found. Collagen in 15 women raised GLP-1 and cut the next meal by about 10%, with no gut change.<sup><a href="#s27">27</a></sup></p></div>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every option, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Option</th><th>Gut evidence</th><th>First-hand reports</th><th>Direction</th></tr>
+  <tr><td>Linaclotide, plecanatide</td><td>Phase 3, IBS-C</td><td>Drugs.com 6.7/10</td><td>Proven for IBS-C</td></tr>
+  <tr><td>Teduglutide</td><td>RCT, short bowel</td><td>Drugs.com 8.1/10</td><td>Proven for short bowel</td></tr>
+  <tr><td>GLP-1 drugs</td><td>Large observational</td><td>IBS 20 of 21 better; IBD 10 of 16</td><td>Calms symptoms; not disease-changing</td></tr>
+  <tr><td>Glutamine</td><td>1 RCT, narrow group</td><td>3 better, 3 worse of 8</td><td>Promising, unrepeated</td></tr>
+  <tr><td>BPC-157</td><td>1 colitis RCT, unclear; rats</td><td>1 better, 2 no change</td><td>Unproven</td></tr>
+  <tr><td>KPV</td><td>Mice only</td><td>None outside sellers</td><td>Unproven</td></tr>
+  <tr><td>Larazotide</td><td>Phase 3 stopped</td><td>None</td><td class="bad">Failed</td></tr>
+  <tr><td>Collagen, bone broth</td><td>None for gut</td><td>1 better, 4 no change, 1 worse</td><td>No sign of benefit</td></tr>
+ </table></div>
+ <p class="hint">Reports outside Reddit, one person per row (part 3). Reddit is still being counted.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">GLP-1 drugs, counted</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">IBS · 21 people</p>
+  <div class="sbar" role="img" aria-label="20 better, 1 mixed"><i class="g1" style="width:95.2%">20</i><i class="g2" style="width:4.8%">1</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Colitis and Crohn's · 16 people</p>
+  <div class="sbar" role="img" aria-label="10 better, 1 mixed, 3 no change, 2 worse"><i class="g1" style="width:62.5%">10</i><i class="g2" style="width:6.25%">1</i><i class="g3" style="width:18.75%">3</i><i class="g4" style="width:12.5%">2</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Reflux · 7 people</p>
+  <div class="sbar" role="img" aria-label="3 better, 1 mixed, 1 too early, 2 worse"><i class="g1" style="width:42.9%">3</i><i class="g2" style="width:28.5%">2</i><i class="g4" style="width:28.6%">2</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Mixed</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>IBS:</b> weekly flares down to 2 in 3 months for a 20-year sufferer; food triggers like bread and grapes gone; two stopped long-term loperamide. Constipation was the common trade, every 5 to 6 days for some.<sup><a href="#s32">32</a></sup></li>
+  <li><b>Colitis on and off:</b> one flared within about 4 weeks of stopping and went back into remission on restarting; another's pain came back in a 2-month break and eased again. The closest a forum gets to a test.<sup><a href="#s32">32</a></sup></li>
+  <li><b>Colitis worse, 2:</b> one full flare with blood at week 4; one with blood and a stool test showing inflammation, the only measured result, sent for urgent review.<sup><a href="#s32">32</a></sup></li>
+  <li><b>Reflux:</b> worse for a few days after each jab, then better over months as weight fell; three stopped acid blockers.<sup><a href="#s32">32</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="peps">
+ <h2 class="st">Research peptides and supplements</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">Glutamine · 8 people</p>
+  <div class="sbar" role="img" aria-label="3 better, 1 partly, 1 no change, 3 worse"><i class="g1" style="width:37.5%">3</i><i class="g2" style="width:12.5%">1</i><i class="g3" style="width:12.5%">1</i><i class="g4" style="width:37.5%">3</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">BPC-157 · 3 people</p>
+  <div class="sbar" role="img" aria-label="1 better, 2 no change"><i class="g1" style="width:33.3%">1</i><i class="g3" style="width:66.7%">2</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Collagen, bone broth · 6 people</p>
+  <div class="sbar" role="img" aria-label="1 better, 4 no change, 1 worse"><i class="g1" style="width:16.7%">1</i><i class="g3" style="width:66.6%">4</i><i class="g4" style="width:16.7%">1</i></div></div>
+ <ul class="tight">
+  <li><b>BPC-157:</b> one person with reflux, scarring on X-ray and raised inflammation, injected and oral, flares from weekly to every 3 to 5 months; diet and probiotics changed too, no repeat tests. Two took oral BPC-157 for gastritis or gut issues with "zero improvement".<sup><a href="#s33">33</a></sup></li>
+  <li><b>KPV:</b> no first-hand gut report outside seller-run communities.<sup><a href="#s33">33</a></sup></li>
+  <li><b>Glutamine:</b> better for IBS-D-like symptoms over a year for one; for three, cramps and loose stools within a day to a few months, back to normal on stopping. None had a leaky-gut test, so none match the trial.<sup><a href="#s34">34</a></sup></li>
+ </ul>
+ <p class="sub">Approved drugs, for comparison</p>
+ <p>Teduglutide users on Drugs.com: 6 of 9 better, each with a concrete change like coming off IV feeding or having a central line removed.<sup><a href="#s35">35</a></sup></p>
+ <p class="hint">Mumsnet, HealthUnlocked, Mayo Clinic Connect, celiac.com, ExcelMale, Drugs.com and others, 3 Nov 2026, one person per count, seller posts left out. Threads titled around success attract success, and GLP-1 users are also eating less and losing weight.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>BPC-157 + KPV:</b> the most marketed gut stack. Never tested together, not even in mice.<sup><a href="#s15">15</a></sup></li>
+  <li><b>Glutamine + low FODMAP:</b> the one tested pairing: 88% vs 60% improved by at least 45% in 50 people.<sup><a href="#s28">28</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>GLP-1 + an IBD biologic:</b> being tested in two large trials, results 2028.<sup><a href="#s23">23</a></sup> <span class="ev e-t">Trial</span></li>
+  <li><b>Vitamin D and LL-37:</b> vitamin D switches on the gut's own LL-37; in colitis, higher levels went together.<sup><a href="#s21">21</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/endometriosis/"><b>Endometriosis</b></a>: triples the odds of IBS and can sit on the bowel.<sup><a href="#s8">8</a></sup></li>
+  <li><a href="/library/goals/pcos/"><b>PCOS</b></a>: a weaker link to IBS.<sup><a href="#s8">8</a></sup></li>
+  <li><a href="/library/goals/period-pain/"><b>Period pain</b></a>: bowel and womb cramps overlap, and GLP-1 constipation can feel like period pain.</li>
+  <li><b>Bladder pain (interstitial cystitis):</b> one of the three human BPC-157 studies.</li>
+  <li><a href="/library/goals/glp-1/"><b>GLP-1s</b></a>: every effect beyond weight loss.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, with numbers</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="treat">
+ <h2 class="st">IBS</h2>
+ <ul class="tight">
+  <li><b>Get the diagnosis right first:</b> a stool calprotectin test separates IBS from IBD; celiac, bile acid diarrhoea and bowel endometriosis can all look like IBS.</li>
+  <li><b>Low FODMAP</b> with a dietitian: the chance of not improving roughly halved, and it was the only diet that beat usual eating for bloating.<sup><a href="#s5">5</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Peppermint oil:</b> 1 in 4 extra people improved; more reflux.<sup><a href="#s10">10</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Gut-directed hypnotherapy or CBT:</b> about a third fewer still unwell.<sup><a href="#s6">6</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>By type:</b> linaclotide or plecanatide for IBS-C; rifaximin for IBS-D (40.7% vs 31.7% relieved).<sup><a href="#s9">9</a>,<a href="#s11">11</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="ibd">
+ <h2 class="st">IBD, ulcers, reflux</h2>
+ <ul class="tight">
+  <li><b>IBD:</b> specialist care with biologics or newer pills; the best of these work for 1 extra person in every 3 to 9 treated over a year.<sup><a href="#s29">29</a></sup> GLP-1s as an add-on when weight or diabetes is also a problem are being studied.</li>
+  <li><b>Ulcers and gastritis:</b> test for H. pylori, stop ibuprofen-type painkillers, acid blockers.</li>
+  <li><b>Reflux:</b> acid blockers; weight loss helps many.</li>
+  <li><b>Post-infection IBS-D with a proven leaky gut:</b> ask about glutamine, the one trial-backed option.<sup><a href="#s25">25</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="redflags">
+ <h2 class="st rdt">See a doctor, not a vial</h2>
+ <div class="box rd">
+  <ul class="tight">
+   <li>Blood in the stool or black stools, vomiting blood.</li>
+   <li>Weight loss without trying, anaemia, fever.</li>
+   <li>Waking at night with pain or diarrhoea.</li>
+   <li>Symptoms starting after 50, or bowel cancer or IBD in the family.</li>
+   <li>Trouble swallowing.</li>
+  </ul>
+  <p class="hint">Untreated IBD can scar, perforate and raise bowel cancer risk. No evidence supports swapping IBD medicine for a peptide.</p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="glpwarn">
+ <h2 class="st">GLP-1 drugs and the gut</h2>
+ <div class="box or">
+  <ul class="tight">
+   <li><b>Rare but real:</b> against an older weight drug, GLP-1s carried higher risk of stomach paralysis (about 3.7 times), bowel obstruction and pancreatitis, with wide uncertainty.<sup><a href="#s30">30</a></sup></li>
+   <li><b>Tell your IBD team</b> before starting: 2 of 16 forum users flared, and one wondered if slow emptying cut absorption of her oral colitis medicine.<sup><a href="#s32">32</a></sup></li>
+   <li><b>Before a scope or anaesthetic,</b> say you're on one: a slow stomach raises the risk of breathing in stomach contents.<sup><a href="#s31">31</a></sup></li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="claims">
+ <h2 class="st">Before you trust a vial or a number</h2>
+ <ul class="tight">
+  <li><b>Not characterised:</b> the FDA says BPC-157 impurities, clumping and endotoxin are unknowns; rat and dog injection studies shifted clotting tests and liver markers.<sup><a href="#s14">14</a></sup></li>
+  <li><b>Growth signals:</b> teduglutide grows lining, so it is watched for polyps; any pro-growth peptide in someone with polyps or bowel cancer history is a theoretical worry.</li>
+  <li><b>Banned in sport:</b> BPC-157 at all times.<sup><a href="#s36">36</a></sup></li>
+  <li><b>Not approved:</b> a draft US policy would let licensed pharmacies make BPC-157 and KPV under 10 conditions, including proof that oral forms are absorbed in people, which doesn't exist yet.<sup><a href="#s38">38</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Has BPC-157 been tested in gut disease?</summary><div class="bd"><p>Once: 53 people with colitis, 2 weeks of enemas, not clearly better than placebo. Everything else is rats.<sup><a href="#s14">14</a></sup></p></div></details>
+  <details class="fq" open><summary>Oral or injected for the gut?</summary><div class="bd"><p>Untested in people either way. Gut peptide drugs that work, like linaclotide, are swallowed and act on the lining, so oral is the logical route for gut use, but nobody has shown BPC-157 works that way in humans.<sup><a href="#s11">11</a>,<a href="#s14">14</a></sup></p></div></details>
+  <details class="fq"><summary>Is leaky gut real?</summary><div class="bd"><p>Yes, measurably, in some people with IBS-D, post-infection IBS, celiac and IBD. It is a feature, not a diagnosis.<sup><a href="#s3">3</a></sup></p></div></details>
+  <details class="fq"><summary>Should I get a zonulin test?</summary><div class="bd"><p>No. Most commercial kits don't measure zonulin.<sup><a href="#s4">4</a></sup></p></div></details>
+  <details class="fq"><summary>What is KPV?</summary><div class="bd"><p>A three-amino-acid piece of α-MSH that calms colitis in mice when swallowed, riding a gut transporter. No human data.<sup><a href="#s17">17</a></sup></p></div></details>
+  <details class="fq"><summary>Do GLP-1s help colitis or Crohn's?</summary><div class="bd"><p>Mixed. One study found far more symptom remission; a larger one found no fewer serious relapses. Forum users mostly report calmer bowels, but 2 of 16 flared.<sup><a href="#s22">22</a>,<a href="#s23">23</a>,<a href="#s32">32</a></sup></p></div></details>
+  <details class="fq"><summary>Does glutamine heal the gut?</summary><div class="bd"><p>One strong trial in a narrow group (diarrhoea after infection, with a proven leaky gut), never repeated. Some users get cramps and loose stools.<sup><a href="#s25">25</a>,<a href="#s34">34</a></sup></p></div></details>
+  <details class="fq"><summary>Is there an approved peptide for IBS?</summary><div class="bd"><p>Yes: linaclotide and plecanatide, for the constipation type.<sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-a">Mice</i></dt><dd>an animal study</dd></div><div><dt><i class="ev e-c">Cells</i></dt><dd>cells in a lab dish</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>first-hand posts, self-reported, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>IBS-C, IBS-D</dt><dd>IBS with constipation, or with diarrhoea</dd></div><div><dt>IBD</dt><dd>ulcerative colitis and Crohn's disease</dd></div><div><dt>Calprotectin</dt><dd>a stool test for gut inflammation</dd></div><div><dt>NNT</dt><dd>how many people need treating for one extra to benefit</dd></div><div><dt>FODMAP</dt><dd>fermentable sugars in foods that can trigger IBS</dd></div></dl></div>
+</section></div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources <span class="cnt">38</span></h2></summary>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/gut/">full research notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">Svendsen 2019, post-infectious IBS meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/31112663/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s2">Hillman 2017, PPI-refractory reflux. <a href="https://pubmed.ncbi.nlm.nih.gov/28859358/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">Hanning 2021, intestinal barrier in IBS, 66 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/33717210/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Marginean 2026, zonulin in IBS, systematic review. <a href="https://pubmed.ncbi.nlm.nih.gov/42940160/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s5">Cuffe 2025, diets for IBS, network meta-analysis of 28 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/40258374/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s6">Black 2020, psychological therapies for IBS, 41 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/32276950/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s7">Maslennikov 2026, SIBO review. <a href="https://pubmed.ncbi.nlm.nih.gov/42346839/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Nabi 2022, endometriosis and IBS meta-analysis; Saei Ghare Naz 2024, PCOS and IBS. <a href="https://pubmed.ncbi.nlm.nih.gov/35957857/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/38494583/" target="_blank" rel="noopener">PCOS</a></li>
+   <li id="s9">Pimentel 2011, NEJM, rifaximin TARGET 1 and 2. <a href="https://pubmed.ncbi.nlm.nih.gov/21208106/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s10">Ingrosso 2022, peppermint oil for IBS, 10 RCTs. <a href="https://pubmed.ncbi.nlm.nih.gov/35942669/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">Chey 2012, linaclotide in IBS-C, 804 people. <a href="https://pubmed.ncbi.nlm.nih.gov/22986437/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s12">Menees 2020, plecanatide pooled phase 3, 4,815 people. <a href="https://pubmed.ncbi.nlm.nih.gov/32660770/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">Sikiric 2024 and Sikiric 2012, BPC-157 origin and gut reviews (developers). <a href="https://pubmed.ncbi.nlm.nih.gov/38980576/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/22300085/" target="_blank" rel="noopener">2012</a></li>
+   <li id="s14">FDA Pharmacy Compounding Advisory Committee briefing, BPC-157, July 2026 (Ruenzi 2005 colitis trial, kinetics, animal safety). <a href="https://www.fda.gov/media/193343/download" target="_blank" rel="noopener">FDA</a></li>
+   <li id="s15">Demirtaş 2026, independent critical review of BPC-157 gut studies. <a href="https://pubmed.ncbi.nlm.nih.gov/42794771/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s16">Larazotide: Paterson 2007, Leffler 2015 (342 people), phase 3 NCT03569007 stopped 2022. <a href="https://pubmed.ncbi.nlm.nih.gov/25683116/" target="_blank" rel="noopener">PubMed</a> · <a href="https://clinicaltrials.gov/study/NCT03569007" target="_blank" rel="noopener">trial</a></li>
+   <li id="s17">Dalmasso 2008, Gastroenterology, KPV via PepT1 in colitis. <a href="https://pubmed.ncbi.nlm.nih.gov/18061177/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s18">Xiao 2017, KPV nanoparticles in mouse colitis. <a href="https://pubmed.ncbi.nlm.nih.gov/28143741/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">Jeppesen 2011, teduglutide in short bowel, 83 patients; Buchman 2010 in Crohn's. <a href="https://pubmed.ncbi.nlm.nih.gov/21317170/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/19821509/" target="_blank" rel="noopener">Crohn's</a></li>
+   <li id="s20">Cobo 2017, gut barrier and antimicrobial peptides. <a href="https://pubmed.ncbi.nlm.nih.gov/28069814/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">Gubatan 2020 (vitamin D and LL-37 in colitis); Fabisiak 2020 (LL-37 in 4 mouse models). <a href="https://pubmed.ncbi.nlm.nih.gov/31955203/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33219923/" target="_blank" rel="noopener">Fabisiak</a></li>
+   <li id="s22">Alqinai 2026, GLP-1s in ulcerative colitis, 300 people. <a href="https://pubmed.ncbi.nlm.nih.gov/42627215/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s23">Yeh 2026, Clin Gastroenterol Hepatol, GLP-1s and IBD relapse, target trial emulation; AGA news 17 Jul 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/42309434/" target="_blank" rel="noopener">PubMed</a> · <a href="https://news.gastro.org/issues/2026/july-2026/glp1-drugs-dont-lower-ibd-relapse-but-appear-safe-study-finds/" target="_blank" rel="noopener">AGA</a></li>
+   <li id="s24">Khan 2026, GLP-1s and IBS symptoms, 6,665 matched pairs. <a href="https://pubmed.ncbi.nlm.nih.gov/42570075/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s25">Zhou 2019, Gut, glutamine in post-infection IBS-D, 106 completers (full text and registry checked); Cochrane 2016 for Crohn's. <a href="https://pubmed.ncbi.nlm.nih.gov/30108163/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s26">Mao 2023 (thymosin alpha-1 review); Yang 2024 (VIP in colitis). <a href="https://pubmed.ncbi.nlm.nih.gov/36871535/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/38790102/" target="_blank" rel="noopener">VIP</a></li>
+   <li id="s27">Reynolds 2025, collagen and appetite, 15 women. <a href="https://pubmed.ncbi.nlm.nih.gov/40685650/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s28">Rastgoo 2021, glutamine with low FODMAP, 50 people. <a href="https://pubmed.ncbi.nlm.nih.gov/34977110/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s29">Reinisch 2024, upadacitinib vs other advanced therapies in ulcerative colitis. <a href="https://pubmed.ncbi.nlm.nih.gov/39126596/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s30">Sodhi 2023, JAMA, GLP-1s and gastrointestinal adverse events (via TCTMD); Crisafulli 2025. <a href="https://pubmed.ncbi.nlm.nih.gov/41183330/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s31">Jalleh 2026, GLP-1s and gastric emptying around procedures. <a href="https://pubmed.ncbi.nlm.nih.gov/41697736/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s32">Mumsnet weight-loss injection boards, first-hand GLP-1 gut reports (8 threads), 2024 to 2026. <a href="/library/goals/notes/gut/">research notes, section 4</a></li>
+   <li id="s33">ExcelMale, Steemit, Mayo Clinic Connect, MetaFilter, VitalMX: BPC-157 and KPV gut reports. <a href="/library/goals/notes/gut/">research notes, section 4.7</a></li>
+   <li id="s34">HealthUnlocked (IBS Network, Thyroid UK), Science for ME: glutamine and collagen reports. <a href="/library/goals/notes/gut/">research notes, sections 4.5 and 4.6</a></li>
+   <li id="s35">Drugs.com reviews: teduglutide (8.1/10), linaclotide (6.7/10), rifaximin (6.0/10). <a href="https://www.drugs.com/comments/teduglutide/" target="_blank" rel="noopener">Drugs.com</a></li>
+   <li id="s36">USADA, BPC-157: experimental peptide prohibited. <a href="https://www.usada.org/spirit-of-sport/bpc-157-peptide-prohibited/" target="_blank" rel="noopener">USADA</a></li>
+   <li id="s37">Zheng 2026, endometriosis and gut disorders meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/42901254/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s38">Venable, HHS draft enforcement discretion for six peptides (routes and conditions), Nov 2026. <a href="https://www.venable.com/insights/publications/2026/11/hhs-announces-interim-enforcement-discretion" target="_blank" rel="noopener">link</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov and the FDA's own BPC-157 briefing, read from the abstracts (the glutamine trial in full) and summarised in our words. First-hand reports come from about 45 pages outside Reddit, one person per count, with seller pages and secondhand stories left out. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
