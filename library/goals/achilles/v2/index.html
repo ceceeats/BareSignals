@@ -1,0 +1,691 @@
+<!doctype html>
+<!-- Achilles v2 (10 Nov 2026): signal-style key takeaway and compound intros; new doctors' notes section (nference 2026, 1,039 BPC-157 users), tracking-app counts (GLP1 Chat, Peptide Map, PeptIQ, SelfAssay), vial quality (Mendias and Awan 2026, Finnrick blend tests); 15 usual questions; one unsourced aggregator figure and MESO-Rx rows from the Research Log excluded. No v1 number changed. v1 kept. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Achilles · Bare Signals</title>
+<meta name="description" content="Achilles tendinopathy and rupture: what BPC-157, TB-500, collagen and growth hormone peptides have shown in studies, doctors' notes, tracking apps and first-hand reports, with every standard option and source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* case additions */
+.cp .mech{margin-top:8px}
+.cp .tline{margin-top:2px}
+#collagen .cp,#col .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+@media (max-width:759px){.grd{table-layout:fixed}.grd th,.grd td{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}.grd td:first-child,.grd th:first-child{width:25%}}
+
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Achilles</h1><p class="aka">The thick tendon joining the calf to the heel. Covers mid-portion tendinopathy, insertional tendinopathy at the heel, partial tears and full rupture.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><g fill="none" stroke="#3E4A80" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 8C27 22 30 36 34 48L36 60C36 66 32 70 26 72H22C18 72 16 75 18 78H62C66 78 66 73 62 71L50 66C46 62 46 56 46 48C47 34 48 20 46 8" fill="#FFFFE2"/><path d="M36 14C33 24 34 34 38 44" stroke-width="1.2" opacity=".55"/></g><path class="pl" d="M41 40C40 48 40 54 40 60" stroke="#E1DE62" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M41 40C40 48 40 54 40 60" stroke="#3E4A80" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle class="pl" cx="40.5" cy="50" r="4" fill="#FF5050" opacity=".6"/></svg>
+ <div class="meta"><span class="mt">Researched 3 to 10 Nov 2026</span><span class="mt">43 sources</span><span class="mt">Version 2</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Tissue repair, Pain and sensory, Muscle and performance"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--pain)"></i><i style="width:12%;background:#F28E79"></i></div>
+<div class="tags"><span class="rtg" style="background:var(--repair)">Tissue repair</span><span class="rtg" style="background:var(--pain)">Pain &amp; sensory</span><span class="rtg" style="background:#F28E79">Muscle &amp; performance</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> The cord above your heel takes the load of every step and jump, yet its core is almost never renewed after about age 17. That is why a worn or torn Achilles heals over months, not weeks.<sup><a href="#s7">7</a></sup></p>
+ <p><b>What studies found.</b> Load is the medicine: 80% of people on exercise alone were fully recovered at 5 years.<sup><a href="#s9">9</a></sup> BPC-157 works like a foreman calling new blood vessels into a tendon that has too few, and TB-500 like the part that moves repair cells in. In the one outside rat study, both helped and only TB-500 made the tendon clearly stronger.<sup><a href="#s23">23</a></sup></p>
+ <p><b>What people report.</b> 27 of 31 Reddit users felt better or partly better, and three say a surgeon or physio called their rupture recovery weeks ahead. In US medical records, doctors noted improvement in 79% of BPC-157 users whose response was written down, though half were on other treatment too.<sup><a href="#s33">33</a>,<a href="#s41">41</a></sup></p>
+ <p><b>Watch out.</b> No one has tested a peptide on a human Achilles, and every good report came with rehab. Ciprofloxacin-type antibiotics triple rupture risk, and BPC-157 and TB-500 are banned in sport at all times.<sup><a href="#s6">6</a>,<a href="#s35">35</a></sup></p>
+</div>
+
+<div class="nums6" aria-label="Achilles in numbers">
+ <div class="nm"><b>80%</b><span>fully recovered at 5 years on exercise alone</span><i class="ev e-h">Human</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>79%</b><span>of BPC-157 users with a recorded response improved, in doctors' notes</span><i class="ev e-h">Records</i><sup><a href="#s41">41</a></sup></div>
+ <div class="nm"><b>3×</b><span>rupture risk on ciprofloxacin-type antibiotics</span><i class="ev e-h">Human</i><sup><a href="#s6">6</a></sup></div>
+ <div class="nm"><b>0</b><span>human Achilles studies of any research peptide</span><i class="ev e-c">Search</i><sup><a href="#s24">24</a></sup></div>
+ <div class="nm"><b>27 of 31</b><span>Reddit users better or partly better</span><i class="ev e-r">Reports</i><sup><a href="#s33">33</a></sup></div>
+ <div class="nm"><b>3</b><span>said a surgeon or physio saw faster healing</span><i class="ev e-r">Reports</i><sup><a href="#s33">33</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#baseline">Without peptides</a><a href="#p1">2 · Studies</a><a href="#rats">Rat studies</a><a href="#human">In people</a><a href="#table">Compared</a><a href="#p2">3 · Reports</a><a href="#clin">Seen by a clinician</a><a href="#records">Doctors' notes</a><a href="#apps">Apps</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What the Achilles problem is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Four problems, one name</h2>
+ <ul class="tight">
+  <li><b>Mid-portion tendinopathy:</b> pain and a thickened, sometimes knobbly tendon 2 to 7 cm above the heel. The most common type in runners. Stiff in the morning, sore at the start of a run, may warm up, then worse the next day.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup></li>
+  <li><b>Insertional tendinopathy:</b> pain right where the tendon meets the heel bone, often with calcium deposits. Here the tendon is also squeezed against the bone when the ankle bends up, so deep heel drops off a step usually make it worse. Its evidence is thin: 9 trials, very low confidence overall.<sup><a href="#s3">3</a></sup></li>
+  <li><b>Partial tear:</b> some fibres torn inside an already worn tendon. Few good trials exist for this.</li>
+  <li><b>Full rupture:</b> a sudden pop, often during push-off in a middle-aged recreational player, with a feeling of being kicked in the calf. Ruptures in Finland almost doubled from 1997 to 2019, rising most in older adults.<sup><a href="#s5">5</a></sup></li>
+ </ul>
+ <p class="sub">Who gets it</p>
+ <p>About 1 in 20 recreational runners reported Achilles symptoms around one running event; having had it in the past year raised the odds about 6 times.<sup><a href="#s4">4</a></sup> Padel, pickleball and basketball players see it often; NBA players took about 11 months to return from a rupture.<sup><a href="#s40">40</a></sup></p>
+ <p class="sub">A scan is not the same as the pain</p>
+ <p>In most good studies, a tendon that looks better on ultrasound did not feel better, and the other way round. A scan "looking worse" does not mean the tendon is failing.<sup><a href="#s14">14</a></sup></p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="inside">
+ <h2 class="st">Why tendons heal slowly</h2>
+ <div class="dg in"><svg viewBox="0 0 340 128" role="img" aria-label="Three tissues compared. Muscle renews constantly and heals in weeks. Bone remodels and usually heals fully. Tendon core is set by about age 17, has little blood supply, and repair is slow scar that remodels over a year or more.">
+  <g font-size="10" fill="#3E4A80">
+   <rect x="4" y="10" width="104" height="84" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="10" y="25" class="m" font-weight="700">MUSCLE</text>
+   <g stroke="#F28E79" stroke-width="3" stroke-linecap="round"><path class="pl" d="M14 40h84"/><path d="M14 50h84"/><path class="pl" d="M14 60h84" style="animation-delay:1s"/></g>
+   <text x="10" y="80">Renews all the time</text><text x="10" y="90" class="m" font-size="8" fill="#6B76A8">HEALS IN WEEKS</text>
+   <rect x="118" y="10" width="104" height="84" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="124" y="25" class="m" font-weight="700">BONE</text>
+   <path d="M132 50h76" stroke="#C782A5" stroke-width="10" stroke-linecap="round"/><path class="pl" d="M168 42l4 8-4 8" stroke="#FFFFF4" stroke-width="2" fill="none"/>
+   <text x="124" y="80">Rebuilds the original</text><text x="124" y="90" class="m" font-size="8" fill="#6B76A8">~1 IN 10 HEALS BADLY</text>
+   <rect x="232" y="10" width="104" height="84" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.3"/><text x="238" y="25" class="m" font-weight="700">TENDON</text>
+   <g stroke="#E1DE62" stroke-width="2.5" stroke-linecap="round"><path d="M242 40h84"/><path d="M242 46h84"/><path d="M242 52h30M290 52h36"/><path d="M242 58h84"/></g><path class="pl" d="M274 52c4-3 10 3 14 0" stroke="#FF5050" stroke-width="1.6" fill="none"/>
+   <text x="238" y="80">Core set by age 17</text><text x="238" y="90" class="m" font-size="8" fill="#6B76A8">SCAR, A YEAR OR MORE</text>
+  </g>
+  <text x="170" y="116" text-anchor="middle" class="m" font-size="7.5" letter-spacing=".5" fill="#6B76A8">LOAD IS THE SIGNAL THAT MAKES TENDON CELLS BUILD COLLAGEN</text>
+ </svg></div>
+ <ul class="how">
+  <li><b>The core is old.</b> Carbon-14 left in the air by 1950s and 60s bomb tests showed the Achilles core still carries the carbon of a person's first 17 years. Muscle samples were constantly renewed. (28 tendon samples, only 4 muscle.)<sup><a href="#s7">7</a></sup></li>
+  <li><b>The middle is short of blood.</b> The mid-section, where most ruptures happen, has the poorest blood supply of the tendon.<sup><a href="#s2">2</a></sup></li>
+  <li><b>The outside listens to load.</b> Training raised collagen building around the tendon 5 to 7 fold. Across 27 studies, how heavy the load was mattered more than whether the exercise was lowering, lifting or holding.<sup><a href="#s8">8</a></sup></li>
+  <li><b>Repair is scar first.</b> The body lays down weaker type III collagen, then slowly swaps it for type I as fibres line up with load, over 12 months or more. Rat peptide studies measure only the first 2 to 4 weeks of this.<sup><a href="#s23">23</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">What happens without peptides</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-h">Human</span><p><b>Most get better with loading.</b> In 34 people treated with exercise alone, 80% were fully recovered at 5 years (65% symptom free, 15% had one new episode). 20% still had symptoms.<sup><a href="#s9">9</a></sup> Any peptide story has to beat that.</p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Rest is not needed.</b> Runners who kept running and jumping, keeping pain within limits, ended the year the same as those who rested for 6 weeks.<sup><a href="#s10">10</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Ruptures heal without surgery too.</b> In 554 people, function at a year was the same with or without surgery. Surgery cut re-tears from 6.2% to 0.6% but added nerve injuries.<sup><a href="#s19">19</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<p class="cutnote"><b>Read this first: no peptide has ever been tested on a human Achilles.</b> Every BPC-157 and TB-500 Achilles result is in rats, and most come from the Zagreb group that discovered BPC-157. Collagen is the only peptide-like option with an Achilles trial in people.</p>
+
+<div class="grid two" id="rats">
+<div class="col">
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157 · rats only</h2>
+ <div class="cp">
+  <div class="cph"><h3>BPC-157</h3><a href="/library/#/p/bpc-157">Library card</a></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--heart)"></i><i style="width:12%;background:var(--gut)"></i></div>
+  <p class="lead">Tendons heal slowly because so little blood reaches them. BPC-157, a piece of a stomach-juice protein, acts like a foreman calling new blood vessels into the injury so repair cells and materials can arrive. In rats a cut Achilles rejoined stronger within 14 days. Nearly all of that comes from one lab, and no human tendon has been tested.<sup><a href="#s21">21</a>,<a href="#s24">24</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2003 <i class="ev e-a">Rats</i></span><p class="th">A cut Achilles rejoined stronger by day 14.</p><p class="tb">Rats with a fully cut Achilles were given BPC-157 daily into the belly. By 2 weeks their tendons took more force to break, were stiffer, walked better and had a smaller gap. Zagreb group.<sup><a href="#s21">21</a></sup></p></li>
+   <li><span class="ty">2006 <i class="ev e-a">Rats</i></span><p class="th">Tendon back onto bone, and less steroid damage.</p><p class="tb">With the Achilles cut off the heel bone, BPC-157 improved healing back onto the bone and lessened the harm done by a steroid. Zagreb group.<sup><a href="#s22">22</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-a">Rats</i></span><p class="th">The first outside lab: leaned better, not proven.</p><p class="tb">A Turkish group repaired the Achilles in 32 rats. BPC-157 tissue looked numerically better and the tendon was a bit stronger, but neither reached significance. The authors still read it as positive and call the study exploratory; about 8 rats per group.<sup><a href="#s23">23</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>What it does in the tendon:</b> more new blood vessels, and tendon cells that crawl out and survive stress better, through a cell-anchor signal (FAK-paxillin). It did not make the cells multiply.<sup><a href="#s22">22</a></sup> <b>The catch:</b> it lasts under 30 minutes in rat and dog blood, and no study has tested injecting near the tendon against injecting anywhere.<sup><a href="#s27">27</a></sup></p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="tb">
+ <h2 class="st">TB-500 · one rat study, positive</h2>
+ <div class="cp">
+  <div class="cph"><h3>TB-500</h3><span><a href="/library/#/p/tb-500-frag-17-23">Fragment card</a> · <a href="/library/#/p/thymosin-beta-4">Full Tβ4 card</a></span></div>
+  <div class="stripe"><i style="width:70%;background:var(--repair)"></i><i style="width:18%;background:var(--infl)"></i><i style="width:12%;background:var(--heart)"></i></div>
+  <p class="lead">Repair cells have to crawl to an injury. TB-500 copies the part of thymosin beta-4 that holds actin, the protein cells crawl with, so it is the piece that does the moving. In 32 rats it was the only treatment that made a repaired Achilles clearly stronger. One small study, and the paper does not say which form of the molecule it used.<sup><a href="#s23">23</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2026 <i class="ev e-a">Rats</i></span><p class="th">Stronger tendons and better organised collagen.</p><p class="tb">In the same Turkish study, TB-500 for 4 weeks gave clearly stronger repaired tendons and better tissue scores, with more mature, lined-up collagen. Adding BPC-157 on top added nothing.<sup><a href="#s23">23</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Know what's in the vial:</b> TB-500 is a 7 amino acid piece (residues 17 to 23) of the 43 amino acid protein thymosin beta-4, the part that holds actin, which cells use to crawl. Some vials sold as "TB-500" hold the full protein instead. Full Tβ4 has human trials in eyes, heart and skin, none in tendon.<sup><a href="#s31">31</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="collagen">
+ <h2 class="st">Collagen · the one human Achilles trial</h2>
+ <div class="cp" style="--c:#E1DE62">
+  <div class="cph"><h3>Collagen peptides</h3><a href="/library/#/p/collagen-peptides">Library card</a></div>
+  <ol class="tline">
+   <li><span class="ty">2019 <i class="ev e-rct">RCT</i></span><p class="th">Better scores in the first 3 months, then placebo caught up.</p><p class="tb">20 people with Achilles tendinopathy did a calf programme; those starting with collagen peptides gained 12.6 points on the 100-point Achilles score against 5.3 on placebo. After switching, the late group caught up. Small and industry-made.<sup><a href="#s28">28</a></sup></p></li>
+   <li><span class="ty">2017 <i class="ev e-h">8 men</i></span><p class="th">Gelatin plus vitamin C doubled a collagen-building marker.</p><p class="tb">15 g of vitamin C rich gelatin an hour before 6 minutes of skipping doubled a blood marker of collagen building. A marker, not healing.<sup><a href="#s29">29</a></sup></p></li>
+  </ol>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="human">
+ <h2 class="st">BPC-157 in people, all of it</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-m">Review</span><p><b>3 studies, 30 people, none in tendon.</b> A 2026 review found 16 knees, 12 bladders and 2 IV safety cases, all low quality, all from one clinician at a US clinic that sells it.<sup><a href="#s24">24</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>Surgeons: not for routine use.</b> An October 2026 orthopaedic review says there is no validated dose, no human kinetics and no long-term safety data.<sup><a href="#s25">25</a></sup> A sports medicine review flags social media as amplifying placebo.<sup><a href="#s26">26</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Trial</span><p><b>The first real test starts 2027.</b> A university trial of daily BPC-157 for 90 days after rotator cuff surgery, against salt water, starts in January. No Achilles trial is registered.<sup><a href="#s32">32</a></sup></p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="table">
+ <h2 class="st">Every option, compared</h2>
+ <div class="tw"><table class="cmp grd">
+  <tr><th>Option</th><th>Achilles evidence</th><th>First-hand reports</th><th>Direction</th></tr>
+  <tr><td>Progressive loading</td><td>Many RCTs, 5-year follow-up</td><td>Common</td><td>Proven first line</td></tr>
+  <tr><td>Heel lifts</td><td>1 RCT, 100 people</td><td>Not counted</td><td>As good as heel drops at 12 weeks</td></tr>
+  <tr><td>Shockwave</td><td>RCTs, pooled</td><td>Not counted</td><td>Small extra help</td></tr>
+  <tr><td>Cortisone shot</td><td>1 RCT for, others against</td><td>Not counted</td><td>Short gain, possible later cost</td></tr>
+  <tr><td>PRP, volume shots</td><td>3 large RCTs</td><td>Not counted</td><td class="bad">No better than placebo</td></tr>
+  <tr><td>Collagen + vit C</td><td>1 small RCT</td><td>Not counted</td><td>Small early help</td></tr>
+  <tr><td>BPC-157 + TB-500, stacks</td><td>Rats only</td><td>9 better, 12 partly, 2 no change, 1 re-tear</td><td>Unproven, mostly positive reports</td></tr>
+  <tr><td>BPC-157 alone</td><td>Rats only</td><td>6 better, 1 re-tear</td><td>Unproven</td></tr>
+  <tr><td>GH peptides</td><td>None for tendon</td><td>Only in stacks</td><td>Unproven</td></tr>
+ </table></div>
+ <p class="hint">Reports are Reddit, one person per row (part 3). Stacks with GHK-Cu, KPV or growth hormone are counted with BPC-157 + TB-500.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">Reddit, counted</h2>
+ <div class="pool"><p class="sub" style="margin-top:0">Tendinopathy, no tear · 8 people</p>
+  <div class="sbar" role="img" aria-label="6 better, 1 partly, 1 no change"><i class="g1" style="width:75%">6</i><i class="g2" style="width:12.5%">1</i><i class="g3" style="width:12.5%">1</i></div></div>
+ <div class="pool"><p class="sub" style="margin-top:0">Rupture or after surgery · 23 people</p>
+  <div class="sbar" role="img" aria-label="9 better, 11 partly, 1 no change, 2 re-tears"><i class="g1" style="width:39.1%">9</i><i class="g2" style="width:47.8%">11</i><i class="g3" style="width:4.4%">1</i><i class="g4" style="width:8.7%">2</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Partly</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>Tendinopathy:</b> a year of pain in both tendons, about 75% better at 2 weeks of BPC-157 and symptom free at week 4, alongside 15 minutes of rehab a day. A self-described physio with 14 months of pain in both sides went from 7 to 1 or 2 out of 10, with the lumps almost gone, on BPC-157 + TB-500 plus heavy loading. One whose Achilles flared after ciprofloxacin was 70 to 80% better in 10 days.<sup><a href="#s33">33</a></sup></li>
+  <li><b>Partly:</b> 8 years of tears and bursitis, considerably less pain after 3 months, not healed.<sup><a href="#s33">33</a></sup></li>
+  <li><b>No change:</b> a 49-year-old runner still limping after 7 weeks of BPC-157, TB-500 and CJC/ipamorelin.<sup><a href="#s33">33</a></sup></li>
+  <li><b>After rupture:</b> most "partly" reports are people who felt it helped but said honestly they could not tell, because rehab, boots, collagen and time were all moving together.<sup><a href="#s33">33</a></sup></li>
+  <li><b>Re-tears, 2:</b> both from a slip on stairs during recovery. Nothing suggests the peptide caused them, but feeling good early can tempt people to load too soon.<sup><a href="#s33">33</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="clin">
+ <h2 class="st">Seen by a surgeon or physio</h2>
+ <p>Reports where a clinician measured or judged the healing count most, because they compare against hundreds of other patients.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">BPC-157</span><p><b>"About 3 weeks ahead."</b> Surgeon at the 7-week check after repair: no lumps, good tension, 10 double heel raises and bent-knee calf raises with 15 kg. The poster says the cause can't be proven.<sup><a href="#s33">33</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">Stack</span><p><b>"About 8 weeks ahead."</b> Physio at 16 weeks after surgery, on BPC-157 + TB-500 + GHK-Cu + CJC/ipamorelin, with physio and diet.<sup><a href="#s33">33</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">Stack</span><p><b>"Unusually fast."</b> A jiu-jitsu athlete after surgery: shoes at week 8, normal walking and heel raises by month 3, training by month 5, competing at month 6. Also took low-dose growth hormone and did intensive physio.<sup><a href="#s33">33</a></sup></p></div>
+ </div>
+ <p class="hint">How to read these: shoes around week 8 and full weight in a boot by week 6 are close to what modern early-loading rupture plans aim for anyway.<sup><a href="#s20">20</a></sup> "Ahead of schedule" depends on whose schedule. Three reports is promising, not proof.</p>
+</section>
+<section class="sec" id="records">
+ <h2 class="st">In doctors' notes · the largest real-world look</h2>
+ <p>A US analytics firm searched 15 million medical records and found 1,039 people whose doctors wrote down that they used BPC-157. These are not trial results, but they are the only large human data that exist, and they were written by clinicians.<sup><a href="#s41">41</a></sup></p>
+ <div class="srs"><div class="sr"><span class="ev e-h">1,039 people</span><p><b>Why they used it:</b> pain 33%, gut problems 14%, a past injury 11%, healing after surgery 10%. Among 426 with an injury recorded, 35 had tendinopathy and 20 a rotator cuff problem.</p></div><div class="sr"><span class="ev e-h">354 people</span><p><b>What doctors saw:</b> of those with a response written down, 79% improved, 16% no change and 5% worse. Two thirds had no response recorded at all.</p></div><div class="sr"><span class="ev e-h">Mixed</span><p><b>Never alone:</b> half were on something else too: testosterone 17%, physio 15%, ibuprofen-type drugs 15%, TB-500 13%, surgery 13%.</p></div><div class="sr"><span class="ev e-h">129 stopped</span><p><b>Why they stopped:</b> a doctor advised it (46%), side effects (19%), or it did not seem to work (16%).</p></div></div>
+ <p class="hint">No comparison group and no Achilles-only numbers, and "improved" was read from notes by a computer model checked by doctors (78% accurate). It shows what clinicians see in practice, not what the peptide causes.</p>
+</section>
+<section class="sec" id="apps">
+ <h2 class="st">Tracking apps and aggregators</h2>
+ <div class="srs"><div class="sr"><span class="ev e-r">BPC-157</span><p><b>Tendon is a top use, not the top one.</b> On GLP1 Chat, 16% of 1,194 BPC-157 posts report tendon and ligament results and 37% joint results; on Peptide Map, 7% and 32% of 377 posts. Injury recovery runs about 30% on both.</p></div><div class="sr"><span class="ev e-r">BPC-157</span><p><b>App users rate it highly:</b> PeptIQ logs 98% favourable across 128 user logs, and SelfAssay's 1,245 Reddit reports are led by recovery (326) and pain (256).</p></div><div class="sr"><span class="ev e-r">TB-500</span><p><b>TB-500 rates much lower:</b> 38% favourable across 103 PeptIQ logs, with headache and tiredness logged often. Many vials sold as TB-500 are a different molecule (see below).</p></div><div class="sr"><span class="ev e-r">Stack</span><p><b>Almost always paired:</b> 71% of BPC-157 stacks on GLP1 Chat include TB-500, which is why most Achilles reports can't be credited to one peptide.</p></div></div>
+ <p class="hint">These sites publish no methods and their percentages do not always add up, so they show direction only. A site listing "71% positive for Achilles tendonitis" without any source was left out.<sup><a href="#s42">42</a></sup></p>
+</section>
+<section class="sec" id="forums">
+ <h2 class="st">Outside Reddit</h2>
+ <p>Across 14 runner, triathlon, hunting and sports forums, only one person gave a first-hand Achilles peptide account: a visible partial tear, pain mostly gone by 5 months on BPC-157 + TB-500 nasal spray then local injections, which he credited mostly to cycling and time off running. Local injections changed nothing he could notice; the nasal spray dried his sinuses. Two clinician pages read listed BPC-157 as not recommended.<sup><a href="#s34">34</a></sup></p>
+ <p class="hint">Collected 3 to 10 Nov 2026, one person per count, seller posts left out. Three of the better rupture reports came from threads with supplier comments, so they may be promotional.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>BPC-157 + TB-500 (the Wolverine stack):</b> by far the most common, in 24 of the 31 Reddit reports. In the one rat study that tested both, TB-500 did the work and adding BPC-157 added nothing.<sup><a href="#s23">23</a>,<a href="#s33">33</a></sup> <span class="ev e-a">Rats</span></li>
+  <li><b>Plus GHK-Cu, CJC/ipamorelin or growth hormone:</b> in the best rupture stories. Real growth hormone raised tendon collagen building in healthy young men,<sup><a href="#s30">30</a></sup> but the peptides that release it have no tendon data, and MK-677 carries heart failure and blood sugar warnings.<sup><a href="#s31">31</a></sup></li>
+  <li><b>Collagen with vitamin C before loading:</b> the one pairing with human marker data.<sup><a href="#s29">29</a></sup> <span class="ev e-h">Human</span></li>
+  <li><b>Peptides with rehab:</b> every good report had rehab alongside, so the two can't be separated.</li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/tennis-elbow/"><b>Tennis elbow</b></a>: the same tendon biology in an arm, with its own case page.</li>
+  <li><a href="/library/goals/knee/"><b>Knee</b></a>: jumper's knee is the patellar tendon version; ACL and meniscus are on the knee page.</li>
+  <li><a href="/library/goals/notes/tendons/"><b>Tendons, the shared base</b></a>: loading rules, injections and the peptide evidence for every tendon.</li>
+  <li><a href="/library/goals/notes/muscle/"><b>Muscle injury</b></a>: calf strains sit next to the Achilles and heal much faster.</li>
+  <li><b>Plantar heel pain</b> sits just below and is often confused with insertional Achilles pain.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Every option, with numbers</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="treat">
+ <h2 class="st">What works best</h2>
+ <ul class="tight">
+  <li><b>Heavy slow calf raises</b> 3 times a week did as well as twice-daily heel drops, and more people stuck with them (92% vs 78% of sessions). Both held at a year.<sup><a href="#s11">11</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Load enough, and supervised:</b> unsupervised home heel drops were no better than sham upper-body exercise.<sup><a href="#s13">13</a></sup> What predicted recovery was doing the sets, reps and added weight, not just showing up. <span class="ev e-rct">RCT</span></li>
+  <li><b>Heel lifts</b> in the shoe beat heel drops by 9.6 points at 12 weeks, just under what patients notice.<sup><a href="#s12">12</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Shockwave</b> eased Achilles pain more than placebo in pooled trials, a moderate effect.<sup><a href="#s18">18</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Isometric holds</b> (about 45 seconds at 70% of max) are a gentle way to load a painful tendon. The famous "instant pain relief" came from 6 volleyball players and failed to repeat in Achilles.<sup><a href="#s38">38</a>,<a href="#s39">39</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="notwork">
+ <h2 class="st">What did not beat placebo</h2>
+ <ul class="tight">
+  <li><b>PRP:</b> 54.4 vs 53.4 points at 6 months in 240 people. Also no help after rupture.<sup><a href="#s15">15</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>High-volume injection:</b> no better than sham at 12 months in 192 people; the steroid version helped at 6 weeks and was worse by 26.<sup><a href="#s16">16</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Cortisone:</b> one trial found 17.7 points more improvement at 6 months with no harm at 2 years;<sup><a href="#s17">17</a></sup> others warn of re-flares and rupture. Contested.</li>
+ </ul>
+ <p class="sub">Rupture</p>
+ <p>A functional brace with early weight bearing matched a cast in 540 people.<sup><a href="#s20">20</a></sup> Surgery or not gave the same function at a year; surgery means fewer re-tears, more nerve and wound problems.<sup><a href="#s19">19</a></sup></p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="sport">
+ <h2 class="st rdt">Banned in sport</h2>
+ <div class="box rd">
+  <p>BPC-157 is named under S0 and TB-500 and thymosin beta-4 under S2 on the WADA list, banned in and out of competition. GH peptides (CJC-1295, ipamorelin, MK-677) are banned too. A doctor's prescription does not protect you: no exemption is possible for an unapproved drug.<sup><a href="#s35">35</a></sup></p>
+  <p>From 1 January 2027 the list names peptides as a group and warns that unnamed peptides can still be banned.<sup><a href="#s36">36</a></sup> A US triathlete got 4 years after a whistleblower, without a positive test.</p>
+ </div>
+</section>
+<section class="sec" id="redflags">
+ <h2 class="st">When to get checked</h2>
+ <ul class="tight">
+  <li>A pop with sudden weakness: can't stand on tiptoe on that side. A rupture needs seeing within days.</li>
+  <li>Achilles pain while on, or just after, ciprofloxacin, levofloxacin or similar: rupture risk is about 3 times higher for 60 days, up to about 20 times with steroid tablets.<sup><a href="#s6">6</a></sup></li>
+  <li>Pain in both tendons with no clear cause, or a hot swollen joint.</li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="vials">
+ <h2 class="st">What is in the vial</h2>
+ <ul class="tight">
+  <li><b>Most single vials hold what they say,</b> but not all: in 6,441 independent lab tests, 3.5% of BPC-157 samples and 10% of TB-500 samples did not contain the peptide at all.<sup><a href="#s43">43</a></sup></li>
+  <li><b>TB-500 is the weak link:</b> only 7.5 to 22.5% of TB-500 samples passed both purity and amount, and many vials sold as TB-500 are full thymosin beta-4.<sup><a href="#s43">43</a></sup></li>
+  <li><b>Blends are harder still:</b> none of 8 classifiable BPC-157 + TB-500 blend tests passed purity (May to September 2026).<sup><a href="#s43">43</a></sup></li>
+  <li><b>Endotoxin</b> was measurable in 15% of 243 samples tested for it. A no-change report can mean a weak vial, not a weak peptide.<sup><a href="#s43">43</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="claims">
+ <h2 class="st">Before you trust a vial or a number</h2>
+ <ul class="tight">
+  <li><b>Not approved anywhere.</b> A draft US policy (comments closed 13 Nov 2026) would let licensed US pharmacies make BPC-157 and TB-500 under 10 conditions. That is not approval and does not cover research vials.<sup><a href="#s37">37</a></sup></li>
+  <li><b>No human dose exists</b> for tendon healing. Rat studies used 10 µg/kg BPC-157 and 60 µg/kg TB-500 a day into the belly.<sup><a href="#s23">23</a></sup></li>
+  <li><b>Feeling better is not stronger.</b> Pain relief can tempt people back to sprinting and jumping before the tendon has remodelled, which takes a year.</li>
+  <li><b>Tell your surgeon</b> about anything you take around an operation.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Does BPC-157 heal an Achilles?</summary><div class="bd"><p>In rats with a cut tendon, mostly yes, from one lab; an outside lab saw only a lean in that direction. Never tested in a human tendon. Reddit users mostly report feeling better, nearly always alongside rehab.<sup><a href="#s21">21</a>,<a href="#s23">23</a>,<a href="#s33">33</a></sup></p></div></details>
+  <details class="fq" open><summary>BPC-157 or TB-500 for the Achilles?</summary><div class="bd"><p>In the only rat study that compared them head to head, TB-500 gave the clearer result, and adding BPC-157 added nothing. One small study.<sup><a href="#s23">23</a></sup></p></div></details>
+  <details class="fq"><summary>Should I inject near the tendon?</summary><div class="bd"><p>No study has compared local with belly injections. BPC-157 is cleared from rat blood within 30 minutes and travels the whole body. One forum user noticed no change from local shots.<sup><a href="#s27">27</a>,<a href="#s34">34</a></sup></p></div></details>
+  <details class="fq"><summary>Can I keep running?</summary><div class="bd"><p>Often yes: keeping pain within limits gave the same 1-year result as resting 6 weeks.<sup><a href="#s10">10</a></sup></p></div></details>
+  <details class="fq"><summary>How long will it take?</summary><div class="bd"><p>Trials run 12 weeks of loading with gains to a year; 80% were recovered at 5 years. NBA players returned about 11 months after a rupture.<sup><a href="#s9">9</a>,<a href="#s11">11</a>,<a href="#s40">40</a></sup></p></div></details>
+  <details class="fq"><summary>Is collagen worth taking?</summary><div class="bd"><p>It is the only peptide-type option with an Achilles trial in people: small, early gains in 20 people. Low risk, legal in sport.<sup><a href="#s28">28</a></sup></p></div></details>
+  <details class="fq"><summary>Will it show up in a drug test?</summary><div class="bd"><p>A urine test for BPC-157 exists, but nobody knows how long it stays detectable in people. Bans also come from investigations, not only tests.<sup><a href="#s35">35</a></sup></p></div></details>
+    <details class="fq"><summary>How long do people take before they notice anything?</summary><div class="bd"><p>In Reddit reports, tendon pain eased from about 10 days to 4 weeks; after rupture, people described changes over 3 to 8 weeks, a stretch when healing moves fast anyway.<sup><a href="#s33">33</a></sup></p></div></details>
+  <details class="fq"><summary>Does it help after Achilles surgery?</summary><div class="bd"><p>No controlled data. Three people say a surgeon or physio called them weeks ahead, all also doing intensive rehab. Shoes around week 8 is close to modern early-loading plans anyway.<sup><a href="#s33">33</a>,<a href="#s20">20</a></sup></p></div></details>
+  <details class="fq"><summary>Is TB-500 the same as thymosin beta-4?</summary><div class="bd"><p>No. TB-500 is a 7 amino acid piece of the 43 amino acid protein. Many vials sold as TB-500 hold the full protein, and only 7.5 to 22.5% of TB-500 samples passed both purity and amount in independent testing.<sup><a href="#s31">31</a>,<a href="#s43">43</a></sup></p></div></details>
+  <details class="fq"><summary>Can I re-tear it while on peptides?</summary><div class="bd"><p>Two of 31 Reddit users re-tore after slipping on stairs during recovery. Nothing links that to the peptide, but feeling good early can tempt people to load too soon.<sup><a href="#s33">33</a></sup></p></div></details>
+  <details class="fq"><summary>What does growth hormone add?</summary><div class="bd"><p>Real growth hormone raised tendon collagen building in young men in a lab study. The peptides that release it have no tendon data, and MK-677 carries heart failure and blood sugar warnings.<sup><a href="#s30">30</a>,<a href="#s31">31</a></sup></p></div></details>
+  <details class="fq"><summary>Heel drops or heavy calf raises?</summary><div class="bd"><p>Heavy slow calf raises 3 times a week did as well as twice-daily heel drops, and more people stuck with them.<sup><a href="#s11">11</a></sup></p></div></details>
+  <details class="fq"><summary>What do doctors actually see in patients using it?</summary><div class="bd"><p>In US medical notes on 1,039 users, improvement was written down for 79% of those with a recorded response, mostly for pain and injuries, with half also on other treatment.<sup><a href="#s41">41</a></sup></p></div></details>
+<details class="fq"><summary>Do statins cause Achilles rupture?</summary><div class="bd"><p>The large UK study found no link, and statin users' tendons looked the same on ultrasound.<sup><a href="#s6">6</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people</dd></div><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-m">Review</i></dt><dd>a summary of past studies</dd></div><div><dt><i class="ev e-a">Rats</i></dt><dd>an animal study</dd></div><div><dt><i class="ev e-t">Trial</i></dt><dd>registered, not yet reported</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>first-hand posts, self-reported, no comparison group</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>Tendinopathy</dt><dd>a worn, painful tendon without a full tear</dd></div><div><dt>VISA-A</dt><dd>the 100-point Achilles score trials use; about 10 points is a change people notice</dd></div><div><dt>Heavy slow resistance</dt><dd>slow, heavy calf raises 3 times a week</dd></div><div><dt>Isometric</dt><dd>holding a position under load without moving</dd></div><div><dt>PRP</dt><dd>platelet-rich plasma, your own blood spun and injected</dd></div></dl></div>
+</section></div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources <span class="cnt">43</span></h2></summary>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/achilles/">full research notes</a> and the <a href="/library/goals/notes/tendons/">shared tendon notes</a>.</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">de Vos 2010, JAMA, PRP for mid-portion Achilles tendinopathy, 54 people (location definition and result). <a href="https://pubmed.ncbi.nlm.nih.gov/20068208/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s2">Silbernagel 2020, J Athl Train, Achilles tendinopathy review. <a href="https://pubmed.ncbi.nlm.nih.gov/32267723/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s3">Ko 2023, BMC Musculoskelet Disord, insertional Achilles network meta-analysis, 9 trials. <a href="https://pubmed.ncbi.nlm.nih.gov/36750789/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Lagas 2019, J Sci Med Sport, 1,929 recreational runners. <a href="https://pubmed.ncbi.nlm.nih.gov/31892510/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s5">Leino 2022, Orthop J Sports Med, Achilles ruptures in Finland 1997 to 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/36389616/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s6">Morales 2019, Clin Drug Investig, fluoroquinolones, steroids and tendon rupture, UK primary care. <a href="https://pubmed.ncbi.nlm.nih.gov/30465300/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s7">Heinemeier 2013, FASEB J, bomb-pulse carbon-14 in Achilles tendon. <a href="https://pubmed.ncbi.nlm.nih.gov/23401563/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Bohm 2015, Sports Med Open, tendon adaptation to loading, 27 studies. <a href="https://pubmed.ncbi.nlm.nih.gov/27747846/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s9">Silbernagel 2011, Am J Sports Med, 5-year outcome of exercise for Achilles tendinopathy. <a href="https://pubmed.ncbi.nlm.nih.gov/21084657/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s10">Silbernagel 2007, Am J Sports Med, continued activity with pain monitoring vs rest, 38 people. <a href="https://pubmed.ncbi.nlm.nih.gov/17307888/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">Beyer 2015, Am J Sports Med, heavy slow resistance vs eccentric, 58 people. <a href="https://pubmed.ncbi.nlm.nih.gov/26018970/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s12">Rabusin 2020, Br J Sports Med, heel lifts vs eccentric exercise, 100 people. <a href="https://pubmed.ncbi.nlm.nih.gov/32988930/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s13">Janssen 2026, J Sci Med Sport, unsupervised eccentric training vs sham, 68 people. <a href="https://pubmed.ncbi.nlm.nih.gov/42575766/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s14">Malliaras 2013, Sports Med, imaging and outcomes in Achilles loading, systematic review. <a href="https://pubmed.ncbi.nlm.nih.gov/23494258/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s15">Kearney 2021, JAMA, PRP vs sham, 240 people (ATM trial); PATH-2 for rupture, BMJ 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/34255009/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/31748208/" target="_blank" rel="noopener">PATH-2</a></li>
+   <li id="s16">Malliaras 2026, BMJ, high-volume injection with and without steroid vs sham, 192 people. <a href="https://pubmed.ncbi.nlm.nih.gov/42951276/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s17">Johannsen 2022, JAMA Netw Open, steroid injection plus exercise, 100 people. <a href="https://pubmed.ncbi.nlm.nih.gov/35816306/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s18">Guo 2026, Orthop Surg, shockwave in tendinopathy, network meta-analysis of 65 papers. <a href="https://doi.org/10.1111/os.70408" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s19">Myhrvold 2022, NEJM, surgery vs no surgery for rupture, 554 people. <a href="https://pubmed.ncbi.nlm.nih.gov/35417636/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s20">Costa 2020, Lancet, UKSTAR: functional brace vs cast, 540 people. <a href="https://pubmed.ncbi.nlm.nih.gov/32035553/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">Staresinic 2003, J Orthop Res, BPC-157 and the cut rat Achilles. <a href="https://pubmed.ncbi.nlm.nih.gov/14554208/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s22">Krivic 2006, J Orthop Res, tendon-to-bone healing in rats; Chang 2011, J Appl Physiol, tendon cells and FAK-paxillin. <a href="https://pubmed.ncbi.nlm.nih.gov/16583442/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/21030672/" target="_blank" rel="noopener">Chang 2011</a></li>
+   <li id="s23">Bicer 2026, Jt Dis Relat Surg, BPC-157, TB-500 and both in repaired rat Achilles, 32 rats. <a href="https://pubmed.ncbi.nlm.nih.gov/42542926/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s24">Poolton 2026, Acta Orthop Belg, every human BPC-157 study (3 studies, 30 people). <a href="https://pubmed.ncbi.nlm.nih.gov/42885452/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s25">Tham 2026, J Am Acad Orthop Surg, BPC-157 review. <a href="https://pubmed.ncbi.nlm.nih.gov/42937313/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s26">Mendias 2026, Sports Med, peptides in sports medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/41966639/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s27">He 2022, Front Pharmacol, BPC-157 kinetics in rats and dogs. <a href="https://pubmed.ncbi.nlm.nih.gov/36588717/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s28">Praet 2019, Nutrients, collagen peptides in Achilles tendinopathy, 20 people. <a href="https://pubmed.ncbi.nlm.nih.gov/30609761/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s29">Shaw 2017, Am J Clin Nutr, vitamin C enriched gelatin and collagen synthesis, 8 men. <a href="https://pubmed.ncbi.nlm.nih.gov/27852613/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s30">Doessing 2010, J Physiol, growth hormone and tendon collagen. <a href="https://pubmed.ncbi.nlm.nih.gov/19933753/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s31">Tewari 2026, Am J Sports Med, scoping review of BPC-157, TB-500, CJC-1295, MK-677, ipamorelin, GHK-Cu; Ho 2012 on the TB-500 fragment. <a href="https://pubmed.ncbi.nlm.nih.gov/42578445/" target="_blank" rel="noopener">PubMed</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/23084823/" target="_blank" rel="noopener">Ho 2012</a></li>
+   <li id="s32">NCT07803250, BPC-157 after rotator cuff repair, University of Arkansas. <a href="https://clinicaltrials.gov/study/NCT07803250" target="_blank" rel="noopener">ClinicalTrials.gov</a></li>
+   <li id="s33">Reddit research pass, Achilles, 34 rows read, 31 people counted (one duplicate and one with no outcome removed), mainly r/AchillesRupture and r/bpc_157, Nov 2026. <a href="/library/goals/notes/achilles/">research notes</a></li>
+   <li id="s34">Forum pass outside Reddit, 3 Nov 2026: Rokslide, LetsRun, Slowtwitch, TigerDroppings, TexAgs and others, plus clinician pages. <a href="/library/goals/notes/achilles/">research notes, section 11</a></li>
+   <li id="s35">USADA, BPC-157: experimental peptide prohibited; WADA 2026 Prohibited List, S0 and S2. <a href="https://www.usada.org/spirit-of-sport/bpc-157-peptide-prohibited/" target="_blank" rel="noopener">USADA</a></li>
+   <li id="s36">FoxMandal, 2027 WADA Prohibited List: what changes (peptides named in S0). <a href="https://foxmandal.in/news/2027-wada-prohibited-list-what-changes/" target="_blank" rel="noopener">link</a></li>
+   <li id="s37">Venable, HHS draft enforcement discretion for 503A compounding of six peptides, Nov 2026. <a href="https://www.venable.com/insights/publications/2026/11/hhs-announces-interim-enforcement-discretion" target="_blank" rel="noopener">link</a></li>
+   <li id="s38">Rio 2015, Br J Sports Med, isometric vs isotonic exercise, 6 volleyball players. <a href="https://pubmed.ncbi.nlm.nih.gov/25979840/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s39">O'Neill 2019, Knee Surg Sports Traumatol Arthrosc, isometric holds in Achilles, 16 people. <a href="https://pubmed.ncbi.nlm.nih.gov/29974171/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s40">Maman 2026, Orthop J Sports Med, Achilles ruptures in the NBA 2000 to 2025. <a href="https://pubmed.ncbi.nlm.nih.gov/42436963/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s41">Venkatakrishnan, Soundararajan et al. (nference), Preprints.org, 7 Sep 2026: BPC-157 use and outcomes in 15 million US medical records, 1,039 documented users; not peer reviewed. <a href="https://www.preprints.org/manuscript/202609.0501/v1" target="_blank" rel="noopener">Preprint</a> · <a href="https://www.ctvnews.ca/health/article/use-of-untested-wolverine-peptide-on-the-rise-study-finds/" target="_blank" rel="noopener">Reuters report</a></li>
+   <li id="s42">Tracking-app and aggregator pages read 10 Nov 2026: GLP1 Chat BPC-157 (1,194 posts, 438 users), Peptide Map BPC-157 (377 posts), plus PeptIQ and SelfAssay counts already logged on the Library cards. Methods are not published and percentages do not always add up, so read them as direction only. <a href="https://glp1-chat.pages.dev/peptides/bpc-157" target="_blank" rel="noopener">GLP1 Chat</a> · <a href="https://peptide-map.pages.dev/peptides/bpc-157" target="_blank" rel="noopener">Peptide Map</a> · <a href="/library/#/p/bpc-157">BPC-157 card</a></li>
+   <li id="s43">Mendias and Awan, Preprints.org, Apr 2026: 6,441 independent lab tests of consumer peptides (Finnrick data); not peer reviewed. Blend pass rates from the Library BPC-157 + TB-500 card. <a href="https://www.preprints.org/manuscript/202604.1748" target="_blank" rel="noopener">Preprint</a> · <a href="/library/#/p/bpc-157-tb-500">Blend card</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov and regulator pages, read from the abstracts and summarised in our words. First-hand reports come from Reddit and 14 other forums, one person per count, with seller pages, secondhand stories and MESO-Rx left out. Doctors' notes and tracking-app counts are shown separately and never added to the forum counts. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
