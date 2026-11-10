@@ -1,0 +1,858 @@
+<!doctype html>
+<!-- Brain (Goals) v1, 10 Nov 2026. New page, built in the Growth hormones v2 / Energy v6 format. Five research passes (Russian peptide family, plasticity and growth-factor compounds, drive and wakefulness compounds, supplements and the cognitive baseline, non-Reddit community sweep and a mid-sagittal anatomy spec). Carries two animations: a from-scratch synapse explainer with tap captions, and a tap-a-compound mid-sagittal brain map coded by evidence tier, where six compounds correctly light nothing. Baseline section sits before any compound, per the Cases rule. Two retracted foundational papers disclosed. ARA-290 deliberately excluded: it is a peripheral small-fibre compound, not a brain one. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Brain peptides and nootropics explained for people: Semax, Selank, Noopept, Cerebrolysin, Dihexa, PE-22-28, bromantane, phenylpiracetam, modafinil, methylene blue, and the supplements. What the evidence actually shows, measured against the one baseline nobody beats.">
+<title>Brain · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--warn:#C4202B;
+--cog:#C2DCFF;--drive:#B493E8;--plast:#BAB802;--neuro:#CAF5F7;--mood:#CC007E;--sleep:#5271FF;--prot:#99ACFF;--energy:#DBFAB3;
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--k:var(--bs-k,1);color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.5 var(--body)}
+.w{max-width:760px;margin:0 auto;padding-block:10px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+p{margin:0 0 10px}
+h1{font:700 calc(32px*var(--k))/1 var(--display);margin:0;text-wrap:balance}
+.aka{font-size:calc(13px*var(--k));color:var(--ink-soft);margin:8px 0 0;max-width:62ch}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:11px 0 0}.stripe i{display:block;height:100%}
+.kt{margin:16px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:12px 14px}
+.kt p{margin:0 0 7px}.kt p:last-child{margin:0}.kt b{color:var(--accent)}
+.lead{margin:12px 0 0;font-weight:500}.lead b{color:var(--accent)}
+.feel{font-size:calc(12.5px*var(--k));margin:8px 0 0;color:var(--ink)}.feel b{color:var(--accent)}
+.toc{display:flex;flex-wrap:wrap;gap:4px 12px;margin:14px 0 0;font-size:calc(12.5px*var(--k))}
+.part{scroll-margin-top:60px;display:flex;align-items:center;gap:8px;margin:34px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:var(--paper)}
+.cq{font:700 calc(19px*var(--k))/1.15 var(--display);margin:22px 0 0;scroll-margin-top:60px}
+.aka2{font-size:calc(12.5px*var(--k));color:var(--ink-soft);margin:7px 0 7px}
+.note{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:12px 0 0}
+.c{white-space:nowrap}
+sup a{font:500 9px/1 var(--mono);text-decoration:none;padding:0 1px;color:var(--blue)}
+.plain{margin:12px 0 0}
+.plain>div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.plain .pn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1.5px solid var(--ink);background:var(--cog);font:700 13px var(--display);border-radius:50%}
+.plain p{margin:0;font-size:calc(13px*var(--k))}
+.plain b{color:var(--accent)}
+.hyp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:11px 13px}.hyp b{color:var(--accent)}
+.ends{margin:12px 0 0;display:grid;grid-template-columns:1fr;gap:10px}
+.end{border:1.5px solid var(--ink);background:var(--chip);padding:11px 13px;border-top-width:5px}
+.end h4{font:700 calc(16px*var(--k))/1.15 var(--display);margin:0 0 2px}
+.end .el{font:600 9px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft)}
+.end p{margin:7px 0 0;font-size:calc(12.5px*var(--k))}
+.end .mem{margin:8px 0 0;font-size:calc(12px*var(--k))}
+.end .mem b{color:var(--ink)}
+@media(min-width:760px){.ends{grid-template-columns:1fr 1fr}}
+.cmeta{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.cmeta span{font:500 9px/1 var(--mono);letter-spacing:.03em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
+.cmeta a{color:var(--blue);text-decoration:none}
+.cmeta a:hover{text-decoration:underline}
+.deep{margin:8px 0 2px;border-left:2px solid var(--rule);padding-left:10px}
+.deep summary{cursor:pointer;font:600 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--blue);list-style:none}
+.deep summary::-webkit-details-marker{display:none}
+.deep summary::before{content:"+ "}.deep[open] summary::before{content:"\2212 "}
+.deep>div{font-size:calc(12.5px*var(--k));margin-top:8px}
+.deep b{color:var(--ink)}
+/* grade pill */
+.gr{display:inline-block;font:600 8.5px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:3px 6px;border:1.5px solid var(--ink);vertical-align:2px;margin-left:6px;white-space:nowrap}
+.g-proven{background:#AACC96}.g-likely{background:#DBFAB3}.g-plaus{background:#FFCBAA}.g-unpr{background:#EDEDED;color:var(--ink-soft)}.g-myth{background:#FFD9D9}.g-none{background:var(--chip);border-style:dashed;color:var(--ink-soft)}
+/* tables */
+.tw{margin:12px 0 0}
+table.dt{border-collapse:collapse;width:100%;font-size:calc(12.5px*var(--k))}
+.dt th,.dt td{padding:8px 9px;border-bottom:1.5px dashed var(--rule);text-align:left;vertical-align:top}
+.dt thead th{font:600 9px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1.5px solid var(--ink)}
+.dt th[scope=row]{font:700 calc(13px*var(--k))/1.2 var(--display);color:var(--ink)}
+.dt tbody td{font-weight:500}
+@media (max-width:640px){
+ .dt,.dt tbody,.dt tr,.dt th,.dt td{display:block}
+ .dt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .dt tr{border:1.5px solid var(--ink);background:var(--chip);margin:0 0 10px;padding:4px 10px}
+ .dt th[scope=row]{border-bottom:1.5px solid var(--ink);padding:7px 0 5px;font-size:calc(15px*var(--k))}
+ .dt td{position:relative;padding:6px 0 6px 42%;border-bottom:1px dashed var(--rule);min-height:26px}
+ .dt tr td:last-child{border-bottom:0}
+ .dt td::before{content:attr(data-label);position:absolute;left:0;top:6px;width:38%;font:600 9.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-soft)}
+ .dt tr{padding:2px 10px;margin:0 0 8px}
+ .dt th[scope=row]{padding:6px 0 4px;font-size:calc(14.5px*var(--k))}
+ .dt td{padding:5px 0 5px 40%;min-height:22px}
+ .dt td::before{top:5px}
+ .scan2 td[data-label="Family"],.scan2 td[data-label="Route"]{display:none}
+}
+/* baseline bars */
+.bar{margin:14px 0 0;display:grid;gap:7px}
+.brow{display:grid;grid-template-columns:1fr;gap:3px}
+.blab{font-size:calc(12px*var(--k));display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.blab b{font-weight:700}.blab i{font-style:normal;font:600 10px var(--mono);color:var(--ink-soft);white-space:nowrap}
+.btrack{height:15px;border:1.5px solid var(--ink);background:var(--chip)}
+.btrack i{display:block;height:100%;background:var(--cog)}
+.brow.base .btrack i{background:var(--plast)}
+.brow.zero .btrack i{background:var(--rule)}
+.brow.big .btrack i{background:var(--energy)}
+/* synapse animation */
+.atp{margin:12px 0 0;border:1.5px solid var(--ink);background:var(--chip);padding:6px}
+.atp svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
+.orgl{font:700 9.5px var(--display);fill:var(--ink)}
+.orgs{font:400 7px var(--body);fill:var(--ink-soft)}
+.st{transition:opacity .3s}
+.atp.focus .st{opacity:.14}.atp.focus .st.on{opacity:1}
+.ring{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:0}
+.atp.focus .st.on .ring{opacity:1;animation:ringp 1.4s ease-in-out infinite}
+@keyframes ringp{0%,100%{opacity:.4}50%{opacity:1}}
+.ves{fill:var(--cog);stroke:var(--ink);stroke-width:.8}
+.atp.run .ves{animation:vmove 3.4s ease-in infinite}
+.v2{animation-delay:-1.1s}.v3{animation-delay:-2.2s}
+@keyframes vmove{0%{transform:translate(0,0);opacity:.5}30%{opacity:1}70%{transform:translate(26px,34px)}85%{transform:translate(30px,40px) scale(.4);opacity:.3}100%{transform:translate(30px,40px) scale(.2);opacity:0}}
+.nt{fill:var(--mood);stroke:none;opacity:0}
+.atp.run .nt{animation:ntcross 3.4s ease-out infinite}
+.n2{animation-delay:-.4s}.n3{animation-delay:-.9s}.n4{animation-delay:-1.6s}.n5{animation-delay:-2.3s}
+@keyframes ntcross{0%,74%{transform:translate(0,0);opacity:0}78%{opacity:1}100%{transform:translate(4px,30px);opacity:0}}
+.ion{fill:var(--sleep);opacity:0}
+.atp.run .ion{animation:ionin 3.4s ease-in infinite}.i2{animation-delay:-1.7s}
+@keyframes ionin{0%,84%{transform:translate(0,0);opacity:0}88%{opacity:1}100%{transform:translate(-2px,22px);opacity:0}}
+.bd{fill:var(--plast);stroke:var(--ink);stroke-width:.8;opacity:0}
+.atp.run .bd{animation:bdarrive 4.6s ease-in-out infinite}.b2{animation-delay:-2.3s}
+@keyframes bdarrive{0%{transform:translate(0,0) scale(.5);opacity:0}18%{opacity:1;transform:translate(-26px,14px) scale(1)}62%{transform:translate(-72px,47px) scale(1);opacity:1}100%{transform:translate(-72px,47px) scale(1);opacity:0}}
+.spine{transform-box:fill-box;transform-origin:center bottom}
+.atp.run .spine{animation:spgrow 4.6s ease-in-out infinite}
+@keyframes spgrow{0%,100%{transform:scale(1)}55%,80%{transform:scale(1.22)}}
+.mito{stroke:var(--ink);stroke-width:.8;fill:var(--energy)}
+.atp.run .mitoglow{animation:mg 2.4s ease-in-out infinite}
+@keyframes mg{0%,100%{opacity:.25}50%{opacity:.75}}
+@media (prefers-reduced-motion:reduce){.atp *{animation:none!important}.atp .nt,.atp .bd,.atp .ion{opacity:1}}
+.atpcap{font-size:calc(11px*var(--k));color:var(--ink-soft);padding:6px 4px 2px}
+.atpk{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.atpk button{border:1.5px solid var(--ink);background:var(--chip);padding:6px 9px;font:500 11px/1 var(--mono);cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;touch-action:manipulation}
+.atpk button i{width:11px;height:11px;border:1.5px solid var(--ink);display:block}
+.atpk button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.atpk button[aria-pressed=true] i{border-color:var(--paper)}
+.atpc{font-size:calc(13px*var(--k));margin:10px 0 0;min-height:44px}
+/* brain map */
+.bm{margin:12px 0 0}
+.bmpick{display:flex;flex-wrap:wrap;gap:5px}
+.bmpick .lab{width:100%;font:600 8.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:9px}
+.bmpick button{border:1.5px solid var(--ink);background:var(--chip);padding:6px 9px;font:500 11px/1 var(--mono);cursor:pointer;color:var(--ink);touch-action:manipulation}
+.bmpick button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.bmwrap{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0 0}
+@media(min-width:680px){.bmwrap{grid-template-columns:300px 1fr;gap:18px;align-items:start}}
+@media(min-width:900px){.bmwrap{grid-template-columns:360px 1fr;gap:24px}.bmfig svg{max-width:360px}}
+.bmfig{border:1.5px solid var(--ink);background:var(--chip);padding:8px}
+.bmfig svg{display:block;width:100%;height:auto;max-width:300px;margin:0 auto}
+.brainline{fill:#F3EFD6;stroke:var(--ink-soft);stroke-width:1.1}
+.gyr{fill:none;stroke:var(--ink-soft);stroke-width:.5;opacity:.55}
+.inner{fill:#EAE6CB;stroke:var(--ink-soft);stroke-width:.7}
+.z{transition:opacity .25s}
+.zh{opacity:0;stroke:var(--ink);stroke-width:.9}
+.bm.focus .z.t3 .zh{opacity:1;fill:none;stroke-dasharray:2.5 1.8;stroke-width:1.2;stroke:var(--accent)}
+.bm.focus .z.t2 .zh{opacity:.62;fill:var(--drive)}
+.bm.focus .z.t1 .zh{opacity:1;fill:var(--drive)}
+.bm.focus .z.off .zh{opacity:1;fill:none;stroke:var(--warn);stroke-width:1.1;stroke-dasharray:1.5 1.5}
+.proj .zh{stroke-dasharray:3 2}
+.cvo{fill:none;stroke:#DB6830;stroke-width:1;stroke-dasharray:2 1.6;opacity:0}
+.bm.cvoon .cvo{opacity:.95}
+.sites{display:grid;gap:0}
+.sites .site{display:grid;grid-template-columns:16px 1fr;gap:8px;align-items:start;padding:7px 0;border-bottom:1.5px dashed var(--rule);font-size:calc(12px*var(--k));opacity:.38;transition:opacity .2s}
+.sites .site .d{width:13px;height:13px;border:1.5px solid var(--ink);margin-top:2px;background:transparent}
+.bm.focus .sites .site.t1{opacity:1}.bm.focus .sites .site.t1 .d{background:var(--drive)}
+.bm.focus .sites .site.t2{opacity:1}.bm.focus .sites .site.t2 .d{background:var(--drive);opacity:.62}
+.bm.focus .sites .site.t3{opacity:1}.bm.focus .sites .site.t3 .d{background:transparent;border-color:var(--accent);border-style:dashed}
+.bm.focus .sites .site.off{opacity:1}.bm.focus .sites .site.off .d{background:transparent;border-color:var(--warn);border-style:dotted}
+.sites .site b{color:var(--ink)}
+.bmleg{display:flex;flex-wrap:wrap;gap:12px;margin:11px 0 0;font-size:calc(11px*var(--k));color:var(--ink-soft)}
+.bmleg i{display:inline-block;width:12px;height:12px;border:1.5px solid var(--ink);vertical-align:-2px;margin-right:5px}
+.bmleg .s1{background:var(--drive)}.bmleg .s2{background:var(--drive);opacity:.62}.bmleg .s3{background:transparent;border-color:var(--accent);border-style:dashed}.bmleg .s4{background:transparent;border-color:var(--warn);border-style:dotted}
+.bmsel{font-size:calc(12.5px*var(--k));margin:9px 0 0;min-height:48px}
+.bmsel b{color:var(--accent)}
+.bmnull{border:1.5px solid var(--ink);background:#F6F4E2;padding:10px 12px;margin:9px 0 0;font-size:calc(12.5px*var(--k));display:none}
+.bm.nodata .bmnull{display:block}
+.bmtog{margin:10px 0 0}
+.bmtog button{border:1.5px solid var(--accent);background:var(--chip);color:var(--accent);padding:6px 9px;font:500 10.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.bm.cvoon .bmtog button{background:var(--accent);color:var(--paper)}
+
+/* compact scan list */
+.sc{margin:12px 0 0}
+.sc>div{padding:10px 0;border-bottom:1.5px dashed var(--rule)}
+.sc b{font:700 calc(15px*var(--k))/1.2 var(--display);display:block}
+.sc .sv{display:block;font-size:calc(12.5px*var(--k));font-weight:500;margin-top:3px}
+.sc .se{display:block;font:500 calc(10.5px*var(--k))/1.4 var(--mono);color:var(--ink-soft);margin-top:3px}
+@media(min-width:900px){.sc{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}}
+/* report counts */
+.cnt{margin:12px 0 0}
+.cr{display:grid;grid-template-columns:1fr auto;gap:3px 10px;padding:9px 0;border-bottom:1.5px dashed var(--rule);align-items:baseline}
+.cn{font:700 calc(14px*var(--k))/1.2 var(--display)}
+.ct{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--ink-soft);white-space:nowrap}
+.cbar{grid-column:1/-1;display:flex;height:11px;border:1.5px solid var(--ink);background:var(--chip)}
+.cbar i{display:block}
+.cfill{display:flex;height:100%}
+.cbar .bp{background:#AACC96}.cbar .bs{background:#EDEDED}.cbar .bw{background:#F4B6B6}
+.cbar.none{border-style:dashed}
+.cl{grid-column:1/-1;font-size:calc(11.5px*var(--k));color:var(--ink-soft)}
+.cl b{color:var(--ink);font-weight:700}
+@media(min-width:900px){.cnt{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}}
+/* reports */
+.rep{display:grid;grid-template-columns:1fr;gap:0;margin:12px 0 0}
+.rep>div{padding:11px 0;border-bottom:1.5px dashed var(--rule)}
+.rh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+.rh b{font:700 15px var(--display)}.rh span{font:500 9.5px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft)}
+.rep p{font-size:calc(12.5px*var(--k));margin:0}
+.warn{margin:12px 0 0;border:1.5px solid var(--warn);background:#FFF6F4;padding:12px 14px}
+.warn h3{font:600 11px/1.2 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--warn);margin:0 0 8px}
+.warn ul{margin:0;padding-left:18px}.warn li{margin:0 0 7px;font-size:calc(12.5px*var(--k))}
+.wf{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:8px 0 0}
+.faq details{border-bottom:1.5px dashed var(--rule);padding:9px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 15px/1 var(--mono);color:var(--blue)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:7px 0 0;font-size:calc(13px*var(--k))}
+.srcbox{margin:10px 0 0}
+.srcbox>summary{cursor:pointer;list-style:none;font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--blue);border:1.5px solid var(--blue);padding:8px 10px;display:inline-block}
+.srcbox>summary::-webkit-details-marker{display:none}
+.srcbox[open]>summary{margin-bottom:4px}
+.srcs{font-size:calc(11.5px*var(--k));padding-left:22px;margin:10px 0 0}
+.srcs li{margin:0 0 7px;break-inside:avoid}
+.srcs .sq{display:inline-block;font:500 8.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--rule);padding:2px 4px;margin-right:4px;vertical-align:1px}
+.srcs .sl{font:500 10px/1 var(--mono);text-transform:uppercase}
+.foot{margin:22px 0 0;font-size:calc(11.5px*var(--k));color:var(--ink-soft);border-top:1.5px solid var(--ink);padding-top:10px}
+@media (min-width:900px){
+ .w{max-width:1000px}body{font-size:calc(15px*var(--k))}h1{font-size:calc(42px*var(--k))}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:7px 26px}
+ .rep{grid-template-columns:1fr 1fr;gap:0 28px}
+ .srcs{columns:2;column-gap:30px}
+ .atp{padding:14px}
+}
+</style>
+<script>addEventListener("bs-text",function(e){document.documentElement.style.setProperty("--bs-k",e.detail.k)})</script>
+</head><body>
+
+<div class="w"><p class="crumb"><a href="/library/">Library</a> &middot; <a href="/library/aims/">Goals</a> &middot; Brain</p>
+<h1>Brain</h1>
+<p class="aka">Focus, memory, mood and drive. Around thirty compounds get stacked for this, from Russian nasal peptides to mushroom extracts, and the gap between what they promise and what has been measured is wider here than anywhere else on this site. So this page starts with the thing all of them have to beat.</p>
+<div class="meta"><span class="mt">Goal &middot; Brain &amp; cognition</span><span class="mt">Research page &middot; v1</span><span class="mt">Compiled 10 Nov 2026</span></div>
+<div class="stripe" aria-hidden="true"><i style="flex:70;background:#C2DCFF"></i><i style="flex:9;background:#B493E8"></i><i style="flex:7;background:#BAB802"></i><i style="flex:7;background:#CAF5F7"></i><i style="flex:7;background:#CC007E"></i></div>
+<div class="kt"><p><b>What they are.</b> Four separate families that get lumped together: short Russian peptides sprayed up the nose, bigger molecules built to copy growth factors, stimulants and wakefulness drugs, and ordinary supplements. They work by completely different means and only the last group has a solid trial base.</p><p><b>What studies found.</b> Searched on 10 November 2026, <b>ClinicalTrials.gov holds no registered trial for any of the Russian peptides</b>, and none for Dihexa, P21, PE-22-28 or Adamax either. The compounds with real trials, modafinil and the supplements, mostly produce effects smaller than taking the same test twice.</p><p><b>What people report.</b> Semax and Cerebrolysin carry genuine first-hand data, around 25 usable reports each, and people describe clarity and drive rather than memory. Several of the most heavily marketed compounds have zero reports from anyone, anywhere.</p><p><b>Watch out.</b> Two foundational papers behind compounds on this page have been retracted. One compound has no literature at all, and the name may not even match the molecule. And the search results for all of this are now dominated by invented "user reports".</p></div>
+<p class="lead"><b>If you take one thing from this page:</b> simply sitting the same cognitive test a second time improves your score by about as much as the best supplement here, and by more than modafinil does in a rested person. Almost nothing on this page has been shown to beat the act of practising.</p>
+<nav class="toc" aria-label="On this page"><a href="#how">How thinking works</a><a href="#base">The baseline</a><a href="#fam">The four families</a><a href="#map">Where it acts</a><a href="#scan">Every option</a><a href="#ru">Russian peptides</a><a href="#gf">Growth-factor peptides</a><a href="#drive">Drive &amp; wakefulness</a><a href="#supp">Supplements</a><a href="#bdnf">The BDNF question</a><a href="#stim">Cognition or stimulation?</a><a href="#reports">What people report</a><a href="#retract">Retractions &amp; fakes</a><a href="#safe">Safety</a><a href="#faq">FAQ</a><a href="#src">Sources</a></nav>
+
+<h2 class="part" id="how"><span>1</span>How thinking actually works, from scratch</h2>
+<p style="margin-top:10px">Every compound on this page claims a piece of one process: one brain cell talking to the next, and that connection getting stronger. If the words mean nothing yet, start here, because once you can see the four steps, you can see exactly where each compound claims to grab, and how much of the claim is left once you ask what was measured.</p>
+<div class="plain"><div><span class="pn">1</span><p><b>The signal is a chemical thrown across a gap.</b> Two brain cells do not touch. The sending cell keeps its messenger chemical in tiny bubbles, called vesicles, and when it fires, a few bubbles empty into the gap between the cells. That gap is the synapse, and it is about forty millionths of a millimetre wide.</p></div><div><span class="pn">2</span><p><b>The receiving cell catches it with receptors.</b> On the other side, proteins shaped to fit that chemical open and let charged particles in. Enough of them at once and the receiving cell fires too. That is a thought, a memory being recalled, a hand moving, all of it.</p></div><div><span class="pn">3</span><p><b>Connections that get used get physically bigger.</b> This is the part people mean by plasticity. When the same connection fires hard and often, the receiving side grows: more receptors, and the little bump holding them, called a dendritic spine, swells. The lab name for it is long-term potentiation. It is learning, in physical form.</p></div><div><span class="pn">4</span><p><b>Growth factors are the maintenance crew.</b> Proteins like BDNF and NGF arrive at the connection, dock onto their own receptors, and tell the cell to build and keep the structure. Starve a connection of these and it fades. This step is where most of the peptides on this page claim to act, and it is also where the claims get hardest to check.</p></div></div>
+<p style="margin:14px 0 0">Now watch one run. A signal crosses, the receiving side answers, the spine grows, and a growth factor arrives to make the change stick. Tap any part to see which compounds claim that exact step.</p>
+<figure class="atp run" id="synfig">
+<svg viewBox="0 0 380 300" role="img" aria-labelledby="synt"><title id="synt">A synapse: the sending terminal releasing its messenger chemical, receptors on the receiving spine, a growing dendritic spine, and a growth factor docking onto its receptor</title>
+<rect x="4" y="4" width="372" height="292" rx="14" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/>
+<defs><marker id="ar" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L6 3.5 L0 7 z" fill="#3E4A80"/></marker></defs>
+<!-- sending cell -->
+<g class="st s-signal" data-k="signal"><path class="ring" d="M26 22 h218 v110 h-218 z"/>
+<path d="M32 30 q96 -12 198 6 q16 48 -6 92 q-94 14 -186 0 q-14 -50 -6 -98 z" fill="#DCE6F8" stroke="#3E4A80" stroke-width="1.3"/>
+<text x="46" y="50" class="orgl">SENDING CELL</text><text x="46" y="61" class="orgs">fires, and empties bubbles into the gap</text>
+<g><circle class="ves" cx="74" cy="94" r="9"/><circle class="ves v2" cx="100" cy="82" r="8"/><circle class="ves v3" cx="122" cy="98" r="8.5"/></g>
+<text x="76" y="122" class="orgs" text-anchor="middle">vesicles</text>
+</g>
+<!-- mitochondrion inside terminal -->
+<g class="st s-mito" data-k="mito"><path class="ring" d="M164 62 h72 v52 h-72 z"/>
+<ellipse class="mitoglow" cx="198" cy="84" rx="30" ry="16" fill="#DBFAB3" stroke="none"/>
+<ellipse class="mito" cx="198" cy="84" rx="24" ry="11"/>
+<path d="M178 84 q5 -6 10 0 t10 0 t10 0 t10 0" fill="none" stroke="#3E4A80" stroke-width=".9"/>
+<text x="198" y="104" text-anchor="middle" class="orgl" style="font-size:8px">MITOCHONDRION</text>
+<text x="198" y="114" text-anchor="middle" class="orgs">the power supply</text>
+</g>
+<!-- the cleft -->
+<g class="st s-cleft" data-k="cleft"><path class="ring" d="M46 136 h186 v38 h-186 z"/>
+<line x1="30" y1="142" x2="188" y2="142" stroke="#3E4A80" stroke-width="1" stroke-dasharray="3 2"/>
+<line x1="30" y1="170" x2="188" y2="170" stroke="#3E4A80" stroke-width="1" stroke-dasharray="3 2"/>
+<text x="196" y="159" class="orgs">the gap, about 40 nm</text>
+<g><circle class="nt" cx="78" cy="140" r="3.4"/><circle class="nt n2" cx="96" cy="140" r="3.4"/><circle class="nt n3" cx="114" cy="140" r="3.4"/><circle class="nt n4" cx="132" cy="140" r="3.4"/><circle class="nt n5" cx="150" cy="140" r="3.4"/></g>
+</g>
+<!-- receiving spine -->
+<g class="st s-receptor" data-k="receptor"><path class="ring" d="M62 160 h120 v56 h-120 z"/>
+<g class="spine"><path d="M70 212 q6 -46 50 -46 q44 0 50 46 z" fill="#E6E1F7" stroke="#3E4A80" stroke-width="1.3"/></g>
+<g fill="#C2DCFF" stroke="#3E4A80" stroke-width="1"><rect x="94" y="163" width="11" height="12" rx="2"/><rect x="112" y="161" width="11" height="12" rx="2"/><rect x="130" y="163" width="11" height="12" rx="2"/></g>
+<text x="120" y="226" text-anchor="middle" class="orgs">receptors on the spine</text>
+<g><circle class="ion" cx="100" cy="178" r="2.8"/><circle class="ion i2" cx="136" cy="178" r="2.8"/></g>
+</g>
+<!-- LTP / growth -->
+<g class="st s-ltp" data-k="ltp"><path class="ring" d="M188 160 h92 v78 h-92 z"/>
+<path d="M196 216 q5 -50 36 -50 q31 0 36 50 z" fill="#F6F2DA" stroke="#3E4A80" stroke-width="1.1" stroke-dasharray="3 2"/>
+<text x="232" y="229" text-anchor="middle" class="orgs">used often, it grows</text>
+<path d="M178 200 h14" stroke="#3E4A80" stroke-width="1" marker-end="url(#ar)"/>
+</g>
+<!-- BDNF / growth factors -->
+<g class="st s-bdnf" data-k="bdnf"><path class="ring" d="M258 104 h110 v104 h-110 z"/>
+<text x="268" y="118" class="orgl" style="font-size:8.5px">GROWTH FACTORS</text>
+<text x="268" y="129" class="orgs">BDNF and NGF</text>
+<text x="268" y="139" class="orgs">the maintenance crew</text>
+<g><circle class="bd" cx="344" cy="152" r="7"/><circle class="bd b2" cx="358" cy="144" r="6"/></g>
+<rect x="264" y="192" width="12" height="15" rx="2" fill="#BAB802" stroke="#3E4A80" stroke-width="1"/>
+<text x="282" y="203" class="orgs">TrkB receptor</text>
+</g>
+<!-- receiving cell body -->
+<g><path d="M30 242 q150 -8 320 0 q6 20 0 38 q-160 10 -320 0 q-6 -18 0 -38 z" fill="#F3EFD6" stroke="#3E4A80" stroke-width="1.2"/>
+<text x="190" y="264" text-anchor="middle" class="orgl" style="font-size:9px">RECEIVING CELL</text>
+<text x="190" y="276" text-anchor="middle" class="orgs">thousands of these connections, each adjustable</text></g>
+</svg>
+<figcaption class="atpcap">One synapse. The sending cell empties vesicles of its messenger chemical into the gap; receptors on the receiving spine catch it and let charged particles in; a connection used often physically grows; and growth factors dock onto their own receptor to keep the structure standing.</figcaption>
+</figure>
+<div class="atpk" id="synk">
+<button data-k="all" aria-pressed="true">Play all</button>
+<button data-k="signal"><i style="background:#DCE6F8"></i>The signal</button>
+<button data-k="cleft"><i style="background:#CC007E"></i>The gap</button>
+<button data-k="receptor"><i style="background:#C2DCFF"></i>Receptors</button>
+<button data-k="ltp"><i style="background:#F6F2DA"></i>Growing</button>
+<button data-k="bdnf"><i style="background:#BAB802"></i>Growth factors</button>
+<button data-k="mito"><i style="background:#DBFAB3"></i>Power supply</button>
+</div>
+<p class="atpc" id="sync">The whole connection, running. Follow a messenger chemical across the gap, watch the receptors answer, see the spine grow, and see a growth factor arrive to make the change permanent.</p>
+<p class="note">Hold that picture and the rest of this page becomes one question asked thirty times: which step does this compound grab, in what species, and did anybody check whether grabbing it made a person think better.</p>
+
+<h2 class="part" id="base"><span>2</span>The baseline, which almost nothing here beats</h2>
+<p style="margin-top:10px">Every other page on this site states the natural history before the reports: how many people get better anyway. For a brain page that question takes a strange and much more awkward form, because the thing you are trying to improve is measured by a test, and <b>people get better at tests by taking them</b>. That single fact explains most of what people believe about this entire category, so it belongs before any compound, not in a footnote.</p>
+<p>Across 68 studies and 3,281 healthy people, simply sitting a working-memory test a second time raised scores by an effect size of <b>0.28</b>. By the fifth sitting it reached <b>0.97</b>. Using a different version of the test does not help: identical forms scored 0.32, alternate forms 0.30, a difference that was not statistically meaningful.<span class="c"><sup><a href="#s1">1</a></sup></span> Gains only wash out after something like a year.</p>
+<p>The cleanest demonstration of why that matters came from a trial that was not studying supplements at all. Over sixteen weeks and three testing sessions, the healthy comparison group improved by an effect size of <b>0.33</b> from practice alone. The group actually taking a drug improved by <b>0.36</b>.<span class="c"><sup><a href="#s2">2</a></sup></span> The drug's apparent benefit was indistinguishable from the benefit of having sat the test before.</p>
+<p>Now put the two interventions nobody is selling next to that. Exercise, pooled across 36 studies in adults over 50, at 45 to 60 minutes of at least moderate intensity: <b>0.29</b>.<span class="c"><sup><a href="#s3">3</a></sup></span> And sleep, which is the uncomfortable one. In a laboratory trial, 48 healthy adults held to six-hour nights for two weeks accumulated cognitive deficits equivalent to <b>up to two nights of no sleep at all</b>. Their own ratings of how sleepy they felt plateaued after a few days and <b>could not tell six-hour nights from four-hour nights</b>.<span class="c"><sup><a href="#s4">4</a></sup></span> People lose this much without noticing, then go looking for a peptide.</p>
+<div class="bar">
+<div class="brow base"><span class="blab"><b>Taking the same test a 5th time</b><i>0.97</i></span><span class="btrack"><i style="width:97%"></i></span></div>
+<div class="brow big"><span class="blab"><b>Magnesium L-threonate, impaired adults, one company trial</b><i>0.91</i></span><span class="btrack"><i style="width:91%"></i></span></div>
+<div class="brow big"><span class="blab"><b>Creatine, adults aged 66 to 76</b><i>0.88</i></span><span class="btrack"><i style="width:88%"></i></span></div>
+<div class="brow base"><span class="blab"><b>Mind-body exercise</b><i>0.48</i></span><span class="btrack"><i style="width:48%"></i></span></div>
+<div class="brow base"><span class="blab"><b>Practice alone, 3 sittings over 16 weeks</b><i>0.33</i></span><span class="btrack"><i style="width:33%"></i></span></div>
+<div class="brow base"><span class="blab"><b>Exercise, 45 to 60 min, moderate or above</b><i>0.29</i></span><span class="btrack"><i style="width:29%"></i></span></div>
+<div class="brow base"><span class="blab"><b>Taking the same test a 2nd time</b><i>0.28</i></span><span class="btrack"><i style="width:28%"></i></span></div>
+<div class="brow"><span class="blab"><b>Modafinil, memory updating only</b><i>0.28</i></span><span class="btrack"><i style="width:28%"></i></span></div>
+<div class="brow"><span class="blab"><b>Modafinil, overall, rested healthy adults</b><i>0.12</i></span><span class="btrack"><i style="width:12%"></i></span></div>
+<div class="brow zero"><span class="blab"><b>Creatine, people aged 11 to 31</b><i>0.03</i></span><span class="btrack"><i style="width:3%"></i></span></div>
+<div class="brow zero"><span class="blab"><b>Omega-3 on memory scores, 3,221 healthy older adults</b><i>&minus;0.07</i></span><span class="btrack"><i style="width:2%"></i></span></div>
+</div>
+<p class="note">Effect sizes are not all measuring the same thing and should not be read as a league table of usefulness. They are on one chart to make a single point about scale: the green bars are the two compounds that clear the bar, and both of them only clear it in people who were already impaired.</p>
+<div class="hyp"><p><b>The honest centre of this page.</b> Of thirteen supplements with real trials, exactly two produce an effect larger than an hour of moderate exercise. Both work only in people who are already impaired or deficient. One of those two rests on a single trial of 44 people run by the company selling it. And the research peptides, the expensive half of this page, mostly have no human trial at all to compare.</p></div>
+<p>One more reason to be careful with your own impressions. Two trials on this page could not report their own results honestly because of this problem. In the nicotinamide riboside trial, walking speed improved significantly in the <i>placebo</i> group and not in the treated group, which the authors put down to practice.<span class="c"><sup><a href="#s5">5</a></sup></span> In the magnesium L-threonate trial, the sleep and anxiety outcomes could not be assessed at all, in the authors' own words, "because of strong placebo effects".<span class="c"><sup><a href="#s6">6</a></sup></span></p>
+
+<h2 class="part" id="fam"><span>3</span>Four families, not one shelf</h2>
+<p style="margin-top:10px">"Nootropics" is a shopping category, not a mechanism. What actually sits on this page is four groups that have almost nothing to do with each other, and keeping them apart is most of the work of understanding the field. The evidence quality runs in almost the opposite direction to the price.</p>
+<div class="ends">
+<div class="end" style="border-top-color:#C2DCFF"><p class="el">Family one &middot; short peptides, usually nasal</p><h4>The Russian family</h4><p>Tiny fragments of hormones the body already makes, developed in Soviet and Russian institutes and approved there, for narrow uses, on evidence that would not pass elsewhere. They are cheap, well tolerated, and genuinely interesting. They also have no registered trial anywhere in the international system.</p><p class="mem"><b>Who lives here:</b> Semax, Selank, both N-acetyl amidate versions, Noopept, Cortagen, Pinealon.</p></div>
+<div class="end" style="border-top-color:#BAB802"><p class="el">Family two &middot; built to copy growth factors</p><h4>The plasticity peptides</h4><p>Bigger, newer molecules designed in Western labs to do what BDNF, NGF and HGF do: build and keep synapses. The most ambitious group on the page, and the one where the gap between the marketing and the record is widest. Four of six have never been given to a person in a trial.</p><p class="mem"><b>Who lives here:</b> Cerebrolysin, Dihexa, P21, PE-22-28, Adamax, cGP.</p></div>
+<div class="end" style="border-top-color:#B493E8"><p class="el">Family three &middot; stimulants and wakefulness</p><h4>Drive compounds</h4><p>Not peptides, and not really about memory. These change how awake and how motivated you are, and the honest reading of the evidence is that this is the whole of what they do. The one licensed drug in the group has the most human data on the page, and the smallest measured cognitive effect.</p><p class="mem"><b>Who lives here:</b> bromantane, phenylpiracetam, 9-Me-BC, modafinil, methylene blue.</p></div>
+<div class="end" style="border-top-color:#AACC96"><p class="el">Family four &middot; the ordinary half</p><h4>Supplements</h4><p>The cheapest things here and the only ones with a real trial base, which is exactly why they are the most useful section to read carefully. The lesson that runs through all of them is that almost every positive result comes from people who were already impaired or deficient, not from healthy adults.</p><p class="mem"><b>Who lives here:</b> Lion's Mane, bacopa, alpha-GPC, phosphatidylserine, magnesium L-threonate, L-theanine, ashwagandha, taurine, creatine, omega-3, citicoline, B12, NAD+ precursors.</p></div>
+</div>
+<p class="note">One compound people expect here is deliberately absent. <b>ARA-290</b> is a small-fibre nerve compound, acting on corneal nerve density and peripheral pain signalling, not a brain compound, so it stays in the <a href="/library/#/p/ara-290">Library</a> rather than on this page.</p>
+
+<style>
+@media(max-width:680px){
+ .bm.focus .sites .site{display:none}
+ .bm.focus .sites .site.t1,.bm.focus .sites .site.t2,.bm.focus .sites .site.t3,.bm.focus .sites .site.off{display:grid}
+}
+@media(min-width:900px){.sites{grid-template-columns:1fr 1fr;column-gap:24px}}
+</style>
+
+<h2 class="part" id="map"><span>4</span>Where each one acts, and how well that is known</h2>
+<p style="margin-top:10px">Tap a compound. The brain lights where there is evidence it acts, and the <b>way</b> it lights tells you how good that evidence is: a solid block means it was measured in living humans, a softer block means it was measured in animals, and a dashed outline means nobody has measured it at all and the region is reasoned from how the molecule works.</p>
+<p>Six compounds light nothing, and a panel says so. That is not a gap in this page. It is the finding. The richest map belongs to modafinil, because one experiment ran it head to head against amphetamine and recorded where it did <i>not</i> act as carefully as where it did.<span class="c"><sup><a href="#s43">43</a></sup></span></p>
+<div class="bm" id="bm">
+<div class="bmpick" id="bmpick" role="group" aria-label="Pick a compound">
+<span class="lab">Russian peptides</span>
+<button type="button" data-k="semax" data-t2="hippo frontal brainstem cereb" data-sel="<b>Semax</b> raised BDNF and its receptor in rat hippocampus and frontal cortex after a single nasal dose matched to human use, and also in brainstem and cerebellum. Worth knowing: the response was biphasic and opposite between regions, falling in hippocampus and rising in frontal cortex at 20 minutes, both rising at 90 minutes, both back to baseline by 8 hours. Not a simple boost." aria-pressed="false">Semax</button>
+<button type="button" data-k="nasemax" data-t3="hippo frontal" data-sel="<b>NA Semax Amidate</b> has no region study of its own. Nothing specific to the acetylated, amidated form has ever been published, so these regions are borrowed from plain Semax." aria-pressed="false">NA Semax Amidate</button>
+<button type="button" data-k="selank" data-t2="hippo pfc" data-sel="<b>Selank</b> changed the expression of 36 genes more than twofold in rat hippocampus after one nasal dose, and altered BDNF in hippocampus and prefrontal cortex. Note what is <b>not</b> lit: the amygdala. The widely repeated claim that Selank works on the amygdala like a benzodiazepine returns zero results on PubMed, so it is not shown here." aria-pressed="false">Selank</button>
+<button type="button" data-k="naselank" data-t3="hippo pfc" data-sel="<b>NA Selank Amidate</b> has no study of its own, in any species. Regions borrowed from plain Selank." aria-pressed="false">NA Selank Amidate</button>
+<button type="button" data-k="noopept" data-t2="cortex hippo" data-sel="<b>Noopept</b> raised fast EEG activity across rat brain areas, and the effect depended on NMDA receptors: blocking them reduced the cortical effect and completely abolished the hippocampal one. The same work found the effect disappeared with repeated dosing, gone by the ninth injection, which matches what users report." aria-pressed="false">Noopept</button>
+<button type="button" data-k="cortagen" data-null="1" data-sel="<b>Cortagen</b> has no regional evidence in humans or animals that could be retrieved. Its best single result is a 27% faster growth rate and 40% faster conduction in a cut rat sciatic nerve, which is peripheral nerve, not brain." aria-pressed="false">Cortagen</button>
+<button type="button" data-k="pinealon" data-null="1" data-sel="<b>Pinealon</b> has no regional study at all. Its pineal-targeting claim also needs less than it sounds: the pineal is one of a handful of structures with no blood-brain barrier, so reaching it requires no penetration. Tap the barrier overlay below to see them." aria-pressed="false">Pinealon</button>
+<span class="lab">Plasticity peptides</span>
+<button type="button" data-k="cerebrolysin" data-t3="cortex" data-sel="<b>Cerebrolysin</b> is a mixture of peptides and free amino acids from pig brain, not a single molecule, so a region cannot honestly be assigned. A search for a region-specific mechanism study returned nothing. Its own regulatory document states that measuring its pharmacokinetics was unsuccessful, so whether the active fraction crosses into the brain is asserted rather than shown." aria-pressed="false">Cerebrolysin</button>
+<button type="button" data-k="dihexa" data-null="1" data-sel="<b>Dihexa</b> lights nothing, and the reason matters. Its entire hippocampus, HGF and barrier-crossing story rests on one paper, and <b>that paper has been retracted</b>. There is no second mechanism base and no user base either." aria-pressed="false">Dihexa</button>
+<button type="button" data-k="p21" data-null="1" data-sel="<b>P21</b> is claimed to drive new neuron growth in one specific part of the hippocampus, and in mice that work exists. No usable human regional data exists, and it has never been in a registered trial." aria-pressed="false">P21</button>
+<button type="button" data-k="pe2228" data-t2="hippo pfc raphe" data-sel="<b>PE-22-28</b> has the most precise regional map of any peptide on this page: hippocampus, prefrontal cortex and the dorsal raphe, through blocking a potassium channel called TREK-1. It also has <b>zero first-hand reports from anyone</b>. It is the exact inverse of Semax, and the clearest proof that mechanism detail and real-world evidence are different things." aria-pressed="false">PE-22-28</button>
+<button type="button" data-k="adamax" data-null="1" data-sel="<b>Adamax</b> lights nothing because there is nothing. No paper, no patent, no trial, no reports. The sequence circulating for it is Semax's sequence with an added cage molecule, mislabelled, and the descriptions contradict each other." aria-pressed="false">Adamax</button>
+<button type="button" data-k="cgp" data-t3="cortex hippo" data-sel="<b>cGP</b> has the best-measured brain entry here, raising its own level in human spinal fluid after an oral dose. But read the direction: its own origin work shows it <b>lowers</b> IGF-1 activity where IGF-1 is already sufficient. For a healthy adult the predicted effect points down, not up." aria-pressed="false">cGP</button>
+<span class="lab">Drive &amp; wakefulness</span>
+<button type="button" data-k="bromantane" data-t2="frontal accumbens" data-off="cereb" data-sel="<b>Bromantane</b> raised serotonin and its breakdown product in rat frontal cortex with a delayed rise in deeper regions, and it works by blocking dopamine reuptake. The red dotted cerebellum is the unusual part: the same study found a <b>stable decrease</b> there. It is the only compound on this page with a documented fall in a named region." aria-pressed="false">Bromantane</button>
+<button type="button" data-k="phenylpiracetam" data-t2="cortex" data-t3="accumbens" data-sel="<b>Phenylpiracetam</b> had the strongest protective effect on cortical mitochondria of four agents compared in diabetic rats, alongside better learning. Its stimulant side is almost certainly dopaminergic, but no study localises that to a region in any species, so the reward area is dashed." aria-pressed="false">Phenylpiracetam</button>
+<button type="button" data-k="9mebc" data-null="1" data-sel="<b>9-Me-BC</b> lights nothing. Targeted searches pairing it with substantia nigra, hippocampus, dopaminergic and nigrostriatal all returned zero results, and it has never been given to a person in any recorded study." aria-pressed="false">9-Me-BC</button>
+<button type="button" data-k="modafinil" data-t2="hippo thal amyg" data-t3="pfc" data-off="accumbens vta frontal" data-sel="<b>Modafinil</b> is the most informative map here because of what is <b>off</b>. Run head to head against amphetamine in the same experiment, it raised activity in every part of the hippocampus, one thalamic nucleus and the central amygdala, while amphetamine's hits on the reward areas, basal ganglia and frontal cortex showed <b>no modafinil effect at all</b>. Red dotted means tested and found absent. The prefrontal dash is contested: a human review argues for it, the animal work found nothing there." aria-pressed="false">Modafinil</button>
+<button type="button" data-k="mb" data-t1="insula pfc parietal occipital" data-sel="<b>Methylene blue</b> is the only compound on this entire page with randomised, double-blind, placebo-controlled brain imaging in living humans. In 26 healthy people, one oral low dose raised the response in the insula during sustained attention, and in prefrontal, parietal and occipital cortex during a memory task, alongside <b>7% more correct answers on memory retrieval</b>. Everything lit here was actually measured, in people." aria-pressed="false">Methylene blue</button>
+<span class="lab">Supplements</span>
+<button type="button" data-k="lionsmane" data-t3="basal hippo cortex" data-sel="<b>Lion's Mane</b> induces NGF in a dish, and NGF acts on the cholinergic cells of the basal forebrain that feed the hippocampus and cortex, which is where these dashes come from. It is class reasoning, not a finding about this mushroom, and the honest problem is that NGF itself does not cross into the brain and nobody has shown its active compounds do either." aria-pressed="false">Lion's Mane</button>
+<button type="button" data-k="bacopa" data-t3="hippo" data-sel="<b>Bacopa</b> has cholinergic hippocampal effects in rodents and a replicated human effect on delayed recall. No human regional data exists, so the hippocampus is dashed." aria-pressed="false">Bacopa</button>
+<button type="button" data-k="agpc" data-t3="basal cortex hippo" data-sel="<b>Alpha-GPC</b> is a choline donor, so by class it feeds acetylcholine production in the basal forebrain and the cortex and hippocampus it projects to. No compound-specific regional study exists." aria-pressed="false">Alpha-GPC</button>
+<button type="button" data-k="magthr" data-t2="hippo" data-sel="<b>Magnesium L-threonate</b> has the best-demonstrated delivery of anything here, and by an unusual route: it is the <b>threonate</b>, not the magnesium, that does the transporting, and an oral dose measurably raises threonate in spinal fluid. In cultured hippocampal neurons it raised internal magnesium, upgraded NMDA receptors and increased the number of working synapses." aria-pressed="false">Magnesium L-threonate</button>
+<button type="button" data-k="theanine" data-t3="cortex" data-sel="<b>L-theanine</b> reliably raises alpha-wave activity across the human cortex, which is a diffuse change rather than a region, so the whole cortex is dashed. Its blood-brain barrier crossing is one of the better established here, via the transporter that carries large neutral amino acids." aria-pressed="false">L-theanine</button>
+<button type="button" data-k="ashwagandha" data-t3="hypo pit" data-sel="<b>Ashwagandha</b> works on the stress axis, lowering cortisol, so by mechanism it points at the hypothalamus and pituitary. Note that this needs no barrier crossing at all: the median eminence and the back of the pituitary are both outside the blood-brain barrier. Tap the overlay to see it." aria-pressed="false">Ashwagandha</button>
+<button type="button" data-k="creatine" data-t2="cortex" data-sel="<b>Creatine</b> is measurable in the living human brain by scan, and supplementing raises it, modestly. The effect is diffuse grey matter rather than a region. Brain levels rise far less than muscle levels because its transporter is the bottleneck." aria-pressed="false">Creatine</button>
+<span class="lab">Blends</span>
+<button type="button" data-k="semaxselank" data-t2="hippo pfc frontal brainstem cereb" data-sel="<b>Semax plus Selank</b> lights the union of the two, since both are reasonably well mapped in rats. No study has ever tested the combination itself, so any interaction between them is unknown. Both also end in the same three-amino-acid tail, which has effects of its own on cortical immune genes, so part of what each one does may be the shared tail." aria-pressed="false">Semax + Selank</button>
+<button type="button" data-k="fourway" data-null="1" data-sel="<b>The four-way blend</b> lights nothing as a combination. No study of it exists, two of its four components have no regional evidence at all, and the blend has zero first-hand reports from anyone." aria-pressed="false">Semax / Selank / PE-22-28 / Pinealon</button>
+</div>
+<div class="bmwrap"><figure class="bmfig"><svg viewBox="0 0 170 135" role="img" aria-labelledby="bmt"><title id="bmt">A mid-sagittal view of the brain, anterior to the left, showing cortex, corpus callosum, thalamus, hypothalamus, pituitary, pineal, brainstem, cerebellum and the projected positions of hippocampus, amygdala and insula</title>
+<!-- cerebrum -->
+<path class="brainline" d="M12 50 C9 28 26 10 52 5 C82 0 116 4 138 17 C156 28 164 42 160 54 C157 64 150 69 141 70 L116 72 C113 80 106 87 96 88 C84 90 72 88 64 82 C56 76 50 68 40 64 C26 59 14 60 12 50 Z"/>
+<g class="gyr"><path d="M18 42 C26 34 28 22 40 16"/><path d="M30 52 C40 42 42 28 56 22"/><path d="M46 60 C56 48 58 32 72 26"/><path d="M62 70 C74 56 76 38 90 30"/><path d="M80 78 C94 62 96 42 110 34"/><path d="M100 80 C114 64 120 46 134 40"/><path d="M122 72 C134 58 144 46 154 44"/><path d="M44 12 C54 20 58 28 56 36"/><path d="M74 5 C84 14 88 24 86 32"/><path d="M106 8 C116 18 120 28 118 36"/><path d="M132 18 C142 28 146 38 144 46"/></g>
+<!-- corpus callosum arch -->
+<path class="inner" d="M48 58 C42 45 56 34 78 33 C98 32 110 41 112 51 C112 55 108 56 106 52 C101 42 90 37 78 38 C62 39 52 47 54 58 Z"/>
+<!-- tentorium -->
+<line x1="116" y1="72" x2="160" y2="60" stroke="#6B76A8" stroke-width=".8" stroke-dasharray="3 2"/>
+<!-- brainstem: midbrain, pons, medulla -->
+<path class="inner" d="M86 60 L100 60 C102 66 102 70 100 74 C106 78 108 86 105 92 C103 98 99 100 97 101 C98 108 99 114 99 120 L91 120 C91 112 92 106 92 100 C86 98 82 92 82 86 C82 79 85 76 88 74 C86 70 85 65 86 60 Z"/>
+<!-- cerebellum -->
+<ellipse class="inner" cx="133" cy="95" rx="26" ry="18"/>
+<g class="gyr"><path d="M110 88 h46"/><path d="M109 95 h48"/><path d="M111 102 h44"/><path d="M116 108 h34"/><path d="M118 82 h32"/></g>
+<!-- thalamus -->
+<ellipse class="inner" cx="85" cy="56" rx="13" ry="9"/>
+<!-- zones -->
+<g class="z" data-k="cortex"><path class="zh" d="M12 50 C9 28 26 10 52 5 C82 0 116 4 138 17 C156 28 164 42 160 54 C157 64 150 69 141 70 L116 72 C113 80 106 87 96 88 C84 90 72 88 64 82 C56 76 50 68 40 64 C26 59 14 60 12 50 Z" fill="#B493E8"/></g>
+<g class="z" data-k="pfc"><path class="zh" d="M13 50 C10 36 14 25 25 17 C33 22 39 34 39 46 C31 54 18 56 13 50 Z" fill="#B493E8"/></g>
+<g class="z" data-k="frontal"><path class="zh" d="M27 15 C39 6 54 2 70 3 C72 14 68 27 60 33 C48 33 35 25 27 15 Z" fill="#B493E8"/></g>
+<g class="z" data-k="parietal"><path class="zh" d="M74 3 C94 3 116 8 132 18 C128 28 118 37 106 39 C92 35 78 20 74 3 Z" fill="#B493E8"/></g>
+<g class="z" data-k="occipital"><path class="zh" d="M136 20 C150 30 163 42 159 55 C154 65 146 69 138 69 C132 56 132 34 136 20 Z" fill="#B493E8"/></g>
+<g class="z proj" data-k="insula"><ellipse class="zh" cx="60" cy="62" rx="10" ry="6.4" fill="#B493E8"/></g>
+<g class="z proj" data-k="hippo"><path class="zh" d="M88 88 C85 78 94 72 103 75 C111 77 114 83 112 89 C109 84 107 80 102 79 C95 78 91 82 93 88 Z" fill="#B493E8"/></g>
+<g class="z proj" data-k="amyg"><ellipse class="zh" cx="76" cy="81" rx="6.4" ry="5" fill="#B493E8"/></g>
+<g class="z" data-k="thal"><ellipse class="zh" cx="85" cy="56" rx="13" ry="9" fill="#B493E8"/></g>
+<g class="z" data-k="hypo"><path class="zh" d="M64 65 L80 65 L72 76 Z" fill="#B493E8"/></g>
+<g class="z" data-k="pit"><ellipse class="zh" cx="64" cy="81" rx="5.6" ry="4.2" fill="#B493E8"/></g>
+<g class="z" data-k="pineal"><circle class="zh" cx="104" cy="56" r="3.8" fill="#B493E8"/></g>
+<g class="z" data-k="basal"><ellipse class="zh" cx="58" cy="68" rx="5.2" ry="4" fill="#B493E8"/></g>
+<g class="z" data-k="accumbens"><circle class="zh" cx="50" cy="62" r="4.6" fill="#B493E8"/></g>
+<g class="z" data-k="vta"><ellipse class="zh" cx="90" cy="73" rx="5.2" ry="3.2" fill="#B493E8"/></g>
+<g class="z" data-k="raphe"><path class="zh" d="M93 72 L97 72 L97 112 L93 112 Z" fill="#B493E8"/></g>
+<g class="z" data-k="brainstem"><path class="zh" d="M86 60 L100 60 C102 66 102 70 100 74 C106 78 108 86 105 92 C103 98 99 100 97 101 C98 108 99 114 99 120 L91 120 C91 112 92 106 92 100 C86 98 82 92 82 86 C82 79 85 76 88 74 C86 70 85 65 86 60 Z" fill="#B493E8"/></g>
+<g class="z" data-k="cereb"><ellipse class="zh" cx="133" cy="95" rx="26" ry="18" fill="#B493E8"/></g>
+<!-- circumventricular organs, no barrier -->
+<g class="cvoset"><circle class="cvo" cx="104" cy="56" r="5.2"/><circle class="cvo" cx="70" cy="72" r="4"/><circle class="cvo" cx="64" cy="81" r="6"/><circle class="cvo" cx="62" cy="55" r="3.4"/><circle class="cvo" cx="60" cy="65" r="3.4"/><circle class="cvo" cx="99" cy="104" r="3.4"/></g>
+<text x="8" y="130" font-family="JetBrains Mono,monospace" font-size="4.4" fill="#6B76A8">FRONT</text>
+<text x="146" y="130" font-family="JetBrains Mono,monospace" font-size="4.4" fill="#6B76A8">BACK</text>
+</svg></figure>
+<div class="sites" id="bmsites">
+<div class="site" data-k="cortex"><span class="d"></span><span><b>Cerebral cortex.</b> The folded outer layer, and the bulk of the brain. Compounds that act everywhere rather than somewhere light up here.</span></div>
+<div class="site" data-k="pfc"><span class="d"></span><span><b>Prefrontal cortex.</b> Planning, holding things in mind, deciding. What people mean by focus.</span></div>
+<div class="site" data-k="frontal"><span class="d"></span><span><b>Frontal cortex.</b> The wider front region, where several of the Russian peptides changed gene activity in rats.</span></div>
+<div class="site" data-k="parietal"><span class="d"></span><span><b>Parietal cortex.</b> Attention and the sense of space. Lit up in the methylene blue scans during a memory task.</span></div>
+<div class="site" data-k="occipital"><span class="d"></span><span><b>Occipital cortex.</b> Vision. Also lit in the methylene blue scans, which is a reminder that measured is not the same as useful.</span></div>
+<div class="site" data-k="insula"><span class="d"></span><span><b>Insula.</b> Buried in the side of the brain, tracking the body's internal state and sustained attention. Shown here as a projection.</span></div>
+<div class="site" data-k="hippo"><span class="d"></span><span><b>Hippocampus.</b> Where new memories are laid down, and the single most-claimed target on this page. Shown as a projection.</span></div>
+<div class="site" data-k="amyg"><span class="d"></span><span><b>Amygdala.</b> Threat and emotional salience. Shown as a projection.</span></div>
+<div class="site" data-k="thal"><span class="d"></span><span><b>Thalamus.</b> The relay station almost every signal passes through on its way to the cortex.</span></div>
+<div class="site" data-k="hypo"><span class="d"></span><span><b>Hypothalamus.</b> The control room for hormones, hunger, temperature and the stress response.</span></div>
+<div class="site" data-k="pit"><span class="d"></span><span><b>Pituitary.</b> The hormone gland hanging below the hypothalamus on a stalk.</span></div>
+<div class="site" data-k="pineal"><span class="d"></span><span><b>Pineal.</b> The melatonin gland, behind the thalamus. One of the few places with no blood-brain barrier.</span></div>
+<div class="site" data-k="basal"><span class="d"></span><span><b>Basal forebrain.</b> The cholinergic cells that supply the cortex and hippocampus. What choline donors and NGF claims point at.</span></div>
+<div class="site" data-k="accumbens"><span class="d"></span><span><b>Nucleus accumbens.</b> The reward and wanting area. Where stimulants are assumed to act, and where modafinil was tested and found not to.</span></div>
+<div class="site" data-k="vta"><span class="d"></span><span><b>Dopamine origin, VTA and substantia nigra.</b> The small clusters that send dopamine up to everything above.</span></div>
+<div class="site" data-k="raphe"><span class="d"></span><span><b>Raphe nuclei.</b> The serotonin source, a thin column running the length of the brainstem rather than a single lump.</span></div>
+<div class="site" data-k="brainstem"><span class="d"></span><span><b>Brainstem.</b> Breathing, heart rate, arousal and sleep. Below the thalamus, running down to the spinal cord.</span></div>
+<div class="site" data-k="cereb"><span class="d"></span><span><b>Cerebellum.</b> Coordination and timing. A tenth of the brain's weight and about four fifths of its neurons.</span></div>
+</div></div>
+<div class="bmleg"><span><i class="s1"></i>measured in humans</span><span><i class="s2"></i>measured in animals</span><span><i class="s3"></i>reasoned, not measured</span><span><i class="s4"></i>tested, and absent or reduced</span></div>
+<p class="bmsel" id="bmsel" aria-live="polite">Tap any compound above to see where it acts, and how firmly that is known.</p>
+<div class="bmnull" id="bmnull"><b>No regional evidence.</b> Nothing lights up for this one, because no study places it anywhere in the brain. That is the honest state of the record, not a missing piece of research on our side.</div>
+<div class="bmtog"><button type="button" id="cvobtn" aria-pressed="false">Show the places with no barrier</button></div>
+<p class="note" id="cvonote">The brain protects itself with a tight seal around its blood vessels, the blood-brain barrier, and getting past it is the central difficulty for every compound here. But a handful of midline structures sit <i>outside</i> that seal and are openly exposed to the bloodstream: the pineal, the median eminence of the hypothalamus, the back of the pituitary, two small sensing organs at the front of the third ventricle, and one in the medulla. This matters for reading claims honestly. A compound said to target the pineal or the stress axis does not need to cross anything impressive to get there.</p>
+<p class="note"><b>One thing not faked quietly.</b> The hippocampus, amygdala and insula do not exist in a true middle slice of the brain. They sit roughly 25 to 30 millimetres out to the side. Textbook diagrams draw them anyway, as a see-through projection, and so does this one, but they are drawn with a dashed edge so you know. A viewer who taps hippocampus and sees a solid shape in a midline view has been told something untrue.</p>
+</div>
+
+<h2 class="part" id="scan"><span>5</span>Every option at a glance</h2>
+<p style="margin-top:10px">The whole page on one screen, ordered by how much human evidence exists rather than by how much is claimed. "Best human evidence" is the single strongest study that actually exists. Read the top of this table as the part worth your attention and the bottom as the part worth your scepticism.</p>
+<div class="sc">
+<div><b>Modafinil</b><span class="sv">Works, for wakefulness. Cognitive effect 0.12</span><span class="se">Two meta-analyses, 14 and 19 trials &middot; Wakefulness drug &middot; Pill</span></div>
+<div><b>Creatine</b><span class="sv">0.88 over 66, 0.03 under 31</span><span class="se">Meta-analysis, split by age &middot; Supplement &middot; Powder</span></div>
+<div><b>Methylene blue</b><span class="sv">The only measured human brain effect here. Real interaction dangers</span><span class="se">Randomised brain imaging, 26 people &middot; Drive &middot; Pill</span></div>
+<div><b>L-theanine + caffeine</b><span class="sv">Small, acute, hours not weeks. The yardstick</span><span class="se">Systematic review, 21 studies &middot; Supplement &middot; Pill, tea</span></div>
+<div><b>Bacopa</b><span class="sv">Replicated, and the effect is 11 to 18 milliseconds</span><span class="se">Meta-analysis, 437 people &middot; Supplement &middot; Pill</span></div>
+<div><b>Magnesium L-threonate</b><span class="sv">Biggest number on the page, from the company selling it</span><span class="se">One trial, 44 impaired adults &middot; Supplement &middot; Pill</span></div>
+<div><b>Cerebrolysin</b><span class="sv">Flagship trial missed. A harm signal exists</span><span class="se">1,070-person stroke trial, plus Cochrane &middot; Plasticity &middot; Injection, IV</span></div>
+<div><b>Ashwagandha</b><span class="sv">Stress, maybe. Cognition, no. Liver cases reported</span><span class="se">One 50-person pilot in impairment &middot; Supplement &middot; Pill</span></div>
+<div><b>Lion's Mane</b><span class="sv">Unproven in healthy people. Effect gone 4 weeks after stopping</span><span class="se">One trial, 30 impaired adults &middot; Supplement &middot; Pill</span></div>
+<div><b>Alpha-GPC</b><span class="sv">No benefit shown, plus a contested stroke signal</span><span class="se">No healthy trial. Large observational data &middot; Supplement &middot; Pill</span></div>
+<div><b>Omega-3</b><span class="sv">Two large nulls. Good for other reasons</span><span class="se">Cochrane 3,221 and AREDS2 3,501 &middot; Supplement &middot; Capsule</span></div>
+<div><b>Semax</b><span class="sv">Most real user data here. No placebo trial anywhere</span><span class="se">Approved in Russia for stroke; 30 vs 80, unblinded &middot; Russian peptide &middot; Nasal, injection</span></div>
+<div><b>Phenylpiracetam</b><span class="sv">Stimulant. Tolerance documented at 4 to 8 weeks</span><span class="se">Russian trials, uncontrolled pooling &middot; Drive &middot; Pill</span></div>
+<div><b>Selank</b><span class="sv">No placebo arm exists. Calming, at most</span><span class="se">30 vs 32 against a benzodiazepine &middot; Russian peptide &middot; Nasal</span></div>
+<div><b>Noopept</b><span class="sv">Splits people. Stops working, in rats and in reports</span><span class="se">Russian trial, design unretrievable &middot; Russian peptide &middot; Pill</span></div>
+<div><b>Bromantane</b><span class="sv">Fatigue, not cognition. Reputation outruns reports</span><span class="se">Russian trials in asthenia &middot; Drive &middot; Pill</span></div>
+<div><b>Pinealon</b><span class="sv">That study reported harm signals, not benefit</span><span class="se">One open study, 32 people &middot; Russian peptide &middot; Injection, pill</span></div>
+<div><b>Cortagen</b><span class="sv">Best data is a cut rat nerve. Not brain</span><span class="se">None &middot; Russian peptide &middot; Injection</span></div>
+<div><b>cGP</b><span class="sv">Gets in well. Points the wrong way in a healthy person</span><span class="se">None as pure cGP &middot; Plasticity &middot; Pill</span></div>
+<div><b>NA Semax / NA Selank Amidate</b><span class="sv">Sensible chemistry, never tested. Potency claims unsourced</span><span class="se">Zero PubMed records, either form &middot; Russian peptide &middot; Nasal, injection</span></div>
+<div><b>P21</b><span class="sv">Good mouse work, no human anything</span><span class="se">None. No registered trial &middot; Plasticity &middot; Injection, nasal</span></div>
+<div><b>PE-22-28</b><span class="sv">Precise mechanism, zero human data, zero reports</span><span class="se">None. One paper exists in total &middot; Plasticity &middot; Injection, nasal</span></div>
+<div><b>9-Me-BC</b><span class="sv">No human data, and an unflagged MAO interaction</span><span class="se">None &middot; Drive &middot; Pill</span></div>
+<div><b>Dihexa</b><span class="sv">The headline claim does not survive checking</span><span class="se">None. Its mechanism paper is retracted &middot; Plasticity &middot; Pill, transdermal</span></div>
+<div><b>Adamax</b><span class="sv">Not characterised. The name may not match the molecule</span><span class="se">No literature of any kind &middot; Plasticity &middot; Injection, nasal</span></div>
+</div>
+<p class="note">On a phone this table shows the evidence and the verdict; the family and route for each compound are in its own section below and on its Library card. The ordering is deliberate and it is the most useful thing on this page. Everything with a real trial behind it is something ordinary and cheap, or a licensed drug. Everything exotic and expensive sits at the bottom with an empty evidence column.</p>
+
+<h2 class="part" id="ru"><span>6</span>The Russian family</h2>
+<p style="margin-top:10px">These are the compounds that make this category interesting and also the hardest to judge fairly. They are real molecules with real pharmacology, registered as medicines in Russia, used by hundreds of thousands of people, and almost entirely absent from the international evidence system. Dismissing them as fake is wrong. Treating a Russian registration as equivalent to a Western approval is also wrong. The useful move is to look at exactly what each registration covers and what the pivotal trial actually did.</p>
+<p>One number frames the whole family. Searched on 10 November 2026, <b>ClinicalTrials.gov holds zero registered trials for Semax, Selank, Noopept, Epitalon, Cortagen and Pinealon combined.</b> Not failed trials. No trials.<span class="c"><sup><a href="#s7">7</a></sup></span></p>
+
+<h3 class="cq" id="semax">Semax</h3>
+<div class="cmeta"><span>ACTH fragment 4-7 + Pro-Gly-Pro</span><span>7 amino acids</span><span>Nasal or injected</span><span>Registered in Russia</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/semax">Semax</a></span></div>
+<p class="aka2">The flagship, and the only one here with both an approval and a real body of user reports.</p>
+<p>Semax is a four-amino-acid piece of ACTH, a hormone you already make, with a three-amino-acid tail added to stop it being broken down immediately. The ACTH piece was chosen because it has the behavioural effects of the hormone without the hormonal ones: it does not raise cortisol.</p>
+<p><b>The approval, stated precisely, because this is where most confusion starts.</b> Semax is registered in Russia as 1% nasal drops under registration Р N000812/01, and the indication is <b>only</b> the acute period of moderate to severe ischaemic stroke, as part of combination therapy.<span class="c"><sup><a href="#s8">8</a></sup></span> The memory, attention and optic nerve indications that get quoted online belong to a <b>separate 0.1% product</b>. Two products, two different indication lists. Merging them is how "approved in Russia for cognitive enhancement" gets into circulation, and it is not what the stroke registration says.</p>
+<p>The pivotal stroke study is the part that has to be read honestly: <b>30 treated patients against 80 patients on conventional therapy</b>. Not randomised, not blinded, no placebo, no effect size published, available in Russian only.<span class="c"><sup><a href="#s9">9</a></sup></span> That is the foundation of the registration.</p>
+<p>What does exist in healthy people is two small imaging studies and neither measured whether anyone thought better. One gave a single 1% nasal dose to 24 people, 14 active and 10 placebo, and found a larger frontal part of the brain's resting network afterwards, in a twenty-minute window, <b>with no cognitive outcome measured at all</b>.<span class="c"><sup><a href="#s10">10</a></sup></span> The other, 52 people comparing Semax, Selank and placebo, found changes in how the right amygdala connected to nearby temporal regions, again with no cognitive or anxiety outcome.<span class="c"><sup><a href="#s11">11</a></sup></span> These are genuine placebo-controlled human studies. They just do not answer the question anyone is asking.</p>
+<p class="feel"><b>What people feel.</b> 26 usable first-hand reports, the largest real set on this page: 17 positive, 4 mixed, 4 worse, 1 no change. The recurring description is clarity and drive arriving within minutes, not better memory, lasting four to nine hours. Trouble falling asleep is the commonest complaint. Several people report no withdrawal after stopping.</p>
+<p>The clearest practical finding in the entire community sweep is about <b>dose, not route</b>. One careful logger found roughly 200 micrograms per dose did nothing much, and about 600 micrograms produced clear-headedness. Nobody anywhere compares nasal against injected on its own terms; the two people who inject said they did it for dose accuracy, not for strength.</p>
+<details class="deep"><summary>The deeper read</summary><div><b>In rats, the best-characterised thing about it, and it is not a simple boost.</b> A single nasal dose matched to human use raised BDNF protein 1.4 times and its receptor's activation 1.6 times in hippocampus, with BDNF gene activity up threefold. But the timing is the interesting part: at 20 minutes expression <b>fell</b> in hippocampus while <b>rising</b> in frontal cortex; at 40 minutes both were back to normal; at 90 minutes both rose; by 8 hours both were at baseline again. A biphasic, region-opposite response that nobody selling it describes. <b>Other targets:</b> it is the strongest inhibitor of enkephalin-degrading enzymes in human serum of the three tested, at 10 micromolar against Selank's 15 to 20 and Epitalon's 500. In rat cell culture it raised survival of cholinergic basal forebrain neurons 1.5 to 1.7 times, without affecting other neuron types. <b>Side effects on record:</b> a Russian review reports nasal discoloration in about 10% and raised blood glucose in about 7.4% of diabetic patients; long-term effects are described as unknown. <b>Human pharmacokinetics:</b> searched and not found. The label states 60 to 70% nasal absorption, which is a label figure, not an independently published study.</div></details>
+
+<h3 class="cq" id="nasemax">N-Acetyl Semax Amidate, and NA Selank Amidate</h3>
+<div class="cmeta"><span>Modified forms</span><span>Nasal, injected</span><span>Zero PubMed records</span><span>Unapproved</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/na-semax-amidate">NA Semax Amidate</a> &middot; <a href="/library/#/p/na-selank-amidate">NA Selank Amidate</a></span></div>
+<p class="aka2">The versions most people actually buy, and the ones with no literature whatsoever.</p>
+<p>Both modifications do the same thing in principle: cap the front end with an acetyl group and the back end with an amide, so the enzymes that chew peptides from either end have nothing to grab. The chemistry is sound and the degradation they are built to prevent is real and documented.</p>
+<p>What does not exist is any test of it. <b>Searched three different ways, PubMed holds zero records for N-Acetyl Semax Amidate and zero for N-Acetyl Selank Amidate.</b><span class="c"><sup><a href="#s12">12</a></sup></span> No human study, no animal study, no pharmacokinetics, no safety data, no regional work. The potency multipliers quoted for them, commonly two to three times the parent compound, have <b>no traceable source</b>. The most careful user log on the forums independently judged the amidate "at least twice as potent" as plain Semax, which is a real observation from one person and the entire basis of that figure as far as anything published goes.</p>
+<p class="feel"><b>What people feel.</b> Reports exist and are generally positive, folded into the Semax count above, describing the same clarity with a longer window. One practical note recurs: nasal sprayers clogging after a few days.</p>
+
+<h3 class="cq" id="selank">Selank</h3>
+<div class="cmeta"><span>Tuftsin analogue + Pro-Gly-Pro</span><span>7 amino acids</span><span>Nasal</span><span>Registered in Russia</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/selank">Selank</a></span></div>
+<p class="aka2">Sold as a non-sedating anti-anxiety peptide. The evidence for the anxiety part is the weakest thing in this family.</p>
+<p>Selank is built on tuftsin, a fragment of an antibody with immune effects, with the same stabilising tail as Semax. Its label figures are striking if accurate: 92.8% absorption from the nose, in the bloodstream <b>within 30 seconds</b>, gone over about five minutes, with no metabolites detected and nothing in 24-hour urine.</p>
+<p>The pivotal trial compared <b>30 people on Selank against 32 on medazepam</b>, a benzodiazepine, and reported the anxiety effects as "similar". No effect size, no confidence interval, no p-value published.<span class="c"><sup><a href="#s13">13</a></sup></span> And the thing that matters most: <b>there is no placebo arm anywhere in the Selank literature.</b> A compound whose entire claim is a subjective feeling of calm has never been tested against a dummy.</p>
+<p>There is also a specific claim worth correcting. Selank is routinely described as working on the amygdala like a benzodiazepine does. Targeted searches pairing Selank with the amygdala, and with GABA or benzodiazepine receptors, return <b>zero results</b>. That is why the brain map above leaves the amygdala dark for Selank. What does exist is rat work: one nasal dose changed the expression of 36 genes more than twofold in hippocampus, mostly membrane proteins, and in mice the <b>route changed the pharmacology</b>, with injection raising frontal-cortex GABA binding sites 38% while nasal dosing raised hippocampal NMDA binding sites 23%, and both effects appearing only in the anxious mouse strain and not the calm one.</p>
+<p class="feel"><b>What people feel.</b> Only 5 usable reports, the thinnest set of any compound people actually buy, and they lean towards mild. The one report that addressed the question directly described feeling "mildly calmer, not sedated" with no real anxiety relief. The one strong anxiolytic claim came from someone taking four other substances who had already retracted an earlier attribution to Selank.</p>
+
+<h3 class="cq" id="noopept">Noopept</h3>
+<div class="cmeta"><span>Dipeptide, piracetam-derived</span><span>Oral</span><span>Half-life ~23 min</span><span>Registered in Russia</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/noopept">Noopept</a></span></div>
+<p class="aka2">The one you swallow, the one that splits people most sharply, and the one where mechanism and user reports agree about something uncomfortable.</p>
+<p>Noopept was built to be a peptide version of piracetam, and by effective dose it is about a thousand times more potent in rodents. The twist is that <b>Noopept itself is undetectable in the brain</b>. What appears there is a breakdown product, cyclo-prolylglycine, which rises 2.5-fold an hour after dosing. So the active substance is the metabolite, whose human pharmacokinetics are unpublished. The label half-life of 0.38 hours, about 23 minutes, cannot by itself support twice-daily dosing; the metabolite has to be doing the work.</p>
+<p>Its pivotal Russian trial is, in a sense, worse documented than the others: PubMed carries no abstract for it and the full text could not be reached, <b>so its sample size and design are unknown to us</b>. We are not going to describe a trial we could not read.</p>
+<p>The most useful finding is the one that corroborates the complaints. In rats, Noopept raised fast EEG activity across the brain, and the effect depended on NMDA receptors. But with repeated dosing <b>the effect was replaced by a different pattern by the eighth injection and was absent by the ninth</b>.<span class="c"><sup><a href="#s14">14</a></sup></span> The mechanism predicts the tolerance people describe. And the only independent, non-Russian test of the whole story gave Noopept to rats for 14 days and found <b>no change in hippocampal BDNF, no change in NGF and no change in learning</b>.<span class="c"><sup><a href="#s15">15</a></sup></span></p>
+<p class="feel"><b>What people feel.</b> The most divided compound here, and there is a number for it. A volunteer blinded trial, 16 active and 4 placebo, found 68.75% on Noopept reporting effects against 25% on placebo, though its own author disowns its rigour. A later community survey rated it at about the level the survey itself treated as the placebo threshold. Of 21 reports: 12 positive, 5 no change, 4 worse, with headache the usual complaint and two serious reactions involving alcohol.</p>
+
+<h3 class="cq" id="khav">Cortagen and Pinealon</h3>
+<div class="cmeta"><span>Khavinson peptide bioregulators</span><span>Injected or oral</span><span>No human brain data</span><span>Unapproved outside Russia</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/cortagen">Cortagen</a> &middot; <a href="/library/#/p/pinealon">Pinealon</a> &middot; <a href="/library/#/p/epitalon">Epitalon</a></span></div>
+<p class="aka2">Marketed as gene-level regulators of specific organs. The record behind them is thinner than any other group on this page.</p>
+<p><b>Cortagen</b> has no human study. Its single best result is in rats: a cut and sutured sciatic nerve regrew 27% faster with 40% better conduction velocity. That is peripheral nerve repair, not cognition, and it has no human replication. Figures of 10 to 20 milligrams circulating online for it trace to one unsourced template copied between sites, which is why no dose tier is shown for it in the Library.</p>
+<p><b>Pinealon</b> is sold on pineal targeting and brain ageing. Two things should be said plainly. Its one human study, 32 people, open, no placebo, co-administered with another peptide, reported <b>prooxidant activity and significant suppression of blood-cell production through reduced CD34+ cells</b>.<span class="c"><sup><a href="#s16">16</a></sup></span> That is an adverse signal, and it is the entire human record. Separately, the pineal-targeting claim asks less than it implies: the pineal has no blood-brain barrier, so a compound in the bloodstream reaches it without crossing anything.</p>
+<p class="feel"><b>What people feel.</b> Pinealon: 2 reports, one describing something very subtle, one nothing. Cortagen: 1 report, uninterpretable. These are the thinnest community datasets on the page.</p>
+<p class="note">A related correction, because it affects how Epitalon is sold. The famous longevity figures, 28% fewer deaths at twelve years and a melatonin rhythm restored to the young-adult pattern, belong to <b>Epithalamin, a bovine pineal extract</b>, not to the AEDG tetrapeptide people buy as Epitalon. There is no human cognitive or sleep outcome for the tetrapeptide. The extract studies were also unblinded, developer-run, with no placebo and 79 people in total for a mortality endpoint.<span class="c"><sup><a href="#s17">17</a></sup></span></p>
+
+<h2 class="part" id="gf"><span>7</span>The plasticity peptides</h2>
+<p style="margin-top:10px">This family is where the most exciting claims on the page live, and where checking them changes the picture most. These are molecules designed to copy the growth factors from step four of the synapse above. The ambition is real and the laboratory work behind several of them is genuinely good. What is missing is people.</p>
+
+<h3 class="cq" id="cerebrolysin">Cerebrolysin</h3>
+<div class="cmeta"><span>Porcine brain peptide fraction</span><span>IM or IV</span><span>Approved in ~50 countries</span><span>Not in the US</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/cerebrolysin">Cerebrolysin</a></span></div>
+<p class="aka2">The most tested compound in this family by a wide margin, and the test results are not what its reputation suggests.</p>
+<p>Cerebrolysin is not a molecule. It is a filtered extract of pig brain: 215.2 milligrams per millilitre of low-molecular-weight material that is <b>15% peptides and 85% free amino acids</b> by nitrogen content. That composition matters for every claim made about it, because there is no single active substance to study.</p>
+<p>Its own regulatory document contains an unusual admission: <b>direct measurement of its pharmacokinetics was unsuccessful.</b> There is no half-life. Whether its active fraction crosses the blood-brain barrier is argued indirectly from the fact that effects are observed, not demonstrated. A search for a region-specific mechanism study returns nothing.</p>
+<p><b>What the big trials found.</b> Its flagship stroke trial enrolled 1,070 people and <b>missed its primary endpoint</b>, finding no significant difference.<span class="c"><sup><a href="#s18">18</a></sup></span> The widely quoted mortality figure from it, 10.5% against 20.2%, is a post hoc subgroup of the more severe patients, which is a hypothesis, not a result. A rehabilitation trial did find a clear benefit on arm function at 90 days,<span class="c"><sup><a href="#s19">19</a></sup></span> and a 2025 aphasia trial found a 14.8-point advantage on a language battery in 123 people,<span class="c"><sup><a href="#s20">20</a></sup></span> so the picture is not uniformly negative.</p>
+<p>Then the independent reviews. Cochrane, across three successive versions, concludes there is no demonstrated benefit on death or dependence in acute stroke, and reports a <b>harm signal: non-fatal serious adverse events at a risk ratio of 2.15</b>, rising to 2.86 in the subgroup receiving the same total dose the big trial used.<span class="c"><sup><a href="#s21">21</a></sup></span> In vascular dementia, Cochrane found a cognitive benefit of 0.36 but rated the evidence <b>very low quality</b>, and recorded why: five of six trials came from three countries, and <b>all disclosed industry funding</b>.<span class="c"><sup><a href="#s22">22</a></sup></span> An independent meta-analysis of 14 trials in 2,884 people found a small advantage on stroke severity scores but <b>no significant difference on the outcome that matters, independent function</b>.</p>
+<p>There is also a pattern in what happened next: a large registry study terminated at 1,823 people, one trial terminated at 46 with its primary endpoint missed and significance only in the per-protocol analysis, another terminated at 4, and a head-to-head against donepezil withdrawn before enrolling anyone.</p>
+<p class="feel"><b>What people feel.</b> 24 reports, the second-largest set here, and the most detailed protocol data of anything on this page. The dominant pattern is 20 ampoules of 5 or 10 millilitres intramuscularly, five days a week for about four weeks, repeated roughly every three months. Five or more separate people each report: effects on day one rather than a loading period, disrupted sleep, a delayed headache, benefits fading off cycle, and, specifically, <b>that memory does not improve</b>. 18 positive, 3 no change, 3 worse.</p>
+<details class="deep"><summary>On the pig-brain question, honestly</summary><div>Neither the official product document nor the regulator record mentions prion or TSE clearance at all. Pigs are not a known natural host for these diseases and no transmission has ever been reported from this product. So the honest answer is <b>neither reassurance nor alarm</b>: there is no documented risk, and there is also no published clearance validation. The more practical concern with a biological extract of undefined composition is batch-to-batch variability, which the 15% peptide / 85% amino acid specification does not resolve.</div></details>
+
+<h3 class="cq" id="dihexa">Dihexa</h3>
+<div class="cmeta"><span>Angiotensin IV analogue</span><span>Oral or transdermal</span><span>Research chemical</span><span>Banned in sport</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/dihexa">Dihexa</a></span></div>
+<p class="aka2">The compound with the biggest number attached to it anywhere in this field, and the number does not survive being traced.</p>
+<p>Dihexa is sold on one claim: that it builds synapses something like ten million times more powerfully than BDNF itself. We went looking for the source of that figure.</p>
+<p><b>It is a university press release, dated 11 October 2012.</b> The figure comes from an assay counting dendritic spines in cultured rat neurons, and the release itself states that the number is not from the animal studies. There is also something structurally odd about the comparison: it measures a molecule that amplifies a growth-factor signal against the growth factor it amplifies, which is why the ratio comes out so enormous. It is not a claim that the compound is ten million times more effective at anything a person would notice.</p>
+<p>The mechanism story, that it binds HGF and activates its receptor to grow synapses in the hippocampus, rests on a single foundational paper. <b>That paper is listed on PubMed as retracted.</b><span class="c"><sup><a href="#s23">23</a></sup></span> It is also the source of the oral activity and barrier-crossing claims. With it withdrawn, Dihexa has no standing mechanism base.</p>
+<p>And there is a clean test of the underlying idea, because the same laboratory lineage produced a clinical drug. Fosgonimeton, built on the same HGF logic, <b>missed its primary endpoint in a Phase 2/3 Alzheimer's trial with 554 people enrolled</b>, announced 3 September 2024. An earlier Phase 2 of 77 people failed in June 2022. A third trial was terminated at 28. It was given by injection, as a prodrug, which also undercuts the claim that this chemistry works taken orally.<span class="c"><sup><a href="#s24">24</a></sup></span></p>
+<p class="feel"><b>What people feel.</b> One report, four days long, confounded by other substances. No half-life figure exists in any species, and no toxicology study could be found, which is the genuinely serious gap given that its claimed mechanism runs through a pathway involved in cancer biology.</p>
+
+<h3 class="cq" id="p21">P21, PE-22-28 and Adamax</h3>
+<div class="cmeta"><span>No registered trials</span><span>No human data</span><span>Research chemicals</span><span>Banned in sport</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/p21">P21</a> &middot; <a href="/library/#/p/pe-22-28">PE-22-28</a> &middot; <a href="/library/#/p/adamax">Adamax</a></span></div>
+<p class="aka2">Three compounds, three different kinds of nothing.</p>
+<p><b>P21</b> is the respectable one. A six-amino-acid piece derived from a growth factor called CNTF, with genuinely good mouse work behind it: new neuron growth in a specific part of the hippocampus, reduced tau and amyloid in an Alzheimer's mouse model given orally for twelve months, and effects in aged rats. It is stated to cross the blood-brain barrier, and an independent group replicated findings in a different disorder. What it has never had is <b>a single registered human trial</b>, and no half-life figure exists.</p>
+<p><b>PE-22-28</b> is the most interesting case on the page. It has <b>exactly one primary paper in existence</b>, and that paper contains the hardest single number in this family: it blocks the TREK-1 potassium channel at 0.12 nanomolar, against 40 to 60 for the parent molecule it was cut down from.<span class="c"><sup><a href="#s44">44</a></sup></span> Its regional map is the most precise here, hippocampus, prefrontal cortex and the dorsal raphe. Its dose-response is biphasic, with a low dose activating the channel and a higher dose blocking it, which means more is a different drug rather than a stronger one. In mice its antidepressant-like effect appears in four days against three to four weeks for fluoxetine. All of that is rodent. <b>It has zero human data of any kind, its plasma half-life has never been measured, its barrier penetration has never been measured, and it has zero first-hand reports from anyone, anywhere.</b></p>
+<p><b>Adamax</b> is a different situation. Three separate searches found <b>no primary paper, no patent and no trial</b>. Worse, the identity is unstable: the sequence circulating for it is Semax's own sequence with an adamantane cage attached, labelled as something it is not, and the descriptions in circulation contradict each other. The real published work pairing an adamantane cage with a neurotrophic peptide produced P21, not this. There are also zero first-hand reports. We are not able to tell you what Adamax is, and nobody selling it has published anything that would.</p>
+<div class="hyp"><p><b>The inversion worth noticing.</b> PE-22-28 has the most precise brain map on this page and not one person's experience behind it. Semax has 26 real reports and a rat gene-expression pattern so complicated that nobody quotes it. Cerebrolysin has 24 reports and no regional mechanism at all. Mechanism detail and real-world evidence are not the same currency, and in this family they run in opposite directions.</p></div>
+
+<h3 class="cq" id="cgp">cGP, and the one approved drug in this class</h3>
+<div class="cmeta"><span>IGF-1 regulator</span><span>Oral</span><span>No pure-compound trial</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/cgp">cGP</a> &middot; <a href="/library/#/p/trofinetide">Trofinetide</a></span></div>
+<p class="aka2">The honest surprise, because its best feature points the wrong way.</p>
+<p><b>cGP</b> is a small molecule that regulates how available IGF-1 is, and it has the best-measured brain entry of anything in this family: an oral dose demonstrably raises its own level in human spinal fluid. But read its own origin work carefully and the direction is not what a healthy person would want. Where IGF-1 is already sufficient, cGP <b>lowers</b> its activity, and it inhibited tumour growth in mice by that route. It is a normaliser, so its predicted effect in someone whose IGF-1 is fine is downward. Its analogue is in a recruiting Phase 3 trial of 160 participants reading out in October 2027, on the back of open-label uncontrolled Phase 2 work in 17 to 28 children.</p>
+<p>For scale, the realistic ceiling for this whole class is worth knowing. <b>Trofinetide</b> is the one approved drug built on this idea, for Rett syndrome. Its approved benefit is a 3.2-point difference on a roughly 45-point scale and 0.3 on a 7-point scale, with diarrhoea in 82% of patients and 40.4% stopping treatment. It also failed twice in traumatic brain injury across about 520 patients, and failed in Fragile X.<span class="c"><sup><a href="#s25">25</a></sup></span> That is what success looks like in this family when it is properly measured: a narrow, real, modest effect in a serious condition, bought with significant side effects.</p>
+
+<h2 class="part" id="drive"><span>8</span>Drive and wakefulness</h2>
+<p style="margin-top:10px">These are not peptides and, on the evidence, they are not really memory compounds either. They change how awake and how willing you are, and a great deal of what people call cognitive enhancement is that and nothing more. This family also contains the single best-documented compound on the page and the single worst-flagged interaction risk, so it is worth reading closely.</p>
+
+<h3 class="cq" id="modafinil">Modafinil</h3>
+<div class="cmeta"><span>Wakefulness drug</span><span>Oral</span><span>Prescription</span><span>Banned in competition</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/modafinil">Modafinil</a></span></div>
+<p class="aka2">The most studied compound here, and the one whose reputation is furthest from its measured effect.</p>
+<p>Modafinil is a licensed drug for excessive sleepiness, and at that it works. The interesting question is the other one, the reason most people on this page are interested: does it make a rested, healthy person think better?</p>
+<p><b>Two independent meta-analyses say barely.</b> One pooled 14 studies and 64 effect sizes in healthy non-sleep-deprived adults and found an overall effect of <b>0.12</b>, with exactly one domain moving: memory updating, at 0.28. In the same paper methylphenidate managed 0.43 on recall, and amphetamine showed nothing at all.<span class="c"><sup><a href="#s26">26</a></sup></span> The second pooled 19 placebo-controlled trials and 67 effect sizes and found <b>0.10</b>, with no domain standing out, no difference between 100 and 200 milligrams, and no difference between psychiatric and non-psychiatric groups.<span class="c"><sup><a href="#s27">27</a></sup></span></p>
+<p>Put those next to the baseline at the top of this page. Taking the same test twice is worth 0.28. Modafinil's whole-battery effect in a rested person is 0.12, which sits below the conventional threshold for calling an effect "small". The first team's own conclusion was that there is a user perception these drugs are effective cognitive enhancers, and that it is not supported by the evidence.</p>
+<p>The primary trials show why the pooled number is so low. One trial of 30 students with a full battery found <b>no significant difference on any cognitive test</b>, while measurably raising somatic anxiety, shaking, palpitations and irritability. A trial of 60 found scattered gains on a handful of measures and nothing on long-term memory, executive function or fluency. The best pro-modafinil argument is about task difficulty: a trial of 64 found gains on working memory and planning <b>at the hardest levels only</b>. That is a real position, and it is also exactly the sort of subgroup analysis that inflates effect sizes, and the larger meta-analysis found no such moderation.</p>
+<p><b>Two findings matter more than the effect size.</b> The first is that what reliably improves is how the work feels. The same trial that found gains only at the hardest levels also found that <b>enjoyment of the task rose significantly while overall mood did not</b>. The second is harder. During prolonged sleep deprivation, modafinil <b>disrupted people's ability to judge their own performance and made them reliably overconfident</b>, most strongly two to four hours after dosing. Placebo subjects judged themselves accurately. Amphetamine subjects judged themselves accurately. Modafinil was the only one of the three that broke self-assessment.<span class="c"><sup><a href="#s28">28</a></sup></span></p>
+<p>Where it does more is where there is more room: in adult ADHD and in schizophrenia, single doses improved things they did not improve in healthy volunteers. In Huntington's disease it raised alertness, produced no cognitive benefit, and <b>made visual recognition and working memory worse</b>. The pattern is deficit-dependent, not uniformly pro-cognitive.</p>
+<p class="feel"><b>What people feel.</b> By far the largest dataset on the page, 547 reviews on a patient platform splitting roughly 63% positive and 18% negative, plus a 59-person survey. The consistent theme is hours of wakefulness and willingness, not sharper thinking. It is also the only compound here where the reports come from people with a prescriber involved.</p>
+<details class="deep"><summary>Safety, at label level</summary><div><b>Serious rash.</b> The label carries rare cases of serious or life-threatening rash including Stevens-Johnson syndrome, toxic epidermal necrolysis and DRESS, with the instruction to discontinue at the first sign of rash. This is the one genuinely dangerous thing about an otherwise well-tolerated drug and it is frequently omitted from enthusiast write-ups. <b>Regulatory narrowing:</b> European regulators removed three of its four indications in July 2010, leaving only narcolepsy, on a benefit-risk assessment. <b>Sport:</b> prohibited in competition.</div></details>
+
+<h3 class="cq" id="mb">Methylene blue</h3>
+<div class="cmeta"><span>Mitochondrial electron carrier</span><span>Oral, IV as a drug</span><span>Approved for one use</span><span>Serious interactions</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/methylene-blue">Methylene blue</a></span></div>
+<p class="aka2">Two completely different things sold under one name, and they need separating before anything else.</p>
+<p><b>Half one, the medicine.</b> Pharmaceutical-grade methylene blue is an approved intravenous drug at 1 milligram per kilogram for methemoglobinemia, a blood emergency. That is its approved use, and it is not related to anything on this page.</p>
+<p><b>Half two, the low-dose cognitive use.</b> Here it has something nothing else here has: <b>randomised, double-blind, placebo-controlled functional brain imaging in living humans.</b> 26 healthy people aged 22 to 62 were scanned before and an hour after a single low oral dose. During sustained attention, the response rose in the insula on both sides. During a short-term memory task, it rose in prefrontal, parietal and occipital cortex. Behaviourally, there were <b>7% more correct responses on memory retrieval</b>.<span class="c"><sup><a href="#s29">29</a></sup></span> A companion study found stronger resting-state connectivity between perception and memory regions. The mechanism is believable too: it carries electrons in the mitochondria, the same machinery as the <a href="/library/aims/energy/">Energy page</a>.</p>
+<p>The honest limits. That is <b>one study of 26 people at a single timepoint</b>, and it is the whole human cognitive base. Two psychotherapy-augmentation trials used much larger doses for a different purpose. And the compound's own derivative, developed as an Alzheimer's drug, <b>failed all three of its Phase 3 trials</b> across 891, 220 and 598 patients, with the sponsor's own 2026 pharmacokinetic paper conceding that the low-dose "inactive colourant" control arm was itself active.</p>
+<div class="warn"><h3>Methylene blue: two interactions to take seriously</h3><ul><li><b>Serotonin drugs.</b> There is a boxed warning. It requires 72 hours of separation from serotonergic medication, and in one published review <b>24 of 25 affected patients were on a serotonin drug</b>. Regulators have logged cases at intravenous doses, and the oral risk is described as unclear rather than absent. If you take an SSRI, SNRI, or any serotonergic antidepressant, this one is not a grey area.</li><li><b>G6PD deficiency.</b> This is a <b>contraindication on the label, not a caution.</b> Roughly 400 million people worldwide carry it, it is inherited on the X chromosome, and most carriers have no symptoms and do not know. It is common across Southeast Asia, which makes it directly relevant to readers here. Methylene blue can trigger red-cell breakdown in people who have it.</li></ul></div>
+<p class="feel"><b>What people feel.</b> 13 reports, genuinely split: 5 positive, 4 no change, 3 worse, 1 mixed. A recurring and useful detail: two people reported they could not turn their urine blue, which is the simplest signal that what they had was not what it claimed to be.</p>
+
+<h3 class="cq" id="bromantane">Bromantane</h3>
+<div class="cmeta"><span>Atypical psychostimulant</span><span>Oral</span><span>Registered in Russia</span><span>Banned in competition</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/bromantane">Bromantane</a></span></div>
+<p class="aka2">The compound with the best story in this field, and the story is told backwards nearly everywhere.</p>
+<p>The usual version: Russian athletes were caught at the 1996 Olympics using bromantane as a masking agent, which proves it is a serious performance drug. <b>What the arbitration record actually says is close to the opposite.</b> The Court of Arbitration for Sport, in its award of 4 August 1996, <b>set aside</b> the disqualifications, because bromantan had not been proven to be a stimulant. The ban came in 1997, <i>after</i> the case was decided. The masking-agent framing does not appear in the record at all.<span class="c"><sup><a href="#s30">30</a></sup></span></p>
+<p>A second correction, because it recurs in every write-up of this compound: <b>the cosmonaut story belongs to a different drug.</b> The Soviet space programme, the 1980 Moscow Olympics and Chernobyl history attaches to bemitil, a related but separate compound. Bromantane's own date and institute of origin do not appear in any primary source we could find.</p>
+<p>What it does, in rats, is specific and includes something unusual. Chronic dosing raised serotonin and its breakdown product in frontal cortex with a delayed rise in deeper regions, and produced a <b>stable decrease in the cerebellum</b>, which makes it the only compound on this page with a documented fall in a named region. Mechanistically it is dopamine-positive by blocking reuptake, with a much weaker noradrenaline effect and no effect on nerve-to-muscle transmission. Russian trials used it for asthenia, meaning the fatigue and exhaustion state, not for cognition.</p>
+<p class="feel"><b>What people feel.</b> This is the surprise of the community sweep. Bromantane has a strong reputation for tolerance and a crash, and <b>outside Reddit there are only three first-hand reports, all of them null or close to it.</b> The reputation appears to exist almost entirely in one place. That does not make it wrong, but it means the evidence for it is thinner than its confidence.</p>
+
+<h3 class="cq" id="phenylpiracetam">Phenylpiracetam and 9-Me-BC</h3>
+<div class="cmeta"><span>Oral</span><span>Phenylpiracetam: banned in competition</span><span>9-Me-BC: no human data</span><span style="border-color:var(--blue)">Card: <a href="/library/#/p/phenylpiracetam">Phenylpiracetam</a> &middot; <a href="/library/#/p/9-me-bc">9-Me-BC</a></span></div>
+<p class="aka2">One works and wears off. The other has never been given to a person in any recorded study.</p>
+<p><b>Phenylpiracetam</b> is piracetam with a phenyl group added, and it behaves like a mild stimulant rather than a classical nootropic. Its cosmonaut origin story traces to the manufacturer's own website, which states 1983 and an institute name, with <b>no citation on the space claim</b>; encyclopedias repeat it from a Russian promotional article. We report it as a claim, not a fact. Its best-looking number, a 16.3-point improvement on a fatigue scale, comes from pooling uncontrolled before-and-after changes in Russian studies, which is not the same as a controlled effect. In rats it was the most protective of four agents tested on cortical mitochondria, alongside better learning.</p>
+<p>The useful finding is that <b>tolerance is documented in print, not just in reports</b>: in the only 12-week controlled comparison, its anxiolytic effect declined at four to eight weeks.<span class="c"><sup><a href="#s31">31</a></sup></span> That matches the community data, where 6 separate people describe tolerance. Interestingly, the crash people warn about is <b>not</b> corroborated: one mild comedown, and one person explicitly denying a crash. Two people reported the loss of effect persisting after months off, which is worth knowing.</p>
+<p><b>9-Me-BC</b> has 14 PubMed records in total, several of them unrelated chemistry, and <b>no trial, no case series, no pharmacokinetics and no safety data in humans</b>. Targeted searches pairing it with substantia nigra, hippocampus, dopaminergic and nigrostriatal all return zero. It has nonetheless turned up in a European and Australian market sweep of unapproved substances.</p>
+<p>And there is one fact about it that nobody selling it warns about: <b>it inhibits MAO-A at around 1 micromolar, with roughly 15-fold selectivity over MAO-B.</b> That is the same class of pharmacology that earns methylene blue its boxed warning, and it has never been checked in a person. If you take any serotonergic medication, that is a real and unstudied hazard, not a theoretical one.</p>
+
+<h3 class="cq" id="caffeine">The yardstick: caffeine with L-theanine</h3>
+<div class="cmeta"><span>Oral, or tea</span><span>Not banned</span><span>Most replicated acute effect</span></div>
+<p class="aka2">Here only as the thing everything above has to beat, which it mostly does not.</p>
+<p>A systematic review of 21 studies concluded that the cognitive benefits of green tea appear <b>under the combined influence of caffeine and L-theanine</b>, and that either alone does less. Controlled trials find specific, modest gains: task-switching accuracy, sustained-attention accuracy, reaction time, subjective alertness and less subjective tiredness. Repeatedly null: visual search, choice reaction time, mental rotation. In one trial <b>theanine alone made arithmetic worse</b> and raised headache ratings.</p>
+<p>Two honest caveats make this a better benchmark rather than a worse one. The studies <b>do not converge on a dose</b>, spanning 97 to 250 milligrams of theanine and 40 to 160 of caffeine, with one trial's dose described as the equivalent of eight cups of black tea. And caffeine's measured benefit is partly its own withdrawal being paid off: in a trial comparing habitual non-consumers against overnight-withdrawn consumers, the performance and mood effects appeared <b>only in the consumers</b>, and in some non-consumers performance got worse.<span class="c"><sup><a href="#s32">32</a></sup></span> So the yardstick's own effect is partly an artefact, which is exactly why clearing it should be the minimum bar.</p>
+
+<h2 class="part" id="supp"><span>9</span>The supplements</h2>
+<p style="margin-top:10px">The cheapest half of the page and the only part with a proper trial base, which makes it the most useful section to read slowly. One distinction decides almost every entry, and marketing hides it systematically: <b>was the trial in healthy people, or in people who were already impaired or deficient?</b> Grades below are Proven, Likely, Plausible, Unproven or Myth, and they refer to healthy adults unless stated.</p>
+
+<h3 class="cq" id="creatine">Creatine<span class="gr g-plaus">Proven over 66, nothing under 31</span></h3>
+<p>The cleanest demonstration of the population point on this entire page, and it comes from one meta-analysis that split by age. In people aged 11 to 31, creatine's effect on memory was <b>0.03</b>, with a confidence interval crossing zero and no heterogeneity at all. In adults aged 66 to 76: <b>0.88</b>.<span class="c"><sup><a href="#s33">33</a></sup></span> Same compound, same analysis, same outcome. Pooled across all ages it comes to 0.29, identical to exercise and to the practice effect, which is how it ends up described as a brain supplement at all.</p>
+<p>Mechanistically it is consistent: brain creatine is directly measurable by scan in living people, supplementing raises it, but far less than it raises muscle creatine because the transporter is the bottleneck.</p>
+
+<h3 class="cq" id="magthr">Magnesium L-threonate<span class="gr g-plaus">Plausible in impairment, unproven in health</span></h3>
+<p>The biggest effect size on this page, 0.91 in cognitively impaired adults aged 50 to 70, and the reason to be most careful. It is <b>one trial of 44 people run by the company commercialising it</b>, with no independent replication. The authors also could not assess their own sleep and anxiety outcomes, in their words, because of strong placebo effects.</p>
+<p>The mechanism work is genuinely good and unusual. It is the <b>threonate</b>, not the magnesium, that matters: threonate occurs naturally in spinal fluid, an oral dose measurably raises it there, and other magnesium salts do not do what this one does. In cultured hippocampal neurons it raised internal magnesium, upgraded NMDA receptors and increased the number of functioning synapses, replicated in human-derived neurons.</p>
+<p><b>One disclosure.</b> The companion Alzheimer's-model paper, the source of the widely repeated claims that raising brain magnesium cleared plaque and reversed memory decline, <b>is listed on PubMed as retracted</b>.<span class="c"><sup><a href="#s34">34</a></sup></span> Those specific claims should not be used. The 2016 mechanism paper above is not retracted and stands on its own, though both came from the same group with a commercial affiliate, so the evidence is narrower than the volume of citation suggests.</p>
+
+<h3 class="cq" id="bacopa">Bacopa monnieri<span class="gr g-likely">Likely, and tiny</span></h3>
+<p>One of only two supplements here with a genuinely replicated effect, which earns it the grade. Then look at the units. Its pooled effect across 437 people is on delayed word recall and reaction time, and the magnitude is <b>11 to 18 milliseconds</b>.<span class="c"><sup><a href="#s35">35</a></sup></span> That is a real signal and a trivial quantity. A reviewer also noted that <b>no two studies found significance on the same two tests</b>, which is the pattern you get when many measures are taken and a few come out significant by chance. Gastrointestinal upset is the common complaint, and it also partly unblinds the trials.</p>
+
+<h3 class="cq" id="lionsmane">Lion's Mane<span class="gr g-unpr">Unproven in healthy people</span></h3>
+<p>The most popular compound in this section rests on one trial, and the trial deserves describing in full because the category is built on it. <b>30 people, who had mild cognitive impairment rather than healthy brains, over 16 weeks</b>, with the first author's listed affiliation being the mushroom laboratory of the company involved, and <b>scores falling significantly four weeks after stopping</b>.<span class="c"><sup><a href="#s36">36</a></sup></span> The two trials in healthy adults show either declining raw scores or acute-only effects.</p>
+<p>The mechanism claim is that its compounds induce NGF. That is an in-a-dish result, and the honest difficulty is twofold: <b>NGF itself does not cross into the brain</b>, and whether the mushroom's active compounds do so in meaningful amounts in a person has not been established.</p>
+<p class="feel"><b>What people feel.</b> Zero usable first-hand reports were found outside Reddit, which is remarkable for something this widely sold. On a consumer review platform the distribution is sharply split, with 44% rating it top marks and 25% rating it the lowest, which is the shape you see when a product does a lot for some people and nothing for most.</p>
+
+<h3 class="cq" id="agpc">Alpha-GPC<span class="gr g-unpr">Unproven, and carries a reported stroke signal</span></h3>
+<p>There is no randomised trial of alpha-GPC for cognition in healthy people at all. What there is, instead, is a safety question that deserves careful handling in both directions.</p>
+<p>A 2021 study of <b>12,008,977 Koreans</b> found that matched alpha-GPC users had a <b>43% higher ten-year risk of stroke</b>, and the association rose with dose.<span class="c"><sup><a href="#s37">37</a></sup></span> That is a large dataset and a dose-response relationship, which is what makes it worth taking seriously. It is also observational, not randomised, and users were older at baseline, which is exactly the confounding that inflates this kind of finding. And there is direct counter-evidence: a 2025 study of 508,107 people with mild cognitive impairment found <b>reduced</b> stroke risk among those who did not progress.<span class="c"><sup><a href="#s45">45</a></sup></span> Neither study was randomised and no trial exists that would settle it.</p>
+
+<h3 class="cq" id="ashwagandha">Ashwagandha<span class="gr g-plaus">Plausible for stress, unproven for cognition</span></h3>
+<p>It works on the stress axis and lowers cortisol, which is a real and reasonably supported effect, and is probably why people like it. For <b>cognition</b> the evidence is one 50-person pilot in people with mild impairment, with twelve uncorrected endpoints and no effect sizes published. Nothing in healthy people.</p>
+<p>The safety item belongs on the page. A causality-assessed case series documented <b>five cases of liver injury</b>, three in Iceland and two in a United States network, all with jaundice, appearing between two and twelve weeks after starting. All resolved on stopping and none were fatal.<span class="c"><sup><a href="#s38">38</a></sup></span> Five cases against very wide use is a low rate, and it is also the kind of thing you want to know before you start. On a consumer platform its reviews run roughly 40% positive and 45% negative, and one of only two clinician-involved reports in the whole community sweep is a doctor advising someone to stop it.</p>
+
+<h3 class="cq" id="othersupp">The rest, briefly</h3>
+<div class="plain">
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>Omega-3.<span class="gr g-unpr">Unproven for cognition</span></b> Two large, clean nulls: a Cochrane review of 3,221 cognitively healthy older adults found a point estimate of <b>&minus;0.07</b> on cognitive scores,<span class="c"><sup><a href="#s39">39</a></sup></span> and a 3,501-person trial over five years returned a p-value of 0.63.<span class="c"><sup><a href="#s40">40</a></sup></span> Worth taking for other reasons; not a brain supplement on this evidence.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>Phosphatidylserine.<span class="gr g-plaus">Plausible in impairment</span></b> The regulator that permitted a qualified claim for it described the evidence in its own words as <b>"very limited and preliminary"</b>, and the trials that produced the effect used a bovine-derived form that is no longer what is sold. The soy-derived version has weaker support.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>L-theanine alone.<span class="gr g-likely">Likely, with caffeine, acutely</span></b> Covered above as the yardstick. Alone it is less impressive than paired, and on a consumer platform it is the one item here where negative reviews outnumber positive, 46% to 42%, with three independent reports of palpitations or blood-pressure effects. The other clinician-involved report in the sweep is a doctor finding very low blood pressure.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>Citicoline.<span class="gr g-plaus">Plausible</span></b> Its main healthy-person trial is manufacturer-staffed and published p-values without effect sizes, so it cannot honestly be compared against the baseline. That absence is itself informative.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>Vitamin B12.<span class="gr g-proven">Proven in deficiency, myth otherwise</span></b> The only compound here that reverses a genuine cognitive deficit, in people who are actually deficient. In unselected healthy older adults, Cochrane found no adequate evidence of benefit. Even in those with raised homocysteine, three years of folic acid gave effects of <b>0.05 to 0.14</b>, far below the practice effect.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>NAD+ precursors.<span class="gr g-unpr">Unproven for cognition</span></b> Nicotinamide riboside raised blood NAD+ by <b>2.6 times</b>, which proves it is doing something, and left cognition unchanged. The target was engaged; the outcome was not. See the <a href="/library/aims/energy/">Energy page</a> for the rest.</p></div>
+<div><span class="pn" style="background:#EDEDED">&middot;</span><p><b>Taurine.<span class="gr g-myth">Myth, for cognition</span></b> A meta-analysis of seven randomised trials found no effect.</p></div>
+</div>
+<div class="hyp"><p><b>Which of these beat the baseline.</b> Of thirteen, two: creatine in older adults and magnesium L-threonate in impaired adults. Both only in people who already had something to recover. One of the two is a single company-run trial. Everything else sits at or below the effect of taking the test a second time, and <b>none of the thirteen has a replicated, independent, adequately powered trial showing benefit in healthy adults above the practice effect.</b> That last sentence is our judgement against the evidence above, not a published finding.</p></div>
+
+<h2 class="part" id="bdnf"><span>10</span>The BDNF question</h2>
+<p style="margin-top:10px">Half of this market is sold on one sentence: it raises BDNF. BDNF is real, it is important, and step four of the synapse above is genuinely how learning is maintained. So this claim deserves to be taken apart properly rather than waved away, and it breaks into two questions that are usually collapsed into one.</p>
+<p><b>Question one: do these compounds raise BDNF in a person?</b></p>
+<p>The entire human evidence for the whole Russian family is <b>one study</b>: 110 stroke rehabilitation patients, two ten-day courses, in which plasma BDNF rose and correlated with a recovery score. It was open-label, with no placebo and no stated randomisation, published in Russian only, and <b>it did not publish any BDNF values</b>.<span class="c"><sup><a href="#s7">7</a></sup></span> Five of the eight compounds in that family have no BDNF data in any species at all. And Selank's only brain-tissue BDNF result goes the other way: it <b>prevented</b> a BDNF rise in hippocampus and prefrontal cortex.</p>
+<p><b>Question two, the one nobody asks: if you did raise it, would you notice?</b></p>
+<p>Nobody has tested that chain in a healthy person. What exists is the measurement critique, and it is damaging. The largest pooled analysis of blood BDNF, 35 studies and 3,798 participants, found a difference of <b>&minus;0.28</b> between patients and controls, with the authors reporting publication bias, low study quality and an inability to exclude unrelated explanations.<span class="c"><sup><a href="#s41">41</a></sup></span> A translational review of the whole field states the conclusion flatly: <b>blood BDNF cannot be recommended for use as a biomarker in clinical practice.</b><span class="c"><sup><a href="#s42">42</a></sup></span></p>
+<p>And there is one clean independent test of the full story, which is the most useful single experiment on this page. A group outside Russia gave Noopept to rats for 14 days and measured hippocampal BDNF and NGF directly, alongside a learning task. <b>No change in BDNF. No change in NGF. No change in learning.</b> All three.<span class="c"><sup><a href="#s15">15</a></sup></span></p>
+<div class="hyp"><p><b>Where this leaves the claim.</b> "Raises BDNF" is doing a lot of work for a sentence resting on one unpublished-value study in stroke patients, a biomarker its own field says should not be used clinically, and no demonstration anywhere that moving it changes how a healthy person thinks. It is not a lie. It is an unfinished argument being sold as a finished one.</p></div>
+
+<h2 class="part" id="stim"><span>11</span>Cognition, or just stimulation?</h2>
+<p style="margin-top:10px">This is the question underneath the drive half of the page, and once you look at what was actually measured, the answer is fairly consistent: <b>for every compound in that family, the best-evidenced effect is on wakefulness, fatigue or willingness, and the cognitive effect where it exists at all is small, narrow, and hard to separate from the task simply becoming easier to want to do.</b></p>
+<p>The strands of evidence line up:</p>
+<div class="plain">
+<div><span class="pn" style="background:#B493E8">1</span><p><b>The pooled effects in healthy rested people sit near the floor.</b> Modafinil at 0.12 and 0.10 across two meta-analyses, below the conventional threshold for "small", and below the practice effect.</p></div>
+<div><span class="pn" style="background:#B493E8">2</span><p><b>What improves is the experience, measured directly.</b> The trial that found cognitive gains only at the hardest difficulty also found enjoyment of the task rose significantly while mood did not. Another found no cognitive change at all while anxiety and irritability rose measurably.</p></div>
+<div><span class="pn" style="background:#B493E8">3</span><p><b>Self-assessment can break before performance improves.</b> Modafinil made sleep-deprived people reliably overconfident about their own output, where placebo and amphetamine did not. If a compound improves your estimate of yourself more than your output, personal impressions stop being evidence.</p></div>
+<div><span class="pn" style="background:#B493E8">4</span><p><b>In sleep deprivation it defends rather than raises.</b> It holds attention and executive function up against a decline. That is useful and it is not enhancement, and repeated doses could not prevent deterioration over a longer stretch.</p></div>
+<div><span class="pn" style="background:#B493E8">5</span><p><b>The Russian compounds were studied for the same thing.</b> Bromantane's trials were in asthenia, the fatigue and exhaustion state. Phenylpiracetam's best number is a fatigue scale. Neither was a cognition programme.</p></div>
+<div><span class="pn" style="background:#B493E8">6</span><p><b>Users describe it the same way.</b> Across the whole community sweep, the recurring words are clarity, drive, motivation, flow, willingness. Memory almost never improves in the reports, and for Cerebrolysin, five or more separate people say specifically that it does not.</p></div>
+</div>
+<p class="note">There is one honest counter-argument and it should be stated. Being more willing to work, for more hours, with the work feeling better, is worth a great deal in real life, and no effect size captures it. That is a legitimate reason to take something. It is just not the same claim as thinking better, and the two get sold interchangeably.</p>
+
+<h2 class="part" id="reports"><span>12</span>What people report</h2>
+<p style="margin-top:10px">First-hand accounts only, from people describing their own use. Reddit is deliberately excluded here because it is covered separately and it skews; these come from long-running forum logs, patient review platforms, published surveys and blinded self-experiments. No-change and worse reports are counted in the same table, never hidden.</p>
+<p>Two things to read first, because they frame everything below.</p>
+<p><b>There are almost no clinician-confirmed outcomes.</b> Across the entire sweep, the highest-weight category, where a doctor, scan or test confirmed something, produced <b>exactly two datapoints, and both are harms</b>: a doctor finding very low blood pressure in someone on L-theanine, and a doctor advising someone to stop ashwagandha. <b>Not one research peptide on this page has a single clinician-confirmed outcome of any kind.</b></p>
+<p><b>And where people did measure themselves objectively, the measurements mostly disagreed with them.</b> Of six reports carrying any objective measure, four were null, and in two of those the same person's subjective impression was positive while their own test was flat.</p>
+<div class="cnt">
+<div class="cr"><span class="cn">Semax, incl. amidate</span><span class="ct">26</span><span class="cbar"><span class="cfill" style="width:85%"><i class="bp" style="flex:17"></i><i class="bs" style="flex:1"></i><i class="bw" style="flex:4"></i></span></span><span class="cl"><b>17</b> better &middot; <b>1</b> no change &middot; <b>4</b> worse</span></div>
+<div class="cr"><span class="cn">Cerebrolysin</span><span class="ct">24</span><span class="cbar"><span class="cfill" style="width:92%"><i class="bp" style="flex:18"></i><i class="bs" style="flex:3"></i><i class="bw" style="flex:3"></i></span></span><span class="cl"><b>18</b> better &middot; <b>3</b> no change &middot; <b>3</b> worse</span></div>
+<div class="cr"><span class="cn">Noopept</span><span class="ct">21</span><span class="cbar"><span class="cfill" style="width:81%"><i class="bp" style="flex:12"></i><i class="bs" style="flex:5"></i><i class="bw" style="flex:4"></i></span></span><span class="cl"><b>12</b> better &middot; <b>5</b> no change &middot; <b>4</b> worse</span></div>
+<div class="cr"><span class="cn">Phenylpiracetam</span><span class="ct">13</span><span class="cbar"><span class="cfill" style="width:54%"><i class="bp" style="flex:8"></i><i class="bs" style="flex:2"></i><i class="bw" style="flex:4"></i></span></span><span class="cl"><b>8</b> better &middot; <b>2</b> no change &middot; <b>4</b> worse</span></div>
+<div class="cr"><span class="cn">Methylene blue</span><span class="ct">13</span><span class="cbar"><span class="cfill" style="width:46%"><i class="bp" style="flex:5"></i><i class="bs" style="flex:4"></i><i class="bw" style="flex:3"></i></span></span><span class="cl"><b>5</b> better &middot; <b>4</b> no change &middot; <b>3</b> worse</span></div>
+<div class="cr"><span class="cn">Bacopa</span><span class="ct">7</span><span class="cbar"><span class="cfill" style="width:27%"><i class="bp" style="flex:0"></i><i class="bs" style="flex:7"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>7</b> no change</span></div>
+<div class="cr"><span class="cn">Selank, incl. amidate</span><span class="ct">5</span><span class="cbar"><span class="cfill" style="width:15%"><i class="bp" style="flex:2"></i><i class="bs" style="flex:1"></i><i class="bw" style="flex:1"></i></span></span><span class="cl"><b>2</b> better &middot; <b>1</b> no change &middot; <b>1</b> worse &middot; both confounded</span></div>
+<div class="cr"><span class="cn">Bromantane</span><span class="ct">3</span><span class="cbar"><span class="cfill" style="width:8%"><i class="bp" style="flex:0"></i><i class="bs" style="flex:2"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>2</b> no change</span></div>
+<div class="cr"><span class="cn">Pinealon</span><span class="ct">2</span><span class="cbar"><span class="cfill" style="width:8%"><i class="bp" style="flex:1"></i><i class="bs" style="flex:1"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>1</b> better &middot; <b>1</b> no change &middot; very subtle</span></div>
+<div class="cr"><span class="cn">P21</span><span class="ct">2</span><span class="cbar"><span class="cfill" style="width:8%"><i class="bp" style="flex:1"></i><i class="bs" style="flex:0"></i><i class="bw" style="flex:1"></i></span></span><span class="cl"><b>1</b> better &middot; <b>1</b> worse &middot; confounded</span></div>
+<div class="cr"><span class="cn">Dihexa</span><span class="ct">1</span><span class="cbar"><span class="cfill" style="width:5%"><i class="bp" style="flex:1"></i><i class="bs" style="flex:0"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>1</b> better &middot; confounded, 4 days</span></div>
+<div class="cr"><span class="cn">Cortagen</span><span class="ct">1</span><span class="cbar"><span class="cfill" style="width:5%"><i class="bp" style="flex:0"></i><i class="bs" style="flex:1"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>1</b> no change</span></div>
+<div class="cr"><span class="cn">9-Me-BC</span><span class="ct">1</span><span class="cbar"><span class="cfill" style="width:5%"><i class="bp" style="flex:1"></i><i class="bs" style="flex:0"></i><i class="bw" style="flex:0"></i></span></span><span class="cl"><b>1</b> better &middot; heavily confounded</span></div>
+<div class="cr"><span class="cn">PE-22-28</span><span class="ct">0</span><span class="cbar none"></span><span class="cl">No first-hand report from anyone, anywhere.</span></div>
+<div class="cr"><span class="cn">Adamax</span><span class="ct">0</span><span class="cbar none"></span><span class="cl">No first-hand report from anyone, anywhere.</span></div>
+<div class="cr"><span class="cn">Lion's Mane</span><span class="ct">0</span><span class="cbar none"></span><span class="cl">No first-hand report from anyone, anywhere.</span></div>
+<div class="cr"><span class="cn">Magnesium L-threonate</span><span class="ct">0</span><span class="cbar none"></span><span class="cl">No first-hand report from anyone, anywhere.</span></div>
+<div class="cr"><span class="cn">4-way brain blend</span><span class="ct">0</span><span class="cbar none"></span><span class="cl">No first-hand report from anyone, anywhere.</span></div>
+<div class="cr"><span class="cn">Modafinil</span><span class="ct">547 reviews + 59 survey</span><span class="cbar"><span class="cfill" style="width:100%"><i class="bp" style="flex:63"></i><i class="bs" style="flex:19"></i><i class="bw" style="flex:18"></i></span></span><span class="cl"><b>~63%</b> positive &middot; <b>~18%</b> worse &middot; Prescriber involved</span></div>
+<div class="cr"><span class="cn">L-theanine</span><span class="ct">158 reviews</span><span class="cbar"><span class="cfill" style="width:100%"><i class="bp" style="flex:42"></i><i class="bs" style="flex:12"></i><i class="bw" style="flex:46"></i></span></span><span class="cl"><b>~42%</b> positive &middot; <b>~46%</b> worse &middot; 1, a harm</span></div>
+<div class="cr"><span class="cn">Ashwagandha</span><span class="ct">20 reviews + survey</span><span class="cbar"><span class="cfill" style="width:100%"><i class="bp" style="flex:40"></i><i class="bs" style="flex:15"></i><i class="bw" style="flex:45"></i></span></span><span class="cl"><b>~40%</b> positive &middot; <b>~45%</b> worse &middot; 1, a harm</span></div>
+</div>
+<p class="note">Green is better, grey is no change, pink is worse. The last three entries use the review platform's own sentiment split rather than a recount of individual reviews; everything else is a count of named human posts. Clinician-confirmed outcomes are noted where they exist, and for the research peptides there are none.</p>
+<div class="rep">
+<div><div class="rh"><b>The dose threshold</b><span>the most useful finding</span></div><p>The single most practically useful thing in the whole sweep, from one careful Semax logger: around 200 micrograms per dose produced almost nothing, and around 600 micrograms produced clear-headedness. Nobody anywhere compares nasal against injected on its own terms.</p></div>
+<div><div class="rh"><b>Memory is the thing that does not improve</b><span>consistent, 5+ people</span></div><p>Across compounds and especially for Cerebrolysin, people describe clarity, drive and mood. Memory specifically is reported as unchanged. The gap between what is marketed and what is felt is almost entirely here.</p></div>
+<div><div class="rh"><b>Product identity is the dominant confound</b><span>flagged by users themselves</span></div><p>People raise it before we do: broken cold chains, leaking droppers, sprayers clogging after days, vials arriving warm, and two methylene blue users who could not turn their urine blue. A null report may be a null compound or a null vial, and nothing in this data separates them.</p></div>
+<div><div class="rh"><b>Tolerance is real, the crash is not corroborated</b><span>phenylpiracetam</span></div><p>Six separate people describe tolerance. The dramatic crash that dominates its reputation shows up once, mildly, with one person explicitly denying it. Two people report the loss of effect persisting after months off, which nothing explains.</p></div>
+</div>
+
+<h2 class="part" id="retract"><span>13</span>Two retractions, and a warning about what you will find online</h2>
+<p style="margin-top:10px">Two foundational papers behind compounds on this page have been withdrawn from the literature, and both are load-bearing. Neither retraction has reached the marketing.</p>
+<div class="plain">
+<div><span class="pn" style="background:#FFD9D9">1</span><p><b>Dihexa's mechanism paper is retracted.</b> It is the single source of the HGF and brain-penetration story and, by extension, of everything the compound is sold on. With it withdrawn, there is no second paper holding the claim up.</p></div>
+<div><span class="pn" style="background:#FFD9D9">2</span><p><b>Magnesium L-threonate's Alzheimer's paper is retracted.</b> It is the source of the widely repeated claims that raising brain magnesium cleared amyloid plaque, prevented synapse loss and reversed memory decline. Those specific claims should not be used. The separate 2016 mechanism paper is not retracted and stands.</p></div>
+</div>
+<div class="warn"><h3>What searching for this yourself will turn up</h3><ul><li><b>A majority of search results for these compounds are now machine-generated pages that invent community reports.</b> They are formatted to look like forum data, with plausible usernames, doses and timelines.</li><li>In this sweep, fabricated-looking "user experience" pages appeared for compounds that have <b>no genuine first-hand data anywhere</b>: PE-22-28, Adamax and Pinealon all have invented testimonials circulating, and between them they have two real reports in total.</li><li>Every report counted on this page was traced to a named human post on a real forum, a published survey, a patient review platform or a blinded self-experiment. None came from an aggregator page.</li><li><b>The practical test:</b> if a page gives you glowing user accounts of PE-22-28 or Adamax, it is not reporting anything. Those accounts do not exist.</li></ul></div>
+
+<h2 class="part" id="safe"><span>14</span>Safety and uncertainty</h2>
+<div class="warn"><h3>Read before you trust any of this</h3><ul><li><b>Practice beats most of this.</b> If you test yourself before and after, you will improve by about as much as the best compound here from the testing alone. Any personal before-and-after without a blind and a control is not evidence, including ours.</li><li><b>Methylene blue and serotonin drugs.</b> Boxed warning, 72 hours of separation required, and 24 of 25 affected patients in one review were on a serotonin medication. Not a grey area.</li><li><b>Methylene blue and G6PD deficiency.</b> A contraindication, not a caution. About 400 million carriers worldwide, common across Southeast Asia, and most do not know they have it.</li><li><b>9-Me-BC inhibits MAO-A</b> with roughly 15-fold selectivity, and nobody has ever checked what that does in a person. The same pharmacology carries a boxed warning elsewhere on this page.</li><li><b>Modafinil's rash warning is real.</b> Rare cases of Stevens-Johnson syndrome, toxic epidermal necrolysis and DRESS. The label says stop at the first sign of a rash. It is routinely left out of enthusiast write-ups.</li><li><b>Cerebrolysin has a harm signal, not just an absent benefit.</b> Cochrane found non-fatal serious adverse events at more than twice the rate, worst at the same total dose its largest trial used.</li><li><b>Pinealon's only human study reported harm.</b> Prooxidant activity and suppression of blood-cell production. That is the whole human record, and it is not a benefit record.</li><li><b>Ashwagandha has documented liver injury.</b> Five causality-assessed cases, all with jaundice, two to twelve weeks in, all resolving on stopping.</li><li><b>Alpha-GPC has an unresolved stroke question.</b> A 43% higher ten-year risk in 12 million people, dose-responsive, against a 2025 study pointing the other way. Neither is randomised and no trial will settle it soon.</li><li><b>Four compounds here have never been given to a person in a recorded study</b>: Dihexa, P21, PE-22-28, Adamax, with 9-Me-BC alongside them. No dose, no safety profile, no half-life, and for Dihexa no toxicology study at all despite a mechanism that runs through a cancer-related pathway.</li><li><b>The amidate forms you probably own have zero published data.</b> Not thin data. Zero records, searched three ways.</li><li><b>Sport.</b><span class="c"><sup><a href="#s46">46</a></sup></span> Modafinil, bromantane and phenylpiracetam are prohibited in competition. Dihexa, P21, PE-22-28 and Adamax are caught by the catch-all clause banning unapproved substances at all times, and Dihexa is additionally caught as an IGF-1-pathway agent.</li><li><b>Grey-market purity is the confound users raise most.</b> A compound that does nothing and a vial that contains nothing look identical from the inside.</li></ul><p class="wf">This page explains what has and has not been shown. It is not medical advice and not a dosing, cycling or combination protocol. Study doses appear only to describe what an experiment did. If you take any serotonergic medication, the methylene blue and 9-Me-BC entries above are the ones to read twice.</p></div>
+
+<h2 class="part" id="faq"><span>15</span>Questions people actually ask</h2>
+<p style="margin-top:10px">From the basic to the awkward, grouped so you can skip to what you want.</p>
+<p class="aka2" style="margin-top:12px">The basics</p>
+<div class="faq">
+<details><summary>What is the best one to start with?</summary><p>On the evidence rather than the reputation, the honest ranking puts sleep first, exercise second, and then, if you want a compound, the ordinary ones with trials: creatine if you are older, caffeine with L-theanine for an acute effect you will actually notice. Among the peptides, Semax has the most real user data and the clearest dose threshold, and it still has no placebo-controlled trial testing whether it improves cognition.</p></details>
+<details><summary>Do any of these actually make you smarter?</summary><p>No, on current evidence, if smarter means a lasting rise in capability. Several reliably change how awake, motivated and clear you feel, and that is worth something real. The measured effects on test performance in healthy people are smaller than the effect of having sat the test before.</p></details>
+<details><summary>Nasal or injected?</summary><p>For Semax and Selank, nobody has compared the two routes against each other, in a study or in the community. The two people in the sweep who injected said they did it for dose accuracy, not strength. What does change the effect, clearly, is the dose. One thing worth knowing: in mice, route changed which receptors Selank affected, so it is not a neutral choice mechanistically, just an untested one.</p></details>
+<details><summary>Why is everything here Russian?</summary><p>Because the Soviet and Russian pharmaceutical system pursued peptide drugs for brain conditions in a way the West largely did not, and registered several of them on evidence standards that were different. That produced real molecules with real pharmacology and a documentation trail that does not translate: no placebo arms, no international registration, and most of the literature published only in Russian.</p></details>
+<details><summary>Are peptides safer than stimulants?</summary><p>Not as a rule, and the framing hides the real difference. The Russian peptides are generally well tolerated in use and almost entirely unstudied for long-term effects, which is a different thing from being safe. Modafinil is extensively studied and carries one rare but serious risk you can act on. Known risks are easier to manage than unknown ones.</p></details>
+<details><summary>Is Semax approved for cognitive enhancement?</summary><p>No. The Russian registration quoted most often is for 1% nasal drops in the acute phase of moderate to severe ischaemic stroke, as combination therapy. The cognitive indications belong to a different, lower-strength product. They get merged online into an approval that does not exist in that form.</p></details>
+<details><summary>Can I just take BDNF?</summary><p>No, and this is the whole reason this market exists. BDNF is a large protein that does not cross from the blood into the brain, so it cannot be taken. Every compound in the plasticity family is an attempt to get around that, which is also why their barrier-crossing claims deserve the most scrutiny.</p></details>
+</div>
+<p class="aka2" style="margin-top:16px">On the evidence</p>
+<div class="faq">
+<details><summary>If there are no trials, how do people know anything?</summary><p>They mostly do not. What exists is animal mechanism work, which is often genuinely good, plus first-hand reports, which are unblinded and uncontrolled, plus Russian trials without placebo arms. Those three together can support "this molecule does something in a brain". They cannot support "this will improve your memory", and the gap between those two sentences is this page.</p></details>
+<details><summary>Why does the practice effect matter so much?</summary><p>Because almost everyone judges these compounds by testing themselves, and the test itself is the intervention. Sitting the same cognitive test a second time is worth 0.28, and a fifth time 0.97. Using a different version of the test does not fix it. Most published supplement effects in healthy people are at or below that line, so the thing people take as proof is the strongest competing explanation.</p></details>
+<details><summary>What does an effect size actually mean?</summary><p>It is how big a difference is, in units of how much people naturally vary. Roughly: 0.2 is small, 0.5 moderate, 0.8 large. The useful part is comparison. Modafinil's 0.12 in a rested person, exercise's 0.29 and practice's 0.28 are on the same scale, which is why putting them on one chart is more informative than any one of them alone.</p></details>
+<details><summary>Why trust Cochrane over the trials showing benefit?</summary><p>Not blind trust. Cochrane reviews pool everything including the unflattering results and grade the quality of each study, which is why their conclusions are usually less exciting than individual trials. For Cerebrolysin they also recorded something specific and checkable: five of six dementia trials came from three countries and all disclosed industry funding. That is a reason to weigh the pool over any single trial, not a reason to dismiss the positive ones.</p></details>
+<details><summary>Does a retracted paper mean the compound does not work?</summary><p>No. It means the evidence that it works is no longer part of the record. For Dihexa the retracted paper was the only mechanism evidence, so the claim has nothing left standing behind it. For magnesium L-threonate the retraction took out the Alzheimer's claims while a separate mechanism paper survived. The difference matters.</p></details>
+<details><summary>Why does the brain map show nothing for some compounds?</summary><p>Because no study places them anywhere in the brain. Six of the compounds light nothing: Dihexa, P21, Adamax, Cortagen, 9-Me-BC and Cerebrolysin for region. Showing that honestly seemed more useful than inventing a glow.</p></details>
+</div>
+<p class="aand aka2" style="margin-top:16px">The uncomfortable ones</p>
+<div class="faq">
+<details><summary>I felt a huge difference. Does the evidence say I am wrong?</summary><p>It says your impression is not usable as proof, which is not the same thing. You may be responding genuinely; individual responses vary and group averages hide that. But unblinded self-observation picks up practice, expectancy, placebo and the fact that you changed something deliberately. And for modafinil specifically there is a measured case where the feeling of doing well rose while performance did not, so for that one the impression has been shown to be unreliable.</p></details>
+<details><summary>Is the N-acetyl amidate version worth the extra?</summary><p>There is no published basis to answer that. Zero records exist for either amidate form, so the potency multipliers quoted for them come from nowhere traceable. The chemistry rationale is sound and the one careful self-logger judged it about twice as potent. That is the entire evidence base.</p></details>
+<details><summary>What about Adamax? I see it sold everywhere.</summary><p>We could not establish what it is. No paper, no patent, no trial, and the sequence circulating for it is Semax's own sequence with a cage molecule attached, labelled as something else, with descriptions that contradict each other. It also has zero first-hand reports. That combination is unusual even for this field.</p></details>
+<details><summary>Is Dihexa really ten million times stronger than BDNF?</summary><p>That figure comes from a university press release in 2012, from an assay counting spines in cultured rat neurons, and the release itself says it is not from the animal studies. It also compares a molecule that amplifies a growth-factor signal to the growth factor itself, which is why the ratio is so vast. The paper behind the mechanism has since been retracted, and the clinical drug built on the same chemistry failed in 554 people.</p></details>
+<details><summary>Why is PE-22-28 on the page at all if nobody has taken it?</summary><p>Because it is the clearest lesson here. It has the most precise brain map of any peptide on the page, a mechanism with a hard number behind it, and not one person's experience anywhere. Precise mechanism detail feels like strong evidence and is not the same currency as having been tried.</p></details>
+<details><summary>So is this whole category a waste of money?</summary><p>Not quite, and it depends what you are buying. If you want a lasting improvement in how well you think, the evidence does not support anything here over sleep and exercise. If you want to be more awake and more willing to work for a few hours, several of these do that, with modafinil the best documented and caffeine with L-theanine the cheapest. The expensive end of the page, the research peptides, is where the money and the evidence are furthest apart.</p></details>
+<details><summary>What would change your mind?</summary><p>For the Russian family, one properly placebo-controlled trial in healthy people with a cognitive outcome, which has never been run for any of them. For the plasticity family, any registered human trial at all. For the supplements, independent replication of the two effects that beat the baseline, in people who are not already impaired. None of that is unreachable. It just has not been done.</p></details>
+</div>
+
+<h2 class="part" id="src"><span>16</span>Sources</h2>
+<p class="note">Primary papers, trial registries, regulator documents and labels, with the evidence type beside each. Where a source could not be reached, this page says so rather than citing it. Community reports are traced to named human posts and are not listed individually here.</p>
+<details class="srcbox" id="srcbox"><summary>All 46 sources</summary>
+<ol class="srcs">
+<li id="s1"><span class="sq">meta, baseline</span> Scharfen J, Jansen K, Holling H. Retest effects in working memory capacity tests: a meta-analysis. 68 studies, N=3,281. <a class="sl" href="https://doi.org/10.3758/s13423-018-1461-6" target="_blank" rel="noopener">link</a></li>
+<li id="s2"><span class="sq">RCT control arm</span> Goldberg TE, et al. Cognitive improvement after treatment in first-episode schizophrenia: is it practice effects? <i>Arch Gen Psychiatry</i> 2007. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/17909123/" target="_blank" rel="noopener">link</a></li>
+<li id="s3"><span class="sq">meta, exercise</span> Northey JM, et al. Exercise interventions for cognitive function in adults older than 50. <i>Br J Sports Med</i> 2018. 36 studies. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/28438770/" target="_blank" rel="noopener">link</a></li>
+<li id="s4"><span class="sq">lab RCT, sleep</span> Van Dongen HPA, et al. The cumulative cost of additional wakefulness: dose-response effects of sleep restriction. <i>Sleep</i> 2003, n=48. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/12683469/" target="_blank" rel="noopener">link</a></li>
+<li id="s5"><span class="sq">RCT</span> Orr ME, et al. Nicotinamide riboside in mild cognitive impairment. <i>GeroScience</i> 2023 (NCT02942888). Placebo group improved on walking speed; cognition unchanged. <a class="sl" href="https://doi.org/10.1007/s11357-023-00999-9" target="_blank" rel="noopener">link</a></li>
+<li id="s6"><span class="sq">RCT, industry</span> Liu G, Weinger JG, et al. Efficacy and safety of MMFS-01 (magnesium L-threonate) in adults with cognitive impairment. <i>J Alzheimers Dis</i> 2016;49(4):971-90, n=44. Company-run; no independent replication found. Mechanism paper: <a class="sl" href="https://doi.org/10.1016/j.neuropharm.2016.05.006" target="_blank" rel="noopener">link</a></li>
+<li id="s7"><span class="sq">registry search</span> ClinicalTrials.gov, searched 10 Nov 2026: no registered trial for Semax, Selank, Noopept, Epitalon, Cortagen, Pinealon, Dihexa, P21, PE-22-28 or Adamax. <a class="sl" href="https://clinicaltrials.gov/" target="_blank" rel="noopener">link</a></li>
+<li id="s8"><span class="sq">label, Russia</span> Semax 1% nasal drops, Russian registration Р N000812/01; indication limited to the acute period of moderate and severe ischaemic stroke, in combination therapy. Registration number to be re-verified directly against the Russian state register, which could not be reached this pass.</li>
+<li id="s9"><span class="sq">human, uncontrolled</span> Gusev EI, et al. Semax in acute ischaemic stroke, 30 treated vs 80 conventional therapy; not randomised, not blinded, no effect size published, Russian only. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/11517472/" target="_blank" rel="noopener">link</a></li>
+<li id="s10"><span class="sq">human RCT, imaging</span> Lebedeva IS, et al. Semax single intranasal dose, resting-state network changes, n=24 (14 active / 10 placebo); no cognitive outcome measured. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/30225715/" target="_blank" rel="noopener">link</a></li>
+<li id="s11"><span class="sq">human RCT, imaging</span> Panikratova YR, et al. Semax vs Selank vs placebo, fMRI connectivity, n=52; no cognitive or anxiety outcome measured. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/32342318/" target="_blank" rel="noopener">link</a></li>
+<li id="s12"><span class="sq">absence, verified</span> PubMed, searched three query forms, 10 Nov 2026: zero records for N-Acetyl Semax Amidate and zero for N-Acetyl Selank Amidate. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">link</a></li>
+<li id="s13"><span class="sq">human, no placebo</span> Zozulya AA, et al. Selank 30 vs medazepam 32 in generalised anxiety; effects reported as similar, no effect size, CI or p-value published. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/18454096/" target="_blank" rel="noopener">link</a></li>
+<li id="s14"><span class="sq">animal, mechanism</span> Vorobyov V, et al. Noopept EEG effects, NMDA-dependence, and loss of effect by the ninth injection. <i>Brain Res Bull</i> 2011. <a class="sl" href="https://doi.org/10.1016/j.brainresbull.2011.02.011" target="_blank" rel="noopener">link</a></li>
+<li id="s15"><span class="sq">animal, independent null</span> Gürbüz P, et al. Noopept 14 days: no change in hippocampal BDNF or NGF, no change in spatial learning. 2019. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/31356906/" target="_blank" rel="noopener">link</a></li>
+<li id="s16"><span class="sq">human, adverse signal</span> Meshchaninov VN, et al. Pinealon, n=32, open, no placebo: prooxidant activity and reduced CD34+ cells reported. 2015. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/26390612/" target="_blank" rel="noopener">link</a></li>
+<li id="s17"><span class="sq">human, unblinded</span> Khavinson VK, Anisimov VN, et al. Epithalamin (bovine pineal extract, <b>not</b> the AEDG tetrapeptide): 12-year mortality and melatonin rhythm reports. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/17426848/" target="_blank" rel="noopener">link</a></li>
+<li id="s18"><span class="sq">human RCT</span> Heiss WD, et al. CASTA: Cerebrolysin in acute ischaemic stroke, n=1,070; primary endpoint not met. <i>Stroke</i> 2012. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/22282884/" target="_blank" rel="noopener">link</a></li>
+<li id="s19"><span class="sq">human RCT</span> Muresanu DF, et al. CARS: Cerebrolysin in early post-stroke rehabilitation; arm function at day 90. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/26564102/" target="_blank" rel="noopener">link</a></li>
+<li id="s20"><span class="sq">human RCT</span> ESCAS: Cerebrolysin in post-stroke aphasia, n=123 ITT; 14.8-point advantage on the Western Aphasia Battery. 2025. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/39957612/" target="_blank" rel="noopener">link</a></li>
+<li id="s21"><span class="sq">Cochrane</span> Ziganshina LE, et al. Cerebrolysin for acute ischaemic stroke. Cochrane CD007026: no benefit on death or dependence; non-fatal serious adverse events RR 2.15. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/32662068/" target="_blank" rel="noopener">link</a></li>
+<li id="s22"><span class="sq">Cochrane</span> Cerebrolysin for vascular dementia: cognition SMD 0.36, evidence rated very low quality; 5 of 6 trials from three countries, all industry-funded. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/31710397/" target="_blank" rel="noopener">link</a></li>
+<li id="s23"><span class="sq">RETRACTED</span> Benoist CC, et al. Dihexa, HGF/c-Met mechanism and brain penetration. <b>Listed on PubMed as a retracted publication.</b> <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/25187433/" target="_blank" rel="noopener">link</a></li>
+<li id="s24"><span class="sq">trial registry</span> Fosgonimeton (ATH-1017), same HGF lineage as Dihexa: LIFT-AD, 554 enrolled, primary endpoint missed, announced 3 Sep 2024 (NCT04488419); ACT-AD n=77 failed; PDD/DLB trial terminated at n=28. <a class="sl" href="https://clinicaltrials.gov/study/NCT04488419" target="_blank" rel="noopener">link</a></li>
+<li id="s25"><span class="sq">label, approved</span> Trofinetide (DAYBUE) US prescribing information: approved for Rett syndrome; 3.2-point difference on the caregiver scale, diarrhoea 82%, discontinuation 40.4%. <a class="sl" href="https://www.accessdata.fda.gov/scripts/cder/daf/" target="_blank" rel="noopener">link</a></li>
+<li id="s26"><span class="sq">meta, human</span> Roberts CA, et al. Pharmacological cognitive enhancement in healthy non-sleep-deprived adults: modafinil 14 studies / 64 effect sizes, overall SMD 0.12. <i>Eur Neuropsychopharmacol</i> 2020. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/32709551/" target="_blank" rel="noopener">link</a></li>
+<li id="s27"><span class="sq">meta, human</span> Single-dose modafinil vs placebo in non-sleep-deprived adults: 19 trials, 67 effect sizes, Hedges' g 0.10. <i>J Clin Psychopharmacol</i> 2019. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/31433334/" target="_blank" rel="noopener">link</a></li>
+<li id="s28"><span class="sq">human</span> Baranski JV, Pigeau RA. Self-monitoring cognitive performance during sleep deprivation: modafinil induced overconfidence; placebo and d-amphetamine did not. <i>J Sleep Res</i> 1997. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/9377538/" target="_blank" rel="noopener">link</a></li>
+<li id="s29"><span class="sq">human RCT, imaging</span> Rodriguez P, et al. Methylene blue modulates functional MRI responses and improves memory retrieval by 7%, n=26, randomised double-blind placebo-controlled. <i>Radiology</i> 2016. <a class="sl" href="https://doi.org/10.1148/radiol.2016152893" target="_blank" rel="noopener">link</a></li>
+<li id="s30"><span class="sq">arbitration record</span> Court of Arbitration for Sport, awards OG 96/003 Korneev and OG 96/004 Gouliev, 4 Aug 1996: IOC disqualifications <b>set aside</b>; bromantan not proven a stimulant. Ban followed in 1997. <a class="sl" href="https://www.tas-cas.org/en/jurisprudence/archive.html" target="_blank" rel="noopener">link</a></li>
+<li id="s31"><span class="sq">human, controlled</span> Phenylpiracetam 12-week controlled comparison: anxiolytic effect declined at 4 to 8 weeks. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/25403298/" target="_blank" rel="noopener">link</a></li>
+<li id="s32"><span class="sq">human</span> Rogers PJ, et al. Caffeine's psychostimulant effects are largely withdrawal reversal; effects appeared only in habitual consumers. <i>Psychopharmacology</i> 2003. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/12601503/" target="_blank" rel="noopener">link</a></li>
+<li id="s33"><span class="sq">meta, human</span> Prokopidis K, et al. Effects of creatine supplementation on memory in healthy individuals: 0.03 in ages 11-31, 0.88 in ages 66-76. <i>Nutr Rev</i> 2023. <a class="sl" href="https://doi.org/10.1093/nutrit/nuac064" target="_blank" rel="noopener">link</a></li>
+<li id="s34"><span class="sq">RETRACTED</span> Li W, et al. Elevation of brain magnesium and Alzheimer's-model outcomes. <i>J Neurosci</i> 2013. <b>Listed on PubMed as a retracted publication.</b> <a class="sl" href="https://doi.org/10.1523/JNEUROSCI.4610-12.2013" target="_blank" rel="noopener">link</a></li>
+<li id="s35"><span class="sq">meta, human</span> Kongkeaw C, et al. Meta-analysis of randomised controlled trials on cognitive effects of Bacopa monnieri: 437 pooled; effect on reaction time 11 to 18 ms. <i>J Ethnopharmacol</i> 2014. <a class="sl" href="https://doi.org/10.1016/j.jep.2013.11.008" target="_blank" rel="noopener">link</a></li>
+<li id="s36"><span class="sq">RCT, industry</span> Mori K, et al. Hericium erinaceus in mild cognitive impairment, n=30, 16 weeks; scores fell 4 weeks after discontinuation; first author affiliated with the producing company. <i>Phytother Res</i> 2009. <a class="sl" href="https://doi.org/10.1002/ptr.2634" target="_blank" rel="noopener">link</a></li>
+<li id="s37"><span class="sq">observational</span> Lee G, et al. Association of alpha-GPC with stroke risk, 12,008,977 Koreans, matched aHR 1.43, dose-responsive. <i>JAMA Netw Open</i> 2021. <a class="sl" href="https://doi.org/10.1001/jamanetworkopen.2021.36008" target="_blank" rel="noopener">link</a></li>
+<li id="s38"><span class="sq">case series</span> Björnsson HK, et al. Ashwagandha-induced liver injury: five causality-assessed cases, all jaundiced, latency 2 to 12 weeks, all self-limited. <i>Liver Int</i> 2020. <a class="sl" href="https://doi.org/10.1111/liv.14393" target="_blank" rel="noopener">link</a></li>
+<li id="s39"><span class="sq">Cochrane</span> Omega-3 for prevention of cognitive decline in cognitively healthy older people: MMSE mean difference &minus;0.07, 3,221 participants. Cochrane CD005379. <a class="sl" href="https://www.cochrane.org/evidence/CD005379_omega-3-fatty-acid-supplementation-prevention-cognitive-decline-and-dementia-cognitively-healthy-older" target="_blank" rel="noopener">link</a></li>
+<li id="s40"><span class="sq">human RCT</span> Chew EY, et al. AREDS2: omega-3 and cognition, 3,501 tested over 5 years, p=0.63. <i>JAMA</i> 2015;314(8):791-801. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/26305649/" target="_blank" rel="noopener">link</a></li>
+<li id="s41"><span class="sq">meta, biomarker</span> Munkholm K, et al. Peripheral blood BDNF: 35 studies, 3,798 participants, g &minus;0.28, with publication bias and low study quality reported. 2015. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/26194180/" target="_blank" rel="noopener">link</a></li>
+<li id="s42"><span class="sq">review, biomarker</span> Arosio B, et al. Blood BDNF "cannot be recommended for use as a biomarker in clinical practice". 2021. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/33643008/" target="_blank" rel="noopener">link</a></li>
+<li id="s43"><span class="sq">animal, comparator</span> Engber TM, et al. Modafinil vs amphetamine, 2-deoxyglucose autoradiography: modafinil raised metabolism in hippocampus, centrolateral thalamus and central amygdala, with <b>no effect</b> in basal ganglia, frontal cortex, nucleus accumbens or VTA. 1998. <a class="sl" href="https://doi.org/10.1016/s0306-4522(98)00015-3" target="_blank" rel="noopener">link</a></li>
+<li id="s44"><span class="sq">in vitro, mechanism</span> Djillani A, et al. PE-22-28, TREK-1 blockade, IC50 0.12 nM. The single primary paper on this compound. 2017. <a class="sl" href="https://pubmed.ncbi.nlm.nih.gov/28955242/" target="_blank" rel="noopener">link</a></li>
+<li id="s45"><span class="sq">observational, counter</span> Kim H, et al. Alpha-GPC in 508,107 patients with mild cognitive impairment: lower progression risk; stroke risk reduced in non-progressors. 2025. <a class="sl" href="https://doi.org/10.1016/j.tjpad.2025.100059" target="_blank" rel="noopener">link</a></li>
+<li id="s46"><span class="sq">regulatory, sport</span> World Anti-Doping Agency Prohibited List 2026: S6.A stimulants (modafinil, bromantan, fonturacetam) in competition; S0 unapproved substances and S2.3 growth factors at all times. <a class="sl" href="https://www.wada-ama.org/en/prohibited-list" target="_blank" rel="noopener">link</a></li>
+</ol></details>
+<p class="note"><b>What we could not reach, stated plainly.</b> The Russian state medicines register could not be opened directly, so the Semax registration number above should be re-verified there. The pivotal Noopept trial's full text could not be retrieved, so its sample size and design are unknown to us and are not described. Dihexa's original potency figures could not be read from the primary full text. One chronic controlled cognitive dataset on methylene blue has results posted on the trial registry that could not be fetched this pass, and it is the only one of its kind, so this page's methylene blue section rests on the imaging trial alone.</p>
+<p class="foot">Bare Signals &middot; Brain research page v1 &middot; compiled 10 Nov 2026 from five research passes. Explains what is supported and what is not; not medical advice. Related reads: <a href="/library/aims/energy/">Energy</a>, <a href="/library/aims/gh/">Growth hormones</a>, <a href="/library/aims/glp/">GLPs</a>.</p></div>
+<script>
+(function(){var box=document.getElementById('synfig'),cap=document.getElementById('sync');if(!box)return;
+var caps={all:"The whole connection, running. Follow a messenger chemical across the gap, watch the receptors answer, see the spine grow, and see a growth factor arrive to make the change permanent.",
+ signal:"The sending side. A brain cell fires and empties bubbles of its messenger chemical into the gap. Nothing on this page acts here directly, which is itself worth knowing.",
+ cleft:"The gap. About 40 nanometres of space, crossed in under a millisecond. Modafinil, bromantane and the stimulants work on how much messenger is here and for how long.",
+ receptor:"The receiving side. Receptors catch the messenger and let charged particles in. Noopept's effect depends on one of these, the NMDA receptor: block it and the hippocampal effect disappears completely.",
+ ltp:"Growing. A connection used hard and often physically enlarges, with more receptors and a bigger spine. This is learning in physical form, and it is what magnesium L-threonate increased in cultured neurons.",
+ bdnf:"Growth factors. BDNF and NGF dock onto their own receptors and tell the cell to build and keep the structure. This is where most peptides on this page claim to act, and where the claims are hardest to check.",
+ mito:"The power supply. All of the above costs energy, and mitochondria make it. Methylene blue works here, carrying electrons, and it is the only compound on this page with measured human brain imaging behind it."};
+var sts=[].slice.call(box.querySelectorAll('.st'));
+[].slice.call(document.querySelectorAll('#synk button')).forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-k');
+ document.querySelectorAll('#synk button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+ if(k==='all'){box.classList.remove('focus');sts.forEach(function(s){s.classList.remove('on')});}
+ else{box.classList.add('focus');sts.forEach(function(s){s.classList.toggle('on',s.getAttribute('data-k')===k)});}
+ cap.textContent=caps[k];});});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){box.classList.toggle('run',e.isIntersecting)})},{threshold:.12}).observe(box);}
+})();</script>
+<script>
+(function(){var bm=document.getElementById('bm');if(!bm)return;
+var zones=[].slice.call(bm.querySelectorAll('.z'));
+var sites=[].slice.call(bm.querySelectorAll('.sites .site'));
+var sel=document.getElementById('bmsel');
+var TIERS=['t1','t2','t3','off'];
+function setcls(keys,cls){keys.forEach(function(k){
+ zones.forEach(function(z){if(z.getAttribute('data-k')===k)z.classList.add(cls)});
+ sites.forEach(function(s){if(s.getAttribute('data-k')===k)s.classList.add(cls)})})}
+function split(v){return (v||'').split(' ').filter(Boolean)}
+[].slice.call(bm.querySelectorAll('#bmpick button')).forEach(function(b){b.addEventListener('click',function(){
+ [].slice.call(bm.querySelectorAll('#bmpick button')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+ bm.classList.add('focus');
+ zones.concat(sites).forEach(function(n){TIERS.forEach(function(t){n.classList.remove(t)})});
+ setcls(split(b.getAttribute('data-t3')),'t3');
+ setcls(split(b.getAttribute('data-t2')),'t2');
+ setcls(split(b.getAttribute('data-t1')),'t1');
+ setcls(split(b.getAttribute('data-off')),'off');
+ bm.classList.toggle('nodata',b.getAttribute('data-null')==='1');
+ sel.innerHTML=b.getAttribute('data-sel')||'';
+})});
+var cb=document.getElementById('cvobtn');
+if(cb)cb.addEventListener('click',function(){var on=!bm.classList.contains('cvoon');bm.classList.toggle('cvoon',on);cb.setAttribute('aria-pressed',on?'true':'false');cb.textContent=on?'Hide the places with no barrier':'Show the places with no barrier'});
+})();</script>
+<script>
+(function(){var box=document.getElementById('srcbox');if(!box)return;
+function openIt(){if(!box.open)box.open=true}
+if(window.innerWidth>=900)openIt();
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#s"]');if(a)openIt()});
+addEventListener('hashchange',function(){if(/^#s\d+$/.test(location.hash)){openIt();var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView()},30)}});
+if(/^#s\d+$/.test(location.hash))openIt();
+})();</script>
+<script src="/nav.js" defer></script>
+</body></html>
