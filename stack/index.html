@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>My Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFFFE2;--chip:#FFFFF4;--ink:#3E4A80;--soft:#6B76A8;--rule:#E3E0BF;--grid:#6777B6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 12.5px/1.35 "Hanken Grotesk",Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.sheet{max-width:430px;margin:0 auto;padding:14px 12px 12px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);margin-bottom:8px}
+h1{font:700 26px/1 "Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.02em}
+.kick{font:500 9px/1.3 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--soft);text-align:right;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:1fr;gap:7px}
+.st{background:var(--chip);border:1px solid var(--rule)}
+.sh{display:flex;align-items:baseline;gap:6px;padding:6px 8px 4px}
+.sh h2{font:700 15px/1.1 "Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.01em;white-space:nowrap}
+.sh .g{font:500 9px/1 "JetBrains Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);flex:1;min-width:0}
+.pill{font:600 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);padding:2px 4px;white-space:nowrap}
+.pill.done{border-color:var(--soft);color:var(--soft)}
+.pill.next{border-style:dashed}
+.stripe{display:flex;height:5px}
+.stripe i{display:block;height:100%}
+.why{padding:5px 8px 4px;font-style:italic;font-size:12.5px;line-height:1.3}
+.why b{font-style:normal;font:600 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.07em;color:var(--soft);margin-right:4px;vertical-align:1px}
+ul{list-style:none}
+li{display:grid;grid-template-columns:auto 1fr;column-gap:7px;align-items:baseline;padding:4px 8px;border-top:1px solid var(--rule)}
+li .n{font:600 11px/1.25 "JetBrains Mono",monospace;white-space:nowrap}
+li .d{font-size:12px;line-height:1.3;min-width:0}
+.t{display:inline-block;font:500 8.5px/1.25 "JetBrains Mono",monospace;letter-spacing:.03em;text-transform:uppercase;padding:1px 3px;margin-right:4px;vertical-align:1px;color:var(--ink);white-space:nowrap}
+.t.w{color:#FFFFE2}
+.st.dim li .n{color:var(--soft)}
+.note{padding:4px 8px 6px;border-top:1px solid var(--rule);font-size:11px;line-height:1.3;color:var(--soft)}
+.note b{font:600 8.5px/1 "JetBrains Mono",monospace;letter-spacing:.07em;margin-right:4px;vertical-align:1px}
+.tick{white-space:nowrap;display:inline-block;font:600 8px/1 "JetBrains Mono",monospace;letter-spacing:.05em;color:var(--soft);margin-left:3px}
+.key{display:none}.kw{padding:6px 8px 8px;line-height:2}.kw .t{margin-right:5px}
+footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:6px;border-top:1.5px solid var(--ink);font:500 8.5px/1.3 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
+footer .lg{display:flex;gap:2px}footer .lg i{width:7px;height:7px;display:block}
+/* laptop: own layout, larger everything */
+@media (min-width:900px){
+  body{font-size:14px}
+  .sheet{max-width:1080px;padding:32px 28px}
+  h1{font-size:40px}.kick{font-size:11px}
+  .grid{grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start}
+  .grid{align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.col>.st:last-child{flex:1}
+  .sh{padding:10px 12px 6px}.sh h2{font-size:20px}.sh .g{font-size:10.5px}.pill{font-size:10px}
+  .stripe{height:6px}
+  .why{padding:8px 12px 6px;font-size:14.5px}.why b{font-size:10px}
+  li{padding:6px 12px}li .n{font-size:13px}li .d{font-size:13.5px}
+  .t{font-size:10px}.note{padding:6px 12px 9px;font-size:12.5px}.note b{font-size:10px}
+  footer{font-size:10px;margin-top:16px}
+  .key{display:block}.kw{padding:8px 12px 10px;line-height:2.1}
+}
+@media (max-width:899.98px){.col{display:contents}}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header>
+  <h1>My stack</h1>
+  <div class="kick">Personal protocol<br>Nov 2026</div>
+</header>
+
+<div class="grid">
+<div class="col">
+<section style="order:1" class="st">
+  <div class="sh"><h2>KLOW</h2><span class="g">Recovery &amp; skin</span><span class="pill">Training days</span></div>
+  <div class="stripe"><i style="width:60%;background:#E1DE62"></i><i style="width:22%;background:#FFEEEE"></i><i style="width:18%;background:#FF5050"></i></div>
+  <p class="why"><b>WHY</b>Heal faster from training, with skin repair on the side.</p>
+  <ul>
+    <li><span class="n">BPC-157</span><span class="d"><span class="t" style="background:#E1DE62">Tissue repair</span>Calls new blood vessels into injured tissue so it heals faster</span></li>
+    <li><span class="n">TB-500</span><span class="d"><span class="t" style="background:#E1DE62">Tissue repair</span>Helps cells crawl into the wound and rebuild. Moves easier</span></li>
+    <li><span class="n">GHK-Cu</span><span class="d"><span class="t" style="background:#FFEEEE">Skin</span>Tells skin to build collagen again</span></li>
+    <li><span class="n">KPV</span><span class="d"><span class="t" style="background:#FF5050;color:#FFFFE2">Inflammation</span>The off switch for inflammation that keeps ringing, gut included</span></li>
+  </ul>
+  <p class="note"><b>NOTE</b>Mostly on training and recovery days. GHK-Cu every other day, since I get injection welts.</p>
+</section>
+<section style="order:2" class="st">
+  <div class="sh"><h2>IllumiNeuro</h2><span class="g">Brain &amp; creativity</span><span class="pill">Now</span></div>
+  <div class="stripe"><i style="width:45%;background:#C2DCFF"></i><i style="width:35%;background:#CC007E"></i><i style="width:20%;background:#CAF5F7"></i></div>
+  <p class="why"><b>WHY</b>The Einstein Blend. Personally makes me feel more creative.</p>
+  <ul>
+    <li><span class="n">NA Semax</span><span class="d"><span class="t" style="background:#C2DCFF">Cognition</span>Raises brain growth factor: focus, learning, new connections</span></li>
+    <li><span class="n">NA Selank</span><span class="d"><span class="t w" style="background:#CC007E">Mood</span>Takes the edge off stress and anxiety</span></li>
+    <li><span class="n">PE-22-28</span><span class="d"><span class="t w" style="background:#CC007E">Mood</span>Lets mood neurons fire more freely</span></li>
+    <li><span class="n">Pinealon</span><span class="d"><span class="t" style="background:#CAF5F7">Neural protection</span>Said to guard brain cells: clearer thinking, steadier sleep</span></li>
+  </ul>
+  <p class="note"><b>NOTE</b>Selank alone doesn't do much for me, but works wonders for friends.</p>
+</section>
+</div><div class="col">
+<section style="order:3" class="st">
+  <div class="sh"><h2>Energy</h2><span class="g">Mitochondria</span><span class="pill">Workouts</span></div>
+  <div class="stripe"><i style="width:70%;background:#DBFAB3"></i><i style="width:30%;background:#FFA51F"></i></div>
+  <p class="why"><b>WHY</b>More energy and better metabolism around training.</p>
+  <ul>
+    <li><span class="n">5-Amino-1MQ</span><span class="d"><span class="t" style="background:#FFA51F">Fat metabolism</span>Blocks a fat-cell enzyme that slows metabolism</span></li>
+    <li><span class="n">NAD+</span><span class="d"><span class="t" style="background:#DBFAB3">Cell energy</span>The carrier cells use to turn food into energy</span></li>
+    <li><span class="n">MOTS-c</span><span class="d"><span class="t" style="background:#DBFAB3">Cell energy</span>Exercise in a molecule: tells cells to use sugar like after a workout<span class="tick">✓ CYCLE DONE</span></span></li>
+    <li><span class="n">SS-31</span><span class="d"><span class="t" style="background:#DBFAB3">Cell energy</span>Steadies the cell's power plants under stress<span class="tick">✓ CYCLE DONE</span></span></li>
+  </ul>
+  <p class="note"><b>NOTE</b>Now 5-Amino-1MQ and NAD+ around workouts, sometimes finishing leftover SS-31.</p>
+</section>
+<section style="order:4" class="st">
+  <div class="sh"><h2>GH &amp; Sleep</h2><span class="g">Deep sleep</span><span class="pill">Nights</span></div>
+  <div class="stripe"><i style="width:70%;background:#FFDE59"></i><i style="width:30%;background:#5271FF"></i></div>
+  <p class="why"><b>WHY</b>Deeper sleep and overnight recovery.</p>
+  <ul>
+    <li><span class="n">Ipamorelin</span><span class="d"><span class="t" style="background:#FFDE59">GH</span>Triggers a clean growth hormone pulse, without extra hunger or cortisol</span></li>
+    <li><span class="n">CJC-1295</span><span class="d"><span class="t" style="background:#FFDE59">GH</span>Tells the pituitary to release growth hormone. Pairs with Ipamorelin</span></li>
+    <li><span class="n">Pinealon</span><span class="d"><span class="t w" style="background:#5271FF">Sleep</span>Taking it alone at night for sleep<span class="tick">● NOW</span></span></li>
+  </ul>
+  <p class="note"><b>NOTE</b>Pinealon alone at night now. CJC-1295 + Ipamorelin next, together. Someone at Entropy Women reportedly got 3 extra hours of REM on Pinealon.</p>
+</section>
+</div><div class="col">
+<section style="order:0" class="st">
+  <div class="sh"><h2>Reta</h2><span class="g">Weight &amp; focus</span><span class="pill">Now</span></div>
+  <div class="stripe"><i style="width:75%;background:#DDD0F6"></i><i style="width:25%;background:#C2DCFF"></i></div>
+  <p class="why"><b>WHY</b>Keeps my weight steady and quiets the food noise. Helps quiet my ADHD brain.</p>
+  <ul>
+    <li><span class="n">Retatrutide</span><span class="d"><span class="t" style="background:#DDD0F6">Appetite</span>Quiets hunger in the brain, so food stops shouting. Weight holds, head clears</span></li>
+  </ul>
+</section>
+<section style="order:5" class="st">
+  <div class="sh"><h2>Curious</h2><span class="g">Want to try</span></div>
+  <div class="stripe"><i style="width:55%;background:#6777B6"></i><i style="width:45%;background:#BE5103"></i></div>
+  <ul>
+    <li><span class="n">Thymosin α-1</span><span class="d"><span class="t w" style="background:#6777B6">Immunity</span>Trains T-cells. A doctor takes it before travel to avoid getting sick</span></li>
+    <li><span class="n">Oxytocin</span><span class="d"><span class="t w" style="background:#BE5103">Connection</span>The bonding hormone: closeness, connection, feeling things through</span></li>
+  </ul>
+</section>
+<section style="order:6" class="st dim">
+  <div class="sh"><h2>Tried</h2><span class="g">Before</span></div>
+  <ul>
+    <li><span class="n">Tesamorelin</span><span class="d"><span class="t" style="background:#FFDE59">GH</span>Growth hormone signal aimed at belly fat</span></li>
+    <li><span class="n">Semax</span><span class="d"><span class="t" style="background:#C2DCFF">Cognition</span>Original Semax, before the longer-lasting NA form</span></li>
+    <li><span class="n">Selank</span><span class="d"><span class="t w" style="background:#CC007E">Mood</span>Original Selank, before the longer-lasting NA form</span></li>
+  </ul>
+</section>
+<section style="order:9" class="st key">
+  <div class="sh"><h2>Colours</h2><span class="g">Where it acts</span></div>
+  <div class="kw"><span class="t" style="background:#DDD0F6">Appetite</span><span class="t" style="background:#E1DE62">Tissue repair</span><span class="t" style="background:#FFEEEE">Skin</span><span class="t w" style="background:#FF5050">Inflammation</span><span class="t" style="background:#C2DCFF">Cognition</span><span class="t w" style="background:#CC007E">Mood</span><span class="t" style="background:#CAF5F7">Neural protection</span><span class="t" style="background:#DBFAB3">Cell energy</span><span class="t" style="background:#FFA51F">Fat metabolism</span><span class="t" style="background:#FFDE59">GH</span><span class="t w" style="background:#5271FF">Sleep</span><span class="t w" style="background:#6777B6">Immunity</span><span class="t w" style="background:#BE5103">Connection</span></div>
+</section>
+</div>
+</div>
+
+<footer><span>Bare Signals</span><span class="lg"><i style="background:#E1DE62"></i><i style="background:#FF5050"></i><i style="background:#6777B6"></i><i style="background:#DDD0F6"></i><i style="background:#5271FF"></i></span></footer>
+</div>
+</body>
+</html>
