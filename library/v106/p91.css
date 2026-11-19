@@ -1,0 +1,19 @@
+/* p91: What the body does with it (teal box) */
+.k-pk{--sb:#3AA6A0;--sbg:#E8F6F4;--sh:#1F6E6A}
+.k-pk .pkl{margin:0 0 8px;font-size:13px;line-height:1.4}
+.k-pk .pkg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px}
+.k-pk .pkr{display:flex;gap:8px;align-items:flex-start}
+.k-pk .pkn{flex:none;width:20px;height:20px;border:1.5px solid #1F6E6A;color:#1F6E6A;font:700 11px/17px "JetBrains Mono",monospace;text-align:center}
+.k-pk .pkr b{display:block;font-size:13px;line-height:1.25}
+.k-pk .pkr p{margin:1px 0 0;font-size:12.5px;line-height:1.38}
+.k-pk .pkr i{font:500 9.5px/1 "JetBrains Mono",monospace;font-style:normal;text-transform:uppercase;letter-spacing:.05em;color:#1F6E6A;white-space:nowrap}
+.k-pk .pkw{margin:10px 0 0;border-left:3px solid #1F6E6A;background:#FFFFF4;padding:7px 9px}
+.k-pk .pkw b{font:700 11px/1.2 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#1F6E6A}
+.k-pk .pkw p{margin:3px 0 0;font-size:12.5px;line-height:1.4}
+.k-pk .pkgap{margin:8px 0 0;font-size:12.5px;line-height:1.4}
+.k-pk .pkgap b{color:#B3000F;margin-right:4px}
+.k-pk .pks{margin:6px 0 0;font-size:10.5px}
+.k-pk .pks a{color:#3F5BD6;text-decoration:underline}
+@media (max-width:700px){.k-pk .pkg{grid-template-columns:1fr}}
+.r65.r9{display:block}
+@media (min-width:1000px){.k-pk .pkg{grid-template-columns:repeat(4,minmax(0,1fr))}.k-pk .pkfoot{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:14px;align-items:start}.k-pk .pkfoot .pkgap{margin-top:10px}}
