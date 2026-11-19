@@ -1,3 +1,4 @@
+/* Bare Signals drawer v1.2 (19 Nov 2026): Open full page now goes to the full page (the drawer was catching its own link and reopening itself); Once mixed line from mix.js. v1.1 kept at /drawer/v1.1.js. */
 /* Bare Signals drawer v1.1 (5 Nov 2026): exposes window.BSDRAWER_OPEN(slug,name) so other pages (Library preview shelf) can open a card in the drawer; dose box cells now flex to fill the row. drawer v1 (5 Nov 2026): on Case and Goal pages, tapping a compound link (/library/#/p/slug or /library/#/slug) opens that compound's Library card in a drawer, so the reader stays in the article. Phone: sheet from the bottom, swipe down or tap outside to close. Laptop: panel on the right. Data from the live Library version (data.js, card.js, punch.js), loaded on first tap. "Open full page" still goes to the Library. */
 (function(){
 var D=document,W=window;if(W.BSDRAWER)return;W.BSDRAWER=1;
@@ -31,20 +32,20 @@ var css='.bsx-bg{position:fixed;inset:0;background:rgba(62,74,128,.28);z-index:6
 function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var LP=null;
 function load(){if(LP)return LP;LP=fetch('/library/',{cache:'no-cache'}).then(function(r){return r.text()}).then(function(h){var m=h.match(/v(\d+)\//);var v=m?m[1]:'89';
- return Promise.all(['data.js','card.js','punch.js'].map(function(f){return new Promise(function(res){var s=D.createElement('script');s.src='/library/v'+v+'/'+f;s.onload=s.onerror=function(){res()};D.head.appendChild(s)})}))}).then(function(){return W.BS_DATA||[]});return LP}
+ return Promise.all(['data.js','card.js','punch.js','mix.js'].map(function(f){return new Promise(function(res){var s=D.createElement('script');s.src='/library/v'+v+'/'+f;s.onload=s.onerror=function(){res()};D.head.appendChild(s)})}))}).then(function(){return W.BS_DATA||[]});return LP}
 function col(k){var p=W.BS_PALETTE||[];for(var i=0;i<p.length;i++)if(p[i][0]===k)return p[i];return [k,k,'#FFFFF4']}
 function stripe(o){var r=o.roles||[];if(!r.length)return '';var w=[70];var rest=r.length>1?30/(r.length-1):0;return '<div class="st" aria-hidden="true">'+r.map(function(k,i){return '<i style="flex:'+(i?rest:70)+';background:'+col(k)[2]+'"></i>'}).join('')+'</div>'}
 function render(o,body,ft){var c=(W.BS_CARD||{})[o.slug]||{},pu=(W.BS_PUNCH||{})[o.slug],d=o.dose||{},h='';
  h+=stripe(o);if(pu)h+='<p class="pu">'+esc(pu)+'</p>';
  if(c.sum)h+='<p class="sm">'+esc(c.sum)+'</p>';
  var cells=[['Dose',d.dose],['How often',d.freq],['Cycle',d.cycle],['Route',d.route],['Half-life',d.half]].filter(function(x){return x[1]});
- if(cells.length)h+='<div class="ds">'+cells.map(function(x){return '<div><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>'}).join('')+'</div>';
+ if(cells.length)h+='<div class="ds">'+cells.map(function(x){return '<div><b>'+x[0]+'</b><span>'+esc(x[1])+'</span></div>'}).join('')+'</div><!--mx-->';
  var ds=o.desc||{},rk=(o.roles||[]).concat(o.reported||[]).filter(function(k,i,a){return ds[k]&&a.indexOf(k)===i});
  if(rk.length)h+='<h4>What it does</h4><ul>'+rk.map(function(k){var p=col(k);return '<li><span class="q" style="background:'+p[2]+'"></span><b>'+esc(p[1])+'.</b> '+esc(ds[k])+'</li>'}).join('')+'</ul>';
  if(o.mech&&o.mech.length)h+='<h4>How it works</h4><ul>'+o.mech.slice(0,5).map(function(m){return '<li>'+esc(m[0])+'<small>'+esc(m[1])+'</small></li>'}).join('')+'</ul>';
  if(o.whoNot&&o.whoNot.length)h+='<h4 class="w">Who shouldn’t take it</h4><ul>'+o.whoNot.map(function(w){return '<li><b>'+esc(w.t)+'.</b> '+esc(w.why)+'</li>'}).join('')+'</ul>';
  if(o.status)h+='<h4>Status</h4><p style="font-size:13px;margin:0">'+esc(o.status)+'</p>';
- body.innerHTML=h;ft.innerHTML='<span>Library card</span><a href="/library/#/p/'+encodeURIComponent(o.slug)+'">Open full page →</a>'}
+ var mx=(W.BS_MIX||{})[o.slug];if(mx&&mx.d)h=h.replace('<!--mx-->','<p style="font-size:13px;margin:-6px 0 12px"><b style="font:500 9px/1 JetBrains Mono,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B76A8">Once mixed</b> '+esc(mx.d)+'</p>');body.innerHTML=h;ft.innerHTML='<span>Library card</span><a href="/library/#/p/'+encodeURIComponent(o.slug)+'">Open full page →</a>'}
 var cur=null,lastF=null;
 function close(){if(!cur)return;var c=cur;cur=null;c.s.classList.remove('on');c.b.classList.remove('on');D.documentElement.style.overflow='';setTimeout(function(){c.s.remove();c.b.remove()},320);D.removeEventListener('keydown',onKey);if(lastF)try{lastF.focus()}catch(e){}}
 function onKey(e){if(e.key==='Escape')close()}
@@ -62,7 +63,7 @@ function open(slug,name,a){if(!D.getElementById('bsx-css')){var st=D.createEleme
   if(!o){bd.innerHTML='<p>This card isn’t in the Library yet.</p>';return}
   s.querySelector('.hd h3').firstChild.nodeValue=o.name;s.querySelector('.u').textContent=(o.dose&&o.dose.use)||'';render(o,bd,s.querySelector('.ft'))})}
 W.BSDRAWER_OPEN=function(s,n){open(s,n||s,D.activeElement)};
-D.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+D.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.closest('.bsx'))return;
  var m=a.getAttribute('href').match(/^(?:https?:\/\/(?:www\.)?baresignals\.co)?\/library\/#\/(?:p\/)?([a-z0-9-]+)$/i);if(!m)return;
  e.preventDefault();open(decodeURIComponent(m[1]),(a.textContent||m[1]).trim(),a)},true);
 })();
