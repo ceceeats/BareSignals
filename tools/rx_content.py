@@ -53,7 +53,7 @@ MEDS = {}
 
 # ---------------------------------------------------------------- METRONIDAZOLE
 MEDS['metronidazole'] = dict(
- data=dict(slug="metronidazole", name="Metronidazole", lines=["Metro-","nidazole"], sub=None, fsz=None, origin="np", ref=False, rank=0,
+ data=dict(slug="metronidazole", name="Metronidazole", lines=["Metro","nidazole"], sub=None, fsz=None, origin="np", ref=False, rank=0,
   alias="Flagyl, Flagyl Forte, Metrogyl, Metrolag, MetroGel (vaginal or skin gel), metronidazol",
   seq="", seqNote="",
   sticker={"blocks":{"lt":"Gut","lb":"Reproductive","mid":"Reproductive","wide":"Immunity"},"dots":[],"wm":"#6777B6"},
@@ -172,7 +172,7 @@ MEDS['metronidazole'] = dict(
 
 # ---------------------------------------------------------------- DOXYCYCLINE
 MEDS['doxycycline'] = dict(
- data=dict(slug="doxycycline", name="Doxycycline", lines=["Doxy-","cycline"], sub=None, fsz=None, origin="np", ref=False, rank=0,
+ data=dict(slug="doxycycline", name="Doxycycline", lines=["Doxy","cycline"], sub=None, fsz=None, origin="np", ref=False, rank=0,
   alias="Vibramycin, Doryx, Interdoxin, Doxy 100, Oracea (40 mg rosacea), Periostat (20 mg), doxy, doxy PEP",
   seq="", seqNote="",
   sticker={"blocks":{"lt":"Inflammation","lb":"Skin","mid":"Reproductive","wide":"Immunity"},"dots":[],"wm":"#6777B6"},
@@ -293,7 +293,7 @@ MEDS['doxycycline'] = dict(
 
 # ---------------------------------------------------------------- TRANEXAMIC ACID
 MEDS['tranexamic-acid'] = dict(
- data=dict(slug="tranexamic-acid", name="Tranexamic acid", lines=["Tranexamic","acid"], sub=None, fsz=None, origin="np", ref=False, rank=0,
+ data=dict(slug="tranexamic-acid", name="Tranexamic acid", lines=["Tranex","amic acid"], sub=None, fsz=None, origin="np", ref=False, rank=0,
   alias="TXA, Kalnex, Lysteda, Cyklokapron, Transamin, tranexamic, asam traneksamat",
   seq="", seqNote="",
   sticker={"blocks":{"lt":"Skin","lb":"Heart","mid":"Heart","wide":"Reproductive"},"dots":[],"wm":"#FF99D8"},
@@ -402,7 +402,7 @@ MEDS['tranexamic-acid'] = dict(
 
 # ---------------------------------------------------------------- DEXKETOPROFEN
 MEDS['dexketoprofen'] = dict(
- data=dict(slug="dexketoprofen", name="Dexketoprofen", lines=["Dexketo-","profen"], sub=None, fsz=None, origin="np", ref=False, rank=0,
+ data=dict(slug="dexketoprofen", name="Dexketoprofen", lines=["Dexketo","profen"], sub=None, fsz=None, origin="np", ref=False, rank=0,
   alias="Ketesse, Keral, Enantyum, Tordex, dexketoprofen trometamol, Skudexa (with tramadol)",
   seq="", seqNote="",
   sticker={"blocks":{"lt":"Reproductive","lb":"Inflammation","mid":"Inflammation","wide":"Pain"},"dots":[],"wm":"#87CFC5"},
