@@ -1,3 +1,4 @@
+/* Bare Signals drawer v1.3 (19 Nov 2026): reads Library data from /library/ (the live page now lives there, no version folder). v1.2 kept at /drawer/v1.2.js.
 /* Bare Signals drawer v1.2 (19 Nov 2026): Open full page now goes to the full page (the drawer was catching its own link and reopening itself); Once mixed line from mix.js. v1.1 kept at /drawer/v1.1.js. */
 /* Bare Signals drawer v1.1 (5 Nov 2026): exposes window.BSDRAWER_OPEN(slug,name) so other pages (Library preview shelf) can open a card in the drawer; dose box cells now flex to fill the row. drawer v1 (5 Nov 2026): on Case and Goal pages, tapping a compound link (/library/#/p/slug or /library/#/slug) opens that compound's Library card in a drawer, so the reader stays in the article. Phone: sheet from the bottom, swipe down or tap outside to close. Laptop: panel on the right. Data from the live Library version (data.js, card.js, punch.js), loaded on first tap. "Open full page" still goes to the Library. */
 (function(){
@@ -31,8 +32,8 @@ var css='.bsx-bg{position:fixed;inset:0;background:rgba(62,74,128,.28);z-index:6
 '@media (prefers-reduced-motion:reduce){.bsx,.bsx-bg{transition:none}}';
 function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var LP=null;
-function load(){if(LP)return LP;LP=fetch('/library/',{cache:'no-cache'}).then(function(r){return r.text()}).then(function(h){var m=h.match(/v(\d+)\//);var v=m?m[1]:'89';
- return Promise.all(['data.js','card.js','punch.js','mix.js'].map(function(f){return new Promise(function(res){var s=D.createElement('script');s.src='/library/v'+v+'/'+f;s.onload=s.onerror=function(){res()};D.head.appendChild(s)})}))}).then(function(){return W.BS_DATA||[]});return LP}
+function load(){if(LP)return LP;LP=Promise.resolve().then(function(){
+ return Promise.all(['data.js','card.js','punch.js','mix.js'].map(function(f){return new Promise(function(res){var s=D.createElement('script');s.src='/library/'+f;s.onload=s.onerror=function(){res()};D.head.appendChild(s)})}))}).then(function(){return W.BS_DATA||[]});return LP}
 function col(k){var p=W.BS_PALETTE||[];for(var i=0;i<p.length;i++)if(p[i][0]===k)return p[i];return [k,k,'#FFFFF4']}
 function stripe(o){var r=o.roles||[];if(!r.length)return '';var w=[70];var rest=r.length>1?30/(r.length-1):0;return '<div class="st" aria-hidden="true">'+r.map(function(k,i){return '<i style="flex:'+(i?rest:70)+';background:'+col(k)[2]+'"></i>'}).join('')+'</div>'}
 function render(o,body,ft){var c=(W.BS_CARD||{})[o.slug]||{},pu=(W.BS_PUNCH||{})[o.slug],d=o.dose||{},h='';
