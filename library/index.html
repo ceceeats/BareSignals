@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Library v107 (19 Nov 2026, built on v106, v106 kept): Quick look as summary + questions. Top of the card unchanged; every other section folded behind a plain question that opens with a tap (dot on the right), some with a short answer preview. New question: Where does it act in the body? (Guide body, loads when opened). The compound FAQ joins the list. -->
+<!-- Library v108 (20 Nov 2026, built on v106; v106 and v107 kept): landing order is search, shelves (Peptides, Supplements, Cases, Goals), Browse block, All peptides; browsing keeps the shelves. Card as v106; Once mixed shows the range people report and opens the full note on tap. -->
 <!-- Library v106 (19 Nov 2026, built on v105, v105 kept): Browse block under the search, visible from the start: Browse by (Popular, What it does, Peptide or not, Blends, Evidence, How it is taken, A to Z, Size) and What do you want help with? (every role as a filled tag with its count). Choosing folds the shelves away and shows the grouped list; Show shelves brings them back. -->
 <!-- Library v105 (19 Nov 2026, built on v104, v104 kept): one Quick look | Full read switch on card and full read (same as the Guide sheet); body section reads the live Guide; live copy sits at /library/ so no version number shows in the address bar; version count hidden from readers. -->
 <!-- Library v104 (19 Nov 2026, preview, built on v103 which stays live): Quick look / Full read labels; Why on synergies, blends, supplements and blood tests (blood tests open their why in place); supplement links go to the Supplements page; Guide body at the top of every full read; embed mode for the Guide sheet; questions.html lists every missing Why. -->
@@ -1797,35 +1797,19 @@ body.tstuck #q{font-size:16px!important}
 .brw .rc b{font:600 calc(9px*var(--k))/1 var(--mono);padding:0 6px;color:#3E4A80;background:#FFFFF4;align-self:stretch;display:flex;align-items:center}
 .brw .rc.on{outline:2.5px solid #3E4A80;outline-offset:1px}
 .brw .rmore{all:unset;cursor:pointer;font:600 calc(9px*var(--k))/1 var(--mono);color:#5271FF;text-decoration:underline;padding:6px 4px}
-body.libb #shelf{display:none}
+.brw{border-top:1.5px solid var(--rule);padding-top:6px;margin-top:6px}
 @media (min-width:900px){.brw .br1{flex-wrap:wrap;overflow:visible}}
 
-/* v107: Quick look questions */
-.qa107{margin:2px 0 0;padding:0 0 4px;border-top:1.5px solid var(--rule)}
-.qh107{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:10px 12px 2px;display:flex;justify-content:space-between}
-.qh107 span{color:var(--ink-soft);letter-spacing:.06em}
-.q107{border-bottom:1px solid rgba(62,74,128,.18)}
-.q107:last-child{border-bottom:0}
-.q107>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:11px 12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.q107>summary::-webkit-details-marker{display:none}
-.q107 .qt{font-weight:600;font-size:calc(15px*var(--k));line-height:1.3;color:var(--ink);flex:1 1 auto;min-width:0}
-.q107 summary small{flex:none;max-width:42%;font:500 calc(10px*var(--k))/1.2 var(--mono);color:var(--ink-soft);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.q107 .dt{flex:none;width:20px;height:20px;border:1.5px solid #3E4A80;border-radius:50%;position:relative;background:#FFFFF4}
-.q107 .dt::before,.q107 .dt::after{content:'';position:absolute;left:50%;top:50%;width:9px;height:1.5px;background:#3E4A80;transform:translate(-50%,-50%)}
-.q107 .dt::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
-.q107[open] .dt{background:#3E4A80}
-.q107[open] .dt::before{background:#fff}
-.q107[open] .dt::after{background:#fff;transform:translate(-50%,-50%) rotate(0)}
-.q107[open]>summary .qt{color:#3E4A80}
-.q107 .ans{padding:0 0 8px}
-.q107 .ans>.cs,.q107 .ans>.cbody{border-top:0!important;padding-top:0!important}
-.q107 .cbody{grid-template-columns:minmax(0,1fr)!important}
-.q107.solo .ans .olab:first-child,.q107.solo .ans .wbox>.olab:first-child,.q107.solo .ans .cbody>.cs>.olab:first-child{display:none}
-.q107 .ans>.kt{margin:0 12px}
-.q107 .fq107{padding:0 12px}.q107 .fq107 p{margin:0;font-size:calc(14px*var(--k));line-height:1.5}
-.q107 .ans>.note{padding:0 12px;margin:4px 0 0}
-.q107 .b107{padding:0 6px}.q107 .b107 iframe{display:block;width:100%;height:560px;border:0;background:transparent}
-@media (min-width:900px){.q107 .b107 iframe{height:640px}}
+/* v108: Once mixed tap */
+.hdc div.mx108{cursor:pointer;flex-wrap:wrap;align-items:center;gap:0 10px}
+.mx108 .mxr{font:500 calc(10px*var(--k))/1.2 var(--mono);font-style:normal;color:var(--accent)}
+.mx108 .dt{margin:2px 0 2px auto;flex:none;width:18px;height:18px;border:1.5px solid #3E4A80;border-radius:50%;position:relative;background:#FFFFF4}
+.mx108 .dt::before,.mx108 .dt::after{content:'';position:absolute;left:50%;top:50%;width:8px;height:1.5px;background:#3E4A80;transform:translate(-50%,-50%)}
+.mx108 .dt::after{transform:translate(-50%,-50%) rotate(90deg)}
+.mx108[aria-expanded=true] .dt{background:#3E4A80}
+.mx108[aria-expanded=true] .dt::before{background:#fff}.mx108[aria-expanded=true] .dt::after{display:none}
+.mxn108{border:1.5px solid var(--ink);border-top:0;margin:0 0 4px;background:#FFFFF4;padding:8px 10px 6px;font-size:calc(13px*var(--k));line-height:1.45}
+.mxn108 p{margin:0 0 6px}.mxn108 b{color:#3E4A80}.mxn108 .psrc{font-size:calc(11px*var(--k))}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -1920,8 +1904,8 @@ body.libb #shelf{display:none}
     </div>
     </div></div>
     <div class="alsoin" id="alsoin" hidden></div>
-    <div class="brw" id="brw"></div>
-    <section id="shelf" aria-label="Library shelves"></section><div class="allh" id="allp"><h2>All peptides</h2></div>
+    <section id="shelf" aria-label="Library shelves"></section>
+    <div class="brw" id="brw"></div><div class="allh" id="allp"><h2>All peptides</h2></div>
     
     <div class="fbar" id="fbar" hidden></div>
     <div class="grid" id="grid"></div>
@@ -2632,7 +2616,7 @@ function fitName(root){setTimeout(()=>fillHead(root),0);(root||document).querySe
 const MIXC={label:'Label',reported:'Reported',inferred:'General rule'};
 const ROUTE_INJ=r=>/sub-?q|\bim\b|\biv\b|inject|nasal/i.test(String(r||''));
 function mixOf(o){if(!o||o.kind||o.supp)return null;const M=window.BS_MIX||{};if(M[o.slug])return M[o.slug];return o.dose&&ROUTE_INJ(o.dose.route)?window.BS_MIX_DEFAULT:null}
-function mixCell(o){const m=mixOf(o);return m?`<div class="mxc"><span>Once mixed</span><b>${esc(m.d)}<small class="mxk mx-${m.c}">${MIXC[m.c]}</small></b></div>`:''}
+function mixCell(o){const m=mixOf(o);if(!m)return '';const r=MXR108[o.slug];return `<div role="button" tabindex="0" class="mxc mx108" data-mx="${o.slug}" aria-expanded="false"><span>Once mixed</span><b>${esc(m.d)}<small class="mxk mx-${m.c}">${MIXC[m.c]}</small></b>${r?`<em class="mxr">people report ${esc(r[0])}</em>`:''}<i class="dt" aria-hidden="true"></i></div>`}
 function mixFull(o){const m=mixOf(o);if(!m)return '';return `<div class="dblk mxf"><p class="h3"><span class="tagx">Once mixed</span><span class="duse">${esc(m.d)}</span><small class="mxk mx-${m.c}">${MIXC[m.c]}</small></p><p class="para dp">${esc(m.n)}</p><p class="dnote">Fridge, 2–8°C, unless the label says otherwise. Counted from the day water goes in. Never freeze a mixed vial. Cloudy, gel or flakes: throw it out.</p>${srcLine(m.s)}</div>`}
 function cardHTML(o,anim){
   if(isW(o))return waterCard(o,anim);
@@ -2653,7 +2637,16 @@ function cardHTML(o,anim){
     <div class="ch3"><div class="cst">${struct}</div><div class="nmb"><div class="seg105"><span class="on">Quick look</span><a href="#/p/${o.slug}">Full read</a></div><h3>${cardName(o)}</h3>${o.blend?`<p class="bpl">${bpHTML(o,null,'card')}</p>`:''}<p class="sub">${n?cn+' · ':''}${esc(o.otl)} · <b>${DEPTH[o.depth]}</b></p><p class="lead2">${esc(d&&d.use||cap(o.fn))}</p>${o.punch?`<p class="punch">${esc(o.punch)}</p>`:''}</div>${hcells}</div>
     <div class="strip" aria-hidden="true"><span class="band" style="position:absolute;inset:0">${hbar(segs(o))}</span></div>
     ${ktHTML(o)}
-    ${qa107(o,{roles,dose,syn,nm})}
+    <div class="cbody">${roles}</div>
+    ${dose}
+    ${bloodMini(o)}
+    ${whoNotHTML(o)}
+    ${rxCard(o)}
+    ${blendHTML(o)}
+    ${syn}
+    ${simHTML(o)}
+    ${inBlendsHTML(o)}
+    ${nm}
     <div class="go"><span class="credit">Data collected by <b>Bare Signals</b></span><span class="gb"><button class="shb" data-share="${o.slug}">Share</button><a class="fpb" href="#/p/${o.slug}">Full read →</a></span></div>
   </article>`;
 }
@@ -3203,7 +3196,7 @@ addEventListener('load',()=>setTimeout(function(){
   let allR=false;
   const draw=()=>{const on=document.body.classList.contains('libb');
     const rs=allR?roles:roles.slice(0,12);
-    B.innerHTML=`<p class="bh"><span>Browse by</span>${on?'<button type="button" data-home>Show shelves</button>':''}</p><div class="br1">${OPT.map(([k,l])=>`<button type="button" class="bc${on&&!st.cols.length&&st.sort===k?' on':''}" data-k="${k}">${l}</button>`).join('')}</div>
+    B.innerHTML=`<p class="bh"><span>Browse by</span>${on?'<button type="button" data-home>Reset</button>':''}</p><div class="br1">${OPT.map(([k,l])=>`<button type="button" class="bc${on&&!st.cols.length&&st.sort===k?' on':''}" data-k="${k}">${l}</button>`).join('')}</div>
     <p class="bh"><span>What do you want help with?</span></p><div class="br2">${rs.map(k=>`<button type="button" class="rc${st.cols.length===1&&st.cols[0]===k?' on':''}" data-r="${k}">${TAG(k)}<b>${cnt[k]}</b></button>`).join('')}${roles.length>12?`<button type="button" class="rmore">${allR?'Fewer':'All '+roles.length+' roles'}</button>`:''}</div>`};
   const toList=()=>{document.body.classList.add('libb');const a=document.getElementById('allp');if(a)scrollTo({top:a.getBoundingClientRect().top+scrollY-navH()-TBH,behavior:RM.matches?'auto':'smooth'})};
   B.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
@@ -3215,26 +3208,18 @@ addEventListener('load',()=>setTimeout(function(){
 },60));
 
 
-/* v107: Quick look as questions. Summary stays open; each question opens with a tap. */
-function qa107(o,P){
-  const Q=[],add=(q,html,pv,solo)=>{if(html&&html.replace(/<[^>]+>/g,'').trim())Q.push({q,html,pv,solo})};
-  const d=o.dose,W=(o.whoNot||[]).filter(x=>x&&x.t);
-  if(o.blend)add('What’s in this blend?',blendHTML(o),(o.blend.parts||[]).length+' parts',true);
-  add('What does it do?','<div class="cbody">'+P.roles+'</div>',(rolesOf(o)[0]||[])[0]?esc(LONG[rolesOf(o)[0][0]]||''):'',true);
-  add('Why do people take it, and does it work?',ktHTML(o,true),'',false);
-  add('What’s the usual dose?',P.dose,d&&d.dose?esc(String(d.dose)):'',true);
-  add('What can I pair it with?',(o.syn?P.syn:'')+inBlendsHTML(o),o.syn?o.syn.length+' options':'',false);
-  add('Who shouldn’t take it, and why?',whoNotHTML(o)+rxCard(o),W.length?W.length+(W.length>1?' groups':' group'):'',false);
-  if((window.BS_GSL||[]).includes(o.slug))Q.push({q:'Where does it act in the body?',html:`<div class="k-body104 b107" data-src="${GUIDE104}?p=${encodeURIComponent(o.slug)}&amp;embed=body"></div><p class="note">Tap a label on the body for its study.</p>`,pv:'',body:1});
-  add('Which blood tests, and why?',bloodMini(o),'',true);
-  add('Similar compounds and other names',(simHTML(o)||'')+(P.nm||''),'',false);
-  const F=((window.BS_FAQ||{})[o.slug]||[]).filter(x=>!/who shouldn|shouldn’t|shouldn't/i.test(x[0]));
-  F.forEach(x=>Q.push({q:x[0],html:`<div class="cs fq107"><p>${esc(x[1])}</p></div>`,pv:''}));
-  if(!Q.length)return '';
-  return `<div class="qa107"><p class="qh107">Questions <span>tap to open</span></p>${Q.map(x=>`<details class="q107${x.solo?' solo':''}"${x.body?' data-body':''}><summary><span class="qt">${esc(x.q)}</span>${x.pv?`<small>${x.pv}</small>`:''}<i class="dt" aria-hidden="true"></i></summary><div class="ans">${x.html}</div></details>`).join('')}</div>`;
-}
-document.addEventListener('toggle',e=>{const t=e.target;if(!t.matches||!t.matches('details.q107[data-body]')||!t.open)return;
-  const b=t.querySelector('.b107');if(b&&!b.querySelector('iframe')){b.innerHTML=`<iframe title="Where it acts" loading="lazy" src="${b.dataset.src}"></iframe>`}},true);
+/* v108: Once mixed range and tap-to-read note */
+const MXR108={
+ 'ghk-cu':['14 days to 3 months','One seller sheet claims 90 to 120 days in the fridge, with no test anyone can trace; its own other pages say 28 to 60.'],
+ 'klow':['14 days to 3 months','The longest claims reach 90 days.'],
+ 'glow':['14 days to 3 months','The longest claims reach 90 days.'],
+ 'sermorelin':['14 to 90 days','']
+};
+function mixNote108(o){const m=mixOf(o);if(!m)return '';const r=MXR108[o.slug];
+ return `<div class="mxn108"><p><b>${esc(m.d)}</b> is what most guides give. ${esc(m.n)}</p>${r?`<p><b>Range people report: ${esc(r[0])}.</b>${r[1]?' '+esc(r[1]):''}</p>`:''}<p>Across peptides, 40 to 50% of self-reports say they kept using a mixed vial for 60 to 90 days in the fridge (an aggregate of about 4,300 reports). Longer use is common; how much strength is left by then has not been tested.</p><p class="dnote">Fridge, 2–8°C. Counted from the day water goes in. Never freeze a mixed vial. Cloudy, gel or flakes: throw it out.</p>${srcLine((m.s||[]).concat([["Reconstitution, aggregated self-reports (Peptide Map)","https://peptide-map.pages.dev/guides/reconstitution"]]))}</div>`}
+document.addEventListener('click',e=>{const b=e.target.closest('.mx108');if(!b)return;e.stopPropagation();const o=BYS0(b.dataset.mx);const hd=b.closest('.hdc');if(!hd||!o)return;
+ const nx=hd.nextElementSibling&&hd.nextElementSibling.classList.contains('mxn108')?hd.nextElementSibling:null;
+ if(nx){nx.remove();b.setAttribute('aria-expanded','false');return}hd.insertAdjacentHTML('afterend',mixNote108(o));b.setAttribute('aria-expanded','true')},true);
 
 function page65(o){
   if(isW(o))return waterPage(o);
@@ -3389,10 +3374,10 @@ if(!cur&&!narrow()&&$('#pagev').hidden)openCard('bpc-157',false);
  const pep=ORD.map(s=>D.find(o=>o.slug===s)).filter(Boolean);
  const nPep=D.filter(o=>!isS(o)&&!isW(o)).length;
  let h=`<div class="shh"><h2>Peptides</h2><span class="n">${nPep}</span><span class="sub">best known first</span><button type="button" data-shall>All ↓</button></div><div class="srow pep">${pep.map(tile).join('')}</div>`;
+ h+=`<div class="shh"><h2>Supplements</h2><span class="n" id="spn"></span><span class="sub">by group</span><a href="/supplements/">All →</a></div><div class="srow" id="sprow"><p style="font-size:12px;color:#6B76A8">Loading supplements</p></div>`;
  h+=`<div class="shh"><h2>Cases</h2><span class="n">${CASES.filter(c=>c[4]).length}</span><span class="sub">a problem to heal</span><a href="/library/goals/">All →</a></div><div class="srow">${CASES.map(c=>sq(c,c[4],'c')).join('')}</div>`;
  h+=`<div class="shh"><h2>Goals</h2><span class="n">${GOALS.filter(c=>c[4]).length}</span><span class="sub">stacks for what you want more of</span><a href="/library/aims/">All →</a></div><div class="srow">${GOALS.map(g=>sq(g,g[4],'g')).join('')}</div>`;
- h+=`<div class="shh"><h2>Supplements</h2><span class="n" id="spn"></span><span class="sub">by group</span><a href="/supplements/">All →</a></div><div class="srow" id="sprow"><p style="font-size:12px;color:#6B76A8">Loading supplements</p></div>`;
- const sh=document.getElementById('shelf');sh.innerHTML=h;
+  const sh=document.getElementById('shelf');sh.innerHTML=h;
  {const SUM={"thymosin-beta-4": "Repair cells have to crawl to a wound before they can fix it; this holds what they crawl with. Wounds covered 42% faster in rats.", "retatrutide": "Three hunger hormones in one weekly shot. People lost about 28% of their weight over 80 weeks in trials.", "5-amino-1mq": "Blocks NNMT, an enzyme inside fat cells. Fat cells shrank in obese mice; no human studies yet.", "bpc-157": "Tendons heal slowly because little blood reaches them. It calls new vessels in; rat tendons healed stronger.", "ghk-cu": "A copper peptide that tells older skin to repair like younger skin. Users report better scars and texture.", "semaglutide": "Quiets hunger from the brain. People ate 35% fewer calories at a free lunch, and heart events fell 20%.", "kpv": "An off switch for inflammation that keeps ringing. Calmed the colon in mice with colitis; no human trial.", "mots-c": "A signal from the mitochondria that acts like exercise. Blocked weight gain in mice on a fatty diet.", "tesamorelin": "Nudges the body’s own growth hormone. Deep belly fat fell 15% in a 26-week trial.", "selank": "A calming peptide from Russia. In 62 anxious patients it worked about as well as a sedative.", "tb-500-frag-17-23": "The moving piece of Thymosin beta-4. Rat Achilles tendons held about 40% more force before tearing.", "tirzepatide": "Two gut hormones in one shot: less hunger, better insulin. Also cut sleep apnoea pauses in trials.", "semax": "Raises BDNF, a brain growth signal. Adults recovering from stroke regained daily function faster.", "ss-31": "Steadies the cell’s energy machinery, the mitochondria. Protected kidneys in rats; walking improved in a rare disease.", "mt-2": "Tans the skin without sun. It also raises arousal, lowers appetite and darkens moles.", "dsip": "Named for deep delta sleep. Most of what we know comes from old, small studies.", "cjc-ipamorelin": "Two inputs, one bigger growth hormone pulse. Users report deeper sleep and slow fat loss.", "thymosin-alpha-1": "Trains T cells, the immune system’s targeted defence. Used for hepatitis in some countries.", "epitalon": "Brought old monkeys’ night-time melatonin back toward normal. Telomere results are lab only.", "pt-141": "Raises desire through the brain, not blood flow. Some people get flushing or nausea."};sh.querySelectorAll('.srow.pep .tl').forEach(t=>{const v=SUM[t.dataset.s];const f=t.querySelector('.fnl2');if(v&&f)f.textContent=v})}
  sh.addEventListener('click',e=>{const t=e.target.closest('.tl');if(t){e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();location.hash='#/'+t.dataset.s;return}
   if(e.target.closest('[data-shall]')){const a=document.getElementById('allp');scrollTo({top:a.getBoundingClientRect().top+scrollY-navH()-8,behavior:RM.matches?'auto':'smooth'})}});
