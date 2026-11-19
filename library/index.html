@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v107 (19 Nov 2026, built on v106, v106 kept): Quick look as summary + questions. Top of the card unchanged; every other section folded behind a plain question that opens with a tap (dot on the right), some with a short answer preview. New question: Where does it act in the body? (Guide body, loads when opened). The compound FAQ joins the list. -->
 <!-- Library v106 (19 Nov 2026, built on v105, v105 kept): Browse block under the search, visible from the start: Browse by (Popular, What it does, Peptide or not, Blends, Evidence, How it is taken, A to Z, Size) and What do you want help with? (every role as a filled tag with its count). Choosing folds the shelves away and shows the grouped list; Show shelves brings them back. -->
 <!-- Library v105 (19 Nov 2026, built on v104, v104 kept): one Quick look | Full read switch on card and full read (same as the Guide sheet); body section reads the live Guide; live copy sits at /library/ so no version number shows in the address bar; version count hidden from readers. -->
 <!-- Library v104 (19 Nov 2026, preview, built on v103 which stays live): Quick look / Full read labels; Why on synergies, blends, supplements and blood tests (blood tests open their why in place); supplement links go to the Supplements page; Guide body at the top of every full read; embed mode for the Guide sheet; questions.html lists every missing Why. -->
@@ -1798,6 +1799,33 @@ body.tstuck #q{font-size:16px!important}
 .brw .rmore{all:unset;cursor:pointer;font:600 calc(9px*var(--k))/1 var(--mono);color:#5271FF;text-decoration:underline;padding:6px 4px}
 body.libb #shelf{display:none}
 @media (min-width:900px){.brw .br1{flex-wrap:wrap;overflow:visible}}
+
+/* v107: Quick look questions */
+.qa107{margin:2px 0 0;padding:0 0 4px;border-top:1.5px solid var(--rule)}
+.qh107{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:10px 12px 2px;display:flex;justify-content:space-between}
+.qh107 span{color:var(--ink-soft);letter-spacing:.06em}
+.q107{border-bottom:1px solid rgba(62,74,128,.18)}
+.q107:last-child{border-bottom:0}
+.q107>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:11px 12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.q107>summary::-webkit-details-marker{display:none}
+.q107 .qt{font-weight:600;font-size:calc(15px*var(--k));line-height:1.3;color:var(--ink);flex:1 1 auto;min-width:0}
+.q107 summary small{flex:none;max-width:42%;font:500 calc(10px*var(--k))/1.2 var(--mono);color:var(--ink-soft);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q107 .dt{flex:none;width:20px;height:20px;border:1.5px solid #3E4A80;border-radius:50%;position:relative;background:#FFFFF4}
+.q107 .dt::before,.q107 .dt::after{content:'';position:absolute;left:50%;top:50%;width:9px;height:1.5px;background:#3E4A80;transform:translate(-50%,-50%)}
+.q107 .dt::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
+.q107[open] .dt{background:#3E4A80}
+.q107[open] .dt::before{background:#fff}
+.q107[open] .dt::after{background:#fff;transform:translate(-50%,-50%) rotate(0)}
+.q107[open]>summary .qt{color:#3E4A80}
+.q107 .ans{padding:0 0 8px}
+.q107 .ans>.cs,.q107 .ans>.cbody{border-top:0!important;padding-top:0!important}
+.q107 .cbody{grid-template-columns:minmax(0,1fr)!important}
+.q107.solo .ans .olab:first-child,.q107.solo .ans .wbox>.olab:first-child,.q107.solo .ans .cbody>.cs>.olab:first-child{display:none}
+.q107 .ans>.kt{margin:0 12px}
+.q107 .fq107{padding:0 12px}.q107 .fq107 p{margin:0;font-size:calc(14px*var(--k));line-height:1.5}
+.q107 .ans>.note{padding:0 12px;margin:4px 0 0}
+.q107 .b107{padding:0 6px}.q107 .b107 iframe{display:block;width:100%;height:560px;border:0;background:transparent}
+@media (min-width:900px){.q107 .b107 iframe{height:640px}}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -2625,16 +2653,7 @@ function cardHTML(o,anim){
     <div class="ch3"><div class="cst">${struct}</div><div class="nmb"><div class="seg105"><span class="on">Quick look</span><a href="#/p/${o.slug}">Full read</a></div><h3>${cardName(o)}</h3>${o.blend?`<p class="bpl">${bpHTML(o,null,'card')}</p>`:''}<p class="sub">${n?cn+' · ':''}${esc(o.otl)} · <b>${DEPTH[o.depth]}</b></p><p class="lead2">${esc(d&&d.use||cap(o.fn))}</p>${o.punch?`<p class="punch">${esc(o.punch)}</p>`:''}</div>${hcells}</div>
     <div class="strip" aria-hidden="true"><span class="band" style="position:absolute;inset:0">${hbar(segs(o))}</span></div>
     ${ktHTML(o)}
-    <div class="cbody">${roles}</div>
-    ${dose}
-    ${bloodMini(o)}
-    ${whoNotHTML(o)}
-    ${rxCard(o)}
-    ${blendHTML(o)}
-    ${syn}
-    ${simHTML(o)}
-    ${inBlendsHTML(o)}
-    ${nm}
+    ${qa107(o,{roles,dose,syn,nm})}
     <div class="go"><span class="credit">Data collected by <b>Bare Signals</b></span><span class="gb"><button class="shb" data-share="${o.slug}">Share</button><a class="fpb" href="#/p/${o.slug}">Full read →</a></span></div>
   </article>`;
 }
@@ -3194,6 +3213,28 @@ addEventListener('load',()=>setTimeout(function(){
     if(t.dataset.r){document.body.classList.add('libb');st.sort='pop';showRole(t.dataset.r);draw();toList()}});
   draw();
 },60));
+
+
+/* v107: Quick look as questions. Summary stays open; each question opens with a tap. */
+function qa107(o,P){
+  const Q=[],add=(q,html,pv,solo)=>{if(html&&html.replace(/<[^>]+>/g,'').trim())Q.push({q,html,pv,solo})};
+  const d=o.dose,W=(o.whoNot||[]).filter(x=>x&&x.t);
+  if(o.blend)add('What’s in this blend?',blendHTML(o),(o.blend.parts||[]).length+' parts',true);
+  add('What does it do?','<div class="cbody">'+P.roles+'</div>',(rolesOf(o)[0]||[])[0]?esc(LONG[rolesOf(o)[0][0]]||''):'',true);
+  add('Why do people take it, and does it work?',ktHTML(o,true),'',false);
+  add('What’s the usual dose?',P.dose,d&&d.dose?esc(String(d.dose)):'',true);
+  add('What can I pair it with?',(o.syn?P.syn:'')+inBlendsHTML(o),o.syn?o.syn.length+' options':'',false);
+  add('Who shouldn’t take it, and why?',whoNotHTML(o)+rxCard(o),W.length?W.length+(W.length>1?' groups':' group'):'',false);
+  if((window.BS_GSL||[]).includes(o.slug))Q.push({q:'Where does it act in the body?',html:`<div class="k-body104 b107" data-src="${GUIDE104}?p=${encodeURIComponent(o.slug)}&amp;embed=body"></div><p class="note">Tap a label on the body for its study.</p>`,pv:'',body:1});
+  add('Which blood tests, and why?',bloodMini(o),'',true);
+  add('Similar compounds and other names',(simHTML(o)||'')+(P.nm||''),'',false);
+  const F=((window.BS_FAQ||{})[o.slug]||[]).filter(x=>!/who shouldn|shouldn’t|shouldn't/i.test(x[0]));
+  F.forEach(x=>Q.push({q:x[0],html:`<div class="cs fq107"><p>${esc(x[1])}</p></div>`,pv:''}));
+  if(!Q.length)return '';
+  return `<div class="qa107"><p class="qh107">Questions <span>tap to open</span></p>${Q.map(x=>`<details class="q107${x.solo?' solo':''}"${x.body?' data-body':''}><summary><span class="qt">${esc(x.q)}</span>${x.pv?`<small>${x.pv}</small>`:''}<i class="dt" aria-hidden="true"></i></summary><div class="ans">${x.html}</div></details>`).join('')}</div>`;
+}
+document.addEventListener('toggle',e=>{const t=e.target;if(!t.matches||!t.matches('details.q107[data-body]')||!t.open)return;
+  const b=t.querySelector('.b107');if(b&&!b.querySelector('iframe')){b.innerHTML=`<iframe title="Where it acts" loading="lazy" src="${b.dataset.src}"></iframe>`}},true);
 
 function page65(o){
   if(isW(o))return waterPage(o);
