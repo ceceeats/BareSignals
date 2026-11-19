@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v112 (20 Nov 2026, built on v111, kept): the deep read opens in place inside the Full read (old #/d/ links land there, open); a Why on every Mixing it with row and Taking it right step for the four medicines (rxw.js). -->
 <!-- Library v111 (20 Nov 2026, built on v110, kept): soft shelf snap; landing shows 24 peptides then Show all; Back from a Full read lands on the card top; own words outrank Case words in search; shelf taps open the card under the shelf; phone hides the site nav while the search row is pinned. -->
 <!-- Library v110 (20 Nov 2026, built on v109, kept): Browse block hidden inside the Guide Quick look sheet (its taps did nothing there); in the sheet, swipe the card left for the Full read and the Full read right for the Quick look. -->
 <!-- Library v109 (20 Nov 2026, built on v108, kept): Back closes an open card; swipes from the screen edge ignored (iPhone back-swipe no longer flips compounds), flatter card swipe; condition searches (tennis elbow, achilles, knee, gut, endometriosis, PCOS, period pain) list the compounds their Case page discusses. -->
@@ -1820,6 +1821,18 @@ body.tstuck #q{font-size:16px!important}
 .more111[hidden]{display:none}
 #shelf>#cardwrap{margin:4px 0 14px}
 @media (max-width:899px){body.tstuck .bsn{transform:translateY(-100%)!important}body.tstuck .bsn-sp{height:0!important}}
+
+/* v112: deep read in place + whys */
+.rxdr.dx112b{width:100%!important;text-decoration:none!important;display:flex!important}
+.dx112b{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;margin:10px 0 0;padding:9px 12px;border:1.5px solid #3E4A80;background:#FFFFF4;color:#3E4A80;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.dx112b .dt{margin-left:auto;flex:none;width:18px;height:18px;border:1.5px solid #3E4A80;border-radius:50%;position:relative}
+.dx112b .dt::before,.dx112b .dt::after{content:'';position:absolute;left:50%;top:50%;width:8px;height:1.5px;background:#3E4A80;transform:translate(-50%,-50%)}
+.dx112b .dt::after{transform:translate(-50%,-50%) rotate(90deg)}
+.dx112b[aria-expanded=true]{background:#3E4A80;color:#fff}.dx112b[aria-expanded=true] .dt{border-color:#fff}
+.dx112b[aria-expanded=true] .dt::before{background:#fff}.dx112b[aria-expanded=true] .dt::after{display:none}
+.dx112{border:1.5px solid #3E4A80;border-top:0;padding:4px 12px 10px;background:#FFFFF4}
+.dx112 .dsec{margin:12px 0 0}.dx112 .dsec h2{font-size:calc(16px*var(--k));margin:0 0 6px}
+.rxl .why,.rxs .why{display:block;margin:4px 0 0}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -1942,7 +1955,7 @@ body.tstuck #q{font-size:16px!important}
 <script src="data.js"></script><script src="mix.js"></script><script src="supp.js"></script><script src="punch.js"></script><script src="card.js"></script><script src="take.js"></script>
 <script src="pk.js"></script>
 <script src="mol.js"></script>
-<script src="rx.js"></script>
+<script src="rx.js"></script><script src="rxw.js"></script>
 <script src="tw.js"></script>
 <script>
 /* Library v29: v28 page unchanged, data adds 17 compounds (Batch 1). v27: v26 plus named actions sent to the site counter (see /track.js): card opened, role shown or filtered, sort changed, card shared, searches that found nothing. Nothing else changed. */
@@ -3135,10 +3148,10 @@ const rxOf=o=>(window.BS_RX||{})[o.slug];
 const rxTag=k=>{const l=RXL[k];return `<span class="rxt" style="color:${l[1]};background:${l[2]}">${l[0]}</span>`};
 function rxIx(o){const R=rxOf(o);if(!R||!R.ix)return '';
   const g=Object.keys(RXG).map(k=>{const L=R.ix.filter(x=>x[0]===k);if(!L.length)return '';
-    return `<div class="rxg"><p class="rxh">${RXG[k]}</p><ul class="rxl">${L.map(x=>{const ln=x[4]&&BYS0(x[4])?`<a href="#/p/${x[4]}">${esc(x[1])}</a>`:esc(x[1]);return `<li>${rxTag(x[2])}<div><b>${ln}</b><span>${esc(x[3])}${x[5]?` <em class="rxc">${RXC[x[5]]||''}</em>`:''}</span></div></li>`}).join('')}</ul></div>`}).join('');
+    return `<div class="rxg"><p class="rxh">${RXG[k]}</p><ul class="rxl">${L.map(x=>{const ln=x[4]&&BYS0(x[4])?`<a href="#/p/${x[4]}">${esc(x[1])}</a>`:esc(x[1]);const W=((window.BS_RXW||{})[o.slug]||{}).ix,wy=W&&W[R.ix.indexOf(x)];return `<li>${rxTag(x[2])}<div><b>${ln}</b><span>${esc(x[3])}${x[5]?` <em class="rxc">${RXC[x[5]]||''}</em>`:''}${wy?`<details class="why"><summary>Why</summary><span>${esc(wy)}</span></details>`:''}</span></div></li>`}).join('')}</ul></div>`}).join('');
   return sec65('k-rx','Mixing it with',`<div class="rxk">${['avoid','space','watch','ok'].map(rxTag).join('')}</div>${g}<p class="note">Label: on the medicine's label or guideline. Reported: studies or pharmacist sources. Our read: no study, reasoned from how each one works. Not medical advice; your prescriber or pharmacist has the final word.</p>`)}
 function rxTake(o){const R=rxOf(o);if(!R||!R.take)return '';
-  return sec65('k-rxt','Taking it right',`<ol class="rxs">${R.take.map(t=>`<li><span><b>${esc(t[0])}.</b> ${esc(t[1])}</span></li>`).join('')}</ol>${(window.BS_DEEP||{})[o.slug]||o.hasDeep?`<a class="rxdr" href="#/d/${o.slug}">Read the deep read →</a>`:''}`)}
+  return sec65('k-rxt','Taking it right',`<ol class="rxs">${R.take.map((t,i)=>{const W=((window.BS_RXW||{})[o.slug]||{}).take,wy=W&&W[i];return `<li><span><b>${esc(t[0])}.</b> ${esc(t[1])}${wy?`<details class="why"><summary>Why</summary><span>${esc(wy)}</span></details>`:''}</span></li>`}).join('')}</ol>${(window.BS_DEEP||{})[o.slug]||o.hasDeep?`<button type="button" class="rxdr dx112b" data-dx="${o.slug}" aria-expanded="false"><span>Read the deep read</span><i class="dt" aria-hidden="true"></i></button><div class="dx112" hidden></div>`:''}`)}
 function rxCmp(o){const R=rxOf(o);if(!R||!R.cmp)return '';const C=R.cmp;
   const tb=`<table class="rxcm"><thead><tr><th>Instead</th><th>Better when</th><th>Worse when</th></tr></thead><tbody>${C.rows.map(r=>`<tr><th>${esc(r[0])}</th><td class="rb">${esc(r[1])}</td><td class="rw">${esc(r[2])}</td></tr>`).join('')}</tbody></table>`;
   const ph=`<div class="rxq">${C.rows.map(r=>`<div><b>${esc(r[0])}</b><p class="rb">${esc(r[1])}</p><p class="rw">${esc(r[2])}</p></div>`).join('')}</div>`;
@@ -3269,6 +3282,20 @@ document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest
   if(SH111&&narrow()&&cur&&SH111.querySelector(`.tl[data-s="${cur}"]`)){if(SH111.nextElementSibling!==cw)SH111.after(cw);
     if(scroll!==false){const r=cw.getBoundingClientRect();scrollTo({top:scrollY+r.top-4-topOff(),behavior:RM.matches?'auto':'smooth'})}return}
   SH111=null;return _p.apply(this,arguments)}}
+
+
+/* v112: the deep read opens inside the Full read */
+let OPEN112=null;
+function dx112(b,force){const box=b.nextElementSibling;if(!box||!box.classList.contains('dx112'))return;const o=BYS0(b.dataset.dx);if(!o)return;
+  const on=force===true?true:box.hidden;
+  if(on&&!box.dataset.ok){const t=document.createElement('div');t.innerHTML=deepHTML(o);const a=t.querySelector('.dart');if(a){const h=a.querySelector('.dhd');if(h)h.remove();box.innerHTML=a.innerHTML}box.dataset.ok=1}
+  box.hidden=!on;b.setAttribute('aria-expanded',on?'true':'false');b.querySelector('span').textContent=on?'Fold the deep read':'Read the deep read';
+  if(on&&force===true){const r=b.getBoundingClientRect();scrollTo({top:scrollY+r.top-10-(typeof topOff==='function'?topOff():0),behavior:'auto'})}}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.dx112b');if(b){e.preventDefault();dx112(b);return}
+  const a=e.target.closest&&e.target.closest('a[href^="#/d/"]');if(a){e.preventDefault();OPEN112=a.getAttribute('href').slice(4);location.hash='#/p/'+OPEN112}},true);
+function chk112(){const m=location.hash.match(/^#\/d\/([a-z0-9-]+)/);if(m){OPEN112=m[1];location.replace('#/p/'+m[1]);return}
+  if(OPEN112&&location.hash==='#/p/'+OPEN112){const sl=OPEN112;OPEN112=null;setTimeout(()=>{const b=document.querySelector(`#pagev .dx112b[data-dx="${sl}"]`);if(b)dx112(b,true)},350)}}
+addEventListener('hashchange',chk112);addEventListener('load',()=>setTimeout(chk112,50));
 
 function page65(o){
   if(isW(o))return waterPage(o);
