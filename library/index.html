@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v113 (20 Nov 2026, built on v112, kept): Whys sit inline after each Mixing it with row and Taking it right step; story heading without the note count; report tile footnote spaced; metronidazole ratings explained, 2018 trichomoniasis trial, review read, new first FAQ. -->
 <!-- Library v112 (20 Nov 2026, built on v111, kept): the deep read opens in place inside the Full read (old #/d/ links land there, open); a Why on every Mixing it with row and Taking it right step for the four medicines (rxw.js). -->
 <!-- Library v111 (20 Nov 2026, built on v110, kept): soft shelf snap; landing shows 24 peptides then Show all; Back from a Full read lands on the card top; own words outrank Case words in search; shelf taps open the card under the shelf; phone hides the site nav while the search row is pinned. -->
 <!-- Library v110 (20 Nov 2026, built on v109, kept): Browse block hidden inside the Guide Quick look sheet (its taps did nothing there); in the sheet, swipe the card left for the Full read and the Full read right for the Quick look. -->
@@ -1832,7 +1833,13 @@ body.tstuck #q{font-size:16px!important}
 .dx112b[aria-expanded=true] .dt::before{background:#fff}.dx112b[aria-expanded=true] .dt::after{display:none}
 .dx112{border:1.5px solid #3E4A80;border-top:0;padding:4px 12px 10px;background:#FFFFF4}
 .dx112 .dsec{margin:12px 0 0}.dx112 .dsec h2{font-size:calc(16px*var(--k));margin:0 0 6px}
-.rxl .why,.rxs .why{display:block;margin:4px 0 0}
+.rxl .why,.rxs .why{display:inline}
+.rxl .why summary,.rxs .why summary{display:inline;cursor:pointer;list-style:none;font:500 calc(8.5px*var(--k)) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:6px;white-space:nowrap}
+.rxl .why summary::-webkit-details-marker,.rxs .why summary::-webkit-details-marker{display:none}
+.rxl .why summary::after,.rxs .why summary::after{content:" ▾"}
+.rxl .why[open] summary::after,.rxs .why[open] summary::after{content:" ▴"}
+.rxl .why[open]>span,.rxs .why[open]>span{display:block;margin:3px 0 4px;color:var(--ink-soft);font-size:calc(12px*var(--k));line-height:1.4}
+.pools strong sup{font-size:.42em;margin-left:3px;vertical-align:super;color:var(--ink-soft)}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -3081,7 +3088,7 @@ function rep65(o){
   /* the story behind the numbers: every sentence of the research notes, sorted good / hard / note, numbers bold */
   const sent=t=>(String(t||'').match(/[^.!?]+(?:[.!?]+|$)/g)||[]).map(x=>x.trim()).filter(x=>x.length>12);
   const st=[...sent(o.worked).map(x=>['g',x]),...sent(o.didnt).map(x=>['b',x]),...sent(o.reports).map(x=>['n',x])];
-  const story=st.length?`<button class="rp-more" type="button" aria-expanded="false">The story behind it · ${st.length} notes</button><ul class="rp-st" hidden>${st.map(([k,x])=>`<li class="k${k}"><i>${k==='g'?'Good':k==='b'?'Hard':'Note'}</i><span>${bnum(x)}</span></li>`).join('')}</ul>`:'';
+  const story=st.length?`<button class="rp-more" type="button" aria-expanded="false">The story behind it</button><ul class="rp-st" hidden>${st.map(([k,x])=>`<li class="k${k}"><i>${k==='g'?'Good':k==='b'?'Hard':'Note'}</i><span>${bnum(x)}</span></li>`).join('')}</ul>`:'';
   const body=tiles+bars+most+led+seh+story;
   return sec65('k-rep','What people report',body)}
 
