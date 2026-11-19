@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- Library v111 (20 Nov 2026, built on v110, kept): soft shelf snap; landing shows 24 peptides then Show all; Back from a Full read lands on the card top; own words outrank Case words in search; shelf taps open the card under the shelf; phone hides the site nav while the search row is pinned. -->
+<!-- Library v110 (20 Nov 2026, built on v109, kept): Browse block hidden inside the Guide Quick look sheet (its taps did nothing there); in the sheet, swipe the card left for the Full read and the Full read right for the Quick look. -->
 <!-- Library v109 (20 Nov 2026, built on v108, kept): Back closes an open card; swipes from the screen edge ignored (iPhone back-swipe no longer flips compounds), flatter card swipe; condition searches (tennis elbow, achilles, knee, gut, endometriosis, PCOS, period pain) list the compounds their Case page discusses. -->
 <!-- Library v108 (20 Nov 2026, built on v106; v106 and v107 kept): landing order is search, shelves (Peptides, Supplements, Cases, Goals), Browse block, All peptides; browsing keeps the shelves. Card as v106; Once mixed shows the range people report and opens the full note on tap. -->
 <!-- Library v106 (19 Nov 2026, built on v105, v105 kept): Browse block under the search, visible from the start: Browse by (Popular, What it does, Peptide or not, Blends, Evidence, How it is taken, A to Z, Size) and What do you want help with? (every role as a filled tag with its count). Choosing folds the shelves away and shows the grouped list; Show shelves brings them back. -->
@@ -1770,7 +1772,7 @@ body.tstuck #q{font-size:16px!important}
 .k-body104 iframe{display:block;width:100%;height:560px;border:0;background:transparent}
 @media (min-width:900px){.k-body104 iframe{height:620px}}
 /* embed mode: only the card or the full read */
-.emb104 .bsn,.emb104 .bsn-sp,.emb104 #bs-prog,.emb104 .lhead,.emb104 .lhd,.emb104 #shelf,.emb104 #toolsph,.emb104 #alsoin,.emb104 .allh,.emb104 #grid>.tl,.emb104 .vlog,.emb104 .foot,.emb104 .pbar,.emb104 .sw68,.emb104 .cnav,.emb104 #fbar{display:none!important}
+.emb104 #brw,.emb104 .bsn,.emb104 .bsn-sp,.emb104 #bs-prog,.emb104 .lhead,.emb104 .lhd,.emb104 #shelf,.emb104 #toolsph,.emb104 #alsoin,.emb104 .allh,.emb104 #grid>.tl,.emb104 .vlog,.emb104 .foot,.emb104 .pbar,.emb104 .sw68,.emb104 .cnav,.emb104 #fbar{display:none!important}
 .emb104 body{padding-top:0!important}
 .emb104 .pk104{display:none!important}
 .emb104 #grid{display:block!important}
@@ -1811,6 +1813,13 @@ body.tstuck #q{font-size:16px!important}
 .mx108[aria-expanded=true] .dt::before{background:#fff}.mx108[aria-expanded=true] .dt::after{display:none}
 .mxn108{border:1.5px solid var(--ink);border-top:0;margin:0 0 4px;background:#FFFFF4;padding:8px 10px 6px;font-size:calc(13px*var(--k));line-height:1.45}
 .mxn108 p{margin:0 0 6px}.mxn108 b{color:#3E4A80}.mxn108 .psrc{font-size:calc(11px*var(--k))}
+
+/* v111 */
+#grid>.tl.x111{display:none!important}
+.more111{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;text-align:center;margin:10px 0 4px;padding:13px 10px 12px;border:1.5px solid #3E4A80;background:#FFFFF4;color:#3E4A80;font:600 calc(11px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;box-shadow:3px 3px 0 var(--rule)}
+.more111[hidden]{display:none}
+#shelf>#cardwrap{margin:4px 0 14px}
+@media (max-width:899px){body.tstuck .bsn{transform:translateY(-100%)!important}body.tstuck .bsn-sp{height:0!important}}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -1822,7 +1831,7 @@ body.tstuck #q{font-size:16px!important}
 .shh .n{font:500 10.5px/1 "JetBrains Mono",monospace;color:#6B76A8}
 .shh .sub{font-size:11.5px;color:#6B76A8;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .shh a,.shh button{all:unset;cursor:pointer;margin-left:auto;font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:#3F5BD6;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
-.srow{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:2px 3px 8px 0;scrollbar-width:none;overscroll-behavior-x:contain}
+.srow{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;padding:2px 3px 8px 0;scrollbar-width:none;overscroll-behavior-x:contain}
 .srow::-webkit-scrollbar{display:none}
 .srow>*{scroll-snap-align:start;flex:none}
 .srow.pep .tl{width:112px}
@@ -2900,7 +2909,7 @@ function route(){
   m=h.match(/^#\/role\/(.+)$/);
   if(m){const k=keyOf(decodeURIComponent(m[1]));history.replaceState(null,'',cur?'#/'+cur:'#/');if(k)showRole(k[0]);else render();return}
   m=h.match(/^#\/([^/]+)$/);
-  if(m&&D.find(x=>x.slug===m[1])){render();if(wasPage)scrollTo(0,listY);openCard(m[1],!wasPage);return}
+  if(m&&D.find(x=>x.slug===m[1])){render();if(wasPage)scrollTo(0,listY);openCard(m[1],true);return}
   render();if(wasPage)scrollTo(0,listY);
 }
 function setType(t,keep){if(t===TYPE)return;TYPE=t;try{localStorage.setItem('bs-lib-type',t)}catch(e){}
@@ -3224,12 +3233,42 @@ document.addEventListener('click',e=>{const b=e.target.closest('.mx108');if(!b)r
 
 
 /* v109: condition words from the Case pages, so 'tennis elbow' lists the compounds that page discusses */
-{const K={"bpc-157": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "bpc-157-tb-500": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo"], "collagen-peptides": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus"], "ghk-cu-bpc-157": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis"], "glow": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "klow": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "tb-500-frag-17-23": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "thymosin-beta-4": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "ghk-cu": ["knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "kpv": ["knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "retatrutide": ["knee", "knee pain", "acl", "meniscus", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "semaglutide": ["knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "larazotide": ["gut", "ibs", "leaky gut", "bloating", "colitis"], "tirzepatide": ["gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "cjc-ipamorelin": ["endometriosis", "endo", "pcos", "polycystic"], "kisspeptin-10": ["endometriosis", "endo", "pcos", "polycystic"], "ll-37": ["endometriosis", "endo"], "mk-677": ["endometriosis", "endo", "pcos", "polycystic"], "oxytocin": ["endometriosis", "endo"], "thymosin-alpha-1": ["endometriosis", "endo"], "aod-9604": ["pcos", "polycystic"], "cagrilintide": ["pcos", "polycystic"], "liraglutide": ["pcos", "polycystic"], "melanotan-1": ["pcos", "polycystic"], "mots-c": ["pcos", "polycystic"], "nadplus": ["pcos", "polycystic"], "pt-141": ["pcos", "polycystic"], "ss-31": ["pcos", "polycystic"], "tesamorelin": ["pcos", "polycystic"]};D.forEach(o=>{const a=K[o.slug];if(a)o.kw=(o.kw||[]).concat(a)})}
+{const K0={"bpc-157": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "bpc-157-tb-500": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo"], "collagen-peptides": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus"], "ghk-cu-bpc-157": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis"], "glow": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "klow": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "tb-500-frag-17-23": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "thymosin-beta-4": ["tennis elbow", "elbow", "tendon", "tendonitis", "lateral epicondylitis", "achilles", "achilles tendon", "heel", "knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "ghk-cu": ["knee", "knee pain", "acl", "meniscus", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "kpv": ["knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "period pain", "period cramps", "cramps", "menstrual pain"], "retatrutide": ["knee", "knee pain", "acl", "meniscus", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "semaglutide": ["knee", "knee pain", "acl", "meniscus", "gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "larazotide": ["gut", "ibs", "leaky gut", "bloating", "colitis"], "tirzepatide": ["gut", "ibs", "leaky gut", "bloating", "colitis", "endometriosis", "endo", "pcos", "polycystic", "period pain", "period cramps", "cramps", "menstrual pain"], "cjc-ipamorelin": ["endometriosis", "endo", "pcos", "polycystic"], "kisspeptin-10": ["endometriosis", "endo", "pcos", "polycystic"], "ll-37": ["endometriosis", "endo"], "mk-677": ["endometriosis", "endo", "pcos", "polycystic"], "oxytocin": ["endometriosis", "endo"], "thymosin-alpha-1": ["endometriosis", "endo"], "aod-9604": ["pcos", "polycystic"], "cagrilintide": ["pcos", "polycystic"], "liraglutide": ["pcos", "polycystic"], "melanotan-1": ["pcos", "polycystic"], "mots-c": ["pcos", "polycystic"], "nadplus": ["pcos", "polycystic"], "pt-141": ["pcos", "polycystic"], "ss-31": ["pcos", "polycystic"], "tesamorelin": ["pcos", "polycystic"]};D.forEach(o=>{const a=K0[o.slug];if(a)o.ckw=a})}
 /* v109: Back to the plain Library closes an open card */
 /* v109: inside the Guide sheet, the Library never adds history steps (the sheet owns Back) */
 if(new URLSearchParams(location.search).get('embed')==='1'){history.pushState=function(a,b,c){history.replaceState(a,b,c)};
  document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;e.preventDefault();location.replace(a.getAttribute('href'))})}
 addEventListener('hashchange',()=>{const h=location.hash;if((!h||h==='#'||h==='#/')&&typeof cur!=='undefined'&&cur&&$('#pagev').hidden)closeCard()});
+
+
+/* v110: in the Guide sheet, card swipes switch Quick look and Full read instead of flipping compounds */
+if(new URLSearchParams(location.search).get('embed')==='1'){
+ step=function(d){if(!cur)return;if(d>0)location.replace('#/p/'+cur)};
+ {let sx=null,sy=0;document.addEventListener('touchstart',e=>{const t=e.touches[0];if(e.touches.length!==1||$('#pagev').hidden||t.clientX<28||t.clientX>innerWidth-28||e.target.closest('table,.fbox,svg,input,textarea,.sx65,.dt-w')){sx=null;return}sx=t.clientX;sy=t.clientY},{passive:true,capture:true});
+  document.addEventListener('touchend',e=>{if(sx==null)return;const p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;sx=null;
+   if(dx>70&&dx>2.2*Math.abs(dy)){const m=location.hash.match(/^#\/p\/(.+)$/);if(m){e.stopPropagation();location.replace('#/'+m[1])}}},{passive:true,capture:true});}
+}
+
+
+/* v111: Case words rank below a compound's own words */
+{const _s=score;score=function(o,q){let v=_s(o,q);if(v<4.2&&q&&q.length>=2&&(o.ckw||[]).some(k=>norm(k)===q||norm(k).includes(q)))v=4.2;return v}}
+/* v111: landing shows 24 peptides, then a button */
+let ALL111=false;
+function cap111(){const g=$('#grid');if(!g)return;let b=document.getElementById('more111');
+  const on=!ALL111&&!st.q.trim()&&!st.cols.length&&!document.body.classList.contains('libb')&&!document.documentElement.classList.contains('emb104');
+  const T=[...g.querySelectorAll(':scope>.tl')];T.forEach((t,i)=>t.classList.toggle('x111',on&&i>=24&&t.dataset.s!==cur));
+  const hid=T.filter(t=>t.classList.contains('x111')).length;
+  if(!b){b=document.createElement('button');b.type='button';b.id='more111';b.className='more111';g.after(b);b.addEventListener('click',()=>{ALL111=true;cap111()})}
+  b.hidden=!hid;b.textContent='Show all '+D.filter(o=>inT(o)&&!isW(o)).length+' peptides';}
+{const _r=renderGrid;renderGrid=function(){_r.apply(this,arguments);cap111()}}
+addEventListener('load',()=>setTimeout(cap111,80));
+/* v111: a card opened from the top shelf opens under that shelf */
+let SH111=null;
+document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('.tl');if(!t)return;SH111=t.closest('#shelf .srow')||null},true);
+{const _p=placeCard;placeCard=function(scroll){const cw=$('#cardwrap');
+  if(SH111&&narrow()&&cur&&SH111.querySelector(`.tl[data-s="${cur}"]`)){if(SH111.nextElementSibling!==cw)SH111.after(cw);
+    if(scroll!==false){const r=cw.getBoundingClientRect();scrollTo({top:scrollY+r.top-4-topOff(),behavior:RM.matches?'auto':'smooth'})}return}
+  SH111=null;return _p.apply(this,arguments)}}
 
 function page65(o){
   if(isW(o))return waterPage(o);
@@ -3407,7 +3446,7 @@ if(!cur&&!narrow()&&$('#pagev').hidden)openCard('bpc-157',false);
 
 /* v68: swipe the full page left for the next compound, right for the one before (same order as the top bar) */
 {const pv=document.getElementById('pagev');let sx=null,sy=0;if(pv){
- pv.addEventListener('touchstart',e=>{if(e.touches.length!==1||e.touches[0].clientX<28||e.touches[0].clientX>innerWidth-28||e.target.closest('.dt-w,table,.fbox,svg,input,textarea,.sx65')){sx=null;return}sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+ pv.addEventListener('touchstart',e=>{if(document.documentElement.classList.contains('emb104')||e.touches.length!==1||e.touches[0].clientX<28||e.touches[0].clientX>innerWidth-28||e.target.closest('.dt-w,table,.fbox,svg,input,textarea,.sx65')){sx=null;return}sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
  pv.addEventListener('touchend',e=>{if(sx==null)return;const p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;sx=null;if(Math.abs(dx)<70||Math.abs(dx)<2*Math.abs(dy))return;
   const a=pv.querySelector(`[data-pn="${dx<0?1:-1}"]`);if(!a)return;try{sessionStorage.setItem('bs-sw68','1')}catch(_){}
   pv.classList.add(dx<0?'out-l':'out-r');setTimeout(()=>{location.hash=a.getAttribute('href');scrollTo(0,0);pv.classList.remove('out-l','out-r');pv.classList.add(dx<0?'in-l':'in-r');setTimeout(()=>pv.classList.remove('in-l','in-r'),260)},140)},{passive:true});
