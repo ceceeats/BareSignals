@@ -8,6 +8,6 @@ const NM={"5am":"0","abl":"1","adx":"2","adp":"3","ahk":"4","aod":"5","ara":"6",
 /* QR scan codes (BPC, TA1, ILN…) and readable names (bpc, tb4, ta1…) map to the fixed codes above; old numeric codes still work. */
 const b64u=t=>btoa(unescape(encodeURIComponent(t))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const h=decodeURIComponent(location.hash.slice(1)),[ids,name]=h.split('~'),s=(ids||'').split('.').map(c=>E[NM[c.toLowerCase()]]||E[c]).filter(Boolean);
-if(s.length){location.replace('/protocol/v40/#s='+b64u(JSON.stringify({v:1,s,n:name?name+"'s protocol":'Your protocol',o:1})))}
+if(s.length){location.replace('/protocol/#s='+b64u(JSON.stringify({v:1,s,n:name?name+"'s protocol":'Your protocol',o:1})))}
 else{document.body.innerHTML='<p>That link looks incomplete. <a href="/protocol/">Open the Protocol page</a>.</p>'}
 </script></body></html>
