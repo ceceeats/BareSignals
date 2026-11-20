@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of dosage/v32/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of dosage/v33/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Dosage v33 (20 Nov 2026, built on v32, kept): reads the live Library (/library/data.js, page.js, merge.js) instead of the pinned v101 copy, so every Library update shows here at once -->
 <!-- Dosage v32 (20 Nov 2026, built on v31, kept): search text 16px on phone so the iPhone never zooms in; search reads phrases and word families (shared search v2) -->
 <!-- Dosage v31 (20 Nov 2026, built on v30, kept): opening or closing a compound keeps its row at the same height on screen (before, the page scrolled to show the whole row). -->
 <!-- Dosage v30 (19 Nov 2026, built on v29, v29 kept): reads Library v101, so the four prescription medicines (metronidazole, doxycycline, tranexamic acid, dexketoprofen) show with their label doses. --><!-- Dosage v29 (4 Nov 2026, v28 kept): reads Library v85; an approved Library dose replaces the old community override (Retatrutide, Semaglutide, HGH). -->
@@ -215,8 +216,8 @@ a.ct:hover{box-shadow:1.5px 1.5px 0 var(--ink)}
   <p class="nb">Not medical advice. Doses differ by person, and many of these compounds are not approved for human use. Talk to a clinician.</p>
  </dialog>
 </div>
-<script src="/library/v101/data.js"></script><script src="/library/v101/page.js"></script><script src="/library/v101/merge.js"></script>
-<script src="/blood/v20/lib.js"></script>
+<script src="/library/data.js"></script><script src="/library/page.js"></script><script src="/library/merge.js"></script>
+<script src="/blood/lib.js"></script>
 <script>
 /* text size: nav v10 sends bs-text {key,k,wide}; apply k (zoom on main), card names grow by 40% of the step */
 (function(){

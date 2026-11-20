@@ -90,3 +90,12 @@ First build, in the Aminos page style. Shipped with Nav v7 (Made added after Ami
 - Part eight, Toxins: endotoxin (with EU limit reader, 5 EU/kg/hr), heavy metals (ICH Q3D parenteral PDEs), solvents, microbes.
 - Part nine, Reactions: timing grid (site, fever-type, allergic, infection) and anaphylaxis emergency box (112/911/999).
 - 8 numbered sources, checked 22 Oct 2026.
+
+## v11 (20 Nov 2026) at /made/v11/
+Reads the live Library (/library/data.js) instead of the pinned v49 copy.
+
+## v11 (20 Nov 2026) at /made/v11/
+Reads the live Library (/library/data.js) instead of the pinned v49 copy.
+
+## v11 (20 Nov 2026) at /made/v11/
+Reads the live Library (/library/data.js) instead of the pinned v49 copy.
