@@ -1,0 +1,11 @@
+/* Library v76 (28 Oct 2026, built on v75): Key takeaway labels as big and as
+   heavy as the text they label (Cece: the small caps were hard to read). */
+.kt .kr dt,.big-text .kt .kr dt{font:700 calc(13px*var(--k))/1.42 var(--body);letter-spacing:0;text-transform:none;color:var(--accent);white-space:nowrap}
+.kt .ktt{font-size:calc(12px*var(--k))}
+@media (max-width:599px){
+  .kt .kr dt,.big-text .kt .kr dt{font-size:calc(12.5px*var(--k));vertical-align:0;margin-right:5px}
+}
+@container (max-width:430px){.kt .kr dt{vertical-align:0;margin-right:5px}}
+/* label runs into its line at every width: no line spent on a label alone */
+.kt .kr dt{display:inline;margin:0 5px 0 0}
+.kt .kr dd{display:inline}
