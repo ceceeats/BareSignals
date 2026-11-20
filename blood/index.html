@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of blood/v29/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of blood/v30/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Blood v30 (20 Nov 2026, built on v29, kept): search text 16px on phone so the iPhone never zooms in; search reads phrases and word families (shared search v2) -->
 <!-- Blood Work v29 (19 Nov 2026, built on v28, v28 kept): four prescription medicines (metronidazole, doxycycline, tranexamic acid, dexketoprofen) added via rx.js. -->
 <html lang="en">
 <head>
@@ -655,7 +656,7 @@ h1 small{font:500 9px var(--mono)}
 </style>
 <script src="/nav.js" defer></script>
 <script src="/search.js"></script>
-</head>
+<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style></head>
 <body>
 <div class="wrap">
   <header class="top"><div>

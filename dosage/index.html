@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of dosage/v31/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of dosage/v32/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Dosage v32 (20 Nov 2026, built on v31, kept): search text 16px on phone so the iPhone never zooms in; search reads phrases and word families (shared search v2) -->
 <!-- Dosage v31 (20 Nov 2026, built on v30, kept): opening or closing a compound keeps its row at the same height on screen (before, the page scrolled to show the whole row). -->
 <!-- Dosage v30 (19 Nov 2026, built on v29, v29 kept): reads Library v101, so the four prescription medicines (metronidazole, doxycycline, tranexamic acid, dexketoprofen) show with their label doses. --><!-- Dosage v29 (4 Nov 2026, v28 kept): reads Library v85; an approved Library dose replaces the old community override (Retatrutide, Semaglutide, HGH). -->
 <!-- Dosage v28 (4 Nov 2026): same page as v27, data from the live Library v79 (was Library v49): Pinealon 100–500 mcg, Glutathione 200–600 mg, 5-Amino-1MQ injected tiers, Selank cycle. v27 kept. -->
@@ -180,7 +181,7 @@ a.ct:hover{box-shadow:1.5px 1.5px 0 var(--ink)}
 </style>
 <script src="/nav.js" defer></script>
 <script src="/search.js"></script>
-</head>
+<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style></head>
 <body>
 <div class="wrap">
  <div class="top">
