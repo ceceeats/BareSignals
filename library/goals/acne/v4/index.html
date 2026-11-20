@@ -1,0 +1,1518 @@
+<!doctype html>
+<!-- Acne (Cases) v4, 20 Nov 2026, built on v3 (kept): Explain v1 (tap to explain): loads /explain.js; tap a study tag, proof mark, grade, legal chip, phase or number (times placebo, hairs per cm2, SALT...) for a short plain-words box; FDA shown as a red outline chip on a light red tint. -->
+<!-- Acne (Cases) v3, 20 Nov 2026, built on v2 (kept): pore diagram rebuilt in the Hair follicle style with a Play story (shared BSFollicle engine, 5 steps: healthy pore, oil, plug, bacteria, inflamed; whitehead vs blackhead inset; tap a driver to light it and list what switches it off). -->
+<!-- Acne (Cases) v2, 20 Nov 2026, built on v1 (kept as preview): fact-check fixes (EGF wording, 46 treatments, PDT +40%, GH peptides 1 mixed, GLP-1 hair loss absolute numbers, dead afamelanotide link). -->
+<!-- Acne (Cases) v1, 20 Nov 2026: first version.
+Summary: new Case page built from Acne notes v2 (3 Nov 2026), Acne Research v3 (peptides and community, 20 Nov 2026; its corrections override v2: Jabin 2026 cohort treated as unreliable, GHK-Cu breakouts about 1 in 8, Abdulghani 1998 thigh study is 1 month / 20 people / 7 of 10 vs 4 of 10, omiganan rosacea phase 3 failed) and Acne Treatments v1 (40+ treatments, NICE network meta-analysis yardstick).
+Sections: key takeaway plus one-line "if you take one thing"; which one is it (types, fungal and rosacea lookalikes, marks vs scars, Southeast Asia note); how acne happens (interactive pore diagram, four drivers, tap or Play the story to animate, step dots); the baseline (dummy creams 35 to 60%); one-yardstick bar chart (NICE NMA gap vs placebo); Compare v1 (prototype of the site-wide iPhone-style Compare: 46 options, lit boxes for which of the four drivers each hits, group and driver filters, pick 2 or 3 for aligned side-by-side columns); peptides in depth with evidence tiers, how-it-may-help bullets and community counts; every human peptide study in one table; what people report; pairings and related; marks and scars; options by evidence; 15 usual questions; warnings; 71 numbered sources.
+Benchmarked at 390px against Tennis elbow, Endometriosis, Brain and GLPs pages before release. Preview only: noindex, not linked from /library/goals/ yet. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Acne · Bare Signals</title>
+<meta name="description" content="Acne: the four things that cause a spot, every way people treat it and why each works, compared side by side, with what peptides (GHK-Cu, EGF, KPV, LL-37, GLP-1s, GH peptides, melanotan) have and have not shown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* case additions */
+.cp .mech{margin-top:8px}
+.cp .tline{margin-top:2px}
+#collagen .cp,#col .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+@media (max-width:759px){.grd{table-layout:fixed}.grd th,.grd td{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}.grd td:first-child,.grd th:first-child{width:25%}}
+
+
+/* ===== acne v1 additions ===== */
+:root{--oil:#FFB547;--plug:#99ACFF;--bact:#8CC97A;--infl:#FF6B6B}
+.d-oil{--dc:var(--oil)}.d-plug{--dc:var(--plug)}.d-bact{--dc:var(--bact)}.d-infl{--dc:var(--infl)}
+/* driver boxes */
+.dbx{display:inline-flex;gap:3px;vertical-align:middle}
+.db{width:17px;height:17px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;justify-content:center;font:700 calc(9px*var(--k))/1 var(--mono);color:var(--ink);flex:none}
+.db.v2{background:var(--dc)}
+.db.v1{background:linear-gradient(135deg,var(--dc) 50%,var(--chip) 50%)}
+.db.v0{border-color:color-mix(in srgb,var(--ink) 28%,transparent);color:color-mix(in srgb,var(--ink) 28%,transparent);font-weight:500}
+.db.v9{border-style:dashed;border-color:color-mix(in srgb,var(--ink) 55%,transparent);color:var(--ink-soft)}
+.db.vw{border-color:#C02626;color:#C02626;background:#FFF0EE}
+.dleg{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font:500 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px}
+.dleg span{display:inline-flex;align-items:center;gap:5px}
+.dleg .db{width:14px;height:14px;font-size:8px}
+/* pore diagram */
+#how .dg{margin:0 0 8px}
+.dtabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.dtab{font:600 calc(11px*var(--k))/1.15 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:9px 8px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);cursor:pointer;text-align:left;display:flex;align-items:center;gap:7px;min-height:42px}
+.dtab i{width:14px;height:14px;border:1.5px solid var(--ink);background:var(--dc);flex:none}
+.dtab[aria-pressed="true"]{background:color-mix(in srgb,var(--dc) 35%,var(--chip));box-shadow:inset 0 -3px 0 var(--ink)}
+.dtab.all{grid-column:1/-1;justify-content:center}
+.dtab.all i{background:linear-gradient(90deg,var(--oil) 25%,var(--plug) 25% 50%,var(--bact) 50% 75%,var(--infl) 75%)}
+.dcap{background:color-mix(in srgb,var(--dc,#E1DE62) 16%,var(--chip));box-shadow:inset 5px 0 0 var(--dc,#E1DE62);padding:9px 12px 9px 16px;min-height:112px}
+.dcap h3{font:700 calc(15px*var(--k))/1.2 var(--display);margin:0 0 4px}
+.dcap p{margin:0 0 5px;font-size:calc(13px*var(--k))}
+.dcap .hit{font-size:calc(12px*var(--k));color:var(--ink)}
+.dcap button.lnk{all:unset;cursor:pointer;color:#2F5BE0;text-decoration:underline;text-underline-offset:2px;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+#pore .g{transition:opacity .35s}
+#pore.focus .g{opacity:.25}
+#pore.focus .g.act{opacity:1}
+#pore .g.act .an{animation-play-state:running}
+#pore .an{animation-play-state:paused}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy));opacity:0}}
+.drop{animation:rise 2.6s linear infinite}
+@keyframes grow{0%,100%{transform:scale(.75)}50%{transform:scale(1.08)}}
+.plugs{transform-box:fill-box;transform-origin:50% 0;animation:grow 2.4s ease-in-out infinite}
+@keyframes popb{0%,100%{transform:scale(.4);opacity:.3}50%{transform:scale(1.15);opacity:1}}
+.bug{transform-box:fill-box;transform-origin:center;animation:popb 1.8s ease-in-out infinite}
+@keyframes halo{0%,100%{opacity:.25;transform:scale(.94)}50%{opacity:.85;transform:scale(1.06)}}
+.halo{transform-box:fill-box;transform-origin:center;animation:halo 2s ease-in-out infinite}
+@keyframes pulseg{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.glandp{transform-box:fill-box;transform-origin:center;animation:pulseg 2.6s ease-in-out infinite}
+/* type list */
+.types{display:grid;gap:0}
+.ty1{display:grid;grid-template-columns:auto 1fr;gap:2px 9px;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.ty1:first-child{border-top:0;padding-top:0}
+.ty1 svg{width:34px;height:34px;grid-row:span 2}
+.ty1 b{font-weight:700}
+.ty1 p{margin:0;font-size:calc(13px*var(--k));line-height:1.42}
+.ty1 .cl{font:500 calc(9.5px*var(--k))/1.35 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.ty1.look{background:color-mix(in srgb,#87CFC5 14%,transparent);margin:0 -8px;padding:7px 8px}
+/* why taps */
+.why{all:unset;cursor:pointer;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#2F5BE0;border-bottom:1px dotted #2F5BE0;margin-left:4px;white-space:nowrap}
+.why[aria-expanded="true"]{color:var(--accent);border-color:var(--accent)}
+.wyt{display:none;font-size:calc(12.5px*var(--k));color:var(--ink);background:color-mix(in srgb,#99ACFF 14%,var(--chip));padding:2px 6px;margin-left:4px;line-height:1.45}
+.wyt.on{display:inline}
+/* compare */
+#cmpx{scroll-margin-top:60px}
+.cfil{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--bs-pad,16px)) 6px;padding:0 var(--bs-pad,16px) 2px}
+.cfil::-webkit-scrollbar{display:none}
+.cfil button,.cdr button,.cpre button{flex:none;font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:9px 10px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);cursor:pointer;white-space:nowrap;min-height:38px}
+.cfil button[aria-pressed="true"]{background:var(--ink);color:#FFFFE2}
+.cfil button span{opacity:.6;margin-left:4px}
+.cdr{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 8px;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.cdr button{display:inline-flex;align-items:center;gap:6px;padding:7px 8px;min-height:34px}
+.cdr button i{width:12px;height:12px;border:1.5px solid var(--ink);background:var(--dc)}
+.cdr button[aria-pressed="true"]{background:color-mix(in srgb,var(--dc) 45%,var(--chip));box-shadow:inset 0 -3px 0 var(--ink)}
+.cpre{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.cpre>span{font:600 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:2px}
+.cpre button{padding:7px 8px;min-height:34px;text-transform:none;letter-spacing:0;font-size:calc(11.5px*var(--k));border-style:dashed}
+.clist{display:grid;gap:0;border-top:1.5px solid var(--ink)}
+.chd{display:none}
+.crow{border-bottom:1px solid color-mix(in srgb,var(--ink) 16%,transparent);padding:7px 0}
+.crow.pk{background:color-mix(in srgb,#E1DE62 22%,transparent);margin:0 -8px;padding:8px}
+.crow.pep{box-shadow:inset 3px 0 0 #DB6830;padding-left:8px}
+.crow.pk.pep{padding-left:8px}
+.ctop{display:grid;grid-template-columns:minmax(0,1fr) auto 40px;grid-template-areas:"n d a" "e e e";gap:4px 8px;align-items:center}
+.ctop>.cname{grid-area:n}.ctop>.dbx{grid-area:d}.ctop>.cadd{grid-area:a}.ctop>.ceff{grid-area:e}.ctop>.c-t{grid-area:t}.ctop>.c-r{grid-area:r}.ctop>.c-p{grid-area:p}
+.cname{font-weight:700;font-size:calc(14px*var(--k));line-height:1.2;min-width:0}
+.cname{all:unset;cursor:pointer;display:block;min-width:0}.cname .nm1{font-weight:700;font-size:calc(14px*var(--k));line-height:1.2}.cname .nm1::after{content:" ▸";font:500 calc(10px*var(--k))/1 var(--mono);color:#2F5BE0}.crow.op .cname .nm1::after{content:" ▾"}
+.cname small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+.cadd{width:40px;height:40px;border:1.5px solid var(--ink);background:var(--chip);font:600 20px/1 var(--mono);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.cadd[aria-pressed="true"]{background:var(--ink);color:#FFFFE2}
+.ceff{margin:3px 0 0;font-size:calc(12.5px*var(--k));line-height:1.38}
+.ceff .ev{margin-right:5px}
+.cmore{margin:4px 0 0}.cmore>summary{display:none!important}
+.cmore>summary{list-style:none;cursor:pointer;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#2F5BE0;display:inline-block;padding:4px 0}
+.cmore>summary::-webkit-details-marker{display:none}
+.cmore>summary::after{content:" ▸"}.cmore[open]>summary::after{content:" ▾"}
+.cdl{display:grid;grid-template-columns:96px 1fr;gap:3px 10px;margin:4px 0 2px;font-size:calc(12.5px*var(--k));line-height:1.4}
+.cdl dt{font:600 calc(9.5px*var(--k))/1.4 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.cdl dd{margin:0}
+.cdesk{display:none}
+.cempty{padding:14px 0;color:var(--ink-soft)}
+.ctray{position:sticky;bottom:0;z-index:20;background:var(--paper);border-top:1.5px solid var(--ink);margin:10px calc(-1*var(--bs-pad,16px)) 0;padding:8px var(--bs-pad,16px) calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:center}
+.ctray .tp{flex:1;min-width:0;font:500 calc(10.5px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctray button{font:600 calc(11px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:10px 12px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);cursor:pointer;min-height:40px}
+.ctray button.go{background:#DB6830;color:#FFFFF4;border-color:#DB6830}
+.ctray button:disabled{opacity:.4;cursor:default}
+/* side by side */
+.cside{display:none;margin:0 0 12px;background:var(--chip);padding:10px 10px 12px}
+.cside.on{display:block}
+.cside{scroll-margin-top:calc(var(--bsnav-h,52px) + 8px)}
+.sgrid .sh{position:sticky;top:var(--bsnav-h,52px);z-index:5;background:var(--chip);padding-top:6px}
+.csh{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px}
+.csh b{font:600 calc(11px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.csh button{all:unset;cursor:pointer;font:500 calc(10px*var(--k))/1 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:#2F5BE0;text-decoration:underline;padding:6px 0}
+.sgrid{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));column-gap:8px}
+.sgrid .sh{padding:0 0 8px;border-bottom:1.5px solid var(--ink);display:flex;flex-direction:column;gap:4px;min-width:0}
+.sgrid .sh b{font:700 calc(14px*var(--k))/1.15 var(--display);overflow-wrap:anywhere}
+.sgrid .sh small{font:500 calc(9px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.sgrid .sh button{all:unset;cursor:pointer;font:500 calc(9.5px*var(--k))/1 var(--mono);text-transform:uppercase;color:#2F5BE0;padding:4px 0}
+.sgrid .sl{grid-column:1/-1;text-align:center;font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding:12px 0 6px}
+.sgrid .sv{font-size:calc(12.5px*var(--k));line-height:1.38;min-width:0;overflow-wrap:anywhere;padding:0 0 8px;border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sgrid .sv.big{font:700 calc(15px*var(--k))/1.2 var(--mono)}
+.sdrv{display:grid;gap:3px}
+.sdrv span{display:flex;align-items:center;gap:6px;font:500 calc(10px*var(--k))/1.1 var(--mono);text-transform:uppercase;letter-spacing:.03em}
+.sdrv .db{width:15px;height:15px;font-size:8px}
+.sbars{display:flex;gap:2px;margin:2px 0 0}.sbars i{display:block;height:8px;width:18%;border:1.2px solid var(--ink);background:var(--chip)}.sbars i.on{background:#AACC96}
+.dplay{display:flex;align-items:center;gap:10px;margin:0 0 8px}
+.dplay button{font:600 calc(11px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:9px 12px;border:1.5px solid var(--ink);background:#DB6830;color:#FFFFF4;cursor:pointer;min-height:40px}
+.dplay button[aria-pressed="true"]{background:var(--chip);color:var(--ink)}
+.ddots{display:flex;gap:5px}.ddots i{width:9px;height:9px;border:1.5px solid var(--ink);background:var(--chip)}.ddots i.on{background:var(--ink)}
+.dstep{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-left:auto}
+.ystk{margin:0 0 12px}.ystk .bl1{grid-template-columns:118px 1fr;margin:0 0 5px}.ystk .bl1>span{font-size:calc(9.5px*var(--k))}
+.bt i.un{background:repeating-linear-gradient(45deg,#D6E8CB 0 4px,#F4F9EF 4px 8px)}
+.ksw{display:inline-block;width:11px;height:11px;border:1.2px solid var(--ink);vertical-align:-1px;margin:0 3px 0 0}.ksw.un{background:repeating-linear-gradient(45deg,#D6E8CB 0 3px,#F4F9EF 3px 6px)}
+.hst td:nth-child(2){font:600 calc(11px*var(--k))/1.3 var(--mono);white-space:nowrap}
+@media (max-width:759px){.hst td:first-child{width:28%}.hst td:nth-child(3){width:22%}}
+@media (min-width:760px){.ystk .bl1{grid-template-columns:240px 1fr}.ystk{max-width:860px}}
+/* evidence tiers */
+.e-ho{background:#BFE3B0!important}.e-hs{background:#DCEFD0!important}.e-an{background:#F1E7C9!important}.e-ce{background:#DDF4F5!important}.e-th{background:#ECE9D2!important}.e-ng{background:#FCD9D6!important}
+/* peptide cards */
+.cp.pk2{background:color-mix(in srgb,#FF99D8 9%,var(--chip));box-shadow:inset 5px 0 0 #FF99D8}
+.vd{margin:8px 0 0;padding:7px 10px;background:color-mix(in srgb,var(--ink) 5%,var(--chip));font-size:calc(12.5px*var(--k));line-height:1.45}
+.vd b{color:var(--accent)}
+.lens{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:6px 0 4px}
+.lens span{font:600 calc(9.5px*var(--k))/1.15 var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:6px 4px;text-align:center;background:var(--chip);border:1.5px dashed color-mix(in srgb,var(--ink) 40%,transparent)}
+.lens span.on{border:1.5px solid var(--ink);background:#E1DE62}
+/* base bars */
+.bars .bl2{grid-template-columns:96px 1fr}
+.bt i.dm{background:#ECE9D2}.bt i.ac{background:#AACC96}.bt i.pp{background:#FCB0B4}
+.nums6 .nm b{font-size:calc(20px*var(--k))}
+.ptab td:nth-child(n+2){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+.evl2 dl>div{grid-template-columns:max-content 1fr!important}.evl2 dt .ev{min-width:96px;text-align:center}
+#options ol.steps li>span{display:block}
+@media (min-width:760px){
+ .dtabs{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .dtab.all{grid-column:1/-1}
+ .cfil{flex-wrap:wrap;overflow:visible;margin:0 0 6px;padding:0}
+ .chd{display:grid;grid-template-columns:200px 92px minmax(0,1fr) 120px 170px 120px 44px;gap:10px;padding:7px 0;font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1.5px solid var(--ink)}
+ .ctop{grid-template-columns:200px 92px minmax(0,1fr) 120px 170px 120px 44px;grid-template-areas:"n d e t r p a";gap:10px;align-items:start}
+ .ctop .ceff{margin:0}
+ .cdesk{display:block;font-size:calc(12px*var(--k));line-height:1.38}
+ .cmore{margin-left:210px}
+ .cdl{grid-template-columns:130px 1fr}
+ .cside{padding:14px 16px 16px}
+ .sgrid{column-gap:18px}
+ .sgrid .sv{font-size:calc(13.5px*var(--k))}
+ .sgrid .sh b{font-size:calc(18px*var(--k))}
+ #pore{max-height:340px}
+ #how .dg{display:flex;justify-content:center}
+}
+/* v3: shared follicle engine in #how */
+#porefol{margin:0 0 10px}#porefol .bsf-ph{font-size:calc(10.5px*var(--k))}
+@media (min-width:760px){#porefol .bsf-dg{max-width:470px}}
+.dcap .stp{font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft,#6B76A8);margin:0 0 4px}
+.bs-fda{display:inline-block;padding:1px 4px;margin:0 1px;border:1px solid #C02626!important;background:#FBE3E1!important;color:#C02626!important;font-weight:600;font-size:.86em;line-height:1.15;letter-spacing:.02em;border-radius:0;white-space:nowrap}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Acne</h1><p class="aka">Blackheads, red spots, deep cysts, adult and hormonal acne, PCOS acne, and the lookalikes (fungal "acne", rosacea), plus the marks and scars spots leave behind. Every way people treat it, why each works, and what peptides have and have not shown.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><path d="M6 30H78" stroke="#3E4A80" stroke-width="1.5"/><path d="M36 30C36 44 34 56 37 70H47C50 56 48 44 48 30" fill="#FFF6E6" stroke="#3E4A80" stroke-width="1.5"/><ellipse cx="58" cy="52" rx="9" ry="7" fill="#FFB547" stroke="#3E4A80" stroke-width="1.4"/><path d="M49 52H47" stroke="#3E4A80" stroke-width="1.4"/><path d="M37 30Q42 40 47 30Z" fill="#99ACFF" stroke="#3E4A80" stroke-width="1.2"/><circle cx="40" cy="46" r="2.2" fill="#8CC97A" stroke="#3E4A80"/><circle cx="44" cy="52" r="1.8" fill="#8CC97A" stroke="#3E4A80"/><ellipse class="pl" cx="42" cy="48" rx="15" ry="22" fill="none" stroke="#FF6B6B" stroke-width="2.5"/></svg>
+ <div class="meta"><span class="mt">Researched 3 to 20 Nov 2026</span><span class="mt">71 sources</span><span class="mt">Version 4 · preview</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Skin, Inflammatory signalling, Endocrine"><i style="width:55%;background:#FF99D8"></i><i style="width:25%;background:#FF5050"></i><i style="width:20%;background:#FFDE59"></i></div>
+<div class="tags"><span class="rtg" style="background:#FF99D8">Skin</span><span class="rtg" style="background:#FF8A8A">Inflammatory signalling</span><span class="rtg" style="background:#FFDE59">Endocrine &amp; growth</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> A spot is a pore going wrong in four ways at once: the oil gland pumps too much oil, dead skin cells plug the opening, a skin bacterium everyone carries thrives inside, and the immune system overreacts. Every treatment on this page works by switching off one or more of those four.<sup><a href="#s43">43</a></sup></p>
+ <p><b>What studies found.</b> Dummy creams alone cut spots 35 to 60% in 12 weeks, so only the gap counts. Isotretinoin, the one drug that hits all four, gave the biggest gap of anything: about 58% more spots gone than placebo across 179 trials.<sup><a href="#s5">5</a></sup> No peptide has a proper acne trial; the closest is an EGF ointment that improved spots in 36 people while plain ointment on the other half of the face did not.<sup><a href="#s53">53</a></sup></p>
+ <p><b>What people report.</b> Of about 42 people who put copper peptide (GHK-Cu) on their skin, half said red or brown marks and scars looked better, mostly while also using peels or acids; about 1 in 8 broke out, and nobody said it cleared active acne.<sup><a href="#s68">68</a></sup> GLP-1 users split both ways.<sup><a href="#s57">57</a></sup></p>
+ <p><b>Watch out.</b> Itchy, same-size bumps in heat and humidity are often a yeast, not acne: acne creams fail and steroid creams feed it.<sup><a href="#s37">37</a></sup> Isotretinoin, spironolactone and most retinoids are not for pregnancy.<sup><a href="#s67">67</a></sup></p>
+</div>
+<p class="cutnote"><b>If you take one thing from this page:</b> match the treatment to the driver. Blackheads are a plug problem (retinoids), red spots add bacteria and inflammation (benzoyl peroxide, azelaic acid, antibiotics with BPO), jawline and period flares are an oil-and-hormone problem (spironolactone, the pill, clascoterone), and itchy same-size bumps are a yeast. No peptide switches off any driver as well as these.</p>
+
+<div class="nums6" aria-label="Acne in numbers">
+ <div class="nm"><b>35 to 60%</b><span>fewer spots on a dummy cream by 12 weeks</span><i class="ev e-rct">RCTs</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>12%</b><span>of women still have acne past 25 (men 3%)</span><i class="ev e-h">Review</i><sup><a href="#s3">3</a></sup></div>
+ <div class="nm"><b>+58%</b><span>isotretinoin, the biggest gap over placebo</span><i class="ev e-m">179 RCTs</i><sup><a href="#s5">5</a></sup></div>
+ <div class="nm"><b>28.8%</b><span>of "acne" patients in Bangkok had a fungal lookalike</span><i class="ev e-h">320 people</i><sup><a href="#s37">37</a></sup></div>
+ <div class="nm"><b>1</b><span>peptide with a controlled acne result (EGF, 36 people)</span><i class="ev e-hs">Split face</i><sup><a href="#s53">53</a></sup></div>
+ <div class="nm"><b>1 in 8</b><span>GHK-Cu skin users said it broke them out</span><i class="ev e-r">Reports</i><sup><a href="#s68">68</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#check">Which one</a><a href="#how">How it happens</a><a href="#baseline">Baseline</a><a href="#p1">2 · Compare</a><a href="#p2">3 · Peptides</a><a href="#ghk">GHK-Cu</a><a href="#egf">EGF</a><a href="#glp">GLP-1s</a><a href="#ptable">Study table</a><a href="#p3">4 · Reports</a><a href="#p4">5 · Pairings</a><a href="#p5">6 · Marks &amp; scars</a><a href="#options">Options</a><a href="#faq">Questions</a><a href="#warn">Warnings</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What acne is</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="check">
+ <h2 class="st">Which one is it</h2>
+ <div class="types">
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><circle cx="11" cy="13" r="2.4" fill="#3E4A80"/><circle cx="22" cy="10" r="2" fill="#3E4A80"/><circle cx="18" cy="22" r="2.6" fill="#FFF6E6" stroke="#3E4A80"/><circle cx="26" cy="24" r="2" fill="#FFF6E6" stroke="#3E4A80"/></svg><p><b>Comedonal.</b> Blackheads (open plugs) and whiteheads (closed), rough texture, little redness.</p><p class="cl">Forehead, nose, chin · plug is the main driver</p></div>
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><circle cx="12" cy="13" r="4.5" fill="#FFC9C9" stroke="#FF6B6B"/><circle cx="23" cy="20" r="5" fill="#FFC9C9" stroke="#FF6B6B"/><circle cx="23" cy="20" r="1.8" fill="#FFF6C2"/></svg><p><b>Inflammatory.</b> Red, tender bumps (papules) and pus-topped spots (pustules).</p><p class="cl">Cheeks, jaw · bacteria plus inflammation</p></div>
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><ellipse cx="17" cy="18" rx="10" ry="8" fill="#FFB0B0" stroke="#C02626"/><ellipse cx="17" cy="18" rx="5" ry="3.5" fill="#FF8A8A"/></svg><p><b>Nodulocystic.</b> Deep, painful lumps that last weeks. The highest scar risk: severe acne raised the odds of scarring about 9 times in Thai patients.<sup><a href="#s41">41</a></sup></p><p class="cl">Isotretinoin territory · see a doctor early</p></div>
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><path d="M8 12Q17 32 26 12" fill="none" stroke="#3E4A80" stroke-width="1.4"/><circle cx="12" cy="22" r="2.6" fill="#FFC9C9" stroke="#FF6B6B"/><circle cx="20" cy="25" r="2.6" fill="#FFC9C9" stroke="#FF6B6B"/></svg><p><b>Adult or hormonal.</b> Jawline, chin and neck, flaring before periods. Half of women in their 20s and a quarter in their 40s report acne (men 43% and 12%).<sup><a href="#s4">4</a></sup></p><p class="cl">Women 20s to 40s · oil driven by androgens</p></div>
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><circle cx="17" cy="17" r="9" fill="none" stroke="#B493E8" stroke-width="2"/><path d="M17 8v4M17 22v4M8 17h4M22 17h4" stroke="#B493E8" stroke-width="2"/></svg><p><b>PCOS-linked.</b> The hormonal pattern plus irregular cycles, extra body hair, scalp thinning, weight around the middle. Needs blood tests; androgens and insulin both push the oil gland. <a href="/library/goals/pcos/">PCOS case</a></p><p class="cl">Spironolactone, the pill, metformin, GLP-1s</p></div>
+  <div class="ty1 look"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><g fill="#FFE6C2" stroke="#DB6830"><circle cx="9" cy="10" r="2"/><circle cx="16" cy="9" r="2"/><circle cx="23" cy="11" r="2"/><circle cx="12" cy="17" r="2"/><circle cx="20" cy="17" r="2"/><circle cx="9" cy="24" r="2"/><circle cx="17" cy="25" r="2"/><circle cx="25" cy="23" r="2"/></g></svg><p><b>Fungal lookalike (Malassezia folliculitis).</b> Small, same-size, itchy bumps on the forehead, hairline, chest and upper back, worse with heat, sweat, tight clothes, antibiotics or steroid creams, and ignoring acne creams. Itch made it 7.4 times more likely, and upper-back spots about 9 times.<sup><a href="#s37">37</a></sup> Big for Bali: hot, humid weather and occlusion are named risk factors.<sup><a href="#s70">70</a></sup></p><p class="cl">Lookalike · a skin smear confirms it · antifungals<button class="why" aria-expanded="false">Why</button><span class="wyt">Malassezia is a yeast that feeds on skin oil in sweat-soaked follicles; antibiotics clear its bacterial competitors and steroid creams lower local defences.</span></p></div>
+  <div class="ty1 look"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><ellipse cx="17" cy="18" rx="12" ry="8" fill="#FFD6D6"/><circle cx="12" cy="17" r="2" fill="#FF8A8A"/><circle cx="21" cy="19" r="2" fill="#FF8A8A"/></svg><p><b>Rosacea lookalike.</b> Flushing, a red background and bumps with no blackheads, usually over 30; heat, spice and alcohol set it off. Its redness is driven partly by fragments of the skin's own peptide LL-37.<sup><a href="#s50">50</a></sup></p><p class="cl">Lookalike · different treatments</p></div>
+  <div class="ty1"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" fill="#FFFFF4" stroke="#3E4A80"/><circle cx="11" cy="14" r="3.6" fill="#C9A27E"/><circle cx="23" cy="13" r="3.4" fill="#F5A3A3"/><path d="M8 25l3 3 3-3M19 23v5M25 23q2 3 0 5" stroke="#3E4A80" fill="none" stroke-width="1.4"/></svg><p><b>Marks vs scars.</b> Flat brown marks (PIH) and red or pink marks (PIE) are not scars and fade over months. Scars change the texture: ice-pick, boxcar and rolling dents, or raised scars. <a href="#p5">Marks and scars</a></p><p class="cl">Brown marks: up to 85% of darker skin types</p></div>
+ </div>
+ <p class="hint">Drug-induced acne (steroids, testosterone, some growth hormone and peptide use) tends to show as all-same-stage bumps on the chest and back.</p>
+</section>
+
+</div>
+<div class="col">
+<section class="sec" id="how">
+ <h2 class="st">How a spot happens · play the story</h2>
+ <p class="hint" style="margin:0 0 8px">Play the story, step through it, or tap a driver below to light it up and see what switches it off.</p>
+ <div id="porefol"></div>
+ <div class="hw">
+ <div class="dtabs" role="group" aria-label="Show a driver">
+  <button class="dtab d-oil" data-d="oil" aria-pressed="false"><i></i>1 · Oil</button>
+  <button class="dtab d-plug" data-d="plug" aria-pressed="false"><i></i>2 · Plug</button>
+  <button class="dtab d-bact" data-d="bact" aria-pressed="false"><i></i>3 · Bacteria</button>
+  <button class="dtab d-infl" data-d="infl" aria-pressed="false"><i></i>4 · Inflamed</button>
+  <button class="dtab all" data-d="all" aria-pressed="true"><i></i>All four together</button>
+ </div>
+ 
+ <div class="dcap" id="dcap"></div>
+ </div>
+ <p class="hint">Each box in the Compare below is one of these four. A lit box means the treatment switches that driver off; half lit means partly.</p>
+</section>
+<section class="sec" id="sea">
+ <h2 class="st">Southeast Asia note</h2>
+ <div class="box tl">
+  <ul class="tight">
+   <li><b>Heat flares it.</b> In tropical Delhi, 40.4% of 171 acne patients worsened in summer against 6.4% in winter, and flares tracked monthly heat and humidity.<sup><a href="#s40">40</a></sup></li>
+   <li><b>Think fungal first if it itches.</b> 28.8% of 320 people diagnosed with acne in a Bangkok clinic also had fungal folliculitis.<sup><a href="#s37">37</a></sup></li>
+   <li><b>Brown marks last.</b> 58.2% of 324 acne patients across 7 Asian countries had brown marks; in 22.3% they lasted 5 years or more. Over half of Jakarta women aged 20 to 30 had them.<sup><a href="#s39">39</a></sup></li>
+   <li><b>Scars are common.</b> 52.8% of young Chinese adults with acne in Singapore and Malaysia, and 61.3% of Thai acne patients, had scars; picking raised the risk.<sup><a href="#s41">41</a></sup></li>
+   <li><b>Rules in Indonesia:</b> the drug regulator treats tretinoin, hydroquinone and steroid skincare as prescription items.<sup><a href="#s71">71</a></sup> No Bali or Indonesia acne prevalence study was found.</li>
+  </ul>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">The baseline: why "it worked" needs a comparison</h2>
+ <div class="grid two" style="margin-top:0">
+ <div>
+ <p>In acne trials the dummy arm improves a lot, from natural ups and downs, gentle cleansing and simply being watched. Plain creams cut spots 35 to 60% by 12 weeks.<button class="why" aria-expanded="false">Why</button><span class="wyt">Acne waxes and wanes on its own, the cream base itself moisturises and soothes, and people in trials wash gently and stop picking.</span> So every result on this page is the <b>gap</b> over dummy, not the raw fall.<sup><a href="#s1">1</a></sup></p>
+ <div class="blg"><span><i class="dm" style="background:#ECE9D2"></i>Dummy</span><span><i style="background:#AACC96"></i>Treatment</span><span><i style="background:#FCB0B4"></i>Peptide</span></div>
+ <div class="bars">
+  <div class="bl2"><span>BPO cream<br>12 trials</span><div class="bt"><i class="dm" style="width:27.8%"></i><em>28%</em></div><div class="bt"><i class="ac" style="width:44.3%"></i><em>44%</em></div></div>
+  <div class="bl2"><span>Tretinoin<br>women</span><div class="bt"><i class="dm" style="width:47.1%"></i><em>47%</em></div><div class="bt"><i class="ac" style="width:56.9%"></i><em>57%</em></div></div>
+  <div class="bl2"><span>Pill, 6 mo<br>32 trials</span><div class="bt"><i class="dm" style="width:34.2%"></i><em>34%</em></div><div class="bt"><i class="ac" style="width:61.9%"></i><em>62%</em></div></div>
+  <div class="bl2"><span>Omiganan<br>rosacea</span><div class="bt"><i class="dm" style="width:41%"></i><em>41%</em></div><div class="bt"><i class="pp" style="width:39%"></i><em>39%</em></div></div>
+ </div>
+ <p class="hint">Bars: % of spots gone (BPO: all spots; tretinoin, pill and omiganan: inflamed spots). The antimicrobial peptide omiganan did slightly worse than its own plain gel.<sup><a href="#s1">1</a>,<a href="#s7">7</a>,<a href="#s2">2</a>,<a href="#s51">51</a></sup></p>
+ </div>
+ <div class="srs">
+  <div class="sr"><span class="ev e-rct">Pills</span><p><b>Dummy pills work too.</b> Placebo pills cut inflamed spots 26.4% at 3 months and 34.2% at 6 months.<sup><a href="#s2">2</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Teens</span><p><b>Most teen acne fades.</b> Over 80% of teenagers get acne; it carries on past 25 in 3% of men and 12% of women seen in clinic.<sup><a href="#s3">3</a></sup> A typical age it fades was not found in a long-term study.</p></div>
+  <div class="sr"><span class="ev e-h">Adults</span><p><b>Ask adults and it's far higher.</b> In 1,013 adults asked about any spots: 50.9% of women vs 42.5% of men in their 20s, 26.3% vs 12.0% in their 40s. The gap is definitions: acne needing care vs any spots.<sup><a href="#s4">4</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Stress</span><p><b>Exams made it worse</b> in 22 students, tracking how stressed they felt (r = 0.61), even after sleep and diet.<sup><a href="#s69">69</a></sup></p></div>
+ </div>
+ </div>
+ <p class="hint">How to read the numbers below: "+44%" from the 179-trial analysis means 44% more of the spots disappeared than on placebo. "Clear or almost clear" is the stricter goal trials use; 20 to 30% of people on a good cream reach it, against 7 to 25% on dummy.<sup><a href="#s5">5</a></sup></p>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>Every option, compared</h2>
+<div class="grid"><section class="sec" id="cmpx">
+ <p style="margin:0 0 8px"><span id="cn">46</span> ways people treat acne, from creams to peptides. The four boxes show <b>why</b> each one works: which driver it switches off. Tap a name for the why and the details; tap <b>+</b> on 2 or 3 to see them side by side.</p>
+<div class="ystk"><p class="sub" style="margin-top:0">One yardstick · extra % of spots gone vs placebo · 179 trials</p>
+ <div class="bars">
+  <div class="bl1"><span>Retinoid + BPO</span><div class="bt"><i class="ac" style="width:26.2%"></i><em>+26%</em></div></div>
+  <div class="bl1"><span>Blue/red light</span><div class="bt"><i class="un" style="width:35.4%"></i><em>+35%</em></div></div>
+  <div class="bl1"><span>Peels</span><div class="bt"><i class="un" style="width:39.7%"></i><em>+40%</em></div></div>
+  <div class="bl1"><span>PDT</span><div class="bt"><i class="un" style="width:40.5%"></i><em>+40%</em></div></div>
+  <div class="bl1"><span>BPO + retinoid + oral antibiotic</span><div class="bt"><i class="ac" style="width:43.5%"></i><em>+44%</em></div></div>
+  <div class="bl1"><span>Retinoid + clindamycin</span><div class="bt"><i class="ac" style="width:44.4%"></i><em>+44%</em></div></div>
+  <div class="bl1"><span>Isotretinoin</span><div class="bt"><i class="ac" style="width:58.1%"></i><em>+58%</em></div></div>
+ </div>
+ <p class="hint" style="margin-top:2px"><i class="ksw" style="background:#AACC96"></i>firm estimate <i class="ksw un"></i>very uncertain (wide range). First three: mild to moderate acne; the rest moderate to severe. Antibiotic or hormone pills alone did not look effective in mild to moderate acne once trial bias was allowed for. No peptide was in the analysis.<sup><a href="#s5">5</a></sup></p>
+</div>
+ <div class="dleg" aria-label="Box key"><span><i class="db v2 d-oil">O</i>Oil</span><span><i class="db v2 d-plug">P</i>Plug</span><span><i class="db v2 d-bact">B</i>Bacteria</span><span><i class="db v2 d-infl">I</i>Inflamed</span><span><i class="db v1 d-oil"></i>Partly</span><span><i class="db v0"></i>No</span><span><i class="db v9">?</i>Unknown</span><span><i class="db vw">↑</i>May worsen</span></div>
+ <div class="cfil" role="group" aria-label="Filter by group" id="cfil"></div>
+ <div class="cdr" role="group" aria-label="Filter by driver" id="cdr"><span>Hits:</span>
+  <button class="d-oil" data-d="0" aria-pressed="false"><i></i>Oil</button><button class="d-plug" data-d="1" aria-pressed="false"><i></i>Plug</button><button class="d-bact" data-d="2" aria-pressed="false"><i></i>Bacteria</button><button class="d-infl" data-d="3" aria-pressed="false"><i></i>Inflamed</button>
+ </div>
+ <div class="cpre" id="cpre"><span>Try</span>
+  <button data-p="bpo,adapalene,azelaic">BPO vs adapalene vs azelaic</button>
+  <button data-p="pill,spiro,clasco">Pill vs spironolactone vs clascoterone</button>
+  <button data-p="ghkt,egf,azelaic">GHK-Cu vs EGF vs azelaic</button>
+  <button data-p="isofull,triple,laser">Isotretinoin vs triple gel vs laser</button>
+ </div>
+ <div class="cside" id="cside" aria-live="polite"></div>
+ <div class="clist" id="clist">
+  <div class="chd"><span>Treatment</span><span>Drivers</span><span>Effect vs dummy</span><span>Time to work</span><span>Key risk</span><span>Pregnancy</span><span></span></div>
+ </div>
+ <div class="ctray" id="ctray"><span class="tp" id="ctp">Tap + on 2 or 3 to compare</span><button id="cclr" disabled>Clear</button><button class="go" id="cgo" disabled>Compare</button></div>
+ <p class="hint">Effects are the best available gap over placebo or dummy cream, at 12 weeks unless noted. Where there is no dummy group, the row says so. "Not counted yet" means first-hand reports have not been tallied for that option; peptides were counted first. Sources sit in the expanded rows.</p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>Peptides in depth</h2>
+<p class="cutnote"><b>Read this first: no peptide has a controlled trial with acne spot counts as the goal.</b> The nearest thing is EGF, a growth-factor peptide sold in serums, in one 36-person split-face trial. Two antimicrobial peptides that reached big skin trials lost to their own plain gel. The real peptide story here is marks and scars, and a few peptides that may make acne worse.</p>
+<div class="evleg evl2" style="margin:10px 0 0"><dl>
+ <div><dt><i class="ev e-ho">Human outcome</i></dt><dd>acne or scars measured in people</dd></div>
+ <div><dt><i class="ev e-hs">Human skin</i></dt><dd>people, but a related skin goal</dd></div>
+ <div><dt><i class="ev e-an">Animal</i></dt><dd>rats or mice</dd></div>
+ <div><dt><i class="ev e-ce">Cells</i></dt><dd>skin cells in a dish</dd></div>
+ <div><dt><i class="ev e-th">Theory</i></dt><dd>a mechanism, no test</dd></div>
+ <div><dt><i class="ev e-ng">Negative</i></dt><dd>tested in people, did not beat dummy</dd></div>
+</dl></div>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="ghk">
+ <h2 class="st">GHK-Cu · marks and scars, not spots</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>GHK-Cu (copper peptide)</h3><span><a href="/library/#/p/ghk-cu">Library card</a> · <a href="/library/#/p/ghk-cu-kpv">+ KPV</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-hs">Human skin · scars</i><i class="ev e-th">Acne: none</i></div>
+  <p class="lead">Spots leave red marks, brown marks and dents long after they heal. GHK-Cu works like a reset message telling older or damaged skin to rebuild the way younger skin does, switching on both collagen building and the clean-up of old collagen.<sup><a href="#s47">47</a></sup> In 30 Asian women with acne scars, a gel containing a copper peptide cut a dermatologist's scar score by 27% in 45 days.<sup><a href="#s45">45</a></sup> That study had no comparison group, and no trial has tested GHK-Cu on active acne.</p>
+  <p class="sub">How it may help</p>
+  <ul class="how">
+   <li><b>Rebuilds and clears collagen</b> at once, the remodelling a dented scar needs. <i class="ev e-hs">Human skin</i><sup><a href="#s47">47</a></sup></li>
+   <li><b>Calms scar-forming cells:</b> lowers TGF-β1 in scar fibroblasts in the lab. <i class="ev e-ce">Cells</i><sup><a href="#s47">47</a></sup></li>
+   <li><b>Damps inflammation</b> in lab models; never tested on an acne spot. <i class="ev e-ce">Cells</i><sup><a href="#s47">47</a></sup></li>
+  </ul>
+  <ol class="tline">
+   <li><span class="ty">1998 <i class="ev e-hs">20 people</i></span><p class="th">The "beats retinol" collagen study is real, but small.</p><p class="tb">Healthy thigh skin, 1 month, biopsies. People with any rise in new collagen: copper peptide 7 of 10, vitamin C 5 of 10, melatonin 5 of 10, tretinoin 4 of 10. Copper and tretinoin were in different groups, never tested on the same person, and nobody had acne. Often misquoted online as "12 weeks, 70% more collagen".<sup><a href="#s44">44</a></sup></p></li>
+   <li><span class="ty">2025 <i class="ev e-hs">30 women</i></span><p class="th">Scar score down 27% in 45 days.</p><p class="tb">A gel of copper tripeptide-1 plus L-carnitine, hesperidin and hyaluronic acid, twice daily: scar score 6.87 to 5.03, no side effects. Open label, no control, co-authors from the product maker, and four actives at once, so the copper peptide's share is unknown.<sup><a href="#s45">45</a></sup></p></li>
+   <li><span class="ty">2026 <i class="ev e-th">Injected</i></span><p class="th">Injected: no human data, early harm reports.</p><p class="tb">A cosmetic dermatologist calls the cream science "very solid", about vitamin C level, and advises against injecting. A longevity clinic reported self-injectors with injection-site infections and raised liver enzymes and copper (cause unconfirmed).<sup><a href="#s46">46</a></sup></p></li>
+  </ol>
+  <p class="sub">What people report · topical, about 42 people</p>
+  <div class="sbar" role="img" aria-label="21 better, 3 mixed, 14 no change, 5 worse"><i class="g1" style="width:49%">21</i><i class="g2" style="width:7%">3</i><i class="g3" style="width:32%">14</i><i class="g4" style="width:12%">5</i></div>
+  <div class="blg" style="margin-top:6px"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Mixed</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+  <p class="mech"><b>Better</b> meant red marks, brown marks, texture and scars, nearly always alongside peels, acids, retinoids or needling. <b>Worse</b> meant breakouts, often when layered with retinol or acids at the same time of day. Injected: zero usable first-hand reports.<sup><a href="#s68">68</a></sup></p>
+  <p class="vd"><b>Verdict:</b> a reasonable add-on for marks and scars with sunscreen, acids or needling; not an acne treatment. Patch test if acne-prone, and keep it away from same-night retinol.</p>
+ </div>
+</section>
+
+<section class="sec" id="egf">
+ <h2 class="st">EGF · the only controlled peptide result</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>EGF (sh-Oligopeptide-1)</h3><span class="jn">No Library card yet</span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-ho">Human outcome · 36 people</i></div>
+  <p class="lead">An inflamed spot is a small wound, and EGF is the signal skin uses to close wounds. It is the growth-factor peptide sold in serums as sh-Oligopeptide-1. In 36 people with mild to moderate acne, EGF ointment on one half of the face and plain ointment on the other: spots and scars fell on the EGF side from week 4 but not on the plain side, and biopsies showed less of the inflammation signals NF-κB, IL-1α and IL-8, with more collagen.<sup><a href="#s53">53</a></sup> One small, single-blind trial; the abstract gives no head-to-head figure between the two sides.</p>
+  <p class="vd"><b>Verdict:</b> worth watching, not proven. Closest any peptide gets to an acne result.</p>
+ </div>
+</section>
+
+<section class="sec" id="amp">
+ <h2 class="st">LL-37 and omiganan · lost to plain gel</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>Antimicrobial peptides</h3><span><a href="/library/#/p/ll-37">LL-37 card</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-ng">Negative · 2 big skin trials</i></div>
+  <p class="lead">The obvious idea: a peptide that kills bacteria should kill acne bacteria. But acne skin already makes extra LL-37, the body's own antimicrobial peptide, and in rosacea its broken fragments cause the redness.<sup><a href="#s43">43</a>,<a href="#s50">50</a></sup> Fat-cell precursors around the pore make their own version when C. acnes is present, and retinoids switch that off.<sup><a href="#s43">43</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">Omiganan <i class="ev e-ng">263 people</i></span><p class="th">Rosacea phase 3: equal to plain gel.</p><p class="tb">12 weeks: inflamed bumps fell 19.8 on omiganan vs 20.9 on plain gel; 24.6% vs 25.6% improved two grades. Its 4 acne trials (2000 to 2016, about 977 people) never posted results.<sup><a href="#s51">51</a></sup></p></li>
+   <li><span class="ty">LL-37 <i class="ev e-ng">148 people</i></span><p class="th">Leg ulcers: no healing benefit.</p><p class="tb">LL-37 cream in a phase 2b trial did not beat placebo overall; a hint in large ulcers only.<sup><a href="#s50">50</a></sup></p></li>
+   <li><span class="ty">GDP-20 <i class="ev e-ho">60 people</i></span><p class="th">On top of isotretinoin, unclear.</p><p class="tb">Granulysin-derived peptide gel added to low-dose isotretinoin: blackheads 21.4 to 4.4, red spots 6.1 to 1.4, but the abstract gives no comparison with isotretinoin alone and does not say it was randomised.<sup><a href="#s52">52</a></sup></p></li>
+  </ol>
+  <p class="vd"><b>Verdict:</b> adding LL-37 is not supported and could inflame skin prone to rosacea. Zero first-hand reports found.</p>
+ </div>
+</section>
+
+<section class="sec" id="kpv">
+ <h2 class="st">KPV, BPC-157 · lab and rats only</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>KPV and BPC-157</h3><span><a href="/library/#/p/kpv">KPV</a> · <a href="/library/#/p/bpc-157">BPC-157</a> · <a href="/library/#/p/glow">GLOW</a> · <a href="/library/#/p/klow">KLOW</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-ce">KPV · Cells</i><i class="ev e-an">BPC-157 · Animal</i></div>
+  <p class="lead">Red spots are an alarm that keeps ringing. KPV, the last three amino acids of the tanning hormone α-MSH, acts like the off switch for that alarm without the tan, damping NF-κB.<sup><a href="#s48">48</a></sup> In human skin cells and a 3D skin model it cut IL-1β and cell death from pollution damage. No human skin study exists, cream or injected.<sup><a href="#s48">48</a></sup></p>
+  <p class="mech"><b>BPC-157:</b> rat wounds, deep burns and diabetic ulcers healed faster; no human skin, scar or acne data, and its one human safety study never posted results.<sup><a href="#s49">49</a></sup> <b>GLOW/KLOW blends</b> (GHK-Cu + BPC-157 + TB-500, ± KPV): one 8-week blog diary, still frequent breakouts.<sup><a href="#s68">68</a></sup></p>
+  <p class="vd"><b>Verdict:</b> plausible on paper, untested on acne. Zero non-seller first-hand reports for either.</p>
+ </div>
+</section>
+</div>
+
+<div class="col">
+<section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · drug or weight loss?</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>GLP-1 drugs</h3><span><a href="/library/#/p/semaglutide">Semaglutide</a> · <a href="/library/#/p/tirzepatide">Tirzepatide</a> · <a href="/library/#/p/retatrutide">Retatrutide</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-hs">Human · weak, mixed</i></div>
+  <p class="lead">Insulin and IGF-1 push the oil gland, so drugs that lower insulin should calm it. But fast fat loss also shifts sex hormones, which may unmask androgens. GLP-1 drugs have no acne trial, and the data point both ways.<sup><a href="#s59">59</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2026 <i class="ev e-hs">41 people</i></span><p class="th">17 of 41 with acne felt better.</p><p class="tb">A survey designed with dermatologists, 1,226 GLP-1 users: acne better in 41% (could be 27 to 57%), hidradenitis 87%, dark velvety skin patches 75%. Self-report, no control.<sup><a href="#s57">57</a></sup></p></li>
+   <li><span class="ty">2025 <i class="ev e-hs">Records</i></span><p class="th">More acne diagnoses in obese women, not men.</p><p class="tb">A US database study found more new acne diagnoses in non-diabetic obese women on GLP-1s. Its numbers sit behind a bot check and are unread here; the authors note the individual rise was small.<sup><a href="#s58">58</a></sup></p></li>
+   <li><span class="ty">2025 <i class="ev e-m">34 RCTs</i></span><p class="th">84,243 people: no skin signal except hair loss.</p><p class="tb">Hair loss was 3.4 times more likely (about 6 vs 1 case per 1,000 people a year); acne was not named. A 45-paper review found no acne signal and blamed weight-loss hormone shifts for new acne.<sup><a href="#s59">59</a></sup></p></li>
+   <li><span class="ty">2025 <i class="ev e-h">58 women</i></span><p class="th">PCOS: 1 in 3 with acne improved</p><p class="tb">on semaglutide over about a year, with 11.4% weight loss.<sup><a href="#s62">62</a></sup> In hidradenitis, 16 of 20 on tirzepatide hit the response target at 24 weeks (open label).<sup><a href="#s61">61</a></sup></p></li>
+  </ol>
+  <p class="sub">Drug or weight loss?</p>
+  <div class="lens"><span>Drug</span><span class="on">Weight</span><span>Both</span><span class="on">Unknown</span></div>
+  <p class="mech">Review authors lean to <b>weight</b>; for acne itself it is still <b>unknown</b>. A 2-year semaglutide cohort that reported improvement is left out here: its tables grade every person for both acne and hidradenitis, most were diabetic, and its side-effect totals do not add up.<sup><a href="#s60">60</a></sup></p>
+  <p class="sub">What people report · forums</p>
+  <div class="pool"><p class="sub" style="margin:0 0 4px">Acne · 6 people</p><div class="sbar" role="img" aria-label="2 better, 1 no change, 3 worse"><i class="g1" style="width:33%">2</i><i class="g3" style="width:17%">1</i><i class="g4" style="width:50%">3</i></div></div>
+  <div class="pool"><p class="sub" style="margin:0 0 4px">Other inflamed skin · 12 people</p><div class="sbar" role="img" aria-label="10 better, 2 worse"><i class="g1" style="width:83%">10</i><i class="g4" style="width:17%">2</i></div></div>
+  <p class="mech">Worse reports cluster around dose increases and fast weight loss (one also started a biotin collagen the same week). Better for rosacea, psoriasis and seborrhoeic dermatitis was <b>consistent</b> (5+ people).<sup><a href="#s68">68</a></sup></p>
+  <p class="vd"><b>Verdict:</b> not an acne drug. Insulin-driven or PCOS acne may ease as weight and insulin fall; others may flare during fast loss.</p>
+ </div>
+</section>
+
+<section class="sec" id="gh">
+ <h2 class="st">GH peptides and IGF-1 · the one that can cause it</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>GH peptides, IGF-1</h3><span><a href="/library/#/p/mk-677">MK-677</a> · <a href="/library/#/p/ipamorelin">Ipamorelin</a> · <a href="/library/#/p/cjc-1295-with-dac">CJC-1295</a> · <a href="/library/#/p/tesamorelin">Tesamorelin</a> · <a href="/library/#/p/igf-1-lr3">IGF-1 LR3</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-ho">IGF-1 · human harm signal</i><i class="ev e-th">GH peptides · theory</i></div>
+  <p class="lead">IGF-1, the growth factor that growth hormone raises, pushes the same oil-gland switch as androgens. The cleanest human clue: people born unable to make IGF-1 almost never get acne (1 of 13), and when women were given IGF-1 at high doses, 3 of 6 got acne that cleared when the dose was cut.<sup><a href="#s42">42</a></sup></p>
+  <p class="mech"><b>GH-releasing peptides:</b> no trial lists acne. MK-677 for 2 years in older adults: more appetite (67% vs 36%), swelling and muscle pain, not acne; tesamorelin's label: rash 4% vs 2%, no acne; CJC-1295 raised IGF-1 1.5 to 3 times with no skin events in the abstract.<sup><a href="#s56">56</a></sup> Those trials enrolled older or ill adults, whose oil glands are far quieter than a 25-year-old's.</p>
+  <p class="sub">What people report · 4 people</p>
+  <div class="sbar" role="img" aria-label="3 better, 1 skin better not acne"><i class="g1" style="width:75%">3</i><i class="g2" style="width:25%">1</i></div>
+  <p class="mech">The reverse of what the biology predicts, but tiny and confounded (tretinoin, zinc, another compound, one 16-year-old).<sup><a href="#s68">68</a></sup></p>
+  <p class="vd"><b>Verdict:</b> expect more oil, especially stacked with testosterone. Blood sugar rises on MK-677.</p>
+ </div>
+</section>
+
+<section class="sec" id="mt">
+ <h2 class="st">Melanotan · moles, not spots</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>Melanotan, afamelanotide</h3><span><a href="/library/#/p/mt-2">Melanotan II</a> · <a href="/library/#/p/melanotan-1">Melanotan I</a> · Afamelanotide</span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-ho">3-person pilot</i><i class="ev e-th">Acne harm: claimed, no rate</i></div>
+  <p class="lead">Melanotan II also touches a receptor on oil glands (MC5R) that raises oil, so acne is often listed as a side effect, but no study gives a rate. The licensed cousin afamelanotide reduced spots in all 3 people with acne in a small pilot, and its <span class="bs-fda" data-x="fda">FDA</span> label does not list acne.<sup><a href="#s54">54</a></sup></p>
+  <p class="mech"><b>Real skin risks:</b> new or changing moles 4% vs 2% and skin darkening 4% vs 0% on the label in 6 months; melanoma from existing moles in case reports. About 26 user reviews never mention acne; moles, freckles and mouth pigment are the complaints.<sup><a href="#s54">54</a>,<a href="#s55">55</a>,<a href="#s68">68</a></sup></p>
+ </div>
+</section>
+
+<section class="sec" id="col">
+ <h2 class="st">Collagen and cosmetic peptides · untested</h2>
+ <div class="cp pk2">
+  <div class="cph"><h3>Collagen, serum peptides, insulin</h3><span><a href="/library/#/p/collagen-peptides">Collagen card</a></span></div>
+  <div class="rchips" style="margin-top:6px"><i class="ev e-th">Collagen · none</i><i class="ev e-hs">Insulin · scars</i></div>
+  <ul class="tight">
+   <li><b>Collagen powders:</b> no acne trial with results.<sup><a href="#s63">63</a></sup> Forums: 1 better, 1 no change, 2 worse, and posters blame the <b>biotin</b> many powders contain.<sup><a href="#s68">68</a></sup></li>
+   <li><b>Serum "acne peptides"</b> (oligopeptide-10, acetyl tetrapeptides, palmitoyl tripeptides): no human acne trial. Pentapeptide-18 with retinol lowered oil, no spot counts.<sup><a href="#s64">64</a></sup></li>
+   <li><b>Insulin with microneedling for scars</b> (a 51-amino-acid peptide hormone): "marked improvement" about twice as likely as with PRP across 5 studies (256 people), but scar scores did not differ. Clinic only.<sup><a href="#s65">65</a></sup></li>
+  </ul>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="ptable">
+ <h2 class="st">Every human peptide study, one table</h2>
+ <div class="tw"><table class="cmp grd hst">
+  <tr><th>Study</th><th>People</th><th>Dummy group?</th><th>What it found</th></tr>
+  <tr><td>EGF ointment, acne, 2022</td><td>36</td><td>Yes, other half of face</td><td>Spots and scars fell from week 4; plain side did not<sup><a href="#s53">53</a></sup></td></tr>
+  <tr><td>Omiganan gel, rosacea, phase 3</td><td>263</td><td>Yes</td><td class="bad">Equal to plain gel<sup><a href="#s51">51</a></sup></td></tr>
+  <tr><td>LL-37 cream, leg ulcers</td><td>148</td><td>Yes</td><td class="bad">No healing benefit<sup><a href="#s50">50</a></sup></td></tr>
+  <tr><td>GDP-20 + isotretinoin, acne</td><td>60</td><td>Isotretinoin-only group, not compared in abstract</td><td>Spots fell; peptide's share unknown<sup><a href="#s52">52</a></sup></td></tr>
+  <tr><td>Copper peptide blend, acne scars</td><td>30</td><td>No</td><td>Scar score down 27% in 45 days<sup><a href="#s45">45</a></sup></td></tr>
+  <tr><td>Copper peptide, healthy thigh skin</td><td>20</td><td>No (vs other creams)</td><td>New collagen in 7 of 10<sup><a href="#s44">44</a></sup></td></tr>
+  <tr><td>Insulin + needling, acne scars (5 studies)</td><td>256</td><td>Vs PRP</td><td>More "marked" responses, same scar scores<sup><a href="#s65">65</a></sup></td></tr>
+  <tr><td>Afamelanotide implant, acne</td><td>3</td><td>No</td><td>Fewer spots in all 3<sup><a href="#s54">54</a></sup></td></tr>
+  <tr><td>IGF-1 injections, Laron syndrome</td><td>6</td><td>No</td><td class="bad">Acne in 3 at high dose<sup><a href="#s42">42</a></sup></td></tr>
+  <tr><td>GLP-1 users, survey</td><td>41</td><td>No</td><td>17 felt acne improved<sup><a href="#s57">57</a></sup></td></tr>
+  <tr><td>Semaglutide, PCOS women</td><td>58</td><td>No</td><td>1 in 3 with acne improved<sup><a href="#s62">62</a></sup></td></tr>
+  <tr><td>Tirzepatide, hidradenitis</td><td>20</td><td>No</td><td>16 hit the response target<sup><a href="#s61">61</a></sup></td></tr>
+ </table></div>
+ <p class="hint">Read the dummy-group column first: only three studies had one, and two of those three peptides lost. KPV, BPC-157, TB-500, collagen powders and serum "acne peptides" have no human acne or scar study at all.</p>
+</section></div>
+
+<h2 class="part" id="p3"><span>4</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">First-hand counts, peptides</h2>
+ <div class="tw"><table class="cmp hum ptab">
+  <tr><th>Peptide</th><th>Better</th><th>Mixed</th><th>Same</th><th>Worse</th></tr>
+  <tr><td>GHK-Cu, on skin</td><td>21</td><td>3</td><td>14</td><td>5</td></tr>
+  <tr><td>GHK-Cu, injected</td><td colspan="4">None found</td></tr>
+  <tr><td>GLP-1, acne</td><td>2</td><td>0</td><td>1</td><td>3</td></tr>
+  <tr><td>GLP-1, other skin</td><td>10</td><td>0</td><td>0</td><td>2</td></tr>
+  <tr><td>GH peptides</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+  <tr><td>Collagen, oral</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
+  <tr><td>GLOW blend</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+  <tr><td>Melanotan</td><td colspan="4">0 of about 26 reviews mention acne</td></tr>
+  <tr><td>KPV, BPC-157, LL-37</td><td colspan="4">None found outside seller pages</td></tr>
+ </table></div>
+ <p class="hint">Distinct people, own use only, counted once across threads; GHK-Cu totals ±2 for possible overlap. acne.org, MakeupAlley, Mumsnet, Drugs.com, RealSelf, WebMD, SalonGeek, HairLossTalk and Looksmax, 3 to 20 Nov 2026; seller pages left out.<sup><a href="#s68">68</a></sup> <b>Reddit count pending:</b> Reddit could not be reached on 20 Nov 2026; a Reddit tally will be added separately.</p>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="voices">
+ <h2 class="st">What they said</h2>
+ <ul class="tight">
+  <li><b>GHK-Cu, marks:</b> post-acne redness fading, brown marks lighter, rolling scars "slowly filling" over a year with needling. One said red marks were 40% down. Most were also using peels, glycolic, lactic or BHA.<sup><a href="#s68">68</a></sup></li>
+  <li><b>GHK-Cu, breakouts:</b> painful cyst-like pimples; daily chin breakouts; breakouts at night with retinol that stopped when the copper moved to mornings; open pores then rough skin after a month.<sup><a href="#s68">68</a></sup></li>
+  <li><b>GLP-1:</b> "not even whiteheads" on tirzepatide for two women; jawline acne after moving to a higher dose for another. Rosacea cleared after 10 years for one; psoriasis patches gone for several.<sup><a href="#s68">68</a></sup></li>
+  <li><b>MK-677:</b> mild acne cleared over 8 months for one user, alongside zinc, berberine and another compound, while fasting sugar rose from 80 to 95.<sup><a href="#s68">68</a></sup></li>
+ </ul>
+ <p class="sub">Seen by a doctor</p>
+ <ul class="tight">
+  <li>Copper peptide blend: dermatologist-graded scar score down 27% in 30 women, no control.<sup><a href="#s45">45</a></sup></li>
+  <li>Tirzepatide: investigators graded 16 of 20 hidradenitis patients as responders.<sup><a href="#s61">61</a></sup></li>
+  <li>Self-injected GHK-Cu: a nurse practitioner saw injection-site infections and raised liver enzymes and copper.<sup><a href="#s46">46</a></sup></li>
+ </ul>
+ <p class="hint">Anecdotes are never clinical proof: with dummy creams clearing a third to a half of spots, "it cleared in 8 weeks" is expected for many.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p4"><span>5</span>Pairings and related</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">Pairings · what is used together</h2>
+ <ul class="tight">
+  <li><b>Retinoid + benzoyl peroxide:</b> the base pair; together they beat each alone from week 1.<sup><a href="#s6">6</a></sup> <span class="ev e-rct">RCT</span></li>
+  <li><b>Any antibiotic + benzoyl peroxide:</b> always.<button class="why" aria-expanded="false">Why</button><span class="wyt">Antibiotics kill only the bacteria they can reach, leaving the resistant ones to multiply; benzoyl peroxide kills by oxidation, which bacteria cannot adapt to.</span> 22% of acne bacteria already resist clindamycin and 29% erythromycin; benzoyl peroxide stops resistance.<sup><a href="#s11">11</a></sup></li>
+  <li><b>Isotretinoin before laser for scars:</b> in Thai patients, brown marks after laser were 24% on isotretinoin vs 42% off it.<sup><a href="#s66">66</a></sup></li>
+  <li><b>GHK-Cu + peels, acids or needling:</b> where nearly all good marks reports come from. <b>GHK-Cu + retinol</b> at the same time links with breakouts; people split them morning and night.<sup><a href="#s68">68</a></sup></li>
+  <li><b>GLP-1 + spironolactone</b> for PCOS acne. Starting a GLP-1 and a new supplement in the same fortnight makes it impossible to tell which caused a flare.</li>
+  <li><b>Collagen or "hair, skin, nails" powders:</b> check for biotin before blaming the collagen or the GLP-1.<sup><a href="#s68">68</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">The same problem, other places</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/pcos/"><b>PCOS</b></a>: hormonal acne with cycle and insulin problems; spironolactone, the pill, metformin and GLP-1s.</li>
+  <li><a href="/library/goals/hair/"><b>Hair loss</b></a> (full case page): the same androgens shrink scalp follicles while they enlarge oil glands.<button class="why" aria-expanded="false">Why</button><span class="wyt">Androgens act on the same hair-follicle unit: in the scalp they shorten hair growth; in the oil gland next to it they drive oil.</span></li>
+  <li><a href="/library/aims/skin/"><b>Skin, Hair &amp; Nails</b></a>: the Goal page for firmer, smoother, even-toned skin, with where each compound acts and how strong the proof is.</li>
+  <li><b>Hidradenitis</b> ("acne inversa"): a different disease with plugged follicles in skin folds; GLP-1 data are strongest here.<sup><a href="#s61">61</a></sup></li>
+  <li><b>Rosacea</b>: looks like acne, driven partly by LL-37 fragments.<sup><a href="#s50">50</a></sup></li>
+  <li><a href="/library/goals/glp-1/"><b>GLP-1s</b></a>: every effect beyond weight loss.</li>
+  <li><a href="/library/goals/notes/acne/"><b>Acne research notes</b></a>: every study and number with its tag.</li>
+ </ul>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Marks and scars</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="marks">
+ <h2 class="st">Marks fade · protect first</h2>
+ <p>Up to 85% of people with darker skin get brown marks after inflamed spots, and they can bother people more than the acne. Women, darker skin, severe acne, sun and picking raise the risk.<sup><a href="#s39">39</a></sup></p>
+ <ul class="tight">
+  <li><b>Sunscreen daily:</b> called non-negotiable for brown marks.<sup><a href="#s39">39</a></sup></li>
+  <li><b>Azelaic acid:</b> treats spots and fades brown marks at once; usable in pregnancy.<sup><a href="#s14">14</a></sup></li>
+  <li><b>Retinoids:</b> tretinoin helped brown marks in at-risk patients.<sup><a href="#s7">7</a></sup></li>
+  <li><b>Tranexamic acid:</b> micro-injections and low-power laser both lightened post-acne marks in a 25-person split-face trial; laser a little better.<sup><a href="#s66">66</a></sup></li>
+  <li><b>Copper peptide:</b> the largest community signal for red and brown marks, always alongside acids or peels.<sup><a href="#s68">68</a></sup></li>
+  <li><b>Don't pick:</b> the most changeable risk factor in Asian studies.<sup><a href="#s39">39</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="scars">
+ <h2 class="st">Scars · combinations win</h2>
+ <ul class="tight">
+  <li><b>Fractional laser</b> (CO2, erbium) often beat plain microneedling across 27 studies (1,137 people); more brown-mark risk in darker skin.<sup><a href="#s66">66</a></sup></li>
+  <li><b>RF microneedling:</b> close to laser with less pigment risk; favoured for darker skin.<sup><a href="#s66">66</a></sup></li>
+  <li><b>Subcision</b> frees tethered rolling scars; with CO2 laser it was among the most consistent pairs in 56 trials.<sup><a href="#s66">66</a></sup></li>
+  <li><b>TCA CROSS</b> for ice-pick scars: over 70% better in 8 of 10, uncontrolled.<sup><a href="#s66">66</a></sup></li>
+  <li><b>Insulin or PRP with needling:</b> insulin gave more "marked" responses, low certainty.<sup><a href="#s65">65</a></sup></li>
+ </ul>
+ <p class="hint">A second 2026 network analysis found no treatment reliably ranks first. Several work; none is clearly best.<sup><a href="#s66">66</a></sup></p>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="options">
+ <h2 class="st">Options, in order of evidence</h2>
+ <ol class="steps">
+  <li><span><b>Mild, blackheads or a few red spots:</b> adapalene (or another retinoid) plus benzoyl peroxide; azelaic acid if marks, sensitive skin or pregnancy. Judge at 12 weeks.<sup><a href="#s5">5</a>,<a href="#s6">6</a></sup> <span class="ev e-rct">RCT</span></span></li>
+  <li><span><b>Moderate:</b> a double or triple combination gel; add doxycycline for 3 to 4 months, always with benzoyl peroxide and a retinoid.<sup><a href="#s17">17</a>,<a href="#s18">18</a></sup> <span class="ev e-rct">RCT</span></span></li>
+  <li><span><b>Adult women, hormonal pattern:</b> spironolactone or the combined pill, judged at 6 months; clascoterone cream (also for men).<sup><a href="#s21">21</a>,<a href="#s22">22</a>,<a href="#s16">16</a></sup> <span class="ev e-rct">RCT</span></span></li>
+  <li><span><b>Severe, scarring, or two failed rounds:</b> isotretinoin; low dose gives similar 24-week results with fewer side effects.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup> <span class="ev e-m">Meta</span></span></li>
+  <li><span><b>PCOS or insulin resistance:</b> add metformin or address weight and insulin, including GLP-1s where prescribed.<sup><a href="#s23">23</a>,<a href="#s62">62</a></sup></span></li>
+  <li><span><b>Add-ons with some data:</b> zinc, omega-3, a low-glycaemic diet for 10 to 12 weeks; a 12-week dairy break as a personal test.<sup><a href="#s30">30</a>,<a href="#s32">32</a>,<a href="#s34">34</a></sup></span></li>
+  <li><span><b>Itchy, uniform bumps:</b> get a smear and treat the yeast instead.<sup><a href="#s38">38</a></sup></span></li>
+  <li><span><b>Peptides, honestly:</b> EGF serum as an experiment; topical GHK-Cu for marks alongside sunscreen and acids. None replaces a retinoid or benzoyl peroxide.<sup><a href="#s53">53</a>,<a href="#s68">68</a></sup></span></li>
+ </ol>
+</section></div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="st">Usual questions</h2>
+ <div class="faqs">
+  <details class="fq" open><summary>Does GHK-Cu clear acne?</summary><div class="bd"><p>No trial says so. About half of 42 users said marks, redness or scars looked better, usually with peels or acids; about 1 in 8 broke out; nobody said it cleared active acne.<sup><a href="#s68">68</a></sup></p></div></details>
+  <details class="fq" open><summary>Is there any peptide cream with a real acne result?</summary><div class="bd"><p>One: EGF ointment, 36 people, against plain ointment on the other half of the face, single blind: spots and scars fell on the EGF side and not on the plain side over 12 weeks.<sup><a href="#s53">53</a></sup></p></div></details>
+  <details class="fq"><summary>Is the "copper peptide beats retinol" study real?</summary><div class="bd"><p>Yes, but it was 1 month, 20 people, thigh skin, counting people with any collagen rise (7 of 10 vs 4 of 10), and copper and tretinoin were never tested on the same person.<sup><a href="#s44">44</a></sup></p></div></details>
+  <details class="fq"><summary>Is injected GHK-Cu better than cream?</summary><div class="bd"><p>There is no human data for injecting it. Dermatologists say cream is the evidence-based route, and a clinic has seen infections and raised liver enzymes and copper in self-injectors.<sup><a href="#s46">46</a></sup></p></div></details>
+  <details class="fq"><summary>Will semaglutide or tirzepatide fix my acne?</summary><div class="bd"><p>Unclear. 4 in 10 users with acne in one survey felt better; a database found more acne diagnoses in obese women; large trial pools show no acne signal; forums split 2 better, 3 worse. Rosacea, psoriasis and hidradenitis improve more consistently.<sup><a href="#s57">57</a>,<a href="#s58">58</a>,<a href="#s59">59</a></sup></p></div></details>
+  <details class="fq"><summary>Do GH peptides cause acne?</summary><div class="bd"><p>IGF-1 itself does at high doses (3 of 6 women, cleared on cutting the dose). GH-peptide trials list no acne, but they studied older adults.<sup><a href="#s42">42</a>,<a href="#s56">56</a></sup></p></div></details>
+  <details class="fq"><summary>Does melanotan cause acne?</summary><div class="bd"><p>Often claimed, never measured: no study gives a rate, the licensed cousin's label doesn't list it, and about 26 user reviews never mention it. Moles are the real skin risk.<sup><a href="#s54">54</a>,<a href="#s55">55</a></sup></p></div></details>
+  <details class="fq"><summary>Can LL-37 or KPV kill or calm my acne?</summary><div class="bd"><p>LL-37's best skin trial (148 ulcer patients) showed no benefit, and its fragments drive rosacea. KPV has only skin-cell data. Neither has a single non-seller user report.<sup><a href="#s48">48</a>,<a href="#s50">50</a></sup></p></div></details>
+  <details class="fq"><summary>Does milk cause acne?</summary><div class="bd"><p>Linked, not proven: a glass a day raised the odds about 40% in 14 observational studies, with skim at least as strong as whole. No trial of cutting dairy exists.<sup><a href="#s35">35</a></sup></p></div></details>
+  <details class="fq"><summary>Does whey protein cause acne?</summary><div class="bd"><p>Less than assumed. A 6-month blinded trial of 30 g whey daily in 49 young Thai men with acne found no worsening, though case reports describe chest and back flares that cleared on stopping.<sup><a href="#s36">36</a></sup></p></div></details>
+  <details class="fq"><summary>Does sugar or white bread matter?</summary><div class="bd"><p>Two small trials found low-glycaemic diets cut spots and shrank oil glands in 10 to 12 weeks; pooled results were mixed. A modifier, not a cause.<sup><a href="#s34">34</a></sup></p></div></details>
+  <details class="fq"><summary>Could my "acne" be fungal?</summary><div class="bd"><p>If the bumps itch, look the same size and sit on the forehead, hairline, chest or back, yes: 28.8% of acne patients in a Bangkok clinic had it. It needs an antifungal.<sup><a href="#s37">37</a>,<a href="#s38">38</a></sup></p></div></details>
+  <details class="fq"><summary>Is a "purge" real?</summary><div class="bd"><p>Purging is a retinoid idea: faster skin turnover brings plugs up in the first weeks. GHK-Cu does not clearly speed turnover, so new breakouts in new places are more likely irritation or clogging.</p></div></details>
+  <details class="fq"><summary>Does isotretinoin cure acne for good?</summary><div class="bd"><p>For most. In nearly 20,000 US patients, 22.5% needed acne treatment again and 8.2% a second course; women relapsed more, and a higher total dose lowered relapse.<sup><a href="#s24">24</a></sup></p></div></details>
+  <details class="fq"><summary>What works best for acne scars?</summary><div class="bd"><p>Combinations: laser with subcision or PRP; microneedling is gentler for darker skin. No single treatment is proven best.<sup><a href="#s66">66</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="warn">
+ <h2 class="st rdt">Warnings</h2>
+ <div class="box rd">
+  <ul class="tight">
+   <li><b>Isotretinoin and pregnancy:</b> birth defects in 35% or more of exposed pregnancies. Two forms of contraception from 1 month before to 1 month after, with pregnancy tests; wait a month after the last dose before trying to conceive.<sup><a href="#s67">67</a></sup></li>
+   <li><b>Spironolactone:</b> not for pregnancy (it can affect a male baby's development); headaches 20% vs 12%.<sup><a href="#s22">22</a></sup> Tazarotene, clascoterone and tetracycline antibiotics are also no in pregnancy.<sup><a href="#s8">8</a>,<a href="#s16">16</a></sup></li>
+   <li><b>Antibiotics:</b> never clindamycin or erythromycin alone on skin, and keep pills to 3 to 4 months, always with benzoyl peroxide. Doxycycline makes skin burn faster in tropical sun. Minocycline can cause lupus and permanent blue-grey skin.<sup><a href="#s11">11</a>,<a href="#s19">19</a></sup></li>
+   <li><b>Steroid creams on "acne":</b> can turn a fungal infection into a worse one.<sup><a href="#s70">70</a></sup></li>
+   <li><b>Melanotan:</b> new or changing moles, melanoma reports, priapism, brain swelling (PRES), muscle breakdown; unlicensed tanning products vary in dose and purity. Get moles checked twice a year.<sup><a href="#s54">54</a>,<a href="#s55">55</a></sup></li>
+   <li><b>Unregulated injectables:</b> research-labelled peptides are not made for people; purity, dose and sterility are unchecked, and copper peptides can arrive with free copper. Injecting adds infection and lump risk and has no human acne or scar data for any peptide.<sup><a href="#s46">46</a></sup></li>
+   <li><b>GH peptides:</b> raise blood sugar; MK-677 had a heart-failure signal in one trial. <b>Biotin</b> in skin and hair powders is a common suspected breakout trigger.<sup><a href="#s56">56</a>,<a href="#s68">68</a></sup></li>
+   <li><b>See a doctor</b> for deep painful lumps, scarring, sudden acne in an adult woman with extra hair or missed periods, or acne after starting testosterone or steroids.</li>
+  </ul>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="glossary">
+ <h2 class="st">Glossary</h2>
+ <div class="evleg"><p class="evh">Tags</p><dl><div><dt><i class="ev e-rct">RCT</i></dt><dd>people split at random; one group gets a dummy</dd></div><div><dt><i class="ev e-m">Meta</i></dt><dd>many trials pooled into one answer</dd></div><div><dt><i class="ev e-h">Human</i></dt><dd>a study in people without a dummy group</dd></div><div><dt><i class="ev e-r">Reports</i></dt><dd>first-hand posts, self-reported, no comparison</dd></div></dl>
+ <p class="evh" style="margin-top:12px">Words on this page</p><dl class="gw"><div><dt>Vehicle</dt><dd>the dummy cream: the same base without the drug</dd></div><div><dt>Comedone</dt><dd>a plugged pore: blackhead if open, whitehead if closed</dd></div><div><dt>Sebum</dt><dd>the oil the oil gland makes</dd></div><div><dt>C. acnes</dt><dd>Cutibacterium acnes, the skin bacterium that lives in every pore</dd></div><div><dt>Androgens</dt><dd>testosterone and its relatives, the main oil switch</dd></div><div><dt>IGF-1</dt><dd>a growth factor raised by growth hormone and insulin; also pushes oil</dd></div><div><dt>PIH / PIE</dt><dd>flat brown / red marks left after a spot; not scars</dd></div><div><dt>Retinoid</dt><dd>vitamin A relatives that stop pores plugging</dd></div><div><dt>BPO</dt><dd>benzoyl peroxide, an antiseptic bacteria can't resist</dd></div></dl></div>
+</section></div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources <span class="cnt">71</span></h2></summary>
+ <p class="hint" style="margin:0 0 8px">Every number, with its tag, is in the <a href="/library/goals/notes/acne/">acne research notes</a> (notes v2, 3 Nov; peptides v3 and treatments v1, 20 Nov 2026).</p>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">Lamel 2015, Arch Dermatol Res, benzoyl peroxide vs vehicle, 12 RCTs, 4,822 people. <a href="https://doi.org/10.1007/s00403-015-1568-9" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s2">Koo 2014, J Am Acad Dermatol, combined pill vs oral antibiotics vs placebo, 32 RCTs. <a href="https://doi.org/10.1016/j.jaad.2014.03.051" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s3">Purdy 2011, BMJ Clinical Evidence, acne review (persistence past 25). <a href="https://pubmed.ncbi.nlm.nih.gov/21477388/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Collier 2008, J Am Acad Dermatol, adult acne in 1,013 people. <a href="https://doi.org/10.1016/j.jaad.2007.06.045" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s5">Mavranezouli 2022, Br J Dermatol, NICE network meta-analysis, 179 RCTs. <a href="https://doi.org/10.1111/bjd.21739" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s6">Thiboutot 2007, J Am Acad Dermatol, adapalene + BPO, 517 people; Alexis 2017, skin type subgroups. <a href="https://doi.org/10.1016/j.jaad.2007.06.006" target="_blank" rel="noopener">DOI</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/28686775/" target="_blank" rel="noopener">Alexis</a></li>
+   <li id="s7">Lain 2019, tretinoin 0.05% lotion, 2 phase 3 RCTs, 1,640 people. <a href="https://pubmed.ncbi.nlm.nih.gov/31741356/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s8">Tanghetti 2020, J Drugs Dermatol, tazarotene 0.045% lotion, 1,614 people. <a href="https://doi.org/10.36849/JDD.2020.3977" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s9">Tan 2019, J Am Acad Dermatol, trifarotene face and trunk, 2 phase 3 RCTs. <a href="https://doi.org/10.1016/j.jaad.2019.02.044" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s10">Stein Gold 2015, clindamycin 1.2% + BPO 3.75%, 498 people. <a href="https://pubmed.ncbi.nlm.nih.gov/26355615/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s11">C. acnes antibiotic resistance meta-analysis, 2,046 isolates, Front Microbiol 2025. <a href="https://doi.org/10.3389/fmicb.2025.1565111" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s12">Gold 2019, J Am Acad Dermatol, minocycline 4% foam, 961 people. <a href="https://doi.org/10.1016/j.jaad.2018.08.020" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s13">Tanghetti 2018, dapsone 7.5% gel by sex, 2,160 people. <a href="https://pubmed.ncbi.nlm.nih.gov/30500141/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s14">Iraji 2007, Indian J Dermatol Venereol Leprol, azelaic acid 20% gel, 60 people. <a href="https://doi.org/10.4103/0378-6323.31892" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s15">Kulthanan 2020, salicylic acid moisturiser, 50 people split face; AAD 2024 guideline grades. <a href="https://doi.org/10.1155/2020/2857812" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s16">Hebert 2020, JAMA Dermatol, clascoterone, 1,440 people; sex subgroups (J Drugs Dermatol); EMA authorisation 17 Oct 2025. <a href="https://doi.org/10.1001/jamadermatol.2020.0465" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.36849/JDD.9388" target="_blank" rel="noopener">Subgroups</a> · <a href="https://www.ema.europa.eu/fr/medicines/human/EPAR/winlevi" target="_blank" rel="noopener">EMA</a></li>
+   <li id="s17">Stein Gold 2023, J Am Acad Dermatol, triple gel (clindamycin/BPO/adapalene), 2 phase 3 RCTs. <a href="https://doi.org/10.1016/j.jaad.2022.08.069" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s18">Moore 2015, doxycycline 40 mg and 100 mg vs placebo, 662 people. <a href="https://pubmed.ncbi.nlm.nih.gov/26091383/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s19">Garner 2012, Cochrane, minocycline for acne, 39 RCTs, 6,013 people. <a href="https://doi.org/10.1002/14651858.CD002086.pub2" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s20">Moore 2018, sarecycline, 2 phase 3 RCTs, 2,002 people. <a href="https://pubmed.ncbi.nlm.nih.gov/30235387/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s21">Arowojolu 2012, Cochrane, combined pills for acne, 31 RCTs, 12,579 women. <a href="https://doi.org/10.1002/14651858.CD004425.pub5" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s22">SAFA trial 2023, BMJ: spironolactone in adult women, 410 people. <a href="https://doi.org/10.1136/bmj-2022-074349" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s23">Yen 2021, Am J Clin Dermatol, metformin and acne in PCOS, 51 studies. <a href="https://doi.org/10.1007/s40257-020-00565-5" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s24">Lai and Barbieri 2025, JAMA Dermatol, isotretinoin relapse in 19,907 patients; isotretinoin and psychiatric risk meta-analysis, 1.6 million people, 2023. <a href="https://doi.org/10.1001/jamadermatol.2024.5416" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1001/jamadermatol.2023.4579" target="_blank" rel="noopener">Mental health</a></li>
+   <li id="s25">Low vs conventional dose isotretinoin, 4 RCTs, 210 people, Front Med 2026. <a href="https://doi.org/10.3389/fmed.2026.1771320" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s26">Denifanstat phase 2, J Eur Acad Dermatol Venereol, 179 people; licence holder news list checked 20 Nov 2026 (no approval). <a href="https://doi.org/10.1111/jdv.70119" target="_blank" rel="noopener">DOI</a> · <a href="https://ir.sagimet.com/news-releases" target="_blank" rel="noopener">News list</a></li>
+   <li id="s27">Gallagher 2020, survey of 100 US clinicians on steroid injections into acne cysts. <a href="https://pubmed.ncbi.nlm.nih.gov/33488919/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s28">Barbaric 2018, Br J Dermatol, Cochrane light therapies for acne, 71 RCTs. <a href="https://doi.org/10.1111/bjd.15495" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s29">Alexiades 2023, J Am Acad Dermatol, 1726 nm laser, 104 people; Tanghetti 2025, Lasers Surg Med, air-cooled device. Both with manufacturer authors. <a href="https://doi.org/10.1016/j.jaad.2023.05.085" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1002/lsm.23872" target="_blank" rel="noopener">Tanghetti</a></li>
+   <li id="s30">Yee 2020, Dermatol Ther, zinc and acne meta-analysis. <a href="https://doi.org/10.1111/dth.14252" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s31">Shalita 1995, nicotinamide 4% gel vs clindamycin, 76 people; Niren 2006, oral nicotinamide open study, 198 people; 2025 review on high-dose nicotinamide. <a href="https://doi.org/10.1111/j.1365-4362.1995.tb04449.x" target="_blank" rel="noopener">DOI</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/16871775/" target="_blank" rel="noopener">Niren</a> · <a href="https://doi.org/10.36849/JDD.9092" target="_blank" rel="noopener">Review</a></li>
+   <li id="s32">Jung 2014, Acta Derm Venereol, omega-3 and acne, 45 people. <a href="https://doi.org/10.2340/00015555-1802" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s33">Eguren 2024, Acta Derm Venereol, probiotic, 74 people; Rinaldi 2022, probiotic, 114 people (company run). <a href="https://doi.org/10.2340/actadv.v104.33206" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1007/s13555-021-00664-z" target="_blank" rel="noopener">Rinaldi</a></li>
+   <li id="s34">Kwon 2012 (32 people) and Smith 2008 (31 men), low-glycaemic diet trials; Cao 2015, Cochrane complementary therapies. <a href="https://doi.org/10.2340/00015555-1346" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1016/j.jdermsci.2007.11.005" target="_blank" rel="noopener">Smith</a> · <a href="https://doi.org/10.1002/14651858.CD009436.pub2" target="_blank" rel="noopener">Cochrane</a></li>
+   <li id="s35">Juhl 2018, Nutrients, dairy and acne, 14 studies, 78,529 people; Aghasi 2018, Clin Nutr. <a href="https://doi.org/10.3390/nu10081049" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1016/j.clnu.2018.04.015" target="_blank" rel="noopener">Aghasi</a></li>
+   <li id="s36">Sompochpruetikul 2024, J Dermatol, whey protein RCT, 49 men; Zamil 2020 review of whey case reports. <a href="https://doi.org/10.1111/1346-8138.17109" target="_blank" rel="noopener">DOI</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/32941710/" target="_blank" rel="noopener">Review</a></li>
+   <li id="s37">Paichitrojjana 2022, Clin Cosmet Investig Dermatol, Malassezia folliculitis in 320 acne patients, Bangkok. <a href="https://doi.org/10.2147/CCID.S395654" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s38">Suzuki 2016, Med Mycol J, antifungals in 44 patients; Wang 2024, itraconazole RCT, 50 people. <a href="https://doi.org/10.3314/mmj.16-00003" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1111/srt.13850" target="_blank" rel="noopener">Wang</a></li>
+   <li id="s39">Asian Acne Board 2016, brown marks in 324 patients, 7 countries; Jakarta women 2022; Lopez-Estebaranz 2026 review of acne marks. <a href="https://doi.org/10.1111/1346-8138.13263" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1111/srt.13189" target="_blank" rel="noopener">Jakarta</a> · <a href="https://doi.org/10.1007/s40257-026-01044-z" target="_blank" rel="noopener">Review</a></li>
+   <li id="s40">Narang 2018, J Cosmet Dermatol, seasonal acne in 171 patients, Delhi. <a href="https://doi.org/10.1111/jocd.12777" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s41">Acne scars in 6,225 young adults, Singapore and Malaysia, Dermatology 2025; Thai acne scar study, 225 patients. <a href="https://doi.org/10.1159/000547009" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1111/jocd.16695" target="_blank" rel="noopener">Thai</a></li>
+   <li id="s42">Ben-Amitai and Laron 2011, J Eur Acad Dermatol Venereol, IGF-1 deficiency and IGF-1 treatment. <a href="https://doi.org/10.1111/j.1468-3083.2010.03896.x" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s43">Acne pathogenesis and antimicrobial peptides review, Front Immunol 2024; insulin/IGF-1 signalling review, Cureus 2026; fat-cell precursors and cathelicidin in acne, Sci Transl Med 2022. <a href="https://doi.org/10.3389/fimmu.2024.1502242" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.7759/cureus.116420" target="_blank" rel="noopener">Cureus</a> · <a href="https://doi.org/10.1126/scitranslmed.abh1478" target="_blank" rel="noopener">STM</a></li>
+   <li id="s44">Abdulghani 1998, Dis Manag Clin Outcomes, thigh collagen study, 20 people, 1 month (not in PubMed). <a href="https://doi.org/10.1016/s1088-3371(98)00011-4" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s45">Patel 2025, Cureus, copper tripeptide-1 blend gel for acne scars, 30 women (full text read). <a href="https://doi.org/10.7759/cureus.90934" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s46">NPR (via GPB), 7 Sep 2026, "The copper peptide trend has gone from creams to injections, ahead of the science": dermatologists and a clinic on injected GHK-Cu. <a href="https://www.gpb.org/news/2026/09/07/the-copper-peptide-trend-has-gone-creams-injections-ahead-of-the-science" target="_blank" rel="noopener">link</a></li>
+   <li id="s47">Pickart 2015, Biomed Res Int, GHK review (authors linked to GHK skincare); GHK-Cu and scars systematic review, 64 records, 2026. <a href="https://doi.org/10.1155/2015/648108" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.26502/aimr.0255" target="_blank" rel="noopener">Scars review</a></li>
+   <li id="s48">Brzoska 2010, α-MSH and KPV review; KPV in keratinocytes and 3D skin, Tissue Cell 2025. <a href="https://doi.org/10.1007/978-1-4419-6354-3_8" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1016/j.tice.2025.102837" target="_blank" rel="noopener">2025</a></li>
+   <li id="s49">BPC-157 wound review, Front Pharmacol 2021 (Zagreb group); phase 1 registry NCT02637284. <a href="https://doi.org/10.3389/fphar.2021.627533" target="_blank" rel="noopener">DOI</a> · <a href="https://clinicaltrials.gov/study/NCT02637284" target="_blank" rel="noopener">Registry</a></li>
+   <li id="s50">LL-37 phase 2b in 148 venous ulcer patients, Wound Repair Regen; Yamasaki 2007, Nat Med, cathelicidin in rosacea. <a href="https://doi.org/10.1111/wrr.12977" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1038/nm1616" target="_blank" rel="noopener">Yamasaki</a></li>
+   <li id="s51">Omiganan: rosacea phase 3 results (NCT02576860); acne trials NCT00211523, NCT00211497, NCT02066545, NCT02571998 (no results). <a href="https://clinicaltrials.gov/study/NCT02576860?tab=results" target="_blank" rel="noopener">Results</a> · <a href="https://clinicaltrials.gov/study/NCT02571998" target="_blank" rel="noopener">Acne trial</a></li>
+   <li id="s52">GDP-20 granulysin-derived peptides with isotretinoin, 60 patients, J Cosmet Dermatol 2022. <a href="https://doi.org/10.1111/jocd.14300" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s53">EGF ointment split-face trial, 36 people, Dermatology 2022. <a href="https://doi.org/10.1159/000521294" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s54">Afamelanotide <span class="bs-fda" data-x="fda">FDA</span> label 2019; Böhm 2012, afamelanotide in 3 people with acne. <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/210797s000lbl.pdf" target="_blank" rel="noopener">Label</a> · <a href="https://doi.org/10.1111/j.1468-3083.2012.04658.x" target="_blank" rel="noopener">Böhm</a></li>
+   <li id="s55">Melanotan harms: de Baat 2020; Gilhooley 2021 forum study, 205 users; 2017 review of unregulated melanotan. <a href="https://doi.org/10.5177/ntvt.2020.04.19115" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1159/000514492" target="_blank" rel="noopener">Gilhooley</a> · <a href="https://doi.org/10.1111/ijd.13585" target="_blank" rel="noopener">Review</a></li>
+   <li id="s56">Nass 2008, Ann Intern Med, MK-677 2-year RCT; tesamorelin <span class="bs-fda" data-x="fda">FDA</span> label 2025; Teichman 2006, CJC-1295; GH-peptide review, Front Endocrinol 2026; MK-677 hip-fracture trial stopped early. <a href="https://doi.org/10.7326/0003-4819-149-9-200811040-00003" target="_blank" rel="noopener">DOI</a> · <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022505s020lbl.pdf" target="_blank" rel="noopener">Label</a> · <a href="https://doi.org/10.1210/jc.2005-1536" target="_blank" rel="noopener">Teichman</a> · <a href="https://doi.org/10.3389/fendo.2026.1822475" target="_blank" rel="noopener">Review</a> · <a href="https://doi.org/10.1016/j.archger.2010.10.004" target="_blank" rel="noopener">Hip</a></li>
+   <li id="s57">Rao 2026, Dermatol Ther, skin changes in 1,226 GLP-1 users. <a href="https://doi.org/10.1007/s13555-026-01882-z" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s58">Cho 2025, J Am Acad Dermatol, GLP-1s and acne diagnoses in obese women (numbers not read; bot check); explanations via Medical Republic. <a href="https://doi.org/10.1016/j.jaad.2025.02.009" target="_blank" rel="noopener">DOI</a> · <a href="https://www.medicalrepublic.com.au/?p=115335" target="_blank" rel="noopener">Report</a></li>
+   <li id="s59">Yu 2025, JAAD Reviews, skin events in 34 GLP-1 RCTs, 84,243 people; Ogunremi 2024, 45-paper review. <a href="https://doi.org/10.1016/j.jdrv.2025.04.009" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.1097/JW9.0000000000000143" target="_blank" rel="noopener">Ogunremi</a></li>
+   <li id="s60">Jabin 2026, Cureus, semaglutide cohort, 110 people (full text read; judged unreliable here). <a href="https://doi.org/10.7759/cureus.101212" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s61">Tirzepatide in hidradenitis, open label, 20 adults, J Drugs Dermatol. <a href="https://doi.org/10.36849/JDD.9569" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s62">Alawami 2025, Ir J Med Sci, semaglutide in 58 women with PCOS. <a href="https://doi.org/10.1007/s11845-025-04194-x" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s63">Collagen trial NCT05613660 (264 people, acne secondary outcome, no results). <a href="https://clinicaltrials.gov/study/NCT05613660" target="_blank" rel="noopener">Registry</a></li>
+   <li id="s64">Pentapeptide-18 with retinol in lipid nanocarriers, Life 2024. <a href="https://doi.org/10.3390/life14101212" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s65">Topical insulin vs PRP with microneedling for acne scars, 5 studies, 256 people, Aesthetic Plast Surg 2026. <a href="https://doi.org/10.1007/s00266-026-06038-0" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s66">Scar and mark treatments: lasers vs needling, 27 studies (2026); network meta-analysis, 56 RCTs (2026); second network analysis (2026); Bhardwaj 2010 TCA CROSS; Tawfic 2021 tranexamic acid split face; isotretinoin and laser brown marks in Thai patients. <a href="https://doi.org/10.1111/phpp.70121" target="_blank" rel="noopener">Lasers</a> · <a href="https://doi.org/10.1007/s00266-026-06165-8" target="_blank" rel="noopener">NMA</a> · <a href="https://doi.org/10.3389/fsurg.2026.1943995" target="_blank" rel="noopener">NMA 2</a> · <a href="https://doi.org/10.4103/0974-2077.69020" target="_blank" rel="noopener">TCA</a> · <a href="https://doi.org/10.1111/dth.15103" target="_blank" rel="noopener">TXA</a> · <a href="https://doi.org/10.1002/lsm.70056" target="_blank" rel="noopener">Thai</a></li>
+   <li id="s67">MotherToBaby, isotretinoin fact sheet (birth defects, contraception rules). <a href="https://mothertobaby.org/fact-sheets/isotretinoin/" target="_blank" rel="noopener">link</a></li>
+   <li id="s68">First-hand reports, own use only, distinct people, 3 to 20 Nov 2026: acne.org reviews and forums, MakeupAlley, Mumsnet, Drugs.com, RealSelf, WebMD, SalonGeek, HairLossTalk, Looksmax, one personal blog. Reddit not reached. <a href="/library/goals/notes/acne/">research notes, section 4</a></li>
+   <li id="s69">Chiu 2003, Arch Dermatol, stress and acne in 22 students. <a href="https://doi.org/10.1001/archderm.139.7.897" target="_blank" rel="noopener">DOI</a></li>
+   <li id="s70">Fungal mimics of acne after steroid creams, Cutis 2026; Malassezia folliculitis risk factors review, J Drugs Dermatol 2026. <a href="https://doi.org/10.12788/cutis.1417" target="_blank" rel="noopener">DOI</a> · <a href="https://doi.org/10.36849/JDD.9751" target="_blank" rel="noopener">Review</a></li>
+   <li id="s71">Jakarta Post, 15 Oct 2024: Indonesia's drug regulator and prescription skincare. <a href="https://www.thejakartapost.com/indonesia/2024/10/15/drug-regulator-cracks-down-on-illegal-prescription-skincare-products" target="_blank" rel="noopener">link</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov, regulator labels and journal pages, read from abstracts (a few in full) and summarised in our words. Treatment effects use one yardstick where possible, the gap over placebo. First-hand reports are counted one person per count, own use only, seller pages left out; a Reddit count is still to come. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+
+<script>
+/* BSFollicle v1 (20 Nov 2026): shared Bare Signals follicle engine.
+   Drawing = Hair case v3 "Inside the follicle" (parametric textbook follicle, same palette and line weights),
+   plus Play/Pause/Replay, progress bar, step label and phase morph.
+   Presets: 'hair' (full cycle + pattern loss), 'skin' (short cycle for the skin goal), 'acne' (pilosebaceous unit, 5-step story).
+   Usage: var f=BSFollicle.mount(el,{preset:'acne',onStep:fn(key,index),onPart:fn(part)}); f.go('plug'); f.light('gland','lit-s'); f.play(); */
+var BSFollicle=(function(){
+var NS='http://www.w3.org/2000/svg',UID=0;
+function mk(t,a,p){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function r1(n){return Math.round(n*10)/10}
+function cl(x,a,b){return x<a?a:x>b?b:x}
+function sm(x){x=cl(x,0,1);return x*x*(3-2*x)}
+function Zs(st){return st.Z||1}
+function pt(st,u,v){var z=Zs(st),K=st.K==null?.17:st.K,S=st.S==null?44:st.S,fl=st.flip||1;var x=st.X0+z*(fl*u+K*v);if(v<0&&!st.noCurl)x-=z*.0035*v*v;return [r1(x),r1(S+z*v)]}
+function P(st,u,v){var p=pt(st,u,v);return p[0]+' '+p[1]}
+function circ(x,y,r){r=r1(r);return 'M'+r1(x-r)+' '+y+'a'+r+' '+r+' 0 1 0 '+r1(2*r)+' 0a'+r+' '+r+' 0 1 0 '+r1(-2*r)+' 0'}
+function ell(st,cu,cv,rx,ry){var a=[],i;for(i=0;i<28;i++){var t=i/28*6.2832;a.push(P(st,cu+rx*Math.sin(t),cv-ry*Math.cos(t)))}return 'M'+a.join('L')+'Z'}
+function hex(c){return [parseInt(c.substr(1,2),16),parseInt(c.substr(3,2),16),parseInt(c.substr(5,2),16)]}
+function mixc(a,b,t){a=hex(a);b=hex(b);return 'rgb('+a.map(function(x,i){return Math.round(x+(b[i]-x)*t)}).join(',')+')'}
+/* tube half width at depth v (dil = acne canal swelling; 0 keeps the Hair drawing) */
+function W(st,v){var tw=st.tw,bt=st.D-st.bulbH,w;
+ if(v<18)w=tw+6*Math.pow(1-cl(v,0,18)/18,2);
+ else if(v<st.sv-14)w=tw;
+ else if(v<st.sv)w=tw+(st.sw-tw)*sm((v-st.sv+14)/14);
+ else if(v<bt)w=st.sw;
+ else{var t=cl((v-bt)/st.bulbH,0,1);w=st.sw+(st.bo-st.sw)*t+(st.bw-(st.sw+st.bo)/2)*Math.sin(Math.PI*Math.pow(t,.85))}
+ if(st.dil&&v>0&&v<st.dilD)w+=st.dil*15*Math.sin(Math.PI*v/st.dilD);
+ return w}
+function tubeD(st,v0,inset){var L=[],R=[],v,D=st.D,w;for(v=v0;v<D;v+=3){w=Math.max(W(st,v)-inset,.4);L.push(P(st,-w,v));R.unshift(P(st,w,v))}w=Math.max(st.bo-inset,.4);L.push(P(st,-w,D));R.unshift(P(st,w,D));return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function hairD(st,b,tip,hw,cone){if(b-tip<3)return '';var L=[],R=[],v,w;
+ function hwv(v){return hw*cl((v-tip)/30,.08,1)*(1+cone*1.4*sm((v-(b-16))/16))}
+ for(v=tip;v<b;v+=3){w=hwv(v);L.push(P(st,-w,v));R.unshift(P(st,w,v))}
+ w=hwv(b);L.push(P(st,-w,b));L.push(P(st,0,b+w*.7));R.unshift(P(st,w,b));
+ return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function cutD(st,b,tip,hw){var a=[],v,e=Math.min(b-16,(st.S==null?44:st.S)+400);if(e-tip<6)return '';for(v=tip+4;v<e;v+=3)a.push(P(st,hw*cl((v-tip)/30,.08,1)-.45,v));var s='M'+a.join('L');
+ for(v=Math.max(tip+8,-46);v<Math.min(-3,e);v+=5){var w=hw*cl((v-tip)/30,.08,1);s+='M'+P(st,-w+.2,v)+'L'+P(st,-w+1.5,v+2.2)}return s}
+function clubD(st,b,hw){var L=[],R=[],v,w,top=b-24;for(v=top;v<=b;v+=2){var t=(v-top)/24;w=hw*(1+1.25*Math.sin(Math.PI*Math.pow(t,.75)))*(t>.85?Math.sqrt((1-t)/.15)*.6+.4:1);L.push(P(st,-w,v));R.unshift(P(st,w,v))}return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function irsD(st){var v0=st.irsTop,v1=st.D-st.bulbH*.55;if(v1-v0<6)return '';var L=[],R=[],v,w;for(v=v0;v<=v1;v+=3){w=(st.hw+2.5)*Math.min(1,Math.sqrt(cl((v-v0)/5,0,1))*.6+.4)*(1-.45*sm((v-(v1-12))/12));L.push(P(st,-w,v));R.unshift(P(st,w,v))}return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function dpD(st){var a=[],i,n=36;for(i=0;i<n;i++){var t=i/n*6.2832,ca=Math.cos(t),sa=Math.sin(t),f=1-st.pear*.42*ca;a.push(P(st,st.dprx*sa*f*(1+st.pear*.12),st.dpc-st.dpry*ca))}return 'M'+a.join('L')+'Z'}
+/* band between u=-w(v) and +w(v), v0..v1 */
+function bandD(st,v0,v1,wf){if(v1-v0<1)return '';var L=[],R=[],v;for(v=v0;v<v1;v+=2.5){var w=Math.max(wf(v),.3);L.push(P(st,-w,v));R.unshift(P(st,w,v))}var w1=Math.max(wf(v1),.3);L.push(P(st,-w1,v1));R.unshift(P(st,w1,v1));return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function Fol(par,inter,ids){
+ var g=mk('g',null,par),o={};
+ function grp(p){return inter?mk('g',{'class':'pt','data-p':p},g):mk('g',null,g)}
+ function halo(gp){return inter?mk('path',{'class':'halo'},gp):null}
+ o.iz=mk('g',null,g);/* acne: inflamed zone sits under everything */
+ o.gG=grp('gland');o.gH=halo(o.gG);
+ o.mus=mk('path',{fill:'none',stroke:'#EBC3D9','stroke-linecap':'round'},o.gG);
+ o.lobes=[0,1,2,3,4].map(function(){return mk('path',{fill:'#FFF1B8',stroke:'#3E4A80','stroke-width':1.1},o.gG)});
+ o.gdot=mk('path',{fill:'#E2C866'},o.gG);
+ o.tube=mk('path',{fill:'#F8DCC8',stroke:'#3E4A80','stroke-width':1.3,'stroke-linejoin':'round'},g);
+ o.ors=mk('path',{fill:'none',stroke:'#E9BFA6','stroke-width':.8},g);
+ o.mG=grp('matrix');o.mH=halo(o.mG);
+ o.mat=mk('path',{fill:'url(#'+ids.gm+')'},o.mG);o.mcell=mk('path',{fill:'none',stroke:'#E0A891','stroke-width':.8},o.mG);
+ o.irs=mk('path',{fill:'#F3B5AC',stroke:'#D98C84','stroke-width':.7},g);
+ o.seb=mk('path',{fill:'#FFE08A',stroke:'#E2C866','stroke-width':.6},g);o.drops=mk('g',null,g);
+ o.bG=grp('bulge');o.bH=halo(o.bG);
+ o.bl=mk('path',{fill:'#DDF4F5',stroke:'#3E4A80','stroke-width':1.1},o.bG);o.br=mk('path',{fill:'#DDF4F5',stroke:'#3E4A80','stroke-width':1},o.bG);o.bd=mk('path',{fill:'#6777B6'},o.bG);
+ o.sG=grp('shaft');o.sH=halo(o.sG);
+ o.h2=mk('path',{stroke:'#6E3A16','stroke-width':.5},o.sG);o.c2=mk('path',{fill:'none',stroke:'#E9C08F','stroke-width':.7},o.sG);
+ o.h1=mk('path',{stroke:'#6E3A16','stroke-width':.5},o.sG);o.c1=mk('path',{fill:'none',stroke:'#E9C08F','stroke-width':.7},o.sG);
+ o.club=mk('path',{fill:'#FFF7E4',stroke:'#3E4A80','stroke-width':.9},o.sG);
+ o.mel=mk('path',{fill:'#8E5228'},g);
+ o.dG=grp('dp');o.dH=halo(o.dG);
+ o.stalk=mk('path',{fill:'#FBEFA0',stroke:'#3E4A80','stroke-width':1},o.dG);o.dp=mk('path',{fill:'#FBEFA0',stroke:'#3E4A80','stroke-width':1.2},o.dG);o.dcell=mk('path',{fill:'#D9BE57'},o.dG);
+ o.vG=grp('blood');o.vH=halo(o.vG);
+ o.ves=mk('path',{fill:'none',stroke:'#EE8E8E','stroke-width':2.2,'stroke-linecap':'round'},o.vG);o.cap=mk('path',{fill:'none',stroke:'#E86F6F','stroke-width':1.4,'stroke-linecap':'round'},o.vG);
+ o.xG=grp('dht');o.xH=halo(o.xG);o.dht=mk('path',{fill:'#FCB0B4',stroke:'#3E4A80','stroke-width':1},o.xG);
+ o.wG=grp('wnt');o.wH=halo(o.wG);o.wnt=mk('path',{fill:'#C2DCFF',stroke:'#3E4A80','stroke-width':1},o.wG);
+ o.iG=grp('immune');o.iH=halo(o.iG);o.imm=mk('path',{fill:'none',stroke:'#6777B6','stroke-width':1.6,'stroke-dasharray':'5 4'},o.iG);
+ /* acne layers (hidden unless the state uses them) */
+ o.pG=grp('plug');o.pH=halo(o.pG);o.plug=mk('path',{fill:'#D9E0FF',stroke:'#3E4A80','stroke-width':1.1,'stroke-linejoin':'round'},o.pG);o.lam=mk('path',{fill:'none',stroke:'#99ACFF','stroke-width':.9},o.pG);o.dark=mk('path',{fill:'#4B3A2A'},o.pG);
+ o.kG=grp('bact');o.kH=halo(o.kG);o.bugs=mk('g',{'class':'bsf-bugs'},o.kG);
+ o.fG=grp('infl');o.fH=halo(o.fG);o.rup=mk('path',{fill:'none',stroke:'#FFF3E7','stroke-width':3.2,'stroke-linecap':'round'},o.fG);o.spill=mk('path',{fill:'#FFE08A',stroke:'#E86F6F','stroke-width':1,'stroke-dasharray':'3 2'},o.fG);o.dome=mk('path',{fill:'#F9D7C6',stroke:'#3E4A80','stroke-width':1.1},o.fG);o.pus=mk('path',{fill:'#FFF6CF',stroke:'#E2C866','stroke-width':1},o.fG);o.icell=mk('path',{fill:'#6777B6'},o.fG);
+ function set(e,d,h){e.setAttribute('d',d);if(h)h.setAttribute('d',d)}
+ var BUG=[[.1,.15,20],[-.35,.3,-30],[.4,.42,40],[-.15,.55,-10],[.3,.62,25],[-.45,.7,50],[.05,.8,-40],[.45,.88,10],[-.3,.95,-20],[.2,.24,-60],[-.5,.48,15],[.15,.36,70],[-.05,.66,30],[.38,.74,-35],[-.22,.86,60],[.02,1,0],[-.4,.18,35],[.48,.56,-15],[-.12,.42,-55],[.28,.98,45],[-.48,.9,5],[.1,.5,80]];
+ o.up=function(st){
+  var z=Zs(st),D=st.D,bt=D-st.bulbH,gl=st.gl,bv=st.bv,gv=bv*.45,wg=W(st,gv),wb=W(st,bv),gs=st.glS||1,gx=st.glX||0;
+  /* gland + muscle */
+  var lb=[[-wg-11*gl*gs,gv-8*gl*gs,12*gl*gs],[-wg-21*gl*gs,gv+7*gl*gs,11*gl*gs],[-wg-9*gl*gs,gv+15*gl*gs,10*gl*gs],[-wg-27*gl*gs,gv-4*gl*gs,8*gl*gs],[-wg-19*gl*gs,gv+20*gl*gs,7.5*gl*gs]],gsd='',dd='',fillc=st.glC?mixc('#FFF1B8','#FFD879',st.glC):'#FFF1B8';
+  lb.forEach(function(l,i){var op=i<3?1:gx;if(op<.02){o.lobes[i].setAttribute('d','');return}var c=pt(st,l[0],l[1]);var s=circ(c[0],c[1],l[2]*z*(i<3?1:gx));o.lobes[i].setAttribute('d',s);o.lobes[i].setAttribute('fill',fillc);gsd+=s;if(i<3)dd+=circ(c[0]-2*gl*z,c[1]-1,1.1*Math.sqrt(z))+circ(c[0]+2.5*gl*z,c[1]+2.5*gl*z,1.1*Math.sqrt(z))});
+  o.gdot.setAttribute('d',dd);
+  var md='M'+P(st,-wb-3,bv+3)+'Q'+P(st,-46*gl,bv*.62)+' '+P(st,-84*gl,22*Math.min(1,gl+.1));
+  o.mus.setAttribute('d',st.mus===0?'':md);o.mus.setAttribute('stroke-width',r1(5*gl*Math.sqrt(z)));o.mus.style.opacity=st.mus==null?1:st.mus;if(o.gH)o.gH.setAttribute('d',gsd+(st.mus===0?'':md));
+  /* tube, matrix, irs */
+  o.tube.setAttribute('d',tubeD(st,-1,0));
+  o.ors.setAttribute('d',st.ana>.05?tubeD(st,20,3.2):'');o.ors.style.opacity=st.ana*.9;
+  var mtop=bt+st.bulbH*.08,ma=[],mb=[],v,w;for(v=mtop;v<D;v+=3){w=Math.max(W(st,v)-1.4,.4);ma.push(P(st,-w,v));mb.unshift(P(st,w,v))}
+  var md2=ma.length?'M'+ma.join('L')+'L'+mb.join('L')+'Z':'';set(o.mat,md2,o.mH);o.mG.style.opacity=st.ana;o.mG.style.display=st.ana<.02?'none':'';
+  var mc='';[[.55,.25],[.62,.5],[.5,.72],[.72,.05],[.4,.9]].forEach(function(q){var vv=bt+st.bulbH*q[1],ww=W(st,vv)*q[0];if(ww>2){var a=pt(st,-ww,vv),b=pt(st,ww,vv);mc+=circ(a[0],a[1],1.6)+circ(b[0],b[1],1.6)}});o.mcell.setAttribute('d',mc);
+  o.irs.setAttribute('d',st.irsOp>.02?irsD(st):'');o.irs.style.opacity=st.irsOp;
+  /* sebum sleeve around the hair (acne) */
+  var oil=st.oil||0,pv=st.plug?6+22*st.plug:0;
+  if(oil>.01){var top=Math.max(0,st.plug>.05?pv-2:0);
+   o.seb.setAttribute('d',bandD(st,top,gv+2,function(v){return st.hw+1+oil*Math.max(0,W(st,v)-2.4-st.hw-1)}));
+   var ds='';if(!st.plug||st.plug<.3){[[.25,0],[.5,1],[.75,0],[.9,1],[.38,1]].forEach(function(q,i){var vv=gv*(1-q[0]),c=pt(st,(q[1]?1:-1)*(st.hw+1.6+oil*1.5),vv);ds+='<circle class="bsf-drop" cx="'+c[0]+'" cy="'+c[1]+'" r="'+r1(1.3+oil*1.1)+'" style="--dy:-'+r1(z*vv*.6)+'px;animation-delay:-'+(i*.55)+'s"/>'})}
+   if(o.drops._k!==ds){o.drops.innerHTML=ds;o.drops._k=ds}}else{o.seb.setAttribute('d','');if(o.drops._k){o.drops.innerHTML='';o.drops._k=''}}
+  /* bulge */
+  var bs=Math.min(1,.55+.45*st.f);set(o.bl,ell(st,-wb-1.6,bv,4.6*bs,15*bs));o.br.setAttribute('d',ell(st,wb+1,bv,3.2*bs,12*bs));
+  if(o.bH)o.bH.setAttribute('d',ell(st,-wb-1.6,bv,4.6*bs,15*bs)+ell(st,wb+1,bv,3.2*bs,12*bs));
+  var bd='';[[-wb-1.6,-7],[-wb-2.4,0],[-wb-1.2,7],[wb+1,-5],[wb+1.4,4]].forEach(function(q){var c=pt(st,q[0],bv+q[1]*bs);bd+=circ(c[0],c[1],1.4*bs*Math.sqrt(z))});o.bd.setAttribute('d',bd);
+  /* hairs */
+  var pc=mixc('#924C1C','#DDBB90',st.pig),b2=st.dpc-st.dpry-3;
+  o.h1.setAttribute('fill',pc);o.h2.setAttribute('fill',pc);
+  var b1=st.h1b-12*st.h1club;
+  var h1=st.h1op>.01?hairD(st,b1,st.h1t,st.hw,1-st.h1club):'';o.h1.setAttribute('d',h1);o.c1.setAttribute('d',st.h1op>.01?cutD(st,b1,st.h1t,st.hw):'');
+  o.h1.style.opacity=o.c1.style.opacity=st.h1op;
+  o.club.setAttribute('d',st.h1op*st.h1club>.01?clubD(st,st.h1b,st.hw):'');o.club.style.opacity=Math.min(1,st.h1op*st.h1club*1.3);
+  var h2=st.h2op>.01?hairD(st,b2,st.h2t,st.hw,1):'';o.h2.setAttribute('d',h2);o.c2.setAttribute('d',st.h2op>.01?cutD(st,b2,st.h2t,st.hw):'');o.h2.style.opacity=o.c2.style.opacity=st.h2op;
+  if(o.sH)o.sH.setAttribute('d',(st.h1op>.3?h1:'')+(st.h2op>.3?h2:''));
+  /* melanocytes on the papilla dome */
+  var ml='';if(st.ana>.05){for(var i=-3;i<=3;i++){var a=i*.36,c=pt(st,(st.dprx*.75+3)*Math.sin(a),st.dpc-st.dpry*.55-(st.dpry*.5+3)*Math.cos(a));ml+=circ(c[0],c[1],1.5)}}o.mel.setAttribute('d',ml);o.mel.style.opacity=st.ana;
+  /* papilla */
+  var sw=st.dprx*.42,sv0=st.dpc+st.dpry*.5,sv1=D+st.st;
+  o.stalk.setAttribute('d',sv1-sv0>2?'M'+P(st,-sw,sv0)+'L'+P(st,-sw*.8,sv1)+'L'+P(st,sw*.8,sv1)+'L'+P(st,sw,sv0)+'Z':'');
+  var dpd=dpD(st);set(o.dp,dpd,o.dH);
+  var dc='';[[-.42,-.25],[.3,-.42],[0,.05],[-.05,-.62],[.1,.62],[-.3,.5],[.35,.45]].forEach(function(q){var c=pt(st,q[0]*st.dprx,st.dpc+q[1]*st.dpry);dc+=circ(c[0],c[1],1)});o.dcell.setAttribute('d',dc);
+  var rr=r1(Math.max(1.8,3.9*st.dprx/11)*z),xc=pt(st,-st.dprx*.48,st.dpc+st.dpry*.22),wc=pt(st,st.dprx*.48,st.dpc+st.dpry*.22);
+  set(o.dht,circ(xc[0],xc[1],r1(rr*st.dhtS)),o.xH);set(o.wnt,circ(wc[0],wc[1],rr),o.wH);o.xG.style.opacity=o.wG.style.opacity=st.ana*(st.sigOp==null?1:st.sigOp);o.xG.style.display=o.wG.style.display=st.sigOp===0?'none':'';
+  /* blood */
+  var vb=st.vb||410,cu=1.7*Math.min(1,st.dprx/8);
+  o.cap.setAttribute('d','M'+P(st,-cu,vb)+'L'+P(st,-cu,st.dpc)+'Q'+P(st,0,st.dpc-st.dpry*.45)+' '+P(st,cu,st.dpc)+'L'+P(st,cu,vb));
+  var e0=D+st.st,vs='M'+P(st,-13*st.f,vb)+'C'+P(st,-15*st.f,(vb+e0)/2)+' '+P(st,-5,e0+8)+' '+P(st,-2,e0)+'M'+P(st,14*st.f,vb)+'C'+P(st,17*st.f,(vb+e0)/2+8)+' '+P(st,6,e0+8)+' '+P(st,2,e0);
+  o.ves.setAttribute('d',vs);o.ves.setAttribute('stroke-width',r1(1.8*Math.max(.5,st.f)));if(o.vH)o.vH.setAttribute('d',vs+o.cap.getAttribute('d'));o.vG.style.opacity=st.cap;
+  /* immune shield */
+  var ic=bt+st.bulbH*.5;set(o.imm,st.ana*st.imm>.02?ell(st,0,ic,st.bw+9,st.bulbH*.5+10):'',o.iH);o.iG.style.opacity=st.ana*st.imm;o.iG.style.display=st.ana*st.imm<.02?'none':'';
+  /* ---- acne: plug ---- */
+  var plug=st.plug||0;
+  if(plug>.02){var pd=bandD(st,-1.5,pv,function(v){return W(st,v)-1.1});set(o.plug,pd,o.pH);
+   var lm='';for(var lv=2;lv<pv-2;lv+=4.5){var lw=W(st,lv)-2.4;lm+='M'+P(st,-lw,lv)+'Q'+P(st,0,lv+2.2)+' '+P(st,lw,lv)}o.lam.setAttribute('d',lm);
+   var dk=st.dark||0;o.dark.setAttribute('d',dk>.02?bandD(st,-1.5,3+3*dk,function(v){return (W(st,v)-1.4)*dk}):'');
+   o.pG.style.opacity=Math.min(1,plug*1.6);o.pG.style.display=''}else{o.pG.style.display='none';if(o.pH)o.pH.setAttribute('d','')}
+  /* ---- acne: bacteria ---- */
+  var nb=Math.round((st.bac||0)*BUG.length),bk=nb+'|'+r1(pv)+'|'+r1(oil)+'|'+r1(st.dil||0)+'|'+r1(gv);
+  if(o.bugs._k!==bk){var bh='',v0=Math.max(pv+2,4),v1=gv+14;
+   for(var j=0;j<nb;j++){var q=BUG[j],vv=v0+(v1-v0)*Math.min(1,q[1]),ww=(st.hw+1+oil*Math.max(0,W(st,vv)-2.4-st.hw-1)),uu=(q[0]<0?-1:1)*(st.hw+1.5+Math.abs(q[0])*Math.max(1,ww-st.hw-3)),c=pt(st,uu,vv);
+    bh+='<g transform="translate('+c[0]+' '+c[1]+') rotate('+(q[2]+80)+')"><rect class="bsf-bug" x="-3.6" y="-1.5" width="7.2" height="3" rx="1.5" style="animation-delay:-'+(j*.17).toFixed(2)+'s"/></g>'}
+   o.bugs.innerHTML=bh;o.bugs._k=bk;
+   if(o.kH)o.kH.setAttribute('d',nb?bandD(st,v0-3,v1+3,function(v){return W(st,v)+2}):'')}
+  o.kG.style.display=nb?'':'none';
+  /* ---- acne: inflammation, rupture, pus, nodule ---- */
+  var inf=st.inf||0,rup=st.rup||0,pus=st.pus||0,deep=st.deep||0,close=st.close||0;
+  while(o.iz.firstChild)o.iz.removeChild(o.iz.firstChild);
+  if(inf>.02){var cz=pt(st,0,gv*.8);mk('ellipse',{cx:cz[0],cy:cz[1],rx:r1(z*(W(st,gv)+52)),ry:r1(z*(gv*.8+30)),fill:'url(#'+ids.rg+')',opacity:r1(inf)},o.iz)}
+  if(deep>.02){var cd=pt(st,0,gv+58);mk('ellipse',{cx:cd[0],cy:cd[1],rx:r1(z*86),ry:r1(z*56),fill:'url(#'+ids.rg+')',opacity:r1(deep*.85)},o.iz);mk('ellipse',{cx:cd[0],cy:cd[1],rx:r1(z*86),ry:r1(z*56),fill:'none',stroke:'#E86F6F','stroke-width':1.3,'stroke-dasharray':'5 4',opacity:r1(deep)},o.iz)}
+  var showF=inf>.02||close>.02||rup>.02;o.fG.style.display=showF?'':'none';
+  if(showF){
+   var w0=W(st,0)+4,dh=6*close+9*pus;
+   o.dome.setAttribute('d',close>.02?'M'+P(st,-w0-3,0)+'C'+P(st,-w0*.7,-dh*1.05)+' '+P(st,w0*.7,-dh*1.05)+' '+P(st,w0+3,0)+'Z':'');o.dome.setAttribute('stroke',pus>.3?'#D95454':'#3E4A80');o.dome.style.opacity=Math.min(1,close*1.5);
+   o.pus.setAttribute('d',pus>.02?'M'+P(st,-w0*.75*pus,.5)+'C'+P(st,-w0*.5,-dh*.72)+' '+P(st,w0*.5,-dh*.72)+' '+P(st,w0*.75*pus,.5)+'C'+P(st,w0*.6,8*pus)+' '+P(st,-w0*.6,8*pus)+' '+P(st,-w0*.75*pus,.5)+'Z':'');
+   var rv=gv*.72,rw=W(st,rv);o.rup.setAttribute('d',rup>.02?'M'+P(st,rw,rv-7*rup)+'L'+P(st,rw+.6,rv-2)+'L'+P(st,rw-.6,rv+2)+'L'+P(st,rw,rv+7*rup):'');
+   o.spill.setAttribute('d',rup>.02?ell(st,rw+9*rup+3,rv,8*rup+1,10*rup+1):'');o.spill.style.opacity=rup;
+   var ic2='';if(inf>.1){[[-1.2,.25],[1.3,.35],[-1.5,.6],[1.6,.75],[-1.1,.95],[1.25,1.05],[-1.7,.42],[1.8,.55],[-1.3,1.15],[1.5,.15]].forEach(function(q,i){if(i/10<inf){var vv=gv*q[1],c=pt(st,q[0]*(W(st,vv)+8),vv);ic2+=circ(c[0],c[1],2.1)}})}o.icell.setAttribute('d',ic2);
+   if(o.fH){var cz2=pt(st,0,gv*.8);o.fH.setAttribute('d',inf>.02?'M'+r1(cz2[0]-z*(W(st,gv)+40))+' '+cz2[1]+'a'+r1(z*(W(st,gv)+40))+' '+r1(z*(gv*.8+22))+' 0 1 0 '+r1(2*z*(W(st,gv)+40))+' 0a'+r1(z*(W(st,gv)+40))+' '+r1(z*(gv*.8+22))+' 0 1 0 '+r1(-2*z*(W(st,gv)+40))+' 0':'')}}
+ };
+ return o;
+}
+function ana(X0,D,f,tip,pig){var bh=Math.max(68*f,20),dpry=Math.max(20*f,5.5),dprx=Math.max(13*f,4),dpc=D-Math.max(25*f,7.5);
+ return {X0:X0,D:D,f:f,gl:.7+.3*f,bv:128*Math.sqrt(f),tw:Math.max(15*f,5.5),sv:D-bh,sw:Math.max(15*f,5.5),bulbH:bh,bw:Math.max(28*f,9),bo:Math.max(9*f,3),
+  dpc:dpc,dprx:dprx,dpry:dpry,pear:1,st:22*f,cap:1,ana:1,irsTop:40*Math.sqrt(f),irsOp:1,h1b:dpc-dpry-3,h1t:tip,h1club:0,h1op:1,hw:Math.max(2.6*f,.85),h2t:dpc-dpry-3,h2op:0,ghost:0,miniOp:0,pig:pig||0,dhtS:1,imm:1,vb:400}}
+function cp(o,x){var r={},k;for(k in o)r[k]=o[k];if(x)for(k in x)r[k]=x[k];return r}
+function mix(a,b,t){var r={};for(var k in a)r[k]=(typeof a[k]==='number'&&typeof b[k]==='number')?a[k]+(b[k]-a[k])*t:(t<.5?a[k]:b[k]);for(k in b)if(!(k in r))r[k]=b[k];return r}
+function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+/* ---------- background skin block (Hair v3 look, procedural) ---------- */
+function bg(g,o){var w=o.w,h=o.h,S=o.S,ez=o.ez||1,fy=o.fy,s='',i,x,y,seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+ s+='<rect x="0" y="0" width="'+w+'" height="'+S+'" fill="#FFFFF4"/><rect x="0" y="'+S+'" width="'+w+'" height="'+(fy-S+6)+'" fill="#FFF3E7"/><rect x="0" y="'+fy+'" width="'+w+'" height="'+(h-fy)+'" fill="#FFFBE4"/>';
+ s+='<g fill="#FFF7DC" stroke="#EFE2B8" stroke-width="1">';for(y=fy+8;y<h+12;y+=19){for(x=-7+((y/19|0)%2)*11;x<w+12;x+=22)s+='<circle cx="'+r1(x+rnd()*3)+'" cy="'+r1(y+rnd()*3)+'" r="'+r1(9+rnd()*3.4)+'"/>'}s+='</g>';
+ var q='';for(i=0;i<26;i++){x=r1(rnd()*(w-20));y=r1(S+22*ez+rnd()*(fy-S-40*ez));q+='M'+x+' '+y+'q6 -4 12 0t12 0'}s+='<path d="'+q+'" fill="none" stroke="#F2DCCB" stroke-width="1"/>';
+ var wv=function(y0,a,l){var d='M0 '+y0+'q'+(l/2)+' -'+a+' '+l+' 0';for(x=l;x<w;x+=l)d+='t'+l+' 0';return d};
+ s+='<path d="'+wv(fy-18,8,60)+'" fill="none" stroke="#F3B2B2" stroke-width="1.6"/><path d="'+wv(fy-10,8,60)+'" fill="none" stroke="#B9C6F2" stroke-width="1.6"/>';
+ s+='<path d="'+wv(S+32*ez,5,40)+'" fill="none" stroke="#F5C2C2" stroke-width="1"/>';
+ var e='M0 '+(S-2)+'H'+w+'V'+r1(S+14*ez);for(x=w;x>0;x-=24)e+='Q'+(x-6)+' '+r1(S+22*ez)+' '+(x-12)+' '+r1(S+16*ez)+'Q'+(x-18)+' '+r1(S+12*ez)+' '+(x-24)+' '+r1(S+14*ez);s+='<path d="'+e+'Z" fill="#F9D7C6"/>';
+ s+='<rect x="0" y="'+(S-2)+'" width="'+w+'" height="'+r1(3.5*Math.sqrt(ez))+'" fill="#F1C4B2"/>';
+ var dts='';for(x=4;x<w;x+=6)dts+='<circle cx="'+x+'" cy="'+r1(S+(((x-4)/6|0)%4<2?18:15)*ez)+'" r="1.1"/>';s+='<g fill="#E7B4A2">'+dts+'</g>';
+ if(o.sweat){var sw='M9 '+(S+2)+'C6 '+(S+46)+' 12 '+(S+96)+' 8 '+(S+146)+'S12 '+(S+182)+' 24 '+(S+194)+'c10 -6 24 -2 24 8s-12 16 -24 10s-10 -18 4 -20s26 4 24 18s-16 16 -28 8s-6 -20 8 -22s22 8 18 20';s+='<path d="'+sw+'" fill="none" stroke="#D9B79C" stroke-width="5.4" stroke-linecap="round"/><path d="'+sw+'" fill="none" stroke="#FCEFD9" stroke-width="3.4" stroke-linecap="round"/>'}
+ g.innerHTML=s}
+/* ---------- CSS (once) ---------- */
+var CSS='.bsf{--bsfk:var(--k,1)}.bsf .bsf-phs{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 6px}'+
+'.bsf .bsf-ph{all:unset;cursor:pointer;box-sizing:border-box;font:600 calc(10.5px*var(--bsfk))/1.1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:8px 9px;min-height:36px;display:inline-flex;align-items:center;gap:5px;background:var(--chip,#FFFFF4);color:var(--ink,#3E4A80);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ink,#3E4A80) 30%,transparent);touch-action:manipulation}'+
+'.bsf .bsf-ph.on{background:#FFF0A8;box-shadow:inset 0 0 0 1.5px var(--ink,#3E4A80)}.bsf .bsf-ph.play{color:#2F5BE0}.bsf .bsf-ph:focus-visible{outline:2px solid #2F5BE0;outline-offset:2px}'+
+'.bsf .bsf-ph b{font-weight:700;color:#6B76A8}.bsf .bsf-ph.on b{color:var(--ink,#3E4A80)}'+
+'.bsf .bsf-dg{border:1.5px solid var(--ink,#3E4A80);background:#FFFFF4}.bsf svg{display:block;width:100%;height:auto;font-family:var(--body,system-ui)}'+
+'.bsf svg .m{font-family:var(--mono,monospace)}.bsf svg text{paint-order:stroke;stroke:#FFFDF0;stroke-width:3px;stroke-linejoin:round}'+
+'.bsf svg .pt,.bsf svg .lk{cursor:pointer}.bsf svg .halo{fill:none;stroke:transparent;stroke-width:12;opacity:0;transition:opacity .25s;pointer-events:none}'+
+'.bsf svg .lit .halo{opacity:.95;animation:bsfglow 1.6s ease-in-out infinite}@keyframes bsfglow{0%,100%{opacity:.55}50%{opacity:1}}'+
+'.bsf svg .lit-h .halo{stroke:#9ED68A}.bsf svg .lit-x .halo{stroke:#F59A9A}.bsf svg .lit-u .halo{stroke:#A9BCFA}.bsf svg .lit-s .halo{stroke:#FFD84D}'+
+'.bsf svg .ld{stroke:#6B76A8;stroke-width:1;fill:none}.bsf svg .lk.sel text{font-weight:700;fill:#2F5BE0}'+
+'.bsf svg .lk,.bsf svg .lk0{transition:opacity .3s}.bsf svg.cyc .lk,.bsf svg.cyc .lk0{opacity:0;pointer-events:none}'+
+'.bsf svg .bsf-ann{transition:opacity .35s}.bsf svg .bsf-ann.hid{opacity:0}.bsf svg .bsf-ann .ar{stroke:#DB6830;stroke-width:1.6;fill:none;stroke-dasharray:4 3}'+
+'.bsf svg .bsf-drop{fill:#FFC94D;stroke:#B98A1C;stroke-width:.5;animation:bsfdrop 2.75s linear infinite}@keyframes bsfdrop{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(var(--dy));opacity:0}}'+
+'.bsf svg .bsf-bug{fill:#8CC97A;stroke:#3E4A80;stroke-width:.8;transform-box:fill-box;transform-origin:center;animation:bsfbug 1.8s ease-in-out infinite}@keyframes bsfbug{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg) scale(1.08)}}'+
+'.bsf .bsf-prog{display:flex;align-items:center;gap:8px;padding:7px 8px 8px;border-top:1.5px solid color-mix(in srgb,var(--ink,#3E4A80) 18%,transparent);font:600 calc(10px*var(--bsfk))/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink,#3E4A80)}'+
+'.bsf .bsf-step{flex:none;white-space:nowrap}.bsf .bsf-bar{flex:1;min-width:36px;height:5px;background:color-mix(in srgb,var(--ink,#3E4A80) 12%,transparent)}.bsf .bsf-bar i{display:block;height:100%;width:0;background:#2F5BE0}'+
+'.bsf .bsf-link{display:block;padding:0 8px 8px;font:500 calc(10.5px*var(--bsfk))/1.3 var(--mono);letter-spacing:.05em;text-transform:uppercase}'+
+'@media (prefers-reduced-motion:reduce){.bsf svg *{transition:none!important;animation:none!important}}';
+function css(){if(document.getElementById('bsf-css'))return;var s=document.createElement('style');s.id='bsf-css';s.textContent=CSS;document.head.appendChild(s)}
+/* ---------- presets ---------- */
+function hairStates(){var A=ana(118,362,1,-80);
+ return {A:A,ST:{grow:A,
+  cat:cp(A,{D:246,tw:13,sv:190,sw:4.5,bulbH:10,bw:6,bo:3,dpc:258,dprx:9,dpry:8,pear:0,st:6,cap:.45,vb:300,ana:0,irsOp:.25,h1b:184,h1club:1,h2t:247,ghost:1}),
+  rest:cp(A,{D:142,tw:12,sv:126,sw:9,bulbH:12,bw:10,bo:4,dpc:152,dprx:9.5,dpry:8,pear:0,st:4,cap:.4,vb:215,ana:0,irsTop:144,irsOp:0,h1b:112,h1club:1,h2t:141,ghost:1}),
+  shed:cp(A,{D:272,tw:13.5,sv:220,sw:13.5,bulbH:52,bw:22,bo:7,dpc:254,dprx:9.5,dpry:14,pear:.8,st:16,cap:.85,vb:350,ana:.85,irsTop:144,irsOp:1,h1b:26,h1club:1,h1op:1,h2t:150,h2op:1,ghost:.6}),
+  mini:cp(A,{X0:40,miniOp:1,dhtS:1.35})},END:cp(A,{h1op:0,h1b:-64,h1club:1,h2t:-80,h2op:1})}}
+function hairAnn(at,A){return {
+ cat:function(s){var bt=s.D-s.bulbH;return[
+  {x:232,y:224,t:['Club hair forms','_PIGMENT STOPS'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[228,220]},
+  {x:232,y:262,t:['Epithelial strand','_LOWER FOLLICLE SHRINKS'],a:at(s,s.sw+1,(s.sv+bt)/2+6),l:[228,258]},
+  {x:232,y:300,t:['Papilla pulled up','_A BALL OF CELLS'],a:at(s,s.dprx+1,s.dpc),l:[228,296]},
+  {x:232,y:372,t:['Old bulb sat here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ rest:function(s){return[
+  {x:232,y:150,t:['Club hair','_WHITE ROOT, ANCHORED'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[228,146]},
+  {x:232,y:198,t:['Papilla resting','_BELOW THE BULGE'],a:at(s,s.dprx+1,s.dpc),l:[228,194]},
+  {x:232,y:246,t:['Hair germ','_STARTS THE NEXT HAIR'],a:at(s,s.bw*.8,s.D-5),l:[228,242]},
+  {x:232,y:372,t:['Old bulb sat here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ shed:function(s){var bt=s.D-s.bulbH;return[
+  {x:150,y:24,t:['Old club hair','_FALLS OUT'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[146,20]},
+  {x:232,y:196,t:['New hair grows','_UP THE SAME CANAL'],a:at(s,s.hw+2,s.h2t+6),l:[228,192]},
+  {x:232,y:292,t:['New bulb'],a:at(s,s.bw+1,bt+s.bulbH*.5),l:[228,288]},
+  {x:232,y:372,t:['It regrows to here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ mini:function(s){return[
+  {x:132,y:404,t:['Terminal','_THICK, LONG']},{x:198,y:304,t:['Shrinks']},{x:258,y:216,t:['Smaller']},{x:316,y:150,t:['Vellus','_FINE FUZZ']},
+  {x:212,y:342,t:['Each growing phase is','shorter and the follicle','comes back smaller.','_STEM CELLS SURVIVE']}]}}}
+function hairLabels(at,s,set){var bt=s.D-s.bulbH,ic=bt+s.bulbH*.5,wb=W(s,s.bv),gv=s.bv*.4,wg=W(s,gv),X=232;
+ var L={shaft:{p:'shaft',x:150,y:26,t:['Hair shaft'],a:at(s,s.hw+1.5,-22),l:[146,22]},
+ gland:{p:'gland',x:18,y:126,t:['Oil gland'],a:at(s,-wg-31,gv+9),l:[72,122]},
+ muscle:{p:'gland',x:18,y:158,t:['Goose-bump','muscle'],a:[97,146],l:[84,154]},
+ sweat:{cls:'lk0',x:62,y:262,t:['_SWEAT GLAND']},
+ bulge:{p:'bulge',x:X,y:170,t:['Bulge','_STEM CELLS'],a:at(s,wb+4.5,s.bv),l:[228,166]},
+ sheath:{cls:'lk0',x:X,y:258,t:['Root sheaths','_INNER (PINK) + OUTER'],a:at(s,W(s,214)-2,214),l:[228,254]},
+ immune:{p:'immune',x:X,y:318,t:['Immune shield'],a:at(s,(s.bw+9)*.62,ic-(s.bulbH*.5+10)*.78),l:[228,314]},
+ matrix:{p:'matrix',x:X,y:343,t:['Matrix, pigment'],a:at(s,W(s,bt+s.bulbH*.42)-5,bt+s.bulbH*.42),l:[228,339]},
+ dp:{p:'dp',x:X,y:368,t:['Dermal papilla'],a:at(s,s.dprx-1,s.dpc-5),l:[228,364]},
+ wnt:{p:'wnt',x:X,y:392,t:['Wnt switch','_+ CXXC5 BRAKE'],a:at(s,s.dprx*.48+3.5,s.dpc+s.dpry*.22),l:[228,388]},
+ blood:{p:'blood',x:X,y:428,t:['Blood supply'],a:at(s,30*.62,s.D+34),l:[228,424]},
+ dht:{p:'dht',x:18,y:384,t:['DHT','receptor'],a:at(s,-s.dprx*.48-4,s.dpc+s.dpry*.22),l:[46,380]}};
+ return set.map(function(k){var o=L[typeof k==='string'?k:k[0]];if(typeof k!=='string')o=cp(o,k[1]);if(o.p)o.cls='lk';return o})}
+var PRE={
+ hair:function(){var H=hairStates();return {vb:[360,440],bg:{S:44,fy:322,sweat:1},A:H.A,ST:H.ST,END:H.END,ORDER:['grow','cat','rest','shed'],extra:['mini'],loop:1,mini:1,ghost:1,
+  btn:{grow:'Growing',cat:'Shrinking',rest:'Resting',shed:'Shedding',mini:'Pattern loss'},
+  txt:{grow:'1 of 4 · Anagen, 2 to 6 years',cat:'2 of 4 · Catagen, 2 to 3 weeks',rest:'3 of 4 · Telogen, about 3 months',shed:'4 of 4 · Exogen, the old hair falls out',mini:'Pattern loss · miniaturisation'},
+  playTxt:'▶ Play cycle',T:{H0:.6,MOR:1.6,HOLD:.9},fs:11,ann:hairAnn,labels:function(at,s){return hairLabels(at,s,['shaft','gland','muscle','sweat','bulge','sheath','immune','matrix','dp','wnt','blood','dht'])},
+  aria:'Diagram of a hair follicle in the skin, drawn like a textbook cross-section: hair shaft, oil gland, goose-bump muscle, bulge stem cells, inner and outer root sheaths, bulb with matrix and pigment cells, dermal papilla, immune shield and blood supply labelled'}},
+ skin:function(){var H=hairStates();return {vb:[360,440],bg:{S:44,fy:322,sweat:1},A:H.A,ST:H.ST,END:H.END,ORDER:['grow','cat','rest','shed'],extra:[],loop:1,ghost:1,
+  btn:{grow:'Grow',cat:'Shrink',rest:'Rest',shed:'Shed'},
+  txt:{grow:'1 of 4 · Growing, 2 to 6 years',cat:'2 of 4 · Shrinking, 2 to 3 weeks',rest:'3 of 4 · Resting, about 3 months',shed:'4 of 4 · Shedding, old hair falls'},
+  playTxt:'▶ Play cycle',T:{H0:.6,MOR:1.4,HOLD:1.1},fs:13.5,subR:1,ann:hairAnn,
+  labels:function(at,s){return hairLabels(at,s,['shaft','gland','bulge',['immune',{y:316,l:[228,312]}],['matrix',{t:['Bulb, matrix'],y:342,l:[228,338]}],['dp',{y:368,l:[228,364]}],['dht',{x:12,l:[50,380]}],['sweat',{y:262}]])},
+  aria:'Hair follicle in the skin: hair shaft, oil gland, bulge stem cells, immune shield, bulb and matrix, dermal papilla and DHT receptor; play to watch the growth cycle'}},
+ acne:function(){var A=cp(ana(150,218,.85,-30),{K:0,Z:1.3,S:66,noCurl:1,mus:0,glS:1.5,glX:0,glC:0,dil:0,dilD:74,oil:.22,plug:0,close:0,dark:0,bac:.14,inf:0,rup:0,pus:0,deep:0,sigOp:0,imm:0,vb:262});
+  var ST={healthy:A,
+   oil:cp(A,{glS:2,glX:1,glC:.75,oil:.62,bac:.18}),
+   plug:cp(A,{glS:2,glX:1,glC:.75,oil:.9,plug:1,close:1,dil:.75,bac:.22}),
+   bact:cp(A,{glS:2,glX:1,glC:.75,oil:1,plug:1,close:1,dil:1,bac:1}),
+   infl:cp(A,{glS:2,glX:1,glC:.75,oil:1,plug:1,close:1,dil:1.1,bac:1,inf:1,rup:1,pus:1,deep:1})};
+  return {vb:[360,430],bg:{S:66,fy:352,ez:1.35},A:A,ST:ST,ORDER:['healthy','oil','plug','bact','infl'],extra:[],loop:0,
+   btn:{healthy:'<b>1</b>Healthy',oil:'<b>2</b>Oil',plug:'<b>3</b>Plug',bact:'<b>4</b>Bacteria',infl:'<b>5</b>Inflamed'},
+   txt:{healthy:'Step 1 of 5 · Healthy pore',oil:'Step 2 of 5 · Oil',plug:'Step 3 of 5 · Plug',bact:'Step 4 of 5 · Bacteria',infl:'Step 5 of 5 · Inflamed'},
+   playTxt:'▶ Play the story',T:{H0:1.4,MOR:1.6,HOLD:2.6},fs:12.5,subR:.8,
+   labels:function(at,s){var gv=s.bv*.45,wg=W(s,gv);return [
+    {p:'shaft',cls:'lk',x:206,y:30,t:['Hair'],a:at(s,s.hw+1,-18),l:[202,26]},
+    {cls:'lk0',x:206,y:84,t:['Pore opening','_FOLLICLE CANAL'],a:at(s,W(s,3)+.5,3),l:[202,80]},
+    {p:'gland',cls:'lk',x:8,y:92,t:['Oil gland','_SEBACEOUS'],a:at(s,-wg-26,gv-10),l:[44,108]},
+    {cls:'lk0',x:206,y:150,t:['Sebum flows up','_A THIN STREAM'],a:at(s,s.hw+2,gv*.5),l:[202,146]},
+    {cls:'lk0',x:206,y:214,t:['Follicle wall'],a:at(s,W(s,gv+30),gv+30),l:[202,210]},
+    {p:'bulge',cls:'lk',x:206,y:262,t:['Hair follicle','_BULB BELOW'],a:at(s,W(s,s.bv)+4,s.bv),l:[202,258]}]},
+   ann:function(at){return {
+    oil:function(s){var gv=s.bv*.45,wg=W(s,gv);return[
+     {x:206,y:120,t:['Oil gland swells','_MORE SEBUM'],a:at(s,-wg+2,gv-6),l:[202,116]},
+     {x:206,y:186,t:['Sebum fills','the canal'],a:at(s,s.hw+5,gv*.6),l:[202,182]},
+     {x:8,y:302,t:['Androgens,','IGF-1, insulin'],arrow:'M40 282Q34 250 '+at(s,-wg-34,gv+24).join(' ')}]},
+    plug:function(s){var gv=s.bv*.45;return[
+     {x:206,y:34,t:['Skin closes over','_WHITEHEAD'],a:at(s,W(s,0)+5,-4),l:[202,30]},
+     {x:206,y:104,t:['Dead cells stick','_PLUG: MICROCOMEDONE'],a:at(s,W(s,14)-1,14),l:[202,100]},
+     {x:206,y:182,t:['Oil trapped','behind it'],a:at(s,W(s,gv*.7)-3,gv*.7),l:[202,178]},
+     {raw:inset(),x:0,y:0,t:[]}]},
+    bact:function(s){var gv=s.bv*.45;return[
+     {x:206,y:120,t:['C. acnes multiplies','_FEEDS ON TRAPPED OIL'],a:at(s,W(s,gv*.55)-4,gv*.55),l:[202,116]},
+     {x:206,y:186,t:['Canal stretches'],a:at(s,W(s,gv*.85),gv*.85),l:[202,182]}]},
+    infl:function(s){var gv=s.bv*.45;return[
+     {x:206,y:34,t:['Pus at the top','_PUSTULE'],a:at(s,W(s,0)+3,-7),l:[202,30]},
+     {x:206,y:96,t:['Red, swollen bump','_PAPULE'],a:at(s,W(s,gv*.3)+30,gv*.3),l:[202,92]},
+     {x:206,y:160,t:['Wall ruptures','_CONTENTS LEAK OUT'],a:at(s,W(s,gv*.72)+12,gv*.72),l:[202,156]},
+     {x:206,y:300,t:['Deeper and larger','_NODULE'],a:at(s,76,gv+66),l:[202,296]}]}}},
+   aria:'Cross-section of a pore (pilosebaceous unit): hair follicle with an enlarged oil gland. Play the 5-step story: healthy pore, more oil, plug, bacteria, inflammation'}}
+};
+function inset(){/* whitehead vs blackhead mini pores, bottom-left */
+ var s='<g transform="translate(8 330)"><rect x="0" y="0" width="150" height="86" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1"/>';
+ [[38,1,'WHITEHEAD','CLOSED'],[112,0,'BLACKHEAD','OPEN, DARK TIP']].forEach(function(c){var x=c[0];
+  s+='<rect x="'+(x-30)+'" y="16" width="60" height="34" fill="#FFF3E7"/><path d="M'+(x-30)+' 16H'+(x+30)+'V22H'+(x-30)+'Z" fill="#F9D7C6"/>';
+  s+='<path d="M'+(x-11)+' 16C'+(x-12)+' 30 '+(x-6)+' 40 '+(x-4)+' 50H'+(x+4)+'C'+(x+6)+' 40 '+(x+12)+' 30 '+(x+11)+' 16" fill="#F8DCC8" stroke="#3E4A80" stroke-width="1.1"/>';
+  s+='<path d="M'+(x-10)+' 16C'+(x-10)+' 26 '+(x-6)+' 32 '+x+' 34C'+(x+6)+' 32 '+(x+10)+' 26 '+(x+10)+' 16Z" fill="#D9E0FF" stroke="#3E4A80" stroke-width="1"/>';
+  if(c[1])s+='<path d="M'+(x-13)+' 16C'+(x-9)+' 8 '+(x+9)+' 8 '+(x+13)+' 16Z" fill="#F9D7C6" stroke="#3E4A80" stroke-width="1"/>';else s+='<path d="M'+(x-10)+' 16C'+(x-8)+' 13 '+(x+8)+' 13 '+(x+10)+' 16C'+(x+9)+' 21 '+(x-9)+' 21 '+(x-10)+' 16Z" fill="#4B3A2A"/>';
+  s+='<text x="'+x+'" y="66" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3E4A80">'+c[2]+'</text><text x="'+x+'" y="78" text-anchor="middle" class="m" font-size="8" fill="#6B76A8">'+c[3]+'</text>'});
+ return s+'</g>'}
+/* ---------- mount ---------- */
+function mount(el,opt){opt=opt||{};css();var C=PRE[opt.preset||'hair'](),id='bsf'+(++UID),ids={gm:id+'gm',rg:id+'rg',cl:id+'cl'};
+ var vw=C.vb[0],vh=C.vb[1],fs=opt.fs||C.fs,subR=opt.subR||C.subR||.72,lh=Math.round(fs*(subR>.75?1.18:1.1)+.5);
+ var root=document.createElement('div');root.className='bsf bsf-'+(opt.preset||'hair');
+ var phs='<div class="bsf-phs" role="group" aria-label="'+(opt.groupLabel||'Steps')+'">';C.ORDER.concat(C.extra).forEach(function(k){phs+='<button type="button" class="bsf-ph" data-k="'+k+'">'+C.btn[k]+'</button>'});phs+='<button type="button" class="bsf-ph play" data-k="play" aria-pressed="false"></button></div>';
+ root.innerHTML=phs+'<div class="bsf-dg"><svg viewBox="0 0 '+vw+' '+vh+'" role="img" aria-label="'+C.aria+'"></svg><div class="bsf-prog"><span class="bsf-step"></span><span class="bsf-bar" aria-hidden="true"><i></i></span></div>'+(opt.link?'<a class="bsf-link" href="'+opt.link.href+'">'+opt.link.text+'</a>':'')+'</div>';
+ el.appendChild(root);
+ var svg=root.querySelector('svg'),stepEl=root.querySelector('.bsf-step'),bar=root.querySelector('.bsf-bar i'),pb=root.querySelector('.bsf-ph.play');
+ var defs=mk('defs',null,svg);defs.innerHTML='<linearGradient id="'+ids.gm+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C2AB" stop-opacity="0"/><stop offset=".4" stop-color="#F2C2AB"/><stop offset="1" stop-color="#EFB9A1"/></linearGradient><radialGradient id="'+ids.rg+'"><stop offset="0" stop-color="#FF8A8A" stop-opacity=".5"/><stop offset=".6" stop-color="#FF8A8A" stop-opacity=".28"/><stop offset="1" stop-color="#FF8A8A" stop-opacity="0"/></radialGradient><clipPath id="'+ids.cl+'"><rect width="'+vw+'" height="'+vh+'"/></clipPath><marker id="'+id+'ar" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#DB6830"/></marker>';
+ var clip=mk('g',{'clip-path':'url(#'+ids.cl+')'},svg);bg(mk('g',null,clip),{w:vw,h:vh,S:C.bg.S,fy:C.bg.fy,ez:C.bg.ez,sweat:C.bg.sweat});
+ var A=C.A,gGhost=mk('g',null,clip),gMini=mk('g',null,clip),gMain=mk('g',null,clip);
+ if(C.ghost)mk('path',{d:tubeD(A,0,0),fill:'none',stroke:'#C3A9C9','stroke-width':1.1,'stroke-dasharray':'3 3'},gGhost);
+ if(C.mini)[ana(135,250,.74,-70,.2),ana(212,165,.5,-34,.5),ana(292,96,.32,-14,.85)].forEach(function(s){s.dhtS=1.35;s.cap=.45;s.imm=0;s.vb=s.D+38;Fol(gMini,false,ids).up(s)});
+ if(C.bg.ez){var tg=mk('g',{'class':'m lk0','font-size':Math.max(7.5,fs*.62),fill:'#6B76A8','letter-spacing':'.6','text-anchor':'end'},svg);mk('text',{x:vw-6,y:C.bg.S+14},tg).textContent='EPIDERMIS';mk('text',{x:vw-6,y:C.bg.S+50},tg).textContent='DERMIS';mk('text',{x:vw-6,y:C.bg.fy+14},tg).textContent='FAT'}
+ else{var tg2=mk('g',{'class':'m','font-size':Math.max(7,fs*.64),fill:'#6B76A8','letter-spacing':'.6','text-anchor':'end'},svg);mk('text',{x:vw-6,y:C.bg.S+10},tg2).textContent='EPIDERMIS';mk('text',{x:vw-6,y:C.bg.S+44},tg2).textContent='DERMIS';mk('text',{x:vw-6,y:C.bg.fy+12},tg2).textContent='FAT'}
+ var main=Fol(gMain,true,ids),gMk=mk('g',{'class':'bsf-marks','pointer-events':'none'},svg),gAnn=mk('g',{'class':'bsf-ann','font-size':fs,fill:'#3E4A80'},svg),gLbl=mk('g',{'class':'lbl','font-size':fs,fill:'#3E4A80'},svg);
+ function at(st,u,v){return pt(st,u,v)}
+ function lab(g,o){var e=mk('g',o.cls?{'class':o.cls}:null,g);if(o.p)e.setAttribute('data-p',o.p);
+  if(o.raw){var r=mk('g',null,e);r.innerHTML=o.raw}
+  if(o.a)mk('path',{'class':'ld',d:'M'+o.a[0]+' '+o.a[1]+'L'+o.l[0]+' '+o.l[1]},e);
+  if(o.arrow)mk('path',{'class':'ar',d:o.arrow,'marker-end':'url(#'+id+'ar)'},e);
+  o.t.forEach(function(t,i){var sub=t.charAt(0)==='_';var x=mk('text',{x:o.x,y:o.y+i*lh},e);if(o.mid)x.setAttribute('text-anchor','middle');if(sub){x.setAttribute('class','m');x.setAttribute('font-size',r1(fs*subR));x.setAttribute('fill','#6B76A8');x.setAttribute('y',o.y+i*lh-1);t=t.slice(1)}x.textContent=t});return e}
+ var LBL=C.labels(at,A);LBL.forEach(function(o){lab(gLbl,o)});
+ var ANN=C.ann?C.ann(at,A):{};
+ var anch={};LBL.forEach(function(o){if(o.p&&o.a&&!anch[o.p])anch[o.p]=o.a});
+ function annot(k){while(gAnn.firstChild)gAnn.removeChild(gAnn.firstChild);if(!ANN[k])return;gAnn.classList.add('hid');ANN[k](C.ST[k]).forEach(function(o){lab(gAnn,o)});gAnn.getBoundingClientRect();gAnn.classList.remove('hid')}
+ function draw(st){main.up(st);gMini.style.opacity=st.miniOp||0;gMini.style.display=st.miniOp>.01?'':'none';gGhost.style.opacity=st.ghost||0;gGhost.style.display=st.ghost>.01?'':'none';svg.classList.toggle('bsf-stuck',(st.plug||0)>.3)}
+ var ORD=C.ORDER,N=ORD.length,first=ORD[0],key=first,T=C.T,SEG=T.MOR+T.HOLD,NS2=C.loop?N:N-1,TOT=T.H0+NS2*SEG;
+ var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var pl={on:false,paused:false,t:0,raf:0,last:0,ann:''};
+ function setKey(k){key=k;stepEl.textContent=C.txt[k];
+  root.querySelectorAll('.bsf-ph').forEach(function(b){b.classList.toggle('on',b.dataset.k===k||(b.dataset.k==='play'&&pl.on))});
+  svg.classList.toggle('cyc',k!==first||(pl.on&&C.loop));if(opt.onStep)opt.onStep(k,ORD.indexOf(k),pl.on)}
+ function pbText(){pb.textContent=pl.on?(pl.paused?'▶ Resume':'❚❚ Pause'):(pl.t>=TOT?'↻ Replay':C.playTxt);pb.setAttribute('aria-pressed',pl.on&&!pl.paused?'true':'false')}
+ function stop(){if(pl.raf)cancelAnimationFrame(pl.raf);pl.raf=0;pl.on=false;pl.paused=false;pl.t=0;bar.style.width='0';pbText()}
+ function clear(){svg.querySelectorAll('.pt').forEach(function(p){p.classList.remove('lit','lit-h','lit-x','lit-u','lit-s')});svg.querySelectorAll('.lk').forEach(function(l){l.classList.remove('sel')});gMk.innerHTML=''}
+ function stepBar(k){var i=ORD.indexOf(k);bar.style.width=i<0?'0':r1(C.loop?(i/N)*100:(i/(N-1))*100)+'%'}
+ function jump(k){stop();clear();draw(cp(C.ST[k]));setKey(k);annot(k);if(!C.loop)stepBar(k)}
+ function apply(t){bar.style.width=r1(Math.min(1,t/TOT)*100)+'%';
+  if(t<T.H0){draw(cp(A));if(key!==first)setKey(first);return}
+  var x=t-T.H0,i=Math.min(NS2-1,Math.floor(x/SEG)),r=x-i*SEG,from=C.ST[ORD[i]],last=C.loop&&i===N-1,to=last?C.END:C.ST[ORD[i+1]],tk=last?first:ORD[i+1];
+  var m=RM?1:ease(Math.min(1,r/T.MOR));draw(cp(last&&m>=1?A:mix(from,to,m)));
+  if(key!==tk){setKey(tk);annot(null);pl.ann=''}
+  if((RM||r>=T.MOR)&&pl.ann!==tk&&(tk!==first||!C.loop)){annot(tk);pl.ann=tk}}
+ function frame(now){var dt=Math.min(now-pl.last,64)/1000;pl.last=now;if(!pl.on||pl.paused)return;pl.t+=dt;
+  if(pl.t>=TOT){var keepT=pl.t;pl.on=false;pl.raf=0;if(C.loop){draw(cp(A));setKey(first);annot(null)}else{draw(cp(C.ST[ORD[N-1]]));setKey(ORD[N-1]);annot(ORD[N-1])}pl.t=keepT;bar.style.width='100%';pbText();return}
+  apply(pl.t);pl.raf=requestAnimationFrame(frame)}
+ function start(){stop();clear();pl.on=true;pl.ann='';draw(cp(A));annot(C.loop?null:first);if(!C.loop)pl.ann=first;setKey(first);pbText();pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}
+ function pause(){pl.paused=true;if(pl.raf)cancelAnimationFrame(pl.raf);pl.raf=0;pbText()}
+ function resume(){pl.paused=false;pbText();pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}
+ document.addEventListener('visibilitychange',function(){if(!document.hidden&&pl.on&&!pl.paused){if(pl.raf)cancelAnimationFrame(pl.raf);pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}});
+ root.querySelectorAll('.bsf-ph').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(k==='play'){if(pl.on&&!pl.paused)pause();else if(pl.on)resume();else start()}else jump(k)})});
+ function light(p,cls){svg.querySelectorAll('.pt[data-p="'+p+'"]').forEach(function(g){g.classList.add('lit',cls||'lit-s')});svg.querySelectorAll('.lk[data-p="'+p+'"]').forEach(function(l){l.classList.add('sel')})}
+ svg.addEventListener('click',function(e){var t=e.target.closest('.lk,.pt');if(!t||!t.dataset.p)return;if(opt.onPart)opt.onPart(t.dataset.p)});
+ draw(cp(A));setKey(first);annot(C.loop?null:null);pbText();if(!C.loop)stepBar(first);
+ return {el:root,svg:svg,marks:gMk,go:jump,play:start,pause:pause,stop:stop,clear:clear,light:light,anchor:function(p){return anch[p]},key:function(){return key},playing:function(){return pl.on},order:ORD,
+  toFirst:function(){if(key!==first||pl.on)jump(first)}};
+}
+return {mount:mount,version:'1'};
+})();
+
+</script>
+<script>
+/* Compare v1 data. d = [oil, plug, bacteria, inflamed]: 2 yes, 1 partly, 0 no, 9 unknown, -1 may worsen.
+   ev tiers: rct, meta, ho (human outcome), hs (human skin), an, ce, th, ng (negative), none (no trial). s = source numbers. */
+var G={cream:'Creams',pill:'Pills',horm:'Hormonal',proc:'Procedures',diet:'Supplements & diet',pep:'Peptides'};
+var T=[
+{id:'adapalene',n:'Adapalene',k:'Retinoid cream · OTC in US',g:'cream',d:[0,2,0,1],ev:'rct',e:'With BPO: about 26% more spots gone than placebo; the pair beat each alone from week 1',t:'First change 4 wk; judge at 12',st:'Spots tend to return; the usual keep-going cream',r:'Dryness and stinging in weeks 1 to 4; irritation can leave brown marks on darker skin',pr:'Avoid (labels advise against)',pp:'Not counted yet',w:'Normalises how pore-lining cells shed, so plugs stop forming; also damps inflammation signals (TLR2).',s:[5,6]},
+{id:'tretinoin',n:'Tretinoin',k:'Retinoid cream · prescription',g:'cream',d:[0,2,0,1],ev:'rct',e:'Inflamed spots 57% gone vs 47% on dummy (women), 53% vs 39% (men); 1,640 people',t:'8 to 12 wk',st:'Spots tend to return; used to keep clear',r:'Dryness, peeling, sun sensitivity',pr:'Avoid',pp:'Not counted yet',w:'Same as adapalene; an older, more irritating molecule. Also helped brown marks in at-risk patients.',s:[7]},
+{id:'tazarotene',n:'Tazarotene',k:'Retinoid lotion',g:'cream',d:[0,2,0,1],ev:'rct',e:'Clear or almost clear 26 to 30% vs 13 to 17% on dummy; 1,614 people',t:'12 wk',st:'Spots tend to return',r:'Application pain 5%, dryness 4%',pr:'No (not allowed)',pp:'Not counted yet',w:'The strongest retinoid; the newer lotion tames the irritation.',s:[8]},
+{id:'trifarotene',n:'Trifarotene',k:'Retinoid cream · face and body',g:'cream',d:[0,2,0,1],ev:'rct',e:'Beat dummy on the face and on the back and chest in 2 large trials (exact rates not in the abstract)',t:'12 wk',st:'Spots tend to return',r:'Irritation, itch, sunburn',pr:'Avoid',pp:'Not counted yet',w:'Targets one retinoid receptor (RAR-gamma); the only retinoid tested for back and chest acne.',s:[9]},
+{id:'bpo',n:'Benzoyl peroxide (BPO)',k:'Antiseptic cream or wash · OTC',g:'cream',d:[0,1,2,1],ev:'meta',e:'All spots 44% gone vs 28% on dummy; 12 trials, 4,822 people',t:'Red spots ease in 1 to 2 wk; judge at 8 to 12',st:'Spots return',r:'Dryness; bleaches towels and hair',pr:'Considered OK',pp:'Not counted yet',w:'Releases oxygen radicals that kill C. acnes; bacteria cannot become resistant to it; mild peeling loosens plugs. 2.5% works as well as stronger, with less irritation.',s:[1]},
+{id:'clinbpo',n:'Clindamycin + BPO',k:'Antibiotic gel',g:'cream',d:[0,0,2,2],ev:'meta',e:'With a retinoid: about 44% more spots gone than placebo in moderate to severe acne, the top cream combination',t:'4 to 12 wk',st:'Spots return; keep a retinoid going',r:'Never clindamycin alone: 22% of acne bacteria already resist it',pr:'Considered OK',pp:'Not counted yet',w:'The antibiotic kills C. acnes and calms inflammation; BPO alongside stops resistance from building.',s:[5,10,11]},
+{id:'minofoam',n:'Minocycline foam',k:'Antibiotic foam · US only',g:'cream',d:[0,1,2,2],ev:'rct',e:'Inflamed spots fell more than on dummy foam in 961 people (exact % not in abstract)',t:'12 wk',st:'Not reported',r:'Skin side effects under 1%; low levels in blood',pr:'Avoid (tetracycline)',pp:'Not counted yet',w:'Puts the antibiotic on the skin without the pill\'s whole-body risks.',s:[12]},
+{id:'dapsone',n:'Dapsone gel',k:'Anti-inflammatory gel',g:'cream',d:[0,1,1,2],ev:'rct',e:'Women: all spots 48 to 56% gone; men 35 to 48% (dummy numbers not in this abstract)',t:'12 wk',st:'Not reported',r:'Dryness; orange tint if mixed with BPO',pr:'Limited data',pp:'Not counted yet',w:'Mainly calms the immune cells that turn plugs red; works better in women in the data.',s:[13]},
+{id:'azelaic',n:'Azelaic acid',k:'Acid cream · also fades marks',g:'cream',d:[0,2,2,2],ev:'rct',e:'All spots 61% gone vs 20% on dummy in 45 days (60 people, one centre)',t:'6 to 12 wk',st:'Not reported',r:'Tingling or burning early',pr:'Considered OK',pp:'Not counted yet',w:'Loosens plugs, kills C. acnes and calms inflammation, and blocks the enzyme that makes brown pigment, so it treats spots and marks at once.',s:[14]},
+{id:'salicylic',n:'Salicylic acid',k:'BHA wash or leave-on · OTC',g:'cream',d:[1,2,0,1],ev:'none',e:'Weak: no clean dummy-controlled trial for washes; guidelines rate it conditional',t:'4 to 8 wk',st:'Not reported',r:'Dryness',pr:'Low strength OK; avoid large high-strength peels',pp:'Not counted yet',w:'An oil-soluble acid that gets inside the pore and loosens the plug. A helper for blackheads, not a main treatment.',s:[15]},
+{id:'triple',n:'Triple gel',k:'Clindamycin + BPO + adapalene',g:'cream',d:[0,2,2,2],ev:'rct',e:'Clear or almost clear about 50% vs 21 to 25% on dummy; spots 73 to 80% gone vs 48 to 60%',t:'12 wk',st:'Not reported',r:'Application pain, dryness, redness',pr:'Retinoid caution',pp:'Not counted yet',w:'Three drugs, three drivers: retinoid for plugs, BPO and antibiotic for bacteria and inflammation. US approved Oct 2023.',s:[17]},
+{id:'antifungal',n:'Antifungals',k:'For the fungal lookalike',g:'cream',d:[0,0,0,0],ev:'rct',e:'All 44 patients improved (cream about 27 days, pill about 14); itraconazole 2 wk: 58% success in 50 people',t:'2 to 4 wk',st:'Can return in heat and sweat',r:'Antifungal pills interact with many drugs',pr:'Ask a doctor (pills avoided)',pp:'Not counted yet',w:'Hits none of the acne four: it clears the Malassezia yeast in the follicle. That is why acne creams fail on fungal bumps.',s:[38]},
+{id:'clasco',n:'Clascoterone',k:'Hormone-blocking cream · men too',g:'horm',d:[2,1,0,1],ev:'rct',e:'Clear or almost clear 18 to 20% vs 7 to 9%; women 23.5% vs 7.7%, men 14.2% vs 5.2%; 1,440 people',t:'12 wk',st:'Not reported',r:'Mild redness; hormone-system signal at maximal use',pr:'No (EU label)',pp:'Not counted yet',w:'Blocks androgens right in the oil gland, so less oil; the only hormonal option for men. US 2020, EU Oct 2025.',s:[16]},
+{id:'pill',n:'Combined pill',k:'Women · oestrogen + progestin',g:'horm',d:[2,1,0,1],ev:'meta',e:'Inflamed spots 62% gone at 6 months vs 34% on placebo; antibiotics faster at 3 months, equal by 6',t:'3 to 6 mo',st:'Often returns',r:'Blood clots (rare; higher with smoking, migraine with aura, age 35+)',pr:'Not applicable',pp:'Not counted yet',w:'Oestrogen lowers ovary androgens and raises SHBG, a protein that mops up free testosterone. All 6 pills tested beat placebo.',s:[2,21]},
+{id:'spiro',n:'Spironolactone',k:'Women · anti-androgen pill',g:'horm',d:[2,1,0,1],ev:'rct',e:'Said acne improved: 82% vs 63% at 24 weeks, but only 72% vs 68% at 12 (410 women)',t:'Judge at 6 mo',st:'Not reported',r:'Headache 20% vs 12%; period changes',pr:'No',pp:'Not counted yet',w:'Blocks androgen receptors on the oil gland. Slow, but the main long-term non-antibiotic pill for adult women.',s:[22]},
+{id:'metformin',n:'Metformin',k:'Insulin-lowering pill · off label',g:'horm',d:[1,0,0,1],ev:'meta',e:'Small extra improvement in PCOS acne (51 studies, mixed quality); non-PCOS acne: only small trials',t:'3 to 6 mo',st:'Not reported',r:'Stomach upset, lower B12',pr:'Used in PCOS pregnancy under care',pp:'Not counted yet',w:'Lowers insulin, and with it the IGF-1 and ovary-androgen push on the oil gland.',s:[23]},
+{id:'doxy',n:'Doxycycline',k:'Antibiotic pill',g:'pill',d:[0,0,2,2],ev:'meta',e:'Antibiotic pills: inflamed spots 53% gone at 3 months vs 26% on placebo',t:'4 to 8 wk; course kept to 3 to 4 mo',st:'Returns unless a cream keeps going',r:'Sun sensitivity (matters in Bali), stomach upset',pr:'No; not under 8',pp:'Not counted yet',w:'Kills C. acnes and calms inflammation even at low doses; only 2.4% of acne bacteria resist it.',s:[2,11,18]},
+{id:'mino',n:'Minocycline pill',k:'Antibiotic pill',g:'pill',d:[0,0,2,2],ev:'meta',e:'Works for moderate acne but no better than other options (39 trials, 6,013 people)',t:'4 to 8 wk',st:'Returns',r:'Lupus 8.8 per 100,000 person-years; blue-grey pigment, can be permanent',pr:'No',pp:'Not counted yet',w:'Same action as doxycycline with more serious side effects.',s:[19]},
+{id:'sare',n:'Sarecycline',k:'Narrow antibiotic · US only',g:'pill',d:[0,0,2,2],ev:'rct',e:'Clear or almost clear 22 to 23% vs 10 to 15%; inflamed spots 50 to 52% gone vs 35%; 2,002 people',t:'3 to 12 wk',st:'Not reported',r:'Nausea 4.6% vs 2.5%',pr:'No',pp:'Not counted yet',w:'A narrower tetracycline, claimed gentler on gut bacteria.',s:[20]},
+{id:'isofull',n:'Isotretinoin, full dose',k:'Oral retinoid',g:'pill',d:[2,2,2,2],ev:'meta',e:'The biggest of anything: about 58% more spots gone than placebo (course of 120 mg/kg or more)',t:'4 to 6 month course',st:'About 3 in 4 stay clear; 22.5% relapse, 8.2% need a second course',r:'Dry lips, eyes, nosebleeds, raised lipids; no overall rise in psychiatric risk in 1.6 million people',pr:'Strict no: birth defects in 35%+ of exposed pregnancies',pp:'Not counted yet',w:'The only drug that hits all four: it shrinks the oil glands themselves, stops plugging, starves the bacteria and calms inflammation.',s:[5,24,67]},
+{id:'isolow',n:'Isotretinoin, low dose',k:'0.5 mg/kg/day or less',g:'pill',d:[2,2,2,2],ev:'meta',e:'Same 24-week results as full dose, better tolerated (4 trials, 210 people)',t:'4 to 6 mo',st:'Relapse data less certain',r:'Milder dryness',pr:'Strict no',pp:'Not counted yet',w:'Same four-way action at a gentler daily dose.',s:[25]},
+{id:'denif',n:'Denifanstat',k:'Investigational pill',g:'pill',d:[2,1,0,1],ev:'rct',e:'Phase 2: all spots 61% gone vs 34% on placebo (179 people). Not approved anywhere as of 20 Nov 2026',t:'12 wk',st:'Unknown',r:'Dry eyes, dry skin, peeling',pr:'Unknown',pp:'Not counted yet',w:'Blocks fatty-acid synthase, the enzyme the oil gland uses to make oil: an "isotretinoin lite" for oil. China filing accepted Dec 2025; US phase 3 started Oct 2026.',s:[26]},
+{id:'steroid',n:'Steroid shot into a cyst',k:'In clinic',g:'proc',d:[0,0,0,2],ev:'none',e:'No trial; the standard rescue for one painful cyst',t:'24 to 72 h',st:'One-off',r:'A dent or pale spot; a dent lasts 6+ months in about half who get one',pr:'Ask',pp:'Not counted yet',w:'A tiny dose of steroid shuts down the inflammation in that one lump.',s:[27]},
+{id:'peels',n:'Chemical peels',k:'Salicylic, glycolic, mandelic',g:'proc',d:[1,2,1,1],ev:'meta',e:'About 40% more spots gone than placebo in mild to moderate acne, very uncertain',t:'Weeks',st:'Not reported',r:'Brown marks in darker skin with stronger peels',pr:'Avoid large high-strength salicylic',pp:'Not counted yet',w:'Strips the plugged surface layer; salicylic also reaches inside the pore.',s:[5]},
+{id:'pdt',n:'Photodynamic therapy',k:'Light + light-activated cream',g:'proc',d:[2,1,2,1],ev:'meta',e:'Cochrane: red-light PDT no better than dummy cream plus light; the 179-trial analysis put it near 40%, very uncertain',t:'Weeks',st:'Not reported',r:'Pain, crusting, blistering, brown marks',pr:'Ask',pp:'Not counted yet',w:'The activated cream damages oil glands and bacteria when light hits it.',s:[28,5]},
+{id:'light',n:'Blue or red light',k:'Clinic or home device',g:'proc',d:[0,0,2,1],ev:'meta',e:'About 35% more spots gone than placebo, uncertain; yellow and infrared light no clear effect',t:'Weeks',st:'Not reported',r:'Minimal',pr:'Considered OK',pp:'Not counted yet',w:'Blue light excites pigments inside C. acnes that damage it; red light may calm inflammation.',s:[5,28]},
+{id:'laser',n:'1726 nm laser',k:'Oil-gland laser',g:'proc',d:[2,1,0,1],ev:'hs',e:'No dummy group: 80% had half their inflamed spots gone at 12 weeks, 87% at 26 (104 people, maker-linked)',t:'Keeps improving for months',st:'Claimed to last up to 2 years (device-linked review)',r:'Pain, redness, swelling, cost',pr:'Not reported',pp:'Not counted yet',w:'Heats oil glands selectively, so they make less oil without a drug. Similar results across skin types II to VI.',s:[29]},
+{id:'zinc',n:'Zinc',k:'Supplement',g:'diet',d:[0,0,1,2],ev:'meta',e:'Fewer inflamed bumps than comparators; weaker than minocycline in older trials',t:'8 to 12 wk',st:'Not reported',r:'Nausea; long high doses drain copper',pr:'Not checked',pp:'Not counted yet',l:'/supplements/#/zinc',w:'Acne patients have lower blood zinc; zinc calms inflammation and slightly checks bacteria.',s:[30]},
+{id:'nicotin',n:'Nicotinamide',k:'Vitamin B3 cream or pill',g:'diet',d:[1,0,0,2],ev:'hs',e:'4% gel matched clindamycin gel (76 people, no dummy). Pills: no placebo trial',t:'8 wk',st:'Not reported',r:'Pills above 500 mg: a heart question raised in a 2025 review',pr:'Cream fine',pp:'Not counted yet',w:'Calms inflammation and may trim oil; gentle add-on.',s:[31]},
+{id:'omega',n:'Omega-3',k:'Fish oil, 2 g EPA+DHA in the trial',g:'diet',d:[0,0,0,2],ev:'rct',e:'Fewer inflamed and non-inflamed spots in 10 weeks (45 people), lower IL-8 on biopsy',t:'10 wk',st:'Not reported',r:'Minimal',pr:'Not checked',pp:'Not counted yet',l:'/supplements/#/omega-3-epa-and-dha',w:'Shifts the body toward less inflammatory signalling.',s:[32]},
+{id:'probio',n:'Probiotics',k:'Strain-specific',g:'diet',d:[9,9,1,1],ev:'rct',e:'Global improvement 50% vs 29% on placebo (74 people); a company-run trial: inflamed spots 39% vs 10%',t:'8 to 12 wk',st:'Not reported',r:'Minimal',pr:'Not checked',pp:'Not counted yet',l:'/supplements/#/probiotics',w:'The gut-skin idea: calmer immune signalling from the gut. Early, strain-specific, industry-funded.',s:[33]},
+{id:'lowgl',n:'Low-glycaemic diet',k:'Fewer fast carbs',g:'diet',d:[1,1,0,1],ev:'rct',e:'Two small trials: fewer spots and smaller oil glands; pooled blackhead result not significant',t:'10 to 12 wk',st:'Not reported',r:'None',pr:'Fine',pp:'Not counted yet',w:'Lower insulin spikes mean less insulin and IGF-1 push on the oil gland.',s:[34]},
+{id:'dairy',n:'Cutting dairy',k:'Personal trial',g:'diet',d:[1,9,0,9],ev:'none',e:'No trial of cutting dairy; daily milk drinkers had 1.41 times the odds of acne (observational)',t:'Try 12 wk',st:'Not reported',r:'None (watch calcium)',pr:'Fine',pp:'Not counted yet',w:'Milk hormones and whey raise insulin and IGF-1; skim milk links at least as strongly as whole.',s:[35]},
+{id:'whey',n:'Whey protein',k:'Suspected trigger',g:'diet',d:[9,9,9,9],ev:'rct',e:'6-month blinded trial in 49 young Thai men with acne: no worsening vs a non-whey supplement',t:'Not applicable',st:'Case reports: chest and back acne cleared on stopping',r:'Possible flares in some',pr:'Not applicable',pp:'Case reports only',w:'Whey raises insulin, so it was blamed; the one trial says it is less guilty than assumed, at least in men.',s:[36]},
+{id:'ghkt',n:'GHK-Cu cream',k:'Copper peptide · on skin',g:'pep',d:[0,0,0,1],ev:'hs',e:'No acne trial. Scars: a blend gel cut scar score 27% in 45 days, no comparison (30 women)',t:'Weeks to months',st:'Not reported',r:'Breakouts in acne-prone skin, more with retinol or acids at the same time',pr:'No data',pp:'~42 people: 21 better (marks, redness, scars), 3 mixed, 14 no change, 5 worse',l:'/library/#/p/ghk-cu',w:'A reset message for collagen remodelling and calmer inflammation in the lab; it does not target oil, plugs or bacteria.',s:[44,45,68]},
+{id:'ghki',n:'GHK-Cu injected',k:'Copper peptide · under the skin',g:'pep',d:[9,9,9,9],ev:'th',e:'No human data at all',t:'Unknown',st:'Unknown',r:'Clinic saw infections, raised liver enzymes and copper in self-injectors',pr:'No data',pp:'0 usable first-hand reports',l:'/library/#/p/ghk-cu',w:'No study has tested the injected route for skin.',s:[46]},
+{id:'egf',n:'EGF',k:'sh-Oligopeptide-1 · serum peptide',g:'pep',d:[0,0,0,2],ev:'ho',e:'Split face, 36 people, 12 weeks: spots and scars fell on the EGF side from week 4, not on the plain side',t:'4 to 12 wk',st:'Not reported',r:'None reported in abstract',pr:'No data',pp:'Not counted yet',w:'The skin\'s own wound-closing signal; biopsies showed less NF-κB, IL-1α and IL-8 and more collagen.',s:[53]},
+{id:'kpv',n:'KPV',k:'α-MSH fragment',g:'pep',d:[0,0,0,1],ev:'ce',e:'No human skin data; calmed IL-1β in human skin cells and a 3D skin model',t:'Unknown',st:'Unknown',r:'Unknown in people',pr:'No data',pp:'0 non-seller reports',l:'/library/#/p/kpv',w:'The off switch for an inflammation alarm (NF-κB), without the tanning effect of its parent hormone.',s:[48]},
+{id:'bpc',n:'BPC-157',k:'Healing peptide',g:'pep',d:[0,0,0,9],ev:'an',e:'No human skin data; rat wounds and burns healed faster',t:'Unknown',st:'Unknown',r:'Unknown in people; unregulated vials',pr:'No data',pp:'0 skin reports',l:'/library/#/p/bpc-157',w:'Calls new blood vessels into wounds in rats; no acne mechanism tested.',s:[49]},
+{id:'ll37',n:'LL-37',k:'Antimicrobial peptide',g:'pep',d:[0,0,1,-1],ev:'ng',e:'Already raised in acne skin; its best skin trial (148 leg ulcers) showed no benefit',t:'Not applicable',st:'Not applicable',r:'Its fragments drive rosacea-type redness',pr:'No data',pp:'0 reports',l:'/library/#/p/ll-37',w:'Kills bacteria in a dish, but acne skin already makes extra, and broken pieces inflame.',s:[43,50]},
+{id:'omiganan',n:'Omiganan',k:'Synthetic antimicrobial gel',g:'pep',d:[0,0,1,0],ev:'ng',e:'4 acne trials, no results ever posted; rosacea phase 3 lost to plain gel (19.8 vs 20.9 fewer bumps)',t:'Not applicable',st:'Not applicable',r:'Dropouts for side effects equal to plain gel',pr:'No data',pp:'0 reports',w:'Designed to kill skin bacteria; in people it did not beat its own base gel.',s:[51]},
+{id:'melano',n:'Melanotan, afamelanotide',k:'Tanning peptides',g:'pep',d:[-1,0,0,1],ev:'ho',e:'Afamelanotide implant: fewer spots in all 3 people (pilot). Melanotan II acne: claimed, no rate anywhere',t:'56 days (pilot)',st:'Unknown',r:'Moles: new or changing 4% vs 2% on label; melanoma reports',pr:'No data',pp:'0 of ~26 reviews mention acne',l:'/library/#/p/mt-2',w:'Melanotan II touches MC5R on oil glands, which raises oil; MC1R action calms inflammation.',s:[54,55]},
+{id:'gh',n:'GH peptides, IGF-1',k:'MK-677, CJC-1295, ipamorelin',g:'pep',d:[-1,0,0,0],ev:'ho',e:'IGF-1 at high dose: acne in 3 of 6 women, cleared when cut; GH-peptide trials list no acne',t:'Unknown',st:'IGF-1 acne cleared on dose cut',r:'Blood sugar up; MK-677 heart-failure signal in one trial',pr:'No data',pp:'4 people: 3 better, 1 mixed (confounded)',l:'/library/#/p/mk-677',w:'IGF-1 pushes the same oil switch as androgens; people unable to make it almost never get acne.',s:[42,56]},
+{id:'glp1',n:'GLP-1 drugs',k:'Semaglutide, tirzepatide',g:'pep',d:[1,9,9,9],ev:'hs',e:'No acne trial. 17 of 41 users with acne felt better (survey); more diagnoses in obese women (records); no signal across 34 trials',t:'Months',st:'Unknown',r:'Nausea; hair loss and facial volume loss with big weight loss',pr:'Stop before pregnancy',pp:'Forums: 2 better, 1 same, 3 worse; other inflamed skin better in 10',l:'/library/#/p/semaglutide',w:'Drug or weight? Lower insulin should calm oil; fast fat loss can shift sex hormones the other way. Authors lean to weight.',s:[57,58,59]},
+{id:'collagen',n:'Collagen peptides',k:'Oral powder',g:'pep',d:[0,0,0,0],ev:'th',e:'No acne trial with results',t:'Unknown',st:'Unknown',r:'Biotin in many powders is blamed for breakouts',pr:'Food',pp:'4 people: 1 better, 1 same, 2 worse (confounded)',l:'/library/#/p/collagen-peptides',w:'No acne-specific mechanism.',s:[63,68]},
+{id:'cosm',n:'Cosmetic peptides',k:'Serum "acne peptides"',g:'pep',d:[1,0,0,0],ev:'hs',e:'Pentapeptide-18 with retinol lowered oil, no spot counts; others untested on acne',t:'Unknown',st:'Unknown',r:'Usually gentle',pr:'Usually fine',pp:'Not counted yet',w:'Varies by peptide; the oil drop may be the retinol.',s:[64]}
+];
+var S=['ghkt'],FG='all',FD=-1;S=[];
+var $=function(q,r){return (r||document).querySelector(q)},esc=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+var DN=['Oil','Plug','Bacteria','Inflamed'],DC=['d-oil','d-plug','d-bact','d-infl'],DL=['O','P','B','I'];
+var EVN={rct:'RCT',meta:'Meta',ho:'Human outcome',hs:'Human skin',an:'Animal',ce:'Cells',th:'Theory',ng:'Negative',none:'No trial'};
+var EVC={rct:'e-rct',meta:'e-m',ho:'e-ho',hs:'e-hs',an:'e-an',ce:'e-ce',th:'e-th',ng:'e-ng',none:'e-a'};
+function box(v,i){var c=v===2?'v2':v===1?'v1':v===9?'v9':v===-1?'vw':'v0';var tx=v===9?'?':v===-1?'↑':DL[i];var lab=DN[i]+': '+(v===2?'yes':v===1?'partly':v===9?'unknown':v===-1?'may worsen':'no');return '<i class="db '+c+' '+DC[i]+'" title="'+lab+'" aria-label="'+lab+'">'+tx+'</i>'}
+function boxes(d){return '<span class="dbx">'+d.map(box).join('')+'</span>'}
+function srcs(s){return '<sup>'+s.map(function(n){return '<a href="#s'+n+'">'+n+'</a>'}).join(',')+'</sup>'}
+function evt(x){return '<i class="ev '+EVC[x.ev]+'">'+EVN[x.ev]+'</i>'}
+function link(x){return x.l?'<a href="'+x.l+'">'+(x.l.indexOf('/supplements')===0?'Supplements card':'Library card')+'</a>':'No card yet'}
+function row(x){var p=S.indexOf(x.id)>-1;
+ return '<div class="crow'+(p?' pk':'')+(x.g==='pep'?' pep':'')+'" data-id="'+x.id+'"><div class="ctop"><button class="cname" aria-expanded="false"><span class="nm1">'+esc(x.n)+'</span><small>'+esc(x.k)+'</small></button>'+boxes(x.d)+
+ '<p class="ceff">'+evt(x)+esc(x.e)+srcs(x.s)+'</p><span class="cdesk c-t">'+esc(x.t)+'</span><span class="cdesk c-r">'+esc(x.r)+'</span><span class="cdesk c-p">'+esc(x.pr)+'</span>'+
+ '<button class="cadd" aria-pressed="'+p+'" aria-label="'+(p?'Remove ':'Add ')+esc(x.n)+' to compare">'+(p?'✓':'+')+'</button></div>'+
+ '<details class="cmore"><summary>Why it works, and more</summary><dl class="cdl"><dt>Why</dt><dd>'+esc(x.w)+'</dd><dt>Time to work</dt><dd>'+esc(x.t)+'</dd><dt>When you stop</dt><dd>'+esc(x.st)+'</dd><dt>Key risk</dt><dd>'+esc(x.r)+'</dd><dt>Pregnancy</dt><dd>'+esc(x.pr)+'</dd><dt>People report</dt><dd>'+esc(x.pp)+'</dd><dt>Card</dt><dd>'+link(x)+'</dd></dl></details></div>'}
+function list(){var L=T.filter(function(x){return (FG==='all'||x.g===FG)&&(FD<0||x.d[FD]>=1)});
+ var h=$('#clist .chd').outerHTML+(L.length?L.map(row).join(''):'<p class="cempty">Nothing in this group hits that driver. Try another filter.</p>');$('#clist').innerHTML=h}
+function fil(){var c={all:T.length};T.forEach(function(x){c[x.g]=(c[x.g]||0)+1});
+ $('#cfil').innerHTML=['all'].concat(Object.keys(G)).map(function(k){return '<button data-g="'+k+'" aria-pressed="'+(FG===k)+'">'+(k==='all'?'All':G[k])+'<span>'+c[k]+'</span></button>'}).join('')}
+function side(){var el=$('#cside');var P=S.map(function(id){return T.filter(function(x){return x.id===id})[0]});
+ if(P.length<2){el.classList.remove('on');el.innerHTML='';return}
+ var n=P.length,h='<div class="csh"><b>Side by side · '+n+'</b><button id="cx">Close</button></div><div class="sgrid" style="--n:'+n+'">';
+ P.forEach(function(x){h+='<div class="sh"><b>'+esc(x.n)+'</b><small>'+esc(G[x.g])+'</small><button data-rm="'+x.id+'">Remove</button></div>'});
+ function r(lab,f){h+='<div class="sl">'+lab+'</div>';P.forEach(function(x){h+='<div class="sv">'+f(x)+'</div>'})}
+ r('Drivers it hits',function(x){return '<div class="sdrv">'+x.d.map(function(v,i){return '<span>'+box(v,i)+DN[i]+'</span>'}).join('')+'</div>'});
+ r('Why it works',function(x){return esc(x.w)});
+ r('Evidence',function(x){return evt(x)});
+ r('Effect vs dummy',function(x){return esc(x.e)+srcs(x.s)});
+ r('Time to work',function(x){return esc(x.t)});
+ r('When you stop',function(x){return esc(x.st)});
+ r('Key risk',function(x){return esc(x.r)});
+ r('Pregnancy',function(x){return esc(x.pr)});
+ r('What people report',function(x){return esc(x.pp)});
+ r('Card',function(x){return link(x)});
+ el.innerHTML=h+'</div>';el.classList.add('on')}
+function tray(){var P=S.map(function(id){return T.filter(function(x){return x.id===id})[0].n});
+ $('#ctp').textContent=P.length?P.length+'/3 · '+P.join(' · '):'Tap + on 2 or 3 to compare';$('#cgo').disabled=P.length<2;$('#cclr').disabled=!P.length}
+function pick(id){var i=S.indexOf(id);if(i>-1)S.splice(i,1);else{if(S.length>=3)S.shift();S.push(id)}list();tray();side()}
+function all(){fil();list();tray();side()}
+document.addEventListener('click',function(e){var b;
+ if(b=e.target.closest('#cfil button')){FG=b.dataset.g;fil();list();return}
+ if(b=e.target.closest('#cdr button')){var d=+b.dataset.d;FD=FD===d?-1:d;document.querySelectorAll('#cdr button').forEach(function(x){x.setAttribute('aria-pressed',String(+x.dataset.d===FD))});list();return}
+ if(b=e.target.closest('.cname')){var r=b.closest('.crow'),dd=r.querySelector('.cmore');dd.open=!dd.open;r.classList.toggle('op',dd.open);b.setAttribute('aria-expanded',String(dd.open));return}
+ if(b=e.target.closest('.cadd')){pick(b.closest('.crow').dataset.id);return}
+ if(b=e.target.closest('[data-rm]')){pick(b.dataset.rm);return}
+ if(b=e.target.closest('#cx')){S=[];all();return}
+ if(b=e.target.closest('#cclr')){S=[];all();return}
+ if(b=e.target.closest('#cgo')){side();$('#cside').scrollIntoView({behavior:'smooth',block:'start'});return}
+ if(b=e.target.closest('#cpre button')){S=b.dataset.p.split(',');FG='all';FD=-1;document.querySelectorAll('#cdr button').forEach(function(x){x.setAttribute('aria-pressed','false')});all();$('#cside').scrollIntoView({behavior:'smooth',block:'start'});return}
+ if(b=e.target.closest('.why')){var t=b.nextElementSibling;var on=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(on));t.classList.toggle('on',on);return}
+ if(b=e.target.closest('.dlnk')){FD=+b.dataset.d;FG='all';document.querySelectorAll('#cdr button').forEach(function(x){x.setAttribute('aria-pressed',String(+x.dataset.d===FD))});fil();list();$('#cmpx').scrollIntoView({behavior:'smooth'});return}
+});
+all();$('#cn').textContent=T.length;
+
+/* pore diagram v3: shared follicle engine */
+(function(){var cap=$('#dcap');
+ var C={
+  healthy:['A healthy pore','The oil gland empties a thin stream of oil (sebum) up the hair canal to the surface, and the cells lining the canal shed out with it. C. acnes lives in everyone\'s pores, in small numbers.',[43],-1,''],
+  oil:['Oil (sebum)','Oil glands grow and get busier at puberty, switched on by androgens (testosterone and its relatives). Insulin and IGF-1 push the same switch: people born unable to make IGF-1 almost never get acne, and high-dose IGF-1 caused acne in 3 of 6 women.',[42,43],0,'d-oil'],
+  plug:['The plug','Cells lining the pore shed abnormally and stick together into a microcomedone, the invisible start of every spot. Open to the air it darkens into a blackhead; closed over, it is a whitehead.',[43],1,'d-plug'],
+  bact:['C. acnes','A skin bacterium that lives in everyone\'s pores and feeds on oil. In acne it is not simply present: the mix of its strains narrows, and it sets off the immune system.',[43],2,'d-bact'],
+  infl:['Inflammation','The immune system reacts in and around the pore, turning a plug into a red bump, a pustule or a deep cyst, and leaving marks. It may start before the plug is visible. The skin\'s own antimicrobial peptides, LL-37 among them, are already raised.',[43],3,'d-infl'],
+  all:['All four together','Oil feeds the bacteria, the plug traps both, and the immune system reacts to the mix. Most treatments switch off one or two drivers; isotretinoin is the only one that hits all four, which is why it comes closest to a cure.',[5,43],-1,'']
+ };
+ var PART={oil:'gland',plug:'plug',bact:'bact',infl:'infl'},BACK={gland:'oil',plug:'plug',bact:'bact',infl:'infl'},STEPN={healthy:1,oil:2,plug:3,bact:4,infl:5};
+ function hits(i){return T.filter(function(x){return x.d[i]===2}).map(function(x){return x.n})}
+ function show(k,st){var c=C[k];
+  document.querySelectorAll('.dtab').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.d===k))});
+  cap.className='dcap '+c[4];
+  var h=(st?'<p class="stp">Step '+STEPN[st]+' of 5</p>':'')+'<h3>'+c[0]+'</h3><p>'+c[1]+srcs(c[2])+'</p>';
+  if(c[3]>=0){var H=hits(c[3]);h+='<p class="hit"><b>Fully switched off by '+H.length+':</b> '+H.slice(0,8).join(', ')+(H.length>8?' and more':'')+'. <button class="lnk dlnk" data-d="'+c[3]+'">See them in Compare ▸</button></p>'}
+  cap.innerHTML=h}
+ var hold=null;
+ var F=BSFollicle.mount($('#porefol'),{preset:'acne',groupLabel:'Steps of a spot',
+  onStep:function(k){if(hold){show(hold);return}show(k,k)},
+  onPart:function(p){var d=BACK[p];if(!d)return;pickD(d)}});
+ function pickD(d){var stp=d==='all'?'infl':d;hold=d;F.go(stp);hold=null;if(d!=='all')F.light(PART[d],'lit-s');show(d)}
+ document.querySelectorAll('.dtab').forEach(function(b){b.addEventListener('click',function(){pickD(b.dataset.d)})});
+ show('healthy','healthy');
+ window.BSF_ACNE=F;
+})();
+</script>
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+<script src="/explain.js" defer></script>
+</body></html>
