@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of protocol/v41/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of protocol/v42/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Protocol v42 (20 Nov 2026, built on v41, kept): every box 16px on phone so the iPhone never zooms in (peptide search, name, morning/midday/evening times were 12.5 to 14px) -->
 <!-- Protocol v41 (20 Nov 2026, built on v40, kept): reads the live Library instead of the pinned v85 copy (adds metronidazole, doxycycline, tranexamic acid, dexketoprofen; 21 summaries and the thymosin alpha-1 dose catch up) -->
 <!-- Protocol v40 (6 Nov 2026, v39 kept): NAD+ back to 50 mg start (range 50–100 mg); NA Semax Amidate starts at 250 mcg (sticker). -->
 <!-- Protocol v39 (6 Nov 2026, v38 kept): starting doses match the Real Dose v11 sticker page: Cartalax 1 mg, Epitalon 1 mg, Humanin 0.5 mg, NAD+ 25 mg, Pinealon 0.5 mg, Vilon 200 mcg, VIP 100 mcg, Thymulin 1 mg (was 1 mcg), IllumiNeuro 0.5 mg in 3 ml. -->
@@ -808,7 +809,7 @@ button.rtg.chx b,.syn b{font:700 11px/1 var(--body);opacity:.8}
 .spv{margin:14px 0 0}
 @media (max-width:640px){.sgw{grid-template-columns:1fr 1fr;gap:8px}.sc2 b{font-size:12.5px}.sc2 small{font-size:10.5px}.divider{margin:38px 0 6px}}
 </style>
-</head>
+<style>/* no iPhone zoom: every box 16px on phone */@media (max-width:899px){input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}html body textarea#intro,html body input#fq,html body input#wname,html body input#shr{font-size:16px!important}}</style></head>
 <body>
 <div class="wrap" id="wrap">
  <h1>Protocol <small>Draft</small></h1>

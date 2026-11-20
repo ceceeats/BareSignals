@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Draw v37 (20 Nov 2026, built on v36, kept): every box 16px on phone so the iPhone never zooms in (unit converter 15px, mixed date 14px) -->
 <!-- Draw Line v25 (24 Oct 2026): one content width with the site bar (1240px box, 24px sides on laptop, 16px on phone, zoom compensated so the title lines up with the BARE SIGNALS wordmark and the sticky card's right edge with the A buttons); text size fallback reads the laptop scale; v24 kept at /draw/v24/. -->
 <!-- Draw Line v36 (24 Oct 2026): draw mode gains round-draw chips (5/10/15/20/25/30/40/50 u) each annotated with the exact BAC water it needs; tap to pin the draw to a clean syringe number, water is the one-time odd value; 2-3 mL chips marked, out-of-range dimmed. -->
 <!-- Draw Line v35 (24 Oct 2026): header links to the new /nasal/ calculator. -->
@@ -568,7 +569,7 @@ body:not([data-mode="quick"]) .tmath{display:none}
 }
 </style>
 <script src="/nav.js" defer></script>
-</head>
+<style>/* no iPhone zoom: every box 16px on phone */@media (max-width:899px){input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}html body textarea#intro,html body input#fq,html body input#wname,html body input#shr{font-size:16px!important}}</style></head>
 <body>
 
 
