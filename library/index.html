@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v116 (20 Nov 2026, built on v115, kept): Peptides tab (All | Peptides | Supplements | Cases | Goals); /library/?pep shows peptides only; tab icons hide on phone so five fit. -->
 <!-- Library v115 (20 Nov 2026, built on v114, kept): toolbar at one 44px height; list groups full width with names in an even grid; Popular list = Top 30 then by What it does; Case and Goal rows read as one sentence. -->
 <!-- Library v114 (20 Nov 2026, built on v113, kept): Finder-style toolbar (cards | list icons and one sort button with a Sort by menu, replacing the Sort bar, density buttons and Browse by row); list view of every name grouped by the sort, plus Supplements, Cases and Goals; search under All finds Cases, Goals and Supplements too. -->
 <!-- Library v113 (20 Nov 2026, built on v112, kept): Whys sit inline after each Mixing it with row and Taking it right step; story heading without the note count; report tile footnote spaced; metronidazole ratings explained, 2018 trichomoniasis trial, review read, new first FAQ. -->
@@ -1904,6 +1905,10 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 #lv114 .rows .l,#ar114 .rows .l{font-size:calc(12.5px*var(--k));line-height:1.35;color:var(--ink-soft)}
 #lv114 .rows .l em,#ar114 .rows .l em{font-style:normal;font-weight:700;color:var(--accent)}
 #lv114 .lvsub{font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 0}
+
+/* v116: five tabs; Peptides-only view */
+.pep116 #shelf,.pep116 #ar114{display:none!important}
+@media (max-width:520px){.lsw a svg{display:none}.lsw a{padding:9px 2px;font-size:9.5px;letter-spacing:.03em;flex:1 1 auto;min-width:0}}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -1982,7 +1987,7 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 </style>
 </head>
 <body>
-<header class="lhd"><h1><a href="/library/"><svg class="lhd-i" viewBox="0 0 64 44" aria-hidden="true"><g stroke="#3E4A80" stroke-width="2.4"><rect x="3" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="3" y="33" width="10" height="8" fill="#E1DE62"/><rect x="13" y="33" width="7" height="8" fill="#FF5050"/><rect x="23.5" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="23.5" y="33" width="10" height="8" fill="#99ACFF"/><rect x="33.5" y="33" width="7" height="8" fill="#AACC96"/><rect x="44" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="44" y="33" width="10" height="8" fill="#FFA51F"/><rect x="54" y="33" width="7" height="8" fill="#B493E8"/></g></svg>Library</a></h1><nav class="lsw" aria-label="Library sections"><a href="/library/" aria-current="page"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"/></svg><span>All</span></a><a href="/supplements/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="6" width="13" height="6" rx="3" transform="rotate(-35 9 9)"/><path d="M7.3 5.2l3.4 7.6" transform="rotate(-35 9 9)"/></svg><span>Supplements</span></a><a href="/library/goals/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3" width="11" height="13.5"/><path d="M6.5 1.8h5v2.7h-5z M6.5 8h5M6.5 11h5M6.5 14h3"/></svg><span>Cases</span></a><a href="/library/aims/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="6.5"/><circle cx="9" cy="9" r="3"/><circle cx="9" cy="9" r=".6" fill="currentColor"/></svg><span>Goals</span></a></nav></header>
+<header class="lhd"><h1><a href="/library/"><svg class="lhd-i" viewBox="0 0 64 44" aria-hidden="true"><g stroke="#3E4A80" stroke-width="2.4"><rect x="3" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="3" y="33" width="10" height="8" fill="#E1DE62"/><rect x="13" y="33" width="7" height="8" fill="#FF5050"/><rect x="23.5" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="23.5" y="33" width="10" height="8" fill="#99ACFF"/><rect x="33.5" y="33" width="7" height="8" fill="#AACC96"/><rect x="44" y="3" width="17" height="38" fill="#FFFFF4"/><rect x="44" y="33" width="10" height="8" fill="#FFA51F"/><rect x="54" y="33" width="7" height="8" fill="#B493E8"/></g></svg>Library</a></h1><nav class="lsw" aria-label="Library sections"><a href="/library/" aria-current="page"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 1.5l3.5 3.5M14.75 3.25l-2.5 2.5M11 4l3 3-7 7-3-3zM5.5 12.5L2 16M9 6l1.2 1.2M7.5 7.5l1.2 1.2"/></svg><span>All</span></a><a href="/library/?pep" id="tpep"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6.5 1.5h5M7.5 1.5v3.5L4.5 15a1.5 1.5 0 0 0 1.4 1.5h6.2A1.5 1.5 0 0 0 13.5 15L10.5 5V1.5M5.8 11h6.4"/></svg><span>Peptides</span></a><a href="/supplements/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="6" width="13" height="6" rx="3" transform="rotate(-35 9 9)"/><path d="M7.3 5.2l3.4 7.6" transform="rotate(-35 9 9)"/></svg><span>Supplements</span></a><a href="/library/goals/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3" width="11" height="13.5"/><path d="M6.5 1.8h5v2.7h-5z M6.5 8h5M6.5 11h5M6.5 14h3"/></svg><span>Cases</span></a><a href="/library/aims/"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="9" r="6.5"/><circle cx="9" cy="9" r="3"/><circle cx="9" cy="9" r=".6" fill="currentColor"/></svg><span>Goals</span></a></nav></header>
 <div class="wrap">
  <div id="listv">
   <div class="left">
@@ -3035,7 +3040,7 @@ function showRole(k){T('library-role:'+k,'Role '+k);st.cols=[k];st.q='';$('#q').
  cw.addEventListener('touchstart',e=>{const X0=e.touches[0]&&e.touches[0].clientX;if(e.touches.length!==1||X0<28||X0>innerWidth-28){sx=null;return}sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
  cw.addEventListener('touchend',e=>{if(sx==null)return;const p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;sx=null;if(Math.abs(dx)>70&&Math.abs(dx)>2.2*Math.abs(dy))step(dx<0?1:-1)},{passive:true});}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&rPop){rPop=false;renderControls();return}if(stuck&&e.target.id==='rsw'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();rPop=!rPop;renderControls();return}if(!cur||!$('#pagev').hidden||e.target.closest('input,textarea'))return;if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);else if(e.key==='Escape'&&narrow())closeCard()});
-{const W=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'];let wi=0;const q=$('#q');const set=()=>{q.placeholder='Try “'+W[wi%W.length]+'”';wi++};set();if(!RM.matches)setInterval(()=>{if(!q.value)set()},2600)}
+{const W=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'];let wi=0;const q=$('#q');const set=()=>{q.placeholder=(/[?&]pep\b/.test(location.search)?'Search peptides':'Search everything');wi++};set();if(!RM.matches)setInterval(()=>{if(!q.value)set()},2600)}
 let missT=null;$('#q').addEventListener('input',e=>{st.q=e.target.value;renderGrid();if(st.cols.length)renderControls();goTop();clearTimeout(missT);missT=setTimeout(()=>{const q=st.q.trim().toLowerCase();if(q.length>=2&&!filtered().length)T('library-miss:'+q,'No result: '+q)},900)});
 addEventListener('resize',()=>tbar(true));
 {let w6=innerWidth<600;addEventListener('resize',()=>{const n=innerWidth<600;if(n!==w6){w6=n;if($('#pagev').hidden)renderGrid()}})}
@@ -3417,6 +3422,12 @@ document.addEventListener('click',e=>{const t=e.target;
   if(scroll!==false){const r=cw.getBoundingClientRect();scrollTo({top:scrollY+r.top-6-topOff(),behavior:'auto'})}return}return _p.apply(this,arguments)}}
 {const _c=closeCard;closeCard=function(){const r=_c.apply(this,arguments);if(LV&&narrow()&&LVY){const y=LVY;LVY=0;setTimeout(()=>scrollTo(0,y),30)}return r}}
 addEventListener('load',()=>{if(typeof loadSupp==='function')loadSupp().then(()=>{renderLV();renderAR()});setV114(LV?'list':'grid')});
+
+
+/* v116: Peptides tab = the peptide list only */
+const PEP116=/[?&]pep\b/.test(location.search);
+if(PEP116){document.documentElement.classList.add('pep116');addEventListener('DOMContentLoaded',()=>{const a=document.querySelector('.lsw a[aria-current]');if(a)a.removeAttribute('aria-current');const p=document.getElementById('tpep');if(p)p.setAttribute('aria-current','page');const q=document.getElementById('q');if(q)q.setAttribute('aria-label','Search peptides')})}
+{const _o=others114;others114=function(){return PEP116?{sup:[],cas:[],goa:[]}:_o.apply(this,arguments)}}
 
 function page65(o){
   if(isW(o))return waterPage(o);
