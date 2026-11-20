@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v115 (20 Nov 2026, built on v114, kept): toolbar at one 44px height; list groups full width with names in an even grid; Popular list = Top 30 then by What it does; Case and Goal rows read as one sentence. -->
 <!-- Library v114 (20 Nov 2026, built on v113, kept): Finder-style toolbar (cards | list icons and one sort button with a Sort by menu, replacing the Sort bar, density buttons and Browse by row); list view of every name grouped by the sort, plus Supplements, Cases and Goals; search under All finds Cases, Goals and Supplements too. -->
 <!-- Library v113 (20 Nov 2026, built on v112, kept): Whys sit inline after each Mixing it with row and Taking it right step; story heading without the note count; report tile footnote spaced; metronidazole ratings explained, 2018 trichomoniasis trial, review read, new first FAQ. -->
 <!-- Library v112 (20 Nov 2026, built on v111, kept): the deep read opens in place inside the Full read (old #/d/ links land there, open); a Why on every Mixing it with row and Taking it right step for the four medicines (rxw.js). -->
@@ -1883,6 +1884,26 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 .libq #brw,body.libq #brw,body.lv114 #gpanel{display:none!important}
 @media (max-width:899px){#count{display:none}}
 .emb104 .seg114,.emb104 #sb114,.emb104 #lv114,.emb104 #ar114{display:none!important}
+
+/* v115: aligned toolbar, full-width list groups */
+.trow{align-items:stretch}
+.trow .qw,.trow #q{height:44px}
+.trow #q{box-sizing:border-box;padding-top:0!important;padding-bottom:0!important;height:44px!important}
+.ib114{width:44px;min-height:44px;height:44px}
+.seg114,.sq114{height:44px;box-sizing:border-box}
+#lv114 .cols,#ar114 .cols{columns:auto!important;display:block}
+#lv114 .grp,#ar114 .grp{margin:12px 0 0}
+#lv114 .gh,#ar114 .gh{border-bottom:1.5px solid var(--rule);padding:0 0 4px;margin:0 0 2px}
+#lv114 .grp ul,#ar114 .grp ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+@media (min-width:700px){#lv114 .grp ul,#ar114 .grp ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1300px){#lv114 .grp ul,#ar114 .grp ul{grid-template-columns:repeat(4,minmax(0,1fr))}}
+#lv114 .rows,#ar114 .rows{display:grid!important;grid-template-columns:minmax(0,1fr);column-gap:28px}
+@media (min-width:700px){#lv114 .rows,#ar114 .rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#lv114 .rows li a,#ar114 .rows li a{flex-direction:column;align-items:stretch;gap:2px;padding:8px 0}
+#lv114 .rows .n b,#ar114 .rows .n b{font-weight:700}
+#lv114 .rows .l,#ar114 .rows .l{font-size:calc(12.5px*var(--k));line-height:1.35;color:var(--ink-soft)}
+#lv114 .rows .l em,#ar114 .rows .l em{font-style:normal;font-weight:700;color:var(--accent)}
+#lv114 .lvsub{font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 0}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -3014,7 +3035,7 @@ function showRole(k){T('library-role:'+k,'Role '+k);st.cols=[k];st.q='';$('#q').
  cw.addEventListener('touchstart',e=>{const X0=e.touches[0]&&e.touches[0].clientX;if(e.touches.length!==1||X0<28||X0>innerWidth-28){sx=null;return}sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
  cw.addEventListener('touchend',e=>{if(sx==null)return;const p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;sx=null;if(Math.abs(dx)>70&&Math.abs(dx)>2.2*Math.abs(dy))step(dx<0?1:-1)},{passive:true});}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&rPop){rPop=false;renderControls();return}if(stuck&&e.target.id==='rsw'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();rPop=!rPop;renderControls();return}if(!cur||!$('#pagev').hidden||e.target.closest('input,textarea'))return;if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);else if(e.key==='Escape'&&narrow())closeCard()});
-{const W=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'];let wi=0;const q=$('#q');const set=()=>{q.placeholder='Try “'+W[wi%W.length]+'” or any name';wi++};set();if(!RM.matches)setInterval(()=>{if(!q.value)set()},2600)}
+{const W=['brain fog','glow','joint pain','can’t sleep','belly fat','libido','gut','tired','Reta','healing'];let wi=0;const q=$('#q');const set=()=>{q.placeholder='Try “'+W[wi%W.length]+'”';wi++};set();if(!RM.matches)setInterval(()=>{if(!q.value)set()},2600)}
 let missT=null;$('#q').addEventListener('input',e=>{st.q=e.target.value;renderGrid();if(st.cols.length)renderControls();goTop();clearTimeout(missT);missT=setTimeout(()=>{const q=st.q.trim().toLowerCase();if(q.length>=2&&!filtered().length)T('library-miss:'+q,'No result: '+q)},900)});
 addEventListener('resize',()=>tbar(true));
 {let w6=innerWidth<600;addEventListener('resize',()=>{const n=innerWidth<600;if(n!==w6){w6=n;if($('#pagev').hidden)renderGrid()}})}
@@ -3360,16 +3381,18 @@ function others114(){const S=(window.SUPP||[]),C=(window.BS_CARDS||{});
   return {sup:S.filter(x=>qm114([x.n,x.aka,x.s,x.cat].join(' '))),cas:(C.cases||[]).filter(x=>qm114([x.name,x.line,CKW114[x.id]||''].join(' '))),goa:(C.goals||[]).filter(x=>qm114([x.name,x.line,x.stat].join(' ')))}}
 const li114=o=>`<li><a href="#/${o.slug}" data-lv="${o.slug}"><span class="n">${esc(o.name)}</span>${o.fda?'<span class="t">FDA</span>':''}<span class="d">${(o.roles||[]).slice(0,3).map(r=>`<i style="background:${HEX[r]||'#FFFFF4'}"></i>`).join('')}</span></a></li>`;
 const grp114=(label,col,n,inner)=>`<div class="grp"><p class="gh"><i style="background:${col}"></i>${esc(label)} <b>${n}</b></p><ul>${inner}</ul></div>`;
-const row114=x=>`<li><a href="${x.url}"><span class="n">${esc(x.name)}</span><span class="t">${esc(x.stat||'')}</span></a></li>`;
+const row114=x=>`<li><a href="${x.url}"><span class="n"><b>${esc(x.name)}</b></span><span class="l">${x.stat?`<em>${esc(x.stat)}</em> `:''}${esc(x.line||'')}</span></a></li>`;
 const suppSec114=(S,title)=>{if(!S.length)return '';const C=window.SUPP_CATC||{},cats=(window.SUPP_CATS||[...new Set(S.map(x=>x.cat))]);
   return `<section class="lvs"><div class="sh"><h2>${title||'Supplements'}</h2><span>${S.length}</span></div><div class="cols">${cats.map(c=>{const L=S.filter(x=>x.cat===c);return L.length?grp114(c,C[c]||'#FFFFF4',L.length,L.map(x=>`<li><a href="/supplements/#/${idOf114(x.n)}"><span class="n">${esc(x.n)}</span></a></li>`).join('')):''}).join('')}</div></section>`};
 const rowSec114=(L,title,sub)=>L.length?`<section class="lvs"><div class="sh"><h2>${title}</h2><span>${L.length}${sub?' · '+sub:''}</span></div><ul class="cols rows">${L.map(row114).join('')}</ul></section>`:'';
 function renderLV(){const box=$('#lv114');if(!box)return;if(!LV||EMB114){box.hidden=true;return}
   const L=filtered().filter(o=>!isW(o)),az=(a,b)=>a.name.localeCompare(b.name);let g='';
-  if(st.sort==='role'){const by={};L.forEach(o=>{const r=(o.roles||[])[0]||'other';(by[r]=by[r]||[]).push(o)});g=Object.keys(by).sort((a,b)=>by[b].length-by[a].length).map(r=>grp114(LONG[r]||r,HEX[r]||'#FFFFF4',by[r].length,by[r].map(li114).join(''))).join('')}
+  if(st.sort==='role'){const by={};L.forEach(o=>{const r=(o.roles||[])[0]||'other';(by[r]=by[r]||[]).push(o)});g=Object.keys(by).sort((a,b)=>by[b].length-by[a].length).map(r=>grp114(LONG[r]||r,HEX[r]||'#FFFFF4',by[r].length,by[r].slice().sort(az).map(li114).join(''))).join('')}
   else if(st.sort==='az'){const by={};L.slice().sort(az).forEach(o=>{const c=/[a-z]/i.test(o.name[0])?o.name[0].toUpperCase():'#';(by[c]=by[c]||[]).push(o)});g=Object.keys(by).map(c=>grp114(c,'#FFFFF4',by[c].length,by[c].map(li114).join(''))).join('')}
   else if(GROUP[st.sort]){const by=new Map();L.forEach(o=>{const k=GROUP[st.sort](o);const id=k[0]+'|'+k[1];if(!by.has(id))by.set(id,{k,L:[]});by.get(id).L.push(o)});g=[...by.values()].sort((a,b)=>(a.k[0]>b.k[0])-(a.k[0]<b.k[0])).map(v=>grp114(v.k[1],v.k[2]||'#FFFFF4',v.L.length,v.L.map(li114).join(''))).join('')}
-  else g=grp114('Most looked at first','#FFDE59',L.length,L.map(li114).join(''));
+  else{const P=L.slice().sort((a,b)=>(a.rank||999)-(b.rank||999)||az(a,b)),T=P.slice(0,30),Rr=P.slice(30),by={};
+    Rr.forEach(o=>{const r=(o.roles||[])[0]||'other';(by[r]=by[r]||[]).push(o)});
+    g=grp114('Top 30, most looked at','#FFDE59',T.length,T.map(li114).join(''))+(Rr.length?'<p class="lvsub">The rest, by what it does</p>':'')+Object.keys(by).sort((a,b)=>by[b].length-by[a].length).map(r=>grp114(LONG[r]||r,HEX[r]||'#FFFFF4',by[r].length,by[r].slice().sort(az).map(li114).join(''))).join('')}
   const O=others114();
   box.innerHTML=`<section class="lvs" id="lvpep"><div class="sh"><h2>Peptides</h2><span>${L.length}</span></div><div class="cols">${g||'<p class="note">No peptide matches.</p>'}</div></section>`+suppSec114(O.sup)+rowSec114(O.cas,'Cases','a problem to heal')+rowSec114(O.goa,'Goals','what you want more of');
   box.hidden=false}
