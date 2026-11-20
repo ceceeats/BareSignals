@@ -1,9 +1,10 @@
 <!doctype html>
-<!-- Live copy of supplements/v30/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of supplements/v31/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Supplements v31 (20 Nov 2026, built on v30, kept): toolbar v5 (smaller, same as Library v119); search keeps text matches listed under name matches (from 4 letters) and reads word families (hormone also finds endocrine, testosterone, estrogen, thyroid, cortisol; period finds menstrual, cramps) -->
 <!-- Supplements v30 (20 Nov 2026, built on v29, kept): toolbar v4 (same sizes as the Library) -->
 <!-- Supplements v29 (20 Nov 2026, built on v28, kept): toolbar v3 (Peptides tab; opens straight on the toolbar and Foundations) -->
 <!-- Supplements v28 (20 Nov 2026, built on v27, kept): toolbar v2 (aligned, grid list, doses under names) -->
-<!-- Supplements v27 (20 Nov 2026, built on v26, kept): Library toolbar (search, cards | list icons, sort menu replacing the Groups/Roles/Evidence/A to Z row) and list view, from /libbar/v4.js -->
+<!-- Supplements v27 (20 Nov 2026, built on v26, kept): Library toolbar (search, cards | list icons, sort menu replacing the Groups/Roles/Evidence/A to Z row) and list view, from /libbar/v5.js -->
 <!-- Supplements v26 (19 Nov 2026, v25 kept): first section tab reads All. -->
 <!-- Supplements v25 (10 Nov 2026): intro line in the same size and colour as Cases and Goals; "Reference, not a prescription" uses the light warning look from the Case articles (soft orange with a side bar) instead of a plain box. v24 kept at /supplements/v24/. -->
 <!-- Supplements v24 (10 Nov 2026): the Supplements title and switch are replaced by the shared Library header (Library + Peptides / Supplements / Cases / Goals), same place on all four tabs, so switching tabs no longer shifts the top of the page. v23 kept at /supplements/v23/. -->
@@ -602,15 +603,21 @@ function cardHTML(o){
   tabsHTML(o)+
   `<div class="cft"><span>Data collected by <b>Bare Signals</b></span><span>Research pass 22 Oct 2026 · approval check 23 Oct 2026</span></div></article>`;
 }
+/* v31: word families, and text matches stay listed under name matches (same as Library v119) */
+const SYN31={hormone:['endocrine','testosterone','estrogen','oestrogen','progesterone','thyroid','cortisol','growth hormone','insulin','prolactin','melatonin','androgen'],period:['menstrua','cramp','endometrio','pcos'],menstrual:['period','cramp'],cramp:['period','menstrua'],sleep:['insomnia','melatonin'],anxiety:['stress','calm'],libido:['desire','sexual'],skin:['collagen','wrinkle','acne'],hair:['alopecia','hair loss'],gut:['digest','bloat','bowel'],joint:['tendon','cartilage','ligament'],brain:['cognit','memory','focus'],energy:['fatigue','mitochondri'],weight:['fat loss','appetite','obesity']};
+const stem31=w=>w.replace(/ies$/,'y').replace(/(al|es|s)$/,'');
+function rk31(o){const a=[o.s,(o.aka||[]).join(', ')].join(', ');let r=BS_SEARCH.rank(o.n,a,o._h,q);const t=String(q).toLowerCase().trim();if(t.length<3)return r;
+  const st=stem31(t),k=Object.keys(SYN31).find(k=>k===t||k===st||stem31(k)===st);if(st!==t)r=Math.max(r,BS_SEARCH.rank(o.n,a,o._h,st));
+  if(k)SYN31[k].forEach(w=>{const x=BS_SEARCH.rank(o.n,a,o._h,w);if(x>0)r=Math.max(r,Math.min(x,3)-1)});return r}
 function render(){
   const qq=norm(q),fp=ff?FORF[ff]:null;
-  const RK={};L=S.filter(o=>(!cf.size||cf.has(o.cat))&&(!qq||(RK[o.n]=BS_SEARCH.rank(o.n,[o.s,(o.aka||[]).join(', ')].join(', '),o._h,q))>0)&&(!lf||o.lab.includes(lf))&&(!fp||fp(o)));
+  const RK={};L=S.filter(o=>(!cf.size||cf.has(o.cat))&&(!qq||(RK[o.n]=rk31(o))>0)&&(!lf||o.lab.includes(lf))&&(!fp||fp(o)));
   const EVO=['Strong','Moderate','Limited','Emerging','Traditional'];
   const GK=o=>qq?'Best matches':view==='group'?o.cat:view==='role'?o.lab[0]:view==='ev'?((o.evidence||{}).tier||'Not rated'):o.n[0].toUpperCase();
   if(view==='role')L=KEYS.flatMap(k=>L.filter(o=>o.lab[0]===k));
   else if(view==='ev')L=[...EVO,'Not rated'].flatMap(t=>L.filter(o=>((o.evidence||{}).tier||'Not rated')===t));
   else if(view==='az')L=[...L].sort((a,b)=>a.n.localeCompare(b.n));
-  if(qq){const mb=BS_SEARCH.best(L.map(o=>RK[o.n]));L=L.filter(o=>RK[o.n]>=mb).sort((a,b)=>RK[b.n]-RK[a.n])}
+  if(qq){if(qq.length<4){const mb=BS_SEARCH.best(L.map(o=>RK[o.n]));L=L.filter(o=>RK[o.n]>=mb)}L=L.sort((a,b)=>RK[b.n]-RK[a.n])}
   $('#count').textContent=L.length+'/'+S.length;
   let h='',last=null;
   L.forEach(o=>{
@@ -726,6 +733,6 @@ setT(TK0());
 render();route();phTick();
 })();
 </script>
-<script src="/libbar/v4.js" defer></script>
+<script src="/libbar/v5.js" defer></script>
 </body>
 </html>

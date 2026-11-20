@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v119 (20 Nov 2026, built on v118, kept): search reads everything: each compound's summary, what it helps and what people report, each supplement's what it does (sx.js); word families (hormone also finds endocrine, testosterone, estrogen, thyroid; period finds menstrual and cramps); text matches no longer hidden once a name matches (only for 1 to 3 letters). Smaller toolbar: 36px controls, 15px icons, search text still 16px; the picked view fills inside its box. -->
 <!-- Library v118 (20 Nov 2026, built on v117, kept): one toolbar on every tab (28px tabs on phone, 44px controls, 16px search text, same gaps). -->
 <!-- Library v117 (20 Nov 2026, built on v116, kept): supplement Full read links open the live /supplements/ page (was /supplements/v22/). -->
 <!-- Library v116 (20 Nov 2026, built on v115, kept): Peptides tab (All | Peptides | Supplements | Cases | Goals); /library/?pep shows peptides only; tab icons hide on phone so five fit. -->
@@ -1890,10 +1891,10 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 
 /* v115: aligned toolbar, full-width list groups */
 .trow{align-items:stretch}
-.trow .qw,.trow #q{height:44px}
-.trow #q{box-sizing:border-box;padding-top:0!important;padding-bottom:0!important;height:44px!important}
-.ib114{width:44px;min-height:44px;height:44px}
-.seg114,.sq114{height:44px;box-sizing:border-box}
+.trow .qw,.trow #q{height:36px}
+.trow #q{box-sizing:border-box;padding-top:0!important;padding-bottom:0!important;height:36px!important}
+.ib114{width:38px;min-height:0;height:100%}
+.seg114,.sq114{height:36px;box-sizing:border-box}.seg114{overflow:hidden}.sq114{width:38px}.ib114 svg{width:15px;height:15px}
 #lv114 .cols,#ar114 .cols{columns:auto!important;display:block}
 #lv114 .grp,#ar114 .grp{margin:12px 0 0}
 #lv114 .gh,#ar114 .gh{border-bottom:1.5px solid var(--rule);padding:0 0 4px;margin:0 0 2px}
@@ -2037,7 +2038,7 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 </div>
 
 <script src="/blood/v21/lib.js"></script>
-<script src="data.js"></script><script src="mix.js"></script><script src="supp.js"></script><script src="punch.js"></script><script src="card.js"></script><script src="take.js"></script>
+<script src="data.js"></script><script src="mix.js"></script><script src="supp.js"></script><script src="sx.js"></script><script src="punch.js"></script><script src="card.js"></script><script src="take.js"></script>
 <script src="pk.js"></script>
 <script src="mol.js"></script>
 <script src="rx.js"></script><script src="rxw.js"></script>
@@ -2143,6 +2144,19 @@ let fOpen=[false,false,false,false,false,false],rinfo=null;
 const norm=x=>String(x||'').toLowerCase().replace(/[\s\-–()]/g,'');
 function near(a,b){if(a.length!==b.length)return false;let d=0;for(let i=0;i<a.length;i++)if(a[i]!==b[i]&&++d>1)return false;return true}
 /* v53: search ranks by name first, so typing a few letters finds the compound right away. Name starts with it > a word in the name starts with it > an alias starts with it > name contains it > alias contains it > keywords and use line > role meanings (3+ letters). One letter shows only names (or aliases) starting with that letter; when names match, text-only matches are hidden. */
+/* v119: word families and full text */
+const SYN119={hormone:['endocrine','testosterone','estrogen','oestrogen','progesterone','thyroid','cortisol','growth hormone','insulin','prolactin','melatonin','androgen','gonadotropin'],
+ period:['menstrua','cramp','endometrio','pcos','cycle pain'],menstrual:['period','cramp'],cramp:['period','menstrua'],
+ weight:['fat loss','appetite','obesity'],fat:['weight','obesity'],sleep:['insomnia','melatonin'],anxiety:['anxious','stress','calm'],
+ libido:['desire','sexual','erect'],testosterone:['androgen','hormone'],estrogen:['oestrogen','hormone'],skin:['collagen','wrinkle','acne'],
+ hair:['hair loss','alopecia'],gut:['bowel','digest','bloat','colitis'],inflammation:['inflamm','swelling'],joint:['tendon','ligament','cartilage','knee'],
+ brain:['cognit','memory','focus'],energy:['fatigue','mitochondri','atp'],aging:['longevity','ageing','anti-aging'],immune:['immunity','infection']};
+const stem119=w=>w.replace(/(ies)$/,'y').replace(/(al|es|s)$/,'');
+function fam119(raw){const q=String(raw||'').toLowerCase().trim().replace(/\s+/g,' ');if(!q)return [];const st=stem119(q);
+  const k=Object.keys(SYN119).find(k=>k===q||k===st||stem119(k)===st);return [...new Set([q,st].concat(k?SYN119[k]:[]))].filter(x=>x.length>=3)}
+const wre119=w=>new RegExp('(^|[^a-z0-9])'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+function full119(key,raw){const t=(window.BS_SX||{})[key];if(!t)return 0;const F=fam119(raw);if(!F.length)return 0;
+  if(wre119(F[0]).test(t))return 2;return F.slice(1).some(w=>wre119(w).test(t))?1.5:0}
 const WSPLIT=/[\s\-–+/(),;·&]+/;
 function score(o,q){q=q.replace(/cantsleep|can'tsleep|can’tsleep/,'sleep');
   if(!q)return 1;
@@ -2158,8 +2172,9 @@ function score(o,q){q=q.replace(/cantsleep|can'tsleep|can’tsleep/,'sleep');
   if(norm(o.fn).includes(q))return 3.5;
   if(q.length>=3&&near(q,nm.slice(0,q.length)))return 3;
   if(q.length<3)return 0;
-  const rs=o.roles.concat(o.reported);
-  if(rs.some(k=>norm(LONG[k]+RS[k]+(RK[k]||'')).includes(q)))return 1;
+  const ft=full119(o.slug,st.q);if(ft)return ft;
+  const rs=o.roles.concat(o.reported),F=fam119(st.q).map(norm);
+  if(rs.some(k=>{const t=norm(LONG[k]+RS[k]+(RK[k]||''));return F.some(w=>t.includes(w))}))return 1;
   return 0;
 }
 const FAM=[['Body and metabolism',['Appetite','Glucose','Fat','Energy','Endocrine','Muscle']],['Repair and structure',['Repair','Inflammation','Pain','Bone','Skin','Hair','Tanning']],['Protection and organs',['Immunity','Protection','Organ','Gut','Heart','DNA','Aging','Cancer']],['Brain and mood',['Cognition','Drive','Mood','Plasticity','Neuroprotection','Sleep','Reward']],['Sex and reproduction',['Desire','Reproductive']]].concat(HEX.Water?[['Mixing',['Water']]]:[]);
@@ -2420,7 +2435,7 @@ function startFloat(root){
 function filtered(){
   const q=norm(st.q.trim());
   let L=D.filter(o=>inT(o)&&(!st.cols.length||st.cols.some(c=>has(o,c)))).map(o=>[o,score(o,q)]).filter(x=>x[1]>0);
-  if(q&&L.some(x=>x[1]>=6))L=L.filter(x=>x[1]>=6);
+  if(q&&q.length<4&&L.some(x=>x[1]>=6))L=L.filter(x=>x[1]>=6);
   const az=(a,b)=>a.name.localeCompare(b.name),pop=(a,b)=>((a.rank||999)-(b.rank||999))||az(a,b);
   const G=GROUP[st.sort];
   L.sort((x,y)=>(G&&!q?G(x[0])[0]-G(y[0])[0]:0)||(q?y[1]-x[1]:0)||(st.sort==='size'&&!q?x[0].seq.length-y[0].seq.length:0)||(st.sort==='az'?az(x[0],y[0]):pop(x[0],y[0])));
@@ -3386,13 +3401,13 @@ addEventListener('hashchange',chk112);addEventListener('load',()=>setTimeout(chk
 /* v114: Finder-style toolbar, list view, search everything */
 const LV114K='bs-view';let LV=false,LVY=0;try{LV=localStorage.getItem(LV114K)==='list'}catch(e){}
 const EMB114=document.documentElement.classList.contains('emb104')||new URLSearchParams(location.search).get('embed')==='1';
-const CKW114={"tennis-elbow": "elbow tendon tendonitis lateral epicondylitis", "achilles": "achilles tendon heel", "knee": "knee acl meniscus", "gut": "gut ibs leaky bloating colitis", "endometriosis": "endometriosis endo", "pcos": "pcos polycystic", "period-pain": "period cramps menstrual pain", "glp-1": "glp ozempic wegovy weight"};
+const CKW114={"tennis-elbow": "elbow tendon tendonitis lateral epicondylitis", "achilles": "achilles tendon heel", "knee": "knee acl meniscus", "gut": "gut ibs leaky bloating colitis", "endometriosis": "endometriosis endo hormone hormonal estrogen period", "pcos": "pcos polycystic hormone hormonal androgen testosterone insulin", "period-pain": "period cramps menstrual pain hormone hormonal menstrual cramps", "glp-1": "glp ozempic wegovy weight hormone glp1 weight appetite"};
 const SN114={pop:'Popular',role:'What it does',origin:'Peptide or not',blend:'Blends',ev:'Evidence',route:'How it’s taken',az:'A to Z',size:'Size'};
 const idOf114=n=>String(n).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const nm114=x=>String(x||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9+ ]/g,' ').replace(/\s+/g,' ');
-const qm114=t=>{const q=nm114(st.q).trim();return !q||nm114(t).includes(q)};
+const qm114=(t,key,roles)=>{const q=nm114(st.q).trim();if(!q)return true;if(nm114(t).includes(q))return true;if(q.length<3)return false;if(key&&full119(key,st.q))return true;const F=fam119(st.q).map(nm114);if(F.some(w=>w.length>=4&&nm114(t).includes(w)))return true;return (roles||[]).some(k=>{const r=nm114((LONG[k]||'')+' '+(RS[k]||'')+' '+(RK[k]||''));return F.some(w=>r.includes(w))})};
 function others114(){const S=(window.SUPP||[]),C=(window.BS_CARDS||{});
-  return {sup:S.filter(x=>qm114([x.n,x.aka,x.s,x.cat].join(' '))),cas:(C.cases||[]).filter(x=>qm114([x.name,x.line,CKW114[x.id]||''].join(' '))),goa:(C.goals||[]).filter(x=>qm114([x.name,x.line,x.stat].join(' ')))}}
+  return {sup:S.filter(x=>{const o=(window.BS_DATA||[]).find(d=>d.origin==='supp'&&d.name===x.n);return qm114([x.n,x.aka,x.s,x.cat].join(' '),o&&o.slug,o&&o.roles)}),cas:(C.cases||[]).filter(x=>qm114([x.name,x.line,CKW114[x.id]||''].join(' '))),goa:(C.goals||[]).filter(x=>qm114([x.name,x.line,x.stat].join(' ')))}}
 const li114=o=>`<li><a href="#/${o.slug}" data-lv="${o.slug}"><span class="n">${esc(o.name)}</span>${o.fda?'<span class="t">FDA</span>':''}<span class="d">${(o.roles||[]).slice(0,3).map(r=>`<i style="background:${HEX[r]||'#FFFFF4'}"></i>`).join('')}</span></a></li>`;
 const grp114=(label,col,n,inner)=>`<div class="grp"><p class="gh"><i style="background:${col}"></i>${esc(label)} <b>${n}</b></p><ul>${inner}</ul></div>`;
 const row114=x=>`<li><a href="${x.url}"><span class="n"><b>${esc(x.name)}</b></span><span class="l">${x.stat?`<em>${esc(x.stat)}</em> `:''}${esc(x.line||'')}</span></a></li>`;
