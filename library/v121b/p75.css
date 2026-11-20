@@ -1,0 +1,41 @@
+/* Library v75 (27 Oct 2026, built on v74): Key takeaway labels in orange and
+   paired (What it is with Legal, What for with Evidence) so no label sits on a
+   line of its own; reading progress bar on full pages, deep reads and long
+   cards. v74 kept. */
+
+/* ---------- key takeaway, paired ---------- */
+.kt .kt2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0;align-items:start}
+.kt .kc{min-width:0;display:flex;flex-direction:column;gap:7px}
+.kt .kr{margin:0;display:block}
+.kt .kr dt{display:block;margin:0 0 1px;font:600 calc(9.5px*var(--k))/1.35 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.kt .kr dd{margin:0;font-size:calc(13px*var(--k));line-height:1.42;color:var(--ink)}
+/* a thin dashed rule between the two pairs on wide screens */
+.kt .kc:first-child{padding-right:16px}
+.kt .kc+.kc{border-left:1px dashed var(--rule);padding-left:16px;align-self:stretch}
+
+/* phone: one column, label runs into its line (no label-only lines) */
+@media (max-width:599px){
+  .kt .kt2{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .kt .kc{gap:6px}
+  .kt .kc:first-child{padding-right:0}
+  .kt .kc+.kc{border-left:0;padding-left:0;margin-left:0}
+  .kt .kr dt{display:inline;margin:0 6px 0 0;font-size:calc(9px*var(--k));vertical-align:1px}
+  .kt .kr dd{display:inline;font-size:calc(12.5px*var(--k))}
+}
+.big-text .kt .kr dt{font-size:calc(9px*var(--k))}
+
+/* ---------- reading progress ---------- */
+#rp75{position:fixed;left:0;top:0;height:3px;width:100%;z-index:9999;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);background:var(--accent);opacity:0;transition:opacity .2s ease}
+#rp75.on{opacity:1}
+@media (prefers-reduced-motion:no-preference){#rp75{transition:opacity .2s ease,transform .08s linear}}
+/* long slash-joined words (supplement/compounded) may break rather than spill */
+.kt .kr dd{overflow-wrap:break-word}
+/* a narrow box (laptop card at the largest text) drops to the phone layout */
+.kt{container-type:inline-size}
+@container (max-width:430px){
+  .kt .kt2{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .kt .kc:first-child{padding-right:0}
+  .kt .kc+.kc{border-left:0;padding-left:0}
+  .kt .kr dt{display:inline;margin:0 6px 0 0;vertical-align:1px}
+  .kt .kr dd{display:inline}
+}
