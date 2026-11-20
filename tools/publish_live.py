@@ -8,12 +8,12 @@ os.chdir(REPO)
 CUR = {}
 for f in glob.glob('**/index.html', recursive=True):
     d = os.path.dirname(f)
-    if re.search(r'(^|/)v\d+(/|$)', d) or d.startswith('scan') or d in ('', 'go', 'library', 'library/cases', 'encyclopedia'):
+    if re.search(r'(^|/)v\d+[a-z]?(/|$)', d) or d.startswith('scan') or d in ('', 'go', 'library', 'library/cases', 'encyclopedia'):
         continue
     stub = f'{d}/redirect-stub.html' if os.path.exists(f'{d}/redirect-stub.html') else f
     t = open(stub, encoding='utf8').read()
     if len(t) > 2000: continue
-    m = re.search(r"""(?:replace\(\s*['"]|url=)(?:/%s/)?(v\d+)/""" % re.escape(d), t)
+    m = re.search(r"""(?:replace\(\s*['"]|url=)(?:/%s/)?(v\d+[a-z]?)/""" % re.escape(d), t)
     if not m: continue
     v = m.group(1)
     if not os.path.isdir(f'{d}/{v}'): continue
@@ -34,7 +34,7 @@ for f in glob.glob('**/index.html', recursive=True):
             shutil.copy(src, f'{d}/{name}')
 # live files: root-level pages and shared scripts outside version folders
 LIVE = [f for f in glob.glob('**/*', recursive=True)
-        if os.path.isfile(f) and f.endswith(('.html', '.js')) and not re.search(r'(^|/)v\d+(\.\d+)?(/|\.js$)', f)
+        if os.path.isfile(f) and f.endswith(('.html', '.js')) and not re.search(r'(^|/)v\d+[a-z]?(\.\d+)?(/|\.js$)', f)
         and not f.startswith(('tools/', 'scan/')) and not f.endswith('redirect-stub.html')]
 pat = re.compile(r'/(%s)/(v\d+)/' % '|'.join(re.escape(d) for d in sorted(CUR, key=len, reverse=True)))
 changed = []

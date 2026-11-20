@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of protocol/v42/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of protocol/v42b/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Protocol v42b (20 Nov 2026, built on v42, kept): no jump on load: the page reserves the site bar height and width padding in its head, and its text-size fallback reads the same setting as the site bar (standard A by default), so it no longer paints 15% too big and shrinks. Layout and behaviour only. -->
 <!-- Protocol v42 (20 Nov 2026, built on v41, kept): every box 16px on phone so the iPhone never zooms in (peptide search, name, morning/midday/evening times were 12.5 to 14px) -->
 <!-- Protocol v41 (20 Nov 2026, built on v40, kept): reads the live Library instead of the pinned v85 copy (adds metronidazole, doxycycline, tranexamic acid, dexketoprofen; 21 summaries and the thymosin alpha-1 dose catch up) -->
 <!-- Protocol v40 (6 Nov 2026, v39 kept): NAD+ back to 50 mg start (range 50–100 mg); NA Semax Amidate starts at 250 mcg (sticker). -->
@@ -809,7 +810,8 @@ button.rtg.chx b,.syn b{font:700 11px/1 var(--body);opacity:.8}
 .spv{margin:14px 0 0}
 @media (max-width:640px){.sgw{grid-template-columns:1fr 1fr;gap:8px}.sc2 b{font-size:12.5px}.sc2 small{font-size:10.5px}.divider{margin:38px 0 6px}}
 </style>
-<style>/* no iPhone zoom: every box 16px on phone */@media (max-width:899px){input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}html body textarea#intro,html body input#fq,html body input#wname,html body input#shr{font-size:16px!important}}</style></head>
+<style>/* no iPhone zoom: every box 16px on phone */@media (max-width:899px){input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}html body textarea#intro,html body input#fq,html body input#wname,html body input#shr{font-size:16px!important}}</style><style id="bsn-res">/* reserve the site bar height until nav.js adds its spacer, so the page does not jump on load */:root{--bs-w:1240px;--bs-pad:24px}@media (max-width:999.98px){:root{--bs-pad:16px}}body:not(:has(>.bsn-sp))::before{content:"";display:block;height:49px}@media (min-width:1000px){body:not(:has(>.bsn-sp))::before{height:51px}}</style>
+</head>
 <body>
 <div class="wrap" id="wrap">
  <h1>Protocol <small>Draft</small></h1>
@@ -886,7 +888,7 @@ button.rtg.chx b,.syn b{font:700 11px/1 var(--body);opacity:.8}
 <script src="/blood/lib.js"></script>
 <script>
 (function(){var K={s:.88,m:1,l:1.15};function ap(k){k=+k||1;var m=document.querySelector('#wrap');if(!m)return;m.style.zoom=k===1?'':k;m.style.setProperty('--k',k);m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4));}
-var k0=1.15;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text-w')]||1.15):(K[localStorage.getItem('bs-text')]||1.15))}catch(e){}ap(k0);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
+var k0=1;try{k0=(window.BS_TEXT&&BS_TEXT.get().k)||(innerWidth>=1000?({s:.88,m:1,l:1.15,xl:1.3,xxl:1.45}[localStorage.getItem('bs-text2-w')]||1):(K[localStorage.getItem('bs-text2')]||1))}catch(e){}ap(k0);addEventListener('bs-text',function(e){ap(e.detail&&e.detail.k)})})();
 (function(){
 'use strict';
 const D=window.BS_DATA||[],PAL=window.BS_PALETTE||[],BW=window.BW_LIB||{tests:{},comps:{},sup:{}};
