@@ -1,0 +1,37 @@
+/* Library v101: medicines. Mixing it with (blue), Taking it right (yellow), How it compares (sky) */
+.k-rx{--sb:#6777B6;--sbg:#EEF0FA;--sh:#3E4A80}
+.k-rxt{--sb:#CCA300;--sbg:#FFF9E0;--sh:#7A6000}
+.k-rxc{--sb:#74BCFF;--sbg:#EEF7FF;--sh:#1F5C99}
+.rxk{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}
+.rxt{display:inline-block;font:600 calc(8.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 6px 3px;border-radius:0;white-space:nowrap}
+.rxg{margin:0 0 10px}
+.rxh{font:500 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sh);margin:6px 0 4px}
+.rxl{list-style:none;margin:0;padding:0}
+.rxl li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;align-items:start;padding:6px 0;border-bottom:1px solid rgba(62,74,128,.14)}
+.rxl li:last-child{border-bottom:0}
+.rxl li .rxt{justify-self:start;margin-top:2px}
+.rxl b{display:block;font-weight:600;font-size:calc(12.5px*var(--k));line-height:1.3}
+.rxl b a{color:#5271FF;text-decoration:underline;text-underline-offset:2px}
+.rxl span{font-size:calc(12px*var(--k));line-height:1.45}
+.rxc{font-style:normal;font:500 calc(8px*var(--k)) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-left:4px;white-space:nowrap}
+.rxs{list-style:none;margin:0;padding:0;counter-reset:rx}
+.rxs li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:5px 0;border-bottom:1px solid rgba(122,96,0,.16);font-size:calc(12.5px*var(--k));line-height:1.45}
+.rxs li:last-child{border-bottom:0}
+.rxs li::before{counter-increment:rx;content:counter(rx);font:600 calc(10px*var(--k))/20px var(--mono);text-align:center;background:#CCA300;color:#fff;width:20px;height:20px}
+.rxs b{font-weight:600}
+.rxcm{width:100%;border-collapse:collapse;font-size:calc(12px*var(--k));line-height:1.4}
+.rxcm th,.rxcm td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid rgba(31,92,153,.16)}
+.rxcm thead th{font:500 calc(8.5px*var(--k)) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sh)}
+.rxcm tbody th{font-weight:600;width:24%}
+.rxcm .rb::before{content:'+ ';color:#2F6B46;font-weight:700}.rxcm .rw::before{content:'− ';color:#B3000F;font-weight:700}
+.rxi{margin:0 0 8px;font-size:calc(12.5px*var(--k))}
+.rxq{display:none}
+@media (max-width:899px){.rxcm{display:none}.rxq{display:block}.rxq>div{padding:7px 0;border-bottom:1px solid rgba(31,92,153,.16)}.rxq>div:last-child{border-bottom:0}.rxq b{display:block;font-size:calc(13px*var(--k))}.rxq p{margin:2px 0 0;font-size:calc(12px*var(--k));line-height:1.45}.rxq .rb::before{content:'+ ';color:#2F6B46;font-weight:700}.rxq .rw::before{content:'− ';color:#B3000F;font-weight:700}.rxl li{grid-template-columns:68px minmax(0,1fr)}}
+.crx{padding:4px 12px 10px;border-top:1.5px solid var(--rule)}
+.crx .wbox{border-left:3px solid #6777B6!important;background:#EEF0FA!important}
+.crx .olab{color:#3E4A80!important}
+.crx ul{list-style:none;margin:4px 0 0;padding:0}.crx li{padding:3px 0;font-size:calc(12px*var(--k));line-height:1.4}
+.crx li .rxt{margin-right:6px;vertical-align:1px}
+.crx a{color:#5271FF;text-decoration:underline}
+@media (min-width:900px){.k-rx>.b65{columns:2;column-gap:28px}.k-rx .rxg,.k-rx .rxk{break-inside:avoid}.k-rx .note{column-span:all}}
+.rxdr{display:inline-block;margin:6px 0 0;color:#5271FF;font-weight:600;text-decoration:underline;text-underline-offset:3px}

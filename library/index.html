@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v117 (20 Nov 2026, built on v116, kept): supplement Full read links open the live /supplements/ page (was /supplements/v22/). -->
 <!-- Library v116 (20 Nov 2026, built on v115, kept): Peptides tab (All | Peptides | Supplements | Cases | Goals); /library/?pep shows peptides only; tab icons hide on phone so five fit. -->
 <!-- Library v115 (20 Nov 2026, built on v114, kept): toolbar at one 44px height; list groups full width with names in an even grid; Popular list = Top 30 then by What it does; Case and Goal rows read as one sentence. -->
 <!-- Library v114 (20 Nov 2026, built on v113, kept): Finder-style toolbar (cards | list icons and one sort button with a Sort by menu, replacing the Sort bar, density buttons and Browse by row); list view of every name grouped by the sort, plus Supplements, Cases and Goals; search under All finds Cases, Goals and Supplements too. -->
@@ -2649,7 +2650,7 @@ function suppCard(o,anim){const x=o.supp,d=o.dose;
     ${whoNotHTML(o)}
     ${x.warn.length?`<div class="cs">${x.warn.slice(0,2).map(t=>warn(t,'Watch')).join('')}${x.buy[0]?warn(x.buy[0],'Buying','buy'):''}</div>`:''}
     ${goes?`<div class="cs csyn"><p class="olab">Goes with</p><div class="synl">${goes}</div></div>`:''}
-    <div class="go"><span class="credit">Data collected by <b>Bare Signals</b></span><span class="gb"><button class="shb" data-share="${o.slug}">Share</button><a class="fpb" href="/supplements/v22/#/${o.sid}">Full read →</a></span></div>
+    <div class="go"><span class="credit">Data collected by <b>Bare Signals</b></span><span class="gb"><button class="shb" data-share="${o.slug}">Share</button><a class="fpb" href="/supplements/#/${o.sid}">Full read →</a></span></div>
   </article>`}
 function waterCard(o,anim){const w=o.water;
   return `<div class="cnav">${(()=>{const p=nbr(-1),n=nbr(1);return `<button class="nv nvp" data-step="-1" aria-label="Previous compound">‹${p?`<span>${esc(p.name)}</span>`:''}</button><button class="nv nvn" data-step="1" aria-label="Next compound">${n?`<span>${esc(n.name)}</span>`:''}›</button>`})()}<button class="x" id="x" aria-label="Close card">×</button></div><article class="card${anim?' in-'+anim:''}">
