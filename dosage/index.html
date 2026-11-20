@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of dosage/v33/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of dosage/v34/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Dosage v34 (20 Nov 2026, built on v33, kept): no jump on load: the page reserves the site bar height and width padding in its head, and its text-size fallback reads the same setting as the site bar (standard A by default), so it no longer paints 15% too big and shrinks. Layout and behaviour only. -->
 <!-- Dosage v33 (20 Nov 2026, built on v32, kept): reads the live Library (/library/data.js, page.js, merge.js) instead of the pinned v101 copy, so every Library update shows here at once -->
 <!-- Dosage v32 (20 Nov 2026, built on v31, kept): search text 16px on phone so the iPhone never zooms in; search reads phrases and word families (shared search v2) -->
 <!-- Dosage v31 (20 Nov 2026, built on v30, kept): opening or closing a compound keeps its row at the same height on screen (before, the page scrolled to show the whole row). -->
@@ -182,7 +183,8 @@ a.ct:hover{box-shadow:1.5px 1.5px 0 var(--ink)}
 </style>
 <script src="/nav.js" defer></script>
 <script src="/search.js"></script>
-<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style></head>
+<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style><style id="bsn-res">/* reserve the site bar height until nav.js adds its spacer, so the page does not jump on load */:root{--bs-w:1240px;--bs-pad:24px}@media (max-width:999.98px){:root{--bs-pad:16px}}body:not(:has(>.bsn-sp))::before{content:"";display:block;height:49px}@media (min-width:1000px){body:not(:has(>.bsn-sp))::before{height:51px}}</style>
+</head>
 <body>
 <div class="wrap">
  <div class="top">
@@ -224,7 +226,7 @@ a.ct:hover{box-shadow:1.5px 1.5px 0 var(--ink)}
   const m=document.getElementById('main');
   const ap=k=>{k=+k||1;m.style.zoom=k===1?'':k;m.style.setProperty('--hk',((1+.4*(k-1))/k).toFixed(4))};
   let k0=window.BS_TEXT&&BS_TEXT.get&&BS_TEXT.get().k;
-  if(!k0){const w=innerWidth>=1000,KN={s:.88,m:1,l:1.15},KW={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let t=null;try{t=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}k0=(w?KW:KN)[t]||1.15}
+  if(!k0){const w=innerWidth>=1000,KN={s:.88,m:1,l:1.15},KW={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let t=null;try{t=localStorage.getItem(w?'bs-text2-w':'bs-text2')}catch(e){}k0=(w?KW:KN)[t]||1}
   ap(k0);
   addEventListener('bs-text',e=>ap(e.detail&&e.detail.k));
 })();

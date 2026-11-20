@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of blood/v30/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of blood/v31/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Blood v31 (20 Nov 2026, built on v30, kept): no jump on load: the page reserves the site bar height and width padding in its head, and its text-size fallback reads the same setting as the site bar (standard A by default), so it no longer paints 15% too big and shrinks. Layout and behaviour only. -->
 <!-- Blood v30 (20 Nov 2026, built on v29, kept): search text 16px on phone so the iPhone never zooms in; search reads phrases and word families (shared search v2) -->
 <!-- Blood Work v29 (19 Nov 2026, built on v28, v28 kept): four prescription medicines (metronidazole, doxycycline, tranexamic acid, dexketoprofen) added via rx.js. -->
 <html lang="en">
@@ -656,7 +657,8 @@ h1 small{font:500 9px var(--mono)}
 </style>
 <script src="/nav.js" defer></script>
 <script src="/search.js"></script>
-<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style></head>
+<style>/* no zoom on tap */@media (max-width:899px){input[type=search],input[type=text],select{font-size:16px!important}}</style><style id="bsn-res">/* reserve the site bar height until nav.js adds its spacer, so the page does not jump on load */:root{--bs-w:1240px;--bs-pad:24px}@media (max-width:999.98px){:root{--bs-pad:16px}}body:not(:has(>.bsn-sp))::before{content:"";display:block;height:49px}@media (min-width:1000px){body:not(:has(>.bsn-sp))::before{height:51px}}</style>
+</head>
 <body>
 <div class="wrap">
   <header class="top"><div>
@@ -1112,7 +1114,7 @@ window.addEventListener('hashchange',()=>{const t=document.getElementById('toast
 const TSK={s:.88,m:1,l:1.15};
 function setTS(z){z=+z||1;curK=z;setTimeout(()=>{try{applyCols()}catch(e){}},0);['#main','#shp'].forEach(s=>{const el=$(s);if(el){el.style.zoom=z===1?'':z;el.style.setProperty('--z',z);el.style.setProperty('--hk',((1+.4*(z-1))/z).toFixed(4))}})}
 /* v19: nav v10 sends {key,k,wide}; apply k. Fallback read: laptop bs-text-w (default l), phone bs-text (default m) */
-function TSK0(){if(window.BS_TEXT)return BS_TEXT.get().k;const w=matchMedia('(min-width:1000px)').matches,K={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let v;try{v=localStorage.getItem(w?'bs-text-w':'bs-text')}catch(e){}return K[v]||1.15}
+function TSK0(){if(window.BS_TEXT)return BS_TEXT.get().k;const w=matchMedia('(min-width:1000px)').matches,K={s:.88,m:1,l:1.15,xl:1.3,xxl:1.45};let v;try{v=localStorage.getItem(w?'bs-text2-w':'bs-text2')}catch(e){}return K[v]||1}
 setTS(TSK0());addEventListener('bs-text',e=>setTS(e.detail&&e.detail.k));
 key();route();
 })();
