@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v118 (20 Nov 2026, built on v117, kept): one toolbar on every tab (28px tabs on phone, 44px controls, 16px search text, same gaps). -->
 <!-- Library v117 (20 Nov 2026, built on v116, kept): supplement Full read links open the live /supplements/ page (was /supplements/v22/). -->
 <!-- Library v116 (20 Nov 2026, built on v115, kept): Peptides tab (All | Peptides | Supplements | Cases | Goals); /library/?pep shows peptides only; tab icons hide on phone so five fit. -->
 <!-- Library v115 (20 Nov 2026, built on v114, kept): toolbar at one 44px height; list groups full width with names in an even grid; Popular list = Top 30 then by What it does; Case and Goal rows read as one sentence. -->
@@ -1910,6 +1911,13 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 /* v116: five tabs; Peptides-only view */
 .pep116 #shelf,.pep116 #ar114{display:none!important}
 @media (max-width:520px){.lsw a svg{display:none}.lsw a{padding:9px 2px;font-size:9.5px;letter-spacing:.03em;flex:1 1 auto;min-width:0}}
+
+/* v118: one toolbar on every tab */
+@media (max-width:520px){.lsw a{height:28px;box-sizing:border-box;padding-top:0!important;padding-bottom:0!important}}
+.trow #q{font:500 16px/1.2 "Hanken Grotesk",system-ui,sans-serif!important;padding-left:12px!important}
+@media (min-width:900px){.trow #q{font-size:15px!important}}
+@media (max-width:899px){.trow #q{padding-right:12px!important}}
+.trow #q::placeholder{color:#6B76A8;opacity:1}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>

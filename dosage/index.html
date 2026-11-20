@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Live copy of dosage/v30/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Live copy of dosage/v31/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Dosage v31 (20 Nov 2026, built on v30, kept): opening or closing a compound keeps its row at the same height on screen (before, the page scrolled to show the whole row). -->
 <!-- Dosage v30 (19 Nov 2026, built on v29, v29 kept): reads Library v101, so the four prescription medicines (metronidazole, doxycycline, tranexamic acid, dexketoprofen) show with their label doses. --><!-- Dosage v29 (4 Nov 2026, v28 kept): reads Library v85; an approved Library dose replaces the old community override (Retatrutide, Semaglutide, HGH). -->
 <!-- Dosage v28 (4 Nov 2026): same page as v27, data from the live Library v79 (was Library v49): Pinealon 100–500 mcg, Glutathione 200–600 mg, 5-Amino-1MQ injected tiers, Selank cycle. v27 kept. -->
 <html lang="en">
@@ -327,8 +328,9 @@ function jump(slug){
   el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit');
 }
 function rerender(slug){
-  const y=window.scrollY;list();window.scrollTo(0,y);
-  const el=document.getElementById(slug);if(el&&open[slug])el.scrollIntoView({block:'nearest'});
+  /* v31: the row you tapped stays at the same height on screen while it opens or closes */
+  const b=document.getElementById(slug),t0=b?b.getBoundingClientRect().top:null,y=window.scrollY;list();window.scrollTo(0,y);
+  const el=document.getElementById(slug);if(el&&t0!=null){const d=el.getBoundingClientRect().top-t0;if(Math.abs(d)>1)window.scrollTo(0,window.scrollY+d)}
 }
 window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&!h.startsWith('/'))jump(h)});
 $('#only').addEventListener('click',e=>{if(e.target.id==='showall'){ONLY=null;history.replaceState(null,'',location.pathname+location.hash);list()}});

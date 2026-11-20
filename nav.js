@@ -225,3 +225,15 @@ window.BS_GC='';  /* GoatCounter site code, e.g. 'baresignals' for baresignals.g
  while(n=w.nextNode()){var m=n.nodeValue.match(/Live copy of ([\w\/-]+?)\/(v\d+)\//)||n.nodeValue.match(/^\s*((?:Library|Guide|Home|Protocol|Blood|Dosage)[\w ()]*?) (v\d+)\b/);if(m){t=m[1].split('/').pop().replace(/-/g,' ')+' '+m[2];break}}
  var c=document.createElement('a');c.href='/versions/';c.textContent=t||'version unknown';c.style.cssText='position:fixed;right:8px;bottom:8px;z-index:99999;background:#FFFFF4;color:#3E4A80;border:1.5px solid #3E4A80;padding:5px 8px;font:600 12px ui-monospace,monospace;text-decoration:none;box-shadow:2px 2px 0 #E3E0BF';
  (document.body?Promise.resolve():new Promise(function(r){addEventListener('DOMContentLoaded',r)})).then(function(){document.body.appendChild(c)})}catch(e){}})();
+
+/* 20 Nov 2026: keep what you tapped where it was. iPhone Safari does not hold the reading position when something
+   above or around a tapped toggle changes size, so a Why, a FAQ, a +, a fold or a tab inside a page would make the
+   text you were reading slide away. After any in-page tap, if the page itself was not meant to move, the tapped
+   thing is put back at the same height on screen. Links that open another page or card are left alone. */
+(function(){try{
+ var SKIP='a[href]:not([href="#"]),.tl,.lsw a,[data-v114],[data-v1],#sb114,#sb1,.seg105 *,.pk104,.nvn,.nvp,#x,.x,.dtoc,[data-ds],.bsbm,[data-open],.fpb,[data-share],input,select,textarea';
+ document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;
+  var el=t.closest('summary,button,[role=button],label,.mx108,[data-ri],[data-rb],.wy,[aria-expanded]');if(!el||el.closest(SKIP))return;
+  var y0=window.scrollY,r0=el.getBoundingClientRect().top,n=0;
+  function fix(){if(!el.isConnected)return;if(Math.abs(window.scrollY-y0)>2)return;var d=el.getBoundingClientRect().top-r0;if(Math.abs(d)>2){window.scrollTo(0,window.scrollY+d);y0=window.scrollY}}
+  requestAnimationFrame(function(){fix();setTimeout(fix,80);setTimeout(fix,300)})},true)}catch(e){}})();
