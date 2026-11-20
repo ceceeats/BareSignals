@@ -1,0 +1,1246 @@
+<!doctype html>
+<!-- Hair (Cases) v1, 20 Nov 2026: first version -->
+<!-- Hair (Cases) v2, 20 Nov 2026, built on v1 (kept): follicle diagram redrawn to textbook anatomy; growth cycle animation rebuilt -->
+<!-- Summary: built from Hair notes v2 (3 Nov) with the v3 corrections (20 Nov): "no research peptide used alone has a placebo-controlled hair trial"; GLP-1 hair loss "about 3 times placebo" (RR 3.4, 34 RCTs) with absolute 3% vs 1%; "equals 5% minoxidil" traced to a 1993 rat study of a coded copper peptide; the 5-alpha-reductase claim traced to plain copper ions; Meier 2012 thymosin alpha-1 correction. New: interactive follicle diagram (cycle animation, tap a compound to light where it acts, evidence tiers, clash mark for thymosin beta-4), side-by-side compare (2 or 3 options), full table that stacks into cards on phone, forum counts by distinct users (Reddit pending). Template: Knee v2 and Gut v2 Case pages. Preview, not live. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Hair · Bare Signals</title>
+<meta name="description" content="Hair loss (pattern loss in men and women, shedding after a trigger or a GLP-1, alopecia areata, PCOS, after a transplant): what minoxidil, finasteride, JAK pills, GHK-Cu, TB-500, PTD-DBM, KPV and cosmetic peptides have shown in studies and first-hand reports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+/* case additions */
+.cp .mech{margin-top:8px}
+.cp .tline{margin-top:2px}
+#collagen .cp,#col .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+@media (max-width:759px){.grd{table-layout:fixed}.grd th,.grd td{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}.grd td:first-child,.grd th:first-child{width:25%}}
+
+
+/* hair v1 additions */
+.e-x{background:#FFE1CC!important}.e-cf{background:#FFD9D9!important}.e-hu{background:#FCD0D2!important}
+.e-t{background:#DCE9FF!important}
+/* types */
+.types{display:grid;gap:0}
+.ty1{padding:8px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.ty1:first-child{border-top:0;padding-top:0}
+.ty1 p{margin:0;font-size:calc(13px*var(--k));line-height:1.45}
+.ty1 .tyh{font:700 calc(14.5px*var(--k))/1.25 var(--display);margin:0 0 3px;display:flex;align-items:center;gap:7px}
+.tyd{display:inline-block;width:11px;height:11px;flex:none}
+@media (min-width:760px){.types{grid-template-columns:1fr 1fr;column-gap:28px}.ty1:nth-child(2){border-top:0;padding-top:0}}
+@media (min-width:1100px){.types{grid-template-columns:repeat(4,1fr)}.ty1:nth-child(-n+4){border-top:0;padding-top:0}}
+/* why taps */
+.wy{all:unset;cursor:pointer;display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#2F5BE0;border:1px solid #2F5BE0;padding:4px 5px 3px;background:#FFFFF4;margin-left:2px;vertical-align:1px;white-space:nowrap}
+.wy::before{content:"+ "}.wy[aria-expanded="true"]{background:#2F5BE0;color:#fff}.wy[aria-expanded="true"]::before{content:"− "}
+.wyx{display:block;margin:6px 0 2px;padding:7px 9px;background:#EEF0FA;border-left:3px solid #2F5BE0;font-size:calc(12.5px*var(--k));line-height:1.45;font-weight:400;text-transform:none;letter-spacing:normal}
+.wyx[hidden]{display:none}
+/* follicle */
+.fwrap{display:grid;gap:10px}
+.fdg{margin:6px 0 0;padding:0}
+.fdg svg{max-width:520px;margin:0 auto}
+.phs{display:flex;flex-wrap:wrap;gap:5px}
+.ph,.cc{all:unset;cursor:pointer;box-sizing:border-box;font:600 calc(10px*var(--k))/1.1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:8px 8px;min-height:32px;display:inline-flex;align-items:center;gap:5px;background:var(--chip);color:var(--ink);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ink) 28%,transparent)}
+.ph.on,.cc.on{background:#FFF0A8;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.ph.play{color:#2F5BE0}
+.ph:focus-visible,.cc:focus-visible,.wy:focus-visible{outline:2px solid #2F5BE0;outline-offset:2px}
+.ccs{display:flex;flex-wrap:wrap;gap:5px}
+.cc .ev{margin:0;padding:2px 4px!important;font-size:calc(8px*var(--k))}
+.cc .cf{color:#C02626;font-weight:700}
+.flab{position:absolute;left:8px;top:6px;margin:0;font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.fpanel{background:color-mix(in srgb,#FFDE59 14%,var(--chip));box-shadow:inset 5px 0 0 #FFDE59;padding:9px 12px 9px 16px;min-height:118px;font-size:calc(13px*var(--k));line-height:1.45}
+.fpanel p{margin:0 0 4px}.fpanel p:last-child{margin:0}
+.fph{font:700 calc(15px*var(--k))/1.25 var(--display)}
+.fph .ev{margin-left:6px;vertical-align:2px}
+.fpanel .fl{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.fright .sub{margin:12px 0 5px}
+.rings{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 0;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.rings i{display:inline-block;width:12px;height:12px;border-radius:50%;border:3px solid;margin-right:5px;vertical-align:-3px}
+#fsvg .pt,#fsvg .lk{cursor:pointer}
+#fsvg .halo{fill:none;stroke:transparent;stroke-width:12;opacity:0;transition:opacity .25s}
+#fsvg g.halo path{fill:none}
+#fsvg .lit .halo{opacity:.95}
+#fsvg .lit-h .halo{stroke:#9ED68A}#fsvg .lit-x .halo{stroke:#F59A9A}#fsvg .lit-u .halo{stroke:#A9BCFA}#fsvg .lit-s .halo{stroke:#FFD84D}
+#fsvg .lit .halo{animation:glow 1.6s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+#fsvg .ld{stroke:#6B76A8;stroke-width:1;fill:none}
+#fsvg .lk text{transition:opacity .3s}
+#fsvg .lk.sel text{font-weight:700;fill:#2F5BE0}
+#fsvg .lk,#fsvg .lk0{transition:opacity .3s}#fsvg.cyc .lk,#fsvg.cyc .lk0{opacity:0;pointer-events:none}
+#fsvg text{paint-order:stroke;stroke:#FFFDF0;stroke-width:3px;stroke-linejoin:round}#fsvg #fann{transition:opacity .35s}#fsvg #fann.hid{opacity:0}#fsvg #fann .ld{stroke:#6B76A8}
+.fprog{display:flex;align-items:center;gap:8px;padding:6px 8px 7px;border-top:1.5px solid color-mix(in srgb,var(--ink) 18%,transparent);font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+.fprog #fstep{flex:none;white-space:nowrap}.fbar{flex:1;min-width:36px;height:5px;background:color-mix(in srgb,var(--ink) 12%,transparent)}.fbar i{display:block;height:100%;width:0;background:#2F5BE0}
+@media (prefers-reduced-motion:reduce){#fsvg *{transition:none!important;animation:none!important}}
+@media (min-width:760px){.fwrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}.fright{position:sticky;top:12px}}
+/* GLP-1 timeline */
+.gtl{display:flex;height:30px;margin:4px 0 0}
+.gtl i{display:flex;align-items:center;justify-content:center;font:600 calc(9px*var(--k))/1.05 var(--mono);font-style:normal;letter-spacing:.02em;text-transform:uppercase;text-align:center;padding:0 3px;border-right:1.5px solid var(--paper)}
+.bl1{grid-template-columns:96px 1fr}
+.bt{border:0;background:color-mix(in srgb,var(--ink) 6%,var(--chip))}
+.mini td:first-child{width:40%}
+.cmp.mini{font-size:calc(12px*var(--k))}
+.cmp.mini td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono)}
+/* compare */
+.cmpx{background:var(--chip);padding:10px 10px 6px}
+.cxsel{display:grid;gap:6px;align-items:end}
+.cxsel select{font:500 16px/1.2 "Hanken Grotesk",system-ui,sans-serif;color:var(--ink);background:#FFFFE2;border:1.5px solid var(--ink);border-radius:0;padding:7px 4px;width:100%;min-width:0;-webkit-appearance:none;appearance:none;text-overflow:ellipsis}
+.cxadd{all:unset;cursor:pointer;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#2F5BE0;border:1.5px dashed #2F5BE0;padding:9px 6px;text-align:center;box-sizing:border-box}
+.cxrm{all:unset;cursor:pointer;font:600 calc(9px*var(--k))/1 var(--mono);color:#2F5BE0;text-transform:uppercase;letter-spacing:.04em;padding:3px 0}
+.cxcol{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cxrow{padding:8px 0 7px;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.cxrow:first-child{border-top:0}
+.cxl{font:600 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 4px;text-align:center}
+.cxv{display:grid;gap:10px}
+.cxv>div{font-size:calc(12.5px*var(--k));line-height:1.4;text-align:center;min-width:0;overflow-wrap:anywhere}
+.cxv .nm{color:var(--ink-soft);background:none;padding:0}
+.cxhd{padding:8px 0 4px}
+.cxhd .cxv>div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cxhd b{font:700 calc(15px*var(--k))/1.15 var(--display)}
+.cxhd a{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.cxhd .ev{margin:0}
+/* full table, cards on phone */
+.ftw{overflow:visible}
+.ftab{table-layout:auto}
+.ftab td.nm,.ftab td .nm{color:var(--ink-soft)}
+.ftab tr.gr td{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:#F2F0CC;color:var(--ink)}
+.ftab td.on{font:700 calc(13px*var(--k))/1.25 var(--display)!important;letter-spacing:0!important;text-transform:none!important}
+.ftab td.on .ev{display:inline-block;margin:3px 0 0;font-family:var(--mono)}
+.ftab tr.o-peptide td.on{background:color-mix(in srgb,#924C1C 7%,var(--chip))}
+@media (max-width:899px){
+ .ftab,.ftab tbody,.ftab tr,.ftab td{display:block;width:auto!important}
+ .ftab thead{display:none}
+ .ftab{background:none}
+ .ftab tr{background:var(--chip);margin:0 0 8px;padding:8px 10px}
+ .ftab tr.gr{background:none;padding:6px 0 0;margin:0 0 6px}
+ .ftab tr.gr td{background:none;padding:0;border:0}
+ .ftab td{border:0;padding:3px 0;display:grid;grid-template-columns:104px 1fr;gap:8px;font-size:calc(12.5px*var(--k))}
+ .ftab td::before{content:attr(data-l);font:600 calc(9px*var(--k))/1.3 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);padding-top:2px}
+ .ftab td.on{display:block;padding:0 0 5px;margin:0 0 3px;border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent);background:none!important}
+ .ftab td.on::before{content:none}
+ .ftab td.on .ev{margin-left:6px;vertical-align:2px}
+}
+@media (min-width:900px){.ftab{table-layout:fixed}.ftab th,.ftab td{font-size:calc(12px*var(--k));overflow-wrap:break-word}.ftab th:first-child{width:15%}.ftab td.on .ev{white-space:normal}.ftab th{font-size:calc(9.5px*var(--k))}}
+/* options steps */
+.ostep li{grid-template-columns:22px 1fr}
+.ostep li span{display:block;font-size:calc(13px*var(--k));line-height:1.45}
+@media (min-width:760px){.ostep{columns:2;column-gap:28px}.ostep li{break-inside:avoid}}
+.glpcp{background:color-mix(in srgb,#FCB0B4 9%,var(--chip))!important;box-shadow:inset 5px 0 0 #FCB0B4!important}
+.cp{background:color-mix(in srgb,#924C1C 5%,var(--chip));box-shadow:inset 5px 0 0 color-mix(in srgb,#924C1C 45%,#FFFFF4)}
+.cph .jn{white-space:normal}
+#check .hint,#follicle .hint{font-size:calc(12.5px*var(--k))}
+.srcs summary h2{margin:0}
+details.ftd{margin-top:14px}details.ftd>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--chip)}details.ftd>summary::-webkit-details-marker{display:none}details.ftd>summary .sub{margin:0;color:var(--ink)}details.ftd[open]>summary{background:none;padding:0 0 8px}details.ftd[open] .cnt{display:none}
+.cxsel select{background:#FFFFE2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%233E4A80'/%3E%3C/svg%3E") no-repeat right 6px center;padding-right:18px}
+#tb .cp,#bpc .cp,#col .cp,#kpv .cp{background:color-mix(in srgb,#924C1C 5%,var(--chip));box-shadow:inset 5px 0 0 color-mix(in srgb,#924C1C 45%,#FFFFF4)}
+.fright .evleg dl{grid-template-columns:1fr 1fr!important}
+@media (min-width:760px){.fdg svg{max-width:430px}}
+#glossary .gw>div{grid-template-columns:112px 1fr!important}#glossary .evleg dl{grid-template-columns:1fr!important}
+@media (min-width:760px){.fwrap{grid-template-columns:minmax(0,440px) minmax(0,1fr)}.fdg svg{max-width:none}}
+.fright .evleg dl>div{grid-template-columns:58px 1fr}
+@media (max-width:520px){.cxsel{display:grid!important;grid-template-columns:1fr!important;gap:6px}.cxsel select{text-overflow:clip}}
+</style>
+</head><body>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Hair</h1><p class="aka">Pattern hair loss in men and women, shedding after illness, a crash diet or a GLP-1 drug, alopecia areata, PCOS hair loss, recovery after a hair transplant and scarring loss. One page because people reach for the same peptides for all of them.</p></div>
+ <svg class="hico" viewBox="0 0 84 84" aria-hidden="true"><rect x="1" y="1" width="82" height="82" fill="#FFFFF4" stroke="#3E4A80" stroke-width="1.5"/><rect x="1" y="22" width="82" height="6" fill="#FBE3D3"/><path d="M34 28V52C34 60 30 62 30 66C30 72 36 76 42 76C48 76 54 72 54 66C54 62 50 60 50 52V28" fill="#F6DCC8" stroke="#3E4A80" stroke-width="1.5"/><path d="M36 76C36 70 38 66 42 66C46 66 48 70 48 76" fill="#FBEFA0" stroke="#3E4A80" stroke-width="1.3"/><path class="pl" d="M42 4V62" stroke="#924C1C" stroke-width="4" stroke-linecap="round"/><ellipse cx="56" cy="44" rx="4" ry="6" fill="#DDF4F5" stroke="#3E4A80" stroke-width="1.2"/></svg>
+ <div class="meta"><span class="mt">Researched 3 to 20 Nov 2026</span><span class="mt">65 sources</span><span class="mt">Version 2</span><span class="mt">Preview</span></div>
+</div>
+<div class="stripe" aria-label="Roles: Hair, Endocrine, Immunity, Skin"><i style="width:60%;background:#924C1C"></i><i style="width:16%;background:#FFDE59"></i><i style="width:14%;background:#6777B6"></i><i style="width:10%;background:#FFEEEE"></i></div>
+<div class="tags"><span class="rtg" style="background:color-mix(in srgb,#924C1C 26%,#FFFFF4)">Hair</span><span class="rtg" style="background:#FFDE59">Endocrine &amp; growth</span><span class="rtg" style="background:color-mix(in srgb,#6777B6 30%,#FFFFF4)">Immunity</span><span class="rtg" style="background:#FFEEEE">Skin &amp; aesthetics</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Hair grows in cycles, and nearly every kind of hair loss is a cycle going wrong. In pattern loss, DHT shortens each growing phase until the follicle comes back smaller and the hair turns to fuzz; after illness, a crash diet or a GLP-1 drug, many follicles drop into rest at once and fall out about 3 months later.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup></p>
+ <p><b>What studies found.</b> The proven tools are medicines: finasteride held men's gains for 5 years while placebo kept thinning, and minoxidil adds about 13 hairs per cm² in women.<sup><a href="#s3">3</a>,<a href="#s4">4</a></sup> No research peptide used on its own has a placebo-controlled hair trial. The best result with one in it: 7 men whose bald top scalp shrank from 40% to 7.5%, with copper peptides tattooed in together with minoxidil and dutasteride.<sup><a href="#s5">5</a></sup></p>
+ <p><b>What people report.</b> GLP-1 shedding is the one consistent story: among 73 forum posters, shedding stopped once weight held steady, sometimes faster with low-dose oral minoxidil.<sup><a href="#s6">6</a></sup> Of 10 people using copper peptides on the scalp, 7 saw no change; the rest describe thicker existing hair, rarely new hair in bald spots.<sup><a href="#s7">7</a></sup></p>
+ <p><b>Watch out.</b> Thymosin beta-4, the parent of TB-500, grew hair in mice but slowed human scalp follicles in a dish.<sup><a href="#s8">8</a>,<a href="#s9">9</a></sup> Sudden patches, burning, pain or scarring need a dermatologist: scarring loss is permanent.<sup><a href="#s10">10</a></sup></p>
+</div>
+
+<div class="nums6" aria-label="Hair in numbers">
+ <div class="nm"><b>~3×</b><span>hair loss on GLP-1s vs placebo: 3 in 100 vs 1 in 100</span><i class="ev e-m">Meta</i><sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></div>
+ <div class="nm"><b>5 yrs</b><span>finasteride gains held while placebo kept thinning</span><i class="ev e-rct">RCT</i><sup><a href="#s3">3</a></sup></div>
+ <div class="nm"><b>+13</b><span>hairs per cm² from minoxidil in women, over placebo</span><i class="ev e-m">Meta</i><sup><a href="#s4">4</a></sup></div>
+ <div class="nm"><b>0</b><span>research peptides with a controlled hair trial on their own</span><i class="ev e-t">Search</i><sup><a href="#s13">13</a></sup></div>
+ <div class="nm"><b>10–20%</b><span>less hair from thymosin beta-4 in human follicles</span><i class="ev e-x">Dish</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>3–12 mo</b><span>for shedding after a trigger to settle, usually</span><i class="ev e-h">Human</i><sup><a href="#s14">14</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#follicle">Follicle</a><a href="#baseline">2 · Without treatment</a><a href="#p2">3 · Studies</a><a href="#proven">Proven</a><a href="#ghk">GHK-Cu</a><a href="#tb">TB-500</a><a href="#glp">GLP-1s</a><a href="#compare">4 · Compared</a><a href="#p4">5 · Reports</a><a href="#p5">6 · Pairings</a><a href="#p6">7 · Options</a><a href="#faq">8 · Questions</a><a href="#p8">9 · Warnings</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What the hair problem is</h2>
+<div class="grid"><section class="sec" id="check">
+ <h2 class="st">Which one is it</h2>
+ <p class="hint" style="margin:0 0 8px">The type changes everything, so match the signs first. A healthy scalp loses 50 to 100 hairs a day.<sup><a href="#s2">2</a></sup></p>
+ <div class="types">
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#FFDE59"></span>Pattern loss, men</p><p><b>Signs:</b> temples recede and the crown thins, slowly, over years; under a scope hairs are of mixed thickness.<sup><a href="#s15">15</a></sup> <b>Why:</b> in follicles with the genes for it, DHT shortens every growing phase, and each cycle the follicle comes back smaller until thick hairs become fine fuzz.<sup><a href="#s1">1</a></sup> <button class="wy" type="button" aria-expanded="false">Why it is slow</button><span class="wyx" hidden>A scalp hair grows for 2 to 6 years before it rests, so each shrinking step takes years to show. That is why pattern loss creeps, and why treatment is judged over months and years, not weeks.<sup><a href="#s2">2</a></sup></span></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#FF99D8"></span>Pattern loss, women</p><p><b>Signs:</b> a widening part with the front hairline kept. It affects nearly half of women at some point and is often missed. Shedding that drags past 6 months can look just like it.<sup><a href="#s15">15</a></sup></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#FCB0B4"></span>Shedding after a trigger</p><p><b>Signs:</b> all-over shedding, handfuls in the shower, a thinner ponytail, but no bald patches. It shows about 3 months after illness, fever, surgery, giving birth, a crash diet, low iron or protein, a new medicine or big stress; after COVID the median was 2 months (range 1 to 11) in 181 people.<sup><a href="#s2">2</a>,<a href="#s16">16</a></sup> <button class="wy" type="button" aria-expanded="false">Why the delay</button><span class="wyx" hidden>A shock can push up to half of growing follicles into rest at once. They sit there about 3 months before the hair drops, so by the time the brush fills, the cause is usually forgotten. Regrowth then comes at about 1 cm a month.<sup><a href="#s2">2</a>,<a href="#s17">17</a></sup></span></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#DDD0F6"></span>GLP-1 shedding</p><p><b>Signs:</b> the same shedding, starting 2 to 3 months into semaglutide or tirzepatide. Mostly from fast weight loss, not the drug poisoning follicles: women and people losing more than 10% of body weight shed most. It can also unmask pattern loss that was already there.<sup><a href="#s18">18</a>,<a href="#s14">14</a></sup></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#C2DCFF"></span>Alopecia areata</p><p><b>Signs:</b> round, smooth bald patches, sometimes in the eyebrows or beard; it can spread to the whole scalp or body, and the course is unpredictable. The follicle's immune shield breaks and immune cells attack the bulb. Over 40% carry thyroid antibodies.<sup><a href="#s19">19</a>,<a href="#s20">20</a>,<a href="#s21">21</a></sup></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#FFCBAA"></span>PCOS</p><p><b>Signs:</b> female pattern loss driven by extra androgens, often with acne and extra body hair. Patchy loss in PCOS is a different problem worth checking: in 1,249 women with PCOS, alopecia areata was rare (0.24%) and thyroid autoimmunity common (20.3%).<sup><a href="#s22">22</a></sup></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#AACC96"></span>After a hair transplant</p><p><b>Signs:</b> most moved hairs fall out within about 6 weeks, rest about 3 months, start growing at months 3 to 5, and the result is judged at 12 to 18 months.<sup><a href="#s17">17</a></sup> Native hair near the grafts can shed too (shock loss): 23 of 621 patients: 14 of 67 women against 9 of 554 men (30 times the odds).<sup><a href="#s23">23</a></sup></p></div>
+  <div class="ty1"><p class="tyh"><span class="tyd" style="background:#E3E0BF"></span>Scarring loss</p><p><b>Signs:</b> patches with burning, itch, pain or scarring, as in lichen planopilaris or frontal fibrosing alopecia. The stem cells are destroyed, so the loss is permanent. Transplants into scar take at first (80 to 100% at 6 to 12 months) but fall below 41% after year two.<sup><a href="#s10">10</a>,<a href="#s13">13</a></sup></p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="follicle">
+ <h2 class="st">Inside the follicle</h2>
+ <p class="hint" style="margin:0 0 6px">A scalp has about 100,000 follicles; 85 to 90% are growing and 5 to 10% resting at any time.<sup><a href="#s2">2</a></sup> Tap a part, play the cycle, or tap a treatment to light up where it acts.</p>
+ <div class="fwrap">
+ <div class="fleft">
+ <div class="phs" role="group" aria-label="Hair cycle">
+  <button type="button" class="ph on" data-ph="grow">Growing</button><button type="button" class="ph" data-ph="cat">Shrinking</button><button type="button" class="ph" data-ph="rest">Resting</button><button type="button" class="ph" data-ph="shed">Shedding</button><button type="button" class="ph" data-ph="mini">Pattern loss</button><button type="button" class="ph play" data-ph="play" aria-pressed="false">▶ Play cycle</button>
+ </div>
+ <div class="dg fdg">
+ <svg id="fsvg" viewBox="0 0 360 440" role="img" aria-label="Diagram of a hair follicle in the skin, drawn like a textbook cross-section: hair shaft, oil gland, goose-bump muscle, bulge stem cells, inner and outer root sheaths, bulb with matrix and pigment cells, dermal papilla, immune shield and blood supply labelled">
+  <defs><linearGradient id="fgm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C2AB" stop-opacity="0"/><stop offset=".4" stop-color="#F2C2AB"/><stop offset="1" stop-color="#EFB9A1"/></linearGradient><clipPath id="fclip"><rect width="360" height="440"/></clipPath></defs>
+  <g clip-path="url(#fclip)">
+  <rect x="0" y="0" width="360" height="44" fill="#FFFFF4"/>
+  <rect x="0" y="44" width="360" height="284" fill="#FFF3E7"/>
+  <rect x="0" y="322" width="360" height="118" fill="#FFFBE4"/>
+  <g fill="#FFF7DC" stroke="#EFE2B8" stroke-width="1"><circle cx="-7" cy="330" r="10.1"/><circle cx="14" cy="328" r="10.9"/><circle cx="37" cy="328" r="9.1"/><circle cx="60" cy="328" r="10.5"/><circle cx="82" cy="330" r="11.2"/><circle cx="101" cy="331" r="12.4"/><circle cx="123" cy="329" r="9.5"/><circle cx="148" cy="330" r="9.6"/><circle cx="168" cy="328" r="10.9"/><circle cx="191" cy="329" r="11.4"/><circle cx="213" cy="331" r="10.6"/><circle cx="238" cy="330" r="9.9"/><circle cx="260" cy="331" r="11.6"/><circle cx="283" cy="328" r="10.5"/><circle cx="305" cy="331" r="9.1"/><circle cx="327" cy="330" r="12.1"/><circle cx="350" cy="331" r="11.0"/><circle cx="5" cy="348" r="10.7"/><circle cx="30" cy="351" r="11.3"/><circle cx="50" cy="348" r="10.4"/><circle cx="70" cy="348" r="9.6"/><circle cx="94" cy="349" r="9.5"/><circle cx="119" cy="350" r="9.3"/><circle cx="144" cy="349" r="11.9"/><circle cx="166" cy="351" r="10.3"/><circle cx="185" cy="348" r="9.6"/><circle cx="208" cy="348" r="11.1"/><circle cx="231" cy="351" r="10.3"/><circle cx="254" cy="350" r="10.8"/><circle cx="276" cy="351" r="12.1"/><circle cx="298" cy="348" r="10.4"/><circle cx="320" cy="348" r="9.2"/><circle cx="341" cy="348" r="10.2"/><circle cx="364" cy="348" r="9.4"/><circle cx="-7" cy="369" r="11.1"/><circle cx="14" cy="371" r="10.3"/><circle cx="39" cy="368" r="10.6"/><circle cx="60" cy="371" r="10.2"/><circle cx="84" cy="370" r="9.1"/><circle cx="102" cy="370" r="10.9"/><circle cx="128" cy="369" r="12.0"/><circle cx="151" cy="370" r="9.6"/><circle cx="172" cy="371" r="10.2"/><circle cx="198" cy="371" r="12.0"/><circle cx="220" cy="369" r="9.8"/><circle cx="241" cy="369" r="9.1"/><circle cx="264" cy="371" r="12.3"/><circle cx="288" cy="368" r="12.3"/><circle cx="309" cy="370" r="9.7"/><circle cx="334" cy="370" r="11.9"/><circle cx="358" cy="371" r="9.3"/><circle cx="4" cy="388" r="11.6"/><circle cx="29" cy="391" r="10.2"/><circle cx="52" cy="390" r="10.4"/><circle cx="70" cy="391" r="9.4"/><circle cx="96" cy="391" r="9.5"/><circle cx="118" cy="388" r="10.2"/><circle cx="140" cy="390" r="12.4"/><circle cx="164" cy="391" r="10.5"/><circle cx="184" cy="388" r="9.9"/><circle cx="207" cy="388" r="9.9"/><circle cx="231" cy="390" r="10.2"/><circle cx="256" cy="390" r="10.5"/><circle cx="275" cy="389" r="10.8"/><circle cx="300" cy="388" r="9.0"/><circle cx="321" cy="389" r="11.5"/><circle cx="345" cy="388" r="10.9"/><circle cx="366" cy="391" r="9.9"/><circle cx="-4" cy="411" r="11.0"/><circle cx="16" cy="410" r="11.1"/><circle cx="39" cy="409" r="10.6"/><circle cx="64" cy="411" r="11.4"/><circle cx="86" cy="411" r="11.0"/><circle cx="106" cy="408" r="9.4"/><circle cx="128" cy="411" r="9.3"/><circle cx="152" cy="410" r="9.5"/><circle cx="175" cy="408" r="12.1"/><circle cx="197" cy="411" r="10.4"/><circle cx="220" cy="410" r="9.6"/><circle cx="241" cy="410" r="9.7"/><circle cx="263" cy="408" r="10.9"/><circle cx="285" cy="408" r="11.2"/><circle cx="311" cy="408" r="11.8"/><circle cx="332" cy="409" r="9.1"/><circle cx="354" cy="411" r="10.5"/><circle cx="6" cy="430" r="9.5"/><circle cx="26" cy="430" r="9.3"/><circle cx="52" cy="430" r="9.3"/><circle cx="75" cy="428" r="9.3"/><circle cx="96" cy="430" r="10.6"/><circle cx="119" cy="430" r="9.9"/><circle cx="141" cy="428" r="9.4"/><circle cx="163" cy="431" r="10.1"/><circle cx="185" cy="429" r="10.8"/><circle cx="205" cy="430" r="9.9"/><circle cx="229" cy="431" r="9.7"/><circle cx="251" cy="429" r="11.9"/><circle cx="274" cy="430" r="10.4"/><circle cx="300" cy="430" r="10.2"/><circle cx="321" cy="428" r="10.4"/><circle cx="344" cy="429" r="9.2"/><circle cx="365" cy="431" r="9.3"/><circle cx="-7" cy="449" r="10.0"/><circle cx="16" cy="449" r="9.6"/><circle cx="40" cy="448" r="12.4"/><circle cx="63" cy="448" r="10.1"/><circle cx="86" cy="448" r="10.7"/><circle cx="107" cy="448" r="9.0"/><circle cx="129" cy="449" r="9.1"/><circle cx="152" cy="451" r="11.0"/><circle cx="177" cy="449" r="11.5"/><circle cx="196" cy="450" r="12.4"/><circle cx="221" cy="451" r="9.2"/><circle cx="244" cy="448" r="11.6"/><circle cx="267" cy="451" r="10.8"/><circle cx="291" cy="450" r="11.0"/><circle cx="310" cy="448" r="9.8"/><circle cx="336" cy="450" r="9.4"/><circle cx="358" cy="449" r="11.2"/></g>
+  <path d="M271 249q6 -4 12 0t12 0M171 201q6 -4 12 0t12 0M224 95q6 -4 12 0t12 0M251 137q6 -4 12 0t12 0M25 140q6 -4 12 0t12 0M248 126q6 -4 12 0t12 0M252 301q6 -4 12 0t12 0M168 166q6 -4 12 0t12 0M163 235q6 -4 12 0t12 0M261 219q6 -4 12 0t12 0M219 98q6 -4 12 0t12 0M50 137q6 -4 12 0t12 0M253 149q6 -4 12 0t12 0M193 83q6 -4 12 0t12 0M21 141q6 -4 12 0t12 0M228 236q6 -4 12 0t12 0M230 146q6 -4 12 0t12 0M176 185q6 -4 12 0t12 0M159 107q6 -4 12 0t12 0M304 125q6 -4 12 0t12 0M333 292q6 -4 12 0t12 0M6 184q6 -4 12 0t12 0M279 299q6 -4 12 0t12 0M153 141q6 -4 12 0t12 0M71 294q6 -4 12 0t12 0M72 211q6 -4 12 0t12 0" fill="none" stroke="#F2DCCB" stroke-width="1"/>
+  <path d="M0 304q30 -8 60 0t60 0t60 0t60 0t60 0t60 0" fill="none" stroke="#F3B2B2" stroke-width="1.6"/><path d="M0 312q30 -8 60 0t60 0t60 0t60 0t60 0t60 0" fill="none" stroke="#B9C6F2" stroke-width="1.6"/>
+  <path d="M0 76q20 -5 40 0t40 0t40 0t40 0t40 0t40 0t40 0t40 0t40 0" fill="none" stroke="#F5C2C2" stroke-width="1"/>
+  <path d="M0 42H360V58Q354 66 348 60Q342 56 336 58Q330 66 324 60Q318 56 312 58Q306 66 300 60Q294 56 288 58Q282 66 276 60Q270 56 264 58Q258 66 252 60Q246 56 240 58Q234 66 228 60Q222 56 216 58Q210 66 204 60Q198 56 192 58Q186 66 180 60Q174 56 168 58Q162 66 156 60Q150 56 144 58Q138 66 132 60Q126 56 120 58Q114 66 108 60Q102 56 96 58Q90 66 84 60Q78 56 72 58Q66 66 60 60Q54 56 48 58Q42 66 36 60Q30 56 24 58Q18 66 12 60Q6 56 0 58Z" fill="#F9D7C6"/>
+  <rect x="0" y="42" width="360" height="3.5" fill="#F1C4B2"/>
+  <g fill="#E7B4A2"><circle cx="4" cy="62" r="1.1"/><circle cx="10" cy="62" r="1.1"/><circle cx="16" cy="59" r="1.1"/><circle cx="22" cy="59" r="1.1"/><circle cx="28" cy="62" r="1.1"/><circle cx="34" cy="62" r="1.1"/><circle cx="40" cy="59" r="1.1"/><circle cx="46" cy="59" r="1.1"/><circle cx="52" cy="62" r="1.1"/><circle cx="58" cy="62" r="1.1"/><circle cx="64" cy="59" r="1.1"/><circle cx="70" cy="59" r="1.1"/><circle cx="76" cy="62" r="1.1"/><circle cx="82" cy="62" r="1.1"/><circle cx="88" cy="59" r="1.1"/><circle cx="94" cy="59" r="1.1"/><circle cx="100" cy="62" r="1.1"/><circle cx="106" cy="62" r="1.1"/><circle cx="112" cy="59" r="1.1"/><circle cx="118" cy="59" r="1.1"/><circle cx="124" cy="62" r="1.1"/><circle cx="130" cy="62" r="1.1"/><circle cx="136" cy="59" r="1.1"/><circle cx="142" cy="59" r="1.1"/><circle cx="148" cy="62" r="1.1"/><circle cx="154" cy="62" r="1.1"/><circle cx="160" cy="59" r="1.1"/><circle cx="166" cy="59" r="1.1"/><circle cx="172" cy="62" r="1.1"/><circle cx="178" cy="62" r="1.1"/><circle cx="184" cy="59" r="1.1"/><circle cx="190" cy="59" r="1.1"/><circle cx="196" cy="62" r="1.1"/><circle cx="202" cy="62" r="1.1"/><circle cx="208" cy="59" r="1.1"/><circle cx="214" cy="59" r="1.1"/><circle cx="220" cy="62" r="1.1"/><circle cx="226" cy="62" r="1.1"/><circle cx="232" cy="59" r="1.1"/><circle cx="238" cy="59" r="1.1"/><circle cx="244" cy="62" r="1.1"/><circle cx="250" cy="62" r="1.1"/><circle cx="256" cy="59" r="1.1"/><circle cx="262" cy="59" r="1.1"/><circle cx="268" cy="62" r="1.1"/><circle cx="274" cy="62" r="1.1"/><circle cx="280" cy="59" r="1.1"/><circle cx="286" cy="59" r="1.1"/><circle cx="292" cy="62" r="1.1"/><circle cx="298" cy="62" r="1.1"/><circle cx="304" cy="59" r="1.1"/><circle cx="310" cy="59" r="1.1"/><circle cx="316" cy="62" r="1.1"/><circle cx="322" cy="62" r="1.1"/><circle cx="328" cy="59" r="1.1"/><circle cx="334" cy="59" r="1.1"/><circle cx="340" cy="62" r="1.1"/><circle cx="346" cy="62" r="1.1"/><circle cx="352" cy="59" r="1.1"/><circle cx="358" cy="59" r="1.1"/></g>
+  <path d="M9 46C6 90 12 140 8 190S12 226 24 238c10 -6 24 -2 24 8s-12 16 -24 10s-10 -18 4 -20s26 4 24 18s-16 16 -28 8s-6 -20 8 -22s22 8 18 20" fill="none" stroke="#D9B79C" stroke-width="5.4" stroke-linecap="round"/><path d="M9 46C6 90 12 140 8 190S12 226 24 238c10 -6 24 -2 24 8s-12 16 -24 10s-10 -18 4 -20s26 4 24 18s-16 16 -28 8s-6 -20 8 -22s22 8 18 20" fill="none" stroke="#FCEFD9" stroke-width="3.4" stroke-linecap="round"/>
+  <g id="fghost"></g>
+  <g id="fmini"></g>
+  <g id="fmain"></g>
+  </g>
+  <g class="m" font-size="7" fill="#6B76A8" letter-spacing=".6" text-anchor="end"><text x="354" y="54">EPIDERMIS</text><text x="354" y="88">DERMIS</text><text x="354" y="334">FAT</text></g>
+  <g id="fann" font-size="10.5" fill="#3E4A80"></g>
+  <g id="flbl" class="lbl" font-size="11" fill="#3E4A80"></g>
+ </svg>
+ <div class="fprog"><span id="fstep">1 of 4 · Anagen, 2 to 6 years</span><span class="fbar" aria-hidden="true"><i id="fbar"></i></span></div>
+ </div>
+ </div>
+ <div class="fright">
+  <div class="fpanel" id="fpanel" aria-live="polite"></div>
+  <p class="sub">Proven treatments</p>
+  <div class="ccs" id="ccs1"></div>
+  <p class="sub">Peptides and others</p>
+  <div class="ccs" id="ccs2"></div>
+  <div class="evleg"><p class="evh">How strong the evidence is</p><dl>
+   <div><dt><span class="ev e-h">Human</span></dt><dd>Outcome measured in people</dd></div>
+   <div><dt><span class="ev e-x">Dish</span></dt><dd>Human follicles kept alive in a dish</dd></div>
+   <div><dt><span class="ev e-a">Animal</span></dt><dd>Mice, rats or goats only</dd></div>
+   <div><dt><span class="ev e-c">Cells</span></dt><dd>Cells in a lab only</dd></div>
+   <div><dt><span class="ev e-t">Theory</span></dt><dd>A reasoned idea, untested</dd></div>
+   <div><dt><span class="ev e-cf">≠ Clash</span></dt><dd>Animal and human tissue disagree</dd></div>
+  </dl>
+  <p class="rings"><span><i style="border-color:#7DBF67"></i>helps</span><span><i style="border-color:#F07F7F"></i>slows or harms</span><span><i style="border-color:#8FA6F5"></i>unknown, theory</span></p></div>
+ </div>
+ </div>
+
+ <div hidden id="finfo">
+  <div data-k="ph-grow"><p class="fph"><b>Growing phase (anagen)</b></p><p>Lasts 2 to 6 years and holds 85 to 90% of follicles. How long it lasts sets how long hair can get; the size of the dermal papilla sets how thick.<sup><a href="#s2">2</a>,<a href="#s24">24</a></sup></p></div>
+  <div data-k="ph-rest"><p class="fph"><b>Shrink and rest (catagen, telogen)</b></p><p>The lower follicle pulls up in 2 to 3 weeks, then rests about 3 months with the old hair still anchored. A shock pushes many follicles here at once, up to half, which is the shedding that comes 3 months later.<sup><a href="#s2">2</a></sup></p></div>
+  <div data-k="ph-shed"><p class="fph"><b>Shedding (exogen)</b></p><p>A new hair starts below and the old club hair falls out: 50 to 100 a day is normal. A white bulb on a fallen hair is this resting root, not a sign of damage.<sup><a href="#s2">2</a>,<a href="#s13">13</a></sup></p></div>
+  <div data-k="ph-mini"><p class="fph"><b>Pattern loss (miniaturisation)</b></p><p>DHT binds the receptor in papilla cells, which send slow-down signals (TGF-beta). Each growing phase is shorter and the follicle comes back smaller, until thick hairs are fine, short fuzz. The stem cells survive, which is why the loss can be slowed or partly reversed.<sup><a href="#s1">1</a>,<a href="#s13">13</a></sup></p></div>
+  <div data-k="shaft"><p class="fph"><b>Hair shaft</b></p><p>The visible part, dead keratin. Length depends on how long the growing phase lasts; thickness on the size of the bulb and papilla.<sup><a href="#s2">2</a>,<a href="#s24">24</a></sup></p></div>
+  <div data-k="gland"><p class="fph"><b>Oil gland and goosebump muscle</b></p><p>Oil glands run on androgens, which ties hair to acne and PCOS. The thin pink band is the muscle that makes hair stand up.<sup><a href="#s13">13</a></sup></p></div>
+  <div data-k="bulge"><p class="fph"><b>Bulge stem cells</b></p><p>A ledge below the oil gland where the follicle's stem cells and pigment stem cells live. They rebuild the lower follicle every cycle. In pattern loss they survive but stop being switched on; in scarring loss they are destroyed, so that loss is permanent.<sup><a href="#s13">13</a></sup></p></div>
+  <div data-k="matrix"><p class="fph"><b>Matrix and pigment cells</b></p><p>Cells here divide faster than almost any in the body to build the shaft, which is why chemotherapy hits hair. Pigment cells colour the hair while it grows and are refilled from the bulge each cycle; when they run out, hair greys.<sup><a href="#s13">13</a></sup></p></div>
+  <div data-k="dp"><p class="fph"><b>Dermal papilla</b></p><p>The follicle's control room: a cluster of cells in the bulb that signals the rest. Its size sets hair thickness. Minoxidil acts here by opening potassium channels, not just by adding blood flow.<sup><a href="#s24">24</a>,<a href="#s25">25</a></sup></p></div>
+  <div data-k="dht"><p class="fph"><b>DHT receptor</b></p><p>Testosterone becomes DHT through the enzyme 5-alpha-reductase type 2, and DHT binds the androgen receptor in papilla cells. Medicines act at three points: make less DHT (finasteride, dutasteride), block the receptor (clascoterone, spironolactone, pyrilutamide), or break the receptor down (GT20029, in trials).<sup><a href="#s1">1</a>,<a href="#s26">26</a></sup></p></div>
+  <div data-k="wnt"><p class="fph"><b>Wnt switch and CXXC5 brake</b></p><p>Wnt is the follicle's grow switch and keeps the papilla active. CXXC5 is a brake protein that holds it back, and it is turned up in shrunken human follicles. PTD-DBM was built to release this brake.<sup><a href="#s27">27</a></sup></p></div>
+  <div data-k="immune"><p class="fph"><b>Immune shield</b></p><p>The bulb hides from the immune system using local signals such as alpha-MSH, TGF-beta and IL-10. In alopecia areata the shield breaks and T cells attack, using signals that pass through JAK enzymes; JAK pills block them.<sup><a href="#s19">19</a></sup></p></div>
+  <div data-k="blood"><p class="fph"><b>Blood supply</b></p><p>Vessels feed the growing bulb through the papilla. Balding scalp shows less blood support and low-level inflammation around follicles.<sup><a href="#s13">13</a></sup></p></div>
+ </div>
+ <div hidden id="cinfo">
+  <div data-c="minox" data-g="1" data-t="h" data-n="Minoxidil" data-parts="dp:h,blood:h"><p>Opens potassium channels in papilla cells. In women, about 13 more hairs per cm² than placebo across 47 trials; low-dose pills thickened hair fibres by 3 to 6 µm while placebo lost 2.<sup><a href="#s4">4</a>,<a href="#s24">24</a></sup></p></div>
+  <div data-c="fin" data-g="1" data-t="h" data-n="Finasteride, dutasteride" data-parts="dht:h"><p>Make less DHT by blocking 5-alpha-reductase. Men on finasteride held their gains for 5 years while placebo kept thinning; in women, 1 mg did no better than placebo.<sup><a href="#s3">3</a>,<a href="#s4">4</a></sup></p></div>
+  <div data-c="clasc" data-g="1" data-t="h" data-n="Clascoterone (pending)" data-parts="dht:h"><p>Blocks the androgen receptor right on the scalp. Beat a plain lotion in 1,465 men; only relative figures are out, and US filing is planned for early 2027.<sup><a href="#s28">28</a></sup></p></div>
+  <div data-c="jak" data-g="1" data-t="h" data-n="JAK pills" data-parts="immune:h"><p>Block the signal immune cells use to attack the bulb in alopecia areata. 23 to 41% reach near-full scalp at 24 to 36 weeks (by drug and dose), against 1 to 6% on placebo.<sup><a href="#s29">29</a>,<a href="#s30">30</a></sup></p></div>
+  <div data-c="glp" data-g="1" data-t="hurt" data-n="GLP-1 drugs" data-l="semaglutide" data-parts="matrix:x,bulge:x"><p>Not a treatment here but a cause: fast weight loss tips many growing follicles into rest at once. About 3 times the placebo rate, which is 3 in 100 on Wegovy against 1 in 100 on placebo. Mostly the weight loss.<sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></p></div>
+  <div data-c="ghk" data-g="2" data-t="a" data-n="GHK-Cu, copper peptides" data-l="ghk-cu" data-parts="dp:h,blood:h"><p>Carries copper to the papilla and healing tissue. On its own: rodent work from the developer, 1991 to 1993. In people only inside mixes, the best being 7 men treated with minoxidil and dutasteride too.<sup><a href="#s31">31</a>,<a href="#s5">5</a></sup></p></div>
+  <div data-c="ahk" data-g="2" data-t="x" data-n="AHK-Cu" data-l="ahk-cu" data-parts="dp:h"><p>GHK-Cu's cousin. Lengthened human hair follicles kept alive in a dish, made more papilla cells divide and lowered cell-death signals.<sup><a href="#s32">32</a></sup></p></div>
+  <div data-c="tb4" data-g="2" data-t="conf" data-n="Thymosin beta-4, TB-500" data-l="thymosin-beta-4" data-parts="bulge:h,matrix:x"><p><b>Mice and rats:</b> faster hair growth, by moving bulge stem cells (green). <b>Human scalp follicles in a dish:</b> 10 to 20% less hair and an early switch to the shrinking phase (red). TB-500 itself was never tested on hair.<sup><a href="#s8">8</a>,<a href="#s9">9</a></sup></p></div>
+  <div data-c="thy" data-g="2" data-t="x" data-n="Thymulin" data-l="thymulin" data-parts="matrix:h"><p>A different thymus peptide, and the one that helped in human follicles: more shaft growth, a longer growing phase, about 20% more dividing cells. Few people use it.<sup><a href="#s9">9</a></sup></p></div>
+  <div data-c="ta1" data-g="2" data-t="x" data-n="Thymosin alpha-1" data-l="thymosin-alpha-1" data-parts="matrix:x"><p>Slightly less growth and a shorter growing phase in human follicles in a dish. Never studied in alopecia areata.<sup><a href="#s9">9</a></sup></p></div>
+  <div data-c="ptd" data-g="2" data-t="a" data-n="PTD-DBM" data-l="ptd-dbm" data-parts="wnt:h"><p>A decoy that peels the CXXC5 brake off the Wnt switch. Faster regrowth and new follicles after wounds in mice; never tested in people.<sup><a href="#s27">27</a>,<a href="#s33">33</a></sup></p></div>
+  <div data-c="kpv" data-g="2" data-t="t" data-n="KPV" data-l="kpv" data-parts="immune:u,matrix:u"><p>The tail of alpha-MSH, one of the shield's own guards. A close cousin kept pigment in stressed human follicles in a dish. No hair-growth study at all.<sup><a href="#s19">19</a>,<a href="#s34">34</a></sup></p></div>
+  <div data-c="bpc" data-g="2" data-t="t" data-n="BPC-157" data-l="bpc-157" data-parts="blood:u"><p>Grows new blood vessels in rat wounds. Zero hair studies in PubMed; any hair claim is borrowed from that.<sup><a href="#s13">13</a></sup></p></div>
+  <div data-c="gh" data-g="2" data-t="t" data-n="GH peptides" data-l="ipamorelin" data-parts="matrix:u,dp:u"><p>IGF-1 supports the growing phase in follicle biology, but it appears only inside injected cocktails. No study of ipamorelin, CJC-1295 or MK-677 on hair counts.<sup><a href="#s13">13</a></sup></p></div>
+  <div data-c="cosm" data-g="2" data-t="h" data-n="Cosmetic peptide serums" data-parts="dp:h"><p>Blends such as acetyl tetrapeptide-3 and biotinoyl tripeptide-1 have small trials, graded B in a 2026 review of 14. One matched 3% minoxidil, with no placebo group.<sup><a href="#s35">35</a>,<a href="#s36">36</a></sup></p></div>
+  <div data-c="exo" data-g="2" data-t="h" data-n="Exosomes" data-parts="dp:h,wnt:h"><p>Not peptides. A 20-man pilot gained 9.5 hairs against 1.5 on saline at 16 weeks. No approved product; the FDA has warned sellers.<sup><a href="#s37">37</a></sup></p></div>
+  <div data-c="cu" data-g="2" data-t="c" data-n="Copper ions (DHT claim)" data-parts="dht:u"><p>The claim that GHK-Cu blocks 5-alpha-reductase traces to a 1995 lab study of plain copper ions. Copper blocked the scalp type only at 10 times the dose. No study shows GHK-Cu lowers DHT in people.<sup><a href="#s38">38</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What happens without treatment</h2>
+<div class="grid"><section class="sec" id="baseline">
+ <h2 class="st">The course on its own</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Pattern loss keeps going.</b> Men on placebo kept thinning year after year over 5 years.<sup><a href="#s3">3</a></sup> Yet in short trials placebo groups gain 4.6 to 10.1 hairs per cm² in 12 to 24 weeks. <button class="wy" type="button" aria-expanded="false">Why it matters</button><span class="wyx" hidden>A product with no comparison group that reports "5 more hairs per cm²" may be showing exactly this placebo gain. It is also why "539% better than placebo" can come from a small real difference: the placebo number is tiny to begin with.<sup><a href="#s26">26</a>,<a href="#s28">28</a></sup></span></p></div>
+  <div class="sr"><span class="ev e-h">Human</span><p><b>Shedding mostly recovers.</b> After a trigger it usually settles within 3 to 12 months, once the cause is fixed.<sup><a href="#s2">2</a>,<a href="#s14">14</a></sup> Shedding that lasts past 6 months is called chronic and can hide early pattern loss.<sup><a href="#s15">15</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Alopecia areata is unpredictable.</b> Patches can regrow on their own, which is why single success stories prove little. In severe cases, only 0.8 to 6% on placebo reach near-full scalp in 24 to 36 weeks.<sup><a href="#s30">30</a>,<a href="#s29">29</a></sup></p></div>
+ </div>
+ <p class="sub" style="margin-top:12px">GLP-1 shedding, month by month after starting</p>
+ <div class="gtl" role="img" aria-label="Timeline: weight falls in months 0 to 2, shedding from about month 2 to 5, regrowth from about month 5 to 9, near normal by about a year">
+  <i style="width:16.6%;background:#F2F0CC">Weight falls</i><i style="width:25%;background:#FCD0D2">Shedding</i><i style="width:33.4%;background:#D6E8CB">Regrowth</i><i style="width:25%;background:#E3EEDC">Near normal</i>
+ </div>
+ <div class="tax"><span>0</span><span>3</span><span>6</span><span>9</span><span>12 months</span></div>
+ <p class="hint" style="margin-top:0">A dermatologist's timeline: noticed at 2 to 3 months, can plateau 2 to 3 months, regrows over 3 to 6 more, near normal by about a year. If pattern loss sat underneath, hair may come back thinner.<sup><a href="#s14">14</a></sup></p>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What studies found</h2>
+<div class="grid"><section class="sec" id="proven">
+ <h2 class="st">Proven options, with numbers</h2>
+ <div class="srs two">
+  <div class="sr"><span class="ev e-m">47 RCTs</span><p><b>Minoxidil on the scalp.</b> In women, about twice as many saw moderate or marked regrowth as on placebo, and about 13 more hairs per cm²; 2% and 5% worked about the same. Scalp itch and dryness hit 75% of users in one trial.<sup><a href="#s4">4</a>,<a href="#s39">39</a></sup> The only approved drug for women.<sup><a href="#s15">15</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Minoxidil pills, low dose.</b> Matched the lotion in a 75-person, 32-week trial (density up 47.5% vs 48%), and at 1.35 to 4.05 mg thickened hair fibres by 3 to 6 µm while placebo lost 2 µm. In 1,404 patients only 1.7% stopped for side effects.<sup><a href="#s39">39</a>,<a href="#s24">24</a>,<a href="#s40">40</a></sup> <button class="wy" type="button" aria-expanded="false">Why it boomed</button><span class="wyx" hidden>After a newspaper article in August 2022, first-time US prescriptions rose 2.4 times in men and 1.7 times in women within 8 weeks, while only 3 randomised trials existed by 2024.<sup><a href="#s25">25</a></sup></span></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Finasteride 1 mg (men).</b> In 1,553 men, gains held on every measure over 5 years while placebo kept losing hair. In women it did no better than placebo (30 of 67 vs 33 of 70). A topical 0.25% spray matched the pill (20.2 vs 21.1 more hairs per cm²) but still lowers blood DHT; none is FDA-approved.<sup><a href="#s3">3</a>,<a href="#s4">4</a>,<a href="#s41">41</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Small</span><p><b>Dutasteride.</b> In a small non-randomised 6-month study it showed no measurable change while oral minoxidil groups improved. Six months is short for a DHT blocker.<sup><a href="#s42">42</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">Phase 3</span><p><b>Clascoterone lotion (pending).</b> Two trials in 1,465 men beat a plain lotion by 168% and 539%, but no actual hair counts are out. Some reaches the bloodstream; no hormonal side effects reported. US filing early 2027; no trial in women.<sup><a href="#s28">28</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Observ.</span><p><b>Spironolactone (women).</b> Never tested against placebo. In 80 women, 44% regrew, 44% held and 12% kept losing; in 128 women in 2026, 54% improved at least one grade over 24 months.<sup><a href="#s43">43</a></sup> Not for pregnancy.</p></div>
+  <div class="sr"><span class="ev e-m">12 RCTs</span><p><b>Microneedling with minoxidil.</b> In 631 people, hair counts rose clearly more than minoxidil alone (a large effect); needle depth and device did not matter. Ranked the best add-on for women.<sup><a href="#s44">44</a>,<a href="#s45">45</a></sup></p></div>
+  <div class="sr"><span class="ev e-m">9 RCTs</span><p><b>PRP.</b> Same density and terminal hairs as minoxidil in 451 people, though people were more satisfied with it. PRP plus a growth factor plus minoxidil ranked top overall: 35 more hairs per cm² than minoxidil alone.<sup><a href="#s45">45</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Laser or light.</b> A laser comb gave about 17 more hairs than a sham device in two women's trials; added to minoxidil it gave nothing extra in 4 trials.<sup><a href="#s4">4</a>,<a href="#s46">46</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>JAK pills (alopecia areata).</b> Near-full scalp: baricitinib 4 mg 39% and 36% vs 6% and 3% at 36 weeks; ritlecitinib 23% vs 2%; deuruxolitinib 8 mg 29 to 33% (12 mg up to 41%) vs about 1% at 24 weeks. Relapse after stopping is common.<sup><a href="#s30">30</a>,<a href="#s47">47</a>,<a href="#s29">29</a>,<a href="#s20">20</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Surgery</span><p><b>Hair transplant.</b> Most studies report 85 to 95% of grafts surviving in normal scalp (93.1% at 9 months in one, 81% in a plain-surgery control arm in another). Serious complications were zero in 2,896 patients.<sup><a href="#s48">48</a>,<a href="#s23">23</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">Coming</span><p><b>New androgen blockers.</b> Pyrilutamide lotion: 666 men gained 15.3 hairs per cm² against 4.7 on placebo at 24 weeks. GT20029 passed phase 2. Setipiprant failed.<sup><a href="#s26">26</a></sup></p></div>
+ </div>
+</section></div>
+
+<p class="cutnote"><b>Read this first: no research peptide used on its own (GHK-Cu, TB-500, BPC-157, KPV, PTD-DBM, thymosin alpha-1) has a controlled human hair trial.</b> Cosmetic peptide blends have small trials against a plain serum. Everything else is mixes, animals, human follicles in a dish, or theory.<sup><a href="#s13">13</a>,<a href="#s35">35</a></sup></p>
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="ghk">
+ <h2 class="st">GHK-Cu and copper peptides · mixes, rats</h2>
+ <div class="cp">
+  <div class="cph"><h3>GHK-Cu</h3><span><a href="/library/#/p/ghk-cu">Library card</a> · <a href="/library/#/p/ghk-no-cu">GHK, no copper</a></span></div>
+  <p class="lead">Pattern loss is a shrinking problem: each cycle the follicle comes back smaller. GHK-Cu is best read as a reset message that carries copper to tired tissue, and copper peptides have been sold for hair since the 1990s. The best human result is 7 men whose bald top scalp shrank from 40% to 7.5%, but the copper went in together with minoxidil and dutasteride. On its own it has never had a controlled hair trial.<sup><a href="#s5">5</a>,<a href="#s49">49</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2025 <i class="ev e-h">7 men, mixed</i></span><p class="th">Tattooed mix: bald area 40% down to 7.5%.</p><p class="tb">Men aged 28 to 55 who had not done well on a year of standard treatment had minoxidil 0.5%, dutasteride 0.1% and copper peptides 1.2% driven into the scalp with a tattoo machine, once a month for 5 months. 5 of 7 regrew more than 10% of the top scalp, graded by 4 blinded dermatologists from photos. No scarring or infection.<sup><a href="#s5">5</a></sup> <button class="wy" type="button" aria-expanded="false">Why copper can't take the credit</button><span class="wyx" hidden>No control group, looked back at records, and no hair counts under a scope. An earlier series of the same mix without copper gained 10% against 26.5% here, but the number of sessions, needle depth and copper all changed at once. The senior author advises a compounding pharmacy.<sup><a href="#s5">5</a></sup></span></p></li>
+   <li><span class="ty">2018 <i class="ev e-h">1,000 people, open</i></span><p class="th">A clinic cocktail: pull test better in 83%.</p><p class="tb">Copper tripeptide plus thymosin beta-4 and growth factors, injected every 3 weeks 8 times. Hair counts rose at a year, with no comparison group, in a product made by the clinic.<sup><a href="#s50">50</a></sup></p></li>
+   <li><span class="ty">1993 <i class="ev e-a">Rats</i></span><p class="th">"As good as 5% minoxidil", traced.</p><p class="tb">The source is a 1993 review: a coded copper peptide (PC1031) enlarged follicles on fuzzy rats, "similar to" topical minoxidil. The minoxidil strength is not given, the peptide is not named as GHK-Cu, and the authors worked for its developer.<sup><a href="#s31">31</a></sup></p></li>
+   <li><span class="ty">1995 <i class="ev e-c">Cells</i></span><p class="th">"Blocks DHT", traced to plain copper.</p><p class="tb">In engineered cells, free copper ions blocked the skin type of 5-alpha-reductase at 1.9 µM, and the scalp type only at 19.2 µM, 10 times more. Zinc and cadmium worked too. No study tests GHK-Cu on this enzyme, and forum users injecting it saw no change in DHT on their labs.<sup><a href="#s38">38</a>,<a href="#s13">13</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Missing:</b> injected GHK-Cu for hair has no human study. A cosmetic dermatologist told NPR he would not recommend injections; a nurse practitioner reported injection-site reactions, infections and liver problems in people self-injecting, cause unclear.<sup><a href="#s51">51</a></sup> On the skin, an expert panel judged copper cosmetic peptides safe as used.<sup><a href="#s13">13</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="tb">
+ <h2 class="st">Thymosin beta-4, TB-500 · mice yes, human follicles no</h2>
+ <div class="cp">
+  <div class="cph"><h3>Thymosin beta-4</h3><span><a href="/library/#/p/thymosin-beta-4">Tβ4</a> · <a href="/library/#/p/tb-500-frag-17-23">TB-500</a> · <a href="/library/#/p/thymulin">Thymulin</a></span></div>
+  <p class="lead">Every new hair starts with stem cells waking up in the bulge. Thymosin beta-4 works like a scaffolding crew that moves cells, and in NIH mice and rats it pulled those stem cells into action and sped hair growth. Human scalp follicles in a dish went the other way: 10 to 20% less hair and an early switch into the shrinking phase. TB-500, the fragment people inject, has never been tested on hair.<sup><a href="#s8">8</a>,<a href="#s9">9</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2004 <i class="ev e-a">Rats, mice</i></span><p class="th">Faster growth by moving stem cells.</p><p class="tb">Made by the descendants of bulge stem cells during growth; added at tiny doses it made those cells move and mature. A mouse bred to make extra grew more hair, and in goats it raised cashmere output.<sup><a href="#s8">8</a>,<a href="#s13">13</a></sup></p></li>
+   <li><span class="ty">2012 <i class="ev e-x">Human follicles</i></span><p class="th">Three thymus peptides, three results.</p><p class="tb">Scalp follicles from a UK transplant clinic, 2 to 3 donors each.<sup><a href="#s9">9</a></sup></p>
+    <div class="tw"><table class="cmp mini"><tr><th>Peptide</th><th>Hair growth</th><th>Growing phase</th></tr><tr><td>Thymosin beta-4</td><td class="bad">10 to 20% less</td><td class="bad">Shortened</td></tr><tr><td>Thymosin alpha-1</td><td class="bad">Slightly less</td><td class="bad">Shortened</td></tr><tr><td>Thymulin</td><td>More</td><td>Longer</td></tr></table></div></li>
+  </ol>
+  <p class="mech"><b>Forums:</b> 2 of 3 users said better (one rubbed it in with minoxidil and saw growth from month 1; one injected, with a diet change and traction loss), 1 said his scalp got worse and body hair darker.<sup><a href="#s7">7</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="ptd">
+ <h2 class="st">PTD-DBM · mice only</h2>
+ <div class="cp">
+  <div class="cph"><h3>PTD-DBM</h3><a href="/library/#/p/ptd-dbm">Library card</a></div>
+  <p class="lead">In shrunken human follicles a brake protein, CXXC5, is turned up and holds back the Wnt grow switch. PTD-DBM is a decoy that peels the brake off: in mice, wounds regrew hair and even new follicles faster, more so with valproic acid. It has never been tested in people; its lab moved on to a small molecule that has passed only a phase 1 safety check.<sup><a href="#s27">27</a>,<a href="#s33">33</a></sup></p>
+  <p class="mech"><b>Claim to doubt:</b> a 2025 review says PTD-DBM "demonstrated clinical efficacy", but no human trial exists in any registry we searched.<sup><a href="#s33">33</a></sup> <b>Forums:</b> 0 better, 1 partly (thicker existing hair), 2 no change; users found it unstable and hard to keep cold.<sup><a href="#s7">7</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="kpv">
+ <h2 class="st">KPV and thymosin alpha-1 · patches, no data</h2>
+ <div class="cp" style="--cc:#6777B6">
+  <div class="cph"><h3>KPV, Tα1</h3><span><a href="/library/#/p/kpv">KPV</a> · <a href="/library/#/p/thymosin-alpha-1">Thymosin alpha-1</a></span></div>
+  <p class="lead">Alopecia areata starts when the follicle's immune shield fails. KPV is the tail end of alpha-MSH, one of the shield's own guards: an off switch for an alarm that keeps ringing. Its cousin K(D)PT kept pigment flowing in stressed human follicles in a dish, an idea for white regrowth after patches. Nobody has tested KPV for hair growth, in animals or people.<sup><a href="#s19">19</a>,<a href="#s34">34</a></sup></p>
+  <p class="mech"><b>Thymosin alpha-1</b> boosts the immune system, while alopecia areata is an overactive one, so the logic is unclear. In human follicles in a dish it slightly slowed growth.<sup><a href="#s9">9</a></sup> One forum user given 10 shots by an immunologist saw no change and new psoriasis patches.<sup><a href="#s7">7</a></sup> The nearest real immune-rebalancing idea, low-dose IL-2, has a completed trial in 44 people.<sup><a href="#s52">52</a></sup></p>
+ </div>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="ahk">
+ <h2 class="st">AHK-Cu · human follicles in a dish</h2>
+ <div class="cp">
+  <div class="cph"><h3>AHK-Cu</h3><a href="/library/#/p/ahk-cu">Library card</a></div>
+  <p class="lead">AHK-Cu is GHK-Cu's lesser-known cousin and the only copper peptide with human follicle data. At tiny doses it lengthened human hair follicles kept alive in a dish, made papilla cells divide more and lowered cell-death signals. No animal or human trial followed.<sup><a href="#s32">32</a></sup></p>
+  <p class="mech"><b>Forums:</b> 1 partial (some temple regrowth with a dermaroller and other topicals), 2 no change after 5 to 6 months; another user had flushing and facial puffiness.<sup><a href="#s7">7</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="cosm">
+ <h2 class="st">Cosmetic peptide serums · small trials</h2>
+ <div class="cp">
+  <div class="cph"><h3>Peptide serums</h3><span class="jn">Redensyl, Capixyl, Procapil type</span></div>
+  <p class="lead">These lotions mix cosmetic peptides (acetyl tetrapeptide-3, biotinoyl tripeptide-1, GHK) with plant extracts. They are the only peptides with trials against a plain serum, and the effects are small.<sup><a href="#s35">35</a>,<a href="#s36">36</a></sup></p>
+  <ol class="tline">
+   <li><span class="ty">2026 <i class="ev e-m">14 trials</i></span><p class="th">Graded B, as blends.</p><p class="tb">A review of 14 human trials gave blends with these peptides a B grade. Blends can't show what any single peptide does.<sup><a href="#s35">35</a></sup></p></li>
+   <li><span class="ty">2020 <i class="ev e-rct">32 people</i></span><p class="th">Matched 3% minoxidil, no placebo.</p><p class="tb">Terminal hairs up 8.3% on the acetyl tetrapeptide-3 blend vs 8.7% on minoxidil. Without a placebo group, both could be near the placebo gain.<sup><a href="#s36">36</a></sup></p></li>
+   <li><span class="ty">2020 <i class="ev e-rct">44 people</i></span><p class="th">More growing hairs vs resting.</p><p class="tb">A Redensyl blend raised the growing-to-resting ratio from 2.25 to 6.02 over 24 weeks; the plain-serum result is not in the abstract.<sup><a href="#s36">36</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Coming:</b> an 80-person blinded trial against 2% minoxidil, including women, completes 30 Nov 2026.<sup><a href="#s36">36</a></sup> <b>Greying:</b> an "anti-grey" peptide raised pigment markers in 15 men, with no grey-hair count.<sup><a href="#s53">53</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="exo">
+ <h2 class="st">Exosomes · a pilot, case reports</h2>
+ <div class="cp">
+  <div class="cph"><h3>Exosomes</h3><span class="jn">Not peptides; often sold alongside</span></div>
+  <ol class="tline">
+   <li><span class="ty">2025 <i class="ev e-rct">20 men</i></span><p class="th">9.5 vs 1.5 hairs gained over saline.</p><p class="tb">A plant-extract exosome formula, 4 sessions, measured at 16 weeks. A 120-man trial is still recruiting, so results are not close.<sup><a href="#s37">37</a></sup></p></li>
+   <li><span class="ty">2025 <i class="ev e-h">3 cases</i></span><p class="th">Severe patches improved, not cleared.</p><p class="tb">Two women who had failed JAK pills improved by 12 to 20 points on a 100-point bald score after one session; a man's beard patches regrew and darkened from week 6. Patches can regrow alone, and a 2026 review found no randomised trial.<sup><a href="#s37">37</a></sup></p></li>
+  </ol>
+  <p class="mech"><b>Regulator:</b> no exosome product is approved, and an FDA warning letter cites serious adverse events after exosome treatment.<sup><a href="#s37">37</a></sup></p>
+ </div>
+</section>
+<section class="sec" id="bpc">
+ <h2 class="st">BPC-157, GH peptides, collagen · no hair data</h2>
+ <div class="cp">
+  <div class="cph"><h3>Borrowed claims</h3><span><a href="/library/#/p/bpc-157">BPC-157</a> · <a href="/library/#/p/ipamorelin">Ipamorelin</a> · <a href="/library/#/p/mk-677">MK-677</a> · <a href="/library/#/p/collagen-peptides">Collagen</a></span></div>
+  <ul class="tight">
+   <li><b>BPC-157:</b> zero hair studies; the claim is borrowed from rat wound and blood vessel work. After his own transplant a podcast host credited BPC-157, TB-500 and a copper shampoo; a transplant clinic advises not starting any injectable in the first 10 days and telling the surgeon everything.<sup><a href="#s13">13</a>,<a href="#s54">54</a></sup></li>
+   <li><b>GH peptides:</b> no study on hair counts. Two forum users said hair got thicker: one on ipamorelin with CJC-1295 for 12 weeks, one on MK-677 alongside finasteride, minoxidil and microneedling.<sup><a href="#s7">7</a></sup></li>
+   <li><b>Collagen peptides:</b> in a 6-month trial in women after menopause, collagen slowed shedding, but calcium with vitamin D did the same, so it is not collagen itself.<sup><a href="#s55">55</a></sup></li>
+   <li><b>Biotin:</b> helps only if you lack it, which is rare, and 5 to 20 mg a day can fake thyroid test results.<sup><a href="#s21">21</a></sup></li>
+  </ul>
+ </div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="glp">
+ <h2 class="st">GLP-1 drugs · a cause of shedding</h2>
+ <div class="cp glpcp">
+  <div class="cph"><h3>Semaglutide, tirzepatide</h3><span><a href="/library/#/p/semaglutide">Semaglutide</a> · <a href="/library/#/p/tirzepatide">Tirzepatide</a> · <a href="/library/goals/glp-1/">GLP-1s case</a></span></div>
+  <div class="grid two" style="margin-top:4px">
+  <div>
+  <p class="lead">Losing weight fast is a shock to the body, and follicles answer the way they answer illness: many drop into rest together. Across 34 trials with 84,243 people, hair loss was about 3 times the placebo rate. In plain numbers that is 3 in 100 on Wegovy against 1 in 100 on placebo, and about 6 in 100 on the top tirzepatide dose.<sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></p>
+  <div class="bars">
+   <div class="bl1"><span>Wegovy</span><div class="bt"><i style="width:43%;background:#FCB0B4"></i><em>3% vs 1%</em></div></div>
+   <div class="bl1"><span>Teens</span><div class="bt"><i style="width:57%;background:#FCB0B4"></i><em>4% vs 0%</em></div></div>
+   <div class="bl1"><span>Tirz 15 mg</span><div class="bt"><i style="width:81%;background:#FCB0B4"></i><em>5.7% vs 0.9%</em></div></div>
+   <div class="bl1"><span>Tirz, diet trial</span><div class="bt"><i style="width:100%;background:#FCB0B4"></i><em>7.0% vs 1.4%</em></div></div>
+  </div>
+  <p class="hint" style="margin-top:0">Drug vs placebo in trials; bar length shows the drug rate.<sup><a href="#s12">12</a></sup></p>
+  </div>
+  <div>
+  <ul class="how">
+   <li><b>Drug or weight? Both, mostly weight.</b> Tirzepatide's diabetes trials, with less weight loss, logged 0.25%; semaglutide under 2 mg a week is rarely linked.<sup><a href="#s12">12</a>,<a href="#s56">56</a></sup> <button class="wy" type="button" aria-expanded="false">Why not only weight</button><span class="wyx" hidden>In 2026 a BMJ study of people with diabetes found 1.37 times the risk against SGLT-2 drugs, which also cause some weight loss, and 1.68 times against DPP-4 drugs. The signal shrank after a statistical check for hidden bias, and the absolute risk was low: about 6.9 against 5.0 cases per 1,000 people a year.<sup><a href="#s57">57</a></sup></span></li>
+   <li><b>Real life looks worse than trials:</b> 3 to 7% in trials against over 70% in some self-selected surveys, which count differently.<sup><a href="#s18">18</a></sup></li>
+   <li><b>The other direction:</b> some reports describe pattern and scarring loss improving on GLP-1s, perhaps through metabolism and less inflammation.<sup><a href="#s18">18</a></sup></li>
+   <li><b>What dermatologists do:</b> check iron (ferritin), vitamin D, zinc and thyroid, start minoxidil, and begin pattern-loss treatment before the GLP-1 if it is already there.<sup><a href="#s14">14</a></sup></li>
+  </ul>
+  </div>
+  </div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p3"><span>4</span>Every option, compared</h2>
+<div class="grid"><section class="sec" id="compare">
+ <h2 class="st">Side by side</h2>
+ <p class="hint" style="margin:0 0 8px">Pick two or three. Rows line up so you can read across.</p>
+ <div class="cmpx" id="cmpx">
+  <div class="cxsel" id="cxsel"></div>
+  <div class="cxbody" id="cxbody"></div>
+ </div>
+ <details class="ftd" id="ftd"><summary><span class="sub">The full table · all 23 options</span><span class="cnt">tap to open</span></summary>
+ <div class="ftw"><table class="cmp ftab"><thead><tr><th>Option</th><th>Acts on in the follicle</th><th>Best human result</th><th>Time to see</th><th>When you stop</th><th>Main risk</th><th>What people report</th></tr></thead><tbody><tr class="gr"><td colspan="7">Proven options</td></tr><tr class="o-proven"><td class="on">Minoxidil, skin <span class="ev e-h">Human outcome</span><sup><a href="#s4">4</a>,<a href="#s39">39</a></sup></td><td data-l="Acts on in the follicle">Dermal papilla: opens potassium channels; blood supply</td><td data-l="Best human result">About 13 more hairs per cm² than placebo in women (47 trials)</td><td data-l="Time to see">Head-to-head trial ran 32 weeks: density up 48%</td><td data-l="When you stop">Not measured; pattern loss keeps its course untreated</td><td data-l="Main risk">Scalp itch and dryness (75% in one trial)</td><td data-l="What people report">Not counted (not a peptide)</td></tr><tr class="o-proven"><td class="on">Minoxidil, oral <span class="ev e-h">Human outcome</span><sup><a href="#s24">24</a>,<a href="#s40">40</a>,<a href="#s39">39</a>,<a href="#s58">58</a></sup></td><td data-l="Acts on in the follicle">Dermal papilla, blood supply</td><td data-l="Best human result">Fibres 3 to 6 µm thicker vs 2 µm thinner on placebo; matched topical</td><td data-l="Time to see">Early shed in 16 to 22% first; gains at 32 weeks</td><td data-l="When you stop">Not measured; pattern loss keeps its course untreated</td><td data-l="Main risk">Extra face and body hair 15%; fluid 1.3%; fast heart 0.9%</td><td data-l="What people report">2 of 2 GLP-1 shedders who tried it regrew</td></tr><tr class="o-proven"><td class="on">Finasteride <span class="ev e-h">Human outcome</span><sup><a href="#s3">3</a>,<a href="#s4">4</a>,<a href="#s59">59</a></sup></td><td data-l="Acts on in the follicle">DHT: makes less (blocks 5-alpha-reductase type 2)</td><td data-l="Best human result">Men: gains held over 5 years while placebo kept thinning (1,553 men). Women: no better than placebo</td><td data-l="Time to see">Judged over years; held at 5</td><td data-l="When you stop">Placebo arms kept thinning, so expect that course</td><td data-l="Main risk">Sexual side effects 1.57 times placebo; mood reports</td><td data-l="What people report">Not counted (not a peptide)</td></tr><tr class="o-proven"><td class="on">Dutasteride <span class="ev e-h">Human outcome</span><sup><a href="#s42">42</a>,<a href="#s59">59</a></sup></td><td data-l="Acts on in the follicle">DHT: makes less</td><td data-l="Best human result">No measurable change in 6 months (small, not randomised)</td><td data-l="Time to see">More than 6 months</td><td data-l="When you stop" class="nm">Not measured</td><td data-l="Main risk">Sexual side effects, as finasteride</td><td data-l="What people report">Not counted</td></tr><tr class="o-proven"><td class="on">Clascoterone (pending) <span class="ev e-h">Human outcome</span><sup><a href="#s28">28</a></sup></td><td data-l="Acts on in the follicle">DHT receptor: blocks it on the scalp</td><td data-l="Best human result">Beat a plain lotion in 1,465 men; only relative figures released</td><td data-l="Time to see">6 months measured; still gaining at 12</td><td data-l="When you stop">Staying on gave 2.39 times the gain of switching to plain lotion</td><td data-l="Main risk">Some reaches the blood; no hormonal side effects reported</td><td data-l="What people report">Not on sale yet</td></tr><tr class="o-proven"><td class="on">Spironolactone (women) <span class="ev e-h">Human outcome</span><sup><a href="#s43">43</a>,<a href="#s4">4</a></sup></td><td data-l="Acts on in the follicle">DHT receptor: blocks it</td><td data-l="Best human result">44 to 54% improved in observational studies; never tested against placebo</td><td data-l="Time to see">Studies ran up to 24 months</td><td data-l="When you stop" class="nm">Not measured</td><td data-l="Main risk">Not in pregnancy; contraception needed</td><td data-l="What people report">Not counted</td></tr><tr class="o-proven"><td class="on">Microneedling <span class="ev e-h">Human outcome</span><sup><a href="#s44">44</a></sup></td><td data-l="Acts on in the follicle">Wound signals; lets topicals in</td><td data-l="Best human result">Added to minoxidil, a large rise in hair counts (12 trials, 631 people)</td><td data-l="Time to see" class="nm">Not in our sources</td><td data-l="When you stop" class="nm">Not in our sources</td><td data-l="Main risk" class="nm">Not in our sources</td><td data-l="What people report">Often used with copper peptides on forums</td></tr><tr class="o-proven"><td class="on">PRP <span class="ev e-h">Human outcome</span><sup><a href="#s45">45</a>,<a href="#s39">39</a></sup></td><td data-l="Acts on in the follicle">Growth factors at the follicle</td><td data-l="Best human result">Same density as minoxidil (9 trials); people more satisfied</td><td data-l="Time to see">32 weeks with topical: density up 57%</td><td data-l="When you stop" class="nm">Not in our sources</td><td data-l="Main risk" class="nm">Not in our sources</td><td data-l="What people report">Not counted</td></tr><tr class="o-proven"><td class="on">Laser or light <span class="ev e-h">Human outcome</span><sup><a href="#s4">4</a>,<a href="#s46">46</a></sup></td><td data-l="Acts on in the follicle">Light on the scalp</td><td data-l="Best human result">About 17 more hairs than sham in 2 women&#x27;s trials; adds nothing to minoxidil</td><td data-l="Time to see" class="nm">Not in our sources</td><td data-l="When you stop" class="nm">Not in our sources</td><td data-l="Main risk">Users could not tell it from sham</td><td data-l="What people report">Not counted</td></tr><tr class="o-proven"><td class="on">JAK pills (patches) <span class="ev e-h">Human outcome</span><sup><a href="#s29">29</a>,<a href="#s30">30</a>,<a href="#s20">20</a></sup></td><td data-l="Acts on in the follicle">Immune shield: blocks the attack signal</td><td data-l="Best human result">23 to 41% near-full scalp at 24 to 36 weeks vs 1 to 6% on placebo</td><td data-l="Time to see">24 to 36 weeks</td><td data-l="When you stop">Relapse on stopping is common</td><td data-l="Main risk">Boxed warning: infections, cancer, heart events, clots</td><td data-l="What people report">Not counted</td></tr><tr class="o-proven"><td class="on">Hair transplant <span class="ev e-h">Human outcome</span><sup><a href="#s48">48</a>,<a href="#s17">17</a>,<a href="#s23">23</a></sup></td><td data-l="Acts on in the follicle">Moves DHT-resistant follicles from the back</td><td data-l="Best human result">Most studies: 85 to 95% of grafts survive in normal scalp</td><td data-l="Time to see">Grows from months 3 to 5; judged at 12 to 18</td><td data-l="When you stop">Moved hair stays; native hair keeps thinning untreated</td><td data-l="Main risk">Shock loss 3.7% (14 of 67 women vs 9 of 554 men); folliculitis 7%</td><td data-l="What people report">Copper aftercare sprays: 3 of 5 healed better</td></tr><tr class="gr"><td colspan="7">Peptides</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/ghk-cu">GHK-Cu, copper peptides</a> <span class="ev e-a">Animal only</span><sup><a href="#s5">5</a>,<a href="#s31">31</a>,<a href="#s51">51</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Papilla and wound bed: copper delivery</td><td data-l="Best human result">Only inside a mix: 7 men, bald top scalp 40% to 7.5% with minoxidil and dutasteride, no control</td><td data-l="Time to see">5 monthly sessions in that study</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">Stinging on the skin; injected: no human safety data</td><td data-l="What people report">10 copper users (GHK and AHK together): 2 better, 1 partly, 7 no change</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/ahk-cu">AHK-Cu</a> <span class="ev e-x">Human follicle, dish</span><sup><a href="#s32">32</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Dermal papilla</td><td data-l="Best human result">None; longer human follicles in a dish</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">One user: flushing, facial puffiness</td><td data-l="What people report">3 users: 1 partly, 2 no change</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/thymosin-beta-4">Thymosin beta-4, TB-500</a> <span class="ev e-cf">Animal vs dish clash</span><sup><a href="#s8">8</a>,<a href="#s9">9</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Bulge stem cells (mice); bulb (human dish)</td><td data-l="Best human result">None; human follicles grew 10 to 20% less in a dish</td><td data-l="Time to see">One user: from month 1</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">May push follicles toward shedding</td><td data-l="What people report">3 users: 2 better, 1 worse</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/ptd-dbm">PTD-DBM</a> <span class="ev e-a">Animal only</span><sup><a href="#s27">27</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Wnt switch: removes the CXXC5 brake</td><td data-l="Best human result">None; mice only</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">Unstable, needs cold; batches vary</td><td data-l="What people report">3 users: 1 partly, 2 no change</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/kpv">KPV</a> <span class="ev e-t">Theory</span><sup><a href="#s34">34</a></sup></td><td data-l="Acts on in the follicle">Immune shield, pigment cells (theory)</td><td data-l="Best human result">None for growth; a cousin kept pigment in human follicles</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk" class="nm">Not in our sources</td><td data-l="What people report">None found outside Reddit</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/thymosin-alpha-1">Thymosin alpha-1</a> <span class="ev e-x">Human follicle, dish</span><sup><a href="#s9">9</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Matrix</td><td data-l="Best human result">None; slightly slowed human follicles in a dish</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">One user: new psoriasis patches</td><td data-l="What people report">1 user: no change</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/bpc-157">BPC-157</a> <span class="ev e-t">Theory</span><sup><a href="#s13">13</a>,<a href="#s54">54</a></sup></td><td data-l="Acts on in the follicle">Blood vessels (theory)</td><td data-l="Best human result">None; zero hair studies</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk">Unknown injectables near fresh grafts</td><td data-l="What people report">1 transplant user, in a stack</td></tr><tr class="o-peptide"><td class="on"><a href="/library/#/p/ipamorelin">GH peptides, MK-677</a> <span class="ev e-t">Theory</span><sup><a href="#s13">13</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Matrix and papilla via IGF-1 (theory)</td><td data-l="Best human result">None; IGF-1 only inside cocktails</td><td data-l="Time to see" class="nm">Not studied</td><td data-l="When you stop" class="nm">Not studied</td><td data-l="Main risk" class="nm">Not in our sources</td><td data-l="What people report">2 users better, both with other things</td></tr><tr class="o-peptide"><td class="on">Cosmetic peptide serums <span class="ev e-h">Human outcome</span><sup><a href="#s36">36</a>,<a href="#s35">35</a>,<a href="#s7">7</a></sup></td><td data-l="Acts on in the follicle">Papilla and growth phase (claimed)</td><td data-l="Best human result">A blend matched 3% minoxidil in 32 people (no placebo); small vehicle trials</td><td data-l="Time to see">24 weeks in trials; 6 weeks to 2 months in reports</td><td data-l="When you stop" class="nm">Not measured</td><td data-l="Main risk">2 users shed more for a while</td><td data-l="What people report">15 users: 3 better, 3 length only, 7 no change, 2 worse</td></tr><tr class="gr"><td colspan="7">Others</td></tr><tr class="o-other"><td class="on">Exosomes <span class="ev e-h">Human outcome</span><sup><a href="#s37">37</a>,<a href="#s60">60</a></sup></td><td data-l="Acts on in the follicle">Papilla, Wnt, inflammation</td><td data-l="Best human result">Pilot: 9.5 vs 1.5 hairs gained over saline at 16 weeks (20 men)</td><td data-l="Time to see">Week 6 to 16</td><td data-l="When you stop">Maintenance needed (surgeon view)</td><td data-l="Main risk">No approved product; FDA warned of serious events</td><td data-l="What people report">5 of 5 better (failures rarely written up)</td></tr><tr class="o-other"><td class="on"><a href="/library/#/p/collagen-peptides">Collagen peptides</a> <span class="ev e-h">Human outcome</span><sup><a href="#s55">55</a>,<a href="#s6">6</a></sup></td><td data-l="Acts on in the follicle">Whole body (oral)</td><td data-l="Best human result">Slowed shedding, but calcium plus vitamin D did the same</td><td data-l="Time to see">6 months</td><td data-l="When you stop" class="nm">Not measured</td><td data-l="Main risk" class="nm">Not in our sources</td><td data-l="What people report">1 GLP-1 shedder credited collagen and biotin</td></tr><tr class="o-other"><td class="on"><a href="/library/#/p/semaglutide">GLP-1 drugs (cause)</a> <span class="ev e-hu">Human: causes shedding</span><sup><a href="#s11">11</a>,<a href="#s12">12</a>,<a href="#s14">14</a>,<a href="#s6">6</a></sup></td><td data-l="Acts on in the follicle">Whole follicle: pushes growing hairs into rest</td><td data-l="Best human result">Causes shedding: about 3 times placebo (3 in 100 vs 1 in 100)</td><td data-l="Time to see">Starts 2 to 3 months in; near normal by about a year</td><td data-l="When you stop">Usually ends once weight holds steady, even on the drug</td><td data-l="Main risk">Can unmask pattern loss underneath</td><td data-l="What people report">73 posters: 18 stopped or regrew, 4 slowing</td></tr></tbody></table></div>
+ </details>
+</section></div>
+
+<h2 class="part" id="p4"><span>5</span>What people report</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="reports">
+ <h2 class="st">Forums outside Reddit, counted</h2>
+ <p class="hint" style="margin:0 0 8px">One person per count, own use only, sellers left out.<sup><a href="#s7">7</a>,<a href="#s6">6</a></sup></p>
+ <div class="pool"><p class="sub">Exosomes · 5 people</p><div class="sbar" role="img" aria-label="5 better"><i class="g1" style="width:100%">5</i></div></div>
+ <div class="pool"><p class="sub">Copper sprays after a transplant · 5</p><div class="sbar" role="img" aria-label="3 better, 1 partly, 1 no change"><i class="g1" style="width:60%">3</i><i class="g2" style="width:20%">1</i><i class="g3" style="width:20%">1</i></div></div>
+ <div class="pool"><p class="sub">TB-500, thymosin beta-4 · 3</p><div class="sbar" role="img" aria-label="2 better, 1 worse"><i class="g1" style="width:66.7%">2</i><i class="g4" style="width:33.3%">1</i></div></div>
+ <div class="pool"><p class="sub">GH peptides, MK-677 · 2</p><div class="sbar" role="img" aria-label="2 better"><i class="g1" style="width:100%">2</i></div></div>
+ <div class="pool"><p class="sub">Peptide serums · 15 (partly = longer, not denser)</p><div class="sbar" role="img" aria-label="3 better, 3 length only, 7 no change, 2 worse"><i class="g1" style="width:20%">3</i><i class="g2" style="width:20%">3</i><i class="g3" style="width:46.7%">7</i><i class="g4" style="width:13.3%">2</i></div></div>
+ <div class="pool"><p class="sub">Copper peptides on the scalp (GHK, AHK) · 10</p><div class="sbar" role="img" aria-label="2 better, 1 partly, 7 no change"><i class="g1" style="width:20%">2</i><i class="g2" style="width:10%">1</i><i class="g3" style="width:70%">7</i></div></div>
+ <div class="pool"><p class="sub">PTD-DBM · 3</p><div class="sbar" role="img" aria-label="1 partly, 2 no change"><i class="g2" style="width:33.3%">1</i><i class="g3" style="width:66.7%">2</i></div></div>
+ <div class="pool"><p class="sub">Thymosin alpha-1 (patches) · 1</p><div class="sbar" role="img" aria-label="1 no change"><i class="g3" style="width:100%">1</i></div></div>
+ <div class="blg"><span><i class="k1"></i>Better</span><span><i class="k2"></i>Partly</span><span><i class="k3"></i>No change</span><span><i class="k4"></i>Worse</span></div>
+ <ul class="tight">
+  <li><b>Confounders everywhere:</b> most copper, TB-500 and GH users were also on minoxidil, finasteride, dutasteride or microneedling, so a "better" can't be pinned on the peptide.<sup><a href="#s7">7</a></sup></li>
+  <li><b>Pattern of the positives:</b> thicker existing hair and less shedding, rarely new hair in bald spots.<sup><a href="#s13">13</a></sup></li>
+  <li><b>None found:</b> KPV, injected GHK-Cu and BPC-157 for hair loss itself had no first-hand report outside Reddit.<sup><a href="#s13">13</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="glprep">
+ <h2 class="st">GLP-1 shedding · 73 people</h2>
+ <div class="pool"><p class="sub">58 who shed, by outcome so far</p><div class="sbar" role="img" aria-label="18 stopped or regrew, 4 slowing, 36 still shedding or no outcome yet"><i class="g1" style="width:31%">18</i><i class="g2" style="width:6.9%">4</i><i class="g3" style="width:62.1%">36 still shedding or no update</i></div></div>
+ <p>14 more never shed, and 1 was unsure. Hair threads draw people who shed, so this shows the course, not how common it is.<sup><a href="#s6">6</a></sup></p>
+ <ul class="tight">
+  <li><b>Weight held steady:</b> shedding stopped, with regrowth to normal at about 6 months of maintenance in one and 2 inches of new hair at 7 months in another. Consistent: well over 5 people.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Low-dose oral minoxidil:</b> 2 of 2 regrew, with baby hairs by about 7 months.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Dose cuts:</b> 1 helped, 3 did not. Supplements had no clear effect, and the one person on very low calories was still shedding at 7 months.<sup><a href="#s6">6</a></sup></li>
+  <li><b>Stopping the drug:</b> three who stopped were still shedding 7 to 12 weeks later, which fits the 3-month lag.<sup><a href="#s6">6</a></sup></li>
+ </ul>
+</section>
+<section class="sec" id="doctor">
+ <h2 class="st">Seen by a clinician</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-h">Photos</span><p><b>Exosomes:</b> 3 alopecia areata patients improved, written up by their doctors. Failed cases are rarely written up.<sup><a href="#s37">37</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Surgeon</span><p><b>Copper sprays after transplant:</b> one surgeon saw patients look almost unoperated at 6 to 8 days but could not tell if copper or keeping the scalp moist did it; two others called the sprays a waste of time.<sup><a href="#s7">7</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">GLP-1</span><p><b>Trichologists</b> see GLP-1 shedding start at 2 to 4 months and expect it to stop within 3 to 6.<sup><a href="#s14">14</a></sup></p></div>
+ </div>
+ <p class="hint">Anecdotes are not proof: shedding settles and patches regrow on their own. Reddit counts are still pending, and most injected GHK-Cu, KPV and GH peptide reports live there.</p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p5"><span>6</span>Pairings and related</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="pairs">
+ <h2 class="st">What is used together</h2>
+ <ul class="tight">
+  <li><b>Finasteride with minoxidil (men)</b> and <b>microneedling with minoxidil (women)</b> ranked top in a network comparison of trials.<sup><a href="#s45">45</a></sup> <span class="ev e-m">Meta</span></li>
+  <li><b>Peptides go on top, never alone.</b> The real-world stack is minoxidil plus a DHT blocker, then microneedling or PRP, then copper peptides; the best peptide study was itself a mix.<sup><a href="#s5">5</a>,<a href="#s13">13</a></sup></li>
+  <li><b>Copper peptides with microneedling:</b> needles push more copper into the skin; a dilute solution showed none at 9 hours.<sup><a href="#s13">13</a></sup></li>
+  <li><b>JAK pills with oral minoxidil:</b> 168 of 202 people on tofacitinib for patches took both; 56% reached half regrowth.<sup><a href="#s61">61</a></sup></li>
+  <li><b>GLP-1 with pattern-loss treatment:</b> start minoxidil early if pattern loss is already there.<sup><a href="#s14">14</a></sup></li>
+  <li><b>Transplant with medicine:</b> finasteride or minoxidil to keep the native hair, and tell the clinic about anything injected.<sup><a href="#s54">54</a>,<a href="#s13">13</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="else">
+ <h2 class="st">The same problem, other pages</h2>
+ <ul class="tight">
+  <li><a href="/library/goals/pcos/"><b>PCOS</b></a>: the androgen side of female hair loss, with spironolactone and GLP-1s.</li>
+  <li><a href="/library/goals/glp-1/"><b>GLP-1s</b></a>: every effect beyond weight loss, shedding included.</li>
+  <li><a href="/library/goals/acne/"><b>Acne</b></a>: the same androgens drive oil glands; clascoterone started as an acne cream.</li>
+  <li><a href="/library/aims/skin/"><b>Skin</b></a>: GHK-Cu, collagen and the copper peptides on skin.</li>
+  <li><a href="/library/#/p/ghk-cu"><b>GHK-Cu card</b></a> and <a href="/library/goals/notes/hair/"><b>hair research notes</b></a>: every study and count behind this page.</li>
+ </ul>
+ <p class="sub">Lashes and greying</p>
+ <p>A prescription eye drop, bimatoprost, grew lashes in 77% vs 18% on a plain drop at 4 months.<sup><a href="#s62">62</a></sup> No peptide has reversed grey hair in a controlled study.<sup><a href="#s53">53</a></sup></p>
+</section>
+</div>
+</div>
+
+<h2 class="part" id="p6"><span>7</span>Options, in order of evidence</h2>
+<div class="grid"><section class="sec" id="options">
+ <ol class="steps ostep">
+  <li><b>Find the type first.</b><span>Pattern, shedding, patches or scarring change everything. For all-over shedding, doctors check ferritin, thyroid, vitamin D and zinc.<sup><a href="#s14">14</a></sup></span></li>
+  <li><b>Pattern loss, men.</b><span>Finasteride (pill or spray) with minoxidil (lotion or low-dose pill); microneedling as an add-on. Clascoterone pending, filing 2027.<sup><a href="#s3">3</a>,<a href="#s45">45</a>,<a href="#s28">28</a></sup></span></li>
+  <li><b>Pattern loss, women.</b><span>Minoxidil lotion (the only approved drug) or low-dose pills; microneedling; spironolactone off-label, never tested against placebo.<sup><a href="#s15">15</a>,<a href="#s44">44</a>,<a href="#s43">43</a></sup></span></li>
+  <li><b>Shedding, GLP-1 included.</b><span>Fix the trigger, eat enough protein and iron, lose weight more slowly; it usually settles in 3 to 12 months; minoxidil if it drags.<sup><a href="#s14">14</a>,<a href="#s6">6</a></sup></span></li>
+  <li><b>Alopecia areata, moderate to severe.</b><span>JAK pills: 20 to 40% near-full regrowth in 6 to 9 months. Baricitinib is the only treatment with high-certainty evidence.<sup><a href="#s30">30</a>,<a href="#s29">29</a></sup></span></li>
+  <li><b>Transplant.</b><span>Keep native hair on medicine; PRP at surgery has weak but positive data.<sup><a href="#s48">48</a>,<a href="#s13">13</a></sup></span></li>
+  <li><b>Peptides, experimental.</b><span>Copper peptides on the scalp (low risk, weak evidence, best with microneedling); cosmetic blends (small trials); TB-500 (mice yes, human follicles no); PTD-DBM (mice, unstable); BPC-157, KPV and thymosin alpha-1 (no hair data).<sup><a href="#s13">13</a></sup></span></li>
+ </ol>
+</section></div>
+
+<div class="grid"><section class="sec" id="faq">
+ <h2 class="part" style="margin-top:14px"><span>8</span>Usual questions</h2>
+ <div class="faqs" style="margin-top:8px">
+  <details class="fq" open><summary>Is it normal to lose 100 hairs a day?</summary><div class="bd"><p>Yes. 50 to 100 a day is normal shedding from follicles ending their rest phase.<sup><a href="#s2">2</a></sup></p></div></details>
+  <details class="fq" open><summary>Will my GLP-1 hair loss stop?</summary><div class="bd"><p>Usually. Trichologists expect 3 to 6 months of shedding and fullness can take about a year. On forums it stopped once weight held steady. Pattern loss underneath will not fix itself.<sup><a href="#s14">14</a>,<a href="#s6">6</a></sup></p></div></details>
+  <details class="fq"><summary>How likely is hair loss on Ozempic, Wegovy or Mounjaro?</summary><div class="bd"><p>About 3 times the placebo rate: about 3 in 100 on Wegovy vs 1 in 100 on placebo, and 5 to 7 in 100 on high-dose tirzepatide. Mostly from fast weight loss; a small drug effect can't be ruled out.<sup><a href="#s11">11</a>,<a href="#s12">12</a>,<a href="#s57">57</a></sup></p></div></details>
+  <details class="fq"><summary>Do copper peptides regrow hair?</summary><div class="bd"><p>Not proven. No controlled trial of GHK-Cu alone. Blends containing GHK have small trials. The "as good as 5% minoxidil" line comes from a 1993 rat result with a developer's coded peptide, and "blocks DHT" from a 1995 study of plain copper.<sup><a href="#s35">35</a>,<a href="#s31">31</a>,<a href="#s38">38</a></sup></p></div></details>
+  <details class="fq"><summary>Does TB-500 grow hair?</summary><div class="bd"><p>It did in mice. In human scalp follicles in a dish, thymosin beta-4 cut growth by 10 to 20% and pushed follicles into the shrinking phase early. TB-500 itself was never tested.<sup><a href="#s8">8</a>,<a href="#s9">9</a></sup></p></div></details>
+  <details class="fq"><summary>Is oral minoxidil safe?</summary><div class="bd"><p>In 1,404 patients only 1.7% stopped for side effects: extra hair in 15%, fluid retention 1.3%, a fast heart 0.9%. Fluid around the heart is extremely rare, often linked to dosing errors.<sup><a href="#s40">40</a>,<a href="#s58">58</a></sup></p></div></details>
+  <details class="fq"><summary>Oral or topical minoxidil?</summary><div class="bd"><p>Similar regrowth in a 32-week trial. The pill avoids the scalp itch that hit 75% on the lotion, but grows hair elsewhere in about 15%.<sup><a href="#s39">39</a>,<a href="#s40">40</a></sup></p></div></details>
+  <details class="fq"><summary>Does finasteride ruin your sex life?</summary><div class="bd"><p>Sexual side effects were 1.57 times placebo across 15 trials, mostly reversible; a small group report lasting symptoms after stopping.<sup><a href="#s59">59</a>,<a href="#s63">63</a></sup></p></div></details>
+  <details class="fq"><summary>Is the new clascoterone lotion hormone-free?</summary><div class="bd"><p>Some of it reaches the bloodstream. Phase 3 reported no hormonal side effects. Real hair counts are not out yet.<sup><a href="#s28">28</a></sup></p></div></details>
+  <details class="fq"><summary>Is spironolactone worth it for women?</summary><div class="bd"><p>Never tested against placebo. In observational studies 44 to 54% improve and most of the rest hold steady.<sup><a href="#s43">43</a></sup></p></div></details>
+  <details class="fq"><summary>What works for alopecia areata?</summary><div class="bd"><p>JAK pills: 23 to 41% reach near-full scalp at 24 to 36 weeks vs 1 to 6% on placebo, with a boxed warning. Thymosin alpha-1 has no study in people and slightly slowed human follicles in a dish.<sup><a href="#s29">29</a>,<a href="#s9">9</a></sup></p></div></details>
+  <details class="fq"><summary>What is PTD-DBM?</summary><div class="bd"><p>A peptide that releases the Wnt grow switch. It worked in mice and was never tested in people; its successor molecule passed only a safety trial.<sup><a href="#s27">27</a>,<a href="#s33">33</a></sup></p></div></details>
+  <details class="fq"><summary>Do biotin or collagen help?</summary><div class="bd"><p>Biotin only if you lack it, and it can fake thyroid results. Collagen slowed shedding in one trial, but calcium with vitamin D did the same.<sup><a href="#s21">21</a>,<a href="#s55">55</a></sup></p></div></details>
+  <details class="fq"><summary>Is shedding after a transplant normal?</summary><div class="bd"><p>Yes: grafts shed within about 6 weeks and regrow from month 3 to 5. Native-hair shock loss hits about 4%, far more in women.<sup><a href="#s17">17</a>,<a href="#s23">23</a></sup></p></div></details>
+  <details class="fq"><summary>Do BPC-157 or TB-500 help a transplant heal?</summary><div class="bd"><p>No study in transplant patients. One clinic advises not starting them in the first 10 days unless your surgeon plans it, and telling the clinic about anything you inject.<sup><a href="#s54">54</a></sup></p></div></details>
+  <details class="fq"><summary>Is anything new coming?</summary><div class="bd"><p>Two androgen-blocking lotions from China: pyrilutamide (about 11 more hairs per cm² than placebo at 24 weeks) and GT20029 (phase 2). Clascoterone filing is planned for early 2027.<sup><a href="#s26">26</a>,<a href="#s28">28</a></sup></p></div></details>
+ </div>
+</section></div>
+
+<h2 class="part" id="p8"><span>9</span>Warnings and fine print</h2>
+<div class="grid two">
+<div class="col">
+<section class="sec" id="redflags">
+ <h2 class="st rdt">See a dermatologist</h2>
+ <div class="box rd">
+  <ul class="tight">
+   <li>Sudden round patches, or loss with burning, pain, itch or scarring: scarring loss is permanent.<sup><a href="#s10">10</a></sup></li>
+   <li>Shedding that lasts more than 6 months.<sup><a href="#s15">15</a></sup></li>
+   <li>Patchy loss with PCOS or thyroid disease: it may be alopecia areata.<sup><a href="#s22">22</a>,<a href="#s21">21</a></sup></li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="meds">
+ <h2 class="st">The medicines</h2>
+ <ul class="tight">
+  <li><b>Finasteride, dutasteride:</b> sexual side effects 1.57 times placebo. FDA reports show more depression and anxiety reports in young men on hair doses, though an observational meta-analysis found no clear link (1.07). Screen mood before and during.<sup><a href="#s59">59</a>,<a href="#s63">63</a></sup></li>
+  <li><b>Oral minoxidil:</b> fluid retention 1.3 to 10%; fast heart or dizziness under 5%; early shedding in 16 to 22% is expected. Not with heart lining disease or uncontrolled blood pressure.<sup><a href="#s58">58</a></sup></li>
+  <li><b>Pregnancy:</b> finasteride, dutasteride, spironolactone and oral minoxidil are avoided. Topical finasteride can pass to partners and children by touch.<sup><a href="#s41">41</a>,<a href="#s13">13</a></sup></li>
+  <li><b>JAK pills:</b> boxed warning for serious infections, death, cancer, heart events and clots; more relevant over 65.<sup><a href="#s29">29</a>,<a href="#s64">64</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="fine">
+ <h2 class="st">Peptides and unregulated products</h2>
+ <ul class="tight">
+  <li><b>Research peptides</b> (GHK-Cu, TB-500, PTD-DBM, BPC-157) are not approved drugs; purity and stability vary, PTD-DBM especially.<sup><a href="#s13">13</a></sup></li>
+  <li><b>Thymosin beta-4 and alpha-1</b> both nudged human follicles toward shedding in a dish.<sup><a href="#s9">9</a></sup></li>
+  <li><b>Injected GHK-Cu:</b> no human safety data; injection-site reactions and infections are reported.<sup><a href="#s51">51</a></sup></li>
+  <li><b>Exosomes:</b> unapproved biologics; the FDA has warned of serious adverse events.<sup><a href="#s37">37</a></sup></li>
+  <li><b>Compounded topical finasteride:</b> caused reports like the pill's side effects, many lasting after stopping.<sup><a href="#s41">41</a></sup></li>
+  <li><b>Melanotan:</b> depigmented patches reported in a patient with alopecia areata.<sup><a href="#s65">65</a></sup></li>
+  <li><b>Biotin:</b> stop 24 to 72 hours before thyroid or hormone blood tests.<sup><a href="#s21">21</a></sup></li>
+  <li><b>After a transplant:</b> avoid unknown injectables near fresh grafts in the first 10 days, and don't spray anything that runs over healing cuts without asking.<sup><a href="#s54">54</a>,<a href="#s7">7</a></sup></li>
+ </ul>
+</section>
+</div>
+</div>
+
+
+<div class="grid two">
+<div class="col">
+<section class="sec" id="watch">
+ <h2 class="st">Trials to watch</h2>
+ <ul class="tight">
+  <li><b>Peptide serum vs 2% minoxidil</b> (80 people, women included, Bangkok): completes 30 Nov 2026. No placebo arm, so it can only show "about as good as minoxidil" or not.<sup><a href="#s36">36</a></sup></li>
+  <li><b>Cord exosome injections vs saline</b> (120 men, Beijing): still recruiting; its 24-week result can't arrive by its listed date.<sup><a href="#s37">37</a></sup></li>
+  <li><b>Clascoterone lotion:</b> US and EU filing planned for early 2027; real hair counts still to be published.<sup><a href="#s28">28</a></sup></li>
+  <li><b>GT20029</b> in phase 3 and <b>pyrilutamide</b> heading for approval in China.<sup><a href="#s26">26</a></sup></li>
+ </ul>
+</section>
+</div>
+<div class="col">
+<section class="sec" id="glossary">
+ <h2 class="st">Words on this page</h2>
+ <div class="evleg gw"><dl>
+  <div><dt>Anagen, telogen</dt><dd>The growing phase (2 to 6 years) and the resting phase (about 3 months) of a follicle.<sup><a href="#s2">2</a></sup></dd></div>
+  <div><dt>Miniaturisation</dt><dd>The follicle shrinking a little each cycle in pattern loss.<sup><a href="#s1">1</a></sup></dd></div>
+  <div><dt>Terminal, vellus</dt><dd>Thick, coloured hairs vs the fine fuzz shrunken follicles make.<sup><a href="#s1">1</a></sup></dd></div>
+  <div><dt>Hairs per cm²</dt><dd>Hairs counted in a small marked patch of scalp; "+13" means 13 more in each square centimetre than the placebo group.<sup><a href="#s4">4</a></sup></dd></div>
+  <div><dt>SALT score</dt><dd>How much of the scalp is bald, from 0 to 100%. "SALT 20 or less" means at least 80% covered.<sup><a href="#s30">30</a></sup></dd></div>
+  <div><dt>Times placebo</dt><dd>A ratio: "3 times placebo" for something that hits 1 in 100 on placebo means about 3 in 100 on the drug.<sup><a href="#s11">11</a>,<a href="#s12">12</a></sup></dd></div>
+ </dl></div>
+</section>
+</div>
+</div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st">Sources</h2><span class="cnt">65 · tap to open</span></summary>
+ <div class="box">
+  <ol class="fn">
+   <li id="s1">Pattern hair loss mechanism reviews: DHT, 5-alpha-reductase and miniaturisation (JAAD Int 2023; NeuroSci 2026). <a href="https://doi.org/10.1016/j.jdin.2023.07.005" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3390/neurosci7010020" target="_blank" rel="noopener">doi</a></li>
+   <li id="s2">DermNet, Hair shedding: follicle numbers, the hair cycle and telogen effluvium. <a href="https://dermnetnz.org/topics/hair-shedding" target="_blank" rel="noopener">DermNet</a></li>
+   <li id="s3">Finasteride 1 mg, 1,553 men with 5-year extensions, Eur J Dermatol 2002. <a href="https://pubmed.ncbi.nlm.nih.gov/11809594/" target="_blank" rel="noopener">PubMed</a></li>
+   <li id="s4">Cochrane review, female pattern hair loss, 47 RCTs (minoxidil, finasteride, laser, spironolactone). <a href="https://doi.org/10.1002/14651858.CD007628.pub4" target="_blank" rel="noopener">doi</a></li>
+   <li id="s5">Kuceki et al. 2025, JAAD Int: minoxidil, dutasteride and copper peptides delivered with a tattoo machine, 7 men, retrospective. <a href="https://doi.org/10.1016/j.jdin.2025.01.012" target="_blank" rel="noopener">doi</a></li>
+   <li id="s6">Mumsnet weight-loss injection boards: 10 GLP-1 hair threads, 73 first-hand posters, 2025 to 2026, each person counted once. <a href="https://www.mumsnet.com/talk/weight-loss-injections/5539536-is-hair-loss-inevitable-with-mounjaro" target="_blank" rel="noopener">example thread</a> · <a href="/library/goals/notes/hair/">research notes</a>, sections 4.1, 4.12 and v3 C2</li>
+   <li id="s7">HairLossTalk, Hair Restoration Network, Alopecia World and T Nation threads on copper peptides, AHK-Cu, TB-500, PTD-DBM, thymosin alpha-1, GH peptides and cosmetic serums, 2009 to 2025. <a href="https://www.hairlosstalk.com/interact/threads/copper-peptides-as-hair-loss-treatments-whats-the-current-consensus.99000/" target="_blank" rel="noopener">example thread</a> · <a href="/library/goals/notes/hair/">research notes</a>, sections 4.2 to 4.13 and v3 C1, C3</li>
+   <li id="s8">Philp et al. 2004, FASEB J: thymosin beta-4 and hair growth in rats and mice (NIH); transgenic mouse follow-up 2007. <a href="https://doi.org/10.1096/fj.03-0244fje" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1196/annals.1415.009" target="_blank" rel="noopener">doi</a></li>
+   <li id="s9">Meier et al. 2012, J Invest Dermatol (letter): thymosin beta-4, thymulin and thymosin alpha-1 on human scalp follicles in culture. <a href="https://doi.org/10.1038/jid.2012.2" target="_blank" rel="noopener">doi</a></li>
+   <li id="s10">Transplants into scarring alopecia: systematic review, 123 patients (Dermatol Surg 2025); lichen planopilaris and FFA review (An Bras Dermatol 2026). <a href="https://doi.org/10.1097/DSS.0000000000004707" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.abd.2026.501426" target="_blank" rel="noopener">doi</a></li>
+   <li id="s11">GLP-1 hair loss meta-analyses: Yu 2025, 34 RCTs, 84,243 people (JAAD Reviews); Cheng 2026, 4,114 users (Diabetes Res Clin Pract). <a href="https://doi.org/10.1016/j.jdrv.2025.04.009" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.diabres.2026.113333" target="_blank" rel="noopener">doi</a></li>
+   <li id="s12">Wegovy US label 2026 (hair loss 3% vs 1%, teens 4% vs 0%); tirzepatide SURMOUNT trial rates from the manufacturer's medical information page. <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/215256s030lbl.pdf" target="_blank" rel="noopener">label</a> · <a href="https://medical.lilly.com/de/products/answers/wurde-haarausfall-in-klinischen-studien-mit-mounjaro-tirzepatid-berichtet-206526" target="_blank" rel="noopener">SURMOUNT</a></li>
+   <li id="s13">Bare Signals Hair research notes, version 2 (3 Nov 2026) and version 3 (20 Nov 2026): tags, reasoning and the full source list. <a href="/library/goals/notes/hair/">research notes</a></li>
+   <li id="s14">Dermatologists on GLP-1 shedding timelines and work-up (Garshick, Park), The Zoe Report, Jun 2026; trichologist guide (updated May 2026); dermatologist-written recovery timeline, Oct 2026. <a href="https://www.thezoereport.com/beauty/glp1-hair-loss" target="_blank" rel="noopener">Zoe Report</a> · <a href="https://www.mdhair.co/article/glp-1-hair-loss-recovery-what-comes-back-at-3-6-and-12-months" target="_blank" rel="noopener">timeline</a></li>
+   <li id="s15">Female pattern hair loss review, Am J Clin Dermatol 2026. <a href="https://doi.org/10.1007/s40257-026-01009-2" target="_blank" rel="noopener">doi</a></li>
+   <li id="s16">Post-COVID telogen effluvium, 181 patients, J Cosmet Dermatol 2022. <a href="https://doi.org/10.1111/jocd.14883" target="_blank" rel="noopener">doi</a></li>
+   <li id="s17">Transplant shedding timeline, clinic guide citing MedlinePlus. <a href="https://acibademinternational.com/blog/shock-loss-after-a-hair-transplant-why-hair-sheds-before-it-grows/" target="_blank" rel="noopener">guide</a></li>
+   <li id="s18">GLP-1 drugs and hair loss review, Acta Diabetol 2026 (predictors, real-world rates, paradox reports). <a href="https://doi.org/10.1007/s00592-026-02812-3" target="_blank" rel="noopener">doi</a></li>
+   <li id="s19">Alopecia areata and immune privilege: IJMS 2024; J Autoimmun 2024. <a href="https://doi.org/10.3390/ijms25084409" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.jaut.2024.103217" target="_blank" rel="noopener">doi</a></li>
+   <li id="s20">Alopecia areata treatment review, Drugs 2026. <a href="https://doi.org/10.1007/s40265-026-02371-5" target="_blank" rel="noopener">doi</a></li>
+   <li id="s21">Thyroid antibodies in alopecia areata and biotin interference with thyroid tests, 2026. <a href="https://doi.org/10.1016/j.msard.2026.107974" target="_blank" rel="noopener">doi</a></li>
+   <li id="s22">PCOS hair loss (Cureus 2024); autoimmune conditions in 1,249 women with PCOS (Front Reprod Health 2026); male relatives and baldness, 21 studies. <a href="https://doi.org/10.7759/cureus.72987" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3389/frph.2026.1806450" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1186/s12610-025-00290-1" target="_blank" rel="noopener">doi</a></li>
+   <li id="s23">Shock loss in 621 FUE patients (Aesthetic Plast Surg 2023); 2,896 patients over 10 years, complications (Garg 2021). <a href="https://doi.org/10.1007/s00266-023-03699-z" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1055/s-0041-1739255" target="_blank" rel="noopener">doi</a></li>
+   <li id="s24">Sinclair et al. 2025, Clin Exp Dermatol: sublingual minoxidil RCT, hair fibre diameter; dermal papilla size sets hair thickness. <a href="https://doi.org/10.1093/ced/llaf012" target="_blank" rel="noopener">doi</a></li>
+   <li id="s25">Oral minoxidil consensus and mechanism review, Am J Clin Dermatol 2025; prescription rise after a 2022 newspaper article (JAMA Netw Open via US Pharmacist). <a href="https://doi.org/10.1007/s40257-025-00990-4" target="_blank" rel="noopener">doi</a> · <a href="https://www.uspharmacist.com/article/oral-minoxidil-prescriptions-spiked-last-year-after-media-coverage" target="_blank" rel="noopener">US Pharmacist</a></li>
+   <li id="s26">Pipeline: pyrilutamide phase 3 (Reuters, Mar 2026); GT20029 phase 2 (Dermatology Times, Dec 2025); setipiprant phase 2a (2021). <a href="https://www.dermatologytimes.com/view/first-in-class-topical-gt20029-demonstrates-promising-phase-2-efficacy-and-tolerability-for-aga" target="_blank" rel="noopener">GT20029</a> · <a href="https://doi.org/10.2147/CCID.S319676" target="_blank" rel="noopener">doi</a></li>
+   <li id="s27">Lee et al. 2017, J Invest Dermatol: CXXC5 brakes Wnt in balding human scalp; PTD-DBM in mice. <a href="https://doi.org/10.1016/j.jid.2017.04.038" target="_blank" rel="noopener">doi</a></li>
+   <li id="s28">Clascoterone 5% scalp solution: phase 3 SCALP 1 and 2 (Healio Apr 2026; GEN); QT study showing measurable blood levels; commentary in Ann Dermatol Venereol, Nov 2026. <a href="https://www.healio.com/news/dermatology/20260422/male-pattern-hair-loss-drug-regrows-hair-up-to-1-year-without-plateau" target="_blank" rel="noopener">Healio</a> · <a href="https://doi.org/10.1002/cpdd.935" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.annder.2026.103538" target="_blank" rel="noopener">doi</a></li>
+   <li id="s29">Deuruxolitinib THRIVE-AA2, JAAD 2026; US label 2026 with boxed warning. <a href="https://doi.org/10.1016/j.jaad.2025.11.070" target="_blank" rel="noopener">doi</a> · <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/217900s002lbl.pdf" target="_blank" rel="noopener">label</a></li>
+   <li id="s30">Baricitinib BRAVE-AA1 and AA2, NEJM 2022; Cochrane alopecia areata review 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/35334197/" target="_blank" rel="noopener">PubMed</a> · <a href="https://doi.org/10.1002/14651858.CD013719.pub2" target="_blank" rel="noopener">doi</a></li>
+   <li id="s31">Uno and Kurata 1993, J Invest Dermatol (review; copper peptide PC1031 in fuzzy rats); Trachy et al. 1991, Ann N Y Acad Sci (developer authors). <a href="https://doi.org/10.1111/1523-1747.ep12363275" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1111/j.1749-6632.1991.tb24420.x" target="_blank" rel="noopener">doi</a></li>
+   <li id="s32">AHK-Cu lengthens human hair follicles in culture, Arch Pharm Res 2007. <a href="https://doi.org/10.1007/BF02978833" target="_blank" rel="noopener">doi</a></li>
+   <li id="s33">KY19382, the small-molecule successor to PTD-DBM (Br J Pharmacol 2021); phase 1 status (VentureSquare, Oct 2026); 2025 review claiming clinical efficacy (Cells). <a href="https://doi.org/10.1111/bph.15438" target="_blank" rel="noopener">doi</a> · <a href="https://www.venturesquare.net/en/1123397/" target="_blank" rel="noopener">VentureSquare</a> · <a href="https://doi.org/10.3390/cells14110779" target="_blank" rel="noopener">doi</a></li>
+   <li id="s34">K(D)PT restores pigment in human hair follicles under inflammatory stress, Br J Dermatol 2009. <a href="https://doi.org/10.1111/j.1365-2133.2008.08872.x" target="_blank" rel="noopener">doi</a></li>
+   <li id="s35">Systematic review of peptide-containing hair products, 14 human trials, J Drugs Dermatol, Nov 2026. <a href="https://doi.org/10.36849/JDD.9736" target="_blank" rel="noopener">doi</a></li>
+   <li id="s36">Cosmetic peptides: Redensyl blend vs vehicle, 44 people (Dermatol Ther 2020); acetyl tetrapeptide-3 blend vs 3% minoxidil, 32 people (J Clin Aesthet Dermatol 2020); trichology review (Int J Trichology 2023); peptide serum vs minoxidil trial NCT07536100. <a href="https://doi.org/10.1111/dth.13734" target="_blank" rel="noopener">doi</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/33584955/" target="_blank" rel="noopener">PubMed</a> · <a href="https://doi.org/10.4103/ijt.ijt_8_23" target="_blank" rel="noopener">doi</a> · <a href="https://clinicaltrials.gov/study/NCT07536100" target="_blank" rel="noopener">registry</a></li>
+   <li id="s37">Exosomes: 20-man pilot RCT (Life 2025); alopecia areata systematic review (IJMS 2026); 2 severe AA cases (Case Rep Dermatol Med 2025); beard AA case (Clin Case Rep 2025); trial NCT07693244; FDA warning letter, Aug 2025. <a href="https://doi.org/10.3390/life15030500" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3390/ijms27010021" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1155/crdm/4908438" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1002/ccr3.71558" target="_blank" rel="noopener">doi</a> · <a href="https://clinicaltrials.gov/study/NCT07693244" target="_blank" rel="noopener">registry</a></li>
+   <li id="s38">Sugimoto et al. 1995, J Invest Dermatol: free copper, zinc and cadmium ions block 5-alpha-reductase in engineered cells. <a href="https://doi.org/10.1111/1523-1747.ep12606985" target="_blank" rel="noopener">doi</a></li>
+   <li id="s39">Oral vs topical minoxidil vs PRP plus topical, RCT, 75 people, 32 weeks, Arch Dermatol Res 2025. <a href="https://doi.org/10.1007/s00403-025-03938-0" target="_blank" rel="noopener">doi</a></li>
+   <li id="s40">Low-dose oral minoxidil safety, 1,404 patients, JAAD 2021. <a href="https://doi.org/10.1016/j.jaad.2021.02.054" target="_blank" rel="noopener">doi</a></li>
+   <li id="s41">Topical finasteride: China phase III, 270 men (2025); European phase III summary (review); FDA alert on compounded topical finasteride, Apr 2025. <a href="https://doi.org/10.1097/CM9.0000000000003495" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1111/jocd.14895" target="_blank" rel="noopener">doi</a> · <a href="https://www.fda.gov/drugs/human-drug-compounding/fda-alerts-health-care-providers-compounders-and-consumers-potential-risks-associated-compounded" target="_blank" rel="noopener">FDA</a></li>
+   <li id="s42">Dutasteride vs oral minoxidil, non-randomised, 6 months, Front Med 2026. <a href="https://doi.org/10.3389/fmed.2026.1751116" target="_blank" rel="noopener">doi</a></li>
+   <li id="s43">Spironolactone in women: Sinclair 2005 (80 women); Famenini 2015 (39 women); Gil-Redondo 2026 (128 women). <a href="https://doi.org/10.1111/j.1365-2133.2005.06218.x" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.jaad.2015.06.063" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1007/s13555-026-01879-8" target="_blank" rel="noopener">doi</a></li>
+   <li id="s44">Microneedling added to minoxidil, 12 RCTs, 631 people, Arch Dermatol Res 2025. <a href="https://doi.org/10.1007/s00403-025-04032-1" target="_blank" rel="noopener">doi</a></li>
+   <li id="s45">PRP vs topical minoxidil, 9 RCTs (Aesthetic Plast Surg 2025); network meta-analysis of combinations (Front Med 2025). <a href="https://doi.org/10.1007/s00266-025-05394-7" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3389/fmed.2025.1638496" target="_blank" rel="noopener">doi</a></li>
+   <li id="s46">Laser or light added to minoxidil, 4 RCTs, J Dermatolog Treat 2025. <a href="https://doi.org/10.1080/09546634.2024.2447355" target="_blank" rel="noopener">doi</a></li>
+   <li id="s47">Ritlecitinib ALLEGRO phase 2b/3, 718 people, Lancet 2023. <a href="https://doi.org/10.1016/S0140-6736(23)00222-2" target="_blank" rel="noopener">doi</a></li>
+   <li id="s48">Graft survival in normal scalp: 158 men (BMC Surg 2024); 93.1% at 9 months (JCD 2024); blade types (2025); growth-factor soak vs control 91.1% vs 81.0% (JCD 2025); Parsley and Perez-Meza review 2010. <a href="https://doi.org/10.1186/s12893-024-02655-1" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1111/jocd.16136" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1007/s12663-025-02874-w" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1111/jocd.70464" target="_blank" rel="noopener">doi</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2956960/" target="_blank" rel="noopener">PMC</a></li>
+   <li id="s49">Pickart 2008, GHK-Cu review by the molecule's developer. <a href="https://doi.org/10.1163/156856208784909435" target="_blank" rel="noopener">doi</a></li>
+   <li id="s50">Growth factor cocktail with copper tripeptide-1 and thymosin beta-4, 1,000 patients, open-label (J Cosmet Laser Ther 2018); mouse follow-up (PRS Global Open 2020). <a href="https://doi.org/10.1080/14764172.2018.1439965" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1097/GOX.0000000000002843" target="_blank" rel="noopener">doi</a></li>
+   <li id="s51">The copper peptide trend has gone from creams to injections, NPR, 7 Sep 2026. <a href="https://www.ualrpublicradio.org/2026-09-07/the-copper-peptide-trend-has-gone-from-creams-to-injections-ahead-of-the-science" target="_blank" rel="noopener">NPR</a></li>
+   <li id="s52">Low-dose interleukin-2 in alopecia areata, ClinicalTrials.gov NCT02557074. <a href="https://clinicaltrials.gov/study/NCT02557074" target="_blank" rel="noopener">registry</a></li>
+   <li id="s53">Palmitoyl tetrapeptide-20 and greying, 15 men, Int J Cosmet Sci 2018. <a href="https://doi.org/10.1111/ics.12494" target="_blank" rel="noopener">doi</a></li>
+   <li id="s54">A Turkish hair transplant clinic blog on BPC-157 and TB-500 after surgery, May 2026; peptide podcast episode, May 2026. <a href="https://diamondhairclinic.com/bpc-157-tb-500-after-hair-transplant/" target="_blank" rel="noopener">blog</a></li>
+   <li id="s55">Collagen peptides, calcium and vitamin D in menopausal women, 6-month RCT, Clin Pract 2025. <a href="https://doi.org/10.3390/clinpract15090168" target="_blank" rel="noopener">doi</a></li>
+   <li id="s56">Semaglutide dose and hair loss, systematic review of 24 studies, Sci Prog 2026. <a href="https://doi.org/10.1177/00368504261444578" target="_blank" rel="noopener">doi</a></li>
+   <li id="s57">Tang et al. 2026, BMJ: GLP-1 drugs and hair loss in type 2 diabetes, real-world target trial emulation. <a href="https://doi.org/10.1136/bmj-2026-100077" target="_blank" rel="noopener">doi</a></li>
+   <li id="s58">Oral minoxidil heart effects review (J Clin Med 2025); records study on pericardial effusion (JAAD 2025). <a href="https://doi.org/10.3390/jcm14061805" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.1016/j.jaad.2025.02.055" target="_blank" rel="noopener">doi</a></li>
+   <li id="s59">Sexual side effects of 5-alpha-reductase inhibitors, 15 RCTs, Acta Derm Venereol 2018. <a href="https://doi.org/10.2340/00015555-3035" target="_blank" rel="noopener">doi</a></li>
+   <li id="s60">Exosome first-hand accounts (RealSelf 2023 and 2025) and a beauty editor's 3-person serum test (PureWow 2024). <a href="https://www.realself.com/news/exosome-therapy-hair-loss" target="_blank" rel="noopener">RealSelf</a></li>
+   <li id="s61">Tofacitinib in alopecia areata, 202 patients over 18 months, Australas J Dermatol 2024. <a href="https://doi.org/10.1111/ajd.14325" target="_blank" rel="noopener">doi</a></li>
+   <li id="s62">Bimatoprost 0.03% for thin lashes: 77.3% vs 17.6% (Aesthetic Plast Surg 2014). <a href="https://doi.org/10.1007/s00266-014-0293-7" target="_blank" rel="noopener">doi</a></li>
+   <li id="s63">Finasteride and mood: FDA reports (Brain Sci 2026); observational meta-analysis, HR 1.07 (Front Urol 2026); post-finasteride syndrome (NeuroSci 2026). <a href="https://doi.org/10.3390/brainsci16040394" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3389/fruro.2026.1881635" target="_blank" rel="noopener">doi</a> · <a href="https://doi.org/10.3390/neurosci7010020" target="_blank" rel="noopener">doi</a></li>
+   <li id="s64">JAK inhibitor class safety, JAAD 2026. <a href="https://doi.org/10.1016/j.jaad.2026.09.075" target="_blank" rel="noopener">doi</a></li>
+   <li id="s65">Depigmented patches after melanotan in a patient with alopecia areata, Clin Exp Dermatol 2026 (title only). <a href="https://doi.org/10.1093/ced/llag221" target="_blank" rel="noopener">doi</a></li>
+  </ol>
+ </div>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies come from PubMed, ClinicalTrials.gov, FDA labels and regulator pages, read from abstracts (Kuceki 2025 and Meier 2012 in full) and summarised in our words, checked 3 and 20 Nov 2026. First-hand reports come from forums outside Reddit, one person per count, with seller pages and secondhand stories left out; clinician-observed reports are shown separately. A Reddit count is still to come. Not medical advice. No doses are given except those used in studies.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>window.HAIR_OPTS=[{"id": "minox", "n": "Minoxidil, skin", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Dermal papilla: opens potassium channels; blood supply", "About 13 more hairs per cm² than placebo in women (47 trials)", "Head-to-head trial ran 32 weeks: density up 48%", "Not measured; pattern loss keeps its course untreated", "Scalp itch and dryness (75% in one trial)", "Not counted (not a peptide)"], "s": "<sup><a href=\"#s4\">4<\/a>,<a href=\"#s39\">39<\/a><\/sup>", "l": null}, {"id": "ldom", "n": "Minoxidil, oral", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Dermal papilla, blood supply", "Fibres 3 to 6 µm thicker vs 2 µm thinner on placebo; matched topical", "Early shed in 16 to 22% first; gains at 32 weeks", "Not measured; pattern loss keeps its course untreated", "Extra face and body hair 15%; fluid 1.3%; fast heart 0.9%", "2 of 2 GLP-1 shedders who tried it regrew"], "s": "<sup><a href=\"#s24\">24<\/a>,<a href=\"#s40\">40<\/a>,<a href=\"#s39\">39<\/a>,<a href=\"#s58\">58<\/a><\/sup>", "l": null}, {"id": "fin", "n": "Finasteride", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["DHT: makes less (blocks 5-alpha-reductase type 2)", "Men: gains held over 5 years while placebo kept thinning (1,553 men). Women: no better than placebo", "Judged over years; held at 5", "Placebo arms kept thinning, so expect that course", "Sexual side effects 1.57 times placebo; mood reports", "Not counted (not a peptide)"], "s": "<sup><a href=\"#s3\">3<\/a>,<a href=\"#s4\">4<\/a>,<a href=\"#s59\">59<\/a><\/sup>", "l": null}, {"id": "dut", "n": "Dutasteride", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["DHT: makes less", "No measurable change in 6 months (small, not randomised)", "More than 6 months", "Not measured", "Sexual side effects, as finasteride", "Not counted"], "s": "<sup><a href=\"#s42\">42<\/a>,<a href=\"#s59\">59<\/a><\/sup>", "l": null}, {"id": "clasc", "n": "Clascoterone (pending)", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["DHT receptor: blocks it on the scalp", "Beat a plain lotion in 1,465 men; only relative figures released", "6 months measured; still gaining at 12", "Staying on gave 2.39 times the gain of switching to plain lotion", "Some reaches the blood; no hormonal side effects reported", "Not on sale yet"], "s": "<sup><a href=\"#s28\">28<\/a><\/sup>", "l": null}, {"id": "spiro", "n": "Spironolactone (women)", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["DHT receptor: blocks it", "44 to 54% improved in observational studies; never tested against placebo", "Studies ran up to 24 months", "Not measured", "Not in pregnancy; contraception needed", "Not counted"], "s": "<sup><a href=\"#s43\">43<\/a>,<a href=\"#s4\">4<\/a><\/sup>", "l": null}, {"id": "micro", "n": "Microneedling", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Wound signals; lets topicals in", "Added to minoxidil, a large rise in hair counts (12 trials, 631 people)", "Not in our sources", "Not in our sources", "Not in our sources", "Often used with copper peptides on forums"], "s": "<sup><a href=\"#s44\">44<\/a><\/sup>", "l": null}, {"id": "prp", "n": "PRP", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Growth factors at the follicle", "Same density as minoxidil (9 trials); people more satisfied", "32 weeks with topical: density up 57%", "Not in our sources", "Not in our sources", "Not counted"], "s": "<sup><a href=\"#s45\">45<\/a>,<a href=\"#s39\">39<\/a><\/sup>", "l": null}, {"id": "lllt", "n": "Laser or light", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Light on the scalp", "About 17 more hairs than sham in 2 women's trials; adds nothing to minoxidil", "Not in our sources", "Not in our sources", "Users could not tell it from sham", "Not counted"], "s": "<sup><a href=\"#s4\">4<\/a>,<a href=\"#s46\">46<\/a><\/sup>", "l": null}, {"id": "jak", "n": "JAK pills (patches)", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Immune shield: blocks the attack signal", "23 to 41% near-full scalp at 24 to 36 weeks vs 1 to 6% on placebo", "24 to 36 weeks", "Relapse on stopping is common", "Boxed warning: infections, cancer, heart events, clots", "Not counted"], "s": "<sup><a href=\"#s29\">29<\/a>,<a href=\"#s30\">30<\/a>,<a href=\"#s20\">20<\/a><\/sup>", "l": null}, {"id": "ht", "n": "Hair transplant", "g": "Proven", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Moves DHT-resistant follicles from the back", "Most studies: 85 to 95% of grafts survive in normal scalp", "Grows from months 3 to 5; judged at 12 to 18", "Moved hair stays; native hair keeps thinning untreated", "Shock loss 3.7% (14 of 67 women vs 9 of 554 men); folliculitis 7%", "Copper aftercare sprays: 3 of 5 healed better"], "s": "<sup><a href=\"#s48\">48<\/a>,<a href=\"#s17\">17<\/a>,<a href=\"#s23\">23<\/a><\/sup>", "l": null}, {"id": "ghk", "n": "GHK-Cu, copper peptides", "g": "Peptide", "t": "a", "tn": "Animal only", "tc": "e-a", "r": ["Papilla and wound bed: copper delivery", "Only inside a mix: 7 men, bald top scalp 40% to 7.5% with minoxidil and dutasteride, no control", "5 monthly sessions in that study", "Not studied", "Stinging on the skin; injected: no human safety data", "10 copper users (GHK and AHK together): 2 better, 1 partly, 7 no change"], "s": "<sup><a href=\"#s5\">5<\/a>,<a href=\"#s31\">31<\/a>,<a href=\"#s51\">51<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "ghk-cu"}, {"id": "ahk", "n": "AHK-Cu", "g": "Peptide", "t": "x", "tn": "Human follicle, dish", "tc": "e-x", "r": ["Dermal papilla", "None; longer human follicles in a dish", "Not studied", "Not studied", "One user: flushing, facial puffiness", "3 users: 1 partly, 2 no change"], "s": "<sup><a href=\"#s32\">32<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "ahk-cu"}, {"id": "tb4", "n": "Thymosin beta-4, TB-500", "g": "Peptide", "t": "conf", "tn": "Animal vs dish clash", "tc": "e-cf", "r": ["Bulge stem cells (mice); bulb (human dish)", "None; human follicles grew 10 to 20% less in a dish", "One user: from month 1", "Not studied", "May push follicles toward shedding", "3 users: 2 better, 1 worse"], "s": "<sup><a href=\"#s8\">8<\/a>,<a href=\"#s9\">9<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "thymosin-beta-4"}, {"id": "ptd", "n": "PTD-DBM", "g": "Peptide", "t": "a", "tn": "Animal only", "tc": "e-a", "r": ["Wnt switch: removes the CXXC5 brake", "None; mice only", "Not studied", "Not studied", "Unstable, needs cold; batches vary", "3 users: 1 partly, 2 no change"], "s": "<sup><a href=\"#s27\">27<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "ptd-dbm"}, {"id": "kpv", "n": "KPV", "g": "Peptide", "t": "t", "tn": "Theory", "tc": "e-t", "r": ["Immune shield, pigment cells (theory)", "None for growth; a cousin kept pigment in human follicles", "Not studied", "Not studied", "Not in our sources", "None found outside Reddit"], "s": "<sup><a href=\"#s34\">34<\/a><\/sup>", "l": "kpv"}, {"id": "ta1", "n": "Thymosin alpha-1", "g": "Peptide", "t": "x", "tn": "Human follicle, dish", "tc": "e-x", "r": ["Matrix", "None; slightly slowed human follicles in a dish", "Not studied", "Not studied", "One user: new psoriasis patches", "1 user: no change"], "s": "<sup><a href=\"#s9\">9<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "thymosin-alpha-1"}, {"id": "bpc", "n": "BPC-157", "g": "Peptide", "t": "t", "tn": "Theory", "tc": "e-t", "r": ["Blood vessels (theory)", "None; zero hair studies", "Not studied", "Not studied", "Unknown injectables near fresh grafts", "1 transplant user, in a stack"], "s": "<sup><a href=\"#s13\">13<\/a>,<a href=\"#s54\">54<\/a><\/sup>", "l": "bpc-157"}, {"id": "gh", "n": "GH peptides, MK-677", "g": "Peptide", "t": "t", "tn": "Theory", "tc": "e-t", "r": ["Matrix and papilla via IGF-1 (theory)", "None; IGF-1 only inside cocktails", "Not studied", "Not studied", "Not in our sources", "2 users better, both with other things"], "s": "<sup><a href=\"#s13\">13<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": "ipamorelin"}, {"id": "cosm", "n": "Cosmetic peptide serums", "g": "Peptide", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Papilla and growth phase (claimed)", "A blend matched 3% minoxidil in 32 people (no placebo); small vehicle trials", "24 weeks in trials; 6 weeks to 2 months in reports", "Not measured", "2 users shed more for a while", "15 users: 3 better, 3 length only, 7 no change, 2 worse"], "s": "<sup><a href=\"#s36\">36<\/a>,<a href=\"#s35\">35<\/a>,<a href=\"#s7\">7<\/a><\/sup>", "l": null}, {"id": "exo", "n": "Exosomes", "g": "Other", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Papilla, Wnt, inflammation", "Pilot: 9.5 vs 1.5 hairs gained over saline at 16 weeks (20 men)", "Week 6 to 16", "Maintenance needed (surgeon view)", "No approved product; FDA warned of serious events", "5 of 5 better (failures rarely written up)"], "s": "<sup><a href=\"#s37\">37<\/a>,<a href=\"#s60\">60<\/a><\/sup>", "l": null}, {"id": "col", "n": "Collagen peptides", "g": "Other", "t": "h", "tn": "Human outcome", "tc": "e-h", "r": ["Whole body (oral)", "Slowed shedding, but calcium plus vitamin D did the same", "6 months", "Not measured", "Not in our sources", "1 GLP-1 shedder credited collagen and biotin"], "s": "<sup><a href=\"#s55\">55<\/a>,<a href=\"#s6\">6<\/a><\/sup>", "l": "collagen-peptides"}, {"id": "glp", "n": "GLP-1 drugs (cause)", "g": "Other", "t": "hurt", "tn": "Human: causes shedding", "tc": "e-hu", "r": ["Whole follicle: pushes growing hairs into rest", "Causes shedding: about 3 times placebo (3 in 100 vs 1 in 100)", "Starts 2 to 3 months in; near normal by about a year", "Usually ends once weight holds steady, even on the drug", "Can unmask pattern loss underneath", "73 posters: 18 stopped or regrew, 4 slowing"], "s": "<sup><a href=\"#s11\">11<\/a>,<a href=\"#s12\">12<\/a>,<a href=\"#s14\">14<\/a>,<a href=\"#s6\">6<\/a><\/sup>", "l": "semaglutide"}];</script>
+<script>(function(){
+/* why taps */
+document.addEventListener('click',function(e){var b=e.target.closest('.wy');if(!b)return;e.preventDefault();var x=b.nextElementSibling;var o=x.hidden;x.hidden=!o;b.setAttribute('aria-expanded',o)});
+/* follicle v2: parametric textbook follicle, morphing cycle */
+var svg=document.getElementById('fsvg'),panel=document.getElementById('fpanel'),fstep=document.getElementById('fstep'),fbar=document.getElementById('fbar');
+var info={};document.querySelectorAll('#finfo>div').forEach(function(d){info[d.dataset.k]=d.innerHTML});
+var tierN={h:'Human',x:'Dish',a:'Animal',c:'Cells',t:'Theory',conf:'≠ Clash',hurt:'Human · harm'};
+var tierC={h:'e-h',x:'e-x',a:'e-a',c:'e-c',t:'e-t',conf:'e-cf',hurt:'e-hu'};
+var comp={};
+document.querySelectorAll('#cinfo>div').forEach(function(d){
+ var c=d.dataset.c;comp[c]=d;
+ var b=document.createElement('button');b.type='button';b.className='cc';b.dataset.c=c;
+ b.innerHTML='<span class="ev '+tierC[d.dataset.t]+'">'+tierN[d.dataset.t]+'</span>'+d.dataset.n.replace(/ \(.*\)/,'')+(d.dataset.t==='conf'?' <span class="cf" aria-label="conflicting results">≠</span>':'');
+ document.getElementById(d.dataset.g==='1'?'ccs1':'ccs2').appendChild(b);
+});
+var NS='http://www.w3.org/2000/svg',S=44,K=.17;
+function mk(t,a,p){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function r1(n){return Math.round(n*10)/10}
+function cl(x,a,b){return x<a?a:x>b?b:x}
+function sm(x){x=cl(x,0,1);return x*x*(3-2*x)}
+function pt(st,u,v){var x=st.X0+u+K*v;if(v<0)x-=.0035*v*v;return [r1(x),r1(S+v)]}
+function P(st,u,v){var p=pt(st,u,v);return p[0]+' '+p[1]}
+function circ(x,y,r){return 'M'+r1(x-r)+' '+y+'a'+r+' '+r+' 0 1 0 '+r1(2*r)+' 0a'+r+' '+r+' 0 1 0 '+r1(-2*r)+' 0'}
+function ell(st,cu,cv,rx,ry){var a=[],i;for(i=0;i<28;i++){var t=i/28*6.2832;a.push(P(st,cu+rx*Math.sin(t),cv-ry*Math.cos(t)))}return 'M'+a.join('L')+'Z'}
+function hex(c){return [parseInt(c.substr(1,2),16),parseInt(c.substr(3,2),16),parseInt(c.substr(5,2),16)]}
+function mixc(a,b,t){a=hex(a);b=hex(b);return 'rgb('+a.map(function(x,i){return Math.round(x+(b[i]-x)*t)}).join(',')+')'}
+/* tube half width at depth v */
+function W(st,v){var tw=st.tw,bt=st.D-st.bulbH;
+ if(v<18)return tw+6*Math.pow(1-cl(v,0,18)/18,2);
+ if(v<st.sv-14)return tw;
+ if(v<st.sv)return tw+(st.sw-tw)*sm((v-st.sv+14)/14);
+ if(v<bt)return st.sw;
+ var t=cl((v-bt)/st.bulbH,0,1);return st.sw+(st.bo-st.sw)*t+(st.bw-(st.sw+st.bo)/2)*Math.sin(Math.PI*Math.pow(t,.85));}
+function tubeD(st,v0,inset){var L=[],R=[],v,D=st.D,w;for(v=v0;v<D;v+=3){w=Math.max(W(st,v)-inset,.4);L.push(P(st,-w,v));R.unshift(P(st,w,v))}w=Math.max(st.bo-inset,.4);L.push(P(st,-w,D));R.unshift(P(st,w,D));return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function hairD(st,b,tip,hw,cone){if(b-tip<3)return '';var L=[],R=[],v,w;
+ function hwv(v){return hw*cl((v-tip)/30,.08,1)*(1+cone*1.4*sm((v-(b-16))/16))}
+ for(v=tip;v<b;v+=3){w=hwv(v);L.push(P(st,-w,v));R.unshift(P(st,w,v))}
+ w=hwv(b);L.push(P(st,-w,b));L.push(P(st,0,b+w*.7));R.unshift(P(st,w,b));
+ return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function cutD(st,b,tip,hw){var a=[],v,e=Math.min(b-16,S+400);if(e-tip<6)return '';for(v=tip+4;v<e;v+=3)a.push(P(st,hw*cl((v-tip)/30,.08,1)-.45,v));var s='M'+a.join('L');
+ for(v=Math.max(tip+8,-46);v<Math.min(-3,e);v+=5){var w=hw*cl((v-tip)/30,.08,1);s+='M'+P(st,-w+.2,v)+'L'+P(st,-w+1.5,v+2.2)}return s}
+function clubD(st,b,hw){var L=[],R=[],v,w,top=b-24;for(v=top;v<=b;v+=2){var t=(v-top)/24;w=hw*(1+1.25*Math.sin(Math.PI*Math.pow(t,.75)))*(t>.85?Math.sqrt((1-t)/.15)*.6+.4:1);L.push(P(st,-w,v));R.unshift(P(st,w,v))}return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function irsD(st){var v0=st.irsTop,v1=st.D-st.bulbH*.55;if(v1-v0<6)return '';var L=[],R=[],v,w;for(v=v0;v<=v1;v+=3){w=(st.hw+2.5)*Math.min(1,Math.sqrt(cl((v-v0)/5,0,1))*.6+.4)*(1-.45*sm((v-(v1-12))/12));L.push(P(st,-w,v));R.unshift(P(st,w,v))}return 'M'+L.join('L')+'L'+R.join('L')+'Z'}
+function dpD(st){var a=[],i,n=36;for(i=0;i<n;i++){var t=i/n*6.2832,ca=Math.cos(t),sa=Math.sin(t),f=1-st.pear*.42*ca;a.push(P(st,st.dprx*sa*f*(1+st.pear*.12),st.dpc-st.dpry*ca))}return 'M'+a.join('L')+'Z'}
+function Fol(par,inter){
+ var g=mk('g',null,par),o={};
+ function grp(p){return inter?mk('g',{'class':'pt','data-p':p},g):mk('g',null,g)}
+ function halo(gp){return inter?mk('path',{'class':'halo'},gp):null}
+ o.gG=grp('gland');o.gH=halo(o.gG);
+ o.mus=mk('path',{fill:'none',stroke:'#EBC3D9','stroke-linecap':'round'},o.gG);
+ o.lobes=[0,1,2].map(function(){return mk('path',{fill:'#FFF1B8',stroke:'#3E4A80','stroke-width':1.1},o.gG)});
+ o.gdot=mk('path',{fill:'#E2C866'},o.gG);
+ o.tube=mk('path',{fill:'#F8DCC8',stroke:'#3E4A80','stroke-width':1.3,'stroke-linejoin':'round'},g);
+ o.ors=mk('path',{fill:'none',stroke:'#E9BFA6','stroke-width':.8},g);
+ o.mG=grp('matrix');o.mH=halo(o.mG);
+ o.mat=mk('path',{fill:'url(#fgm)'},o.mG);o.mcell=mk('path',{fill:'none',stroke:'#E0A891','stroke-width':.8},o.mG);
+ o.irs=mk('path',{fill:'#F3B5AC',stroke:'#D98C84','stroke-width':.7},g);
+ o.bG=grp('bulge');o.bH=halo(o.bG);
+ o.bl=mk('path',{fill:'#DDF4F5',stroke:'#3E4A80','stroke-width':1.1},o.bG);o.br=mk('path',{fill:'#DDF4F5',stroke:'#3E4A80','stroke-width':1},o.bG);o.bd=mk('path',{fill:'#6777B6'},o.bG);
+ o.sG=grp('shaft');o.sH=halo(o.sG);
+ o.h2=mk('path',{stroke:'#6E3A16','stroke-width':.5},o.sG);o.c2=mk('path',{fill:'none',stroke:'#E9C08F','stroke-width':.7},o.sG);
+ o.h1=mk('path',{stroke:'#6E3A16','stroke-width':.5},o.sG);o.c1=mk('path',{fill:'none',stroke:'#E9C08F','stroke-width':.7},o.sG);
+ o.club=mk('path',{fill:'#FFF7E4',stroke:'#3E4A80','stroke-width':.9},o.sG);
+ o.mel=mk('path',{fill:'#8E5228'},g);
+ o.dG=grp('dp');o.dH=halo(o.dG);
+ o.stalk=mk('path',{fill:'#FBEFA0',stroke:'#3E4A80','stroke-width':1},o.dG);o.dp=mk('path',{fill:'#FBEFA0',stroke:'#3E4A80','stroke-width':1.2},o.dG);o.dcell=mk('path',{fill:'#D9BE57'},o.dG);
+ o.vG=grp('blood');o.vH=halo(o.vG);
+ o.ves=mk('path',{fill:'none',stroke:'#EE8E8E','stroke-width':2.2,'stroke-linecap':'round'},o.vG);o.cap=mk('path',{fill:'none',stroke:'#E86F6F','stroke-width':1.4,'stroke-linecap':'round'},o.vG);
+ o.xG=grp('dht');o.xH=halo(o.xG);o.dht=mk('path',{fill:'#FCB0B4',stroke:'#3E4A80','stroke-width':1},o.xG);
+ o.wG=grp('wnt');o.wH=halo(o.wG);o.wnt=mk('path',{fill:'#C2DCFF',stroke:'#3E4A80','stroke-width':1},o.wG);
+ o.iG=grp('immune');o.iH=halo(o.iG);o.imm=mk('path',{fill:'none',stroke:'#6777B6','stroke-width':1.6,'stroke-dasharray':'5 4'},o.iG);
+ function set(e,d,h){e.setAttribute('d',d);if(h)h.setAttribute('d',d)}
+ o.up=function(st){
+  var D=st.D,bt=D-st.bulbH,gl=st.gl,bv=st.bv,gv=bv*.45,wg=W(st,gv),wb=W(st,bv);
+  /* gland + muscle */
+  var lb=[[-wg-11*gl,gv-8*gl,12*gl],[-wg-21*gl,gv+7*gl,11*gl],[-wg-9*gl,gv+15*gl,10*gl]],gs='',dd='';
+  lb.forEach(function(l,i){var c=pt(st,l[0],l[1]);var s=circ(c[0],c[1],r1(l[2]));o.lobes[i].setAttribute('d',s);gs+=s;dd+=circ(c[0]-2*gl,c[1]-1,1.1)+circ(c[0]+2.5*gl,c[1]+2.5*gl,1.1)});
+  o.gdot.setAttribute('d',dd);
+  var md='M'+P(st,-wb-3,bv+3)+'Q'+P(st,-46*gl,bv*.62)+' '+P(st,-84*gl,22*Math.min(1,gl+.1));
+  o.mus.setAttribute('d',md);o.mus.setAttribute('stroke-width',r1(5*gl));if(o.gH)o.gH.setAttribute('d',gs+md);
+  /* tube, matrix, irs */
+  o.tube.setAttribute('d',tubeD(st,-1,0));
+  o.ors.setAttribute('d',st.ana>.05?tubeD(st,20,3.2):'');o.ors.style.opacity=st.ana*.9;
+  var mtop=bt+st.bulbH*.08,ma=[],mb=[],v,w;for(v=mtop;v<D;v+=3){w=Math.max(W(st,v)-1.4,.4);ma.push(P(st,-w,v));mb.unshift(P(st,w,v))}
+  var md2=ma.length?'M'+ma.join('L')+'L'+mb.join('L')+'Z':'';set(o.mat,md2,o.mH);o.mG.style.opacity=st.ana;o.mG.style.display=st.ana<.02?'none':'';
+  var mc='';[[.55,.25],[.62,.5],[.5,.72],[.72,.05],[.4,.9]].forEach(function(q){var vv=bt+st.bulbH*q[1],ww=W(st,vv)*q[0];if(ww>2){var a=pt(st,-ww,vv),b=pt(st,ww,vv);mc+=circ(a[0],a[1],1.6)+circ(b[0],b[1],1.6)}});o.mcell.setAttribute('d',mc);
+  o.irs.setAttribute('d',st.irsOp>.02?irsD(st):'');o.irs.style.opacity=st.irsOp;
+  /* bulge */
+  var bs=Math.min(1,.55+.45*st.f);set(o.bl,ell(st,-wb-1.6,bv,4.6*bs,15*bs));o.br.setAttribute('d',ell(st,wb+1,bv,3.2*bs,12*bs));
+  if(o.bH)o.bH.setAttribute('d',ell(st,-wb-1.6,bv,4.6*bs,15*bs)+ell(st,wb+1,bv,3.2*bs,12*bs));
+  var bd='';[[-wb-1.6,-7],[-wb-2.4,0],[-wb-1.2,7],[wb+1,-5],[wb+1.4,4]].forEach(function(q){var c=pt(st,q[0],bv+q[1]*bs);bd+=circ(c[0],c[1],1.4*bs)});o.bd.setAttribute('d',bd);
+  /* hairs */
+  var pc=mixc('#924C1C','#DDBB90',st.pig),b2=st.dpc-st.dpry-3;
+  o.h1.setAttribute('fill',pc);o.h2.setAttribute('fill',pc);
+  var b1=st.h1b-12*st.h1club;
+  var h1=st.h1op>.01?hairD(st,b1,st.h1t,st.hw,1-st.h1club):'';o.h1.setAttribute('d',h1);o.c1.setAttribute('d',st.h1op>.01?cutD(st,b1,st.h1t,st.hw):'');
+  o.h1.style.opacity=o.c1.style.opacity=st.h1op;
+  o.club.setAttribute('d',st.h1op*st.h1club>.01?clubD(st,st.h1b,st.hw):'');o.club.style.opacity=Math.min(1,st.h1op*st.h1club*1.3);
+  var h2=st.h2op>.01?hairD(st,b2,st.h2t,st.hw,1):'';o.h2.setAttribute('d',h2);o.c2.setAttribute('d',st.h2op>.01?cutD(st,b2,st.h2t,st.hw):'');o.h2.style.opacity=o.c2.style.opacity=st.h2op;
+  if(o.sH)o.sH.setAttribute('d',(st.h1op>.3?h1:'')+(st.h2op>.3?h2:''));
+  /* melanocytes on the papilla dome */
+  var ml='';if(st.ana>.05){for(var i=-3;i<=3;i++){var a=i*.36,c=pt(st,(st.dprx*.75+3)*Math.sin(a),st.dpc-st.dpry*.55-(st.dpry*.5+3)*Math.cos(a));ml+=circ(c[0],c[1],1.5)}}o.mel.setAttribute('d',ml);o.mel.style.opacity=st.ana;
+  /* papilla */
+  var sw=st.dprx*.42,sv0=st.dpc+st.dpry*.5,sv1=D+st.st;
+  o.stalk.setAttribute('d',sv1-sv0>2?'M'+P(st,-sw,sv0)+'L'+P(st,-sw*.8,sv1)+'L'+P(st,sw*.8,sv1)+'L'+P(st,sw,sv0)+'Z':'');
+  var dpd=dpD(st);set(o.dp,dpd,o.dH);
+  var dc='';[[-.42,-.25],[.3,-.42],[0,.05],[-.05,-.62],[.1,.62],[-.3,.5],[.35,.45]].forEach(function(q){var c=pt(st,q[0]*st.dprx,st.dpc+q[1]*st.dpry);dc+=circ(c[0],c[1],1)});o.dcell.setAttribute('d',dc);
+  var rr=r1(Math.max(1.8,3.9*st.dprx/11)),xc=pt(st,-st.dprx*.48,st.dpc+st.dpry*.22),wc=pt(st,st.dprx*.48,st.dpc+st.dpry*.22);
+  set(o.dht,circ(xc[0],xc[1],r1(rr*st.dhtS)),o.xH);set(o.wnt,circ(wc[0],wc[1],rr),o.wH);o.xG.style.opacity=o.wG.style.opacity=st.ana;
+  /* blood */
+  var vb=st.vb||410,cu=1.7*Math.min(1,st.dprx/8);
+  o.cap.setAttribute('d','M'+P(st,-cu,vb)+'L'+P(st,-cu,st.dpc)+'Q'+P(st,0,st.dpc-st.dpry*.45)+' '+P(st,cu,st.dpc)+'L'+P(st,cu,vb));
+  var e0=D+st.st,vs='M'+P(st,-13*st.f,vb)+'C'+P(st,-15*st.f,(vb+e0)/2)+' '+P(st,-5,e0+8)+' '+P(st,-2,e0)+'M'+P(st,14*st.f,vb)+'C'+P(st,17*st.f,(vb+e0)/2+8)+' '+P(st,6,e0+8)+' '+P(st,2,e0);
+  o.ves.setAttribute('d',vs);o.ves.setAttribute('stroke-width',r1(1.8*Math.max(.5,st.f)));if(o.vH)o.vH.setAttribute('d',vs+o.cap.getAttribute('d'));o.vG.style.opacity=st.cap;
+  /* immune shield */
+  var ic=bt+st.bulbH*.5;set(o.imm,st.ana*st.imm>.02?ell(st,0,ic,st.bw+9,st.bulbH*.5+10):'',o.iH);o.iG.style.opacity=st.ana*st.imm;o.iG.style.display=st.ana*st.imm<.02?'none':'';
+ };
+ return o;
+}
+function ana(X0,D,f,tip,pig){var bh=Math.max(68*f,20),dpry=Math.max(20*f,5.5),dprx=Math.max(13*f,4),dpc=D-Math.max(25*f,7.5);
+ return {X0:X0,D:D,f:f,gl:.7+.3*f,bv:128*Math.sqrt(f),tw:Math.max(15*f,5.5),sv:D-bh,sw:Math.max(15*f,5.5),bulbH:bh,bw:Math.max(28*f,9),bo:Math.max(9*f,3),
+  dpc:dpc,dprx:dprx,dpry:dpry,pear:1,st:22*f,cap:1,ana:1,irsTop:40*Math.sqrt(f),irsOp:1,h1b:dpc-dpry-3,h1t:tip,h1club:0,h1op:1,hw:Math.max(2.6*f,.85),h2t:dpc-dpry-3,h2op:0,ghost:0,miniOp:0,pig:pig||0,dhtS:1,imm:1,vb:400}}
+function cp(o,x){var r={},k;for(k in o)r[k]=o[k];if(x)for(k in x)r[k]=x[k];return r}
+var A=ana(118,362,1,-80);
+var ST={grow:A,
+ cat:cp(A,{D:246,tw:13,sv:190,sw:4.5,bulbH:10,bw:6,bo:3,dpc:258,dprx:9,dpry:8,pear:0,st:6,cap:.45,vb:300,ana:0,irsOp:.25,h1b:184,h1club:1,h2t:247,ghost:1}),
+ rest:cp(A,{D:142,tw:12,sv:126,sw:9,bulbH:12,bw:10,bo:4,dpc:152,dprx:9.5,dpry:8,pear:0,st:4,cap:.4,vb:215,ana:0,irsTop:144,irsOp:0,h1b:112,h1club:1,h2t:141,ghost:1}),
+ shed:cp(A,{D:272,tw:13.5,sv:220,sw:13.5,bulbH:52,bw:22,bo:7,dpc:254,dprx:9.5,dpry:14,pear:.8,st:16,cap:.85,vb:350,ana:.85,irsTop:144,irsOp:1,h1b:26,h1club:1,h1op:1,h2t:150,h2op:1,ghost:.6}),
+ mini:cp(A,{X0:40,miniOp:1,dhtS:1.35})};
+var AEND=cp(A,{h1op:0,h1b:-64,h1club:1,h2t:-80,h2op:1});
+/* build */
+var gGhost=document.getElementById('fghost'),gMini=document.getElementById('fmini'),gAnn=document.getElementById('fann'),gLbl=document.getElementById('flbl');
+mk('path',{d:tubeD(A,0,0),fill:'none',stroke:'#C3A9C9','stroke-width':1.1,'stroke-dasharray':'3 3'},gGhost);
+var MX=[ana(135,250,.74,-70,.2),ana(212,165,.5,-34,.5),ana(292,96,.32,-14,.85)];
+MX.forEach(function(s){s.dhtS=1.35;s.cap=.45;s.imm=0;s.vb=s.D+38;Fol(gMini,false).up(s)});
+var main=Fol(document.getElementById('fmain'),true);
+function lab(g,o){var e=mk('g',o.cls?{'class':o.cls}:null,g);if(o.p)e.setAttribute('data-p',o.p);
+ if(o.a)mk('path',{'class':'ld',d:'M'+o.a[0]+' '+o.a[1]+'L'+o.l[0]+' '+o.l[1]},e);
+ o.t.forEach(function(t,i){var sub=t.charAt(0)==='_';var x=mk('text',{x:o.x,y:o.y+i*12},e);if(o.mid)x.setAttribute('text-anchor','middle');if(sub){x.setAttribute('class','m');x.setAttribute('font-size','7.5');x.setAttribute('fill','#6B76A8');x.setAttribute('y',o.y+i*12-1);t=t.slice(1)}x.textContent=t});return e}
+function at(st,u,v){return pt(st,u,v)}
+(function(){var s=A,bt=s.D-s.bulbH,ic=bt+s.bulbH*.5,wb=W(s,s.bv),gv=s.bv*.4,wg=W(s,gv);
+ var X=232,L=[
+ {p:'shaft',x:150,y:26,t:['Hair shaft'],a:at(s,s.hw+1.5,-22),l:[146,22]},
+ {p:'gland',x:18,y:126,t:['Oil gland'],a:at(s,-wg-31,gv+9),l:[72,122]},
+ {p:'gland',x:18,y:158,t:['Goose-bump','muscle'],a:[97,146],l:[84,154]},
+ {cls:'lk0',x:62,y:262,t:['_SWEAT GLAND']},
+ {p:'bulge',x:X,y:170,t:['Bulge','_STEM CELLS'],a:at(s,wb+4.5,s.bv),l:[228,166]},
+ {cls:'lk0',x:X,y:258,t:['Root sheaths','_INNER (PINK) + OUTER'],a:at(s,W(s,214)-2,214),l:[228,254]},
+ {p:'immune',x:X,y:318,t:['Immune shield'],a:at(s,(s.bw+9)*.62,ic-(s.bulbH*.5+10)*.78),l:[228,314]},
+ {p:'matrix',x:X,y:343,t:['Matrix, pigment'],a:at(s,W(s,bt+s.bulbH*.42)-5,bt+s.bulbH*.42),l:[228,339]},
+ {p:'dp',x:X,y:368,t:['Dermal papilla'],a:at(s,s.dprx-1,s.dpc-5),l:[228,364]},
+ {p:'wnt',x:X,y:392,t:['Wnt switch','_+ CXXC5 BRAKE'],a:at(s,s.dprx*.48+3.5,s.dpc+s.dpry*.22),l:[228,388]},
+ {p:'blood',x:X,y:428,t:['Blood supply'],a:at(s,30*.62,s.D+34),l:[228,424]},
+ {p:'dht',x:18,y:384,t:['DHT','receptor'],a:at(s,-s.dprx*.48-4,s.dpc+s.dpry*.22),l:[30,380]}];
+ L.forEach(function(o){if(o.p)o.cls='lk';lab(gLbl,o)});
+ /* DHT: leader starts after the word */
+ var d=gLbl.querySelector('.lk[data-p="dht"] .ld');d.setAttribute('d',d.getAttribute('d').replace('M','M').replace(/L30 380/,'L46 380'));
+})();
+var ANN={
+ cat:function(s){var bt=s.D-s.bulbH;return[
+  {x:232,y:224,t:['Club hair forms','_PIGMENT STOPS'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[228,220]},
+  {x:232,y:262,t:['Epithelial strand','_LOWER FOLLICLE SHRINKS'],a:at(s,s.sw+1,(s.sv+bt)/2+6),l:[228,258]},
+  {x:232,y:300,t:['Papilla pulled up','_A BALL OF CELLS'],a:at(s,s.dprx+1,s.dpc),l:[228,296]},
+  {x:232,y:372,t:['Old bulb sat here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ rest:function(s){return[
+  {x:232,y:150,t:['Club hair','_WHITE ROOT, ANCHORED'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[228,146]},
+  {x:232,y:198,t:['Papilla resting','_BELOW THE BULGE'],a:at(s,s.dprx+1,s.dpc),l:[228,194]},
+  {x:232,y:246,t:['Hair germ','_STARTS THE NEXT HAIR'],a:at(s,s.bw*.8,s.D-5),l:[228,242]},
+  {x:232,y:372,t:['Old bulb sat here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ shed:function(s){var bt=s.D-s.bulbH;return[
+  {x:150,y:24,t:['Old club hair','_FALLS OUT'],a:at(s,s.hw*1.9+1,s.h1b-10),l:[146,20]},
+  {x:232,y:196,t:['New hair grows','_UP THE SAME CANAL'],a:at(s,s.hw+2,s.h2t+6),l:[228,192]},
+  {x:232,y:292,t:['New bulb'],a:at(s,s.bw+1,bt+s.bulbH*.5),l:[228,288]},
+  {x:232,y:372,t:['It regrows to here'],a:at(A,A.bw+1,A.D-30),l:[228,368]}]},
+ mini:function(s){return[
+  {x:132,y:404,t:['Terminal','_THICK, LONG']},
+  {x:198,y:304,t:['Shrinks']},
+  {x:258,y:216,t:['Smaller']},
+  {x:316,y:150,t:['Vellus','_FINE FUZZ']},
+  {x:212,y:342,t:['Each growing phase is','shorter and the follicle','comes back smaller.','_STEM CELLS SURVIVE']}]}};
+function annot(k){while(gAnn.firstChild)gAnn.removeChild(gAnn.firstChild);if(!ANN[k])return;
+ gAnn.classList.add('hid');ANN[k](ST[k]).forEach(function(o){lab(gAnn,o)});gAnn.getBoundingClientRect();gAnn.classList.remove('hid')}
+var curSt=cp(A);
+function draw(st){curSt=st;main.up(st);gMini.style.opacity=st.miniOp;gMini.style.display=st.miniOp>.01?'':'none';gGhost.style.opacity=st.ghost;gGhost.style.display=st.ghost>.01?'':'none'}
+var TXT={grow:'1 of 4 · Anagen, 2 to 6 years',cat:'2 of 4 · Catagen, 2 to 3 weeks',rest:'3 of 4 · Telogen, about 3 months',shed:'4 of 4 · Exogen, the old hair falls out',mini:'Pattern loss · miniaturisation'};
+var INF={grow:'ph-grow',cat:'ph-rest',rest:'ph-rest',shed:'ph-shed',mini:'ph-mini'};
+var ORDER=['grow','cat','rest','shed'],key='grow',pb=document.querySelector('.ph.play');
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var H0=.6,MOR=1.6,HOLD=.9,SEG=MOR+HOLD,TOT=H0+4*SEG;
+var pl={on:false,paused:false,t:0,raf:0,last:0,ann:''};
+function setKey(k){key=k;fstep.textContent=TXT[k];panel.innerHTML=info[INF[k]];
+ document.querySelectorAll('.ph').forEach(function(b){b.classList.toggle('on',b.dataset.ph===k||(b.dataset.ph==='play'&&pl.on))});
+ svg.classList.toggle('cyc',k!=='grow'||pl.on)}
+function pbText(){pb.textContent=pl.on?(pl.paused?'▶ Resume':'❚❚ Pause'):(pl.t>=TOT?'↻ Replay':'▶ Play cycle');pb.setAttribute('aria-pressed',pl.on&&!pl.paused?'true':'false')}
+function stop(){if(pl.raf)cancelAnimationFrame(pl.raf);pl.raf=0;pl.on=false;pl.paused=false;pl.t=0;fbar.style.width='0';pbText()}
+function jump(k){stop();clear();draw(cp(ST[k]));setKey(k);annot(k)}
+function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function apply(t){fbar.style.width=r1(Math.min(1,t/TOT)*100)+'%';
+ if(t<H0){draw(cp(A));if(key!=='grow')setKey('grow');return}
+ var x=t-H0,i=Math.min(3,Math.floor(x/SEG)),r=x-i*SEG,from=ST[ORDER[i]],to=i<3?ST[ORDER[i+1]]:AEND,tk=i<3?ORDER[i+1]:'grow';
+ var m=RM?1:ease(Math.min(1,r/MOR));draw(cp(i===3&&m>=1?A:mix(from,to,m)));
+ if(key!==tk){setKey(tk);annot(null);pl.ann=''}
+ if((RM||r>=MOR)&&pl.ann!==tk&&tk!=='grow'){annot(tk);pl.ann=tk}}
+function mix(a,b,t){var r={};for(var k in a)r[k]=a[k]+(b[k]-a[k])*t;return r}
+function frame(now){var dt=Math.min(now-pl.last,64)/1000;pl.last=now;if(!pl.on||pl.paused)return;pl.t+=dt;
+ if(pl.t>=TOT){pl.on=false;pl.raf=0;var keepT=pl.t;draw(cp(A));setKey('grow');annot(null);pl.t=keepT;fbar.style.width='100%';pbText();return}
+ apply(pl.t);pl.raf=requestAnimationFrame(frame)}
+function start(){stop();clear();pl.on=true;pl.ann='';draw(cp(A));annot(null);setKey('grow');pbText();pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}
+function pause(){pl.paused=true;if(pl.raf)cancelAnimationFrame(pl.raf);pl.raf=0;pbText()}
+function resume(){pl.paused=false;pbText();pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&pl.on&&!pl.paused){if(pl.raf)cancelAnimationFrame(pl.raf);pl.last=performance.now();pl.raf=requestAnimationFrame(frame)}});
+function clear(){svg.querySelectorAll('.pt').forEach(function(p){p.classList.remove('lit','lit-h','lit-x','lit-u','lit-s')});svg.querySelectorAll('.lk').forEach(function(l){l.classList.remove('sel')});document.querySelectorAll('.cc.on').forEach(function(b){b.classList.remove('on')})}
+function light(p,cls){svg.querySelectorAll('.pt[data-p="'+p+'"]').forEach(function(g){g.classList.add('lit',cls)});svg.querySelectorAll('.lk[data-p="'+p+'"]').forEach(function(l){l.classList.add('sel')})}
+function toGrow(){if(key!=='grow'||pl.on)jump('grow')}
+document.querySelectorAll('.ph').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.ph;if(k==='play'){if(pl.on&&!pl.paused)pause();else if(pl.on)resume();else start()}else jump(k)})});
+function part(p){toGrow();clear();light(p,'lit-s');panel.innerHTML=info[p]}
+svg.addEventListener('click',function(e){var t=e.target.closest('.lk,.pt');if(!t)return;part(t.dataset.p)});
+document.addEventListener('click',function(e){var b=e.target.closest('.cc');if(!b)return;var d=comp[b.dataset.c];
+ toGrow();clear();b.classList.add('on');
+ d.dataset.parts.split(',').forEach(function(s){var a=s.split(':');light(a[0],'lit-'+a[1])});
+ var lk=d.dataset.l?' <a class="fl" href="/library/#/p/'+d.dataset.l+'">Library card</a>':'';
+ panel.innerHTML='<p class="fph"><b>'+d.dataset.n+'</b><span class="ev '+tierC[d.dataset.t]+'">'+tierN[d.dataset.t]+'</span></p>'+d.innerHTML.replace(/<\/p>\s*$/,lk+'</p>');
+ if(innerWidth<760){var f=document.querySelector('.fdg').getBoundingClientRect();if(f.top<60||f.top>innerHeight*.5)scrollTo({top:scrollY+f.top-64,behavior:'smooth'})}
+});
+draw(cp(A));setKey('grow');pbText();
+/* compare */
+var O=window.HAIR_OPTS,byId={};O.forEach(function(o){byId[o.id]=o});
+var labels=['Acts on in the follicle','Best human result','Time to see','When you stop','Main risk','What people report'];
+var NMs=['Not in our sources','Not studied','Not measured'];
+var sel=innerWidth>=760?['ldom','ghk','fin']:['ldom','ghk'];
+var cs=document.getElementById('cxsel'),cb=document.getElementById('cxbody');
+function opts(v){var g='',h='';O.forEach(function(o){if(o.g!==g){if(g)h+='</optgroup>';g=o.g;h+='<optgroup label="'+{Proven:'Proven options',Peptide:'Peptides',Other:'Others'}[g]+'">'}h+='<option value="'+o.id+'"'+(o.id===v?' selected':'')+'>'+o.n+'</option>'});return h+'</optgroup>'}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function render(){var n=sel.length,tpl='repeat('+n+',minmax(0,1fr))';
+ var h='';sel.forEach(function(v,i){h+='<div class="cxcol"><select aria-label="Option '+(i+1)+'" data-i="'+i+'">'+opts(v)+'</select>'+(n>2?'<button type="button" class="cxrm" data-i="'+i+'">Remove</button>':'')+'</div>'});
+ if(n<3)h+='<button type="button" class="cxadd">+ Add a third</button>';
+ cs.innerHTML=h;cs.style.gridTemplateColumns=n<3?'repeat('+n+',minmax(0,1fr)) minmax(74px,.55fr)':tpl;
+ var b='<div class="cxrow cxhd"><div class="cxv" style="grid-template-columns:'+tpl+'">';
+ sel.forEach(function(v){var o=byId[v];b+='<div><b>'+esc(o.n)+'</b><span class="ev '+o.tc+'">'+o.tn+'</span>'+(o.l?'<a href="/library/#/p/'+o.l+'">Library card</a>':'')+'</div>'});
+ b+='</div></div>';
+ labels.forEach(function(l,r){b+='<div class="cxrow"><p class="cxl">'+l+'</p><div class="cxv" style="grid-template-columns:'+tpl+'">';
+  sel.forEach(function(v){var t=byId[v].r[r];b+='<div'+(NMs.indexOf(t)>-1?' class="nm"':'')+'>'+esc(t)+'</div>'});b+='</div></div>'});
+ cb.innerHTML=b;}
+cs.addEventListener('change',function(e){if(e.target.tagName==='SELECT'){sel[+e.target.dataset.i]=e.target.value;render()}});
+cs.addEventListener('click',function(e){if(e.target.classList.contains('cxadd')){var f=O.filter(function(o){return sel.indexOf(o.id)<0})[0];sel.push(f.id);render()}else if(e.target.classList.contains('cxrm')){sel.splice(+e.target.dataset.i,1);render()}});
+render();
+/* sources */
+var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.getElementById('ftd').open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<4})}
+function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}
+addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true);
+})();
+</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>
