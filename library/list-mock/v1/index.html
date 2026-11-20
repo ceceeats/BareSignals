@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- List view mockup v1 (20 Nov 2026, preview, not linked): the whole Library as a plain name list, grouped. Peptides, Supplements, Cases, Goals on one page; sort by What it does, A to Z, Peptide or not, Evidence. Reads the live data files. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Library list · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#5271FF;--accent:#DB6830;--mono:"JetBrains Mono",ui-monospace,monospace;--disp:"Bricolage Grotesque",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.4 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:1240px;margin:0 auto;padding:12px 14px 40px}
+h1{font:700 26px/1 var(--disp);margin:2px 0 10px;display:flex;align-items:center;gap:8px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink)}
+.tabs a{font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:8px 2px;color:var(--ink);text-decoration:none;border-left:1.5px solid var(--ink)}
+.tabs a:first-child{border-left:0;background:var(--ink);color:#fff}
+.bar{display:flex;gap:8px;align-items:center;margin:12px 0 6px;flex-wrap:wrap}
+.q{flex:1 1 200px;font:400 16px "Hanken Grotesk",sans-serif;color:var(--ink);background:var(--chip);border:1.5px solid var(--ink);padding:9px 10px;min-width:0}
+.view{display:flex;border:1.5px solid var(--ink)}
+.view button{all:unset;cursor:pointer;font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:10px 12px}
+.view button.on{background:var(--ink);color:#fff}
+.sorts{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:2px 0 8px;padding-bottom:2px}
+.sorts::-webkit-scrollbar{display:none}
+.sorts button{all:unset;flex:none;cursor:pointer;font:500 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:8px 9px;background:var(--chip)}
+.sorts button.on{background:#FFDE59}
+.jump{display:flex;gap:4px 12px;flex-wrap:wrap;font:500 10.5px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:4px 0 6px}
+.jump a{color:var(--blue)}
+section{margin:14px 0 0}
+.sh{display:flex;align-items:baseline;gap:8px;border-bottom:1.5px solid var(--ink);padding:0 0 4px;scroll-margin-top:8px}
+.sh h2{font:700 15px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0}
+.sh span{font:500 11px var(--mono);color:var(--soft)}
+.grp{break-inside:avoid;margin:10px 0 2px}
+.gh{display:flex;align-items:center;gap:6px;font:600 10px/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin:0 0 3px}
+.gh i{width:11px;height:11px;border:1px solid rgba(62,74,128,.45);flex:none}
+.gh b{font-weight:500;color:var(--soft)}
+.cols{columns:2;column-gap:14px}
+@media (min-width:700px){.cols{columns:3}}@media (min-width:1050px){.cols{columns:4;column-gap:22px}}
+ul{list-style:none;margin:0;padding:0}
+li a{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid rgba(62,74,128,.12);color:var(--ink);text-decoration:none;font-size:14px;line-height:1.2;min-width:0}
+li a .n{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+li a .d{flex:none;display:flex;gap:2px}
+@media (max-width:699px){li a .n{white-space:normal;overflow:visible;font-size:13.5px}li a{align-items:flex-start}li a .d,li a .t{margin-top:3px}}
+li a .d i{width:6px;height:12px;border:1px solid rgba(62,74,128,.25)}
+li a .t{flex:none;font:500 9px var(--mono);color:var(--soft);letter-spacing:.04em}
+li a:active,li a:hover{background:var(--chip)}
+.rows li a{padding:7px 0}.rows li a .n{white-space:normal}
+.rows li a .t{font-size:11px;color:var(--accent);font-weight:600}
+.note{font:500 10px/1.4 var(--mono);color:var(--soft);letter-spacing:.04em;margin:18px 0 0}
+.mock{background:#FFDE59;font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;margin-left:auto}
+</style></head>
+<body><div class="w">
+<h1>Library <span class="mock">List view · mockup</span></h1>
+<nav class="tabs"><a href="#pep">All</a><a href="#sup">Supplements</a><a href="#cas">Cases</a><a href="#goa">Goals</a></nav>
+<div class="bar"><input class="q" id="q" placeholder="Filter the list" autocomplete="off"><div class="view"><button type="button">Cards</button><button type="button" class="on">List</button></div></div>
+<div class="sorts" id="sorts"><button data-s="role" class="on">What it does</button><button data-s="az">A to Z</button><button data-s="origin">Peptide or not</button><button data-s="ev">Evidence</button><button data-s="pop">Popular</button></div>
+<div id="out"></div>
+<p class="note">Tap a name to open its Quick look. Colour bars: the main things it does. Mockup reading the live Library data.</p>
+</div>
+<script src="/library/data.js"></script><script src="/supplements/v16/data.js"></script><script src="/cards.js"></script>
+<script>
+const P=window.BS_PALETTE||[],HEX={},LAB={};P.forEach(p=>{HEX[p[0]]=p[2];LAB[p[0]]=p[1]});
+const D=(window.BS_DATA||[]).filter(o=>o.origin!=='water');
+const S=(window.SUPP||[]),SC=window.SUPP_CATC||{},C=(window.BS_CARDS||{});
+const ORIG={body:['Made by the body','#AACC96'],frag:['Cut from a natural protein','#E1DE62'],lab:['Made in a lab','#B493E8'],blend:['Blends','#FFA51F'],np:['Not a peptide','#C2DCFF']};
+const EV={reference:['Approved or reference drugs','#AACC96'],logged:['Deep research logged','#E1DE62'],draft:['Partly researched','#FFDE59']};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const idOf=n=>n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+let sort='role',q='';
+const dots=o=>`<span class="d">${(o.roles||[]).slice(0,3).map(r=>`<i style="background:${HEX[r]||'#FFFFF4'}"></i>`).join('')}</span>`;
+const item=o=>`<li><a href="/library/#/${o.slug}"><span class="n">${esc(o.name)}</span>${o.fda?'<span class="t">FDA</span>':''}${dots(o)}</a></li>`;
+const grp=(k,label,col,list,fn)=>list.length?`<div class="grp"><p class="gh"><i style="background:${col}"></i>${esc(label)} <b>${list.length}</b></p><ul>${list.map(fn).join('')}</ul></div>`:'';
+const match=t=>!q||t.toLowerCase().includes(q);
+function render(){
+  const L=D.filter(o=>match(o.name+' '+(o.alias||'')+' '+(o.kw||[]).join(' ')));
+  const az=(a,b)=>a.name.localeCompare(b.name),pop=(a,b)=>(a.rank||999)-(b.rank||999)||az(a,b);
+  let g='';
+  if(sort==='role'){const by={};L.forEach(o=>{const r=(o.roles||[])[0]||'Other';(by[r]=by[r]||[]).push(o)});
+    g=P.map(p=>p[0]).concat(['Other']).filter(r=>by[r]).sort((a,b)=>by[b].length-by[a].length).map(r=>grp(r,LAB[r]||r,HEX[r]||'#FFFFF4',by[r].sort(pop),item)).join('')}
+  else if(sort==='az'){const by={};L.slice().sort(az).forEach(o=>{const c=/[a-z]/i.test(o.name[0])?o.name[0].toUpperCase():'#';(by[c]=by[c]||[]).push(o)});g=Object.keys(by).map(c=>grp(c,c,'#FFFFF4',by[c],item)).join('')}
+  else if(sort==='origin'){g=Object.keys(ORIG).map(k=>grp(k,ORIG[k][0],ORIG[k][1],L.filter(o=>o.origin===k).sort(pop),item)).join('')}
+  else if(sort==='ev'){g=Object.keys(EV).map(k=>grp(k,EV[k][0],EV[k][1],L.filter(o=>o.depth===k).sort(pop),item)).join('')}
+  else {g=grp('pop','Most looked at first','#FFDE59',L.slice().sort(pop),item)}
+  const sup=(window.SUPP_CATS||[]).map(c=>grp(c,c,SC[c]||'#FFFFF4',S.filter(s=>s.cat===c&&match(s.n+' '+(s.aka||''))),s=>`<li><a href="/supplements/#/${idOf(s.n)}"><span class="n">${esc(s.n)}</span></a></li>`)).join('');
+  const row=x=>`<li><a href="${x.url}"><span class="n">${esc(x.name)}</span><span class="t">${esc(x.stat||'')}</span></a></li>`;
+  const cas=(C.cases||[]).filter(x=>match(x.name)),goa=(C.goals||[]).filter(x=>match(x.name));
+  const sup_n=S.filter(s=>match(s.n)).length;
+  document.getElementById('out').innerHTML=
+   `<section id="pep"><div class="sh"><h2>Peptides</h2><span>${L.length}</span></div><div class="cols">${g}</div></section>`+
+   `<section id="sup"><div class="sh"><h2>Supplements</h2><span>${sup_n}</span></div><div class="cols">${sup}</div></section>`+
+   `<section id="cas"><div class="sh"><h2>Cases</h2><span>${cas.length} · a problem to heal</span></div><ul class="cols rows">${cas.map(row).join('')}</ul></section>`+
+   `<section id="goa"><div class="sh"><h2>Goals</h2><span>${goa.length} · what you want more of</span></div><ul class="cols rows">${goa.map(row).join('')}</ul></section>`;
+}
+document.getElementById('sorts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;sort=b.dataset.s;document.querySelectorAll('#sorts button').forEach(x=>x.classList.toggle('on',x===b));render()});
+document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();render()});
+render();
+</script>
+<script src="/nav.js"></script>
+</body></html>
