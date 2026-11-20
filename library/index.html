@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v123 (20 Nov 2026, built on v121b, kept): search shows Peptides first, then Cases and Goals as swipe rows of picture cards, Supplements last (list view in the same order); typos are swapped for the closest known word through the shared search. -->
 <!-- Library v121b (20 Nov 2026, built on v121, kept): 8px gap under the toolbar on All and Peptides, matching Supplements, Cases and Goals. -->
 <!-- Library v121 (20 Nov 2026, built on v120, kept): search understands how people type: phrases read word by word with filler words dropped ("grow more muscle", "peptide for skin"), everyday phrases mapped (lose weight, low t, can't sleep, sick often, live longer), a bigger word-family list (eczema, migraine, Hashimoto, ADHD, cholesterol...), user reports and side effects ranked below what a compound is for, and Case notes searched with Cases. -->
 <!-- Library v120 (20 Nov 2026, built on v119, kept): card claims corrected (GLOW, KLOW hair and nails; AHK-Cu human row; collagen nails), data.js only. -->
@@ -1926,6 +1927,7 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 /* v121b: 8px under the toolbar on every tab, like Supplements v33 */
 #toolsph{margin-bottom:-8px!important}
 .pep116 #brw{margin-top:4px!important;padding-top:0!important}
+#ar114{margin-top:6px}.sw123 .srow{margin-top:8px}
 </style>
 <script src="/cards.js"></script>
 <script src="tags.js"></script>
@@ -3434,10 +3436,15 @@ function renderLV(){const box=$('#lv114');if(!box)return;if(!LV||EMB114){box.hid
     Rr.forEach(o=>{const r=(o.roles||[])[0]||'other';(by[r]=by[r]||[]).push(o)});
     g=grp114('Top 30, most looked at','#FFDE59',T.length,T.map(li114).join(''))+(Rr.length?'<p class="lvsub">The rest, by what it does</p>':'')+Object.keys(by).sort((a,b)=>by[b].length-by[a].length).map(r=>grp114(LONG[r]||r,HEX[r]||'#FFFFF4',by[r].length,by[r].slice().sort(az).map(li114).join(''))).join('')}
   const O=others114();
-  box.innerHTML=`<section class="lvs" id="lvpep"><div class="sh"><h2>Peptides</h2><span>${L.length}</span></div><div class="cols">${g||'<p class="note">No peptide matches.</p>'}</div></section>`+suppSec114(O.sup)+rowSec114(O.cas,'Cases','a problem to heal')+rowSec114(O.goa,'Goals','what you want more of');
+  box.innerHTML=`<section class="lvs" id="lvpep"><div class="sh"><h2>Peptides</h2><span>${L.length}</span></div><div class="cols">${g||'<p class="note">No peptide matches.</p>'}</div></section>`+rowSec114(O.cas,'Cases','a problem to heal')+rowSec114(O.goa,'Goals','what you want more of')+suppSec114(O.sup);
   box.hidden=false}
+/* v123: Cases and Goals as swipe rows of picture cards (same cards as the front shelves) */
+function swipe123(L,title,sub){if(!L.length)return '';const BC=window.BS_CARDS||{art:{},col:{}};
+  const card=x=>`<a class="sq2" href="${x.url}" style="--bc:${(BC.col||{})[x.art]||'#E1DE62'}">${BC.art[x.art]?`<svg viewBox="0 0 120 60" aria-hidden="true">${BC.art[x.art]}</svg>`:''}<b>${esc(x.name)}</b>${x.stat?`<i class="stt">${esc(x.stat)}</i>`:''}<span>${esc(x.line||'')}</span><em class="${x.live?'lv':''}">${x.live?'Page':'Notes'}</em></a>`;
+  return `<section class="lvs sw123"><div class="sh"><h2>${title}</h2><span>${L.length} · ${sub}</span></div><div class="srow">${L.map(card).join('')}</div></section>`}
 function renderAR(){const box=$('#ar114');if(!box)return;const on=!LV&&!EMB114&&st.q.trim().length>=2;if(!on){box.hidden=true;box.innerHTML='';return}
-  const O=others114();const h=rowSec114(O.cas,'Cases')+rowSec114(O.goa,'Goals')+suppSec114(O.sup);
+  const O=others114();const h=swipe123(O.cas,'Cases','a problem to heal')+swipe123(O.goa,'Goals','what you want more of')+suppSec114(O.sup);
+  {const f=document.querySelector('#grid~.foot');if(f&&box.nextElementSibling!==f)f.parentNode.insertBefore(box,f)}
   const np=filtered().filter(o=>!isW(o)).length;
   box.innerHTML=h;box.hidden=!h}
 function setV114(v){LV=v==='list';try{localStorage.setItem(LV114K,LV?'list':'grid')}catch(e){}
@@ -3708,5 +3715,6 @@ if(!cur&&!narrow()&&$('#pagev').hidden)openCard('bpc-157',false);
   window.addEventListener('hashchange',()=>setTimeout(also,50));also();
 })();
 </script>
+<script>try{const C=window.BS_CARDS||{};BS_WORDS.vocab((window.BS_DATA||[]).map(o=>o.name+' '+(o.alias||'')).concat((C.cases||[]).concat(C.goals||[],C.notes||[]).map(x=>x.name),(window.SUPP||[]).map(x=>x.n+' '+(x.aka||[]).join(' '))))}catch(e){}</script>
 </body>
 </html>

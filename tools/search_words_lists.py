@@ -56,5 +56,5 @@ FAM = {  # one word -> other words that mean the same on the site
  'fertility': ['ovulation', 'sperm', 'fertility', 'ivf'], 'pregnant': ['pregnancy', 'fertility', 'ovulation'], 'pcos': ['polycystic', 'insulin', 'androgen'], 'endometriosis': ['endometrio', 'pelvic pain'],
  'appetite': ['hunger', 'satiety', 'craving', 'food noise'], 'craving': ['appetite', 'food noise', 'hunger'],
  'tan': ['tanning', 'melanin', 'melanotan'], 'tanning': ['tan', 'melanin', 'melanotan'],
- 'stack': ['stack', 'blend', 'combo', 'paired'], 'beginner': ['beginner', 'first-time', 'start low', 'starting dose', 'well tolerated', 'most popular'],
+ 'antibiotic': ['antibiotic', 'antibacterial', 'bacterial', 'infection', 'chlamydia'], 'stack': ['stack', 'blend', 'combo', 'paired'], 'beginner': ['beginner', 'first-time', 'start low', 'starting dose', 'well tolerated', 'most popular'],
 }
