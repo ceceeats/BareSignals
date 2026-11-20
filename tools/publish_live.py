@@ -3,7 +3,7 @@ For each section root whose index.html is a redirect stub to vN/, copy vN's file
 redirect-stub.html, version folders untouched), strip one '../' from relative paths in the copied files, then point
 live links that name a current version (/dosage/v30/) at the plain address (/dosage/). Re-run after any new version."""
 import os, re, shutil, glob
-REPO = '/home/claude/baresignals'
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # the clone this script sits in
 os.chdir(REPO)
 CUR = {}
 for f in glob.glob('**/index.html', recursive=True):

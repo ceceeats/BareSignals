@@ -4,7 +4,7 @@ holds against the master (the live Library at /library/). Prints every mismatch 
 Usage: python3 tools/cascade_check.py   (exit code 1 if anything is out of line)"""
 import json, re, subprocess, sys, time, os, socket
 from playwright.sync_api import sync_playwright
-os.chdir('/home/claude/baresignals')
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # the clone this script sits in
 PORT = 8799
 srv = subprocess.Popen([sys.executable, '-m', 'http.server', str(PORT)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 time.sleep(1)

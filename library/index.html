@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v123c (20 Nov 2026, built on v123b, kept): every Why sits at the right edge inside its row box, on the first line (supplements, blend parts, synergies, blood tests, Who shouldn't take it, Mixing rows); the Quick look gets the same Why taps as the Full read (What it does, synergies, blends, Who shouldn't); Where it acts is sized by the Library (2:3 frame) instead of shrinking itself to ~190px; blends fold Other ratios and the factory chemistry note behind a tap and put each part's Why combined reason on its own row. -->
 <!-- Library v123b (20 Nov 2026, built on v123, kept): the deep read is back on every Full read that has one (49 compounds; BPC-157 3,620 words), opening in place at the end of the page. -->
 <!-- Library v123 (20 Nov 2026, built on v121b, kept): search shows Peptides first, then Cases and Goals as swipe rows of picture cards, Supplements last (list view in the same order); typos are swapped for the closest known word through the shared search. -->
 <!-- Library v121b (20 Nov 2026, built on v121, kept): 8px gap under the toolbar on All and Peptides, matching Supplements, Cases and Goals. -->
@@ -3740,5 +3741,133 @@ addEventListener('hashchange',function(){setTimeout(add,0)})})();
 </script>
 <style>/* v123b */.k-deep123b .t65 small{font:500 calc(10.5px*var(--k,1))/1 var(--mono);letter-spacing:.06em;color:#6B76A8;margin-left:6px;text-transform:none}
 .dlead123b{margin:6px 0 0;font-size:calc(14.5px*var(--k,1));line-height:1.5}</style>
+<style>/* v123c: Why sits at the right edge inside its row box; Where it acts body sized by the Library; blends shorter */
+/* Where it acts: the Library sizes the frame (2:3), the body fills it; the old self-reported height is ignored */
+.k-body104 .b65{padding:0!important}
+.k-body104 iframe{height:auto!important;aspect-ratio:2/3;min-height:440px;max-height:min(700px,86vh);background:#FFFFF4}
+@media (min-width:900px){.k-body104 iframe{aspect-ratio:4/5;max-height:min(720px,86vh)}}
+/* one row box: name on the left, Why at the right edge on the first line, the answer opens inside the same box */
+.row104{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:4px;border:1px solid var(--ink);background:var(--chip)}
+.row104>a,.row104>span{border:0!important;background:none!important;box-shadow:none!important;min-width:0;flex:none!important;margin:0!important}
+.row104>.wy104{margin:var(--wyt,4px) 5px 4px 0;align-self:start;flex:none}
+.row104>.wyx104{grid-column:1/-1;margin:0 5px 5px!important}
+.spx:has(.row104),.chx:has(.row104),.synl:has(.row104),.inbl:has(.row104){display:flex!important;flex-direction:column;align-items:stretch;gap:4px!important;flex-wrap:nowrap!important}
+.spx .row104>a{padding:3px 4px 3px 7px!important;--wyt:6px}
+.spx .row104{--wyt:6px}
+.chx .row104>a{padding:4px 4px 4px 7px!important}
+.chx .row104,.synl .row104,.inbl .row104{--wyt:4px}
+.synl .row104>a,.synl .row104>span{padding:4px 4px 4px 6px!important;display:flex!important;align-items:center;gap:6px}
+.inbl .row104>a{padding:4px 4px 4px 7px!important;display:block}
+.wy104{white-space:nowrap}
+/* synergies on the phone: one row box each, Why at the right, why they pair opens inside the box */
+@media (max-width:899px){
+ .sx65{display:flex!important;flex-direction:column;flex-wrap:nowrap!important;gap:4px!important}
+ .sx65 .sxi{display:grid!important;grid-template-columns:minmax(0,1fr);border:1px solid var(--ink);background:var(--chip)}
+ .sx65 .sxc{display:flex!important;align-items:center;gap:6px;border:0!important;background:none!important;box-shadow:none!important;padding:4px 5px 4px 7px!important;flex:none!important}
+ .sx65 .sxc>span{flex:1;min-width:0}
+ .sx65 .sxc .wyl104{margin-left:auto;border:1px solid #5271FF;padding:4px 5px 3px;font-size:calc(8.5px*var(--k));background:#FFFFF4;flex:none}
+ .sx65 .sxi.on .sxc .wyl104{background:#5271FF;color:#fff}
+ .sx65 .sxi.on .sxw{display:block!important;margin:0 5px;padding:7px 9px 2px;background:#EEF0FA;border-left:3px solid #5271FF;font-size:calc(12.5px*var(--k));line-height:1.45;color:var(--ink)}
+ .sx65 .sxi.on .sxr:not([hidden]){display:block!important;margin:0 5px 5px;padding:2px 9px 7px;background:#EEF0FA;border-left:3px solid #5271FF;font-size:calc(12.5px*var(--k));line-height:1.45}
+ .sx65 .sxi .sxr p{margin:0 0 4px}
+ .sxp{display:none!important}
+}
+/* Who shouldn't take it: who on the left, Why at the right, the reason opens under it */
+.wnl li.wn123c{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:6px;align-items:start}
+.wnl li.wn123c>.wy104{margin-top:1px}
+.wnl li.wn123c>.wyx104{grid-column:1/-1;margin:3px 0 2px;background:#FFF1F1;border-left-color:#D00}
+/* Mixing and Taking it right: the Why sits at the right edge of its row */
+.rxl>li,.rxs>li{position:relative;padding-right:44px!important}
+.rxl .why summary,.rxs .why summary{position:absolute;right:0;top:3px;margin:0!important;border:1px solid #5271FF;padding:4px 5px 3px;color:#5271FF!important;background:#FFFFF4;font:600 calc(8.5px*var(--k))/1 var(--mono)!important}
+.rxl .why summary::after,.rxs .why summary::after{content:""!important}
+.rxl .why[open] summary,.rxs .why[open] summary{background:#5271FF;color:#fff!important}
+.rxl .why[open]>span,.rxs .why[open]>span{background:#EEF0FA;border-left:3px solid #5271FF;padding:6px 8px;color:var(--ink)!important}
+/* blood tests: the chip says Why at its right edge */
+.bwq104::after{content:'Why'!important;font:600 calc(7.5px*var(--k))/1 var(--mono)!important;letter-spacing:.08em;text-transform:uppercase;color:#5271FF;margin-left:6px;border-bottom:1px solid #5271FF;vertical-align:2px}
+/* What it does on the Quick look: the same Why as the Full read */
+#cardwrap .dcs .nw{white-space:nowrap}
+#cardwrap .dcs .wy{all:unset;cursor:pointer;font:600 calc(8px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#5271FF;border-bottom:1px solid #5271FF;margin-left:6px}
+#cardwrap .dcs .wyt:not([hidden]){display:block;margin:3px 0 4px;padding:6px 8px;background:#EEF0FA;border-left:3px solid #5271FF;font-size:calc(12px*var(--k));line-height:1.4;color:var(--ink)}
+/* blends: shorter, nothing taken out; long repeats fold behind a tap */
+.k-bl .bcomps .row104{border:0;border-bottom:1px solid var(--rule);background:none;--wyt:10px}
+.k-bl .bcomps .row104:last-child{border-bottom:0}
+.k-bl .bcomps .row104>a.bcomp{border:0!important}
+.k-bl .bcomp{padding-top:5px!important;padding-bottom:5px!important}
+.fold123c{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;margin:6px 0 2px;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#5271FF;border:1px solid #5271FF;padding:5px 7px 4px;background:#FFFFF4}
+.fold123c::after{content:'▾'}.fold123c[aria-expanded="true"]::after{content:'▴'}
+.fold123c[aria-expanded="true"]{background:#5271FF;color:#fff}
+.k-bl .bvers{margin-top:4px}
+</style>
+<script>/* v123c: Why taps on the Quick look, Why at the right edge of every row, blends folded, Where it acts sized by the Library */
+(function(){
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var DD=function(){return window.BS_DATA||[]};
+var bySlug=function(s){return DD().find(function(x){return x.slug===s})};
+var rebal=function(){try{dispatchEvent(new Event('resize'))}catch(e){}};
+/* page.js (the long fields) arrives a moment after the card; wait for it */
+var pageReady=function(){return new Promise(function(res){var n=0;(function w(){if(window.BS_PAGE)return res();if(++n>80)return res();setTimeout(w,150)})()})};
+var full=function(o){var P=(window.BS_PAGE||{})[o.slug]||{};return {mx:o.mx||P.mx||[],sx:o.sx||P.sx||{},mech:o.mech||P.mech||[]}};
+var on=function(b,x,open){x.hidden=!open;b.setAttribute('aria-expanded',open);b.classList.toggle('on',open)};
+function wbtn(txt,extra){return '<button type="button" class="wy104" aria-expanded="false">Why</button><div class="wyx104" hidden><p>'+txt+'</p>'+(extra||'')+'</div>'}
+function wire(root){root.querySelectorAll('.wy104:not([data-w])').forEach(function(b){b.dataset.w=1;b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var x=b.nextElementSibling;on(b,x,x.hidden)})})}
+function wrap(el,txt,extra){if(!txt||el.parentElement.classList.contains('row104'))return;var w=document.createElement('div');w.className='row104';el.before(w);w.appendChild(el);w.insertAdjacentHTML('beforeend',wbtn(txt,extra))}
+function blendTxt(o,b){var me=b.blend.why&&b.blend.why.find(function(w){var p=b.blend.parts.find(function(q){return q[0]===o.slug});return p&&(w[0]===p[2]||p[2].indexOf(w[0])===0||w[0].indexOf(o.name)===0)});
+  var parts=(b.blend.why||[]).filter(function(w){return w!==me}).map(function(w){return '<b>'+esc(w[0])+'</b> '+esc(w[1])}).join(' · ');
+  return (me?'<b>'+esc(o.name)+' brings:</b> '+esc(me[1])+'. ':'')+(parts?'<b>'+(me?'With':'In '+esc(b.name)+':')+'</b> '+parts:'')}
+/* Who shouldn't take it: Why at the right, reason folded under it (card and full read) */
+function who(root){root.querySelectorAll('.wnl>li:not(.wn123c)').forEach(function(li){var b=li.querySelector(':scope>b'),s=li.querySelector(':scope>span');if(!b||!s||!s.textContent.trim())return;
+  li.classList.add('wn123c');var t=s.innerHTML;s.remove();li.insertAdjacentHTML('beforeend',wbtn(t))});wire(root)}
+/* blood test reasons: the same sentence once */
+function bwDedupe(root){root.querySelectorAll('.bwy104 p:not([data-dd])').forEach(function(p){p.dataset.dd=1;p.innerHTML=p.innerHTML.replace(/([^.<>]{3,120}\.)\s+\1/g,'$1')})}
+/* the Quick look card */
+function card(){var cw=document.getElementById('cardwrap');if(!cw||cw.hidden||!cw.querySelector('.card'))return;var m0=location.hash.match(/^#\/([a-z0-9-]+)$/);var o=m0?bySlug(m0[1]):null;if(!o||o.kind==='supp')return;
+  who(cw);bwDedupe(cw);
+  pageReady().then(function(){if(!cw.querySelector('.card')||location.hash!=='#/'+o.slug)return;var F=full(o);
+    /* What it does: Why under each step that has one, as on the Full read */
+    var mx=F.mx,M=F.mech.map(function(m,i){return {a:m[0],b:m[1],i:i}}),used={};
+    cw.querySelectorAll('.cs ul.dcl .dcs>li').forEach(function(li){if(li.querySelector('.wy'))return;var mt=li.querySelector('.mt');if(!mt)return;
+      var em=mt.querySelector('em'),et=em?em.textContent.trim():'',tt=mt.textContent.trim();
+      var m=M.find(function(q){return !used[q.i]&&(et?q.b===et:q.a===tt)})||M.find(function(q){return !used[q.i]&&tt.indexOf(q.a)>=0});
+      if(!m)return;used[m.i]=1;if(!mx[m.i])return;
+      var last=mt.lastChild;var nw=document.createElement('span');nw.className='nw';
+      if(last&&last.nodeType===3&&last.textContent.trim()){var t=last.textContent.replace(/\s+$/,''),j=t.lastIndexOf(' ');nw.textContent=t.slice(j+1);last.textContent=t.slice(0,j+1)}
+      nw.insertAdjacentHTML('beforeend','<button class="wy" type="button" aria-expanded="false">Why</button>');mt.appendChild(nw);
+      li.insertAdjacentHTML('beforeend','<span class="wyt" hidden>'+esc(mx[m.i])+'</span>')});
+    /* synergies: why they pair */
+    var sx=F.sx;cw.querySelectorAll('.csyn .synl>a,.csyn .synl>span').forEach(function(a){if(a.parentElement.classList.contains('row104'))return;var n=a.textContent.trim(),why=sx[n];
+      if(!why){var k=Object.keys(sx).find(function(z){return z.replace(/\u2060/g,'')===n.replace(/\u2060/g,'')});why=k&&sx[k]}
+      if(!why)return;var t=DD().find(function(x){return x.name===n});
+      wrap(a,esc(why),t?'<a class="wyo104" href="#/p/'+t.slug+'">Open '+esc(n)+' →</a>':'')});
+    /* in blends: each blend's reason */
+    cw.querySelectorAll('.inbl>a[data-open]').forEach(function(a){var b=bySlug(a.dataset.open);if(!b||!b.blend)return;wrap(a,blendTxt(o,b))});
+    wire(cw)})}
+/* the Full read */
+function page(){var pv=document.getElementById('pagev');if(!pv||pv.hidden)return;who(pv);bwDedupe(pv);
+  /* blends: fold the other ratios, put each part's reason on its row, fold the factory chemistry note */
+  var bl=pv.querySelector('.k-bl');if(bl&&!bl.dataset.f123c){bl.dataset.f123c=1;
+    var oth=[].find.call(bl.querySelectorAll('.olab.bco'),function(p){return /other ratios/i.test(p.textContent)});
+    if(oth){var els=[];var n=oth.nextElementSibling;while(n&&!n.classList.contains('olab')&&!(n.tagName==='P'&&!n.classList.contains('note'))&&els.length<3){els.push(n);n=n.nextElementSibling}
+      var rows=els.filter(function(e){return e.tagName==='TABLE'}).reduce(function(a,t){return a+t.querySelectorAll('tbody tr').length},0);
+      if(els.length){var bt=document.createElement('button');bt.type='button';bt.className='fold123c';bt.setAttribute('aria-expanded','false');bt.textContent='Other ratios'+(rows?' · '+rows:'');
+        oth.replaceWith(bt);els.forEach(function(e){e.hidden=true});bt.addEventListener('click',function(){var o=bt.getAttribute('aria-expanded')!=='true';bt.setAttribute('aria-expanded',o);els.forEach(function(e){e.hidden=!o});rebal()})}}
+    var bw=bl.querySelector('.bwhy');if(bw){var left=0;bw.querySelectorAll(':scope>div').forEach(function(d){var nm=(d.querySelector('b')||{}).textContent||'',tx=d.querySelector('span');if(!nm||!tx)return;var key=nm.replace(/⁠/g,'').toLowerCase();
+        var c=[].find.call(bl.querySelectorAll('.bcomps .bcomp'),function(a){var b=((a.querySelector('b')||{}).textContent||'').replace(/⁠/g,'').toLowerCase();return b===key||b.indexOf(key)===0||key.indexOf(b.replace(/\s*\(.*$/,''))===0});
+        if(c&&!c.parentElement.classList.contains('row104')){wrap(c,'<b>Why it is in the vial:</b> '+tx.innerHTML);d.hidden=true}else left++});
+      if(!left){bw.hidden=true;var lab=bw.previousElementSibling;if(lab&&/why combined/i.test(lab.textContent))lab.hidden=true}}
+    var h4=[].find.call(bl.querySelectorAll('.bchem h4'),function(h){return /made in the factory/i.test(h.textContent)});
+    if(h4){var ps=[];var n2=h4.nextElementSibling;while(n2&&n2.tagName==='P'&&!n2.className){ps.push(n2);n2=n2.nextElementSibling}
+      if(ps.length){var b2=document.createElement('button');b2.type='button';b2.className='fold123c';b2.setAttribute('aria-expanded','false');b2.textContent=h4.textContent;h4.replaceWith(b2);ps.forEach(function(p){p.hidden=true});
+        b2.addEventListener('click',function(){var o=b2.getAttribute('aria-expanded')!=='true';b2.setAttribute('aria-expanded',o);ps.forEach(function(p){p.hidden=!o});rebal()})}}}
+  wire(pv)}
+/* synergies on the phone open inside their own box */
+document.addEventListener('click',function(e){if(innerWidth>=900)return;var sc=e.target.closest&&e.target.closest('.sx65 .sxc');if(!sc)return;e.preventDefault();e.stopImmediatePropagation();
+  var it=sc.closest('.sxi'),open=!it.classList.contains('on'),r=it.querySelector('.sxr');it.classList.toggle('on',open);sc.setAttribute('aria-expanded',open);if(r)r.hidden=!open;rebal()},true);
+/* the body frame: the Library sets its size, the frame's own report is ignored */
+addEventListener('message',function(ev){if(ev.data&&ev.data.bsbodyh)ev.stopImmediatePropagation()},true);
+var t=0;function run(){clearTimeout(t);t=setTimeout(function(){try{card()}catch(e){}try{page()}catch(e){}},60)}
+function start(){var mo=new MutationObserver(run);['cardwrap','pagev'].forEach(function(id){var el=document.getElementById(id);if(el)mo.observe(el,{childList:true,subtree:true})});run()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+</script>
 </body>
 </html>

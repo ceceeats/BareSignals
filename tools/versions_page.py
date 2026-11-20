@@ -1,7 +1,7 @@
 """Private /versions/ page (20 Nov 2026): for every section, which version is live and a link to every kept version,
 newest first, with the first line of what changed. Not linked anywhere, noindex. Re-run after each new version."""
 import os, re, glob, html
-REPO = '/home/claude/baresignals'
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # the clone this script sits in
 os.chdir(REPO)
 NAMES = {'library': 'Library', 'home': 'Guide', 'blood': 'Blood Work', 'dosage': 'Dosage', 'supplements': 'Supplements',
          'protocol': 'Protocol', 'plan': 'Plan', 'water': 'Mixing water', 'aminos': 'Aminos', 'made': 'How peptides are made',
@@ -17,17 +17,18 @@ def live_of(d):
     f = f'{d}/index.html' if d != 'home' else 'index.html'
     if not os.path.exists(f): return None
     s = open(f, encoding='utf8').read(3000)
-    m = re.search(r'Live copy of [\w/-]*?/(v\d+)/', s) or re.search(r"replace\(['\"](?:/[\w/-]+/)?(v\d+)/", s)
+    m = re.search(r'Live copy of [\w/-]*?/(v\d+[a-z]?)/', s) or re.search(r"replace\(['\"](?:/[\w/-]+/)?(v\d+[a-z]?)/", s)
     if m: return m.group(1)
     if d == 'library':
-        m = re.search(r'Library (v\d+)', s); return m.group(1) if m else None
+        m = re.search(r'Library (v\d+[a-z]?)', s); return m.group(1) if m else None
     if d == 'home':
-        m = re.search(r'/home/(v\d+)/sheet\.js', open(f, encoding='utf8').read()); return m.group(1) if m else None
+        m = re.search(r'/home/(v\d+[a-z]?)/sheet\.js', open(f, encoding='utf8').read()); return m.group(1) if m else None
     m = re.search(r'\b(v\d+)\b', s); return m.group(1) if m else None
 secs = []
 for d in sorted({os.path.dirname(os.path.dirname(p)) for p in glob.glob('**/v[0-9]*/index.html', recursive=True)}):
     if not d or d.startswith(('tools', 'S/', 'k')) or re.search(r'/v\d+', d): continue
-    vs = sorted({int(m.group(1)) for p in glob.glob(f'{d}/v[0-9]*/index.html') for m in [re.search(r'/v(\d+)/index\.html$', p)] if m}, reverse=True)
+    vs = sorted({(int(m.group(1)), m.group(2)) for p in glob.glob(f'{d}/v[0-9]*/index.html') for m in [re.search(r'/v(\d+)([a-z]?)/index\.html$', p)] if m}, reverse=True)
+    vs = [f'{a}{b}' for a, b in vs]
     if not vs: continue
     secs.append((d, vs, live_of(d)))
 order = ['library', 'home', 'library/goals', 'library/aims', 'supplements', 'blood', 'dosage', 'protocol', 'plan']
