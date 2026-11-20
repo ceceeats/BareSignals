@@ -28,6 +28,9 @@ const S={
  bpc:["BPC-157 reconstitution guide (PepBoard)","https://pepboard.pages.dev/guides/reconstitution-bpc-157/"],
  prec:["Melanotan and PT-141 storage (PeptideRecon)","https://peptiderecon.pages.dev/guides/operations/storage-handling.html"],
  pj:["Do peptides expire? (Peptide Journal)","https://peptidejournal.org/faq/do-peptides-expire"],
+ jglow:["90-day GLOW study, monthly HPLC by Janoshik: all three above 95% in the fridge (Research Radar, 2026)","https://derekpruski.substack.com/p/does-blending-peptides-make-them"],
+ bpc3:["Two 3-month BPC-157 studies, Janoshik HPLC, fridge vs room temp (Research Radar, 2026)","https://derekpruski.substack.com/p/bpc-157-post-reconstitution-degradation"],
+ auck:["Badenhorst et al. 2016, GHK-Cu stable in water 2 weeks at 60°C (Pharm Dev Technol, University of Auckland)","https://www.semanticscholar.org/paper/Physicochemical-characterization-of-native-for-and-Badenhorst-Svirskis/a5f2fb5abd206392e4494c41fe784b757ed632ae"],
  ghsec:["Ipamorelin and CJC-1295 after mixing (TrimRx)","https://trimrx.com/blog/?p=90530"]
 };
 const L=(d,c,n,s)=>({d,c,n,s:(s||[]).map(k=>S[k])});
@@ -43,18 +46,18 @@ window.BS_MIX={
  'mazdutide':L('28 days max','inferred','No test. Treated like the other weekly GLPs: 28 days, mix less if the vial will outlast it.',['apex','usp']),
  'survodutide':L('28 days max','inferred','No test. Treated like the other weekly GLPs.',['usp']),
  /* repair */
- 'bpc-157':L('28 days','reported','One of the steadiest peptides in water. Guides range 28 to 45 days; 28 is the safe end. Some lab sheets say 1 to 2 weeks; most guides disagree.',['bpc','pj','pex']),
- 'tb-500-frag-17-23':L('28 days','reported','Guides agree on 21 to 30 days. No test of the mixed vial.',['pex']),
- 'thymosin-beta-4':L('28 days','reported','Guides agree on 21 to 30 days. No test of the mixed vial.',['pex']),
+ 'bpc-157':L('28–60 days','tested','Tested, and less steady than GHK-Cu. Alone in the fridge for 3 months, two batches ended at about 87% and 92% (Janoshik HPLC); the first month barely moved. In the GLOW blend it held 96.7% at 3 months. So the first month is safe, two months is reasonable, three months costs roughly a tenth of the dose. Supplier-run single batches.',['bpc3','jglow','usp']),
+ 'tb-500-frag-17-23':L('28–60 days','tested','In the fridge it held: 96.6%, 96.4%, 95.9% across 3 months in the GLOW study (Janoshik HPLC). At room temperature it collapsed to 85.7% at month 2 and 63.2% at month 3, the worst of the three. The study does not say which TB-500 form it used, so the top of the range stays at 60 days. Never leave it out.',['jglow','usp']),
+ 'thymosin-beta-4':L('28–60 days','tested','In the fridge it held: 96.6%, 96.4%, 95.9% across 3 months in the GLOW study (Janoshik HPLC). At room temperature it collapsed to 85.7% at month 2 and 63.2% at month 3, the worst of the three. The study does not say which TB-500 form it used, so the top of the range stays at 60 days. Never leave it out.',['jglow','usp']),
  'tb-500-frag-1-4':L('28 days max','inferred','No data. Short peptide; 28 day rule.',['usp']),
- 'ghk-cu':L('14–21 days','reported','Shorter than most. The copper can let go and oxidise the peptide over time. Royal blue is fine; green, teal or brown means it has broken down. Guides give 14 to 28 days.',['pex','ghk','prc']),
+ 'ghk-cu':L('28–90 days','tested','Tested, and steadier than guides say. In a 90-day study with monthly lab tests (Janoshik HPLC), GHK-Cu in the fridge read 99.4%, 99.3%, then 96.4% at 3 months, and about the same at room temperature. A university study found it unchanged after 2 weeks in water at 60°C. 28 days is the germ limit for a vial pierced again and again, not breakdown. One supplier-run batch, so 90 days is the top of the range, not a promise. Royal blue is fine; green or brown means it has broken down.',['jglow','auck','usp']),
  'kpv':L('28 days','reported','Three amino acids, very stable. Guides give 28 to 30 days.',['pex']),
  'll-37':L('14–28 days','reported','Sources split: 28 days in most guides, 7 to 14 days in one seller test. Keep it cold and dark.',['ll37']),
- 'bpc-157-tb-500':L('28 days','reported','Both parts are steady peptides. No test of the mixed blend.',['pex']),
- 'klow':L('14–21 days','reported','Follows its weakest part, GHK-Cu. No test of the mixed blend; 90 day claims are unsourced.',['pex','ghk']),
- 'glow':L('14–21 days','reported','Follows its weakest part, GHK-Cu. No test of the mixed blend.',['pex','ghk']),
- 'ghk-cu-bpc-157':L('14–21 days','reported','Follows GHK-Cu, the weaker part.',['pex']),
- 'ghk-cu-kpv':L('14–21 days','reported','Follows GHK-Cu, the weaker part.',['pex']),
+ 'bpc-157-tb-500':L('28–60 days','tested','Both parts were tested together inside GLOW and held above 95% for 3 months in the fridge. Follows BPC-157, the less steady part when alone. Keep cold.',['jglow','usp']),
+ 'klow':L('28–90 days','tested','Three of its four parts were tested together (GLOW: GHK-Cu, BPC-157, TB-500) and all stayed above 95% for 90 days in the fridge. KPV, the fourth, was not in that test; it is three amino acids and among the steadiest. Keep it cold: TB-500 breaks down at room temperature.',['jglow','usp']),
+ 'glow':L('28–90 days','tested','Tested as a blend. In a 90-day fridge study (monthly Janoshik HPLC) GHK-Cu, BPC-157 and TB-500 all stayed above 95%: BPC-157 read 97.2%, 97.1%, 96.7%; TB-500 96.6%, 96.4%, 95.9%. Mixing them did not speed breakdown; BPC-157 held better in the blend than alone. Keep it cold: at room temperature TB-500 fell to 63% by month 3. One supplier-run batch.',['jglow','usp']),
+ 'ghk-cu-bpc-157':L('28–60 days','inferred','Both parts held above 95% for 3 months in fridge tests (GHK-Cu and BPC-157 in the GLOW study). This exact pair was not tested.',['jglow','usp']),
+ 'ghk-cu-kpv':L('28–60 days','inferred','Both parts held above 95% for 3 months in fridge tests (GHK-Cu and BPC-157 in the GLOW study). This exact pair was not tested.',['jglow','usp']),
  'tb4-bpc-kpv':L('28 days','reported','All three parts are steady. No test of the mixed blend.',['pex']),
  'cartalax-tb4-bpc':L('28 days max','inferred','No test of the mixed blend.',['usp']),
  /* energy */

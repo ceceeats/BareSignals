@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Library v122 (20 Nov 2026, built on v121, kept; PREVIEW, not live until approved): powder (unmixed) shelf life as a second line in the Once mixed row (pw.js, sweep 20 Nov 2026), with its note and sources in the Full read. -->
+<!-- Library v122 (20 Nov 2026, built on v121, kept; PREVIEW, not live until approved): Once mixed rewritten from lab tests for GHK-Cu, GLOW, KLOW, BPC-157, TB-500 (new Lab-tested tag; 90-day Janoshik HPLC studies, Auckland 2016); powder (unmixed) shelf life as a second line in the Once mixed row (pw.js, sweep 20 Nov 2026), with its note and sources in the Full read. -->
 <!-- Library v121 (20 Nov 2026, built on v120, kept): search understands how people type: phrases read word by word with filler words dropped ("grow more muscle", "peptide for skin"), everyday phrases mapped (lose weight, low t, can't sleep, sick often, live longer), a bigger word-family list (eczema, migraine, Hashimoto, ADHD, cholesterol...), user reports and side effects ranked below what a compound is for, and Case notes searched with Cases. -->
 <!-- Library v120 (20 Nov 2026, built on v119, kept): card claims corrected (GLOW, KLOW hair and nails; AHK-Cu human row; collagen nails), data.js only. -->
 <!-- Library v119 (20 Nov 2026, built on v118, kept): search reads everything: each compound's summary, what it helps and what people report, each supplement's what it does (sx.js); word families (hormone also finds endocrine, testosterone, estrogen, thyroid; period finds menstrual and cramps); text matches no longer hidden once a name matches (only for 1 to 3 letters). Smaller toolbar: 36px controls, 15px icons, search text still 16px; the picked view fills inside its box. -->
@@ -1922,6 +1922,7 @@ body.lv114 #shelf,body.lv114 #allp,body.lv114 #grid,body.lv114 #fbar,body.lv114 
 @media (min-width:900px){.trow #q{font-size:15px!important}}
 @media (max-width:899px){.trow #q{padding-right:12px!important}}
 .trow #q::placeholder{color:#6B76A8;opacity:1}
+.mxk.mx-tested{border-color:#3E7D5A;color:#2F6B48}
 .mxp{display:block;font:500 calc(10.5px*var(--k,1))/1.3 var(--mono,monospace);color:var(--ink-soft,#6B76A8);margin-top:2px}.mxp span{text-transform:uppercase;letter-spacing:.06em}
 </style>
 <script src="/cards.js"></script>
@@ -2741,7 +2742,7 @@ function fitName(root){setTimeout(()=>fillHead(root),0);(root||document).querySe
   const widest=()=>Math.max(...[...n.querySelectorAll('.nw')].map(w=>w.offsetWidth),0);
   while(widest()>W+1&&f>.62){f-=.04;n.style.fontSize=(base*f)+'px'}})}
 /* v99: once mixed (reconstituted) window, from mix.js. Full-width row under the dose cells so no cell is left empty. */
-const MIXC={label:'Label',reported:'Reported',inferred:'General rule'};
+const MIXC={tested:'Lab-tested',label:'Label',reported:'Reported',inferred:'General rule'};
 const ROUTE_INJ=r=>/sub-?q|\bim\b|\biv\b|inject|nasal/i.test(String(r||''));
 function mixOf(o){if(!o||o.kind||o.supp)return null;const M=window.BS_MIX||{};if(M[o.slug])return M[o.slug];return o.dose&&ROUTE_INJ(o.dose.route)?window.BS_MIX_DEFAULT:null}
 function pwOf(o){if(!mixOf(o))return null;const P=window.BS_POWDER||{};if(o.slug in P)return P[o.slug];return window.BS_POWDER_DEFAULT}
