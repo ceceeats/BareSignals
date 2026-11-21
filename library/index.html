@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v125 (21 Nov 2026, built on v124, kept): GHK-Cu gets How it works, animated (skin: copper carrier, fibroblasts, collagen and elastin, copper cross-links, remodelling; a dish dose study and the diabetic ulcer gel trial) and its own page; engine fix so scaled parts keep their place. No numbers changed. -->
 <!-- Library v124 (21 Nov 2026, built on v123f, kept): How it works, animated v2: no In people end card and no hedge line; rat and dish study steps with their papers; stories at /library/anim/<slug>.js; each story has its own page /library/how/<slug>/. No numbers changed. -->
 <!-- Library v123f (20 Nov 2026, built on v123e, kept): Full read in question order (how it works first, Cases near the end); Synergies, In blends, Supplements two to a row; Read more opens the matching deep-read part in place; new key takeaway shape (What it is for / How it works / In people / The catch, status as a quiet line) for BPC-157 first. -->
 <!-- Library v123e (20 Nov 2026, built on v123d, kept): no jump on load: the page reserves the site bar height and width padding in its head, and its text-size fallback reads the same setting as the site bar (standard A by default), so it no longer paints 15% too big and shrinks. Layout and behaviour only. -->
@@ -3876,7 +3877,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 <script>/* v123d: How it works, animated, inside the Full read (engine /library/anim.js, stories as data) */
-(function(){var HAS={'bpc-157':'torn tendon'},busy=0;
+(function(){var HAS={'bpc-157':'torn tendon','ghk-cu':'skin and dermis'},busy=0;
 function add(){var pv=document.getElementById('pagev');if(!pv||pv.hidden)return;var m=location.hash.match(/^#\/p\/(.+)$/);if(!m)return;
  var s=decodeURIComponent(m[1]);if(!HAS[s])return;var fp=pv.querySelector('.fp65');if(!fp||fp.querySelector('.k-anim123d'))return;
  var w=document.createElement('div');w.className='r65 ranim123d';
