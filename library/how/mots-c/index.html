@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- How it works page v1 (21 Nov 2026): one compound's mechanism animation on its own page, then every step written out with its source.
+     Story: /library/anim/mots-c.js, engine /library/anim.js (the same animation the Library Full read and the Guide show). Name from /library/data.js. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>How it works · Bare Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#2F5BE0;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(14px*var(--k))/1.45 var(--body)}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+main{max-width:1100px;margin:0 auto;padding:10px 12px 28px}
+.hd{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:4px 0 8px}
+h1{font:700 calc(26px*var(--k))/1.05 var(--display);margin:0}
+.kind{font:600 calc(11px*var(--k))/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft)}
+.ver{margin-left:auto;font:500 calc(10.5px*var(--k))/1 var(--mono);color:var(--ink-soft)}
+h2{font:700 calc(12px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:18px 0 6px}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+ol.steps li{display:grid;grid-template-columns:28px 1fr;gap:0 8px;padding:8px 0;border-top:1.5px solid var(--rule)}
+ol.steps li:last-child{border-bottom:1.5px solid var(--rule)}
+.n{font:700 calc(13px*var(--k))/1.4 var(--mono)}
+.st{font-weight:700;margin:0 0 2px}.st button{all:unset;cursor:pointer;color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.tx{margin:0}.md{margin:3px 0 0;font:500 calc(11.5px*var(--k))/1.4 var(--mono);color:var(--ink-soft)}
+.back{margin:14px 0 0}
+@media (min-width:900px){ol.steps{grid-template-columns:1fr 1fr;column-gap:22px}ol.steps li:nth-last-child(2){border-bottom:1.5px solid var(--rule)}h1{font-size:calc(32px*var(--k))}}
+</style></head><body>
+<main>
+<div class="hd"><h1 id="nm">How it works</h1><span class="kind">How it works · the cell</span><span class="ver">Version 1</span></div>
+<div id="anim"></div>
+<h2>Every step</h2>
+<ol class="steps" id="steps"></ol>
+<p class="back"><a id="full" href="/library/#/p/mots-c">Read the full page</a></p>
+</main>
+<script src="/library/anim.js"></script>
+<script>
+(function(){var SLUG='mots-c',A=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+BSAnim.load(SLUG,function(S){if(!S)return;A=BSAnim.mount(document.getElementById('anim'),S,{autoplay:true});
+ var ol=document.getElementById('steps');ol.innerHTML=S.steps.map(function(s,i){var src=(s.src||[]).map(function(r){return r.u?'<a href="'+esc(r.u)+'" target="_blank" rel="noopener">'+esc(r.t)+'</a>':esc(r.t)}).join(' · ');
+  return '<li><span class="n">'+(i+1)+'</span><div><p class="st"><button type="button" data-k="'+s.key+'">'+esc(s.title)+'</button></p><p class="tx">'+esc(s.text)+'</p><p class="md">'+esc(s.model||'')+(src?' · '+src:'')+'</p></div></li>'}).join('');
+ ol.addEventListener('click',function(e){var b=e.target.closest('button[data-k]');if(!b||!A)return;A.go(b.dataset.k);document.getElementById('anim').scrollIntoView({behavior:'smooth',block:'start'})})});
+var t=document.createElement('script');t.src='/library/data.js';t.onload=function(){try{var c=(window.BS_DATA||[]).filter(function(x){return x.slug===SLUG})[0];if(c){document.getElementById('nm').textContent=c.name;document.title=c.name+' · How it works · Bare Signals';document.getElementById('full').textContent='Read the full '+c.name+' page'}}catch(e){}};document.head.appendChild(t)})();
+</script>
+<script src="/nav.js" defer></script>
+</body></html>
