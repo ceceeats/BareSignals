@@ -5,7 +5,7 @@ Animation: gut-wall cross-section, 5 phases + play cycle, built in the Hair page
 import os, random, json
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (this script lives in tools/)
-OUT = os.path.join(REPO, 'library/goals/antibiotics/v1')
+OUT = os.path.join(REPO, 'library/goals/antibiotics/v2')
 os.makedirs(OUT, exist_ok=True)
 
 # ---------------------------------------------------------------- microbe field
@@ -209,7 +209,7 @@ H = []
 A = H.append
 
 A('''<!doctype html>
-<!-- Antibiotics & your gut (Cases) v1, 22 Nov 2026. New page. Draft: built from an automatic research sweep (Antibiotics Damage Research, Replenish Research, 22 Nov 2026), not yet checked line by line by the editor. Animation: gut-wall cross-section, 5 phases + play cycle, built in the Hair page follicle player's style. No community data in this pass: stated on the page rather than filled with anything weaker. -->
+<!-- Antibiotics & your gut (Cases) v2, 22 Nov 2026. v1 kept. Change: the opening animation now runs on the shared site engine (BSAnim, /library/anim.js) via the story /library/anim/antibiotics.js, replacing v1's one-off player. It gains per-step evidence marks, a source link under each step, tappable parts, per-step callout chips, four study scenes (12 men/180 days, 3 people/2 courses, clindamycin/2 years, mice/diet) and real motion (draw, flow, grow, pulse, count). Keeps v1's five-stage timeline and the dashed nine-that-never-return. New page. Draft: built from an automatic research sweep (Antibiotics Damage Research, Replenish Research, 22 Nov 2026), not yet checked line by line by the editor. Animation: gut-wall cross-section, 5 phases + play cycle, built in the Hair page follicle player's style. No community data in this pass: stated on the page rather than filled with anything weaker. -->
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
 <title>Antibiotics &amp; your gut · Bare Signals</title>
@@ -435,99 +435,8 @@ A('</div>\n')
 A('<h2 class="part" id="p0"><span>1</span> What a course actually does</h2>\n<div class="grid">\n')
 A('<section class="sec" id="what">\n<h2 class="st">Inside the gut, five stages</h2>\n')
 A('<p class="hint">Tap a stage, or play the whole thing. The top half is the inside of the colon, the band below it the mucus coat, and the cells below that your gut wall. Nothing here is a treatment: this is one course of antibiotics in a healthy adult, with nothing done about it.</p>\n')
-A('<div class="awrap">\n<div class="acol">\n<div class="phs" role="group" aria-label="Stages">\n')
-for i, p in enumerate(PHASES):
-    A(f'<button type="button" class="ph{" on" if i==0 else ""}" data-p="{i}">{p["ty"]}</button>')
-A('<button type="button" class="ph play" data-p="play" aria-pressed="false">▶ Play</button>\n</div>\n')
-
-# ---- svg
-A('''<div class="dg">
-<svg id="asvg" viewBox="0 0 346 300" role="img" aria-label="Cross-section of the colon wall: the inside of the gut above, holding bacteria of several kinds, then the mucus coat, then a row of lining cells with a crypt, then tissue with a blood vessel. Bacteria appear and disappear as the stages play.">
- <defs>
-  <linearGradient id="lum" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFF4"/><stop offset="1" stop-color="#FFFDEC"/></linearGradient>
-  <marker id="arw" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#AACC96"/></marker>
- </defs>
- <rect x="0" y="0" width="346" height="300" fill="url(#lum)"/>
- <!-- tissue -->
- <rect x="0" y="196" width="346" height="104" fill="#FFFBE4"/>
- <!-- mucus -->
- <g id="mucus" style="transform-origin:0 196px"><rect x="0" y="152" width="300" height="44" fill="#CAF5F7" opacity=".62"/><path d="M0 152q25-7 50 0t50 0t50 0t50 0t50 0t50 0" fill="none" stroke="#8FD4DC" stroke-width="1.4"/></g>
- <!-- lining cells + crypt -->
- <g fill="#FFF3E7" stroke="#E7B4A2" stroke-width="1.3">''')
-# cells row (leave a crypt gap between x=236 and x=292)
-x = 0
-cells = []
-while x < 300:
-    if 236 <= x < 292:
-        x += 24
-        continue
-    cells.append((x, min(24, 300 - x)))
-    x += 24
-for cx, cw in cells:
-    A(f'<rect x="{cx}" y="196" width="{cw}" height="30"/>')
-A('</g>\n')
-# crypt
-A('<path d="M236 196 V196 C236 236 248 262 264 262 C280 262 292 236 292 196 Z" fill="#FFF3E7" stroke="#E7B4A2" stroke-width="1.3"/>\n')
-A('<path d="M243 200 C243 232 252 254 264 254 C276 254 285 232 285 200" fill="none" stroke="#E7B4A2" stroke-width="1" opacity=".7"/>\n')
-# nuclei
-A('<g fill="#F0C9B6">')
-for cx, cw in cells:
-    A(f'<circle cx="{cx+cw/2:.0f}" cy="214" r="3.4"/>')
-A('</g>\n')
-# blood vessel
-A('<path d="M0 282q37.5-12 75 0t75 0t75 0t75 0" fill="none" stroke="#F3B2B2" stroke-width="7" stroke-linecap="round"/>\n')
-A('<path d="M0 282q37.5-12 75 0t75 0t75 0t75 0" fill="none" stroke="#FFE2E2" stroke-width="3" stroke-linecap="round"/>\n')
-# butyrate arrows group
-A('<g id="bars">')
-for i in range(6):
-    bx = 26 + i * 40
-    A(f'<g class="bar" data-b="{i}"><path d="M{bx} 150 V190" stroke="#AACC96" stroke-width="2.4" marker-end="url(#arw)"/></g>')
-A('</g>\n')
-# resistance markers group
-A('<g id="res">')
-for i in range(8):
-    rx = 20 + i * 32
-    A(f'<g class="gres" data-r="{i}" opacity="0"><rect x="{rx}" y="138" width="11" height="9" rx="1.5" fill="#F7D9D9" stroke="#C02626" stroke-width=".9"/><text x="{rx+5.5}" y="145.4" font-family="JetBrains Mono,monospace" font-size="6.6" fill="#C02626" text-anchor="middle">R</text></g>')
-A('</g>\n')
-# microbes
-A('<g id="mics">')
-for n, m in enumerate(mic):
-    f = FAM[m['f']]
-    c = m['c']
-    sh = f['shape']
-    s = m['s']
-    if sh == 'rod':
-        w, h = 13 * s, 5.6 * s
-        body = f'<rect x="{-w/2:.1f}" y="{-h/2:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{h/2:.1f}" fill="{c}"/>'
-    elif sh == 'oval':
-        body = f'<ellipse cx="0" cy="0" rx="{6.4*s:.1f}" ry="{4.4*s:.1f}" fill="{c}"/>'
-    else:
-        body = f'<circle cx="0" cy="0" r="{4.6*s:.1f}" fill="{c}"/>'
-    A(f'<g class="mic" data-f="{m["f"]}" data-i="{m["i"]}" transform="translate({m["x"]} {m["y"]}) rotate({m["r"]:.0f})">{body}</g>')
-A('</g>\n')
-# ghosts (drawn at positions of 9 but/bif members, hidden by default)
-gpos = [m for m in mic if m['f'] == 'lost']
-A('<g id="ghosts">')
-for n, m in enumerate(gpos):
-    A(f'<g class="gh" data-g="{n}" opacity="0" transform="translate({m["x"]} {m["y"]}) rotate({m["r"]:.0f})"><rect x="-6.5" y="-2.8" width="13" height="5.6" rx="2.8" fill="none" stroke="#6B76A8" stroke-width="1.1" stroke-dasharray="2.4 2"/></g>')
-A('</g>\n')
-# labels
-A('''<g font-family="JetBrains Mono,monospace" font-size="7.4" fill="#6B76A8" letter-spacing=".4">
-  <text x="304" y="20">INSIDE</text><text x="304" y="30">THE GUT</text>
-  <text x="304" y="170">MUCUS</text><text x="304" y="180">COAT</text>
-  <text x="304" y="209">LINING</text><text x="304" y="219">CELLS</text>
-  <text x="304" y="258">CRYPT</text>
-  <text x="304" y="285">BLOOD</text>
- </g>
- <g stroke="#6B76A8" stroke-width=".6" opacity=".65" fill="none"><path d="M301 167 L292 165"/><path d="M301 205 L301 211"/><path d="M301 255 L288 250"/><path d="M301 282 L294 282"/></g>
-</svg>
-</div>
-<div class="aprog"><span id="astep">1 of 5 · Day 0, before the course</span><span class="abar" aria-hidden="true"><i id="abar"></i></span></div>
-<div class="mc">''')
-for k in ('but', 'bif', 'bac', 'oth', 'blm', 'yst'):  # 'lost' is shown by the dashed chip
-    A(f'<span><i style="background:{FAM[k]["c"]}"></i>{FAM[k]["n"]}</span>')
-A('<span><i style="background:#F7D9D9;border-color:#C02626"></i>Resistance gene</span><span><i style="background:none;border-style:dashed"></i>Never came back</span>')
-A('</div>\n</div>\n<div class="apanel" id="apanel" aria-live="polite"></div>\n</div>\n')
+A('<div id="abxanim" class="bsa-host"></div>\n')
+A('<noscript><p class="hint">The animation needs JavaScript. The five stages are written out just below.</p></noscript>\n')
 A('</section>\n')
 
 # jobs box
@@ -749,66 +658,13 @@ A('''<section class="sec" id="method">
 ''')
 
 # ---------------------------------------------------------------- scripts
-anim = dict(mic=[dict(f=m['f'], i=m['i']) for m in mic],
-            ph=[dict(k=p['k'], ty=p['ty'], th=p['th'], n=p['n'], mucus=p['mucus'],
-                     but=p['but'], res=p['res'], ghosts=p['ghosts'], step=p['step']) for p in PHASES])
-A('<script id="pinfo" type="application/json">' + json.dumps(PINFO) + '</script>\n')
 A('<script id="hinfo" type="application/json">' + json.dumps({h['k']: h for h in HELP}) + '</script>\n')
-A('<script id="adata" type="application/json">' + json.dumps(anim) + '</script>\n')
+A('<script src="/library/anim.js"></script>\n')
 A(r'''<script>
 (function(){
- var D=JSON.parse(document.getElementById('adata').textContent),
-     PI=JSON.parse(document.getElementById('pinfo').textContent),
-     HI=JSON.parse(document.getElementById('hinfo').textContent);
- var mics=[].slice.call(document.querySelectorAll('#mics .mic')),
-     bars=[].slice.call(document.querySelectorAll('#bars .bar')),
-     res=[].slice.call(document.querySelectorAll('#res .gres')),
-     ghs=[].slice.call(document.querySelectorAll('#ghosts .gh')),
-     mucus=document.getElementById('mucus'),
-     panel=document.getElementById('apanel'),
-     step=document.getElementById('astep'),
-     bar=document.getElementById('abar'),
-     btns=[].slice.call(document.querySelectorAll('.ph')),
-     cur=0,play=false,t0=0,raf=0,DUR=4200;
-
- function apply(i){
-  var p=D.ph[i];
-  mics.forEach(function(g){
-   var f=g.getAttribute('data-f'), n=+g.getAttribute('data-i');
-   g.classList.toggle('off', n>=(p.n[f]||0));
-  });
-  bars.forEach(function(g,n){ g.style.opacity = n<p.but?1:0; });
-  res.forEach(function(g,n){ g.style.opacity = n<p.res?1:0; });
-  ghs.forEach(function(g,n){ g.style.opacity = n<p.ghosts?1:0; });
-  mucus.style.transform='scaleY('+p.mucus+')';
-  step.textContent=p.step;
-  panel.innerHTML='<p class="ah">'+p.ty+' · '+p.th+'</p>'+PI[p.k];
-  btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-p')==String(i)); });
-  cur=i;
- }
- function setBar(f){ bar.style.width=(Math.max(0,Math.min(1,f))*100)+'%'; }
- function frame(ts){
-  if(!play) return;
-  if(!t0) t0=ts;
-  var e=ts-t0, i=Math.floor(e/DUR);
-  if(i>=D.ph.length){ stop(); apply(D.ph.length-1); setBar(1); return; }
-  if(i!==cur) apply(i);
-  setBar((e/DUR)/D.ph.length);
-  raf=requestAnimationFrame(frame);
- }
- function stop(){ play=false; t0=0; if(raf) cancelAnimationFrame(raf); raf=0;
-  var pb=document.querySelector('.ph.play'); pb.classList.remove('on'); pb.setAttribute('aria-pressed','false'); pb.textContent='▶ Play'; }
- function start(){ play=true; t0=0; apply(0); setBar(0);
-  var pb=document.querySelector('.ph.play'); pb.classList.add('on'); pb.setAttribute('aria-pressed','true'); pb.textContent='■ Stop';
-  raf=requestAnimationFrame(frame); }
-
- btns.forEach(function(b){ b.addEventListener('click',function(){
-   var v=b.getAttribute('data-p');
-   if(v==='play'){ play?stop():start(); return; }
-   stop(); setBar((+v+1)/D.ph.length); apply(+v);
- }); });
- document.addEventListener('visibilitychange',function(){ if(document.hidden&&play) stop(); });
- apply(0); setBar(1/D.ph.length);
+ var HI=JSON.parse(document.getElementById('hinfo').textContent);
+ // the opening animation now runs on the shared site engine
+ BSAnim.mount(document.getElementById('abxanim'),'antibiotics',{autoplay:false});
 
  // options panel
  var hp=document.getElementById('hpanel'), hb=[].slice.call(document.querySelectorAll('.hch'));
@@ -839,6 +695,6 @@ open(os.path.join(OUT, 'index.html'), 'w', encoding='utf8').write(''.join(H))
 os.makedirs(os.path.join(REPO, 'library/goals/antibiotics'), exist_ok=True)
 open(os.path.join(REPO, 'library/goals/antibiotics/redirect-stub.html'), 'w', encoding='utf8').write(
  '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">'
- '<title>Antibiotics &amp; your gut</title><script>location.replace("/library/goals/antibiotics/v1/"+location.hash)</script>'
- '<meta http-equiv="refresh" content="0;url=v1/">\n')
+ '<title>Antibiotics &amp; your gut</title><script>location.replace("/library/goals/antibiotics/v2/"+location.hash)</script>'
+ '<meta http-equiv="refresh" content="0;url=v2/">\n')
 print('wrote', OUT, os.path.getsize(os.path.join(OUT, 'index.html')), 'bytes')

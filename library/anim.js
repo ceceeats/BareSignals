@@ -1,4 +1,7 @@
-/* BSAnim v3 (22 Nov 2026, built on v2 of 21 Nov in /library/v125/anim.js, kept): added KPV, Thymosin Alpha-1 and
+/* BSAnim v4 (22 Nov 2026, built on v3 same day, kept in /library/v126/anim.js): added 'antibiotics' to HAS so the
+   Antibiotics & your gut Case story loads on the shared engine (story at /library/anim/antibiotics.js); cache-bust
+   bumped to v=4. Engine logic unchanged.
+   v3 note kept below. --- BSAnim v3 (22 Nov 2026, built on v2 of 21 Nov in /library/v125/anim.js, kept): added KPV, Thymosin Alpha-1 and
    Thymosin Beta-4 (TB-500) to HAS so their stories load; cache-bust bumped to v=3. Engine unchanged otherwise.
    v2 note kept below. --- one shared "How it works" animation engine
    for the whole site (Library Full read, Quick look, the Guide, each compound's own How it works page /library/how/<slug>/).
@@ -18,7 +21,7 @@ var NS='http://www.w3.org/2000/svg',UID=0,BASE='/library/anim/';
 var INK='#3E4A80',SOFT='#6B76A8',CHIP='#FFFFF4',BLUE='#2F5BE0';
 var MARK={h:['Human','#4E9A3E'],t:['Human tissue','#3557C8'],a:['Animal','#C9A100'],c:['Cells','#B493E8'],o:['Theory','#6B76A8']};
 /* compounds with a story, and the scene each one is set in (pages read this to know when to show the section) */
-var HAS={'bpc-157':'torn tendon','ghk-cu':'skin and dermis','kpv':'inflamed gut','thymosin-alpha-1':'the immune response','thymosin-beta-4':'a wound'};
+var HAS={'bpc-157':'torn tendon','ghk-cu':'skin and dermis','kpv':'inflamed gut','thymosin-alpha-1':'the immune response','thymosin-beta-4':'a wound','antibiotics':'the gut microbiome through a course'};
 var ALIAS={};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function mk(t,a,p){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
@@ -86,7 +89,7 @@ var H={
 var STORIES={},WAIT={};
 function define(slug,fn){STORIES[slug]=fn(H,INK);(WAIT[slug]||[]).forEach(function(cb){cb(STORIES[slug])});delete WAIT[slug]}
 function load(slug,cb){slug=ALIAS[slug]||slug;if(STORIES[slug])return cb(STORIES[slug]);if(!HAS[slug]){cb(null);return}
- if(WAIT[slug]){WAIT[slug].push(cb);return}WAIT[slug]=[cb];var s=document.createElement('script');s.src=BASE+slug+'.js?v=3';
+ if(WAIT[slug]){WAIT[slug].push(cb);return}WAIT[slug]=[cb];var s=document.createElement('script');s.src=BASE+slug+'.js?v=4';
  s.onerror=function(){(WAIT[slug]||[]).forEach(function(f){f(null)});delete WAIT[slug]};document.head.appendChild(s)}
 
 /* ---------- engine ---------- */

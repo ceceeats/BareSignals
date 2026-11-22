@@ -1,0 +1,193 @@
+/* Antibiotics & your gut, story v1 (22 Nov 2026). Scene: a cross-section of the colon wall.
+   Five timeline stages of one course in a healthy adult, then the studies that measured it.
+   Runs on the shared engine (/library/anim.js). Built by tools/build_anim_abx.py from tools/_abx_tmpl.js.txt. */
+BSAnim.define('antibiotics',function(H,INK){
+ var GREEN='#4C7A38',RED='#C02626',TEAL='#2E8F82',SOFT='#6B76A8';
+ var resid='@@RESID@@';
+ var blooms='@@BLOOMS@@';
+ var yeast='@@YEAST@@';
+ var ghosts='@@GHOSTS@@';
+ var cells='@@CELLS@@';
+ var crypt='@@CRYPT@@';
+ var brush='@@BRUSH@@';
+ return {
+  title:'One course of antibiotics',
+  aria:'Animated cross-section of the colon wall. The resident bacteria thin out over the first days of a course, '
+      +'drug-tolerant kinds fill the gap while the mucus coat thins and the fuel supply to the wall stops, most of the '
+      +'community returns over the following weeks, and nine species are still missing at six months. Then the studies that measured it.',
+  vb:[360,252],stepMs:5600,
+  defs:'<marker id="abxArw" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="5" markerHeight="5" orient="auto">'
+      +'<path d="M0 0L8 4L0 8z" fill="#6E9B52"/></marker>',
+  parts:[
+   {id:'tissue',name:'Gut wall tissue',info:'The layer under the lining, holding blood vessels and immune cells.',
+     svg:'<rect x="0" y="198" width="360" height="54" fill="#FFFBE4"/>'},
+   {id:'vessel',name:'Blood vessel',info:'Carries what the lining absorbs away into the body, and brings immune cells in.',
+     svg:'<path d="M-4 236q45-11 90 0t90 0t90 0t98 0" fill="none" stroke="#F3B2B2" stroke-width="7" stroke-linecap="round"/>'
+        +'<path d="M-4 236q45-11 90 0t90 0t90 0t98 0" fill="none" stroke="#FFE2E2" stroke-width="3" stroke-linecap="round"/>'},
+   {id:'epi',name:'Lining cells',info:'One layer of cells, replaced every few days, that absorbs what you need and keeps the rest out.',
+     svg:'<g>'+cells+'</g>'},
+   {id:'crypt',name:'Crypt',info:'A pocket folded down into the wall. New lining cells are made at the bottom and travel up.',
+     svg:crypt},
+   {id:'brush',name:'Brush border',info:'The dense fringe on top of each lining cell that does the absorbing.',
+     svg:'<g fill="none" stroke="#C98A7A" stroke-width="1.1" stroke-linecap="round">'+brush+'</g>'},
+   {id:'mucFull',name:'Mucus coat',info:'A thick gel the wall secretes. Most bacteria never touch the cells themselves; they live in and above this.',
+     svg:'@@MUCFULL@@'},
+   {id:'mucThin',name:'Mucus coat, thinned',info:'With the fibre-fermenting bacteria gone, the wall makes less mucus and the gap between bugs and cells narrows.',
+     svg:'@@MUCTHIN@@'},
+   {id:'resid',name:'The residents',info:'Roughly 38 trillion bacteria, almost all in the colon. Green ferment fibre into butyrate, yellow are Bifidobacterium, blue Bacteroides, teal everything else.',
+     svg:'<g>'+resid+'</g>'},
+   {id:'blooms',name:'The blooms',info:'Enterobacteriaceae such as E. coli and Klebsiella, and Enterococcus: drug-tolerant, fast-growing, and normally held to a few percent.',
+     svg:'<g>'+blooms+'</g>'},
+   {id:'yeast',name:'Yeast',info:'Candida. Normally kept down by bacterial competition rather than by your immune system.',
+     svg:'<g>'+yeast+'</g>'},
+   {id:'ghosts',name:'Nine that did not return',info:'Nine species every man in the 180-day study carried before the course, still undetectable in most of them six months later.',
+     svg:'<g>'+ghosts+'</g>'},
+   {id:'but6',name:'Butyrate reaching the wall',info:'Fibre fermented into butyrate, the main fuel of your colon lining cells. It also helps seal the wall and calms inflammation.',
+     svg:'<g>@@ARR6@@</g>'},
+   {id:'but2',name:'Butyrate, falling',info:'Fewer fermenters means less fuel arriving at the wall.',svg:'<g>@@ARR2@@</g>'},
+   {id:'but4',name:'Butyrate, returning',info:'As the fermenters come back, so does the fuel supply.',svg:'<g>@@ARR4@@</g>'},
+   {id:'bile',name:'Secondary bile acids',info:'Bile acids that gut bacteria have converted. These are what stop C. difficile spores from sprouting.',
+     svg:'<g>@@BILE@@</g>'},
+   {id:'res',name:'Resistance genes',info:'Genes that make bacteria harder to kill. They rise after every course measured, often for drugs you never took, and stay up for months.',
+     svg:'<g>@@RES@@</g>'},
+   {id:'pill',name:'The antibiotic',info:'Reaching the colon, whether swallowed or given by drip: many intravenous drugs arrive here through bile.',
+     svg:'@@PILL@@',flow:{path:'M-18 -14L300 64',n:3,ms:3400,bead:'@@PILLBEAD@@'}},
+   {id:'sPall',name:'12 healthy men, 180 days',info:'Four days of three strong antibiotics together, then stool sequenced out to six months.',
+     svg:'@@SPALL@@'},
+   {id:'sCipro',name:'3 people, two courses',info:'Ciprofloxacin twice, each person sampled more than fifty times over ten months.',
+     svg:'@@SCIPRO@@'},
+   {id:'sClin',name:'Clindamycin at 2 years',info:'Four people on clindamycin and four untreated controls, followed for two years.',
+     svg:'@@SCLIN@@'},
+   {id:'sMice',name:'Mice carrying human gut bacteria',info:'The same antibiotic, two diets: the recovery went differently.',
+     svg:'@@SMICE@@'}
+  ],
+  steps:[
+   {key:'full',btn:'DAY 0',title:'A full house',
+    marks:[['h','Human anatomy']],
+    text:'Every scrap of food, mucus and wall space is already held by a resident that got there first. That fullness is '
+        +'itself the defence: there is no vacant job for an invader. The green rods ferment your fibre into butyrate, and '
+        +'the arrows are that fuel arriving at the wall.',
+    model:'Before the course',
+    src:[{t:'Sender 2016, how many bacteria',u:'https://doi.org/10.1371/journal.pbio.1002533'}],
+    show:['tissue','vessel','epi','crypt','brush','mucFull','resid','but6','bile'],
+    anim:[{p:'resid',type:'fadeIn',dur:900,each:1,stagger:14},
+          {p:'but6',type:'draw',dur:1100,delay:600},
+          {p:'bile',type:'fadeIn',dur:700,delay:1200,each:1,stagger:90}],
+    labels:[{p:'resid',t:'The residents',x:12,y:6,ax:72,ay:40},
+            {p:'bile',t:'Bile acids block C. diff spores',x:150,y:88,ax:244,ay:127}]},
+
+   {key:'drop',btn:'DAYS 1-4',title:'The drop',
+    marks:[['h','Human']],
+    text:'Diversity falls within three to four days of the first dose, and Bifidobacterium and the butyrate makers go first. '
+        +'Nothing about this feels like anything: in the study where three people were sampled through two courses, they '
+        +'reported their gut felt normal the whole way through.',
+    model:'On the drug',
+    src:[{t:'Dethlefsen 2008, ciprofloxacin, 3 adults',u:'https://doi.org/10.1371/journal.pbio.0060280'}],
+    show:['tissue','vessel','epi','crypt','brush','mucFull','resid','but2','bile','pill'],
+    anim:[{p:'resid',type:'shrink',sel:'.d1',to:0,dur:1500,stagger:55},
+          {p:'bile',type:'fadeOut',dur:1400,delay:900,each:1,stagger:120},
+          {p:'pill',type:'flow'}],
+    labels:[{p:'pill',t:'The drug arrives',x:150,y:8,ax:120,ay:24},
+            {p:'resid',t:'The sensitive ones go first',x:14,y:94,ax:72,ay:78}]},
+
+   {key:'gap',btn:'DAYS 3-10',title:'The gap, and who fills it',
+    marks:[['h','Human']],
+    text:'Clearing the residents does not leave an empty gut, it leaves an opening, and what grows into it is whatever '
+        +'tolerates the drug and grows fast. Three things fail at once: the fuel to the wall stops, the mucus coat thins, '
+        +'and the bacteria that convert bile acids are gone, so the chemistry that stops C. difficile spores sprouting '
+        +'falls away. That is why antibiotics cause C. diff, rather than it simply being caught.',
+    model:'The low point',
+    src:[{t:'Palleja 2018, 12 men',u:'https://doi.org/10.1038/s41564-018-0257-9'},
+         {t:'Hagan 2019, bile acids down about 1,000-fold',u:'https://doi.org/10.1016/j.cell.2019.08.010'}],
+    show:['tissue','vessel','epi','crypt','brush','mucThin','resid','blooms','yeast','res'],
+    anim:[{p:'resid',type:'shrink',sel:'.d1,.d2,.lost',to:0,dur:200},
+          {p:'blooms',type:'scale',from:0,to:1,dur:1500,each:1,stagger:85},
+          {p:'yeast',type:'scale',from:0,to:1,dur:1400,delay:900,each:1,stagger:200},
+          {p:'blooms',type:'pulse',to:1.1,dur:2600,delay:2000,each:1,stagger:120},
+          {p:'res',type:'fadeIn',dur:900,delay:1500,each:1,stagger:110}],
+    labels:[{p:'blooms',t:'Drug-tolerant kinds take the space',x:96,y:6,ax:170,ay:34},
+            {p:'mucThin',t:'Mucus thins',x:12,y:102,ax:60,ay:136}]},
+
+   {key:'back',btn:'WEEKS 2-8',title:'The rebound',
+    marks:[['h','Human']],
+    text:'Most of it comes back on its own, faster than people expect, and nothing was done to these people to make it '
+        +'happen. Richness was back to baseline by day 19 for two common drugs. Azithromycin was the slow one, still low '
+        +'at day 65. Even after four days of three last-resort drugs together, composition was near baseline in about six weeks.',
+    model:'Coming back, with nothing done',
+    src:[{t:'Anthony 2022, four drugs compared',u:'https://doi.org/10.1016/j.celrep.2022.110649'},
+         {t:'Palleja 2018',u:'https://doi.org/10.1038/s41564-018-0257-9'}],
+    show:['tissue','vessel','epi','crypt','brush','mucFull','resid','blooms','but4','bile','res'],
+    anim:[{p:'resid',type:'shrink',sel:'.lost',to:0,dur:200},
+          {p:'resid',type:'scale',sel:'.d1,.d2',from:0,to:1,dur:1700,stagger:50},
+          {p:'blooms',type:'shrink',to:0,dur:1500,delay:400,each:1,stagger:70},
+          {p:'but4',type:'draw',dur:1200,delay:1400},
+          {p:'bile',type:'fadeIn',dur:1000,delay:1600,each:1,stagger:90}],
+    labels:[{p:'resid',t:'The residents regrow',x:12,y:6,ax:80,ay:36},
+            {p:'but4',t:'Fuel supply restarts',x:150,y:88,ax:232,ay:106}]},
+
+   {key:'after',btn:'6 MONTHS',title:'Close, but not the same',
+    marks:[['h','Human']],
+    text:'This is the honest ending, and it is neither of the two stories usually told. Nine species that every single '
+        +'man carried at the start were still undetectable in most of them at day 180, and the dashed outlines are those '
+        +'gaps. In the ciprofloxacin study all three people settled into a stable state different from where they began. '
+        +'Not worse in any way they could feel. Different.',
+    model:'A new normal',
+    src:[{t:'Palleja 2018, 9 species at day 180',u:'https://doi.org/10.1038/s41564-018-0257-9'},
+         {t:'Dethlefsen & Relman 2011',u:'https://doi.org/10.1073/pnas.1000087107'}],
+    show:['tissue','vessel','epi','crypt','brush','mucFull','resid','ghosts','but6','bile','res'],
+    anim:[{p:'resid',type:'shrink',sel:'.lost',to:0,dur:200},
+          {p:'ghosts',type:'fadeIn',dur:1500,delay:700,each:1,stagger:140},
+          {p:'ghosts',type:'pulse',to:1.14,dur:3000,delay:2400,each:1,stagger:160}],
+    labels:[{p:'ghosts',t:'Nine never came back',x:120,y:6,ax:170,ay:34},
+            {p:'res',t:'Resistance genes still raised',x:120,y:126,ax:158,ay:114}]},
+
+   {key:'pall',btn:'12 MEN',title:'The study that followed it to six months',study:1,
+    marks:[['h','Human']],
+    text:'Twelve healthy men were given meropenem, gentamicin and vancomycin together for four days, which is close to '
+        +'the worst case on purpose, then had their stool sequenced out to 180 days. Blooms of Enterobacteriaceae and '
+        +'Enterococcus early, Bifidobacterium and butyrate makers lost, composition near baseline in about 1.5 months, '
+        +'and nine common species still undetectable in most of them at the end.',
+    model:'12 healthy men, 4 days of 3 drugs, 180 days of follow-up',
+    src:[{t:'Palleja 2018, Nature Microbiology',u:'https://doi.org/10.1038/s41564-018-0257-9'}],
+    show:['sPall'],
+    anim:[{p:'sPall',type:'draw',sel:'.ln',dur:2000,delay:300},
+          {p:'sPall',type:'count',dur:1800,delay:1400},
+          {p:'sPall',type:'fadeIn',sel:'.gh',dur:1200,delay:2200}]},
+
+   {key:'cipro',btn:'3 PEOPLE',title:'What a second course does',study:1,
+    marks:[['h','Human']],
+    text:'Three people took ciprofloxacin twice, ten months apart, and were sampled more than fifty times each. Diversity '
+        +'fell within three to four days both times, recovery began about a week after stopping and was incomplete both '
+        +'times, and the second course did not play out like the first. Each person ended in a stable state that was not '
+        +'the one they started in.',
+    model:'3 adults, 2 courses, 52 to 56 samples each',
+    src:[{t:'Dethlefsen & Relman 2011, PNAS',u:'https://doi.org/10.1073/pnas.1000087107'}],
+    show:['sCipro'],
+    anim:[{p:'sCipro',type:'draw',sel:'.ln',dur:2600,delay:300},
+          {p:'sCipro',type:'fadeIn',sel:'.mk',dur:900,delay:2000,stagger:200}]},
+
+   {key:'clin',btn:'2 YEARS',title:'The one that left a mark',study:1,
+    marks:[['h','Human']],
+    text:'Clindamycin is the harshest pill on record for the gut. In four people followed for two years, the Bacteroides '
+        +'population never returned to the mix it started with, and resistance genes stayed raised the whole time. Four '
+        +'untreated controls barely changed. This is the longest individual follow-up in the field.',
+    model:'4 people on clindamycin, 4 controls, 2 years',
+    src:[{t:'Jernberg 2007, The ISME Journal',u:'https://doi.org/10.1038/ismej.2007.3'}],
+    show:['sClin'],
+    anim:[{p:'sClin',type:'draw',sel:'.ln',dur:2400,delay:300},
+          {p:'sClin',type:'grow',sel:'.g',dur:1200,delay:1800,stagger:180}]},
+
+   {key:'mice',btn:'DIET',title:'What changed the recovery',study:1,
+    marks:[['a','Mouse']],
+    text:'Mice carrying human gut bacteria were given the same antibiotic on two different diets. On a fibre-poor diet '
+        +'the collapse was deeper and the recovery slower; with fibre and ordinary exposure to their environment, more '
+        +'of the community came back. It is the clearest mechanism anyone has for why diet might matter here, and it '
+        +'has never been run as a diet trial in people after a course.',
+    model:'Mice carrying a human microbiota, two diets',
+    src:[{t:'Ng 2019, Cell Host & Microbe',u:'https://doi.org/10.1016/j.chom.2019.10.011'}],
+    show:['sMice'],
+    anim:[{p:'sMice',type:'draw',sel:'.ln',dur:2200,delay:300},
+          {p:'sMice',type:'fadeIn',sel:'.mk',dur:900,delay:1900,stagger:220}]}
+  ]
+ }
+});
