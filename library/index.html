@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Library v127 (22 Nov 2026, built on v126, kept): KPV, Thymosin Alpha-1 and Thymosin Beta-4/TB-500 How-it-works stories rewritten to the BPC-157/GHK-Cu standard: full-frame tissue scenes, molecule insets, 7 steps each (5 mechanism + 2 study), two-panel study scenes with counts. Engine unchanged (v3). No compound numbers changed. -->
 <!-- Library v126 (22 Nov 2026, built on v125, kept): KPV (inflamed gut: PepT1 import, NF-kB off), Thymosin Alpha-1 (immune response: TLR wake, IL-12/Th1, IDO brake; mouse aspergillosis; TESTS sepsis null) and Thymosin Beta-4/TB-500 (wound: G-actin pool, cell migration, Akt survival; rat wounds; mouse heart) get How it works, animated, and their own pages. Engine v3 (HAS + cache-bust only). No compound numbers changed. -->
 <!-- Library v125 (21 Nov 2026, built on v124, kept): GHK-Cu gets How it works, animated (skin: copper carrier, fibroblasts, collagen and elastin, copper cross-links, remodelling; a dish dose study and the diabetic ulcer gel trial) and its own page; engine fix so scaled parts keep their place. No numbers changed. -->
 <!-- Library v124 (21 Nov 2026, built on v123f, kept): How it works, animated v2: no In people end card and no hedge line; rat and dish study steps with their papers; stories at /library/anim/<slug>.js; each story has its own page /library/how/<slug>/. No numbers changed. -->
@@ -3878,7 +3879,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 <script>/* v123d: How it works, animated, inside the Full read (engine /library/anim.js, stories as data) */
-(function(){var HAS={'bpc-157':'torn tendon','ghk-cu':'skin and dermis','kpv':'inflamed gut','thymosin-alpha-1':'the immune response','thymosin-beta-4':'a wound'},busy=0;
+(function(){var HAS={'bpc-157':'torn tendon','ghk-cu':'skin and dermis','kpv':'inflamed gut','thymosin-alpha-1':'the immune response','thymosin-beta-4':'a wound','antibiotics':'the gut microbiome through a course'},busy=0;
 function add(){var pv=document.getElementById('pagev');if(!pv||pv.hidden)return;var m=location.hash.match(/^#\/p\/(.+)$/);if(!m)return;
  var s=decodeURIComponent(m[1]);if(!HAS[s])return;var fp=pv.querySelector('.fp65');if(!fp||fp.querySelector('.k-anim123d'))return;
  var w=document.createElement('div');w.className='r65 ranim123d';
