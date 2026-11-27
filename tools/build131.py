@@ -4,7 +4,8 @@ blood work entry, search index. Label doses only. PREVIEW: live /library/ is not
 import json, shutil, os, sys, subprocess, math
 R = '/home/claude/baresignals'; os.chdir(R)
 sys.path.insert(0, f'{R}/tools')
-from rx_adderall import MEDS, ORDER
+from rx_adderall import MEDS, ORDER, IX, RXW_TAKE, PK, STUDIES, SUPP
+import re
 SRC, DST = 'library/v130', 'library/v131'
 if os.path.exists(DST): shutil.rmtree(DST)
 shutil.copytree(SRC, DST)
@@ -50,9 +51,17 @@ for s in ORDER:
     BWX[s] = {'id': s, 'name': MEDS[s]['data']['name'], 'src': 'research', 'conf': 'verified', 'status': 'protocol', 'nsrc': 0, 'p': True,
               'why': bw['before'], 'freq': bw['freq'], 'flags': bw['flags'],
               'before': [[t, '', 0, 0, 0, ''] for t in bw['tests']], 'monitor': [[t, '', 0, 1, 0, ''] for t in bw['tests']],
-              'mk': [], 'sup': [], 'mon': bw['monitor'], 'bef': bw['before']}
+              'mk': [], 'sup': SUPP, 'mon': bw['monitor'], 'bef': bw['before']}
 append('rx.js', hdr + '\nObject.assign(window.BS_RX,' + J(RX) + ');\n(function(){var L=window.BW_LIB;if(!L)return;var X=' + J(BWX) + ';for(var k in X){L.comps[k]=X[k];L.sup=L.sup||{};L.sup[k]=X[k].sup}})();')
 
+PK['src'] = ["Adderall and Adderall XR FDA labels (clinical pharmacology, humans)", "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/011522s045lbl.pdf"]
+append('pk.js', hdr + '\nwindow.PK=window.PK||{};window.PK.adderall=' + J(PK) + ';')
+append('tw.js', hdr + '\nif(window.BS_GSL&&!BS_GSL.includes("adderall"))BS_GSL.push("adderall");')
+append('rxw.js', hdr + '\nwindow.BS_RXW.adderall=' + J({'ix': [r[6] for r in IX], 'take': RXW_TAKE}) + ';')
+# root studies.json is read live by the Library and the Guide; add the three checked studies once
+st = json.load(open('studies.json', encoding='utf8'))
+st = [x for x in st if x['slug'] != 'adderall'] + STUDIES
+open('studies.json', 'w', encoding='utf8').write(json.dumps(st, ensure_ascii=False, separators=(',', ':')))
 ix = open(f'{DST}/index.html', encoding='utf8').read()
 def rep(old, new):
     global ix
@@ -64,6 +73,16 @@ rep("clinical:'Only trial or label doses exist. No community dose yet.',", "clin
 rep("const plain=[t1.dose&&`Most people take <b>${esc(t1.dose)}</b>`", "const plain=[t1.dose&&`${o.rx?'The label says':'Most people take'} <b>${esc(t1.dose)}</b>`")
 rep("function syn65(o){if(!o.syn||!o.syn.length)return sec65(", "function syn65(o){if(o.rx&&o.syn&&!o.syn.length)return '';if(!o.syn||!o.syn.length)return sec65(")
 rep('<a href="${calcHref(o)}">Work it out in the Calculator →</a><a href="/water/">Which mixing water →</a>', '${o.rx?\'\':`<a href="${calcHref(o)}">Work it out in the Calculator →</a><a href="/water/">Which mixing water →</a>`}')
+# deep read banner for the medicines (word count and parts from their deep reads)
+def words(sl):
+    import subprocess
+    out = subprocess.run(['node', '-e', "global.window={};eval(require('fs').readFileSync('%s/deep.js','utf8'));const d=window.BS_DEEP[process.argv[1]];const t=d.sections.map(x=>x.body.join(' ')).join(' ');console.log(t.split(/\\s+/).length+','+d.sections.length)" % DST, sl], capture_output=True, text=True, check=True).stdout.strip().split(',')
+    return [round(int(out[0]) / 10) * 10, int(out[1])]
+add = ','.join('"%s":%s' % (sl, J(words(sl))) for sl in ['adderall', 'metronidazole', 'doxycycline', 'tranexamic-acid', 'dexketoprofen'])
+rep('var DR={', 'var DR={' + add + ',')
+# Mixing it with: a one-line verdict count on top (what mixes and what doesn't)
+rep("function rxIx(o){const R=rxOf(o);if(!R||!R.ix)return '';", "function rxIx(o){const R=rxOf(o);if(!R||!R.ix)return '';const NC=k=>R.ix.filter(x=>x[2]===k).length;const VS=`<p class=\"rxi\"><b>${R.ix.length} checked:</b> ${['avoid','space','watch','ok'].filter(k=>NC(k)).map(k=>NC(k)+' '+RXL[k][0].toLowerCase()).join(' · ')}.</p>`;")
+rep("${['avoid','space','watch','ok'].map(rxTag).join('')}</div>${g}", "${['avoid','space','watch','ok'].map(rxTag).join('')}</div>${VS}${g}")
 open(f'{DST}/index.html', 'w', encoding='utf8').write(ix)
 
 # search index, same builder as v121

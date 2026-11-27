@@ -12,9 +12,88 @@ SRC = {
  'cortese18': ["Cortese 2018, network meta-analysis of ADHD medicines, 133 trials (Lancet Psychiatry, PMC6109107)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6109107"],
  'bali': ["Trial in Bali over 99 Adderall pills: 'illegal in Indonesia, no exceptions' (Macau Daily Times / AP)", "https://macaudailytimes.com.mo/trial-opens-in-bali-for-us-man-charged-with-receiving-illegal-adhd-pills.html"],
  'shortage': ["ADHD medicine shortage list, FDA status 18 Oct 2026 (ChoosingTherapy)", "https://www.choosingtherapy.com/?p=110986"],
+ 'ilieva13': ["Ilieva 2013, Adderall in 46 healthy young adults, double-blind crossover (Neuropharmacology)", "https://core.ac.uk/download/76386905.pdf"],
+ 'macqueen18': ["MacQueen 2018, amphetamine and vigilance in 69 healthy adults (PMC5820221)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC5820221"],
+ 'ilieva13b': ["Ilieva and Farah 2013, enhancement stimulants: motivational more than cognitive (PMC3813924)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC3813924"],
  'wiki': ["Adderall (Wikipedia)", "https://en.wikipedia.org/wiki/Adderall"],
 }
 def S(*keys): return [SRC[k] for k in keys]
+
+
+# Every row: group, name, level, short line, Library link, confidence, the deeper Why (shown on tap, BS_RXW).
+# Sweep of the whole Library (27 Nov 2026): each peptide family checked against how amphetamine works
+# (dopamine and noradrenaline release, heart rate and blood pressure up, appetite and sleep down, CYP2D6, urine pH).
+IX = [
+ ["peptide","Tesofensine","avoid","Also blocks the recycling of dopamine, noradrenaline and serotonin, and raises pulse and blood pressure. Doubling up on the same system.","tesofensine","inferred",
+  "Tesofensine keeps dopamine, noradrenaline and serotonin in the gap between nerves longer; Adderall pushes more of the first two out. Together that is two stimulants on one system, plus a serotonin piece that brings the serotonin syndrome warning on Adderall's label into play. Tesofensine's own trials already showed higher heart rate and blood pressure. Nobody has tested the pair."],
+ ["peptide","BAM-15, SLU-PP-332","watch","Fat-burning compounds that raise energy use and heat. Amphetamine also raises body heat and heart rate.","bam-15","inferred",
+  "BAM-15 makes mitochondria burn fuel as heat; SLU-PP-332 mimics exercise signalling. Amphetamine raises body temperature and heart rate on its own, and overheating is one of the ways stimulant overdoses turn dangerous, especially with exercise or a hot climate like Bali's. Only mouse data exist for both compounds and none with stimulants."],
+ ["peptide","GLP-1s (retatrutide, semaglutide, tirzepatide, cagrilintide)","watch","Both cut appetite and both can raise resting heart rate. Eating enough becomes the hard part.","retatrutide","inferred",
+  "GLP-1 drugs quiet hunger through the brain and slow the stomach; amphetamine quiets hunger through noradrenaline and dopamine. Stacked, many people barely eat, which costs muscle and leaves the stimulant hitting an empty stomach harder. Retatrutide and tirzepatide raise resting pulse by a few beats in trials, and amphetamine adds its own. Not tested together."],
+ ["peptide","Semax, NA Semax, Bromantane, Dihexa","watch","Also taken to push focus and drive. Stacked stimulation, never tested together; sleep and anxiety add up.","semax","inferred",
+  "Semax is reported to raise BDNF and dopamine turnover; bromantane raises dopamine production. Adderall already floods dopamine and noradrenaline. Adding more drive on top tends to add jitters, anxiety and lost sleep before it adds focus. Dihexa has no human data at all. If someone already takes Adderall, adding one of these is a new experiment, so one at a time."],
+ ["peptide","Selank, NA Selank, IllumiNeuro","watch","Used by some to take the edge off. Untested with stimulants; does not cancel the heart effects.","selank","inferred",
+  "Selank is studied in Russia for anxiety without sedation and is thought to act on GABA and enkephalin breakdown, a different path from amphetamine. Some ADHD users report it softens stimulant anxiety. It does nothing to the raised pulse or blood pressure. IllumiNeuro carries Semax too, so it also counts as extra stimulation."],
+ ["peptide","MK-677, CJC-1295 + Ipamorelin, Tesamorelin, DSIP","watch","Taken for night-time GH and deep sleep. A stimulant still active at bedtime cuts that sleep.","mk-677","inferred",
+  "The biggest growth hormone pulse of the day comes in the first deep sleep of the night. Adderall's main part has a half-life around 10 hours, so a noon dose is still half there at 10 pm, and stimulants cut deep sleep. People taking GH peptides for recovery or sleep get the most from them with an early Adderall dose. MK-677 can also raise blood sugar and appetite, pulling the other way from the stimulant."],
+ ["peptide","PT-141, Melanotan 2","watch","Both can raise blood pressure on their own.","pt-141","inferred",
+  "PT-141 (bremelanotide) raised blood pressure briefly in its trials, and its label warns against it with uncontrolled hypertension. Melanotan 2 acts on the same melanocortin receptors and causes flushing and nausea. Amphetamine raises blood pressure too. The rises add, so the pair is best avoided by anyone whose pressure already runs high."],
+ ["peptide","Pinealon, Cerebrolysin, Epitalon","ok","No known interaction. Different targets.","cerebrolysin","inferred",
+  "These are taken for brain protection or sleep rhythm, not stimulation. None is known to release dopamine or noradrenaline, raise heart rate or use CYP2D6. Never tested with stimulants, so fine means no known reason for trouble, not proven safe."],
+ ["peptide","NAD+, MOTS-c, SS-31, 5-Amino-1MQ","ok","No known interaction. Fast IV NAD+ can bring on a racing heart; go slow.","nadplus","inferred",
+  "These work on mitochondria and energy metabolism, a different system from amphetamine. The one practical point: fast NAD+ infusions often cause chest tightness and a pounding heart, which feels worse with a stimulant on board. Slow drips or Sub-Q avoid most of it."],
+ ["peptide","BPC-157, TB-500, GHK-Cu, KPV, KLOW, LL-37","ok","No known interaction. Never tested together.","bpc-157","inferred",
+  "Repair peptides act on blood vessel growth, cell migration and inflammation in tissue. Amphetamine acts on nerve endings, the heart and blood vessels' tone. No shared pathway, no shared liver enzyme known to matter. Many people take both."],
+ ["peptide","Thymosin Alpha-1, Kisspeptin, HCG, Oxytocin, AOD-9604, Glutathione","ok","No known interaction.","thymosin-alpha-1","inferred",
+  "Immune, hormone, fat and antioxidant compounds with no stimulant action and no overlap with how amphetamine is absorbed or cleared. Oxytocin is sometimes studied for social focus in ADHD and autism, without a stimulant conflict."],
+ ["supp","Vitamin C, citrus juice, acidic drinks","space","Lower absorption. An hour either side of the dose.","","verified",
+  "Amphetamine is a base. Acid in the gut keeps more of it charged, so less crosses into the blood; acid in the urine makes the kidneys flush it out faster. The label lists ascorbic acid and fruit juices as lowering levels. Vitamin C later in the day is fine."],
+ ["supp","St John's wort, 5-HTP, tryptophan","watch","Label lists serotonin syndrome risk with serotonergic products.","","verified",
+  "Amphetamine releases some serotonin too. Adding products that raise serotonin can tip into serotonin syndrome: agitation, sweating, fast heart, stiff or twitching muscles, high temperature. Rare, but on the label, and the risk rises with dose."],
+ ["supp","Caffeine, pre-workout","watch","Adds to pulse, blood pressure and jitters.","","reported",
+  "Caffeine blocks adenosine, the body's tiredness signal, while amphetamine releases noradrenaline. Different paths, same result in the heart: faster and harder. Pre-workouts often carry yohimbine or synephrine, which add more. Many on Adderall cut coffee to one cup."],
+ ["food","Antacids, baking soda","watch","Make the body absorb more and clear it slower: a stronger, longer effect.","","verified",
+  "The opposite of vitamin C: an alkaline gut and urine keep amphetamine uncharged, so more is absorbed and the kidneys hold on to it. The label says up to 75% leaves unchanged in acidic urine but as little as 1% in alkaline urine. A regular antacid habit can make the same dose feel much stronger."],
+ ["food","Alcohol","watch","Masks how drunk you feel, so people drink more; both strain the heart.","","reported",
+  "A stimulant hides the sleepy, heavy feeling alcohol normally gives, which is how people end up drinking more than they meant to. Both raise heart rate, and the mix is common in emergency visits for palpitations. Alcohol also worsens the next day's crash."],
+ ["med","MAOIs, linezolid, methylene blue","avoid","Hypertensive crisis. 14 day gap (label).","methylene-blue","verified",
+  "MAO enzymes break down the noradrenaline and dopamine amphetamine releases. Block them and the released chemicals pile up, which can send blood pressure to dangerous levels. The label forbids Adderall within 14 days of an MAOI. Methylene blue is an MAOI, including the low oral doses taken as a nootropic."],
+ ["med","Other stimulants (methylphenidate, modafinil, phentermine)","avoid","Stacking stimulants without a doctor.","","inferred",
+  "Doctors sometimes combine an amphetamine with a short dose of another stimulant, under supervision. Self-stacking adds heart rate, blood pressure, anxiety and psychosis risk with no extra focus most of the time. Phentermine is an amphetamine cousin sold for weight loss."],
+ ["med","SSRIs, SNRIs, triptans, tramadol, fentanyl","watch","Serotonin syndrome risk on the label.","","verified",
+  "These raise serotonin in different ways. Many people safely take an SSRI with Adderall under a doctor; the label asks prescribers to watch for serotonin syndrome, especially when starting or raising either."],
+ ["med","Fluoxetine, paroxetine, bupropion","watch","Block CYP2D6 and raise amphetamine levels.","","verified",
+  "CYP2D6 is a liver enzyme that helps break amphetamine down. These three block it, so the same dose builds higher in the blood. Bupropion also releases dopamine and noradrenaline itself."],
+ ["med","Blood pressure medicines","watch","Amphetamine can blunt their effect.","","verified",
+  "Most blood pressure pills lower pressure by relaxing vessels or slowing the heart; amphetamine pushes the other way. The label notes reduced effect of antihypertensives. Pressure should be checked after starting."],
+]
+
+RXW_TAKE = [
+ "The main part, d-amphetamine, has a half-life around 10 hours in adults, so even the tablet leaves enough in the blood at night to cut deep sleep. XR is built to release over 10 to 12 hours.",
+ "Amphetamine dampens hunger within the hour through noradrenaline. People who skip breakfast often reach evening having eaten almost nothing, which feeds the afternoon crash and, over months, loss of muscle.",
+ "Acid keeps amphetamine charged in the gut, so less is absorbed, and speeds its exit in urine. Orange juice with breakfast is the classic reason a morning dose 'didn't work'.",
+ "XR holds two kinds of beads, one released at once and one hours later. Crushing dumps the whole dose at once. Snorting or injecting is how misuse turns into overdose, per the boxed warning.",
+ "Amphetamine raises pulse and blood pressure a little in most people and a lot in some. Long-term users in Sweden had more high blood pressure after 3 years. A home cuff makes this easy.",
+ "Adderall is Schedule II in the US: sharing or selling is a federal crime. In Indonesia amphetamine medicines have no legal channel at all, so even a prescribed supply can mean arrest.",
+]
+
+PK = {"rows":[
+  ["How fast it gets in","The tablet peaks in blood about 3 hours after a dose; XR about 7 hours, with its two bead types.","label · humans"],
+  ["How much reaches the blood","Almost all of it: amphetamine is well absorbed by mouth. Acidic drinks and vitamin C lower absorption, antacids raise it.","label · humans"],
+  ["How long it stays","Half-life about 10 hours for d-amphetamine and 13 for l-amphetamine in adults; a little shorter in children.","label · humans"],
+  ["How it's broken down and cleared","Partly by liver enzymes (CYP2D6 among them), the rest leaves unchanged in urine: from 1% in alkaline urine to 75% in acidic urine.","label · humans"]],
+ "why":"The felt effect is shorter than the half-life: focus fades after 4 to 6 hours on the tablet as blood levels fall from their peak, but enough stays to disturb sleep. That gap is why a late dose costs a night.",
+ "gap":"How much people differ in CYP2D6 speed matters is still argued, and there are almost no long-term studies of adult levels over years."}
+
+STUDIES = [
+ {"slug":"adderall","r":"Cognition","at":"Prefrontal cortex","t":"Amphetamines the most effective ADHD medicine in adults, 133 trials (2018)","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6109107","type":"HUMAN","checked":"2026-11-27","who":"10,068 children and 8,131 adults across 133 double-blind trials","f":"Amphetamines beat methylphenidate, atomoxetine and modafinil on clinician ratings, but were less well tolerated than placebo at every age.","cr":"Cortese et al. · Lancet Psychiatry 2018 · UK"},
+ {"slug":"adderall","r":"Mood","at":"Prefrontal cortex","t":"High-dose amphetamine and new psychosis or mania (2024)","url":"https://psychiatryonline.org/doi/10.1176/appi.ajp.20230329","type":"HUMAN","checked":"2026-11-27","who":"1,374 people with first psychosis or mania vs 2,748 controls","f":"Any prescription amphetamine in the past month: 2.68x the odds. Above 30 mg dextroamphetamine (40 mg Adderall): about 5.3x. No rise with methylphenidate.","cr":"Moran et al. · Am J Psychiatry 2024 · USA"},
+ {"slug":"adderall","r":"Heart","at":"Heart","t":"Long-term ADHD medicine use and high blood pressure (2024)","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC10851097/","type":"HUMAN","checked":"2026-11-27","who":"Over 278,000 people in Swedish registers, up to 14 years","f":"3 to 5 years of use: 72% higher odds of high blood pressure; over 5 years: 80%. Heart attack, stroke and rhythm problems did not rise significantly.","cr":"Zhang et al. · JAMA Psychiatry 2024 · Sweden"},
+]
+
+STUDIES.append({"slug":"adderall","r":"Cognition","at":"Prefrontal cortex","t":"Adderall in healthy young adults: small effects, big feeling (2013)","url":"https://core.ac.uk/download/76386905.pdf","type":"HUMAN","checked":"2026-11-27","who":"46 healthy young adults, double-blind crossover vs placebo","f":"No more than small effects on memory, attention, inhibition or creativity, yet people on the active capsule believed their thinking was enhanced.","cr":"Ilieva, Boland and Farah · Neuropharmacology 2013 · USA"})
+
+SUPP = [["l-theanine","L-Theanine","#CC007E"],["magnesium-glycinate","Magnesium Glycinate","#5271FF"],["protein","Protein","#F28E79"],["electrolytes","Electrolytes","#9E1B32"],["omega-3-epa-and-dha","Omega-3 (EPA and DHA)","#FF5050"]]
 
 MEDS = {}
 ORDER = ['adderall']
@@ -55,7 +134,7 @@ MEDS['adderall'] = dict(
   found="Amphetamine was first made in 1887; the mixed-salt pill began as a 1960s diet drug and was relaunched for ADHD in 1996. Not a peptide.",
   first="A diet pill (Obetrol, 1960) before it became an ADHD medicine in 1996.",
   story="A century-old molecule that went from nasal inhaler to diet pill to the most prescribed ADHD medicine in the US. Its success brought misuse as a study drug, a boxed warning and a shortage that has run since 2022.",
-  sources=S('fda_ir','fda_xr','dailymed','dc_add','cortese18','moran24','moran_pn','zhang24','bali','shortage','wiki'),
+  sources=S('fda_ir','fda_xr','dailymed','dc_add','cortese18','moran24','moran_pn','zhang24','ilieva13','macqueen18','ilieva13b','bali','shortage','wiki'),
   pools=[["524","Drugs.com reviews; ADHD 431, narcolepsy 68",1],["7.2/10","average rating, 63% positive, 19% negative",1],["8.0/10","narcolepsy, best rated use (68 reviews)",1],["7.1/10","ADHD (431 reviews)",0]],
   wk=["Narcolepsy rated 8.0 out of 10 (68 reviews)","Focus and follow-through within an hour","Amphetamines rated strongest for adult ADHD across 133 trials"],
   dn=["Afternoon crash and irritability","Sleep and appetite loss make many stop","Tolerance: some feel it fade and push the dose up"],
@@ -97,29 +176,23 @@ MEDS['adderall'] = dict(
    {"h":"Law, supply and the Bali question","where":"people","body":[
     "In the US, Adderall is Schedule II and has been short since the FDA declared a shortage of the tablets on 12 October 2022; the FDA still listed it in October 2026 [5] (reported). Shortages push some people to counterfeit pills, which have been found to contain methamphetamine or fentanyl (reported).",
     "In Indonesia it is not a prescription medicine at all. A Bali prosecutor told the court in a 2025 case that amphetamine ADHD pills are illegal with no exceptions [6] (verified). There is no legal way to bring it in or carry it, foreign prescription or not."]},
+   {"h":"Does it help people without ADHD?","where":"people","body":[
+    "In a double-blind crossover trial, 46 healthy young adults took Adderall or placebo and sat a battery of memory, attention, inhibition and creativity tests [8]. The drug had no more than small effects on any of them, yet people on the active capsule rated their own thinking as enhanced (verified).",
+    "Vigilance is the one place a gain shows up. In 69 healthy adults on 10 or 20 mg of d-amphetamine, the usual drop in attention over a long boring task did not happen, while it did on placebo [9] (verified). A survey by the same Penn group found study-drug users describe the effect as motivational at least as much as cognitive: tasks feel worth doing [10] (reported).",
+    "Bare Signals reads that as: for people without ADHD, Adderall mostly makes work feel easier and lasts longer at a dull task; it does not make anyone smarter, and the risks stay the same (inferred)."]},
+   {"h":"How it mixes with peptides, compound by compound","where":"mixed","body":[
+    "No study has tested Adderall with any peptide, so every row in Mixing it with is reasoned from how each one works (inferred unless marked). The sweep checked every family in the Library against four things amphetamine does: releases dopamine and noradrenaline, raises heart rate and blood pressure, cuts appetite and sleep, and is cleared through CYP2D6 and urine pH.",
+    "Avoid: tesofensine, which blocks the same dopamine and noradrenaline recycling and already raises pulse and pressure, and methylene blue, an MAOI that can pile released noradrenaline into a blood pressure crisis (label). Watch: GLP-1s (appetite and heart rate stack), Semax, bromantane and dihexa (more stimulation, more anxiety), Selank (may soften anxiety, not the heart), GH and sleep peptides (a late dose wrecks the deep sleep they rely on), PT-141 and Melanotan 2 (blood pressure), BAM-15 and SLU-PP-332 (heat and heart rate).",
+    "Fine, with no known reason for trouble: the repair peptides (BPC-157, TB-500, GHK-Cu, KPV, KLOW, LL-37), the mitochondria set (NAD+, MOTS-c, SS-31, 5-Amino-1MQ, with a slow NAD+ drip), the brain-protection set (Pinealon, Cerebrolysin, Epitalon) and the immune and hormone compounds. Fine is not the same as tested."]},
+   {"h":"Tolerance, the crash and dependence","where":"people","body":[
+    "The boxed warning, strengthened in October 2023, says Adderall has a high potential for misuse that can lead to a substance use disorder, and that misuse can end in overdose and death [7] (verified). Risk rises with higher doses and with snorting or injecting.",
+    "Reviews describe two everyday problems short of addiction: an afternoon crash of tiredness, irritability or low mood as levels fall, and a sense that the same dose works less well after months (reported, Drugs.com reviews). Doctors usually answer the first with XR or a small afternoon dose, and the second with breaks or a switch, not endless dose rises, since risk of psychosis climbs above 40 mg a day [2]."]},
    {"h":"Open questions","where":"mixed","body":[
     "Whether decades of use change heart or brain health beyond blood pressure. Why some people feel it fade and others do not. Whether it truly helps healthy people perform, rather than feel productive. Whether stacking with peptides changes anything: no study has looked."]}],
-  "refs":[{"n":1,"t":"Cortese 2018, network meta-analysis of ADHD medicines (Lancet Psychiatry)","url":SRC['cortese18'][1],"year":"2018"},{"n":2,"t":"Moran 2024, prescription amphetamine and psychosis or mania (Am J Psychiatry)","url":SRC['moran24'][1],"year":"2024"},{"n":3,"t":"Psychiatric News summary of Moran 2024","url":SRC['moran_pn'][1],"year":"2024"},{"n":4,"t":"Zhang 2024, ADHD medicines and long-term cardiovascular risk (JAMA Psychiatry)","url":SRC['zhang24'][1],"year":"2024"},{"n":5,"t":"ADHD medicine shortage list, Oct 2026","url":SRC['shortage'][1],"year":"2026"},{"n":6,"t":"Bali Adderall trial (Macau Daily Times / AP)","url":SRC['bali'][1],"year":"2025"},{"n":7,"t":"Adderall FDA label","url":SRC['fda_ir'][1]}]},
+  "refs":[{"n":1,"t":"Cortese 2018, network meta-analysis of ADHD medicines (Lancet Psychiatry)","url":SRC['cortese18'][1],"year":"2018"},{"n":2,"t":"Moran 2024, prescription amphetamine and psychosis or mania (Am J Psychiatry)","url":SRC['moran24'][1],"year":"2024"},{"n":3,"t":"Psychiatric News summary of Moran 2024","url":SRC['moran_pn'][1],"year":"2024"},{"n":4,"t":"Zhang 2024, ADHD medicines and long-term cardiovascular risk (JAMA Psychiatry)","url":SRC['zhang24'][1],"year":"2024"},{"n":5,"t":"ADHD medicine shortage list, Oct 2026","url":SRC['shortage'][1],"year":"2026"},{"n":6,"t":"Bali Adderall trial (Macau Daily Times / AP)","url":SRC['bali'][1],"year":"2025"},{"n":7,"t":"Adderall FDA label","url":SRC['fda_ir'][1]},{"n":8,"t":SRC['ilieva13'][0],"url":SRC['ilieva13'][1],"year":"2013"},{"n":9,"t":SRC['macqueen18'][0],"url":SRC['macqueen18'][1],"year":"2018"},{"n":10,"t":SRC['ilieva13b'][0],"url":SRC['ilieva13b'][1],"year":"2013"}]},
  rx=dict(
   take=[["Take it early","A late dose keeps you up. The tablet lasts 4 to 6 hours, XR 10 to 12."],["Eat before it kicks in","Appetite drops within the hour. Breakfast first, then plan lunch on purpose."],["Keep juice and vitamin C away","Acidic drinks and vitamin C lower how much gets absorbed. Leave an hour either side."],["Swallow XR whole","Or open it over applesauce. Never crush, snort or inject it."],["Check pulse and blood pressure","Before starting and now and then after. Note any chest pain or racing heart."],["Never share or carry abroad blindly","Giving it away is a crime in the US. In Indonesia even carrying it is illegal."]],
-  ix=[
-   ["peptide","Tesofensine","avoid","Also blocks the recycling of dopamine, noradrenaline and serotonin, and raises pulse and blood pressure. Doubling up on the same system.","tesofensine","inferred"],
-   ["peptide","GLP-1s (retatrutide, semaglutide, tirzepatide)","watch","Both cut appetite and both can raise resting heart rate. Eating enough becomes the hard part.","retatrutide","inferred"],
-   ["peptide","Semax, NA Semax, Bromantane","watch","Also taken to push focus and drive. Stacked stimulation, never tested together; sleep and anxiety add up.","semax","inferred"],
-   ["peptide","Selank, IllumiNeuro","watch","Used by some to take the edge off. Untested with stimulants; does not cancel the heart effects.","selank","inferred"],
-   ["peptide","MK-677, CJC-1295 + Ipamorelin, DSIP","watch","Taken for night-time GH and deep sleep. A stimulant still active at bedtime cuts that sleep.","mk-677","inferred"],
-   ["peptide","PT-141, Melanotan 2","watch","Both can raise blood pressure on their own.","pt-141","inferred"],
-   ["peptide","BPC-157, TB-500, GHK-Cu, KPV","ok","No known interaction. Never tested together.","bpc-157","inferred"],
-   ["supp","Vitamin C, citrus juice, acidic drinks","space","Lower absorption. An hour either side of the dose.","","verified"],
-   ["supp","St John's wort, 5-HTP, tryptophan","watch","Label lists serotonin syndrome risk with serotonergic products.","","verified"],
-   ["supp","Caffeine, pre-workout","watch","Adds to pulse, blood pressure and jitters.","","reported"],
-   ["food","Antacids, baking soda","watch","Make the body absorb more and clear it slower: a stronger, longer effect.","","verified"],
-   ["food","Alcohol","watch","Masks how drunk you feel, so people drink more; both strain the heart.","","reported"],
-   ["med","MAOIs, linezolid, methylene blue","avoid","Hypertensive crisis. 14 day gap (label).","methylene-blue","verified"],
-   ["med","Other stimulants (methylphenidate, modafinil, phentermine)","avoid","Stacking stimulants without a doctor.","","inferred"],
-   ["med","SSRIs, SNRIs, triptans, tramadol, fentanyl","watch","Serotonin syndrome risk on the label.","","verified"],
-   ["med","Fluoxetine, paroxetine, bupropion","watch","Block CYP2D6 and raise amphetamine levels.","","verified"],
-   ["med","Blood pressure medicines","watch","Amphetamine can blunt their effect.","","verified"]],
+  ix=[r[:6] for r in IX],
   cmp=dict(intro="What else treats ADHD, and when each wins.",
    rows=[["Vyvanse (lisdexamfetamine)","Smoother and longer from one morning dose; a prodrug, so harder to misuse","Costs more, slower to start, also short at times"],
          ["Methylphenidate (Ritalin, Concerta)","First choice for children in the 2018 analysis; no psychosis dose signal in the 2024 study","Slightly weaker on average in adults"],

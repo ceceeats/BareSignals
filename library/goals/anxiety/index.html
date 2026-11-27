@@ -1,7 +1,735 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Anxiety · Bare Signals</title>
-<script>location.replace('v3/'+location.search+location.hash)</script>
-<noscript><meta http-equiv="refresh" content="0;url=v3/"></noscript>
-<style>body{margin:0;background:#FFFFE2;color:#3E4A80;font-family:system-ui,sans-serif;padding:24px 16px}a{color:#3E4A80}</style>
-</head><body><p>Opening <a href="v3/">Anxiety</a>.</p></body></html>
+<!-- Live copy of library/goals/anxiety/v3/ (published by tools/publish_live.py; edit the version, then re-run) -->
+<!-- Anxiety (Cases) v3, 23 Nov 2026. v2 kept at /library/goals/anxiety/v2/. Adds: a Kinds of anxiety section (GAD, panic, social, phobia, situational); a second interactive comparison (Where each option acts: GABA brake / serotonin / adrenaline-body / baseline), covering the popular medications (SSRIs, SNRIs, benzos, buspirone, pregabalin, beta-blockers, hydroxyzine), the peptides (Selank, Semax) and naturals (ashwagandha, L-theanine, CBT); a Medications people take section; a Natural remedies with real trials section; expanded options table, 2 FAQs, +5 sources. Peptides stay central. Draft stays. v2 note follows. -->
+<!-- Anxiety (Cases) v2, 23 Nov 2026. v1 kept at /library/goals/anxiety/v1/. Adds an interactive GABA-A receptor diagram at the top of Part 2 (Resting / GABA / +Benzo / +Selank) showing how the GABA brake works, how a benzo amplifies it, and how Selank acts around the system, built to answer the questions people ask, visually. Self-contained SVG + tap buttons, reduced-motion safe, phone-first. Draft stays. Original v1 note follows. -->
+<!-- Anxiety (Cases) v1, 23 Nov 2026. New page. Draft: built from an automatic research sweep (Selank/Semax Pool B in the Research Log G35, studies traced to PubMed and the FDA, placebo baseline from a 2023 meta-analysis), not yet checked line by line by the editor. Anchored on Selank and Semax vs benzodiazepines and SSRIs, with the depression angle folded in. Template: Period pain v1 (condition layout). Compound links open the Library card in a drawer (drawer.js). Anonymous: "the editor", noindex. -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<title>Anxiety · Bare Signals</title>
+<meta name="description" content="Anxiety and the peptides people use for it: Selank and Semax against benzodiazepines and SSRIs, what the studies show, what people report, and the depression angle, with every source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#3E4A80;--ink-soft:#6B76A8;--paper:#FFFFE2;--chip:#FFFFF4;--rule:#E3E0BF;--blue:#6777B6;--accent:#DB6830;--k:var(--bs-k,1);
+--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--display:"Bricolage Grotesque",system-ui,sans-serif;
+--repair:#E1DE62;--pain:#87CFC5;--infl:#FF5050;--heart:#9E1B32;--gut:#AACC96;--prot:#99ACFF}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 calc(13.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif}
+.w{max-width:var(--bs-w,1240px);margin:0 auto;padding:10px var(--bs-pad,16px) 32px}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+b,strong{font-weight:700}
+p{margin:0 0 6px}
+.crumb{font:500 calc(10.5px*var(--k))/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px}
+.crumb a{color:var(--blue)}
+/* header */
+.hd{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+h1{font:700 calc(26px*var(--k))/1 var(--display);margin:0}
+.aka{font-size:calc(12px*var(--k));color:var(--ink-soft);margin:3px 0 0}
+.hico{width:64px;height:64px;flex:none;grid-row:span 2}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.mt{font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);background:var(--chip);white-space:nowrap}
+.stripe{display:flex;height:9px;border:1.5px solid var(--ink);margin:10px 0 0}
+.stripe i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0}
+.rtg{display:inline-block;font:500 calc(9.5px*var(--k))/1.1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 6px;border:1.5px solid var(--ink);white-space:nowrap;color:var(--ink)}
+/* key takeaway */
+.kt{margin:12px 0 0;background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.kt p{margin:0 0 5px}.kt p:last-child{margin:0}
+.kt b{color:var(--accent)}
+/* jump chips */
+.jump{display:flex;gap:6px;overflow-x:auto;margin:12px calc(-1*var(--bs-pad,16px)) 0;padding:0 var(--bs-pad,16px) 2px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+/* sections */
+.grid{display:grid;gap:14px;margin-top:14px}
+.sec{min-width:0}
+.st{font:600 calc(14px*var(--k))/1.1 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.box{--c:var(--rule);background:color-mix(in srgb,var(--c) 14%,var(--chip));box-shadow:inset 5px 0 0 var(--c);border:1.5px solid var(--ink);padding:10px 12px 10px 16px}
+.box>:last-child{margin-bottom:0}
+.y{--c:#E1DE62}.bl{--c:#99ACFF}.pu{--c:#B493E8}.gr{--c:#AACC96}.rd{--c:#E00000}.pk{--c:#FF99D8}.tl{--c:#87CFC5}
+.rd .st,.st.rdt{color:#C02626}
+.rd{background:color-mix(in srgb,#E00000 6%,var(--chip))}
+.or{--c:#DB6830}
+.ng{text-transform:none!important;letter-spacing:0}
+sup{line-height:0;font-size:.72em;vertical-align:super}
+sup a{text-decoration:none}
+.dg text{font-family:"Hanken Grotesk",system-ui,sans-serif}.dg text.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.method{font-size:calc(12px*var(--k))}
+.sub{font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 4px}
+.sub:first-child{margin-top:0}
+ul{margin:0;padding-left:17px}li{margin:0 0 4px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:2px 6px;margin:0 0 7px}
+ol.steps li::before{content:counter(s);font:600 calc(11px*var(--k))/1 var(--mono);width:20px;height:20px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;background:var(--chip);grid-row:span 2}
+.sci{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+/* evidence tag */
+.ev{display:inline-block;font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);vertical-align:1px;white-space:nowrap;margin-right:3px}
+.e-h{background:#AACC96}.e-a{background:#FFFFF4}.e-c{background:#CAF5F7}.e-r{background:#E1DE62}.e-i{background:#F2F0CC}.e-t{background:#C2DCFF}
+/* study rows */
+.studies{display:grid;gap:6px}
+details.sd{background:var(--chip);border:1.5px solid var(--ink)}
+details.sd summary{list-style:none;cursor:pointer;padding:7px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:start}
+details.sd summary::-webkit-details-marker{display:none}
+details.sd summary .t{font-weight:600;line-height:1.3}
+details.sd summary .yr{font:500 calc(10px*var(--k))/1.3 var(--mono);color:var(--ink-soft);white-space:nowrap}
+details.sd[open] summary{border-bottom:1.5px dashed var(--rule)}
+details.sd .bd{padding:7px 9px 9px}
+details.sd .bd p{margin:0 0 5px}
+.src{font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.02em}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.nm{background:var(--chip);border:1.5px solid var(--ink);padding:7px 8px}
+.nm b{display:block;font:600 calc(20px*var(--k))/1 var(--mono);color:var(--ink)}
+.nm span{display:block;font-size:calc(11.5px*var(--k));line-height:1.25;margin-top:3px}
+/* time bar */
+.tbar{position:relative;height:40px;margin:4px 0 2px;border-bottom:1.5px solid var(--ink)}
+.tbar i{position:absolute;bottom:3px;width:12px;height:12px;border-radius:50%;background:var(--repair);border:1.5px solid var(--ink);transform:translateX(-50%)}
+.tbar i.m{background:#F2F0CC}
+.tax{display:flex;justify-content:space-between;font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.04em;margin:3px 0 8px}
+/* story notes */
+.story{display:grid;gap:6px}
+.sn{background:var(--chip);border:1.5px solid var(--ink);padding:7px 9px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.sn .k{font:600 calc(9px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1.5px solid var(--ink);white-space:nowrap}
+.k-good{background:#AACC96}.k-hard{background:#FCB0B4}.k-note{background:#C2DCFF}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chip{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border:1.5px solid var(--ink);background:var(--chip);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+a.chip{color:var(--ink);text-decoration:none}
+.chip.off{border-style:dashed;color:var(--ink-soft)}
+.sq{display:inline-block;width:9px;height:9px;border:1.2px solid var(--ink)}
+/* compound cards */
+.cp{background:var(--chip);border:1.5px solid var(--ink);padding:10px 12px}
+.cph{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.cph h3{font:700 calc(18px*var(--k))/1.05 var(--display);margin:0}
+.cph a{font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cp .stripe{margin:7px 0 8px;height:7px}
+.cp .lead{margin:0 0 8px}
+/* compare table */
+.cmp{width:100%;border-collapse:collapse;font-size:calc(12.5px*var(--k));background:var(--chip)}
+.cmp th,.cmp td{border:1.5px solid var(--ink);padding:6px 7px;text-align:left;vertical-align:top}
+.cmp th{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:#F2F0CC}
+.cmp td:first-child{font:600 calc(10px*var(--k))/1.25 var(--mono);letter-spacing:.04em;text-transform:uppercase;width:24%}
+/* diagram */
+.dg{background:var(--chip);border:1.5px solid var(--ink);margin:6px 0 8px;position:relative}
+.dg svg{display:block;width:100%;height:auto}
+/* faq */
+details.fq{border-top:1.5px dashed var(--rule)}
+details.fq:first-of-type{border-top:0}
+details.fq summary{list-style:none;cursor:pointer;padding:7px 0;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";font:600 calc(14px*var(--k))/1 var(--mono);color:var(--accent)}
+details.fq[open] summary::after{content:"−"}
+details.fq .bd{padding:0 0 8px}
+/* sources */
+.fn{columns:1;font-size:calc(11.5px*var(--k));line-height:1.35;margin:0;padding-left:20px}
+.fn li{break-inside:avoid;margin:0 0 4px;overflow-wrap:anywhere}
+details.srcs>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}details.srcs>summary::-webkit-details-marker{display:none}.cnt{font:500 calc(10px*var(--k))/1 var(--mono);color:var(--accent);letter-spacing:.06em}details.srcs[open] .cnt{display:none}
+.note{font-size:calc(11px*var(--k));color:var(--ink-soft);margin:14px 0 0}
+.hint{font-size:calc(11.5px*var(--k));color:var(--ink-soft);margin:6px 0 0}
+@media (min-width:760px){
+ h1{font-size:calc(34px*var(--k))}
+ .hico{width:84px;height:84px}
+ .grid.two{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .grid.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .kt{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}.kt p{margin:0}
+ .fn{columns:2;column-gap:28px}
+ .jump{flex-wrap:wrap;overflow:visible;margin:12px 0 0;padding:0}
+ .span2{grid-column:span 2}
+ .grid.two{align-items:stretch}
+ .col>.sec:last-child{flex:1;display:flex;flex-direction:column}
+ .col>.sec:last-child>.box,.col>.sec:last-child>.cp{flex:1}
+ .studies.tri{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pl{animation:pulse 3s ease-in-out infinite}
+
+.e-m{background:#E3D6F7}.e-rct{background:#AACC96}
+.nums6{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0 0}
+.nums6 .nm{position:relative;padding:8px 9px 9px}
+.nums6 .nm b{font-size:calc(22px*var(--k))}
+.nums6 .nm span{padding-right:4px}
+.nums6 .nm .ev{position:absolute;top:7px;right:7px;margin:0}
+.nums6 .nm sup{position:absolute;bottom:6px;right:8px}
+.tight li{margin:0 0 3px}
+.bars{display:grid;gap:7px;margin:4px 0 6px}
+.bl2{display:grid;grid-template-columns:86px 1fr;gap:3px 8px;align-items:center}
+.bl2>span{grid-row:span 2;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.bt{position:relative;height:16px;background:var(--chip);border:1.5px solid var(--ink)}
+.bt i{display:block;height:100%;background:#F2F0CC}
+.bt.yr i{background:var(--repair)}
+.bl2.cs .bt.yr i{background:#FCB0B4}
+.bt em{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:600 calc(10px*var(--k))/1 var(--mono);font-style:normal}
+.blg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 calc(10px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px}
+.blg i{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.k6{background:#F2F0CC}.k52{background:var(--repair)}
+.tr{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:7px 0;border-top:1.5px dashed var(--rule)}
+.tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:1/-1}
+.tr:first-of-type,.tr.th+.tr{border-top:0}
+.tr.th{display:none}
+.tr>span:first-child{font-size:calc(13.5px*var(--k))}
+.tr>span:nth-child(3),.tr>span:nth-child(4){display:inline;font:500 calc(10px*var(--k))/1.3 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+.tr>span:nth-child(3)::before{content:"Kicks in · "}.tr>span:nth-child(4)::before{content:"Lasts · "}
+.tr .bad{color:#C02626!important}
+.tr.pep{background:color-mix(in srgb,var(--repair) 22%,transparent);margin:0 -8px;padding:7px 8px}
+.tr .ev{vertical-align:1px;margin-left:3px}
+@media (min-width:760px){
+ .nums6{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .tr{grid-template-columns:170px 1fr 92px 92px;gap:10px;align-items:baseline}
+ .tr>span:nth-child(1),.tr>span:nth-child(2){grid-column:auto}
+ .tr.th{display:grid;font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:0}
+ .tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}
+ .tr.th>span{font:inherit!important;color:inherit!important}
+}
+
+.pool{margin:0 0 8px}.pool .sub{margin:0 0 4px}
+.sbar{display:flex;height:22px;border:1.5px solid var(--ink);background:var(--chip)}
+.sbar i{display:flex;align-items:center;justify-content:center;font:600 calc(10.5px*var(--k))/1 var(--mono);font-style:normal;color:var(--ink);min-width:18px;border-right:1.5px solid var(--ink)}
+.sbar i:last-child{border-right:0}
+.g1,.k1{background:#AACC96}.g2,.k2{background:#E1DE62}.g3,.k3{background:#F2F0CC}
+.blg .k1,.blg .k2,.blg .k3{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+@media (min-width:760px){#trying ul{columns:2;column-gap:28px}#trying li{break-inside:avoid}}
+
+/* v4: softer boxes, open study rows */
+.box{border:0!important}
+.cp{border:0;background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+.cp{padding-left:16px}
+.nm{border:0;background:color-mix(in srgb,var(--ink) 5%,var(--chip))}
+.cmp th,.cmp td{border-color:color-mix(in srgb,var(--ink) 25%,transparent)}
+.mech{font-size:calc(12.5px*var(--k));line-height:1.45;margin:0 0 8px;color:var(--ink)}
+.mech b{color:var(--accent)}
+.srs{display:grid;gap:0}
+.sr{display:block;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.sr:first-child{border-top:0;padding-top:2px}
+.sr .ev{float:left;margin:2px 7px 0 0;white-space:nowrap;font-size:calc(8.5px*var(--k))}
+.sr p{margin:0;font-size:calc(13px*var(--k));line-height:1.4}
+.e-r{background:#AACC96}
+@media (min-width:760px){.sr{display:grid;grid-template-columns:84px 1fr;gap:8px}.sr .ev{float:none;justify-self:start;align-self:start;height:auto;margin:2px 0 0}.srs.tri .sr{display:block}.srs.tri .sr .ev{float:left;margin:2px 7px 0 0}.srs.tri{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px}.srs.tri .sr{border-top:0}}
+
+.mt2{font:600 calc(8px*var(--k))/1 var(--mono);font-style:normal;letter-spacing:.05em;text-transform:uppercase;padding:1px 3px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);color:var(--ink-soft);vertical-align:1px}
+.jn{font:500 calc(9.5px*var(--k))/1 var(--mono);color:var(--ink-soft);letter-spacing:.02em;white-space:nowrap}
+#doctor .sr .ev{background:#AACC96}
+@media (min-width:760px){#doctor .sr,#reports .sr{grid-template-columns:minmax(84px,max-content) 1fr}.srs.two{grid-template-columns:1fr 1fr;column-gap:24px}.srs.two .sr:nth-child(2){border-top:0;padding-top:2px}}
+.part{display:flex;align-items:center;gap:8px;margin:26px 0 0;font:600 calc(11px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:6px}
+.part span{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--ink);color:#FFFFE2;font-size:calc(11px*var(--k))}
+.part+.grid{margin-top:12px}
+#p0{margin-top:18px}
+#p0+.grid .col>.sec{display:flex;flex-direction:column;flex:1}#p0+.grid .col>.sec>.box{flex:1}#p0+.grid #what .dg{height:100%;display:flex;align-items:center}
+.hum td:first-child{width:auto}.hum td:nth-child(2),.hum td:nth-child(3){white-space:nowrap;font:600 calc(11px*var(--k))/1.3 var(--mono)}
+@media (max-width:759px){.hum td:first-child{width:30%}.hum th,.hum td{padding:5px}.hum th:nth-child(2),.hum th:nth-child(3){font-size:calc(8.5px*var(--k))}}
+#pairs li,#fine li{margin-bottom:4px}
+.tline{list-style:none;margin:6px 0 0;padding:0 0 0 16px;border-left:2px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.tline li{position:relative;padding:0 0 12px}
+.tline li:last-child{padding-bottom:2px}
+.tline li::before{content:"";position:absolute;left:-22px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--chip);border:2px solid var(--ink)}
+.tline .ty{display:block;font:700 calc(12px*var(--k))/1.2 var(--mono);letter-spacing:.04em;color:var(--ink)}
+.tline .th{margin:2px 0 3px;font:700 calc(14.5px*var(--k))/1.3 var(--display);color:var(--ink)}
+.tline .tb{margin:0;font-size:calc(13px*var(--k));line-height:1.5}
+.tline .tm{margin:4px 0 0;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.diff{margin:0 0 8px;background:var(--chip)}.dg.diff svg{display:block;width:100%;height:auto}
+.dg.in{margin:8px 0}
+#check .box{column-gap:28px}
+@media (min-width:760px){#check .box{display:grid;grid-template-columns:1fr 1fr;align-items:start}#check .box>.dg.in{grid-column:2;grid-row:1/span 4;margin:0}#check .box>*:not(.dg){grid-column:1}}
+.kt{border:0!important}
+.meta .mt{border:0;background:none;padding:0}.meta .mt+.mt::before{content:"·";margin:0 6px 0 0}
+.meta{gap:6px}
+.how{margin:0 0 6px;padding-left:18px}.how li{margin:0 0 5px;font-size:calc(13px*var(--k));line-height:1.45}.how i{font-style:normal;font:500 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.cp .sub{margin-top:8px}
+.cutnote{margin:10px 0 0;padding:10px 12px;background:color-mix(in srgb,#E1DE62 18%,var(--chip));font-size:calc(13px*var(--k));line-height:1.5}
+.cutnote+.grid{margin-top:12px}
+@media (min-width:760px){#compare{display:grid;grid-template-columns:460px minmax(0,1fr);column-gap:24px;align-items:start}#compare>h2{grid-column:1/-1}#compare .dg.diff{margin:0}}
+.dnote{font-size:calc(12.5px*var(--k));line-height:1.5;margin-top:10px}.dnote b{color:var(--ink)}
+@media (min-width:760px){#compare>.dg.diff{grid-column:1;grid-row:2/span 2}#compare>table{grid-column:2;grid-row:2}#compare>.dnote{grid-column:2;grid-row:3;margin-top:12px}}
+.tline .ty .ev{font-size:calc(8.5px*var(--k));margin-left:6px;vertical-align:1px;position:static}
+details.tm{margin:4px 0 0}
+details.tm>summary{list-style:none;cursor:pointer;font:500 calc(9.5px*var(--k))/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+details.tm>summary::-webkit-details-marker{display:none}
+details.tm>summary::after{content:" · read the study ▸";text-decoration:none;color:var(--ink-soft)}
+details.tm[open]>summary::after{content:" ▾"}
+.tmb{margin:6px 0 0;padding:8px 10px;background:var(--chip);font:400 calc(12.5px*var(--k))/1.45 "Hanken Grotesk",system-ui,sans-serif;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.tmb p{margin:0 0 4px}.tmb a{color:var(--blue)}.tmn{color:var(--ink-soft);font-size:calc(11px*var(--k))}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}.rchips .rtg{border:0;padding:4px 6px}
+.how .ev{position:static;font-size:calc(8px*var(--k));padding:2px 4px;margin-left:4px}
+.evleg .ev{position:static;margin:0}
+.evleg{margin:12px 0 0}.evleg .evh{margin:0 0 6px;font:600 calc(10.5px*var(--k))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.evleg dl{margin:0;display:grid;grid-template-columns:1fr;gap:5px}
+.evleg dl>div{display:grid;grid-template-columns:62px 1fr;align-items:baseline;gap:8px}
+.evleg dt{margin:0}.evleg dd{margin:0;font-size:calc(12px*var(--k));line-height:1.35;color:var(--ink)}
+@media (min-width:560px){.evleg dl{grid-template-columns:1fr 1fr;column-gap:24px}}
+@media (min-width:1000px){.evleg dl{grid-template-columns:repeat(4,1fr)}}
+/* soft tags: no ink box, light fill, like the role tags */
+.ev{border:0!important;padding:3px 5px!important;color:var(--ink)}
+.e-a{background:#ECE9D2!important}.e-h,.e-rct{background:#D6E8CB!important}.e-c{background:#DDF4F5!important}.e-m{background:#ECE3F8!important}.e-t{background:#DCE9FF!important}.e-r{background:#EFEDA6!important}
+.gw>div{grid-template-columns:118px 1fr!important}.gw dt{font:600 calc(11px*var(--k))/1.35 var(--mono);color:var(--ink)}
+#glossary .evleg{margin:0}
+details.tm>summary,details.tm>summary::after{color:#2F5BE0}
+@media (min-width:760px){#sport .box{columns:2;column-gap:28px}#sport details.fq{break-inside:avoid}}
+
+/* endometriosis v1 additions */
+.g4,.k4{background:#FCB0B4}
+.blg .k4{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);margin-right:4px;vertical-align:-2px}
+.bl1{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:center}
+.bl1>span{font:600 calc(10px*var(--k))/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp td.bad{color:#C02626}
+.grd td:first-child{width:22%}
+@media (max-width:759px){.grd th,.grd td{padding:5px;font-size:calc(11.5px*var(--k))}.grd th{font-size:calc(8.5px*var(--k))}.grd td:first-child{font-size:calc(9px*var(--k))}}
+.tr>span:nth-child(3)::before{content:"Evidence · "}.tr>span:nth-child(4)::before{content:"Note · "}
+@media (min-width:760px){.tr>span:nth-child(3)::before,.tr>span:nth-child(4)::before{content:none}}
+.tr.pep{background:color-mix(in srgb,var(--pain) 18%,transparent)}
+.cp{background:color-mix(in srgb,var(--pain) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--pain)}
+#bpc .cp,#tb .cp{background:color-mix(in srgb,var(--repair) 10%,var(--chip));box-shadow:inset 5px 0 0 var(--repair)}
+#ta1 .cp{background:color-mix(in srgb,#6777B6 8%,var(--chip));box-shadow:inset 5px 0 0 #6777B6}
+.cph span a{white-space:nowrap}
+.cp .grid.two{gap:4px 22px}
+details.sd summary .ev{margin-top:1px}
+details.sd .bd .ev{margin-left:3px}
+.studies.tri{align-items:start}
+@media (max-width:759px){.tl2{margin-top:0;padding-top:0}.tl2>li:first-child{padding-top:0}}
+@media (min-width:760px){.faqs{columns:2;column-gap:28px}.faqs details.fq{break-inside:avoid}.faqs details.fq:first-of-type{border-top:0}}
+#baseline .srs.tri .sr{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+#baseline .srs.tri .sr:first-child{border-top:0}
+@media (min-width:760px){#trials .sr{grid-template-columns:minmax(84px,max-content) 1fr}}
+@media (min-width:760px){#baseline .srs.tri .sr{border-top:0}}
+
+.cmp2{background:var(--chip);box-shadow:inset 5px 0 0 #CC007E;padding:10px 12px 12px 16px;margin:4px 0 2px}
+.cmp2 .levs{display:grid;gap:7px}
+.cmp2 .lev{display:grid;grid-template-columns:1fr;gap:1px;padding:7px 9px;background:color-mix(in srgb,var(--ink) 4%,var(--chip));border-left:3px solid var(--rule)}
+.cmp2 .lev b{font:700 calc(12.5px*var(--k))/1.15 var(--display)}
+.cmp2 .lev i{font:500 calc(9.5px*var(--k))/1.2 var(--mono);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);font-style:normal}
+.cmp2 .lev .bar{display:block;height:9px;margin-top:5px;background:color-mix(in srgb,var(--ink) 8%,var(--chip));border:1px solid var(--rule)}
+.cmp2 .lev .bar em{display:block;height:100%;width:0;transition:width .35s ease}
+.cmp2 .lev[data-k=gaba] .bar em{background:#87CFC5}
+.cmp2 .lev[data-k=sero] .bar em{background:#B493E8}
+.cmp2 .lev[data-k=adr] .bar em{background:#FF8A8A}
+.cmp2 .lev[data-k=base] .bar em{background:#AACC96}
+.cmp2 .lev[data-on="1"] .bar em{width:46%;opacity:.6}
+.cmp2 .lev[data-on="2"] .bar em{width:100%;opacity:1}
+.cmp2 .lev[data-on="1"]{border-left-color:#CC007E}
+.cmp2 .lev[data-on="2"]{border-left-color:#CC007E}
+.cmp2 .cmpcap{margin:9px 0 0;font-size:calc(13px*var(--k));line-height:1.5}
+.cmp2 .cmpcap b{color:var(--accent)}
+.cmp2 .cmpbtns{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.cmp2 .cmpbtns button{font:600 calc(9.5px*var(--k))/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 8px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);cursor:pointer}
+.cmp2 .cmpbtns button.pep{box-shadow:inset 0 -3px 0 #CC007E}
+.cmp2 .cmpbtns button[aria-pressed=true]{background:#CC007E;color:#FFFFF4}
+@media (prefers-reduced-motion:reduce){.cmp2 .lev .bar em{transition:none}}
+</style>
+</head><body>
+<style>#selank .cp{background:color-mix(in srgb,#CC007E 8%,var(--chip));box-shadow:inset 5px 0 0 #CC007E}#semax .cp{background:color-mix(in srgb,#C2DCFF 14%,var(--chip));box-shadow:inset 5px 0 0 #6E9BE0}.rtg[style*="CC007E"]{color:#FFFFF4}.rtg[style*="5271FF"]{color:#FFFFF4}</style>
+<div class="w">
+
+<p class="crumb"><a href="/library/">Library</a> · <a href="/library/goals/">Cases</a></p>
+<div class="hd">
+ <div><h1>Anxiety</h1><p class="aka">And the depression question alongside it. Two Russian nasal peptides, Selank and Semax, get sold as a benzodiazepine you can't get hooked on and an antidepressant without the wait. This page holds both up against the drugs they're compared to, and against doing nothing.</p></div>
+ <div class="meta">
+  <span class="draft">Draft</span>
+  <span class="mt">Version 1</span><span class="mt">23 Nov 2026</span><span class="mt">11 sources</span>
+ </div>
+</div>
+<div class="stripe" aria-label="Roles: Mood, Cognition, Sleep"><i style="width:60%;background:#CC007E"></i><i style="width:25%;background:#C2DCFF"></i><i style="width:15%;background:#5271FF"></i></div>
+<div class="tags"><span class="rtg" style="background:#CC007E">Mood</span><span class="rtg" style="background:#C2DCFF">Cognition</span><span class="rtg" style="background:#5271FF">Sleep</span></div>
+
+<div class="kt">
+ <p><b>What it is.</b> Anxiety is normal; an anxiety disorder is worry or dread that stays on when the threat is gone and starts costing you sleep, focus and days. Generalized anxiety disorder is the everyday version of it.</p>
+ <p><b>What studies found.</b> One 62-person Russian trial found Selank matched a low-dose benzodiazepine for anxiety without the sedation, memory loss or dependence.<sup><a href="#s1">1</a></sup> That is the whole human case, and it has never been repeated outside Russia.<sup><a href="#s7">7</a></sup> Semax is a focus drug with almost no human mood data.<sup><a href="#s8">8</a></sup></p>
+ <p><b>What people report.</b> Of Selank reports off vendor pages, most say the same thing: calm without being knocked out, often within days.<sup><a href="#s9">9</a></sup> A clear minority feel nothing, and a few feel more anxious, not less. Semax reports are about focus, and it can tip into over-stimulation.</p>
+ <p><b>Watch out.</b> Benzodiazepines carry the FDA's strongest warning: dependence can form in days to weeks, even as prescribed.<sup><a href="#s6">6</a></sup> The peptides are not approved or quality-checked outside Russia, and a single Selank dose has set off racing heart and worse anxiety in some people.<sup><a href="#s9">9</a></sup> Lasting anxiety or depression needs real care, not a nasal spray.</p>
+</div>
+
+<div class="nums6" aria-label="Anxiety in numbers">
+ <div class="nm"><b>~37%</b><span>get real relief from a dummy pill in anxiety trials, the highest of the anxiety disorders</span><i class="ev e-m">Meta</i><sup><a href="#s4">4</a></sup></div>
+ <div class="nm"><b>62</b><span>patients where Selank matched a benzodiazepine for anxiety, without its side effects</span><i class="ev e-rct">RCT</i><sup><a href="#s1">1</a></sup></div>
+ <div class="nm"><b>59%</b><span>of off-vendor Selank reports said it helped; 21% felt nothing, 9% felt worse</span><i class="ev e-r">Reports</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>0</b><span>independent Western trials of Selank or Semax; all human data is small and Russian</span><i class="ev e-c">Search</i><sup><a href="#s7">7</a></sup></div>
+ <div class="nm"><b>85</b><span>Semax reports read: mostly focus and clarity, not calm, and it can over-stimulate</span><i class="ev e-r">Reports</i><sup><a href="#s9">9</a></sup></div>
+ <div class="nm"><b>0.2–0.6 mg</b><span>common Selank nasal dose people report, median 0.4</span><i class="ev e-r">Reports</i><sup><a href="#s9">9</a></sup></div>
+</div>
+
+<nav class="jump" aria-label="On this page">
+ <a href="#p0">1 · What it is</a><a href="#baseline">Without treatment</a><a href="#kinds">Kinds</a><a href="#p1">2 · Studies</a><a href="#how">How they work</a><a href="#acts">Where each acts</a><a href="#benzo">Benzos</a><a href="#ssri">SSRIs &amp; depression</a><a href="#meds">More meds</a><a href="#selank">Selank</a><a href="#semax">Semax</a><a href="#table">Compared</a><a href="#natural">Natural</a><a href="#p2">3 · Reports</a><a href="#p3">4 · Pairings</a><a href="#p4">5 · Options</a><a href="#p5">6 · Warnings</a><a href="#faq">Questions</a><a href="#sources">Sources</a>
+</nav>
+
+<h2 class="part" id="p0"><span>1</span>What anxiety is</h2>
+
+<div class="grid two"><section class="sec" id="what">
+ <h2 class="st">Signs</h2>
+ <p>Everyone feels anxious. It becomes a disorder when the worry won't switch off, runs ahead of anything real, and starts taking things from you.</p>
+ <ul class="tight">
+  <li><b>Worry you can't steer</b> for most days over months, about several things at once (generalized anxiety).</li>
+  <li><b>Body signs:</b> a racing heart, tight chest, restlessness, a wired-but-tired feeling, broken sleep, a stomach that knots.</li>
+  <li><b>It narrows your life:</b> you avoid places, calls or decisions to keep the feeling down.</li>
+ </ul>
+ <p class="sub">When it is more than anxiety</p>
+ <p>Panic that hits in minutes, dread tied only to social situations, or low mood and loss of interest that ride alongside it. Where low mood leads, the question becomes depression, lower down this page.</p>
+</section>
+<section class="sec" id="baseline">
+ <h2 class="st">How it behaves without treatment</h2>
+ <div class="srs tri">
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>A dummy pill helps about a third.</b> Across anxiety-disorder trials, roughly 37% of people on placebo respond and 24% reach remission, and generalized anxiety sits at the high end of that.<sup><a href="#s4">4</a></sup> Any "it worked for me" has to clear that bar first.</p></div>
+  <div class="sr"><span class="ev e-m">Review</span><p><b>It rises and falls on its own.</b> Sleep, stress, caffeine, a hard week: all move anxiety, so one calm day proves nothing. The fair test is weeks, scored the same way, not a single good morning.</p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Talking therapy holds up.</b> Cognitive behavioural therapy beats a dummy treatment across anxiety disorders, and its gains tend to outlast a pill you stop taking.<sup><a href="#s5">5</a></sup> It is the benchmark the drugs and peptides are really competing with.</p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="kinds">
+ <h2 class="st">Not one thing: the kinds of anxiety</h2>
+ <p style="margin:0 0 6px">"Anxiety" covers several patterns, and what helps shifts with which one you have.<sup><a href="#s13">13</a></sup></p>
+ <div class="srs two">
+  <div class="sr"><span class="ev e-t">GAD</span><p><b>Generalised anxiety.</b> Background worry about many things, most days, for months. The everyday kind, and the one this page is built around.</p></div>
+  <div class="sr"><span class="ev e-t">Panic</span><p><b>Panic disorder.</b> Sudden surges of terror with a pounding heart and breathlessness that peak in minutes, plus fear of the next one.</p></div>
+  <div class="sr"><span class="ev e-t">Social</span><p><b>Social anxiety.</b> Dread of being judged, watched or embarrassed. One of the most common.<sup><a href="#s13">13</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Phobia</span><p><b>Specific phobia.</b> Intense fear of one thing, like heights, flying or needles. The most common of all.<sup><a href="#s13">13</a></sup></p></div>
+  <div class="sr"><span class="ev e-t">Situational</span><p><b>Performance nerves.</b> A spike before a talk, exam or stage. This is where beta-blockers earn their place.</p></div>
+  <div class="sr"><span class="ev e-c">Related</span><p><b>OCD and PTSD</b> once sat here but are now their own categories. Related, but treated differently, so they are not covered on this page.<sup><a href="#s13">13</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p1"><span>2</span>What studies found</h2>
+<style>
+.rxw{margin:4px 0 2px;background:var(--chip);box-shadow:inset 5px 0 0 #CC007E;padding:10px 12px 12px 16px}
+.rxw .rxstage{width:100%;max-width:440px;margin:0 auto}
+.rxw svg{display:block;width:100%;height:auto}
+.rxw .s-rest,.rxw .s-gaba,.rxw .s-benzo,.rxw .s-selank{display:none}
+.rxw.st-rest .s-rest,.rxw.st-gaba .s-gaba,.rxw.st-benzo .s-benzo,.rxw.st-selank .s-selank{display:inline}
+.rxw .cap>div{display:none;margin:8px 0 0;font-size:calc(13px*var(--k));line-height:1.5}
+.rxw.st-rest .cap .c-rest,.rxw.st-gaba .cap .c-gaba,.rxw.st-benzo .cap .c-benzo,.rxw.st-selank .cap .c-selank{display:block}
+.rxw .cap b{color:var(--accent)}
+.rxw .rxbtns{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0}
+.rxw .rxbtns button{flex:1 1 auto;min-width:68px;font:600 calc(10px*var(--k))/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:8px 6px;border:1.5px solid var(--ink);background:var(--chip);color:var(--ink);cursor:pointer}
+.rxw .rxbtns button[aria-pressed=true]{background:#CC007E;color:#FFFFF4}
+.rxw .ion{transform-box:fill-box;transform-origin:center;opacity:.9;animation:ionflow 2.4s linear infinite}
+.rxw.st-benzo .ion{animation-duration:1.3s}
+.rxw.st-selank .ion{animation-duration:3s}
+@keyframes ionflow{0%{transform:translateY(-4px);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(44px);opacity:0}}
+.rxw .lbl{font:600 calc(8px*var(--k))/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-soft)}
+.rxw .lbI{font:700 calc(8.5px*var(--k))/1 var(--mono);letter-spacing:.04em;fill:var(--ink)}
+</style>
+<section class="sec" id="how" style="grid-column:1/-1">
+ <h2 class="st">How they work, where it counts</h2>
+ <p style="margin:0 0 8px">Anxiety is the brain running hot. The calm comes from one brake: a receptor called <b>GABA-A</b>, a gated channel that lets negatively charged chloride into a neuron and makes it harder to fire. Tap through to see what each option does to that brake.</p>
+ <div class="rxw st-gaba" id="rxw">
+  <div class="rxstage">
+  <svg viewBox="0 0 340 234" role="img" aria-label="Diagram of the GABA-A receptor and how GABA, a benzodiazepine and Selank act on it">
+   <text x="8" y="14" class="lbl">Outside the neuron</text>
+   <text x="8" y="150" class="lbl">Inside the neuron</text>
+   <!-- membrane bilayer -->
+   <g fill="#E7E4C4" stroke="#CFCB9E" stroke-width="1">
+    <g>
+     <circle cx="18" cy="96" r="5"/><circle cx="34" cy="96" r="5"/><circle cx="50" cy="96" r="5"/><circle cx="66" cy="96" r="5"/><circle cx="82" cy="96" r="5"/><circle cx="98" cy="96" r="5"/><circle cx="114" cy="96" r="5"/>
+     <circle cx="226" cy="96" r="5"/><circle cx="242" cy="96" r="5"/><circle cx="258" cy="96" r="5"/><circle cx="274" cy="96" r="5"/><circle cx="290" cy="96" r="5"/><circle cx="306" cy="96" r="5"/><circle cx="322" cy="96" r="5"/>
+     <circle cx="18" cy="130" r="5"/><circle cx="34" cy="130" r="5"/><circle cx="50" cy="130" r="5"/><circle cx="66" cy="130" r="5"/><circle cx="82" cy="130" r="5"/><circle cx="98" cy="130" r="5"/><circle cx="114" cy="130" r="5"/>
+     <circle cx="226" cy="130" r="5"/><circle cx="242" cy="130" r="5"/><circle cx="258" cy="130" r="5"/><circle cx="274" cy="130" r="5"/><circle cx="290" cy="130" r="5"/><circle cx="306" cy="130" r="5"/><circle cx="322" cy="130" r="5"/>
+    </g>
+   </g>
+   <!-- receptor subunits (funnel), always visible -->
+   <path d="M150 70 L132 92 L138 134 L150 150 Z" fill="#DDE6FF" stroke="#3E4A80" stroke-width="1.4"/>
+   <path d="M190 70 L208 92 L202 134 L190 150 Z" fill="#DDE6FF" stroke="#3E4A80" stroke-width="1.4"/>
+   <text x="170" y="172" text-anchor="middle" class="lbI">GABA-A receptor</text>
+   <text x="170" y="183" text-anchor="middle" class="lbl">a chloride gate</text>
+   <!-- pore openness per state -->
+   <g class="s-rest"><path d="M150 72 L150 148 L190 148 L190 72 Z" fill="#9E1B32" opacity=".13"/><line x1="170" y1="74" x2="170" y2="146" stroke="#9E1B32" stroke-width="2.4"/></g>
+   <g class="s-gaba"><path d="M152 74 L160 146 L180 146 L188 74 Z" fill="#87CFC5" opacity=".5"/></g>
+   <g class="s-benzo"><path d="M150 74 L156 146 L184 146 L190 74 Z" fill="#87CFC5" opacity=".75"/></g>
+   <g class="s-selank"><path d="M153 74 L161 146 L179 146 L187 74 Z" fill="#87CFC5" opacity=".42"/></g>
+   <!-- chloride ions outside (always a few) -->
+   <g fill="#4F74C7" stroke="#2F4E8F" stroke-width="1"><circle cx="40" cy="40" r="7"/><circle cx="300" cy="34" r="7"/><circle cx="250" cy="52" r="7"/><circle cx="90" cy="30" r="7"/></g>
+   <g fill="#FFFFF4" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle"><text x="40" y="43">–</text><text x="300" y="37">–</text><text x="250" y="55">–</text><text x="90" y="33">–</text></g>
+   <text x="112" y="33" class="lbl">Cl⁻ ions</text>
+   <!-- flowing ions through pore (gaba/benzo/selank) -->
+   <g class="s-gaba" fill="#4F74C7" stroke="#2F4E8F" stroke-width="1"><circle class="ion" cx="170" cy="92" r="5"/><circle class="ion" cx="166" cy="100" r="5" style="animation-delay:.9s"/><circle class="ion" cx="174" cy="96" r="5" style="animation-delay:1.6s"/></g>
+   <g class="s-benzo" fill="#4F74C7" stroke="#2F4E8F" stroke-width="1"><circle class="ion" cx="170" cy="92" r="5"/><circle class="ion" cx="164" cy="98" r="5" style="animation-delay:.4s"/><circle class="ion" cx="176" cy="94" r="5" style="animation-delay:.7s"/><circle class="ion" cx="168" cy="104" r="5" style="animation-delay:1s"/><circle class="ion" cx="173" cy="100" r="5" style="animation-delay:1.3s"/></g>
+   <g class="s-selank" fill="#4F74C7" stroke="#2F4E8F" stroke-width="1"><circle class="ion" cx="170" cy="92" r="5"/><circle class="ion" cx="172" cy="100" r="5" style="animation-delay:1.5s"/></g>
+   <!-- GABA at its two sites (present in gaba/benzo/selank) -->
+   <g class="s-gaba gaba-dot"></g>
+   <g fill="#AACC96" stroke="#3E4A80" stroke-width="1.2" class="s-gaba"><circle cx="140" cy="78" r="7"/><circle cx="200" cy="78" r="7"/></g>
+   <g fill="#AACC96" stroke="#3E4A80" stroke-width="1.2" class="s-benzo"><circle cx="140" cy="78" r="7"/><circle cx="200" cy="78" r="7"/></g>
+   <g fill="#AACC96" stroke="#3E4A80" stroke-width="1.2" class="s-selank"><circle cx="140" cy="78" r="7"/><circle cx="200" cy="78" r="7"/></g>
+   <g class="s-gaba"><text x="140" y="66" text-anchor="middle" class="lbl">GABA</text><text x="200" y="66" text-anchor="middle" class="lbl">GABA</text></g>
+   <!-- benzo at its notch (benzo state) -->
+   <g class="s-benzo"><circle cx="208" cy="104" r="9" fill="#6B5BAA" stroke="#3E4A80" stroke-width="1.2"/><text x="208" y="124" text-anchor="middle" class="lbl">benzo site</text><text x="233" y="107" class="lbl">+ harder</text></g>
+   <!-- selank acting around the system (selank state) -->
+   <g class="s-selank">
+    <circle cx="170" cy="40" r="10" fill="#CC007E" stroke="#3E4A80" stroke-width="1.2"/><text x="170" y="22" text-anchor="middle" class="lbI">Selank</text>
+    <path d="M162 48 Q150 60 142 72" fill="none" stroke="#CC007E" stroke-width="1.4" stroke-dasharray="3 3"/><path d="M178 48 Q190 60 198 72" fill="none" stroke="#CC007E" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <circle cx="232" cy="44" r="7" fill="#B493E8" stroke="#3E4A80" stroke-width="1"/><text x="232" y="30" text-anchor="middle" class="lbl">5-HT</text>
+    <circle cx="270" cy="52" r="7" fill="#C2DCFF" stroke="#3E4A80" stroke-width="1"/><text x="268" y="38" text-anchor="middle" class="lbl">dopamine</text>
+   </g>
+   <!-- inside activity meter per state -->
+   <g transform="translate(250,196)">
+    <text x="20" y="-4" text-anchor="middle" class="lbl">neuron firing</text>
+    <g class="s-rest" fill="#FF5050"><rect x="2" y="-2" width="8" height="24"/><rect x="16" y="-8" width="8" height="30"/><rect x="30" y="-4" width="8" height="26"/></g>
+    <g class="s-gaba" fill="#E6B800"><rect x="2" y="8" width="8" height="14"/><rect x="16" y="4" width="8" height="18"/><rect x="30" y="10" width="8" height="12"/></g>
+    <g class="s-benzo" fill="#AACC96"><rect x="2" y="16" width="8" height="6"/><rect x="16" y="14" width="8" height="8"/><rect x="30" y="17" width="8" height="5"/></g>
+    <g class="s-selank" fill="#AACC96"><rect x="2" y="13" width="8" height="9"/><rect x="16" y="10" width="8" height="12"/><rect x="30" y="15" width="8" height="7"/></g>
+   </g>
+  </svg>
+  </div>
+  <div class="cap">
+   <div class="c-rest"><b>Resting, no GABA.</b> The gate is shut, chloride stays out, and the neuron fires freely. Plenty of this at once is the body of anxiety: the brain running hot with no brake on.</div>
+   <div class="c-gaba"><b>GABA opens the brake.</b> The brain's own calming messenger binds two spots on the receptor and the gate opens. Chloride flows in, the neuron is harder to fire. This is calm as the body normally makes it, no drug involved.</div>
+   <div class="c-benzo"><b>A benzo leans on the brake.</b> It doesn't open the gate itself. It parks in a separate notch and makes GABA's own opening stronger and more frequent, so more chloride pours in. Fast, heavy calm. Lean on it daily and the brain turns its own brake down to compensate, so you need more for the same effect: that is tolerance and dependence.</div>
+   <div class="c-selank"><b>Selank works around the receptor.</b> It doesn't jam the gate open like a benzo. It nudges the GABA system more gently and tops up serotonin and dopamine, so the calm is lighter and slower and no dependence has shown up. The honest catch: its exact handhold is still not pinned down, which is why it sits above the receptor here, not inside it.</div>
+  </div>
+  <div class="rxbtns">
+   <button type="button" data-s="rest" aria-pressed="false">Resting</button>
+   <button type="button" data-s="gaba" aria-pressed="true">GABA</button>
+   <button type="button" data-s="benzo" aria-pressed="false">+ Benzo</button>
+   <button type="button" data-s="selank" aria-pressed="false">+ Selank</button>
+  </div>
+ </div>
+ <p class="hint">Simplified. The GABA sites and the benzodiazepine notch are real and well mapped; Selank's exact grip on the system is not, so it is drawn acting around the receptor rather than in it.</p>
+</section>
+<script>(function(){var w=document.getElementById('rxw');if(!w)return;var bs=w.querySelectorAll('.rxbtns button');bs.forEach(function(b){b.addEventListener('click',function(){w.className='rxw st-'+b.getAttribute('data-s');bs.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true')})})})();</script>
+
+
+<section class="sec" id="acts" style="grid-column:1/-1">
+ <h2 class="st">Where each option actually acts</h2>
+ <p style="margin:0 0 8px">Calm has more than one lever. Most anxiety treatments pull one or two of these four, which is why they feel so different and why "best" depends on what your anxiety is doing. Tap any option.</p>
+ <div class="cmp2" id="cmp2">
+  <div class="levs">
+   <div class="lev" data-k="gaba"><b>GABA brake</b><i>fast, physical calm</i><span class="bar"><em></em></span></div>
+   <div class="lev" data-k="sero"><b>Serotonin &amp; mood</b><i>slow, lasting</i><span class="bar"><em></em></span></div>
+   <div class="lev" data-k="adr"><b>Adrenaline &amp; the body</b><i>racing heart, shakes</i><span class="bar"><em></em></span></div>
+   <div class="lev" data-k="base"><b>Baseline &amp; stress dial</b><i>cortisol, the whole system</i><span class="bar"><em></em></span></div>
+  </div>
+  <div class="cmpcap" id="cmpcap"><b>Tap an option below.</b> Each one lights the levers it pulls. A solid bar means strong, well-proven action; a faint bar means a lighter or less certain one.</div>
+  <div class="cmpbtns">
+   <button type="button" data-t="ssri" aria-pressed="false">SSRI / SNRI</button>
+   <button type="button" data-t="benzo" aria-pressed="false">Benzo</button>
+   <button type="button" data-t="buspirone" aria-pressed="false">Buspirone</button>
+   <button type="button" data-t="pregabalin" aria-pressed="false">Pregabalin</button>
+   <button type="button" data-t="beta" aria-pressed="false">Beta-blocker</button>
+   <button type="button" data-t="hydroxyzine" aria-pressed="false">Hydroxyzine</button>
+   <button type="button" data-t="selank" aria-pressed="false" class="pep">Selank</button>
+   <button type="button" data-t="semax" aria-pressed="false" class="pep">Semax</button>
+   <button type="button" data-t="ashwagandha" aria-pressed="false">Ashwagandha</button>
+   <button type="button" data-t="cbt" aria-pressed="false">Therapy (CBT)</button>
+  </div>
+ </div>
+ <p class="hint">Levers are a simplification of real brain systems. "Strong" and "faint" track how good the human evidence is, not how intense it feels.</p>
+</section>
+<script>(function(){
+var D={
+ ssri:{lv:{sero:2},cap:"<b>SSRIs &amp; SNRIs.</b> First-line for anxiety and depression. Slide serotonin (and, for SNRIs, noradrenaline) up over weeks. Not addictive, but slow, and stopping fast brings its own kick. The default doctors reach for."},
+ benzo:{lv:{gaba:2},cap:"<b>Benzodiazepine.</b> Leans hard on the GABA brake for fast, heavy calm. Powerful and reliable, but tolerance and dependence build in weeks. A short-term tool, not a daily one."},
+ buspirone:{lv:{sero:1},cap:"<b>Buspirone.</b> A 5-HT1A partial agonist, so it works on serotonin like an antidepressant but gentler. Non-sedating, non-addictive, slow to build, and only really works in generalised anxiety."},
+ pregabalin:{lv:{gaba:1,base:1},cap:"<b>Pregabalin.</b> Calms over-firing nerves at a calcium channel. Approved for anxiety in Europe, fast-acting, good for the physical dread, but it carries its own dependence and misuse risk."},
+ beta:{lv:{adr:2},cap:"<b>Beta-blockers (propranolol).</b> Block adrenaline's grip on the body, so the racing heart and shaky hands settle. They do nothing for the worry itself. The go-to for performance and situational nerves."},
+ hydroxyzine:{lv:{base:1,adr:1},cap:"<b>Hydroxyzine.</b> An antihistamine that calms and sedates, taken as needed. Not addictive, has GAD evidence at 50 mg a day, but it makes you drowsy and wears off."},
+ selank:{lv:{gaba:1,sero:1},cap:"<b>Selank (peptide).</b> Nudges the GABA system and tops up serotonin and dopamine, rather than forcing any one lever. Calm without sedation and no dependence seen, but the human evidence is one small Russian trial.",pep:1},
+ semax:{lv:{base:1},cap:"<b>Semax (peptide).</b> A focus and drive peptide, not a calming one. It can sharpen thinking and, in some people, add anxiety rather than ease it. Here for comparison, not as an anxiety fix.",pep:1},
+ ashwagandha:{lv:{base:2},cap:"<b>Ashwagandha.</b> The natural remedy with the most real trials: meta-analyses show it lowers cortisol and anxiety scores against placebo. Modest, slow, lower stakes, and quality between brands varies."},
+ cbt:{lv:{gaba:1,sero:1,adr:1,base:2},cap:"<b>Therapy (CBT).</b> Retrains the whole system rather than pulling one lever. The slowest to start and the one whose gains last longest after you stop. The benchmark everything else is measured against."}
+};
+var w=document.getElementById('cmp2');if(!w)return;
+var levs=w.querySelectorAll('.lev'),btns=w.querySelectorAll('.cmpbtns button'),cap=document.getElementById('cmpcap');
+function set(t){var d=D[t];levs.forEach(function(l){var k=l.getAttribute('data-k'),v=d.lv[k]||0;l.setAttribute('data-on',v);});cap.innerHTML=d.cap;btns.forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-t')===t?'true':'false')});}
+btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-t'))})});
+})();</script>
+
+<div class="grid"><section class="sec" id="benzo">
+ <h2 class="st">Benzodiazepines · the thing Selank is sold against</h2>
+ <p class="mech">Diazepam, alprazolam (Xanax), clonazepam, medazepam. They open the brain's main calming channel, the GABA-A receptor, wider. <b>How it helps:</b> fast and reliable, calm within an hour. <b>How it hurts:</b> that same brake wears a groove. Tolerance builds, the dose creeps, and the body comes to need it.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-h">FDA</span><p><b>The strongest warning there is.</b> In 2020 the FDA put a boxed warning on every benzodiazepine for abuse, addiction, physical dependence and withdrawal. Dependence can form in days to weeks, even taken exactly as prescribed, and stopping suddenly can bring on withdrawal including seizures.<sup><a href="#s6">6</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Label</span><p><b>Meant for the short run.</b> Most benzodiazepines are recommended for weeks, not months, yet are often taken far longer.<sup><a href="#s6">6</a></sup> They work; the problem is what happens after.</p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="ssri">
+ <h2 class="st">SSRIs, SNRIs and the depression question</h2>
+ <p class="mech">Sertraline, escitalopram, venlafaxine and the rest are the first-line drugs for both generalized anxiety and depression. They work slowly, over weeks, by nudging serotonin, and you don't get hooked the way you do on a benzo, though stopping fast brings its own discontinuation effects.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>They beat placebo, modestly.</b> In generalized anxiety, antidepressants raise the response rate over a dummy pill by a clear but not dramatic margin, and most people stay on them without trouble.<sup><a href="#s5">5</a></sup> Decades of independent trials sit behind that number.</p></div>
+  <div class="sr"><span class="ev e-r">Plain truth</span><p><b>For depression, no peptide is close.</b> Semax gets talked about as an antidepressant, but the human evidence for mood is thin and mostly animal work and conference abstracts.<sup><a href="#s8">8</a></sup> If low mood is the main problem, the honest comparison is an antidepressant and therapy, not a nasal peptide.</p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="meds">
+ <h2 class="st">The rest of the medication shelf</h2>
+ <p class="hint" style="margin:0 0 6px">Beyond the SSRIs and benzos above, these are the other drugs doctors actually reach for.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-h">GAD drug</span><p><b>Buspirone.</b> Works on serotonin like an antidepressant but gentler (a 5-HT1A partial agonist), non-sedating and non-addictive. It only really works in generalised anxiety, and it is slow.<sup><a href="#s12">12</a>,<a href="#s13">13</a></sup></p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Pregabalin.</b> Calms over-firing nerves at a calcium channel. Approved for anxiety in Europe, fast-acting, strong on the physical dread, but it carries its own dependence and misuse risk.<sup><a href="#s14">14</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">Body only</span><p><b>Beta-blockers (propranolol).</b> Block adrenaline's grip on the body, so the racing heart and shaking hands settle. They do nothing for the worry itself, which is why they suit performance nerves.<sup><a href="#s16">16</a></sup></p></div>
+  <div class="sr"><span class="ev e-h">As needed</span><p><b>Hydroxyzine.</b> An antihistamine that calms and sedates, taken as needed, not addictive, with GAD evidence at about 50 mg a day. The catch is drowsiness.<sup><a href="#s12">12</a></sup></p></div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="selank">
+ <h2 class="st">Selank · the anxiety peptide</h2>
+ <div class="cp">
+  <div class="cph"><h3>Selank</h3><a href="/library/#/p/selank">Library card</a></div>
+  <div class="stripe"><i style="width:60%;background:#CC007E"></i><i style="width:25%;background:#C2DCFF"></i><i style="width:15%;background:#5271FF"></i></div>
+  <p class="lead">A synthetic seven-amino-acid cousin of a natural immune peptide (tuftsin), approved in Russia as nasal drops for generalized anxiety and neurasthenia, not approved anywhere in the West.</p>
+  <p class="mech"><b>How it is said to work:</b> it touches the same GABA calming system a benzodiazepine does, but as a gentle modulator rather than a blunt amplifier, and it also nudges serotonin and dopamine. That mixed, lighter touch is the stated reason it calms without sedating or building dependence.<sup><a href="#s3">3</a></sup></p>
+  <div class="srs">
+   <div class="sr"><span class="ev e-rct">RCT</span><p><b>Matched a benzo in 62 people.</b> In patients with generalized anxiety and neurasthenia, Selank gave anxiety relief similar to the benzodiazepine medazepam, and added a mild lift in focus and energy the benzo didn't.<sup><a href="#s1">1</a></sup> Small, open to bias, and done by the group tied to the drug.</p></div>
+   <div class="sr"><span class="ev e-a">Rat</span><p><b>Calm without the benzo baggage.</b> In stressed rats, Selank matched or helped diazepam, and the authors report its effect comes without the amnesia, withdrawal or dependence benzodiazepines bring.<sup><a href="#s2">2</a>,<a href="#s3">3</a></sup></p></div>
+   <div class="sr"><span class="ev e-c">Check</span><p><b>The half-life line is shaky.</b> The "2 minutes in the blood" figure often quoted is from a dish, not a person, and the felt effect plainly lasts much longer.<sup><a href="#s9">9</a></sup> A reminder of how thin the real data is.</p></div>
+  </div>
+ </div>
+</section></div>
+
+<div class="grid"><section class="sec" id="semax">
+ <h2 class="st">Semax · the focus peptide, not the calm one</h2>
+ <div class="cp">
+  <div class="cph"><h3>Semax</h3><span><a href="/library/#/p/semax">Library card</a> · <a href="/library/#/p/semax-vs-selank">vs Selank</a></span></div>
+  <div class="stripe"><i style="width:55%;background:#C2DCFF"></i><i style="width:25%;background:#B493E8"></i><i style="width:20%;background:#BAB802"></i></div>
+  <p class="lead">A fragment of the stress hormone ACTH with a stabilising tail, a registered Russian drug for stroke and cognition. Same program as Selank, different job.</p>
+  <p class="mech"><b>How it is said to work:</b> it is a nootropic, aimed at focus, memory and drive, and is claimed to raise BDNF, a brain growth signal, though that rise is shown in rats and unconfirmed in people.<sup><a href="#s8">8</a></sup> It is not an anxiolytic, and for some it does the opposite.</p>
+  <div class="srs">
+   <div class="sr"><span class="ev e-r">Reports</span><p><b>People take it for clarity, not calm.</b> Across 85 reports, the steady themes are focus, memory and energy; the steady side effect is over-stimulation, often with coffee or a stimulant, and at higher doses that shows up as anxiety and irritability.<sup><a href="#s9">9</a></sup></p></div>
+   <div class="sr"><span class="ev e-h">Human</span><p><b>Thin where it counts.</b> Most human Semax work is small, Russian, and often only a conference abstract; there is very little showing it lifts mood or focus in a controlled way.<sup><a href="#s8">8</a></sup></p></div>
+  </div>
+ </div>
+</section></div>
+
+<section class="sec" id="table">
+ <h2 class="st">The four, side by side</h2>
+ <div class="tw"><table class="cmp">
+  <tr><th>&nbsp;</th><th>Benzodiazepine</th><th>SSRI / SNRI</th><th>Selank</th><th>Semax</th></tr>
+  <tr><td>Mainly for</td><td>Short-term anxiety, panic</td><td>Anxiety and depression, first line</td><td>Anxiety, calm</td><td>Focus, memory, mood</td></tr>
+  <tr><td>How fast</td><td>Within an hour</td><td>Weeks</td><td>Minutes to a few days</td><td>Minutes, for focus</td></tr>
+  <tr><td>Human evidence</td><td>Decades, independent</td><td>Decades, independent</td><td>One small Russian trial</td><td class="bad">Almost none for mood</td></tr>
+  <tr><td>Dependence</td><td class="bad">Yes, FDA boxed warning</td><td>No, but don't stop fast</td><td>None reported</td><td>None reported</td></tr>
+  <tr><td>Main downside</td><td class="bad">Hooks you; sedation, memory</td><td>Slow; blunting for some</td><td>Unproven, unregulated</td><td>Can over-stimulate</td></tr>
+ </table></div>
+ <p class="dnote"><b>The real trade.</b> Benzodiazepines and SSRIs have the evidence and the regulation; Selank has one encouraging trial and a clean side-effect story that nobody independent has confirmed. You are choosing between proven-but-costly and promising-but-unproven.</p>
+</section>
+
+<div class="grid"><section class="sec" id="natural">
+ <h2 class="st">Natural remedies, and which have real trials</h2>
+ <p class="hint" style="margin:0 0 6px">These lower the baseline. None matches a prescription drug for severe anxiety, but a few have genuine human data.</p>
+ <div class="srs">
+  <div class="sr"><span class="ev e-m">Meta</span><p><b>Ashwagandha.</b> The herb with the most real evidence: pooled trials show it lowers cortisol and cuts anxiety scores against a dummy pill. The effect is modest, the trials are small and vary in quality, and so does what is actually in each brand's capsule.<sup><a href="#s15">15</a></sup></p></div>
+  <div class="sr"><span class="ev e-c">Thin</span><p><b>L-theanine, magnesium, chamomile, lavender.</b> Widely taken and low-risk, but the human trials are small, mixed or short. Reasonable to try, not something to lean on for real anxiety.</p></div>
+  <div class="sr"><span class="ev e-h">Strong</span><p><b>Exercise, sleep, less caffeine and alcohol.</b> The least glamorous and among the best proven. They move the baseline for everyone, drug or no drug.</p></div>
+  <div class="sr"><span class="ev e-rct">RCT</span><p><b>Therapy (CBT)</b> outlasts a pill you stop taking and is the benchmark the rest are measured against. More under the options below.<sup><a href="#s5">5</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p2"><span>3</span>What people report</h2>
+
+<div class="grid two"><section class="sec" id="reports">
+ <h2 class="st">Selank, from the forums</h2>
+ <p class="hint" style="margin:0 0 6px">Reports from forums and review sites, one person per count, with seller pages treated as an upper bound and never the whole story.</p>
+ <div class="pool">
+  <p class="sub">Of 65 clear off-vendor Selank reports</p>
+  <div class="sbar"><i class="g1" style="flex:59">59% helped</i><i class="g3" style="flex:12">12%</i><i class="g2" style="flex:21">21% nothing</i><i class="g4" style="flex:9">9% worse</i></div>
+  <p class="blg"><span><i class="k1"></i>helped</span><span><i class="k3"></i>mixed</span><span><i class="k2"></i>nothing</span><span><i class="k4"></i>worse</span></p>
+ </div>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">Consistent</span><p><b>Calm without being switched off.</b> The one thing 25-plus people agree on: anxiety eased without the fog or sedation of a benzo, often within minutes to a few days.<sup><a href="#s9">9</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">Honest</span><p><b>For a real share, nothing.</b> About 1 in 5 off vendor pages felt no effect at all, even at higher doses. It is not a sure thing.<sup><a href="#s9">9</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">Watch</span><p><b>A few got the opposite.</b> Headaches, and in a handful of people more anxiety, racing heart or bad sleep, sometimes from a single dose.<sup><a href="#s9">9</a></sup></p></div>
+ </div>
+</section>
+<section class="sec" id="reports2">
+ <h2 class="st">Semax, and the aggregators</h2>
+ <div class="srs">
+  <div class="sr"><span class="ev e-r">Reports</span><p><b>Semax is a focus story.</b> Of 85 reports, the agreement is on clarity and drive, not calm, and the repeated downside is feeling wired, worse with stimulants.<sup><a href="#s9">9</a></sup></p></div>
+  <div class="sr"><span class="ev e-r">Aggregator</span><p><b>One large dataset leans positive.</b> On SelfAssay, Selank's most logged benefit across 241 reports is anxiety relief, named by 91 people; anxiety also shows up as a side effect for a few.<sup><a href="#s10">10</a></sup> Self-selected, so read it as a direction, not a rate.</p></div>
+  <div class="sr"><span class="ev e-c">Flag</span><p><b>One source looks seeded.</b> Another site shows Selank at 3% favourable with benefit counts higher than its user count, a broken pattern we don't trust and have left out of the numbers above.<sup><a href="#s9">9</a></sup></p></div>
+ </div>
+</section></div>
+
+<h2 class="part" id="p3"><span>4</span>Pairings and the same problem elsewhere</h2>
+
+<div class="grid two"><section class="sec" id="pairs">
+ <h2 class="st">What people pair it with</h2>
+ <ul class="tight">
+  <li><b>Selank plus Semax</b> is the common stack: Selank for calm, Semax for focus. People report it reads as balanced, though the effects get hard to tell apart.</li>
+  <li><b>Alongside an SSRI or a benzo</b> some use Selank as a top-up; a few report it took the edge off benzo-withdrawal stress. No trial backs this, and mixing anything with those drugs is a doctor's call.</li>
+  <li><b>With magnesium, glycine or an adaptogen</b> like ashwagandha, which at least have their own small human trials for anxiety.</li>
+ </ul>
+</section>
+<section class="sec" id="elsewhere">
+ <h2 class="st">The same compounds, other pages</h2>
+ <p>Selank and Semax turn up wherever brain and mood do. If your question is really about one of these, start there:</p>
+ <div class="chips">
+  <a class="chip" href="/library/aims/brain/"><i class="sq" style="background:#C2DCFF"></i>Brain &amp; focus</a>
+  <a class="chip" href="/library/goals/notes/adhd/"><i class="sq" style="background:#B493E8"></i>ADHD</a>
+  <a class="chip" href="/library/#/p/selank"><i class="sq" style="background:#CC007E"></i>Selank card</a>
+  <a class="chip" href="/library/#/p/semax"><i class="sq" style="background:#C2DCFF"></i>Semax card</a>
+ </div>
+</section></div>
+
+<h2 class="part" id="p4"><span>5</span>Options, strongest evidence first</h2>
+
+<section class="sec" id="options">
+ <div class="tr th"><span>Option</span><span>What it is</span><span>Evidence</span><span>Note</span></div>
+ <div class="tr"><span>Therapy (CBT)</span><span>Structured talking therapy for anxiety</span><span>Strong, independent</span><span>Gains outlast a stopped pill</span></div>
+ <div class="tr"><span>SSRI / SNRI</span><span>First-line drug for anxiety and depression</span><span>Strong, independent</span><span>Weeks to work; prescription</span></div>
+ <div class="tr"><span>Benzodiazepine</span><span>Fast relief, short-term</span><span>Strong, independent</span><span class="bad">Dependence; prescription</span></div>
+ <div class="tr"><span>Buspirone</span><span>5-HT1A drug, GAD only</span><span>Good, independent</span><span>Slow; not addictive</span></div>
+<div class="tr"><span>Pregabalin</span><span>Calms nerve firing; EU-approved</span><span>Strong, independent</span><span class="bad">Some dependence</span></div>
+<div class="tr"><span>Beta-blocker</span><span>Blocks the body's adrenaline</span><span>Good for performance</span><span>Physical symptoms only</span></div>
+<div class="tr"><span>Hydroxyzine</span><span>Sedating antihistamine, as needed</span><span>Modest, independent</span><span>Drowsy; not addictive</span></div>
+<div class="tr pep"><span>Selank</span><span>Russian nasal anxiolytic peptide</span><span>One small Russian trial</span><span>Calm without sedation, unproven</span></div>
+ <div class="tr pep"><span>Semax</span><span>Russian nasal focus peptide</span><span class="bad">Almost none for mood</span><span>Focus, not calm; can over-stimulate</span></div>
+ <div class="tr"><span>Supplements</span><span>Ashwagandha, magnesium, L-theanine</span><span>Small human trials</span><span>Modest, lower stakes</span></div>
+ <div class="tr"><span>Lifestyle</span><span>Sleep, exercise, less caffeine and alcohol</span><span>Strong, independent</span><span>Moves the baseline for everyone</span></div>
+</section>
+
+<h2 class="part" id="p5"><span>6</span>Before you try anything</h2>
+
+<div class="grid"><section class="sec" id="warn">
+ <div class="box rd">
+  <p class="st rdt">Warnings</p>
+  <ul class="tight">
+   <li><b>Benzodiazepines are prescription-only for a reason.</b> The FDA's boxed warning covers dependence, which can form in days to weeks even as prescribed, and withdrawal that can include seizures. Never start, change or stop one without a doctor, and never stop abruptly.<sup><a href="#s6">6</a></sup></li>
+   <li><b>SSRIs and SNRIs take weeks and shouldn't be stopped suddenly.</b> They also interact with other serotonin drugs. A doctor manages this, not a nasal spray on the side.</li>
+   <li><b>The peptides are not approved or quality-checked outside Russia.</b> What is in the vial is not guaranteed. A single Selank dose has triggered racing heart, worse anxiety and bad sleep in some people, and Semax can over-stimulate, more so with stimulants or coffee.<sup><a href="#s9">9</a></sup></li>
+   <li><b>Lasting anxiety or depression is a medical problem.</b> If it is taking your sleep, focus or days, or low mood is part of it, see a doctor. Peptides are not a substitute for care.</li>
+  </ul>
+ </div>
+</section></div>
+
+<h2 class="part" id="faq" style="margin-top:22px"><span>?</span>Questions people ask</h2>
+<div class="faqs">
+ <details class="fq"><summary>Is Selank as good as Xanax?</summary><div class="bd"><p>One 62-person trial found it matched a different benzodiazepine for anxiety, without the sedation or dependence.<sup><a href="#s1">1</a></sup> That is a real but single result, done by the drug's own group and never repeated independently. "As good as" is not established; "promising" is fair.</p></div></details>
+ <details class="fq"><summary>Will Selank get me hooked like a benzo?</summary><div class="bd"><p>No dependence or withdrawal has been reported for it in animal or human work, which is its main selling point over benzodiazepines.<sup><a href="#s2">2</a>,<a href="#s3">3</a></sup> But the human safety data is thin, so "none reported" is not the same as "proven safe long-term".</p></div></details>
+ <details class="fq"><summary>Does Semax help anxiety or depression?</summary><div class="bd"><p>Semax is a focus and cognition drug, not a calming one, and for some people it adds anxiety rather than easing it.<sup><a href="#s9">9</a></sup> Its antidepressant reputation rests on very little human evidence.<sup><a href="#s8">8</a></sup> For low mood, an antidepressant and therapy are the real options.</p></div></details>
+ <details class="fq"><summary>How fast does Selank work?</summary><div class="bd"><p>Reports range from minutes to about five days for a steady effect, most often within the first few days.<sup><a href="#s9">9</a></sup> If a week or two does nothing, it is probably not going to.</p></div></details>
+ <details class="fq"><summary>Can I take Selank with my SSRI or benzo?</summary><div class="bd"><p>People do, and some report it helps, but there is no trial on the combination and these are serious drugs. This is a conversation with your prescriber, not a thing to layer on quietly.</p></div></details>
+ <details class="fq"><summary>Is any of this FDA approved?</summary><div class="bd"><p>No. Selank and Semax are approved in Russia and sold as nasal drops there; neither is approved by the FDA or any Western regulator, and the human evidence has never been replicated to Western standards.<sup><a href="#s7">7</a></sup></p></div></details>
+<details class="fq"><summary>What will a doctor usually prescribe first?</summary><div class="bd"><p>For ongoing anxiety, almost always an SSRI or SNRI, with therapy alongside.<sup><a href="#s12">12</a>,<a href="#s13">13</a></sup> Benzodiazepines are kept for the short term or a crisis, not daily use. Buspirone, pregabalin, hydroxyzine or a beta-blocker come in depending on the picture. None of the peptides is a prescription option in the West.</p></div></details>
+<details class="fq"><summary>Do natural remedies actually work?</summary><div class="bd"><p>Ashwagandha has the most real data: it lowers cortisol and anxiety scores against placebo, though modestly and in small, variable trials.<sup><a href="#s15">15</a></sup> L-theanine, magnesium and the rest are low-risk but thinly studied. Good as support, not a replacement for care when anxiety is severe.</p></div></details>
+</div>
+
+<div class="grid"><section class="sec" id="sources">
+ <details class="srcs" id="srcd"><summary><h2 class="st" style="display:inline">Sources</h2> <span class="cnt">tap to open</span></summary>
+ <ol class="fn">
+  <li id="s1">Selank vs the benzodiazepine medazepam in generalized anxiety and neurasthenia, 62 patients, randomized comparative study. Zh Nevrol Psikhiatr Im S S Korsakova, 2008;108(4):38-48 (Russian). PubMed. <a href="https://pubmed.ncbi.nlm.nih.gov/18454096/" target="_blank" rel="noopener">link</a></li>
+  <li id="s2">Selank enhances diazepam in unpredictable chronic mild stress in rats; notes anxiolytic effect comparable to low-dose benzodiazepines without their side effects. 2017. PMC5322660. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5322660/" target="_blank" rel="noopener">link</a></li>
+  <li id="s3">Selank affects GABAergic gene expression; clinical effect similar to low-dose tranquilizers without amnesia, withdrawal or dependence. Front Pharmacol 2016;7:31. PMC4757669. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4757669/" target="_blank" rel="noopener">link</a></li>
+  <li id="s4">Placebo response in anxiety, obsessive-compulsive and stress disorders: three-level meta-analysis, placebo response about 37% and remission 24%, largest in generalized anxiety and PTSD. BMJ Mental Health 2023;26:e300630. <a href="https://mentalhealth.bmj.com/content/26/1/e300630" target="_blank" rel="noopener">link</a></li>
+  <li id="s5">Antidepressants and CBT vs placebo in generalized anxiety and anxiety disorders (response rates and durability). Meta-analyses, incl. Depress Anxiety 2018;35:502-514. <a href="https://pubmed.ncbi.nlm.nih.gov/29451967/" target="_blank" rel="noopener">link</a></li>
+  <li id="s6">FDA, Boxed Warning updated for the benzodiazepine class: abuse, addiction, physical dependence, withdrawal; dependence can form in days to weeks, 23 Sep 2020. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-requiring-boxed-warning-updated-improve-safe-use-benzodiazepine-drug-class" target="_blank" rel="noopener">link</a></li>
+  <li id="s7">Selank evidence overview: small, mostly developer-affiliated Russian studies, not independently replicated, not FDA approved as of 2026. Superpower guide. <a href="https://superpower.com/guides/selank" target="_blank" rel="noopener">link</a></li>
+  <li id="s8">Semax: little human evidence for mood or focus; most studies animal or small, often conference abstracts. GoodRx health review. <a href="https://www.goodrx.com/health-topic/peptides/what-is-semax" target="_blank" rel="noopener">link</a></li>
+  <li id="s9">Bare Signals community research, Selank and Semax (off-Reddit forums and review sites, one person per count; vendor and seeded sources flagged). Editor's research log, 2026.</li>
+  <li id="s10">SelfAssay community reports, Selank (241 reports, anxiety relief named by 91) and Semax. Self-selected aggregator data. <a href="https://selfassay.com" target="_blank" rel="noopener">link</a></li>
+  <li id="s11">Selank registered in Russia as 0.15% nasal drops for generalized anxiety and neurasthenia; not FDA approved. Peptide reference profile. <a href="https://pubmed.ncbi.nlm.nih.gov/28280289/" target="_blank" rel="noopener">link</a></li>
+  <li id="s12">Melaragno, Pharmacotherapy for anxiety disorders: first-line options to treatment resistance (SRIs first-line; buspirone; hydroxyzine). 2021. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8475920/" target="_blank" rel="noopener">link</a></li>
+  <li id="s13">Garakani et al., Pharmacotherapy of anxiety disorders: mechanisms and DSM-5 categories (buspirone 5-HT1A, hydroxyzine H1, benzos GABA-A, pregabalin Ca channel, propranolol adrenergic; social anxiety and specific phobia most common). 2020. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7786299/" target="_blank" rel="noopener">link</a></li>
+  <li id="s14">Pregabalin for generalized anxiety disorder: EU-approved, rapid onset, efficacy and dependence liability. Baldwin 2013. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3699256/" target="_blank" rel="noopener">link</a></li>
+  <li id="s15">Ashwagandha for stress and anxiety: systematic reviews and meta-analyses (lower cortisol and HAM-A vs placebo; small, variable trials). Phytother Res 2022. <a href="https://pubmed.ncbi.nlm.nih.gov/36017529/" target="_blank" rel="noopener">link</a></li>
+  <li id="s16">Beta-blockers (propranolol) reduce the adrenergic, physical symptoms of anxiety. Pharmacotherapy overview. <a href="https://www.medicalnewstoday.com/articles/323666" target="_blank" rel="noopener">link</a></li>
+ </ol>
+ </details>
+ <div class="box method">
+  <p><b>How this page was made.</b> Studies were traced to PubMed and the FDA, read from the abstracts or primary records and written up in our words on 23 November 2026. The placebo baseline and the benzodiazepine warning come from independent sources, not from anyone selling peptides. First-hand reports come from forums and review sites, one person per count, with seller pages treated as an upper bound and a seeded-looking dataset left out. <span class="ev e-h">Human</span><span class="ev e-rct">RCT</span><span class="ev e-m">Meta</span><span class="ev e-a">Rat</span><span class="ev e-c">Check</span><span class="ev e-r">Reports</span> show where each finding was seen. Marked Draft: an automatic sweep the editor has not yet checked line by line. Not medical advice, and no doses are given except those people report. Doses are on each compound's <a href="/library/">Library card</a>.</p>
+ </div>
+</section></div>
+
+<p class="back" style="margin-top:14px"><a href="/library/goals/">All cases</a></p>
+</div>
+<script src="/nav.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script>(function(){var d=document.getElementById('srcd');if(innerWidth>=760){d.open=true;document.querySelectorAll('details.fq').forEach(function(x,i){x.open=i<2})}function go(){var h=location.hash;if(/^#s\d+$/.test(h)){d.open=true;var t=document.querySelector(h);if(t)t.scrollIntoView()}}addEventListener('hashchange',go);go();document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#s"]');if(a){d.open=true}},true)})();</script>
+<script>addEventListener('bs-text',e=>document.documentElement.style.setProperty('--k',e.detail.k))</script>
+</body></html>

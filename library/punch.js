@@ -3,3 +3,6 @@ window.BS_PUNCH={"pp405":"Topical that wakes dormant follicles with lactate, not
 
 /* v101 (19 Nov 2026): four prescription medicines added: metronidazole, doxycycline, tranexamic acid, dexketoprofen. */
 Object.assign(window.BS_PUNCH,{"metronidazole": "The antibiotic for bugs that hate oxygen. BV, trich, abscesses; no alcohol until 3 days after.", "doxycycline": "The antibiotic that follows bacteria inside cells. Chlamydia, acne, rosacea; keep minerals and midday sun away.", "tranexamic-acid": "Keeps clots from dissolving too soon. Heavy periods, nosebleeds, melasma; never with the combined pill.", "dexketoprofen": "The fast half of ketoprofen. Period cramps and toothache eased in about 30 minutes; short courses only."});
+
+/* v131 (27 Nov 2026): Adderall added as a prescription medicine (label doses only). */
+Object.assign(window.BS_PUNCH,{"adderall": "The ADHD stimulant. Focus in an hour, hunger and sleep gone too. Schedule II, illegal in Indonesia."});
