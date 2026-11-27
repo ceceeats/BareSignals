@@ -67,3 +67,6 @@ Object.assign(window.BS_CARD,{"metronidazole": {"sum": "Some bacteria cannot sur
 
 /* v131 (27 Nov 2026): Adderall added as a prescription medicine (label doses only). */
 Object.assign(window.BS_CARD,{"adderall": {"sum": "Some brains run their planning and braking areas on too little dopamine and noradrenaline. Adderall is a mix of amphetamine salts that floods those areas with both, so attention holds, impulses slow and sleepiness lifts. It works within an hour and fades in hours, takes hunger and sleep with it, and is a Schedule II drug with a boxed warning for misuse. Illegal in Indonesia, prescription or not."}});
+
+/* v137 (28 Nov 2026): DMSO (dimethyl sulfoxide) added, medicine format. Label dose for the approved bladder use, reported dose on skin. */
+Object.assign(window.BS_CARD,{"dmso": {"sum": "Skin is supposed to keep things out. DMSO crosses it in seconds and takes whatever is dissolved in it along for the ride, which is why a prescription knee gel uses it to carry diclofenac inside. On its own it mops up free radicals and dulls pain signals, and a 50% liquid put into the bladder is its one FDA-approved use. The carrier effect is also the danger: it takes dirt and other drugs in too, and the taste of garlic arrives within minutes."}});

@@ -6,3 +6,6 @@ Object.assign(window.BS_PUNCH,{"metronidazole": "The antibiotic for bugs that ha
 
 /* v131 (27 Nov 2026): Adderall added as a prescription medicine (label doses only). */
 Object.assign(window.BS_PUNCH,{"adderall": "The ADHD stimulant. Focus in an hour, hunger and sleep gone too. Schedule II, illegal in Indonesia."});
+
+/* v137 (28 Nov 2026): DMSO (dimethyl sulfoxide) added, medicine format. Label dose for the approved bladder use, reported dose on skin. */
+Object.assign(window.BS_PUNCH,{"dmso": "The solvent that crosses skin in seconds, carrying whatever is on it. Approved for the bladder; everything else is off-label."});

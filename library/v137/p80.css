@@ -1,0 +1,28 @@
+/* Library v80: Best result line, The studies section, site link blue (#5271FF, as on Scan "Read full page") */
+.kt .kbr dd{color:var(--ink)}
+.kt .kbw{display:inline;color:var(--ink-soft);font-size:.92em}
+.kt .kbw .ev{font-size:calc(8.5px*var(--k))!important;vertical-align:1px}
+.kt .kbl,.k-stu a{color:#5271FF;font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;white-space:nowrap}
+.k-stu{--sb:#3E4A80;--sbg:#FFFFF4;--sh:#3E4A80}
+.k-stu .t65 small{font:500 calc(10px*var(--k)) var(--mono);letter-spacing:.07em;color:var(--ink-soft);margin-left:6px}
+.stl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+.sti{padding:8px 0;border-top:1px solid var(--rule);min-width:0}
+.sti:first-child{border-top:0;padding-top:2px}
+.stt{display:flex;align-items:baseline;gap:8px;margin:0 0 2px;flex-wrap:wrap}
+.stt b{font-weight:600;font-size:calc(13.5px*var(--k))}
+.stf{margin:0;font-size:calc(13.5px*var(--k));line-height:1.42}
+.stw{margin:2px 0 0;font-size:calc(12px*var(--k));color:var(--ink-soft);line-height:1.35}
+.stc{margin:3px 0 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 12px;font:500 calc(10.5px*var(--k))/1.45 var(--mono);color:var(--ink-soft)}
+.stc a{font-family:var(--body,inherit);font-size:calc(12px*var(--k))}
+@media(min-width:760px){
+  .stl{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+  .sti:nth-child(2){border-top:0;padding-top:2px}
+}
+@media(min-width:1180px){
+  .stl{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sti:nth-child(3){border-top:0;padding-top:2px}
+}
+.kt dd bs-ph{white-space:normal!important;display:inline!important}
+.stm+div>.stl{margin-top:0}
+.stm+div>.stl>.sti:first-child{border-top:1px solid var(--rule);padding-top:8px}
+.r65.r7{grid-template-columns:minmax(0,1fr)}

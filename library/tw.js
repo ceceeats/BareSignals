@@ -4,3 +4,6 @@ window.BS_GSL=["insulin", "foxo4-dri", "nadplus", "creatine", "methylene-blue", 
 
 /* v131 (27 Nov 2026): Adderall added as a prescription medicine (label doses only). */
 if(window.BS_GSL&&!BS_GSL.includes("adderall"))BS_GSL.push("adderall");
+
+/* v137 (28 Nov 2026): DMSO (dimethyl sulfoxide) added, medicine format. Label dose for the approved bladder use, reported dose on skin. */
+if(window.BS_GSL&&!BS_GSL.includes("dmso"))BS_GSL.push("dmso");

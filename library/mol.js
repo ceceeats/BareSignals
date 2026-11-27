@@ -6,3 +6,6 @@ Object.assign(window.BS_MOL,{"metronidazole": {"a": [["N", -0.5, -0.688], ["C", 
 
 /* v131 (27 Nov 2026): Adderall added as a prescription medicine (label doses only). */
 Object.assign(window.BS_MOL,{"adderall": {"a": [["C", 1.0, 0.0], ["C", 0.5, 0.866], ["C", -0.5, 0.866], ["C", -1.0, 0.0], ["C", -0.5, -0.866], ["C", 0.5, -0.866], ["C", 1.866, -0.5], ["C", 2.732, -0.0], ["C", 2.732, 1.0], ["N", 3.598, -0.5]], "b": [[0, 1, 1.5], [1, 2, 1.5], [2, 3, 1.5], [3, 4, 1.5], [4, 5, 1.5], [5, 0, 1.5], [0, 6, 1], [6, 7, 1], [7, 8, 1], [7, 9, 1]], "cid": 3007}});
+
+/* v137 (28 Nov 2026): DMSO (dimethyl sulfoxide) added, medicine format. Label dose for the approved bladder use, reported dose on skin. */
+Object.assign(window.BS_MOL,{"dmso": {"a": [["S", 0, 0], ["C", -0.95, -0.55], ["C", 0.95, -0.55], ["O", 0, 1.1]], "b": [[0, 1, 1], [0, 2, 1], [0, 3, 2]], "cid": 679}});
