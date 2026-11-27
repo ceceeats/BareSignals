@@ -1,4 +1,5 @@
-/* BSAnim v5 (27 Nov 2026, built on v4, kept in /library/v131/anim.js): added 'adderall' to HAS (story at /library/anim/adderall.js, scene: the nerve ending); story cache-bust bumped to v=7. Engine logic unchanged.
+/* BSAnim v6 (27 Nov 2026, built on v5, kept in /library/v132/anim.js): Adderall story v2; story cache-bust v=8. Engine logic unchanged.
+   v5 note kept below. --- BSAnim v5 (27 Nov 2026, built on v4, kept in /library/v131/anim.js): added 'adderall' to HAS (story at /library/anim/adderall.js, scene: the nerve ending); story cache-bust bumped to v=7. Engine logic unchanged.
    v4 note kept below. --- BSAnim v4 (22 Nov 2026, built on v3 same day, kept in /library/v126/anim.js): added 'antibiotics' to HAS so the
    Antibiotics & your gut Case story loads on the shared engine (story at /library/anim/antibiotics.js); cache-bust
    bumped to v=4. Engine logic unchanged.
@@ -90,7 +91,7 @@ var H={
 var STORIES={},WAIT={};
 function define(slug,fn){STORIES[slug]=fn(H,INK);(WAIT[slug]||[]).forEach(function(cb){cb(STORIES[slug])});delete WAIT[slug]}
 function load(slug,cb){slug=ALIAS[slug]||slug;if(STORIES[slug])return cb(STORIES[slug]);if(!HAS[slug]){cb(null);return}
- if(WAIT[slug]){WAIT[slug].push(cb);return}WAIT[slug]=[cb];var s=document.createElement('script');s.src=BASE+slug+'.js?v=7';
+ if(WAIT[slug]){WAIT[slug].push(cb);return}WAIT[slug]=[cb];var s=document.createElement('script');s.src=BASE+slug+'.js?v=8';
  s.onerror=function(){(WAIT[slug]||[]).forEach(function(f){f(null)});delete WAIT[slug]};document.head.appendChild(s)}
 
 /* ---------- engine ---------- */

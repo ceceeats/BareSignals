@@ -1,0 +1,180 @@
+/* Adderall story v2 (27 Nov 2026, v1 kept in /library/v132/anim/adderall.js). Scene: the nerve ending, then the brain.
+   v2: drawn in the site's own synapse style (the Brain page's signal walkthrough: blue sending end, lavender receiving end,
+   light vesicles) and with the site's own traced side-view brain (the Brain page map, MNI ICBM152 template), replacing the
+   hand-drawn blob. New first step shows a normal signal (release, then recycling) so the reversal reads as a change;
+   dopamine now visibly travels in every step: out of the sac, back through the pump, out through the reversed pump, and along
+   the real dopamine pathways from the midbrain (VTA) to the prefrontal cortex and to the reward area (nucleus accumbens).
+   Studies unchanged: Moran 2024 psychosis odds, Ilieva 2013 felt-vs-real. Matches Library v131 facts. */
+BSAnim.define('adderall',function(H,INK){
+ var AMP='#DB6830',AMPf='#F6B48C',DA='#7B5BD6',DAf='#C9B8F2',TEAL='#2E8F82',RED='#C0392B',PUMP='#8FD0C4',SEND='#DCE6F8',RECV='#E9E2F7';
+ /* ---- synapse, in the Brain page's style ---- */
+ var TERM='<path d="M150 0V14C150 24 46 22 46 68V138Q46 150 58 150H302Q314 150 314 138V68C314 22 210 24 210 14V0Z" fill="'+SEND+'" stroke="'+INK+'" stroke-width="1.8" stroke-linejoin="round"/>'+
+  '<text class="tm" x="180" y="36" text-anchor="middle" opacity=".65" style="font-size:8px">SENDING END</text>';
+ var POST='<path d="M26 240V204Q26 184 56 184H304Q334 184 334 204V240" fill="'+RECV+'" stroke="'+INK+'" stroke-width="1.8"/>'+
+  '<path d="M26 156H44M316 156H334M26 180H334" stroke="'+INK+'" stroke-width=".8" stroke-dasharray="3 3" opacity=".35"/>'+
+  '<text class="tm" x="330" y="172" text-anchor="end" opacity=".6" style="font-size:8px">GAP</text>'+
+  '<text class="tm" x="180" y="226" text-anchor="middle" opacity=".6" style="font-size:8px">RECEIVING END</text>';
+ var V=[[104,62],[156,52],[208,62],[260,92],[132,102],[194,98]];
+ function sac(x,y,full,leak){var o='<circle cx="'+x+'" cy="'+y+'" r="12.5" fill="#F7F9FF" stroke="'+INK+'" stroke-width="1.3"'+(leak?' stroke-dasharray="4 3"':'')+'/>';
+  if(full)[[-4,-3.5],[4,-3.5],[-4,4],[4,4]].forEach(function(d){o+='<circle cx="'+(x+d[0])+'" cy="'+(y+d[1])+'" r="2.3" fill="'+DAf+'" stroke="'+DA+'" stroke-width=".8"/>'});
+  return o}
+ var ves='<g>'+V.map(function(p){return sac(p[0],p[1],1,0)}).join('')+'</g>';
+ var vesLeak='<g>'+V.map(function(p){return sac(p[0],p[1],0,1)}).join('')+'</g>';
+ /* one sac docked at the membrane for the normal-signal step */
+ var dock='<g><circle cx="180" cy="134" r="12.5" fill="#F7F9FF" stroke="'+INK+'" stroke-width="1.3"/></g>';
+ var vmat='<g>'+V.map(function(p){return '<rect x="'+(p[0]+7)+'" y="'+(p[1]-12)+'" width="6.5" height="6.5" rx="1" fill="'+TEAL+'" stroke="'+INK+'" stroke-width=".8"/>'}).join('')+'</g>';
+ function pump(x,lab,dx){return '<g><rect x="'+(x-9)+'" y="142" width="18" height="16" rx="4" fill="'+PUMP+'" stroke="'+INK+'" stroke-width="1.2"/><rect x="'+(x-1.6)+'" y="142" width="3.2" height="16" fill="'+SEND+'"/><text class="tm" x="'+(x+dx)+'" y="147" text-anchor="'+(dx>0?'start':'end')+'" style="font-size:7.5px">'+lab+'</text></g>'}
+ var pumps=pump(88,'DAT',13)+pump(272,'NET',-13);
+ function hex(x,y,s){s=s||1;return '<g transform="translate('+x+' '+y+') scale('+s+')"><path d="M0 -4.6L4 -2.3V2.3L0 4.6L-4 2.3V-2.3Z" fill="'+AMPf+'" stroke="'+AMP+'" stroke-width="1"/></g>'}
+ function dot(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="2.5" fill="'+DAf+'" stroke="'+DA+'" stroke-width=".85"/>'}
+ /* normal signal: release from the docked sac into the gap, then recycling back in through DAT */
+ var RELd=[[150,168],[166,174],[182,166],[198,173],[214,167],[172,160]];
+ var rel='<g>'+RELd.map(function(p){return dot(p[0],p[1])}).join('')+'</g>';
+ var RECd=[[94,124],[84,116],[98,108]];
+ var reup='<g>'+RECd.map(function(p){return dot(p[0],p[1])}).join('')+'</g>';
+ var AFLOW='M10 168H70Q88 168 88 150Q88 124 104 108';
+ var amphIn='<g>'+[[90,90],[178,80],[234,124],[114,130],[284,70]].map(function(p){return hex(p[0],p[1])}).join('')+'</g>';
+ var SP=[[80,70],[128,80],[150,126],[184,76],[224,86],[238,56],[170,128],[214,124],[98,116],[284,122],[254,74],[124,48]];
+ var spill='<g>'+SP.map(function(p){return dot(p[0],p[1])}).join('')+'</g>';
+ var spillFrom=SP.map(function(p){var v=V.reduce(function(a,b){return Math.hypot(b[0]-p[0],b[1]-p[1])<Math.hypot(a[0]-p[0],a[1]-p[1])?b:a});return [v[0]-p[0],v[1]-p[1]]});
+ var taar='<g><rect x="226" y="40" width="40" height="15" rx="2" fill="#FFF0A8" stroke="'+INK+'" stroke-width="1.1"/><text x="246" y="50.5" style="font-size:8px" font-weight="700" text-anchor="middle">TAAR1</text></g>';
+ function arr(x){return '<path d="M'+x+' 124V172" stroke="'+DA+'" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M'+(x-4.5)+' 165L'+x+' 173L'+(x+4.5)+' 165" stroke="'+DA+'" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'}
+ var rev='<g>'+arr(88)+arr(272)+'</g>';
+ var FL=[],i;for(i=0;i<24;i++)FL.push([36+i*12.2,(i%3===0)?162:(i%3===1)?170:176]);
+ var flood='<g>'+FL.map(function(p){return dot(p[0],p[1])}).join('')+'</g>';
+ var floodFrom=FL.map(function(p){var x=p[0]<180?88:272;return [x-p[0],128-p[1]]});
+ var RX=[110,150,190,230,270];
+ var rec='<g>'+RX.map(function(x){return '<g>'+H.receptor(x,184,'#A88400',-1)+'</g>'}).join('')+'</g>';
+ /* ---- the brain: the site's traced side view (Brain page map, MNI ICBM152), front on the left ---- */
+ var BT='translate(16 4) scale(1.12)';
+ var CX='__CX__',CB='__CB__',BS='__BS__',CD='__CD__';
+ var DEFS='<clipPath id="bsaAdCx"><path d="'+CX+'"/></clipPath>';
+ var BRAIN='<g transform="'+BT+'"><path d="'+CX+'" fill="#EEF4FD" stroke="#A9C4F0" stroke-width=".9"/>'+
+  '<path d="'+CB+'" fill="#EEFBFC" stroke="#9FD9DE" stroke-width=".9"/><path d="'+BS+'" fill="#EEFBFC" stroke="#9FD9DE" stroke-width=".9"/><path d="'+CD+'" fill="#EEFBFC" stroke="#9FD9DE" stroke-width=".9"/></g>'+
+  '<text class="tm" x="22" y="226" opacity=".6" style="font-size:8px">FRONT</text>';
+ function inB(svg){return '<g transform="'+BT+'">'+svg+'</g>'}
+ var pfc=inB('<g clip-path="url(#bsaAdCx)"><circle cx="54" cy="76" r="44" fill="#A9BCFA" opacity=".75"/></g>');
+ var nac=inB('<ellipse cx="108" cy="96" rx="10" ry="7" fill="'+AMPf+'" stroke="'+AMP+'" stroke-width="1.3"/>');
+ var vta=inB('<ellipse cx="146" cy="106" rx="8" ry="4.6" transform="rotate(26 146 106)" fill="'+DAf+'" stroke="'+DA+'" stroke-width="1.2"/>');
+ /* brain-space points mapped: x' = 16 + 1.12x, y' = 4 + 1.12y */
+ function P(x,y){return [(16+1.12*x).toFixed(1),(4+1.12*y).toFixed(1)]}
+ var v0=P(146,106),pf=P(62,70),pfm=P(100,72),na=P(110,96),nam=P(128,96);
+ var PATH_PFC='M'+v0+'C'+P(132,92)+' '+pfm+' '+pf, PATH_NAC='M'+v0+'C'+P(136,100)+' '+nam+' '+na;
+ var tract='<path d="'+PATH_PFC+'" fill="none" stroke="'+DA+'" stroke-width="1.6" stroke-dasharray="3 3" opacity=".7"/>';
+ var tractN='<path d="'+PATH_NAC+'" fill="none" stroke="'+DA+'" stroke-width="1.6" stroke-dasharray="3 3" opacity=".7"/>';
+ /* inset: these regions are made of the nerve endings from steps 1 to 4 */
+ var inset='<g><circle cx="318" cy="52" r="30" fill="#FFFFF4" stroke="'+INK+'" stroke-width="1.2"/>'+
+  '<path d="M300 34Q318 28 336 34V50Q318 58 300 50Z" fill="'+SEND+'" stroke="'+INK+'" stroke-width="1"/>'+
+  '<path d="M298 72Q318 60 338 72" fill="'+RECV+'" stroke="'+INK+'" stroke-width="1"/>'+
+  [[308,62],[318,60],[328,62],[313,65],[324,65]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.8" fill="'+DAf+'" stroke="'+DA+'" stroke-width=".7"/>'}).join('')+
+  '<text class="tm" x="318" y="96" text-anchor="middle" style="font-size:7.5px">EACH REGION:</text><text class="tm" x="318" y="106" text-anchor="middle" style="font-size:7.5px">MILLIONS OF THESE</text></g>';
+ var DB='<circle r="2.7" fill="'+DAf+'" stroke="'+DA+'" stroke-width=".9"/>';
+ /* ---- study: Moran 2024 ---- */
+ var moran='<text class="tm" x="180" y="24" text-anchor="middle">FIRST PSYCHOSIS OR MANIA · ODDS</text>'+
+  '<text class="tm" x="180" y="38" text-anchor="middle" opacity=".75" style="font-size:9px">1,374 CASES vs 2,748 CONTROLS · 2024</text>'+
+  H.bars(94,196,112,46,[1/5.3,2.68/5.3,1],['#9AA0C8','#E3A27A',RED],['NO AMPH','ANY DOSE','>40 MG'])+
+  '<text class="tb" x="117" y="168" text-anchor="middle" style="font-size:13px">1×</text>'+
+  '<text class="tb" x="177" y="133" text-anchor="middle" style="font-size:13px" data-to="2.68" data-dec="2" data-end="2.68×" data-suf="×">2.68×</text>'+
+  '<text class="tb" x="237" y="78" text-anchor="middle" style="font-size:13px" data-to="5.3" data-dec="1" data-end="~5.3×" data-pre="~" data-suf="×">~5.3×</text>';
+ /* ---- study: Ilieva 2013 ---- */
+ var tiles='',k;for(k=0;k<13;k++){var cx=34+(k%7)*22,cy=k<7?88:114;tiles+='<g><rect x="'+(cx-9)+'" y="'+(cy-9)+'" width="18" height="18" fill="#FFFFF4" stroke="'+INK+'" stroke-width="1.2"/><path d="M'+(cx-4)+' '+(cy-2)+'h8M'+(cx-4)+' '+(cy+2)+'h8" stroke="'+INK+'" stroke-width="1.4"/></g>'}
+ var ilieva='<text class="tm" x="180" y="24" text-anchor="middle">46 HEALTHY ADULTS · ADDERALL vs PLACEBO</text>'+
+  '<text class="tm" x="100" y="56" text-anchor="middle">13 TESTS MEASURED</text>'+
+  '<text class="tm" x="276" y="56" text-anchor="middle">HOW IT FELT</text>'+
+  '<path d="M196 44V200" stroke="#E3E0BF" stroke-width="1.5"/>'+
+  '<text class="tb" x="100" y="152" text-anchor="middle" style="font-size:12px">NO GAIN FOR THE GROUP</text>'+
+  '<text class="tm" x="100" y="168" text-anchor="middle" opacity=".75" style="font-size:9px">HINT OF GAINS IN LOWER SCORERS</text>'+
+  '<text class="tm" x="100" y="196" text-anchor="middle" style="font-size:9px">MEASURED: FLAT · FELT: BETTER</text>';
+ var feel='<g><path class="g" d="M262 190V104H246L276 68L306 104H290V190Z" fill="'+DAf+'" stroke="'+DA+'" stroke-width="1.6" stroke-linejoin="round"/>'+
+  '<text class="tb" x="276" y="208" text-anchor="middle" style="font-size:11px">FELT SHARPER</text></g>';
+ var syn=['term','post','rec'];
+ return {
+  title:'Adderall at the nerve ending',aria:'Animated diagram: a normal dopamine signal; then amphetamine pulled into the nerve ending by its pumps, spilling the storage sacs through VMAT2 and reversing the pumps through TAAR1 so dopamine floods the gap; how that tops up the prefrontal cortex and also reaches the reward area; a 2024 study linking high doses to psychosis; and a 2013 trial where healthy adults felt sharper without testing better.',
+  vb:[360,234],stepMs:5800,defs:DEFS,
+  parts:[
+   {id:'term',name:'Sending end',info:'The tip of a dopamine or noradrenaline nerve cell, where the signal is stored and released.',svg:TERM},
+   {id:'post',name:'Receiving end',info:'The next nerve cell, across a gap of about 20 nanometres. It reads dopamine through its receptors.',svg:POST},
+   {id:'rec',name:'Receptors',info:'Dopamine receptors on the receiving end; the more dopamine in the gap, the stronger the signal.',svg:rec},
+   {id:'ves',name:'Storage sacs',info:'Vesicles that hold dopamine until a nerve impulse releases a measured amount.',svg:ves},
+   {id:'dock',name:'Releasing sac',info:'A sac that has fused with the membrane and emptied its dopamine into the gap.',svg:dock},
+   {id:'rel',name:'Released dopamine',info:'A measured puff of dopamine crossing the gap to the receptors.',svg:rel},
+   {id:'reup',name:'Recycled dopamine',info:'Pulled back into the sending end by its pump, which ends the signal.',svg:reup},
+   {id:'vesLeak',name:'Leaking sacs',info:'With VMAT2 jammed, the sacs can no longer hold their dopamine and it leaks into the nerve ending.',svg:vesLeak},
+   {id:'vmat',name:'VMAT2',info:'The pump that packs dopamine into the storage sacs. Amphetamine jams it.',svg:vmat},
+   {id:'pumps',name:'DAT and NET',info:'Recycling pumps that pull dopamine (DAT) and noradrenaline (NET) back in after a signal.',svg:pumps},
+   {id:'amph',name:'Amphetamine entering',info:'Amphetamine is shaped enough like dopamine that the recycling pumps carry it inside.',svg:'<g class="flowg"></g>',flow:{path:AFLOW,n:4,ms:3400,bead:hex(0,0,1.15)}},
+   {id:'amphIn',name:'Amphetamine inside',info:'Once inside, amphetamine works on the storage sacs and on TAAR1.',svg:amphIn},
+   {id:'spill',name:'Loose dopamine',info:'Dopamine spilled from the sacs, now free inside the nerve ending.',svg:spill},
+   {id:'taar',name:'TAAR1',info:'A receptor inside the nerve ending. Amphetamine switches it on, which flips the recycling pumps into reverse.',svg:taar},
+   {id:'rev',name:'Pumps reversed',info:'The pumps now push dopamine and noradrenaline out instead of pulling them in.',svg:rev},
+   {id:'flood',name:'Dopamine flood',info:'Far more dopamine in the gap than a normal signal releases, and it is not cleared.',svg:flood},
+   {id:'brain',name:'Brain',info:'Side view of the brain, front on the left, traced from the MNI brain template (as on the Bare Signals Brain page).',svg:BRAIN},
+   {id:'inset',name:'Nerve endings',info:'Every brain region here is built from huge numbers of the nerve endings shown in steps 1 to 4.',svg:inset},
+   {id:'pfc',name:'Prefrontal cortex',info:'The planning and braking area behind the forehead: holding attention, finishing tasks, stopping impulses.',svg:pfc},
+   {id:'nac',name:'Reward area',info:'The nucleus accumbens, the hub of the reward system. A fast dopamine surge here feels good and drives wanting more.',svg:nac},
+   {id:'vta',name:'Dopamine source',info:'The ventral tegmental area (VTA) in the midbrain, whose nerve fibres supply dopamine to the front of the brain and the reward area.',svg:vta},
+   {id:'tract',name:'Pathway to the front',info:'Dopamine fibres running from the midbrain to the prefrontal cortex.',svg:tract},
+   {id:'tractN',name:'Pathway to reward',info:'Dopamine fibres running from the midbrain to the reward area.',svg:tractN},
+   {id:'dPfc',name:'Dopamine to the front',info:'Dopamine travelling to the prefrontal cortex.',svg:'<g class="flowg"></g>',flow:{path:PATH_PFC,n:5,ms:3000,bead:DB}},
+   {id:'dNac',name:'Dopamine to reward',info:'Dopamine travelling to the reward area.',svg:'<g class="flowg"></g>',flow:{path:PATH_NAC,n:6,ms:1500,bead:DB}},
+   {id:'moran',name:'Psychosis study',info:'Case-control study of first psychosis or mania at Mass General Brigham, 2024.',svg:moran},
+   {id:'tiles',name:'13 tests',info:'Memory, working memory, impulse control, creativity, intelligence and school-style tests.',svg:'<g>'+tiles+'</g>'},
+   {id:'ilieva',name:'Healthy-adult trial',info:'Double-blind crossover trial of Adderall vs placebo in healthy young adults, 2013.',svg:ilieva},
+   {id:'feel',name:'How it felt',info:'Participants believed their performance was more enhanced on the active pill than on placebo.',svg:feel}
+  ],
+  steps:[
+   {key:'normal',btn:'Normal',title:'A normal signal',marks:[['c','Cell biology']],
+    text:'Without the drug: a nerve impulse makes one storage sac release a measured puff of dopamine. It crosses the gap, triggers the receptors, then the recycling pump pulls it back in and the signal ends.',
+    model:'Cell biology',
+    show:syn.concat(['ves','dock','rel','pumps','reup']),
+    anim:[{p:'rel',type:'move',sel:'circle',each:RELd.map(function(p){return [180-p[0],134-p[1]]}),dur:1100,stagger:70},
+          {p:'rec',type:'pulse',sel:'g',to:1.25,delay:1300,dur:1000},
+          {p:'reup',type:'move',sel:'circle',each:RECd.map(function(p,i){return [110+i*12-p[0],170-p[1]]}),delay:2400,dur:1300,stagger:150}],
+    labels:[{p:'rel',t:'Dopamine released',x:206,y:204,ax:206,ay:172},{p:'reup',t:'Pumped back in',x:4,y:204,ax:88,ay:152},{p:'ves',t:'Storage sacs',x:232,y:20,ax:208,ay:50}]},
+   {key:'enter',btn:'Enter',title:'Pulled in by the pumps',marks:[['c','Pharmacology']],
+    text:'Amphetamine looks enough like dopamine and noradrenaline that the same recycling pumps, DAT and NET, carry it inside. It only acts strongly where those pumps are.',
+    model:'Cell and animal pharmacology',
+    show:syn.concat(['ves','pumps','amph']),
+    anim:[{p:'amph',type:'flow'},{p:'pumps',type:'pulse',sel:'rect',to:1.15,dur:1600}],
+    labels:[{p:'amph',t:'Amphetamine',x:4,y:204,ax:30,ay:168},{p:'pumps',t:'Recycling pump',x:118,y:204,ax:88,ay:158}]},
+   {key:'spill',btn:'Spill',title:'The storage sacs spill',marks:[['c','Pharmacology']],
+    text:'Inside, it jams VMAT2, the pump that packs dopamine into storage sacs. The sacs leak and dopamine piles up loose inside the nerve ending.',
+    model:'Cell and animal pharmacology',
+    show:syn.concat(['vesLeak','vmat','pumps','amphIn','spill']),
+    anim:[{p:'vmat',type:'pulse',sel:'rect',to:1.3,dur:1400},{p:'spill',type:'move',sel:'circle',each:spillFrom,delay:500,dur:1500,stagger:90},{p:'spill',type:'fadeIn',sel:'circle',delay:500,dur:400,stagger:90}],
+    labels:[{p:'vmat',t:'VMAT2 jammed',x:232,y:20,ax:220,ay:54},{p:'spill',t:'Loose dopamine',x:4,y:204,ax:98,ay:116}]},
+   {key:'reverse',btn:'Reverse',title:'The pumps run backwards',marks:[['c','Pharmacology']],
+    text:'It also switches on TAAR1, which flips the recycling pumps into reverse. Instead of clearing dopamine away they push it out, flooding the gap and firing the receiving end. Methylphenidate only blocks the pumps; amphetamine forces them.',
+    model:'Cell and animal pharmacology',
+    show:syn.concat(['vesLeak','pumps','spill','taar','rev','flood']),
+    anim:[{p:'taar',type:'pulse',sel:'rect',to:1.12,dur:1200},{p:'rev',type:'draw',sel:'path',delay:400,dur:800},
+          {p:'flood',type:'move',sel:'circle',each:floodFrom,delay:900,dur:1300,stagger:60},{p:'flood',type:'fadeIn',sel:'circle',delay:900,dur:300,stagger:60},
+          {p:'rec',type:'pulse',sel:'g',to:1.3,delay:2600,dur:800}],
+    labels:[{p:'taar',t:'TAAR1 on',x:274,y:20,ax:266,ay:46},{p:'rev',t:'Pumps reversed',x:104,y:204,ax:88,ay:170},{p:'flood',t:'Dopamine flood',x:226,y:204,ax:244,ay:176}]},
+   {key:'focus',btn:'Focus',title:'The planning brain tops up',marks:[['h','Human']],
+    text:'Zoom out. These nerve endings run from the midbrain to the prefrontal cortex, the brain’s planning and braking area. In ADHD it runs short on dopamine and noradrenaline signal; topping it up helps attention hold and impulses slow. In adults it is the strongest ADHD medicine on average.',
+    model:'133 trials, network meta-analysis',src:[{t:'Cortese 2018, Lancet Psychiatry',u:'https://pmc.ncbi.nlm.nih.gov/articles/PMC6109107'}],ms:6600,
+    show:['brain','inset','tract','vta','pfc','dPfc'],
+    anim:[{p:'brain',type:'scale',from:.9,dur:900},{p:'inset',type:'scale',from:.2,delay:300,dur:800},{p:'tract',type:'draw',sel:'path',delay:700,dur:1200},{p:'dPfc',type:'flow'},{p:'pfc',type:'fadeIn',delay:1500,dur:900}],
+    labels:[{p:'pfc',t:'Prefrontal cortex',x:4,y:20,ax:84,ay:76},{p:'vta',t:'Dopamine source (VTA)',x:150,y:204,ax:180,ay:124}]},
+   {key:'reward',btn:'Reward',title:'The same flood hits reward',marks:[['h','Human']],
+    text:'A second pathway from the same source runs to the reward area. Taken by mouth at prescribed doses the rise there is slow and mild; at higher doses, or snorted or injected, it becomes a rush. That is where misuse and addiction start, and why it carries a boxed warning.',
+    model:'FDA boxed warning',src:[{t:'Adderall FDA label',u:'https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/011522s045lbl.pdf'}],ms:6400,
+    show:['brain','tractN','vta','nac','dNac'],
+    anim:[{p:'tractN',type:'draw',sel:'path',dur:900},{p:'dNac',type:'flow'},{p:'nac',type:'pulse',to:1.3,op:.8,delay:600,dur:800}],
+    labels:[{p:'nac',t:'Reward area',x:60,y:170,ax:137,ay:114},{p:'vta',t:'Dopamine source (VTA)',x:150,y:204,ax:180,ay:124}]},
+   {key:'risk',btn:'Risk',study:1,title:'Higher dose, higher psychosis risk',marks:[['h','Human']],ms:7000,
+    text:'In 1,374 people admitted with a first psychosis or mania, compared with 2,748 controls, any prescription amphetamine in the past month went with 2.68 times the odds. Above 40 mg of Adderall a day, about 5.3 times. Methylphenidate showed no rise.',
+    model:'Case-control, Mass General Brigham',src:[{t:'Moran 2024, Am J Psychiatry',u:'https://psychiatryonline.org/doi/10.1176/appi.ajp.20230329'},{t:'Psychiatric News summary',u:'https://psychiatryonline.org/doi/10.1176/appi.pn.2024.12.12.6'}],
+    show:['moran'],
+    anim:[{p:'moran',type:'grow',sel:'.g',dur:1500,delay:400,stagger:350},{p:'moran',type:'count',delay:900,dur:1600}],
+    labels:[]},
+   {key:'feel',btn:'Feel',study:1,title:'In healthy brains: felt more than real',marks:[['h','Human']],ms:7400,
+    text:'In 46 healthy young adults, double-blind against placebo, Adderall did not improve any of 13 thinking tests for the group as a whole, with only a hint of gains in lower scorers on three. Yet people believed the pill had sharpened them. The feeling is bigger than the result.',
+    model:'Double-blind crossover trial',src:[{t:'Ilieva 2013, Neuropharmacology',u:'https://doi.org/10.1016/j.neuropharm.2012.07.021'}],
+    show:['ilieva','tiles','feel'],
+    anim:[{p:'tiles',type:'fadeIn',sel:'g',dur:400,stagger:90},{p:'feel',type:'grow',sel:'.g',delay:1600,dur:1400}],
+    labels:[]}
+  ]
+ };
+});
